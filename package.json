@@ -1,0 +1,29 @@
+{
+  "name": "ts-for-gjs",
+  "version": "1.0.0",
+  "description": "Typescript bindings for GJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "run": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammydre/ts-for-gjs.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/sammydre/ts-for-gjs/issues"
+  },
+  "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
+  "devDependencies": {
+    "@types/lodash": "^4.14.66",
+    "@types/node": "^7.0.31",
+    "@types/xml2js": "0.0.33",
+    "events": "^1.1.1",
+    "xml2js": "^0.4.17"
+  }
+}

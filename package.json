@@ -20,10 +20,14 @@
   },
   "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
   "devDependencies": {
+    "@types/commander": "^2.9.1",
     "@types/lodash": "^4.14.66",
+    "@types/minimist": "^1.2.0",
     "@types/node": "^7.0.31",
     "@types/xml2js": "0.0.33",
+    "commander": "^2.9.0",
     "events": "^1.1.1",
+    "minimist": "^1.2.0",
     "xml2js": "^0.4.17"
   }
 }

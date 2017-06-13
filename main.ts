@@ -1,5 +1,6 @@
 import * as xml2js from 'xml2js'
 import * as lodash from 'lodash'
+import * as commander from 'commander'
 import fs = require('fs')
 
 interface GirInclude {
@@ -185,7 +186,20 @@ class GirModule {
             }
         }
         def.push("}")
-        out.write(def.join("\n") + "\n")
+
+        // out.write(def.join("\n") + "\n")
+    }
+
+    private exportFunction(e: GirFunction) {
+
+    }
+
+    private exportCallback(e: GirFunction) {
+
+    }
+
+    private exportClass(e: GirClass | GirRecord | GirInterface) {
+
     }
 
     export(typeNames, out) {
@@ -205,15 +219,24 @@ class GirModule {
 }
 
 function main() {
+    commander
+        .option("-g --gir-directory [directory]", "GIR directory",
+            "/usr/share/gir-1.0")
+        .option("-m --module [module]", 
+            "GIR modules to load, e.g. 'Gio-2.0'. May be specified multiple " +
+            "times", (val, lst) => { lst.push(val); return lst },
+            [])
+        .parse(process.argv)
+
     let girModules: { [key: string]: GirModule } = {}
-    let girDirectory = "/usr/share/gir-1.0"
-    let girToLoad = ["Gio-2.0"]
+    let girDirectory = commander.girDirectory
+    let girToLoad = commander.module
 
     while (girToLoad.length > 0) {
         let name = girToLoad.shift()
         let fileName = `${girDirectory}/${name}.gir`
-        let fileContents = fs.readFileSync(fileName, 'utf8')
         console.log(`Parsing ${fileName}...`)
+        let fileContents = fs.readFileSync(fileName, 'utf8')
         xml2js.parseString(fileContents, (err, result) => {
             if (err) {
                 console.error("ERROR: " + err)
@@ -224,11 +247,12 @@ function main() {
             if (!gi.name)
                 return;
 
-            girModules[gi.name] = gi
+            girModules[`${gi.name}-${gi.version}`] = gi
 
             for (let dep of gi.dependencies) {
-                if (!girModules[dep])
+                if (!girModules[dep] && lodash.indexOf(girToLoad, dep) < 0) {                   
                     girToLoad.unshift(dep)
+                }
             }
         })
     }

@@ -708,6 +708,12 @@ test('interface', t => {
             "    vfunc_get_state_hint(): GLib.Variant | null",
             "    vfunc_get_state_type(): GLib.VariantType",
 
+            "    enabled:boolean",
+            "    name:string",
+            "    parameter_type:GLib.VariantType",
+            "    state:GLib.Variant",
+            "    state_type:GLib.VariantType",
+
             "}"
         ])
 })

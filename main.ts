@@ -291,6 +291,36 @@ export class GirModule {
         return def.join(", ")
     }
 
+    private fixVariableName(name: string) {
+        switch(name) {
+            case 'in': return 'in_'
+            case 'function': return 'function_'
+            case 'true': return 'true_'
+            case 'false': return 'false_'
+            case 'break': return 'break_'
+            case 'arguments': return 'arguments_'
+            case 'eval': return 'eval_'
+            case 'default': return 'default_'
+            case 'new': return 'new_'
+        }
+        return name.replace("-", "_")
+    }
+
+    private getVariable(v: GirVariable) {
+        if (!v.$.name)
+            return ''
+
+        let name = this.fixVariableName(v.$.name)
+        let typeName = this.typeLookup(v)
+
+        return `${name}:${typeName}`
+    }
+
+    private getProperty(v: GirVariable) {
+        let propDesc = this.getVariable(v)
+        return [`    ${propDesc}`]
+    }
+
     exportEnumeration(e: GirEnumeration) {
         let def: string[] = []
         def.push(`export enum ${e.$.name} {`)
@@ -305,10 +335,8 @@ export class GirModule {
     }
 
     exportConstant(e: GirVariable) {
-        let name = e.$.name
-        let typeName = this.typeLookup(e)
-
-        return [`export const ${name}:${typeName}`]
+        let varDesc = this.getVariable(e)
+        return [`export const ${varDesc}`]
     }
 
     private getFunction(e: GirFunction, prefix: string, funcNamePrefix: string|null = null) {
@@ -363,6 +391,9 @@ export class GirModule {
             for (let f of vmeth)
                 def = def.concat(this.getFunction(f, "    ", "vfunc_"))
         
+        if (e.property)
+            for (let p of e.property)
+                def = def.concat(this.getProperty(p))
         // property
         // signals (glib:signal)
 

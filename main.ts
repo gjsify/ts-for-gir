@@ -69,6 +69,7 @@ interface GirInterface {
         name: string
     }
     doc?: GirDoc[]
+    "constructor"?: GirFunction[] | Function
     function?: GirFunction[]
     method?: GirFunction[]
     property?: GirVariable[]
@@ -430,11 +431,15 @@ export class GirModule {
 
         // Static side: default constructor
         def.push(`export interface ${name}_Static {`)
-        // TODO: check for constructor
+        // FIXME: what logic does GJS choose here? When should we generate
+        // the default GJS constructor?
+        if (e.constructor && e.constructor.length > 0) {
+            // FIXME: type for construct properties
+            def.push(`    new (config: any): ${name}`)
+        }
         def.push("}")
 
-        // Static methods: -> move to static defn
-        // also constructors
+        // Static methods
         if (e.function) {
             def.push(`export declare class ${name}_Static {`)
             for (let f of e.function)

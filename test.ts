@@ -714,6 +714,7 @@ test('interface', t => {
             "}",
 
             "export interface Action_Static {",
+            "    new (config: any): Action",
             "}",
 
             "export declare class Action_Static {",
@@ -1629,6 +1630,7 @@ test('interface', t => {
             "    connect(sigName: \"action-state-changed\", callback: ((action_name: string, value: GLib.Variant) => void): void",
             "}",
             "export interface ActionGroup_Static {",
+                "    new (config: any): ActionGroup",
             "}",
             "export declare var ActionGroup: ActionGroup_Static",    
 
@@ -1679,7 +1681,7 @@ test('constructors', t => {
                     array: 
                      [ { '$': { 'c:type': 'GDBusAnnotationInfo**' },
                          type: [ { '$': { name: 'DBusAnnotationInfo', 'c:type': 'GDBusAnnotationInfo*' } } ] } ] } ],
-               constructor: 
+               "constructor": 
                 [ // [Function: Object],
                   { '$': 
                      { name: 'new_for_xml',
@@ -1811,6 +1813,7 @@ test('constructors', t => {
             "    unref(): void",
             "}",
             "export interface DBusNodeInfo_Static {",
+            "    new (config: any): DBusNodeInfo",
             "}",
             "export declare var DBusNodeInfo: DBusNodeInfo_Static",   
         ])

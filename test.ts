@@ -89,7 +89,16 @@ test('function', t => {
     }
 
     let symTable = {
-        'Test.MyType': 1
+        'Test.MyType': 1,
+        'GLib.DestroyNotify': 1,
+        'GLib.Varfiant': 1,
+        'Test.BusNameOwnerFlags': 1,
+        'Test.ButAcquireCallback': 1,
+        'Test.BusNameAcquiredCallback': 1,
+        'Test.BusType': 1,
+        'Test.BusAcquiredCallback': 1,
+        'Test.BusNameLostCallback': 1,
+
     }
 
     let mod = new GirModule(emptyRepositoryXml)
@@ -99,6 +108,107 @@ test('function', t => {
 
     t.deepEqual(mod.exportFunction(func),
         [ 'export function my_func(arg1: MyType): string' ])
+
+    let func2 = { '$': 
+           { name: 'bus_own_name',
+             'c:identifier': 'g_bus_own_name',
+             'shadowed-by': 'bus_own_name_with_closures',
+             version: '2.26',
+             introspectable: '1' },
+          doc: 
+           [ { _: 'Starts acquiring @name on the bus specified by @bus_type and calls\n@name_acquired_handler and @name_lost_handler when the name is\nacquired respectively lost. Callbacks will be invoked in the\n[thread-default main context][g-main-context-push-thread-default]\nof the thread you are calling this function from.\n\nYou are guaranteed that one of the @name_acquired_handler and @name_lost_handler\ncallbacks will be invoked after calling this function - there are three\npossible cases:\n\n- @name_lost_handler with a %NULL connection (if a connection to the bus\n  can\'t be made).\n\n- @bus_acquired_handler then @name_lost_handler (if the name can\'t be\n  obtained)\n\n- @bus_acquired_handler then @name_acquired_handler (if the name was\n  obtained).\n\nWhen you are done owning the name, just call g_bus_unown_name()\nwith the owner id this function returns.\n\nIf the name is acquired or lost (for example another application\ncould acquire the name if you allow replacement or the application\ncurrently owning the name exits), the handlers are also invoked.\nIf the #GDBusConnection that is used for attempting to own the name\ncloses, then @name_lost_handler is invoked since it is no longer\npossible for other processes to access the process.\n\nYou cannot use g_bus_own_name() several times for the same name (unless\ninterleaved with calls to g_bus_unown_name()) - only the first call\nwill work.\n\nAnother guarantee is that invocations of @name_acquired_handler\nand @name_lost_handler are guaranteed to alternate; that\nis, if @name_acquired_handler is invoked then you are\nguaranteed that the next time one of the handlers is invoked, it\nwill be @name_lost_handler. The reverse is also true.\n\nIf you plan on exporting objects (using e.g.\ng_dbus_connection_register_object()), note that it is generally too late\nto export the objects in @name_acquired_handler. Instead, you can do this\nin @bus_acquired_handler since you are guaranteed that this will run\nbefore @name is requested from the bus.\n\nThis behavior makes it very simple to write applications that wants\nto [own names][gdbus-owning-names] and export objects.\nSimply register objects to be exported in @bus_acquired_handler and\nunregister the objects (if any) in @name_lost_handler.',
+               '$': { 'xml:space': 'preserve' } } ],
+          'return-value': 
+           [ { '$': { 'transfer-ownership': 'none' },
+               doc: 
+                [ { _: 'an identifier (never 0) that an be used with\n    g_bus_unown_name() to stop owning the name.',
+                    '$': { 'xml:space': 'preserve' } } ],
+               type: [ { '$': { name: 'guint', 'c:type': 'guint' } } ] } ],
+          parameters: 
+           [ { parameter: 
+                [ { '$': { name: 'bus_type', 'transfer-ownership': 'none' },
+                    doc: 
+                     [ { _: 'the type of bus to own a name on',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: [ { '$': { name: 'BusType', 'c:type': 'GBusType' } } ] },
+                  { '$': { name: 'name', 'transfer-ownership': 'none' },
+                    doc: 
+                     [ { _: 'the well-known name to own',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                  { '$': { name: 'flags', 'transfer-ownership': 'none' },
+                    doc: 
+                     [ { _: 'a set of flags from the #GBusNameOwnerFlags enumeration',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: [ { '$': { name: 'BusNameOwnerFlags', 'c:type': 'GBusNameOwnerFlags' } } ] },
+                  { '$': 
+                     { name: 'bus_acquired_handler',
+                       'transfer-ownership': 'none',
+                       nullable: '1',
+                       'allow-none': '1' },
+                    doc: 
+                     [ { _: 'handler to invoke when connected to the bus of type @bus_type or %NULL',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: 
+                     [ { '$': 
+                          { name: 'BusAcquiredCallback',
+                            'c:type': 'GBusAcquiredCallback' } } ] },
+                  { '$': 
+                     { name: 'name_acquired_handler',
+                       'transfer-ownership': 'none',
+                       nullable: '1',
+                       'allow-none': '1' },
+                    doc: 
+                     [ { _: 'handler to invoke when @name is acquired or %NULL',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: 
+                     [ { '$': 
+                          { name: 'BusNameAcquiredCallback',
+                            'c:type': 'GBusNameAcquiredCallback' } } ] },
+                  { '$': 
+                     { name: 'name_lost_handler',
+                       'transfer-ownership': 'none',
+                       nullable: '1',
+                       'allow-none': '1',
+                       scope: 'notified',
+                       closure: '6',
+                       destroy: '7' },
+                    doc: 
+                     [ { _: 'handler to invoke when @name is lost or %NULL',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: 
+                     [ { '$': 
+                          { name: 'BusNameLostCallback',
+                            'c:type': 'GBusNameLostCallback' } } ] },
+                  { '$': { name: 'user_data', 'transfer-ownership': 'none' },
+                    doc: 
+                     [ { _: 'user data to pass to handlers',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: [ { '$': { name: 'gpointer', 'c:type': 'gpointer' } } ] },
+                  { '$': 
+                     { name: 'user_data_free_func',
+                       'transfer-ownership': 'none',
+                       nullable: '1',
+                       'allow-none': '1',
+                       scope: 'async' },
+                    doc: 
+                     [ { _: 'function for freeing @user_data or %NULL',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: [ { '$': { name: 'GLib.DestroyNotify', 'c:type': 'GDestroyNotify' } } ] } ] } ] }
+
+    t.deepEqual(mod.exportFunction(func2),
+        [ 'export function bus_own_name(' +
+            'bus_type: BusType, name: string, flags: BusNameOwnerFlags, ' +
+            'bus_acquired_handler: BusAcquiredCallback | null, ' + 
+            'name_acquired_handler: BusNameAcquiredCallback | null, ' + 
+            'name_lost_handler: BusNameLostCallback | null, ' + 
+            'user_data: object, ' + 
+            'user_data_free_func: GLib.DestroyNotify | null): number' ])
+
+    let func3 = func2
+    func3.$.introspectable = "0"
+
+    t.deepEqual(mod.exportFunction(func3), [])
 })
 
 test('callback', t => {
@@ -127,7 +237,8 @@ test('callback', t => {
 
     let symTable = {
         'Test.MyType': 1,
-        'Test.SimpleAction': 1
+        'Test.SimpleAction': 1,
+        'GLib.Varfiant': 1,
     }
 
     let mod = new GirModule(emptyRepositoryXml)
@@ -137,7 +248,7 @@ test('callback', t => {
 
     t.deepEqual(mod.exportCallback(cbs[0]),
         [ 'export interface activate {',
-          '    (action: SimpleAction): void',
+          '    (action: SimpleAction, parameter: any, user_data: object): void',
           '}' ])
 
 })
@@ -576,8 +687,8 @@ test('interface', t => {
         [ 
             "export interface Action {",
             "    name_is_valid(action_name: string): boolean",
-            "    parse_detailed_name(detailed_name: string): boolean",
-            "    print_detailed_name(action_name: string): string",
+            "    parse_detailed_name(detailed_name: string, action_name: string, target_value: GLib.Variant): boolean",
+            "    print_detailed_name(action_name: string, target_value: GLib.Variant | null): string",
             "    activate(parameter: GLib.Variant | null): void",
             "    change_state(value: GLib.Variant): void",
             "    get_enabled(): boolean",

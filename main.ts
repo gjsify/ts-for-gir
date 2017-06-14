@@ -48,6 +48,7 @@ interface GirFunction {
         name: string
         version?: string
         "c-identifier"?: string
+        introspectable?: string
     }
     doc?: GirDoc[]
     parameters?: GirParameter[]
@@ -277,15 +278,15 @@ export class GirModule {
     private getParameters(parameters) {
         let def: string[] = []
 
-        if (parameters)
-            for (let p of parameters) {
-                let param
-                if (p.parameter) param = p.parameter[0]
-                else continue
-                let paramName = param.$.name
-                let paramType = this.typeLookup(param)
-                def.push(`${paramName}: ${paramType}`)
-            }
+        if (parameters && parameters.length > 0) {
+            let parametersArray = parameters[0].parameter
+            if (parametersArray)
+                for (let param of parametersArray) {
+                    let paramName = param.$.name
+                    let paramType = this.typeLookup(param)
+                    def.push(`${paramName}: ${paramType}`)
+                }
+        }
 
         return def.join(", ")
     }
@@ -311,6 +312,9 @@ export class GirModule {
     }
 
     private getFunction(e: GirFunction, prefix: string) {
+        if (e.$.introspectable != null && parseInt(e.$.introspectable) == 0)
+            return []
+
         let name = e.$.name
         let params = this.getParameters(e.parameters)
         let retType = this.getReturnType(e)

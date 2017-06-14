@@ -402,13 +402,9 @@ export class GirModule {
         let name = e.$.name
 
         let def: string[] = []
-        def.push(`export interface ${name} {`)
 
-        // Static methods: -> move to static defn
-        // also constructors
-        if (e.function)
-            for (let f of e.function)
-                def = def.concat(this.getFunction(f, "    static "))
+        // Instance side
+        def.push(`export interface ${name} {`)
 
         // Instance methods
         if (e.method)
@@ -431,6 +427,23 @@ export class GirModule {
                 def = def.concat(this.getSignalFunc(s))
 
         def.push("}")
+
+        // Static side: default constructor
+        def.push(`export interface ${name}_Static {`)
+        // TODO: check for constructor
+        def.push("}")
+
+        // Static methods: -> move to static defn
+        // also constructors
+        if (e.function) {
+            def.push(`export declare class ${name}_Static {`)
+            for (let f of e.function)
+                def = def.concat(this.getFunction(f, "    "))
+            def.push("}")
+        }
+
+        def.push(`export declare var ${name}: ${name}_Static`)
+
         return def
     }
 

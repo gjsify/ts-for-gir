@@ -686,9 +686,6 @@ test('interface', t => {
     t.deepEqual(mod.exportInterface(intf),
         [ 
             "export interface Action {",
-            "    static name_is_valid(action_name: string): boolean",
-            "    static parse_detailed_name(detailed_name: string, action_name: string, target_value: GLib.Variant): boolean",
-            "    static print_detailed_name(action_name: string, target_value: GLib.Variant | null): string",
 
             "    activate(parameter: GLib.Variant | null): void",
             "    change_state(value: GLib.Variant): void",
@@ -714,7 +711,19 @@ test('interface', t => {
             "    readonly state:GLib.Variant",
             "    readonly state_type:GLib.VariantType",
 
-            "}"
+            "}",
+
+            "export interface Action_Static {",
+            "}",
+
+            "export declare class Action_Static {",
+            "    name_is_valid(action_name: string): boolean",
+            "    parse_detailed_name(detailed_name: string, action_name: string, target_value: GLib.Variant): boolean",
+            "    print_detailed_name(action_name: string, target_value: GLib.Variant | null): string",
+            "}",
+
+            "export declare var Action: Action_Static",
+
         ])
 
     let intf2 = { '$': 
@@ -1619,6 +1628,190 @@ test('interface', t => {
             "    connect(sigName: \"action-removed\", callback: ((action_name: string) => void): void",
             "    connect(sigName: \"action-state-changed\", callback: ((action_name: string, value: GLib.Variant) => void): void",
             "}",
+            "export interface ActionGroup_Static {",
+            "}",
+            "export declare var ActionGroup: ActionGroup_Static",    
+
         ])
 
+})
+
+test('constructors', t => {
+    let dbus = { '$': 
+                { name: 'DBusNodeInfo',
+                  'c:type': 'GDBusNodeInfo',
+                  version: '2.26',
+                  'glib:type-name': 'GDBusNodeInfo',
+                  'glib:get-type': 'g_dbus_node_info_get_type',
+                  'c:symbol-prefix': 'dbus_node_info' },
+               doc: 
+                [ { _: 'Information about nodes in a remote object hierarchy.',
+                    '$': { 'xml:space': 'preserve' } } ],
+               field: 
+                [ { '$': { name: 'ref_count', writable: '1' },
+                    doc: 
+                     [ { _: 'The reference count or -1 if statically allocated.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: [ { '$': { name: 'gint', 'c:type': 'volatile gint' } } ] },
+                  { '$': { name: 'path', writable: '1' },
+                    doc: 
+                     [ { _: 'The path of the node or %NULL if omitted. Note that this may be a relative path. See the D-Bus specification for more details.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    type: [ { '$': { name: 'utf8', 'c:type': 'gchar*' } } ] },
+                  { '$': { name: 'interfaces', writable: '1' },
+                    doc: 
+                     [ { _: 'A pointer to a %NULL-terminated array of pointers to #GDBusInterfaceInfo structures or %NULL if there are no interfaces.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    array: 
+                     [ { '$': { 'c:type': 'GDBusInterfaceInfo**' },
+                         type: [ { '$': { name: 'DBusInterfaceInfo', 'c:type': 'GDBusInterfaceInfo*' } } ] } ] },
+                  { '$': { name: 'nodes', writable: '1' },
+                    doc: 
+                     [ { _: 'A pointer to a %NULL-terminated array of pointers to #GDBusNodeInfo structures or %NULL if there are no nodes.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    array: 
+                     [ { '$': { 'c:type': 'GDBusNodeInfo**' },
+                         type: [ { '$': { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } } ] } ] },
+                  { '$': { name: 'annotations', writable: '1' },
+                    doc: 
+                     [ { _: 'A pointer to a %NULL-terminated array of pointers to #GDBusAnnotationInfo structures or %NULL if there are no annotations.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    array: 
+                     [ { '$': { 'c:type': 'GDBusAnnotationInfo**' },
+                         type: [ { '$': { name: 'DBusAnnotationInfo', 'c:type': 'GDBusAnnotationInfo*' } } ] } ] } ],
+               constructor: 
+                [ // [Function: Object],
+                  { '$': 
+                     { name: 'new_for_xml',
+                       'c:identifier': 'g_dbus_node_info_new_for_xml',
+                       version: '2.26',
+                       throws: '1' },
+                    doc: 
+                     [ { _: 'Parses @xml_data and returns a #GDBusNodeInfo representing the data.\n\nThe introspection XML must contain exactly one top-level\n<node> element.\n\nNote that this routine is using a\n[GMarkup][glib-Simple-XML-Subset-Parser.description]-based\nparser that only accepts a subset of valid XML documents.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'full' },
+                         doc: 
+                          [ { _: 'A #GDBusNodeInfo structure or %NULL if @error is set. Free\nwith g_dbus_node_info_unref().',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } } ] } ],
+                    parameters: 
+                     [ { parameter: 
+                          [ { '$': { name: 'xml_data', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'Valid D-Bus introspection XML.',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] } ],
+               method: 
+                [ { '$': 
+                     { name: 'generate_xml',
+                       'c:identifier': 'g_dbus_node_info_generate_xml',
+                       version: '2.26' },
+                    doc: 
+                     [ { _: 'Appends an XML representation of @info (and its children) to @string_builder.\n\nThis function is typically used for generating introspection XML documents at run-time for\nhandling the `org.freedesktop.DBus.Introspectable.Introspect`  method.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'info', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'A #GDBusNodeInfo.', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'indent', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'Indentation level.', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'guint', 'c:type': 'guint' } } ] },
+                            { '$': 
+                               { name: 'string_builder',
+                                 direction: 'out',
+                                 'caller-allocates': '1',
+                                 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'A #GString to to append XML data to.',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.String', 'c:type': 'GString*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'lookup_interface',
+                       'c:identifier': 'g_dbus_node_info_lookup_interface',
+                       version: '2.26' },
+                    doc: 
+                     [ { _: 'Looks up information about an interface.\n\nThe cost of this function is O(n) in number of interfaces.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         doc: 
+                          [ { _: 'A #GDBusInterfaceInfo or %NULL if not found. Do not free, it is owned by @info.',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'DBusInterfaceInfo', 'c:type': 'GDBusInterfaceInfo*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'info', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'A #GDBusNodeInfo.', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'A D-Bus interface name.',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'ref',
+                       'c:identifier': 'g_dbus_node_info_ref',
+                       version: '2.26' },
+                    doc: 
+                     [ { _: 'If @info is statically allocated does nothing. Otherwise increases\nthe reference count.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'full' },
+                         doc: [ { _: 'The same @info.', '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'info', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'A #GDBusNodeInfo', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'unref',
+                       'c:identifier': 'g_dbus_node_info_unref',
+                       version: '2.26' },
+                    doc: 
+                     [ { _: 'If @info is statically allocated, does nothing. Otherwise decreases\nthe reference count of @info. When its reference count drops to 0,\nthe memory used is freed.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'info', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'A #GDBusNodeInfo.', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'DBusNodeInfo', 'c:type': 'GDBusNodeInfo*' } } ] } ] } ] } ] }
+
+    let b = 1
+
+     let symTable = {
+        'Test.MyType': 1,
+        'GLib.String': 1,
+        'Test.DBusInterfaceInfo': 1,
+        'Test.DBusNodeInfo': 1,
+    }
+
+    let mod = new GirModule(emptyRepositoryXml)
+    t.is(mod.name, "Test")
+
+    mod.symTable = symTable
+
+    t.deepEqual(mod.exportInterface(dbus),
+        [
+            "export interface DBusNodeInfo {",
+            "    generate_xml(indent: number, string_builder: GLib.String): void",
+            "    lookup_interface(name: string): DBusInterfaceInfo",
+            "    ref(): DBusNodeInfo",
+
+            "    unref(): void",
+            "}",
+            "export interface DBusNodeInfo_Static {",
+            "}",
+            "export declare var DBusNodeInfo: DBusNodeInfo_Static",   
+        ])
 })

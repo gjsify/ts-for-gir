@@ -91,7 +91,7 @@ test('function', t => {
     let symTable = {
         'Test.MyType': 1,
         'GLib.DestroyNotify': 1,
-        'GLib.Varfiant': 1,
+        'GLib.Variant': 1,
         'Test.BusNameOwnerFlags': 1,
         'Test.ButAcquireCallback': 1,
         'Test.BusNameAcquiredCallback': 1,
@@ -238,7 +238,7 @@ test('callback', t => {
     let symTable = {
         'Test.MyType': 1,
         'Test.SimpleAction': 1,
-        'GLib.Varfiant': 1,
+        'GLib.Variant': 1,
     }
 
     let mod = new GirModule(emptyRepositoryXml)
@@ -248,7 +248,7 @@ test('callback', t => {
 
     t.deepEqual(mod.exportCallback(cbs[0]),
         [ 'export interface activate {',
-          '    (action: SimpleAction, parameter: any, user_data: object): void',
+          "    (action: SimpleAction, parameter: GLib.Variant, user_data: object): void",
           '}' ])
 
 })
@@ -686,9 +686,10 @@ test('interface', t => {
     t.deepEqual(mod.exportInterface(intf),
         [ 
             "export interface Action {",
-            "    name_is_valid(action_name: string): boolean",
-            "    parse_detailed_name(detailed_name: string, action_name: string, target_value: GLib.Variant): boolean",
-            "    print_detailed_name(action_name: string, target_value: GLib.Variant | null): string",
+            "    static name_is_valid(action_name: string): boolean",
+            "    static parse_detailed_name(detailed_name: string, action_name: string, target_value: GLib.Variant): boolean",
+            "    static print_detailed_name(action_name: string, target_value: GLib.Variant | null): string",
+
             "    activate(parameter: GLib.Variant | null): void",
             "    change_state(value: GLib.Variant): void",
             "    get_enabled(): boolean",
@@ -697,6 +698,16 @@ test('interface', t => {
             "    get_state(): GLib.Variant",
             "    get_state_hint(): GLib.Variant | null",
             "    get_state_type(): GLib.VariantType",
+
+            "    vfunc_activate(parameter: GLib.Variant | null): void",
+            "    vfunc_change_state(value: GLib.Variant): void",
+            "    vfunc_get_enabled(): boolean",
+            "    vfunc_get_name(): string",
+            "    vfunc_get_parameter_type(): GLib.VariantType",
+            "    vfunc_get_state(): GLib.Variant",
+            "    vfunc_get_state_hint(): GLib.Variant | null",
+            "    vfunc_get_state_type(): GLib.VariantType",
+
             "}"
         ])
 })

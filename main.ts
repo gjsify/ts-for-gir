@@ -311,13 +311,16 @@ export class GirModule {
         return [`export const ${name}:${typeName}`]
     }
 
-    private getFunction(e: GirFunction, prefix: string) {
+    private getFunction(e: GirFunction, prefix: string, funcNamePrefix: string|null = null) {
         if (e.$.introspectable != null && parseInt(e.$.introspectable) == 0)
             return []
 
         let name = e.$.name
         let params = this.getParameters(e.parameters)
         let retType = this.getReturnType(e)
+
+        if (funcNamePrefix)
+            name = funcNamePrefix + name
 
         return [`${prefix}${name}(${params}): ${retType}`]
     }
@@ -344,18 +347,23 @@ export class GirModule {
         let def: string[] = []
         def.push(`export interface ${name} {`)
 
+        // Static methods: -> move to static defn
         if (e.function)
             for (let f of e.function)
-                def = def.concat(this.getFunction(f, "    "))
+                def = def.concat(this.getFunction(f, "    static "))
 
-        // XXX: what's the difference between function and method here?
-
+        // Instance methods
         if (e.method)
             for (let f of e.method)
                 def = def.concat(this.getFunction(f, "    "))
 
+        // Instance methods, vfunc_ prefix
+        let vmeth = e["virtual-method"]
+        if (vmeth)
+            for (let f of vmeth)
+                def = def.concat(this.getFunction(f, "    ", "vfunc_"))
+        
         // property
-        // virtual-method
         // signals (glib:signal)
 
         def.push("}")

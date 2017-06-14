@@ -21,6 +21,14 @@ interface GirType {
         "c:type"?: string
     }
 }
+interface GirArray {
+        $?: {
+            length?: string
+            "zero-terminated"?: string
+            "c:type"?: string
+        }
+        type?: GirType[]
+    }
 interface GirVariable {
     $: {
         name?: string
@@ -31,14 +39,7 @@ interface GirVariable {
     }
     doc?: GirDoc[]
     type?: GirType[]
-    array?: {
-        $?: {
-            length: string
-            "zero-terminated"?: string
-            "c:type"?: string
-        }
-        type?: GirType[]
-    }
+    array?: GirArray[]
 }
 interface GirParameter {
     parameter?: GirVariable[]
@@ -195,8 +196,11 @@ export class GirModule {
         let arr: string = ''
         let nul: string = ''
 
-        if (e.array && e.array.type) {
-            type = e.array.type[0]
+        if (e.array && e.array.length > 0) {
+            let typeArray = e.array[0].type
+            if (typeArray == null || typeArray.length == 0)
+                return 'any'
+            type = typeArray[0]
             arr = '[]'
         } else if (e.type)
             type = e.type[0]
@@ -209,6 +213,15 @@ export class GirModule {
         }
 
         let suffix = arr + nul
+
+        if (arr) {
+            let podTypeMapArray = {
+                // 'guint8': 'gjs.ByteArray',
+                'gunichar': 'string'
+            }
+            if (podTypeMapArray[type.$.name] != null)
+                return podTypeMapArray[type.$.name] + suffix
+        }
 
         let podTypeMap = {
             'utf8': 'string',
@@ -392,6 +405,7 @@ export class GirModule {
         def.push(`export interface ${name} {`)
 
         // Static methods: -> move to static defn
+        // also constructors
         if (e.function)
             for (let f of e.function)
                 def = def.concat(this.getFunction(f, "    static "))

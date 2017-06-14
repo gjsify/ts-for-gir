@@ -53,10 +53,10 @@ test('constant', t => {
     }
     let arrVar = {
         $: { name: "MY_ARR" },
-        array: {
+        array: [ {
             $: { length: "1" },
             type: [ { $: { name: "MyType" } } ]
-        }
+        } ]
     }
 
     let symTable = {
@@ -1598,7 +1598,7 @@ test('interface', t => {
             "    get_action_state_hint(action_name: string): GLib.Variant | null",
             "    get_action_state_type(action_name: string): GLib.VariantType | null",
             "    has_action(action_name: string): boolean",
-            "    list_actions(): any",
+            "    list_actions(): string[]",
             "    query_action(action_name: string, enabled: boolean, parameter_type: GLib.VariantType | null, state_type: GLib.VariantType | null, state_hint: GLib.Variant | null, state: GLib.Variant | null): boolean",
             "    vfunc_action_added(action_name: string): void",
             "    vfunc_action_enabled_changed(action_name: string, enabled: boolean): void",
@@ -1612,7 +1612,7 @@ test('interface', t => {
             "    vfunc_get_action_state_hint(action_name: string): GLib.Variant | null",
             "    vfunc_get_action_state_type(action_name: string): GLib.VariantType | null",
             "    vfunc_has_action(action_name: string): boolean",
-            "    vfunc_list_actions(): any",
+            "    vfunc_list_actions(): string[]",
             "    vfunc_query_action(action_name: string, enabled: boolean, parameter_type: GLib.VariantType | null, state_type: GLib.VariantType | null, state_hint: GLib.Variant | null, state: GLib.Variant | null): boolean",
             "    connect(sigName: \"action-added\", callback: ((action_name: string) => void): void",
             "    connect(sigName: \"action-enabled-changed\", callback: ((action_name: string, enabled: boolean) => void): void",

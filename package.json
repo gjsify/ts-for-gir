@@ -4,7 +4,7 @@
   "description": "Typescript bindings for GJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tsc && node_modules/ava/cli.js",
     "build": "tsc",
     "watch": "tsc --watch",
     "run": "node main.js"
@@ -22,12 +22,11 @@
   "devDependencies": {
     "@types/commander": "^2.9.1",
     "@types/lodash": "^4.14.66",
-    "@types/minimist": "^1.2.0",
     "@types/node": "^7.0.31",
     "@types/xml2js": "0.0.33",
+    "ava": "^0.19.1",
     "commander": "^2.9.0",
     "events": "^1.1.1",
-    "minimist": "^1.2.0",
     "xml2js": "^0.4.17"
   }
 }

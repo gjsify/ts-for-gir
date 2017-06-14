@@ -93,7 +93,7 @@ interface GirEnumerationMember {
     }
     doc?: GirDoc[]
 }
-interface GirEnumeration {
+export interface GirEnumeration {
     $: {
         name: string
         version?: string
@@ -131,7 +131,7 @@ interface GirRepository {
     namespace?: GirNamespace[]
 }
 
-class GirModule {
+export class GirModule {
     name: string | null = null
     version: string = "0.0"
     dependencies: string[] = []
@@ -176,7 +176,7 @@ class GirModule {
         loadTypesInternal(this.ns.record)
     }
 
-    private exportEnumeration(e: GirEnumeration, out: NodeJS.WritableStream) {
+    exportEnumeration(e: GirEnumeration) {
         let def: string[] = []
         def.push(`export enum ${e.$.name} {`)
         if (e.member) {
@@ -186,8 +186,7 @@ class GirModule {
             }
         }
         def.push("}")
-
-        // out.write(def.join("\n") + "\n")
+        return def
     }
 
     private exportFunction(e: GirFunction) {
@@ -209,11 +208,11 @@ class GirModule {
 
         if (this.ns.enumeration)
             for (let e of this.ns.enumeration)
-                this.exportEnumeration(e, out)
+                this.exportEnumeration(e)
 
         if (this.ns.bitfield)
             for (let e of this.ns.bitfield)
-                this.exportEnumeration(e, out)
+                this.exportEnumeration(e)
     
     }
 }
@@ -227,6 +226,8 @@ function main() {
             "times", (val, lst) => { lst.push(val); return lst },
             [])
         .parse(process.argv)
+
+    // FIXME: check modules is populated
 
     let girModules: { [key: string]: GirModule } = {}
     let girDirectory = commander.girDirectory

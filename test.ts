@@ -78,3 +78,30 @@ test('constant', t => {
     t.deepEqual(mod.exportConstant(var_),
         [ 'export const MY_CONST:any' ])
 })
+
+test('function', t => {
+    let func = {
+        $: { name: "my_func" },
+        parameters: [
+            { parameter: { 
+                $: { name: "arg1"},
+                type: [ { $: { name: "MyType" } } ] } }
+        ],
+        "return-value": [
+            {   $: { "transfer-ownership": "none" },
+                type: [ { $: { name: "utf8" } } ] }
+        ]
+    }
+
+    let symTable = {
+        'Test.MyType': 1
+    }
+
+    let mod = new GirModule(emptyRepositoryXml)
+    t.is(mod.name, "Test")
+
+    mod.symTable = symTable
+
+    t.deepEqual(mod.exportFunction(func),
+        [ 'export function my_func(arg1: MyType): string' ])
+})

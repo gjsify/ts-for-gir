@@ -272,8 +272,28 @@ export class GirModule {
         return def
     }
 
-    private exportFunction(e: GirFunction) {
+    exportFunction(e: GirFunction) {
+        let def: string[] = []
+        def.push(`export function ${e.$.name}(`)
 
+        if (e.parameters)
+            for (let p of e.parameters) {
+                let paramName = p.parameter.$.name
+                let paramType = this.typeLookup(p.parameter)
+                def.push(`${paramName}: ${paramType}`)
+            }
+
+        let returnType
+
+        let returnVal = e["return-value"]
+        if (returnVal && returnVal.length > 0) {
+            returnType = this.typeLookup(returnVal[0])
+        } else
+            returnType = "void"
+
+        def.push(`): ${returnType}`)
+
+        return [def.join('')]
     }
 
     private exportCallback(e: GirFunction) {

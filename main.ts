@@ -27,6 +27,7 @@ interface GirVariable {
         "transfer-ownership"?: string
         nullable?: string
         "allow-none"?: string
+        writable?: string
     }
     doc?: GirDoc[]
     type?: GirType[]
@@ -317,8 +318,15 @@ export class GirModule {
     }
 
     private getProperty(v: GirVariable) {
+        let propPrefix
+        if (v.$.writable && parseInt(v.$.writable) == 1)
+            propPrefix = ''
+        else
+            propPrefix = 'readonly '
+
         let propDesc = this.getVariable(v)
-        return [`    ${propDesc}`]
+
+        return [`    ${propPrefix}${propDesc}`]
     }
 
     exportEnumeration(e: GirEnumeration) {

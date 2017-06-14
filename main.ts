@@ -18,16 +18,24 @@ interface GirDoc {
 interface GirType {
     $: {
         name: string
-        "c:type": string
+        "c:type"?: string
     }
 }
 interface GirVariable {
     $: {
-        name: string
+        name?: string
         "transfer-ownership"?: string
     }
     doc?: GirDoc[]
     type?: GirType[]
+    array?: {
+        $: {
+            length: string
+            "zero-terminated"?: string
+            "c:type"?: string
+        }
+        type?: GirType[]
+    }
 }
 interface GirParameter {
     parameter: GirVariable
@@ -40,7 +48,7 @@ interface GirFunction {
     }
     doc?: GirDoc[]
     parameters?: GirParameter[]
-    "return-value"?: GirParameter[]
+    "return-value"?: GirVariable[]
 }
 interface GirSignal {
     $: {
@@ -115,7 +123,7 @@ interface GirNamespace {
         name: string
         version: string
     }
-    alias?: any[]
+    alias?: GirAlias[]
     bitfield?: GirEnumeration[]
     callback?: GirFunction[]
     class?: GirClass[]
@@ -137,6 +145,7 @@ export class GirModule {
     dependencies: string[] = []
     repo: GirRepository
     ns: GirNamespace
+    symTable: { [key:string]: any } = {}
 
     constructor(xml) {
         this.repo = xml.repository
@@ -176,6 +185,72 @@ export class GirModule {
         loadTypesInternal(this.ns.record)
     }
 
+    private typeLookup(e: GirVariable) {
+        let type: GirType
+        let arr: string = ''
+
+        if (e.array && e.array.type) {
+            type = e.array.type[0]
+            arr = '[]'
+        } else if (e.type)
+            type = e.type[0]
+        else
+            return "any";
+
+        let podTypeMap = {
+            'utf8': 'string',
+            'none': 'void',
+            'double': 'number',
+            'guint32': 'number',
+            'guint16': 'number',
+            'gint16': 'number',
+            'gunichar': 'number',
+            'gint8': 'number',
+            'gint32': 'number',
+            'gushort': 'number',
+            'gfloat': 'number',
+            'gboolean': 'boolean',
+            'gpointer': 'object',
+            'gchar': 'number',
+            'guint': 'number',
+            'glong': 'number',
+            'gulong': 'number',
+            'gint': 'number',
+            'guint8': 'number',
+            'guint64': 'number',
+            'gint64': 'number',
+            'gdouble': 'number',
+            'gssize': 'number',
+            'gsize': 'number',
+            'long': 'number',
+            'object': 'any',
+            'va_list': 'any',
+        }
+
+        if (podTypeMap[type.$.name] != null)
+            return podTypeMap[type.$.name] + arr
+
+        if (!this.name)
+            return "any"
+
+        let fullTypeName: string = type.$.name
+        
+        // Fully qualify our type name if need be
+        if (fullTypeName.indexOf(".") < 0)
+            fullTypeName = `${this.name}.${type.$.name}`
+
+        if (this.symTable[fullTypeName] == null) {
+            console.warn("Could not find type " + fullTypeName)
+            return "any" + arr
+        }
+
+        if (fullTypeName.indexOf(this.name + ".") == 0) {
+            return fullTypeName.substring(this.name.length + 1) + arr
+        }
+
+        return fullTypeName + arr
+    }
+
     exportEnumeration(e: GirEnumeration) {
         let def: string[] = []
         def.push(`export enum ${e.$.name} {`)
@@ -186,6 +261,14 @@ export class GirModule {
             }
         }
         def.push("}")
+        return def
+    }
+
+    exportConstant(e: GirVariable) {
+        let typeName = this.typeLookup(e)
+
+        let def: string[] = []
+        def.push(`export const ${e.$.name}:${typeName}`)
         return def
     }
 
@@ -201,10 +284,11 @@ export class GirModule {
 
     }
 
-    export(typeNames, out) {
+    export(symTable, out) {
         out.write(`/**
 * ${this.name}-${this.version}
 */`)
+        this.symTable = symTable
 
         if (this.ns.enumeration)
             for (let e of this.ns.enumeration)
@@ -214,6 +298,9 @@ export class GirModule {
             for (let e of this.ns.bitfield)
                 this.exportEnumeration(e)
     
+        if (this.ns.constant)
+            for (let e of this.ns.constant)
+                this.exportConstant(e)
     }
 }
 
@@ -227,11 +314,14 @@ function main() {
             [])
         .parse(process.argv)
 
-    // FIXME: check modules is populated
-
     let girModules: { [key: string]: GirModule } = {}
     let girDirectory = commander.girDirectory
     let girToLoad = commander.module
+
+    if (girToLoad.length == 0) {
+        console.error("Need to specify modules via -m!")
+        return
+    }
 
     while (girToLoad.length > 0) {
         let name = girToLoad.shift()
@@ -258,17 +348,20 @@ function main() {
         })
     }
 
+    // console.dir(girModules["Gio-2.0"], { depth: null })
+
     console.log("Files parsed, loading types...")
 
-    let typeNames: { [name: string]: number } = {}
+    let symTable: { [name: string]: number } = {}
     for (let k of lodash.values(girModules))
-        k.loadTypes(typeNames)
+        k.loadTypes(symTable)
 
     console.log("Types loaded, generating .d.ts...")
     
     for (let k of lodash.keys(girModules)) {
-        girModules[k].export(typeNames, process.stdout)
+        girModules[k].export(symTable, process.stdout)
     }
 }
 
-main()
+if (require.main === module)
+    main()

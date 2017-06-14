@@ -4,7 +4,7 @@
   "description": "Typescript bindings for GJS",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && node_modules/ava/cli.js",
+    "test": "tsc && node_modules/ava/cli.js test.js",
     "build": "tsc",
     "watch": "tsc --watch",
     "run": "node main.js"

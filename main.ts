@@ -25,6 +25,8 @@ interface GirVariable {
     $: {
         name?: string
         "transfer-ownership"?: string
+        nullable?: string
+        "allow-none"?: string
     }
     doc?: GirDoc[]
     type?: GirType[]
@@ -189,6 +191,7 @@ export class GirModule {
     private typeLookup(e: GirVariable) {
         let type: GirType
         let arr: string = ''
+        let nul: string = ''
 
         if (e.array && e.array.type) {
             type = e.array.type[0]
@@ -197,6 +200,13 @@ export class GirModule {
             type = e.type[0]
         else
             return "any";
+
+        let nullable = e.$.nullable || e.$["allow-none"]
+        if (nullable && parseInt(nullable) != 0) {
+            nul = ' | null'
+        }
+
+        let suffix = arr + nul
 
         let podTypeMap = {
             'utf8': 'string',
@@ -229,7 +239,7 @@ export class GirModule {
         }
 
         if (podTypeMap[type.$.name] != null)
-            return podTypeMap[type.$.name] + arr
+            return podTypeMap[type.$.name] + suffix
 
         if (!this.name)
             return "any"
@@ -246,10 +256,10 @@ export class GirModule {
         }
 
         if (fullTypeName.indexOf(this.name + ".") == 0) {
-            return fullTypeName.substring(this.name.length + 1) + arr
+            return fullTypeName.substring(this.name.length + 1) + suffix
         }
 
-        return fullTypeName + arr
+        return fullTypeName + suffix
     }
 
     private getReturnType(e) {

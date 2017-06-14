@@ -578,13 +578,13 @@ test('interface', t => {
             "    name_is_valid(action_name: string): boolean",
             "    parse_detailed_name(detailed_name: string): boolean",
             "    print_detailed_name(action_name: string): string",
-            "    activate(parameter: GLib.Variant): void",
+            "    activate(parameter: GLib.Variant | null): void",
             "    change_state(value: GLib.Variant): void",
             "    get_enabled(): boolean",
             "    get_name(): string",
             "    get_parameter_type(): GLib.VariantType",
             "    get_state(): GLib.Variant",
-            "    get_state_hint(): GLib.Variant",
+            "    get_state_hint(): GLib.Variant | null",
             "    get_state_type(): GLib.VariantType",
             "}"
         ])

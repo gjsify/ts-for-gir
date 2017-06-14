@@ -38,7 +38,7 @@ interface GirVariable {
     }
 }
 interface GirParameter {
-    parameter: GirVariable
+    parameter: GirVariable[]
 }
 interface GirFunction {
     $: {
@@ -251,6 +251,32 @@ export class GirModule {
         return fullTypeName + arr
     }
 
+    private getReturnType(e) {
+        let returnType
+
+        let returnVal = e["return-value"]
+        if (returnVal && returnVal.length > 0) {
+            returnType = this.typeLookup(returnVal[0])
+        } else
+            returnType = "void"
+
+        return returnType
+    }
+
+    private getParameters(parameters) {
+        let def: string[] = []
+
+        if (parameters)
+            for (let p of parameters) {
+                let param = p.parameter[0]
+                let paramName = param.$.name
+                let paramType = this.typeLookup(param)
+                def.push(`${paramName}: ${paramType}`)
+            }
+
+        return def.join(", ")
+    }
+
     exportEnumeration(e: GirEnumeration) {
         let def: string[] = []
         def.push(`export enum ${e.$.name} {`)
@@ -265,62 +291,66 @@ export class GirModule {
     }
 
     exportConstant(e: GirVariable) {
+        let name = e.$.name
         let typeName = this.typeLookup(e)
 
-        let def: string[] = []
-        def.push(`export const ${e.$.name}:${typeName}`)
-        return def
+        return [`export const ${name}:${typeName}`]
     }
 
     exportFunction(e: GirFunction) {
-        let def: string[] = []
-        def.push(`export function ${e.$.name}(`)
+        let name = e.$.name
+        let params = this.getParameters(e.parameters)
+        let retType = this.getReturnType(e)
 
-        if (e.parameters)
-            for (let p of e.parameters) {
-                let paramName = p.parameter.$.name
-                let paramType = this.typeLookup(p.parameter)
-                def.push(`${paramName}: ${paramType}`)
-            }
-
-        let returnType
-
-        let returnVal = e["return-value"]
-        if (returnVal && returnVal.length > 0) {
-            returnType = this.typeLookup(returnVal[0])
-        } else
-            returnType = "void"
-
-        def.push(`): ${returnType}`)
-
-        return [def.join('')]
+        return [`export function ${name}(${params}): ${retType}`]
     }
 
-    private exportCallback(e: GirFunction) {
+    exportCallback(e: GirFunction) {
+        let name = e.$.name
+        let params = this.getParameters(e.parameters)
+        let retType = this.getReturnType(e)
 
+        let def: string[] = []
+        def.push(`export interface ${name} {`)
+        def.push(`    (${params}): ${retType}`)
+        def.push("}")
+        return def
     }
 
     private exportClass(e: GirClass | GirRecord | GirInterface) {
 
     }
 
-    export(symTable, out) {
-        out.write(`/**
-* ${this.name}-${this.version}
-*/`)
+    export(symTable, outStream) {
         this.symTable = symTable
+
+        let out: string[] = []
+
+        out.push("/**")
+        out.push(` * ${this.name}-${this.version}`)
+        out.push(" */")
 
         if (this.ns.enumeration)
             for (let e of this.ns.enumeration)
-                this.exportEnumeration(e)
+                out = out.concat(this.exportEnumeration(e))
 
         if (this.ns.bitfield)
             for (let e of this.ns.bitfield)
-                this.exportEnumeration(e)
+                out = out.concat(this.exportEnumeration(e))
     
         if (this.ns.constant)
             for (let e of this.ns.constant)
-                this.exportConstant(e)
+                out = out.concat(this.exportConstant(e))
+
+        if (this.ns.function)
+            for (let e of this.ns.function)
+                out = out.concat(this.exportFunction(e))
+
+        if (this.ns.callback)
+            for (let e of this.ns.callback)
+                out = out.concat(this.exportCallback(e))
+
+        outStream.write(out.join("\n"))
     }
 }
 

@@ -83,9 +83,9 @@ test('function', t => {
     let func = {
         $: { name: "my_func" },
         parameters: [
-            { parameter: { 
+            { parameter: [ { 
                 $: { name: "arg1"},
-                type: [ { $: { name: "MyType" } } ] } }
+                type: [ { $: { name: "MyType" } } ] } ] }
         ],
         "return-value": [
             {   $: { "transfer-ownership": "none" },
@@ -104,4 +104,44 @@ test('function', t => {
 
     t.deepEqual(mod.exportFunction(func),
         [ 'export function my_func(arg1: MyType): string' ])
+})
+
+test('callback', t => {
+    let cbs = [ 
+        { '$': { name: 'activate' },
+        'return-value': [{
+            '$': { 'transfer-ownership': 'none' },
+            type: [{ '$': { name: 'none', 'c:type': 'void' } }]
+        }],
+        parameters: [{
+            parameter:
+            [{
+                '$': { name: 'action', 'transfer-ownership': 'none' },
+                type: [{ '$': { name: 'SimpleAction', 'c:type': 'GSimpleAction*' } }]
+            },
+            {
+                '$': { name: 'parameter', 'transfer-ownership': 'none' },
+                type: [{ '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } }]
+            },
+            {
+                '$': { name: 'user_data', 'transfer-ownership': 'none', closure: '2' },
+                type: [{ '$': { name: 'gpointer', 'c:type': 'gpointer' } }]
+            }]
+        }]
+    }]
+
+    let symTable = {
+        'Test.MyType': 1
+    }
+
+    let mod = new GirModule(emptyRepositoryXml)
+    t.is(mod.name, "Test")
+
+    mod.symTable = symTable
+
+    t.deepEqual(mod.exportCallback(cbs[0]),
+        [ 'export interface activate {',
+          '    (action: any): void',
+          '}' ])
+
 })

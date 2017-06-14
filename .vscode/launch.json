@@ -9,6 +9,9 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceRoot}/main.js",
+            "args": [
+                "-m", "Gio-2.0"
+            ],
             "outFiles": [
                 "${workspaceRoot}/main.js"
             ]

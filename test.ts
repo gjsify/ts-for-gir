@@ -716,4 +716,909 @@ test('interface', t => {
 
             "}"
         ])
+
+    let intf2 = { '$': 
+                { name: 'ActionGroup',
+                  'c:symbol-prefix': 'action_group',
+                  'c:type': 'GActionGroup',
+                  'glib:type-name': 'GActionGroup',
+                  'glib:get-type': 'g_action_group_get_type',
+                  'glib:type-struct': 'ActionGroupInterface' },
+               doc: 
+                [ { _: '#GActionGroup represents a group of actions. Actions can be used to\nexpose functionality in a structured way, either from one part of a\nprogram to another, or to the outside world. Action groups are often\nused together with a #GMenuModel that provides additional\nrepresentation data for displaying the actions to the user, e.g. in\na menu.\n\nThe main way to interact with the actions in a GActionGroup is to\nactivate them with g_action_group_activate_action(). Activating an\naction may require a #GVariant parameter. The required type of the\nparameter can be inquired with g_action_group_get_action_parameter_type().\nActions may be disabled, see g_action_group_get_action_enabled().\nActivating a disabled action has no effect.\n\nActions may optionally have a state in the form of a #GVariant. The\ncurrent state of an action can be inquired with\ng_action_group_get_action_state(). Activating a stateful action may\nchange its state, but it is also possible to set the state by calling\ng_action_group_change_action_state().\n\nAs typical example, consider a text editing application which has an\noption to change the current font to \'bold\'. A good way to represent\nthis would be a stateful action, with a boolean state. Activating the\naction would toggle the state.\n\nEach action in the group has a unique name (which is a string).  All\nmethod calls, except g_action_group_list_actions() take the name of\nan action as an argument.\n\nThe #GActionGroup API is meant to be the \'public\' API to the action\ngroup.  The calls here are exactly the interaction that \'external\nforces\' (eg: UI, incoming D-Bus messages, etc.) are supposed to have\nwith actions.  \'Internal\' APIs (ie: ones meant only to be accessed by\nthe action group implementation) are found on subclasses.  This is\nwhy you will find - for example - g_action_group_get_action_enabled()\nbut not an equivalent set() call.\n\nSignals are emitted on the action group in response to state changes\non individual actions.\n\nImplementations of #GActionGroup should provide implementations for\nthe virtual functions g_action_group_list_actions() and\ng_action_group_query_action().  The other virtual functions should\nnot be implemented - their "wrappers" are actually implemented with\ncalls to g_action_group_query_action().',
+                    '$': { 'xml:space': 'preserve' } } ],
+               'virtual-method': 
+                [ { '$': 
+                     { name: 'action_added',
+                       invoker: 'action_added',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Emits the #GActionGroup::action-added signal on @action_group.\n\nThis function should only be called by #GActionGroup implementations.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'action_enabled_changed',
+                       invoker: 'action_enabled_changed',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Emits the #GActionGroup::action-enabled-changed signal on @action_group.\n\nThis function should only be called by #GActionGroup implementations.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': { name: 'enabled', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'whether or not the action is now enabled',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'action_removed',
+                       invoker: 'action_removed',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Emits the #GActionGroup::action-removed signal on @action_group.\n\nThis function should only be called by #GActionGroup implementations.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'action_state_changed',
+                       invoker: 'action_state_changed',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Emits the #GActionGroup::action-state-changed signal on @action_group.\n\nThis function should only be called by #GActionGroup implementations.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': { name: 'state', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the new state of the named action',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'activate_action',
+                       invoker: 'activate_action',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Activate the named action within @action_group.\n\nIf the action is expecting a parameter, then the correct type of\nparameter must be given as @parameter.  If the action is expecting no\nparameters then @parameter must be %NULL.  See\ng_action_group_get_action_parameter_type().',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to activate',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': 
+                               { name: 'parameter',
+                                 'transfer-ownership': 'none',
+                                 nullable: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'parameters to the activation',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'change_action_state',
+                       invoker: 'change_action_state',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Request for the state of the named action within @action_group to be\nchanged to @value.\n\nThe action must be stateful and @value must be of the correct type.\nSee g_action_group_get_action_state_type().\n\nThis call merely requests a change.  The action may refuse to change\nits state or may change its state to something other than @value.\nSee g_action_group_get_action_state_hint().\n\nIf the @value GVariant is floating, it is consumed.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to request the change on',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': { name: 'value', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'the new state', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_enabled',
+                       invoker: 'get_action_enabled',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Checks if the named action within @action_group is currently enabled.\n\nAn action must be enabled in order to be activated or in order to\nhave its state changed from outside callers.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         doc: 
+                          [ { _: 'whether or not the action is currently enabled',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_parameter_type',
+                       invoker: 'get_action_parameter_type',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Queries the type of the parameter that must be given when activating\nthe named action within @action_group.\n\nWhen activating the action using g_action_group_activate_action(),\nthe #GVariant given to that function must be of the type returned\nby this function.\n\nIn the case that this function returns %NULL, you must not give any\n#GVariant, but %NULL instead.\n\nThe parameter type of a particular action will never change but it is\npossible for an action to be removed and for a new action to be added\nwith the same name but a different parameter type.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none', nullable: '1' },
+                         doc: [ { _: 'the parameter type', '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'GLib.VariantType', 'c:type': 'const GVariantType*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_state',
+                       invoker: 'get_action_state',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Queries the current state of the named action within @action_group.\n\nIf the action is not stateful then %NULL will be returned.  If the\naction is stateful then the type of the return value is the type\ngiven by g_action_group_get_action_state_type().\n\nThe return value (if non-%NULL) should be freed with\ng_variant_unref() when it is no longer required.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'full', nullable: '1' },
+                         doc: 
+                          [ { _: 'the current state of the action',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_state_hint',
+                       invoker: 'get_action_state_hint',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Requests a hint about the valid range of values for the state of the\nnamed action within @action_group.\n\nIf %NULL is returned it either means that the action is not stateful\nor that there is no hint about the valid range of values for the\nstate of the action.\n\nIf a #GVariant array is returned then each item in the array is a\npossible value for the state.  If a #GVariant pair (ie: two-tuple) is\nreturned then the tuple specifies the inclusive lower and upper bound\nof valid values for the state.\n\nIn any case, the information is merely a hint.  It may be possible to\nhave a state value outside of the hinted range and setting a value\nwithin the range may fail.\n\nThe return value (if non-%NULL) should be freed with\ng_variant_unref() when it is no longer required.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'full', nullable: '1' },
+                         doc: [ { _: 'the state range hint', '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_state_type',
+                       invoker: 'get_action_state_type',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Queries the type of the state of the named action within\n@action_group.\n\nIf the action is stateful then this function returns the\n#GVariantType of the state.  All calls to\ng_action_group_change_action_state() must give a #GVariant of this\ntype and g_action_group_get_action_state() will return a #GVariant\nof the same type.\n\nIf the action is not stateful then this function will return %NULL.\nIn that case, g_action_group_get_action_state() will return %NULL\nand you must not call g_action_group_change_action_state().\n\nThe state type of a particular action will never change but it is\npossible for an action to be removed and for a new action to be added\nwith the same name but a different state type.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none', nullable: '1' },
+                         doc: 
+                          [ { _: 'the state type, if the action is stateful',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'GLib.VariantType', 'c:type': 'const GVariantType*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': { name: 'has_action', invoker: 'has_action', version: '2.28' },
+                    doc: 
+                     [ { _: 'Checks if the named action exists within @action_group.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         doc: 
+                          [ { _: 'whether the named action exists',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to check for',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'list_actions',
+                       invoker: 'list_actions',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Lists the actions contained within @action_group.\n\nThe caller is responsible for freeing the list with g_strfreev() when\nit is no longer required.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'full' },
+                         doc: 
+                          [ { _: 'a %NULL-terminated array of the names of the\nactions in the groupb',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         array: 
+                          [ { '$': { 'c:type': 'gchar**' },
+                              type: [ { '$': { name: 'utf8' } } ] } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'query_action',
+                       invoker: 'query_action',
+                       version: '2.32' },
+                    doc: 
+                     [ { _: 'Queries all aspects of the named action within an @action_group.\n\nThis function acquires the information available from\ng_action_group_has_action(), g_action_group_get_action_enabled(),\ng_action_group_get_action_parameter_type(),\ng_action_group_get_action_state_type(),\ng_action_group_get_action_state_hint() and\ng_action_group_get_action_state() with a single function call.\n\nThis provides two main benefits.\n\nThe first is the improvement in efficiency that comes with not having\nto perform repeated lookups of the action in order to discover\ndifferent things about it.  The second is that implementing\n#GActionGroup can now be done by only overriding this one virtual\nfunction.\n\nThe interface provides a default implementation of this function that\ncalls the individual functions, as required, to fetch the\ninformation.  The interface also provides default implementations of\nthose functions that call this function.  All implementations,\ntherefore, must override either this function or all of the others.\n\nIf the action exists, %TRUE is returned and any of the requested\nfields (as indicated by having a non-%NULL reference passed in) are\nfilled.  If the action doesn\'t exist, %FALSE is returned and the\nfields may or may not have been modified.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         doc: 
+                          [ { _: '%TRUE if the action exists, else %FALSE',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': 
+                               { name: 'enabled',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full' },
+                              doc: 
+                               [ { _: 'if the action is presently enabled',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean*' } } ] },
+                            { '$': 
+                               { name: 'parameter_type',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full',
+                                 optional: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'the parameter type, or %NULL if none needed',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.VariantType', 'c:type': 'const GVariantType**' } } ] },
+                            { '$': 
+                               { name: 'state_type',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full',
+                                 optional: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'the state type, or %NULL if stateless',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.VariantType', 'c:type': 'const GVariantType**' } } ] },
+                            { '$': 
+                               { name: 'state_hint',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full',
+                                 optional: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'the state hint, or %NULL if none',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant**' } } ] },
+                            { '$': 
+                               { name: 'state',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full',
+                                 optional: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'the current state, or %NULL if stateless',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant**' } } ] } ] } ] } ],
+               method: 
+                [ { '$': 
+                     { name: 'action_added',
+                       'c:identifier': 'g_action_group_action_added',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Emits the #GActionGroup::action-added signal on @action_group.\n\nThis function should only be called by #GActionGroup implementations.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'action_enabled_changed',
+                       'c:identifier': 'g_action_group_action_enabled_changed',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Emits the #GActionGroup::action-enabled-changed signal on @action_group.\n\nThis function should only be called by #GActionGroup implementations.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': { name: 'enabled', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'whether or not the action is now enabled',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'action_removed',
+                       'c:identifier': 'g_action_group_action_removed',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Emits the #GActionGroup::action-removed signal on @action_group.\n\nThis function should only be called by #GActionGroup implementations.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'action_state_changed',
+                       'c:identifier': 'g_action_group_action_state_changed',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Emits the #GActionGroup::action-state-changed signal on @action_group.\n\nThis function should only be called by #GActionGroup implementations.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': { name: 'state', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the new state of the named action',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'activate_action',
+                       'c:identifier': 'g_action_group_activate_action',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Activate the named action within @action_group.\n\nIf the action is expecting a parameter, then the correct type of\nparameter must be given as @parameter.  If the action is expecting no\nparameters then @parameter must be %NULL.  See\ng_action_group_get_action_parameter_type().',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to activate',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': 
+                               { name: 'parameter',
+                                 'transfer-ownership': 'none',
+                                 nullable: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'parameters to the activation',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'change_action_state',
+                       'c:identifier': 'g_action_group_change_action_state',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Request for the state of the named action within @action_group to be\nchanged to @value.\n\nThe action must be stateful and @value must be of the correct type.\nSee g_action_group_get_action_state_type().\n\nThis call merely requests a change.  The action may refuse to change\nits state or may change its state to something other than @value.\nSee g_action_group_get_action_state_hint().\n\nIf the @value GVariant is floating, it is consumed.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to request the change on',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': { name: 'value', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'the new state', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_enabled',
+                       'c:identifier': 'g_action_group_get_action_enabled',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Checks if the named action within @action_group is currently enabled.\n\nAn action must be enabled in order to be activated or in order to\nhave its state changed from outside callers.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         doc: 
+                          [ { _: 'whether or not the action is currently enabled',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_parameter_type',
+                       'c:identifier': 'g_action_group_get_action_parameter_type',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Queries the type of the parameter that must be given when activating\nthe named action within @action_group.\n\nWhen activating the action using g_action_group_activate_action(),\nthe #GVariant given to that function must be of the type returned\nby this function.\n\nIn the case that this function returns %NULL, you must not give any\n#GVariant, but %NULL instead.\n\nThe parameter type of a particular action will never change but it is\npossible for an action to be removed and for a new action to be added\nwith the same name but a different parameter type.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none', nullable: '1' },
+                         doc: [ { _: 'the parameter type', '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'GLib.VariantType', 'c:type': 'const GVariantType*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_state',
+                       'c:identifier': 'g_action_group_get_action_state',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Queries the current state of the named action within @action_group.\n\nIf the action is not stateful then %NULL will be returned.  If the\naction is stateful then the type of the return value is the type\ngiven by g_action_group_get_action_state_type().\n\nThe return value (if non-%NULL) should be freed with\ng_variant_unref() when it is no longer required.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'full', nullable: '1' },
+                         doc: 
+                          [ { _: 'the current state of the action',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_state_hint',
+                       'c:identifier': 'g_action_group_get_action_state_hint',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Requests a hint about the valid range of values for the state of the\nnamed action within @action_group.\n\nIf %NULL is returned it either means that the action is not stateful\nor that there is no hint about the valid range of values for the\nstate of the action.\n\nIf a #GVariant array is returned then each item in the array is a\npossible value for the state.  If a #GVariant pair (ie: two-tuple) is\nreturned then the tuple specifies the inclusive lower and upper bound\nof valid values for the state.\n\nIn any case, the information is merely a hint.  It may be possible to\nhave a state value outside of the hinted range and setting a value\nwithin the range may fail.\n\nThe return value (if non-%NULL) should be freed with\ng_variant_unref() when it is no longer required.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'full', nullable: '1' },
+                         doc: [ { _: 'the state range hint', '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'get_action_state_type',
+                       'c:identifier': 'g_action_group_get_action_state_type',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Queries the type of the state of the named action within\n@action_group.\n\nIf the action is stateful then this function returns the\n#GVariantType of the state.  All calls to\ng_action_group_change_action_state() must give a #GVariant of this\ntype and g_action_group_get_action_state() will return a #GVariant\nof the same type.\n\nIf the action is not stateful then this function will return %NULL.\nIn that case, g_action_group_get_action_state() will return %NULL\nand you must not call g_action_group_change_action_state().\n\nThe state type of a particular action will never change but it is\npossible for an action to be removed and for a new action to be added\nwith the same name but a different state type.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none', nullable: '1' },
+                         doc: 
+                          [ { _: 'the state type, if the action is stateful',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'GLib.VariantType', 'c:type': 'const GVariantType*' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to query',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'has_action',
+                       'c:identifier': 'g_action_group_has_action',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Checks if the named action exists within @action_group.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         doc: 
+                          [ { _: 'whether the named action exists',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action to check for',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'list_actions',
+                       'c:identifier': 'g_action_group_list_actions',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Lists the actions contained within @action_group.\n\nThe caller is responsible for freeing the list with g_strfreev() when\nit is no longer required.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'full' },
+                         doc: 
+                          [ { _: 'a %NULL-terminated array of the names of the\nactions in the groupb',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         array: 
+                          [ { '$': { 'c:type': 'gchar**' },
+                              type: [ { '$': { name: 'utf8' } } ] } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'query_action',
+                       'c:identifier': 'g_action_group_query_action',
+                       version: '2.32' },
+                    doc: 
+                     [ { _: 'Queries all aspects of the named action within an @action_group.\n\nThis function acquires the information available from\ng_action_group_has_action(), g_action_group_get_action_enabled(),\ng_action_group_get_action_parameter_type(),\ng_action_group_get_action_state_type(),\ng_action_group_get_action_state_hint() and\ng_action_group_get_action_state() with a single function call.\n\nThis provides two main benefits.\n\nThe first is the improvement in efficiency that comes with not having\nto perform repeated lookups of the action in order to discover\ndifferent things about it.  The second is that implementing\n#GActionGroup can now be done by only overriding this one virtual\nfunction.\n\nThe interface provides a default implementation of this function that\ncalls the individual functions, as required, to fetch the\ninformation.  The interface also provides default implementations of\nthose functions that call this function.  All implementations,\ntherefore, must override either this function or all of the others.\n\nIf the action exists, %TRUE is returned and any of the requested\nfields (as indicated by having a non-%NULL reference passed in) are\nfilled.  If the action doesn\'t exist, %FALSE is returned and the\nfields may or may not have been modified.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         doc: 
+                          [ { _: '%TRUE if the action exists, else %FALSE',
+                              '$': { 'xml:space': 'preserve' } } ],
+                         type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean' } } ] } ],
+                    parameters: 
+                     [ { 'instance-parameter': 
+                          [ { '$': { name: 'action_group', 'transfer-ownership': 'none' },
+                              doc: [ { _: 'a #GActionGroup', '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'ActionGroup', 'c:type': 'GActionGroup*' } } ] } ],
+                         parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of an action in the group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'const gchar*' } } ] },
+                            { '$': 
+                               { name: 'enabled',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full' },
+                              doc: 
+                               [ { _: 'if the action is presently enabled',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean*' } } ] },
+                            { '$': 
+                               { name: 'parameter_type',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full',
+                                 optional: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'the parameter type, or %NULL if none needed',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.VariantType', 'c:type': 'const GVariantType**' } } ] },
+                            { '$': 
+                               { name: 'state_type',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full',
+                                 optional: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'the state type, or %NULL if stateless',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.VariantType', 'c:type': 'const GVariantType**' } } ] },
+                            { '$': 
+                               { name: 'state_hint',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full',
+                                 optional: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'the state hint, or %NULL if none',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant**' } } ] },
+                            { '$': 
+                               { name: 'state',
+                                 direction: 'out',
+                                 'caller-allocates': '0',
+                                 'transfer-ownership': 'full',
+                                 optional: '1',
+                                 'allow-none': '1' },
+                              doc: 
+                               [ { _: 'the current state, or %NULL if stateless',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant', 'c:type': 'GVariant**' } } ] } ] } ] } ],
+               'glib:signal': 
+                [ { '$': 
+                     { name: 'action-added',
+                       when: 'last',
+                       detailed: '1',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Signals that a new action was just added to the group.\nThis signal is emitted after the action has been added\nand is now visible.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action in @action_group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'action-enabled-changed',
+                       when: 'last',
+                       detailed: '1',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Signals that the enabled status of the named action has changed.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action in @action_group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'gchar*' } } ] },
+                            { '$': { name: 'enabled', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'whether the action is enabled or not',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'gboolean', 'c:type': 'gboolean' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'action-removed',
+                       when: 'last',
+                       detailed: '1',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Signals that an action is just about to be removed from the group.\nThis signal is emitted before the action is removed, so the action\nis still visible and can be queried from the signal handler.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action in @action_group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'gchar*' } } ] } ] } ] },
+                  { '$': 
+                     { name: 'action-state-changed',
+                       when: 'last',
+                       detailed: '1',
+                       version: '2.28' },
+                    doc: 
+                     [ { _: 'Signals that the state of the named action has changed.',
+                         '$': { 'xml:space': 'preserve' } } ],
+                    'return-value': 
+                     [ { '$': { 'transfer-ownership': 'none' },
+                         type: [ { '$': { name: 'none', 'c:type': 'void' } } ] } ],
+                    parameters: 
+                     [ { parameter: 
+                          [ { '$': { name: 'action_name', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the name of the action in @action_group',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'utf8', 'c:type': 'gchar*' } } ] },
+                            { '$': { name: 'value', 'transfer-ownership': 'none' },
+                              doc: 
+                               [ { _: 'the new value of the state',
+                                   '$': { 'xml:space': 'preserve' } } ],
+                              type: [ { '$': { name: 'GLib.Variant' } } ] } ] } ] } ] }
+
+
+
+    
+    t.deepEqual(mod.exportInterface(intf2),
+        [
+            "export interface ActionGroup {",
+            "    action_added(action_name: string): void",
+            "    action_enabled_changed(action_name: string, enabled: boolean): void",
+            "    action_removed(action_name: string): void",
+            "    action_state_changed(action_name: string, state: GLib.Variant): void",
+            "    activate_action(action_name: string, parameter: GLib.Variant | null): void",
+            "    change_action_state(action_name: string, value: GLib.Variant): void",
+            "    get_action_enabled(action_name: string): boolean",
+            "    get_action_parameter_type(action_name: string): GLib.VariantType | null",
+            "    get_action_state(action_name: string): GLib.Variant | null",
+            "    get_action_state_hint(action_name: string): GLib.Variant | null",
+            "    get_action_state_type(action_name: string): GLib.VariantType | null",
+            "    has_action(action_name: string): boolean",
+            "    list_actions(): any",
+            "    query_action(action_name: string, enabled: boolean, parameter_type: GLib.VariantType | null, state_type: GLib.VariantType | null, state_hint: GLib.Variant | null, state: GLib.Variant | null): boolean",
+            "    vfunc_action_added(action_name: string): void",
+            "    vfunc_action_enabled_changed(action_name: string, enabled: boolean): void",
+            "    vfunc_action_removed(action_name: string): void",
+            "    vfunc_action_state_changed(action_name: string, state: GLib.Variant): void",
+            "    vfunc_activate_action(action_name: string, parameter: GLib.Variant | null): void",
+            "    vfunc_change_action_state(action_name: string, value: GLib.Variant): void",
+            "    vfunc_get_action_enabled(action_name: string): boolean",
+            "    vfunc_get_action_parameter_type(action_name: string): GLib.VariantType | null",
+            "    vfunc_get_action_state(action_name: string): GLib.Variant | null",
+            "    vfunc_get_action_state_hint(action_name: string): GLib.Variant | null",
+            "    vfunc_get_action_state_type(action_name: string): GLib.VariantType | null",
+            "    vfunc_has_action(action_name: string): boolean",
+            "    vfunc_list_actions(): any",
+            "    vfunc_query_action(action_name: string, enabled: boolean, parameter_type: GLib.VariantType | null, state_type: GLib.VariantType | null, state_hint: GLib.Variant | null, state: GLib.Variant | null): boolean",
+            "    connect(sigName: \"action-added\", callback: ((action_name: string) => void): void",
+            "    connect(sigName: \"action-enabled-changed\", callback: ((action_name: string, enabled: boolean) => void): void",
+            "    connect(sigName: \"action-removed\", callback: ((action_name: string) => void): void",
+            "    connect(sigName: \"action-state-changed\", callback: ((action_name: string, value: GLib.Variant) => void): void",
+            "}",
+        ])
+
 })

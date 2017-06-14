@@ -32,7 +32,7 @@ interface GirVariable {
     doc?: GirDoc[]
     type?: GirType[]
     array?: {
-        $: {
+        $?: {
             length: string
             "zero-terminated"?: string
             "c:type"?: string
@@ -361,6 +361,14 @@ export class GirModule {
         return [`${prefix}${name}(${params}): ${retType}`]
     }
 
+    private getSignalFunc(e: GirFunction) {
+        let sigName = e.$.name
+        let params = this.getParameters(e.parameters)
+        let retType = this.getReturnType(e) 
+
+        return [`    connect(sigName: "${sigName}", callback: ((${params}) => ${retType}): void`]
+    }
+
     exportFunction(e: GirFunction) {
         return this.getFunction(e, "export function ")
     }
@@ -402,8 +410,11 @@ export class GirModule {
         if (e.property)
             for (let p of e.property)
                 def = def.concat(this.getProperty(p))
-        // property
-        // signals (glib:signal)
+
+        let signals = e["glib:signal"]
+        if (signals)
+            for (let s of signals)
+                def = def.concat(this.getSignalFunc(s))
 
         def.push("}")
         return def

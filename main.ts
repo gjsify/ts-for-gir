@@ -38,7 +38,8 @@ interface GirVariable {
     }
 }
 interface GirParameter {
-    parameter: GirVariable[]
+    parameter?: GirVariable[]
+    "instance-parameter"?: GirVariable[]
 }
 interface GirFunction {
     $: {
@@ -268,7 +269,9 @@ export class GirModule {
 
         if (parameters)
             for (let p of parameters) {
-                let param = p.parameter[0]
+                let param
+                if (p.parameter) param = p.parameter[0]
+                else continue
                 let paramName = param.$.name
                 let paramType = this.typeLookup(param)
                 def.push(`${paramName}: ${paramType}`)
@@ -297,12 +300,16 @@ export class GirModule {
         return [`export const ${name}:${typeName}`]
     }
 
-    exportFunction(e: GirFunction) {
+    private getFunction(e: GirFunction, prefix: string) {
         let name = e.$.name
         let params = this.getParameters(e.parameters)
         let retType = this.getReturnType(e)
 
-        return [`export function ${name}(${params}): ${retType}`]
+        return [`${prefix}${name}(${params}): ${retType}`]
+    }
+
+    exportFunction(e: GirFunction) {
+        return this.getFunction(e, "export function ")
     }
 
     exportCallback(e: GirFunction) {
@@ -313,6 +320,30 @@ export class GirModule {
         let def: string[] = []
         def.push(`export interface ${name} {`)
         def.push(`    (${params}): ${retType}`)
+        def.push("}")
+        return def
+    }
+
+    exportInterface(e: GirInterface) {
+        let name = e.$.name
+
+        let def: string[] = []
+        def.push(`export interface ${name} {`)
+
+        if (e.function)
+            for (let f of e.function)
+                def = def.concat(this.getFunction(f, "    "))
+
+        // XXX: what's the difference between function and method here?
+
+        if (e.method)
+            for (let f of e.method)
+                def = def.concat(this.getFunction(f, "    "))
+
+        // property
+        // virtual-method
+        // signals (glib:signal)
+
         def.push("}")
         return def
     }
@@ -349,6 +380,15 @@ export class GirModule {
         if (this.ns.callback)
             for (let e of this.ns.callback)
                 out = out.concat(this.exportCallback(e))
+
+        if (this.ns.interface)
+            for (let e of this.ns.interface)
+                out = out.concat(this.exportInterface(e))
+
+        // alias
+        // class
+        // interface
+        // record
 
         outStream.write(out.join("\n"))
     }

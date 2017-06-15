@@ -383,7 +383,7 @@ export class GirModule {
     }
 
     private getFunction(e: GirFunction, prefix: string, funcNamePrefix: string|null = null) {
-        if (e.$.introspectable != null && parseInt(e.$.introspectable) == 0)
+        if (!this.girBool(e.$.introspectable, true))
             return []
 
         let name = e.$.name

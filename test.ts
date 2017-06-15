@@ -182,11 +182,6 @@ test('interface', t => {
     t.deepEqual(mod.exportInterface(TestData.interfaceAction),
         [ 
             "export interface Action_ConstructProps {",
-            "    enabled:boolean",
-            "    name:string",
-            "    parameter_type:GLib.VariantType",
-            "    state:GLib.Variant",
-            "    state_type:GLib.VariantType",
             "}",
 
             "export interface Action {",
@@ -218,7 +213,7 @@ test('interface', t => {
             "}",
 
             "export interface Action_Static {",
-            "    new (config: any): Action",
+            "    new (config: Action_ConstructProps): Action",
             "}",
 
             "export declare class Action_Static {",
@@ -270,7 +265,7 @@ test('interface', t => {
             "    connect(sigName: \"action-state-changed\", callback: ((action_name: string, value: GLib.Variant) => void): void",
             "}",
             "export interface ActionGroup_Static {",
-                "    new (config: any): ActionGroup",
+                "    new (config: ActionGroup_ConstructProps): ActionGroup",
             "}",
             "export declare var ActionGroup: ActionGroup_Static",    
 
@@ -304,8 +299,50 @@ test('constructors', t => {
             "    unref(): void",
             "}",
             "export interface DBusNodeInfo_Static {",
-            "    new (config: any): DBusNodeInfo",
+            "    new (config: DBusNodeInfo_ConstructProps): DBusNodeInfo",
             "}",
             "export declare var DBusNodeInfo: DBusNodeInfo_Static",   
+        ])
+})
+
+test('class', t => {
+    let symTable = {
+        'GObject.Object': TestData.classGObject
+    }
+
+    let mod = new GirModule(emptyRepositoryXml)
+    t.is(mod.name, "Test")
+
+    mod.symTable = symTable
+
+    t.deepEqual(mod.exportClass(TestData.classApplicationCommandLine),
+        [
+            "export interface ApplicationCommandLine_ConstructProps {",
+            "    \"arguments\"?:any",
+            "    options?:any",
+            "    platform_data?:any",
+            "}",
+            "export interface ApplicationCommandLine {",
+            "    create_file_for_arg(arg: string): any",
+            "    get_arguments(argc: number | null): string[]",
+            "    get_cwd(): string",
+            "    get_environ(): string[]",
+            "    get_exit_status(): number",
+            "    get_is_remote(): boolean",
+            "    get_options_dict(): any",
+            "    get_platform_data(): any",
+            "    get_stdin(): any",
+            "    getenv(name: string): string",
+            "    set_exit_status(exit_status: number): void",
+            "    vfunc_get_stdin(): any",
+            "    vfunc_print_literal(message: string): void",
+            "    vfunc_printerr_literal(message: string): void",
+            "    readonly is_remote:boolean",
+            "}",
+            "export interface ApplicationCommandLine_Static {",
+            "    new (config: ApplicationCommandLine_ConstructProps): ApplicationCommandLine",
+            "}",
+            "export declare var ApplicationCommandLine: ApplicationCommandLine_Static",
+
         ])
 })

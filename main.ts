@@ -86,7 +86,10 @@ interface GirClass {
     }
     doc?: GirDoc[]
     function?: GirFunction[]
-    "glib:signal": GirSignal[]
+    "glib:signal"?: GirSignal[]
+    method?: GirFunction[]
+    property?: GirVariable[]
+    "virtual-method"?: GirFunction[]
 }
 interface GirField {
     $: {
@@ -210,9 +213,11 @@ export class GirModule {
         else
             return "any";
 
-        let nullable = e.$.nullable || e.$["allow-none"]
-        if (nullable && parseInt(nullable) != 0) {
-            nul = ' | null'
+        if (e.$) {
+            let nullable = this.girBool(e.$.nullable) || this.girBool(e.$["allow-none"])
+            if (nullable) {
+                nul = ' | null'
+            }
         }
 
         let suffix = arr + nul
@@ -317,40 +322,51 @@ export class GirModule {
         return def.join(", ")
     }
 
-    private fixVariableName(name: string) {
-        switch(name) {
-            case 'in': return 'in_'
-            case 'function': return 'function_'
-            case 'true': return 'true_'
-            case 'false': return 'false_'
-            case 'break': return 'break_'
-            case 'arguments': return 'arguments_'
-            case 'eval': return 'eval_'
-            case 'default': return 'default_'
-            case 'new': return 'new_'
+    private fixVariableName(name: string, allowQuotes: boolean) {
+        let reservedNames = {
+            'in': 1,
+            'function': 1,
+            'true': 1,
+            'false': 1,
+            'break': 1,
+            'arguments': 1,
+            'eval': 1,
+            'default': 1,
+            'new': 1
         }
-        return name.replace("-", "_")
+
+        // GJS always re-writes - to _ (I think?)
+        name = name.replace("-", "_")
+
+        if (reservedNames[name]) {
+            if (allowQuotes)
+                return `"${name}"`
+            else
+                return `${name}_`
+        }
+        return name
     }
 
-    private getVariable(v: GirVariable) {
+    private getVariable(v: GirVariable, optional: boolean = false, 
+                        allowQuotes: boolean = false) {
         if (!v.$.name)
             return ''
 
-        let name = this.fixVariableName(v.$.name)
+        let name = this.fixVariableName(v.$.name, allowQuotes)
         let typeName = this.typeLookup(v)
+        let nameSuffix = optional ? "?" : ""
 
-        return `${name}:${typeName}`
+        return `${name}${nameSuffix}:${typeName}`
     }
 
     private getProperty(v: GirVariable, construct: boolean = false) {
         if (this.girBool(v.$["construct-only"]) && !construct)
             return []
+        if (!this.girBool(v.$.writable) && construct)
+            return []
 
-        if (this.girBool(v.$.writable) && !construct)
-            console.warn("Non-writable, non-construct-only prop: " + v.$.name)
-
-        let propPrefix = (this.girBool(v.$.writable) || construct) ? '' : 'readonly '
-        let propDesc = this.getVariable(v)
+        let propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
+        let propDesc = this.getVariable(v, construct, true)
 
         return [`    ${propPrefix}${propDesc}`]
     }
@@ -411,12 +427,21 @@ export class GirModule {
         return def
     }
 
-    exportInterface(e: GirInterface) {
+    private exportObjectInternal(e: GirInterface | GirClass) {
         let name = e.$.name
+        let parent
+
+        if ((e as GirClass).$.parent) {
+            let parentName: string | undefined = (e as GirClass).$.parent
+            if (parentName)
+                parent = this.symTable[parentName]
+        }
 
         let def: string[] = []
 
         // Properties for construction
+        // XXX: shouldn't really make this for interfaces, as they
+        // can't be instantiated?
         def.push(`export interface ${name}_ConstructProps {`)
         if (e.property)
             for (let p of e.property)
@@ -430,6 +455,8 @@ export class GirModule {
         if (e.method)
             for (let f of e.method)
                 def = def.concat(this.getFunction(f, "    "))
+
+        
 
         // Instance methods, vfunc_ prefix
         let vmeth = e["virtual-method"]
@@ -456,7 +483,7 @@ export class GirModule {
         // GObject?
         if (e.constructor && e.constructor.length > 0) {
             // FIXME: type for construct properties
-            def.push(`    new (config: any): ${name}`)
+            def.push(`    new (config: ${name}_ConstructProps): ${name}`)
         }
         def.push("}")
 
@@ -473,8 +500,12 @@ export class GirModule {
         return def
     }
 
-    private exportClass(e: GirClass | GirRecord | GirInterface) {
+    exportInterface(e: GirInterface) {
+        return this.exportObjectInternal(e)
+    }
 
+    exportClass(e: GirClass) {
+        return this.exportObjectInternal(e)
     }
 
     export(symTable, outStream) {
@@ -563,7 +594,7 @@ function main() {
         })
     }
 
-    // console.dir(girModules["Gio-2.0"], { depth: null })
+    // console.dir(girModules["GObject-2.0"], { depth: null })
 
     console.log("Files parsed, loading types...")
 

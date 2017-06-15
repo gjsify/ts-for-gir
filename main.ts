@@ -433,6 +433,8 @@ export class GirModule {
         def.push(`export interface ${name}_Static {`)
         // FIXME: what logic does GJS choose here? When should we generate
         // the default GJS constructor?
+        // I think this should only happen for things derived from
+        // GObject?
         if (e.constructor && e.constructor.length > 0) {
             // FIXME: type for construct properties
             def.push(`    new (config: any): ${name}`)

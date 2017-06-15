@@ -86,7 +86,7 @@ interface GirClass {
     }
     doc?: GirDoc[]
     function?: GirFunction[]
-    "glib:signal"?: GirSignal[]
+    "glib:signal"?: GirFunction[]
     method?: GirFunction[]
     property?: GirVariable[]
     "virtual-method"?: GirFunction[]
@@ -420,9 +420,22 @@ export class GirModule {
         return def
     }
 
+    private traverseInheritanceTree(e: GirClass, callback: ((cls: GirClass) => void)) {
+        let parent: GirClass | undefined = undefined
+        if (e.$.parent) {
+            let parentName = e.$.parent
+            parent = this.symTable[parentName]
+        }
+
+        callback(e)
+
+        if (parent)
+            this.traverseInheritanceTree(parent, callback)
+    }
+
     private exportObjectInternal(e: GirInterface | GirClass) {
         let name = e.$.name
-        let parent
+        let parent: GirClass | undefined
 
         if ((e as GirClass).$.parent) {
             let parentName: string | undefined = (e as GirClass).$.parent
@@ -436,35 +449,43 @@ export class GirModule {
         // XXX: shouldn't really make this for interfaces, as they
         // can't be instantiated?
         def.push(`export interface ${name}_ConstructProps {`)
-        if (e.property)
-            for (let p of e.property)
-                def = def.concat(this.getProperty(p, true))
+        this.traverseInheritanceTree(e, (cls) => {
+            if (cls.property)
+                for (let p of cls.property)
+                    def = def.concat(this.getProperty(p, true))
+        })
         def.push("}")
 
         // Instance side
         def.push(`export interface ${name} {`)
 
         // Instance methods
-        if (e.method)
-            for (let f of e.method)
-                def = def.concat(this.getFunction(f, "    "))
-
-        
+        this.traverseInheritanceTree(e, (cls) => {
+            if (cls.method)
+                for (let f of cls.method)
+                    def = def.concat(this.getFunction(f, "    "))
+        })        
 
         // Instance methods, vfunc_ prefix
-        let vmeth = e["virtual-method"]
-        if (vmeth)
-            for (let f of vmeth)
-                def = def.concat(this.getFunction(f, "    ", "vfunc_"))
+        this.traverseInheritanceTree(e, (cls) => {
+            let vmeth = cls["virtual-method"]
+            if (vmeth)
+                for (let f of vmeth)
+                    def = def.concat(this.getFunction(f, "    ", "vfunc_"))
+        })
         
-        if (e.property)
-            for (let p of e.property)
-                def = def.concat(this.getProperty(p))
+        this.traverseInheritanceTree(e, (cls) => {
+            if (cls.property)
+                for (let p of cls.property)
+                    def = def.concat(this.getProperty(p))
+        })
 
-        let signals = e["glib:signal"]
-        if (signals)
-            for (let s of signals)
-                def = def.concat(this.getSignalFunc(s))
+        this.traverseInheritanceTree(e, (cls) => {
+            let signals = cls["glib:signal"]
+            if (signals)
+                for (let s of signals)
+                    def = def.concat(this.getSignalFunc(s))
+        })
 
         def.push("}")
 

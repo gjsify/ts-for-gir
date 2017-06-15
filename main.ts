@@ -22,13 +22,13 @@ interface GirType {
     }
 }
 interface GirArray {
-        $?: {
-            length?: string
-            "zero-terminated"?: string
-            "c:type"?: string
-        }
-        type?: GirType[]
+    $?: {
+        length?: string
+        "zero-terminated"?: string
+        "c:type"?: string
     }
+    type?: GirType[]
+}
 interface GirVariable {
     $: {
         name?: string
@@ -36,6 +36,8 @@ interface GirVariable {
         nullable?: string
         "allow-none"?: string
         writable?: string
+        readable?: string
+        "construct-only"?: string
     }
     doc?: GirDoc[]
     type?: GirType[]
@@ -278,6 +280,15 @@ export class GirModule {
         return fullTypeName + suffix
     }
 
+    private girBool(e: string | undefined, defaultVal: boolean = false): boolean {
+        if (e) {
+            if (parseInt(e) == 0)
+                return false
+            return true
+        }
+        return defaultVal
+    }
+
     private getReturnType(e) {
         let returnType
 
@@ -331,13 +342,14 @@ export class GirModule {
         return `${name}:${typeName}`
     }
 
-    private getProperty(v: GirVariable) {
-        let propPrefix
-        if (v.$.writable && parseInt(v.$.writable) == 1)
-            propPrefix = ''
-        else
-            propPrefix = 'readonly '
+    private getProperty(v: GirVariable, construct: boolean = false) {
+        if (this.girBool(v.$["construct-only"]) && !construct)
+            return []
 
+        if (this.girBool(v.$.writable) && !construct)
+            console.warn("Non-writable, non-construct-only prop: " + v.$.name)
+
+        let propPrefix = (this.girBool(v.$.writable) || construct) ? '' : 'readonly '
         let propDesc = this.getVariable(v)
 
         return [`    ${propPrefix}${propDesc}`]
@@ -403,6 +415,13 @@ export class GirModule {
         let name = e.$.name
 
         let def: string[] = []
+
+        // Properties for construction
+        def.push(`export interface ${name}_ConstructProps {`)
+        if (e.property)
+            for (let p of e.property)
+                def = def.concat(this.getProperty(p, true))
+        def.push("}")
 
         // Instance side
         def.push(`export interface ${name} {`)

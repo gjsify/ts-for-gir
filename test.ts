@@ -181,6 +181,14 @@ test('interface', t => {
 
     t.deepEqual(mod.exportInterface(TestData.interfaceAction),
         [ 
+            "export interface Action_ConstructProps {",
+            "    enabled:boolean",
+            "    name:string",
+            "    parameter_type:GLib.VariantType",
+            "    state:GLib.Variant",
+            "    state_type:GLib.VariantType",
+            "}",
+
             "export interface Action {",
 
             "    activate(parameter: GLib.Variant | null): void",
@@ -225,6 +233,8 @@ test('interface', t => {
     
     t.deepEqual(mod.exportInterface(TestData.interfaceActionGroup),
         [
+            "export interface ActionGroup_ConstructProps {",
+            "}",
             "export interface ActionGroup {",
             "    action_added(action_name: string): void",
             "    action_enabled_changed(action_name: string, enabled: boolean): void",
@@ -283,6 +293,9 @@ test('constructors', t => {
 
     t.deepEqual(mod.exportInterface(TestData.interfaceDBusNodeInfo),
         [
+            "export interface DBusNodeInfo_ConstructProps {",
+            "}",
+
             "export interface DBusNodeInfo {",
             "    generate_xml(indent: number, string_builder: GLib.String): void",
             "    lookup_interface(name: string): DBusInterfaceInfo",

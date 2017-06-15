@@ -323,16 +323,9 @@ export class GirModule {
     }
 
     private fixVariableName(name: string, allowQuotes: boolean) {
-        let reservedNames = {
-            'in': 1,
-            'function': 1,
-            'true': 1,
-            'false': 1,
-            'break': 1,
-            'arguments': 1,
-            'eval': 1,
-            'default': 1,
-            'new': 1
+        const reservedNames = {
+            'in': 1, 'function': 1, 'true': 1, 'false': 1, 'break': 1,
+            'arguments': 1, 'eval': 1, 'default': 1, 'new': 1
         }
 
         // GJS always re-writes - to _ (I think?)

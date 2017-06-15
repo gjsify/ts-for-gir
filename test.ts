@@ -307,7 +307,11 @@ test('constructors', t => {
 
 test('class', t => {
     let symTable = {
-        'GObject.Object': TestData.classGObject
+        'GObject.Object': TestData.classGObject,
+        'GLib.Variant': 1,
+        'GLib.VariantDict': 1,
+        'Test.File': 1,
+        'Test.InputStream': 1
     }
 
     let mod = new GirModule(emptyRepositoryXml)
@@ -318,23 +322,23 @@ test('class', t => {
     t.deepEqual(mod.exportClass(TestData.classApplicationCommandLine),
         [
             "export interface ApplicationCommandLine_ConstructProps {",
-            "    \"arguments\"?:any",
-            "    options?:any",
-            "    platform_data?:any",
+            "    \"arguments\"?:GLib.Variant",
+            "    options?:GLib.Variant",
+            "    platform_data?:GLib.Variant",
             "}",
             "export interface ApplicationCommandLine {",
-            "    create_file_for_arg(arg: string): any",
+            "    create_file_for_arg(arg: string): File",
             "    get_arguments(argc: number | null): string[]",
             "    get_cwd(): string",
             "    get_environ(): string[]",
             "    get_exit_status(): number",
             "    get_is_remote(): boolean",
-            "    get_options_dict(): any",
-            "    get_platform_data(): any",
-            "    get_stdin(): any",
+            "    get_options_dict(): GLib.VariantDict",
+            "    get_platform_data(): GLib.Variant | null",
+            "    get_stdin(): InputStream",
             "    getenv(name: string): string",
             "    set_exit_status(exit_status: number): void",
-            "    vfunc_get_stdin(): any",
+            "    vfunc_get_stdin(): InputStream",
             "    vfunc_print_literal(message: string): void",
             "    vfunc_printerr_literal(message: string): void",
             "    readonly is_remote:boolean",

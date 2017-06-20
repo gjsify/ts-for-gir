@@ -261,6 +261,7 @@ export class GirModule {
         // if (this.ns.)
         // props
         
+        this.symTable = dict
     }
 
     private typeLookup(e: GirVariable) {
@@ -651,8 +652,6 @@ export class GirModule {
     }
 
     export(symTable, outStream) {
-        this.symTable = symTable
-
         let out: string[] = []
 
         out.push("/**")
@@ -747,7 +746,7 @@ function main() {
         })
     }
 
-    // console.dir(girModules["GObject-2.0"], { depth: null })
+    //console.dir(girModules["GObject-2.0"], { depth: null })
 
     console.log("Files parsed, loading types...")
 

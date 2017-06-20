@@ -659,7 +659,7 @@ export class GirModule {
         return this.exportObjectInternal(e)
     }
 
-    export(symTable, outStream) {
+    export(outStream: NodeJS.WritableStream) {
         let out: string[] = []
 
         out.push("/**")
@@ -718,6 +718,8 @@ function main() {
             "GIR modules to load, e.g. 'Gio-2.0'. May be specified multiple " +
             "times", (val, lst) => { lst.push(val); return lst },
             [])
+        .option("-o --outdir [dir]",
+            "Directory to output to", null)
         .parse(process.argv)
 
     let girModules: { [key: string]: GirModule } = {}
@@ -767,7 +769,14 @@ function main() {
     console.log("Types loaded, generating .d.ts...")
     
     for (let k of lodash.keys(girModules)) {
-        girModules[k].export(symTable, process.stdout)
+        let outf: NodeJS.WritableStream = process.stdout
+        if (commander.outdir) {
+            let outdir: string = commander.outdir
+            let name: string = girModules[k].name || 'unknown'
+            let fileName: string = `${outdir}/${name}.d.ts`
+            outf = fs.createWriteStream(fileName)
+        }
+        girModules[k].export(outf)
     }
 }
 

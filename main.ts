@@ -614,6 +614,7 @@ export class GirModule {
                 for (let s of signals)
                     def = def.concat(this.getModule(s   ).getSignalFunc(s))
             }
+            // FIXME: notify:: signals
         })
 
         // TODO: Records have fields
@@ -665,6 +666,14 @@ export class GirModule {
         out.push("/**")
         out.push(` * ${this.name}-${this.version}`)
         out.push(" */")
+
+        out.push("")
+
+        if (this.dependencies)
+            for (let d of this.dependencies) {
+                let base = d.split('-')[0]
+                out.push(`import * as ${base} from './${base}'`)
+            }
 
         if (this.ns.enumeration)
             for (let e of this.ns.enumeration)

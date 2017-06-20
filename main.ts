@@ -436,15 +436,15 @@ export class GirModule {
     }
 
     private getVariable(v: GirVariable, optional: boolean = false, 
-                        allowQuotes: boolean = false) {
+                        allowQuotes: boolean = false): [string[], string|null] {
         if (!v.$.name)
-            return ''
+            return [[], null]
 
         let name = this.fixVariableName(v.$.name, allowQuotes)
         let typeName = this.typeLookup(v)
         let nameSuffix = optional ? "?" : ""
 
-        return `${name}${nameSuffix}:${typeName}`
+        return [[`${name}${nameSuffix}:${typeName}`], name]
     }
 
     private getProperty(v: GirVariable, construct: boolean = false) {
@@ -454,9 +454,9 @@ export class GirModule {
             return []
 
         let propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
-        let propDesc = this.getVariable(v, construct, true)
+        let [propDesc,propName] = this.getVariable(v, construct, true)
 
-        return [`    ${propPrefix}${propDesc}`]
+        return [`    ${propPrefix}${propDesc}`, propName]
     }
 
     exportEnumeration(e: GirEnumeration) {
@@ -476,13 +476,13 @@ export class GirModule {
     }
 
     exportConstant(e: GirVariable) {
-        let varDesc = this.getVariable(e)
+        let [varDesc, varName] = this.getVariable(e)
         return [`export const ${varDesc}`]
     }
 
-    private getFunction(e: GirFunction, prefix: string, funcNamePrefix: string|null = null) {
+    private getFunction(e: GirFunction, prefix: string, funcNamePrefix: string | null = null): [string[], string | null] {
         if (!this.girBool(e.$.introspectable, true))
-            return []
+            return [[], null]
 
         let name = e.$.name
         let params = this.getParameters(e.parameters)
@@ -492,13 +492,13 @@ export class GirModule {
             name = funcNamePrefix + name
 
         let reservedWords = {
-            'false': 1, 'true': 1, 'break': 1   
+            'false': 1, 'true': 1, 'break': 1
         }
 
         if (reservedWords[name])
-            return [`/* Function '${name}' is a reserved word */`]
+            return [[`/* Function '${name}' is a reserved word */`], null]
 
-        return [`${prefix}${name}(${params}): ${retType}`]
+        return [[`${prefix}${name}(${params}): ${retType}`], name]
     }
 
     private getSignalFunc(e: GirFunction) {
@@ -510,7 +510,7 @@ export class GirModule {
     }
 
     exportFunction(e: GirFunction) {
-        return this.getFunction(e, "export function ")
+        return this.getFunction(e, "export function ")[0]
     }
 
     exportCallback(e: GirFunction) {
@@ -582,23 +582,53 @@ export class GirModule {
         this.traverseInheritanceTree(e, (cls) => {
             if (cls.property) {
                 def.push(`    /* Properties of ${cls.$.name} */`)
-                for (let p of cls.property)
-                    def = def.concat(this.getModule(p).getProperty(p, true))
+                for (let p of cls.property) {
+                    let [desc, name] = this.getModule(p).getProperty(p, true)
+                    def = def.concat(desc)
+                }
             }
         })
         def.push("}")
 
         // Instance side
         def.push(`export interface ${name} {`)
+        
+        let localNames = {}
+
+        this.traverseInheritanceTree(e, (cls) => {
+            if (cls.property) {
+                def.push(`    /* Properties of ${cls.$.name} */`)
+                for (let p of cls.property) {
+                    let [desc, name] = this.getModule(p).getProperty(p)
+                    if (!name || !desc)
+                        continue
+                    if (localNames[name]) {
+                        def.push(`    /* Property ${name} already defined */`)
+                    } else {
+                        localNames[name] = 1
+                        def = def.concat(desc)
+                    }
+                }
+            }
+        })
 
         // Instance methods
         this.traverseInheritanceTree(e, (cls) => {
             if (cls.method) {
                 def.push(`    /* Methods of ${cls.$.name} */`)
-                for (let f of cls.method)
-                    def = def.concat(this.getModule(f).getFunction(f, "    "))
+                for (let f of cls.method) {
+                    let [desc, name] = this.getModule(f).getFunction(f, "    ")[0]
+                    if (!name || !desc)
+                        continue
+                    if (localNames[name]) {
+                        def.push(`    /* Property ${name} already defined */`)
+                    } else {
+                        localNames[name] = 1
+                        def = def.concat(desc)
+                    }
+                }
             }
-        })        
+        })
 
         // Instance methods, vfunc_ prefix
         this.traverseInheritanceTree(e, (cls) => {
@@ -606,15 +636,7 @@ export class GirModule {
             if (vmeth) {
                 def.push(`    /* Virtual methods of ${cls.$.name} */`)
                 for (let f of vmeth)
-                    def = def.concat(this.getModule(f).getFunction(f, "    ", "vfunc_"))
-            }
-        })
-        
-        this.traverseInheritanceTree(e, (cls) => {
-            if (cls.property) {
-                def.push(`    /* Properties of ${cls.$.name} */`)
-                for (let p of cls.property)
-                    def = def.concat(this.getModule(p).getProperty(p))
+                    def = def.concat(this.getModule(f).getFunction(f, "    ", "vfunc_")[0])
             }
         })
 
@@ -647,7 +669,7 @@ export class GirModule {
         if (e.function) {
             def.push(`export declare class ${name}_Static {`)
             for (let f of e.function)
-                def = def.concat(this.getFunction(f, "    "))
+                def = def.concat(this.getFunction(f, "    ")[0])
             def.push("}")
         }
 
@@ -686,7 +708,6 @@ export class GirModule {
             let base = d.split('-')[0]
             out.push(`import * as ${base} from './${base}'`)
         }
-
 
         if (this.ns.enumeration)
             for (let e of this.ns.enumeration)
@@ -815,8 +836,8 @@ function main() {
         }
 
         mod.transitiveDependencies = arr
-        console.log("mod " + mod.name)
-        console.dir(arr)
+        //console.log("mod " + mod.name)
+        //console.dir(arr)
     }
 
     console.log("Types loaded, generating .d.ts...")

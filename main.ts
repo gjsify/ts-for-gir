@@ -407,7 +407,7 @@ export class GirModule {
             let parametersArray = parameters[0].parameter
             if (parametersArray)
                 for (let param of parametersArray) {
-                    let paramName = param.$.name
+                    let paramName = this.fixVariableName(param.$.name, false)
                     let paramType = this.typeLookup(param)
                     def.push(`${paramName}: ${paramType}`)
                 }
@@ -423,7 +423,7 @@ export class GirModule {
         }
 
         // GJS always re-writes - to _ (I think?)
-        name = name.replace("-", "_")
+        name = name.replace(/-/g, "_")
 
         if (reservedNames[name]) {
             if (allowQuotes)
@@ -464,7 +464,10 @@ export class GirModule {
         if (e.member) {
             for (let member of e.member) {
                 let name = member.$.name.toUpperCase()
-                def.push(`    ${name},`)
+                if (/\d/.test(name[0]))
+                    def.push(`    /* ${name} (invalid, starts with a number) */`)
+                else
+                    def.push(`    ${name},`)
             }
         }
         def.push("}")
@@ -487,6 +490,13 @@ export class GirModule {
         if (funcNamePrefix)
             name = funcNamePrefix + name
 
+        let reservedWords = {
+            'false': 1, 'true': 1, 'break': 1   
+        }
+
+        if (reservedWords[name])
+            return [`/* Function '${name}' is a reserved word */`]
+
         return [`${prefix}${name}(${params}): ${retType}`]
     }
 
@@ -495,7 +505,7 @@ export class GirModule {
         let params = this.getParameters(e.parameters)
         let retType = this.getReturnType(e) 
 
-        return [`    connect(sigName: "${sigName}", callback: ((${params}) => ${retType}): void`]
+        return [`    connect(sigName: "${sigName}", callback: ((${params}) => ${retType}))`]
     }
 
     exportFunction(e: GirFunction) {
@@ -669,11 +679,19 @@ export class GirModule {
 
         out.push("")
 
-        if (this.dependencies)
-            for (let d of this.dependencies) {
-                let base = d.split('-')[0]
-                out.push(`import * as ${base} from './${base}'`)
-            }
+        let deps: string[] = this.dependencies || []
+        let baseModName = this.name ? this.name.split('-')[0] : ''
+
+        if (deps.indexOf('GLib-2.0') < 0 && baseModName != 'Glib' && baseModName != 'GObject')
+            deps.push('GLib')
+        if (deps.indexOf('GObject-2.0') < 0 && baseModName != 'GObject')
+            deps.push('GObject')
+
+        for (let d of deps) {
+            let base = d.split('-')[0]
+            out.push(`import * as ${base} from './${base}'`)
+        }
+
 
         if (this.ns.enumeration)
             for (let e of this.ns.enumeration)

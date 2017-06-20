@@ -575,16 +575,28 @@ export class GirModule {
         let name = e.$.name
         let def: string[] = []
 
+        let checkName = (desc, name, localNames) => {
+            if (!name || !desc)
+                return []
+            if (localNames[name]) {
+                return [`    /* ${name} already defined */`]
+            } else {
+                localNames[name] = 1
+                return desc
+            }
+        }
+
         // Properties for construction
         // XXX: shouldn't really make this for interfaces, as they
         // can't be instantiated?
         def.push(`export interface ${name}_ConstructProps {`)
+        let constructPropNames = {}
         this.traverseInheritanceTree(e, (cls) => {
             if (cls.property) {
                 def.push(`    /* Properties of ${cls.$.name} */`)
                 for (let p of cls.property) {
                     let [desc, name] = this.getModule(p).getProperty(p, true)
-                    def = def.concat(desc)
+                    def = def.concat(checkName(desc, name, constructPropNames))
                 }
             }
         })
@@ -600,14 +612,7 @@ export class GirModule {
                 def.push(`    /* Properties of ${cls.$.name} */`)
                 for (let p of cls.property) {
                     let [desc, name] = this.getModule(p).getProperty(p)
-                    if (!name || !desc)
-                        continue
-                    if (localNames[name]) {
-                        def.push(`    /* Property ${name} already defined */`)
-                    } else {
-                        localNames[name] = 1
-                        def = def.concat(desc)
-                    }
+                    def = def.concat(checkName(desc, name, localNames))
                 }
             }
         })
@@ -618,14 +623,7 @@ export class GirModule {
                 def.push(`    /* Methods of ${cls.$.name} */`)
                 for (let f of cls.method) {
                     let [desc, name] = this.getModule(f).getFunction(f, "    ")[0]
-                    if (!name || !desc)
-                        continue
-                    if (localNames[name]) {
-                        def.push(`    /* Property ${name} already defined */`)
-                    } else {
-                        localNames[name] = 1
-                        def = def.concat(desc)
-                    }
+                    def = def.concat(checkName(desc, name, localNames))
                 }
             }
         })
@@ -635,8 +633,10 @@ export class GirModule {
             let vmeth = cls["virtual-method"]
             if (vmeth) {
                 def.push(`    /* Virtual methods of ${cls.$.name} */`)
-                for (let f of vmeth)
-                    def = def.concat(this.getModule(f).getFunction(f, "    ", "vfunc_")[0])
+                for (let f of vmeth) {
+                    let [desc, name] = this.getModule(f).getFunction(f, "    ", "vfunc_")
+                    def = def.concat(checkName(desc, name, localNames))
+                }
             }
         })
 

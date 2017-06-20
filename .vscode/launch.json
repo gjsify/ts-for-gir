@@ -10,7 +10,7 @@
             "name": "Launch Program",
             "program": "${workspaceRoot}/main.js",
             "args": [
-                "-m", "Gio-2.0"
+                "-m", "Gtk-3.0"
             ],
             "outFiles": [
                 "${workspaceRoot}/main.js"

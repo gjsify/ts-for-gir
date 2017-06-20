@@ -236,6 +236,14 @@ export class GirModule {
                     annotateFunctionReturn(f)
                 }
         }
+        let annotateVariables = (vars) => {
+            if (vars)
+                for (let x of vars) {
+                    x._module = this
+                    if (x.$ && x.$.name)
+                        x._fullSymName = `${this.name}.${x.$.name}`
+                }
+        }
 
         if (this.ns.callback) 
             for (let f of this.ns.callback) 
@@ -247,6 +255,7 @@ export class GirModule {
                 annotateFunctions(c.method)
                 annotateFunctions(c["virtual-method"])
                 annotateFunctions(c["glib:signal"])
+                annotateVariables(c.property)
             }
 
         // if (this.ns.)
@@ -358,7 +367,7 @@ export class GirModule {
         }
 
         if (this.symTable[fullTypeName] == null) {
-            console.warn("Could not find type " + fullTypeName)
+            console.warn(`Could not find type ${fullTypeName} for ${e.$.name}`)
             return "any" + arr
         }
 
@@ -534,7 +543,7 @@ export class GirModule {
             } 
         }
 
-        console.log(`${e.$.name} : ${parent && parent.$ ? parent.$.name : 'none'} : ${parentModule ? parentModule.name : 'none'}`)
+        // console.log(`${e.$.name} : ${parent && parent.$ ? parent.$.name : 'none'} : ${parentModule ? parentModule.name : 'none'}`)
 
         callback(e)
 
@@ -690,7 +699,7 @@ export class GirModule {
             for (let e of this.ns.alias)
                 out = out.concat(this.exportAlias(e))
 
-        // outStream.write(out.join("\n"))
+        //  outStream.write(out.join("\n"))
     }
 }
 
@@ -746,7 +755,7 @@ function main() {
     for (let k of lodash.values(girModules))
         k.loadTypes(symTable)
 
-    console.dir(symTable)
+    // console.dir(symTable)
 
     console.log("Types loaded, generating .d.ts...")
     

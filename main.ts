@@ -3,6 +3,11 @@ import * as lodash from 'lodash'
 import * as commander from 'commander'
 import fs = require('fs')
 
+interface TsForGjsExtended {
+    _module?: GirModule
+    _fullSymName?: string
+}
+
 interface GirInclude {
     $: {
         name: string
@@ -29,7 +34,7 @@ interface GirArray {
     }
     type?: GirType[]
 }
-interface GirVariable {
+interface GirVariable extends TsForGjsExtended {
     $: {
         name?: string
         "transfer-ownership"?: string
@@ -47,7 +52,7 @@ interface GirParameter {
     parameter?: GirVariable[]
     "instance-parameter"?: GirVariable[]
 }
-interface GirFunction {
+interface GirFunction extends TsForGjsExtended {
     $: {
         name: string
         version?: string
@@ -58,7 +63,7 @@ interface GirFunction {
     parameters?: GirParameter[]
     "return-value"?: GirVariable[]
 }
-interface GirSignal {
+interface GirSignal extends TsForGjsExtended {
     $: {
         name: string
         when: string
@@ -66,7 +71,7 @@ interface GirSignal {
     doc?: GirDoc[]
     "return-value"?: GirParameter[]
 }
-interface GirInterface {
+interface GirInterface extends TsForGjsExtended {
     $: {
         name: string
     }
@@ -77,7 +82,7 @@ interface GirInterface {
     property?: GirVariable[]
     "virtual-method"?: GirFunction[]
 }
-interface GirClass {
+interface GirClass extends TsForGjsExtended {
     $: {
         name: string
         parent?: string
@@ -90,6 +95,8 @@ interface GirClass {
     method?: GirFunction[]
     property?: GirVariable[]
     "virtual-method"?: GirFunction[]
+
+    _module?: GirModule
 }
 interface GirField {
     $: {
@@ -97,7 +104,7 @@ interface GirField {
     }
     callback?: GirFunction[]
 }
-interface GirRecord {
+interface GirRecord extends TsForGjsExtended {
     $: {
         name: string
         "c:type"?: string
@@ -113,7 +120,7 @@ interface GirEnumerationMember {
     }
     doc?: GirDoc[]
 }
-export interface GirEnumeration {
+export interface GirEnumeration extends TsForGjsExtended {
     $: {
         name: string
         version?: string
@@ -123,7 +130,7 @@ export interface GirEnumeration {
     doc?: GirDoc[]
     member?: GirEnumerationMember[]
 }
-interface GirAlias {
+interface GirAlias extends TsForGjsExtended {
     $: {
         name: string
         "c:type"?: string
@@ -144,6 +151,7 @@ interface GirNamespace {
     function?: GirFunction[]
     interface?: GirInterface[]
     record?: GirRecord[]
+    union?: GirRecord[]
 }
 
 interface GirRepository {
@@ -183,7 +191,10 @@ export class GirModule {
                     if (dict[symName]) {
                         console.warn(`Warn: duplicate symbol: ${symName}`)
                     }
-                    dict[symName] = 1
+
+                    x._module = this
+                    x._fullSymName = symName
+                    dict[symName] = x
                 }
             }
         }
@@ -195,17 +206,68 @@ export class GirModule {
         loadTypesInternal(this.ns.function)
         loadTypesInternal(this.ns.interface)
         loadTypesInternal(this.ns.record)
+        loadTypesInternal(this.ns.union)
+        loadTypesInternal(this.ns.alias)
+
+        let annotateFunctionArguments = (f) => {
+            if (f.parameters)
+                for (let p of f.parameters)
+                    if (p.parameter)
+                        for (let x of p.parameter) {
+                            x._module = this
+                            if (x.$ && x.$.name)
+                                x._fullSymName = `${this.name}.${x.$.name}`
+                        }
+        }
+        let annotateFunctionReturn = (f) => {
+            let retVal: GirVariable[] = f["return-value"]
+            if (retVal)
+                for (let x of retVal) {
+                    x._module = this
+                    if (x.$ && x.$.name)
+                        x._fullSymName = `${this.name}.${x.$.name}`
+                }
+                
+        }
+        let annotateFunctions = (funcs) => {
+            if (funcs)
+                for (let f of funcs) {
+                    annotateFunctionArguments(f)
+                    annotateFunctionReturn(f)
+                }
+        }
+
+        if (this.ns.callback) 
+            for (let f of this.ns.callback) 
+                annotateFunctionArguments(f)
+                    
+        if (this.ns.class)
+            for (let c of this.ns.class) {
+                annotateFunctions(c.function)
+                annotateFunctions(c.method)
+                annotateFunctions(c["virtual-method"])
+                annotateFunctions(c["glib:signal"])
+            }
+
+        // if (this.ns.)
+        // props
+        
     }
 
     private typeLookup(e: GirVariable) {
         let type: GirType
         let arr: string = ''
+        let arrCType
         let nul: string = ''
 
         if (e.array && e.array.length > 0) {
             let typeArray = e.array[0].type
             if (typeArray == null || typeArray.length == 0)
                 return 'any'
+            if (e.array[0].$) {
+                let ea: any = e.array[0].$
+                arrCType = ea['c:type']
+            }
             type = typeArray[0]
             arr = '[]'
         } else if (e.type)
@@ -219,6 +281,9 @@ export class GirModule {
                 nul = ' | null'
             }
         }
+
+        if (!type.$)
+            return 'any'
 
         let suffix = arr + nul
 
@@ -267,11 +332,30 @@ export class GirModule {
         if (!this.name)
             return "any"
 
+        let cType = type.$['c:type']
+        if (!cType)
+            cType = arrCType
+
+        if (cType) {
+            let cTypeMap = {
+                'char*': 'string',
+                'gchar*': 'string',
+                'gchar**': 'any',  // FIXME
+                'GType': 'number',
+            }
+            if (cTypeMap[cType]) {
+                return cTypeMap[cType]
+            }
+        }
+
         let fullTypeName: string = type.$.name
         
         // Fully qualify our type name if need be
-        if (fullTypeName.indexOf(".") < 0)
-            fullTypeName = `${this.name}.${type.$.name}`
+        if (fullTypeName.indexOf(".") < 0) {
+            let mod: GirModule = this
+            if (e._module) mod = e._module
+            fullTypeName = `${mod.name}.${type.$.name}`
+        }
 
         if (this.symTable[fullTypeName] == null) {
             console.warn("Could not find type " + fullTypeName)
@@ -421,28 +505,53 @@ export class GirModule {
     }
 
     private traverseInheritanceTree(e: GirClass, callback: ((cls: GirClass) => void)) {
+        if (!e || !e.$)
+            return;
+
         let parent: GirClass | undefined = undefined
+        let parentModule: GirModule | undefined = undefined
+
         if (e.$.parent) {
             let parentName = e.$.parent
-            parent = this.symTable[parentName]
+            let origParentName = parentName
+            let mod: GirModule = this
+
+            if (e._module) mod = e._module
+
+            if (parentName.indexOf(".") < 0) {
+                parentName = mod.name + "." + parentName
+            }
+
+            let parentPtr = this.symTable[parentName]
+
+            if (!parentPtr && origParentName == "Object") {
+                parentPtr = this.symTable["GObject.Object"]
+            }
+
+            if (parentPtr) {
+                parent = parentPtr
+                parentModule = mod
+            } 
         }
+
+        console.log(`${e.$.name} : ${parent && parent.$ ? parent.$.name : 'none'} : ${parentModule ? parentModule.name : 'none'}`)
 
         callback(e)
 
-        if (parent)
-            this.traverseInheritanceTree(parent, callback)
+        if (parentModule && parent)
+            parentModule.traverseInheritanceTree(parent, callback)
+        else if (parent)
+            console.error("parent but no module: " + parent.$.name + " :: " + e.$.name)
+    }
+
+    private getModule(x): GirModule {
+        if (x._module)
+            return x._module
+        return this
     }
 
     private exportObjectInternal(e: GirInterface | GirClass) {
         let name = e.$.name
-        let parent: GirClass | undefined
-
-        if ((e as GirClass).$.parent) {
-            let parentName: string | undefined = (e as GirClass).$.parent
-            if (parentName)
-                parent = this.symTable[parentName]
-        }
-
         let def: string[] = []
 
         // Properties for construction
@@ -452,7 +561,7 @@ export class GirModule {
         this.traverseInheritanceTree(e, (cls) => {
             if (cls.property)
                 for (let p of cls.property)
-                    def = def.concat(this.getProperty(p, true))
+                    def = def.concat(this.getModule(p).getProperty(p, true))
         })
         def.push("}")
 
@@ -463,7 +572,7 @@ export class GirModule {
         this.traverseInheritanceTree(e, (cls) => {
             if (cls.method)
                 for (let f of cls.method)
-                    def = def.concat(this.getFunction(f, "    "))
+                    def = def.concat(this.getModule(f).getFunction(f, "    "))
         })        
 
         // Instance methods, vfunc_ prefix
@@ -471,21 +580,25 @@ export class GirModule {
             let vmeth = cls["virtual-method"]
             if (vmeth)
                 for (let f of vmeth)
-                    def = def.concat(this.getFunction(f, "    ", "vfunc_"))
+                    def = def.concat(this.getModule(f).getFunction(f, "    ", "vfunc_"))
         })
         
         this.traverseInheritanceTree(e, (cls) => {
-            if (cls.property)
+            if (cls.property) {
+                def.push(`    /* Properties of ${cls.$.name} */`)
                 for (let p of cls.property)
-                    def = def.concat(this.getProperty(p))
+                    def = def.concat(this.getModule(p).getProperty(p))
+            }
         })
 
         this.traverseInheritanceTree(e, (cls) => {
             let signals = cls["glib:signal"]
             if (signals)
                 for (let s of signals)
-                    def = def.concat(this.getSignalFunc(s))
+                    def = def.concat(this.getModule(s   ).getSignalFunc(s))
         })
+
+        // TODO: Records have fields
 
         def.push("}")
 
@@ -496,7 +609,6 @@ export class GirModule {
         // I think this should only happen for things derived from
         // GObject?
         if (e.constructor && e.constructor.length > 0) {
-            // FIXME: type for construct properties
             def.push(`    new (config: ${name}_ConstructProps): ${name}`)
         }
         def.push("}")
@@ -512,6 +624,13 @@ export class GirModule {
         def.push(`export declare var ${name}: ${name}_Static`)
 
         return def
+    }
+
+    exportAlias(e: GirAlias) {
+        let typeName = this.typeLookup(e)
+        let name = e.$.name
+
+        return [`type ${name} = ${typeName}`]
     }
 
     exportInterface(e: GirInterface) {
@@ -555,12 +674,23 @@ export class GirModule {
             for (let e of this.ns.interface)
                 out = out.concat(this.exportInterface(e))
 
-        // alias
-        // class
-        // interface
-        // record
+        if (this.ns.class)
+            for (let e of this.ns.class)
+                out = out.concat(this.exportInterface(e))
 
-        outStream.write(out.join("\n"))
+        if (this.ns.record)
+            for (let e of this.ns.record)
+                out = out.concat(this.exportInterface(e))
+
+        if (this.ns.union)
+            for (let e of this.ns.union)
+                out = out.concat(this.exportInterface(e))
+
+        if (this.ns.alias)
+            for (let e of this.ns.alias)
+                out = out.concat(this.exportAlias(e))
+
+        // outStream.write(out.join("\n"))
     }
 }
 
@@ -612,9 +742,11 @@ function main() {
 
     console.log("Files parsed, loading types...")
 
-    let symTable: { [name: string]: number } = {}
+    let symTable: { [name: string]: any } = {}
     for (let k of lodash.values(girModules))
         k.loadTypes(symTable)
+
+    console.dir(symTable)
 
     console.log("Types loaded, generating .d.ts...")
     

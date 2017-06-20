@@ -569,9 +569,11 @@ export class GirModule {
         // can't be instantiated?
         def.push(`export interface ${name}_ConstructProps {`)
         this.traverseInheritanceTree(e, (cls) => {
-            if (cls.property)
+            if (cls.property) {
+                def.push(`    /* Properties of ${cls.$.name} */`)
                 for (let p of cls.property)
                     def = def.concat(this.getModule(p).getProperty(p, true))
+            }
         })
         def.push("}")
 
@@ -580,17 +582,21 @@ export class GirModule {
 
         // Instance methods
         this.traverseInheritanceTree(e, (cls) => {
-            if (cls.method)
+            if (cls.method) {
+                def.push(`    /* Methods of ${cls.$.name} */`)
                 for (let f of cls.method)
                     def = def.concat(this.getModule(f).getFunction(f, "    "))
+            }
         })        
 
         // Instance methods, vfunc_ prefix
         this.traverseInheritanceTree(e, (cls) => {
             let vmeth = cls["virtual-method"]
-            if (vmeth)
+            if (vmeth) {
+                def.push(`    /* Virtual methods of ${cls.$.name} */`)
                 for (let f of vmeth)
                     def = def.concat(this.getModule(f).getFunction(f, "    ", "vfunc_"))
+            }
         })
         
         this.traverseInheritanceTree(e, (cls) => {
@@ -603,9 +609,11 @@ export class GirModule {
 
         this.traverseInheritanceTree(e, (cls) => {
             let signals = cls["glib:signal"]
-            if (signals)
+            if (signals) {
+                def.push(`    /* Signals of ${cls.$.name} */`)
                 for (let s of signals)
                     def = def.concat(this.getModule(s   ).getSignalFunc(s))
+            }
         })
 
         // TODO: Records have fields
@@ -698,7 +706,7 @@ export class GirModule {
             for (let e of this.ns.alias)
                 out = out.concat(this.exportAlias(e))
 
-        //  outStream.write(out.join("\n"))
+        outStream.write(out.join("\n"))
     }
 }
 

@@ -163,6 +163,7 @@ export class GirModule {
     name: string | null = null
     version: string = "0.0"
     dependencies: string[] = []
+    transitiveDependencies: string[] = []
     repo: GirRepository
     ns: GirNamespace
     symTable: { [key:string]: any } = {}
@@ -679,13 +680,7 @@ export class GirModule {
 
         out.push("")
 
-        let deps: string[] = this.dependencies || []
-        let baseModName = this.name ? this.name.split('-')[0] : ''
-
-        if (deps.indexOf('GLib-2.0') < 0 && baseModName != 'Glib' && baseModName != 'GObject')
-            deps.push('GLib')
-        if (deps.indexOf('GObject-2.0') < 0 && baseModName != 'GObject')
-            deps.push('GObject')
+        let deps: string[] = this.transitiveDependencies
 
         for (let d of deps) {
             let base = d.split('-')[0]
@@ -793,6 +788,37 @@ function main() {
 
     // console.dir(symTable)
 
+    // Figure out transitive module dependencies
+    for (let k of lodash.values(girModules)) {
+        let mod: GirModule = k
+        let deps = {}
+        let arr: string[] = []
+        let todo: string[] = mod.dependencies || []
+        
+        // FIXME: this is a nasty hard-coded hack. What is the right solution
+        // here?
+        let fixups = { 'Pango':1, 'Gio':1 }
+        if (fixups[mod.name || '-']) {
+            todo.push('GLib-2.0')
+        }
+
+        while (todo.length > 0) {
+            let d: string|undefined = todo.pop()
+            if (!d)
+                continue
+            if (deps[d])
+                continue
+            deps[d] = 1
+            arr.push(d)
+
+            todo = todo.concat(girModules[d].dependencies)
+        }
+
+        mod.transitiveDependencies = arr
+        console.log("mod " + mod.name)
+        console.dir(arr)
+    }
+
     console.log("Types loaded, generating .d.ts...")
     
     for (let k of lodash.keys(girModules)) {
@@ -803,8 +829,10 @@ function main() {
             let fileName: string = `${outdir}/${name}.d.ts`
             outf = fs.createWriteStream(fileName)
         }
+        console.log(` - ${k} ...`)
         girModules[k].export(outf)
     }
+    console.log("Done.")
 }
 
 if (require.main === module)

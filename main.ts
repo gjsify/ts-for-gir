@@ -315,7 +315,7 @@ export class GirModule {
             'guint': 'number', 'glong': 'number', 'gulong': 'number', 'gint': 'number',
             'guint8': 'number', 'guint64': 'number', 'gint64': 'number', 
             'gdouble': 'number', 'gssize': 'number', 'gsize': 'number', 'long': 'number',
-            'object': 'any', 'va_list': 'any',
+            'object': 'any', 'va_list': 'any', 'gshort': 'number'
         }
 
         if (podTypeMap[type.$.name] != null)

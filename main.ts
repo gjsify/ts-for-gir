@@ -447,16 +447,16 @@ export class GirModule {
         return [[`${name}${nameSuffix}:${typeName}`], name]
     }
 
-    private getProperty(v: GirVariable, construct: boolean = false) {
+    private getProperty(v: GirVariable, construct: boolean = false): [string[], string|null] {
         if (this.girBool(v.$["construct-only"]) && !construct)
-            return []
+            return [[], null]
         if (!this.girBool(v.$.writable) && construct)
-            return []
+            return [[], null]
 
         let propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
         let [propDesc,propName] = this.getVariable(v, construct, true)
 
-        return [`    ${propPrefix}${propDesc}`, propName]
+        return [[`    ${propPrefix}${propDesc}`], propName]
     }
 
     exportEnumeration(e: GirEnumeration) {
@@ -575,15 +575,22 @@ export class GirModule {
         let name = e.$.name
         let def: string[] = []
 
-        let checkName = (desc, name, localNames) => {
-            if (!name || !desc)
+        let checkName = (desc: string[], name, localNames) => {
+            if (!desc || desc.length == 0)
                 return []
-            if (localNames[name]) {
-                return [`    /* ${name} already defined */`]
-            } else {
-                localNames[name] = 1
-                return desc
+
+            if (!name) {
+                console.error(`No name for ${desc}`)
+                return []
             }
+
+            if (localNames[name]) {
+                console.error(`Name ${name} already defined (${desc})`)
+                return []
+            }
+
+            localNames[name] = 1
+            return desc
         }
 
         // Properties for construction
@@ -622,7 +629,7 @@ export class GirModule {
             if (cls.method) {
                 def.push(`    /* Methods of ${cls.$.name} */`)
                 for (let f of cls.method) {
-                    let [desc, name] = this.getModule(f).getFunction(f, "    ")[0]
+                    let [desc, name] = this.getModule(f).getFunction(f, "    ")
                     def = def.concat(checkName(desc, name, localNames))
                 }
             }

@@ -308,33 +308,14 @@ export class GirModule {
         }
 
         let podTypeMap = {
-            'utf8': 'string',
-            'none': 'void',
-            'double': 'number',
-            'guint32': 'number',
-            'guint16': 'number',
-            'gint16': 'number',
-            'gunichar': 'number',
-            'gint8': 'number',
-            'gint32': 'number',
-            'gushort': 'number',
-            'gfloat': 'number',
-            'gboolean': 'boolean',
-            'gpointer': 'object',
-            'gchar': 'number',
-            'guint': 'number',
-            'glong': 'number',
-            'gulong': 'number',
-            'gint': 'number',
-            'guint8': 'number',
-            'guint64': 'number',
-            'gint64': 'number',
-            'gdouble': 'number',
-            'gssize': 'number',
-            'gsize': 'number',
-            'long': 'number',
-            'object': 'any',
-            'va_list': 'any',
+            'utf8': 'string', 'none': 'void', 'double': 'number', 'guint32': 'number',
+            'guint16': 'number', 'gint16': 'number', 'gunichar': 'number',
+            'gint8': 'number', 'gint32': 'number', 'gushort': 'number', 'gfloat': 'number',
+            'gboolean': 'boolean', 'gpointer': 'object', 'gchar': 'number',
+            'guint': 'number', 'glong': 'number', 'gulong': 'number', 'gint': 'number',
+            'guint8': 'number', 'guint64': 'number', 'gint64': 'number', 
+            'gdouble': 'number', 'gssize': 'number', 'gsize': 'number', 'long': 'number',
+            'object': 'any', 'va_list': 'any',
         }
 
         if (podTypeMap[type.$.name] != null)
@@ -374,7 +355,12 @@ export class GirModule {
         }
 
         if (fullTypeName.indexOf(this.name + ".") == 0) {
-            return fullTypeName.substring(this.name.length + 1) + suffix
+            let ret = fullTypeName.substring(this.name.length + 1)
+            // console.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${e._module}`)
+            if (fullTypeName == 'Gio.ApplicationFlags') {
+                debugger;
+            }
+            return ret + suffix
         }
 
         return fullTypeName + suffix
@@ -551,7 +537,6 @@ export class GirModule {
 
             if (parentPtr) {
                 parent = parentPtr
-                parentModule = mod
             } 
         }
 
@@ -559,16 +544,8 @@ export class GirModule {
 
         callback(e)
 
-        if (parentModule && parent)
-            parentModule.traverseInheritanceTree(parent, callback)
-        else if (parent)
-            console.error("parent but no module: " + parent.$.name + " :: " + e.$.name)
-    }
-
-    private getModule(x): GirModule {
-        if (x._module)
-            return x._module
-        return this
+        if (parent)
+            this.traverseInheritanceTree(parent, callback)
     }
 
     private exportObjectInternal(e: GirInterface | GirClass) {
@@ -602,7 +579,7 @@ export class GirModule {
             if (cls.property) {
                 def.push(`    /* Properties of ${cls.$.name} */`)
                 for (let p of cls.property) {
-                    let [desc, name] = this.getModule(p).getProperty(p, true)
+                    let [desc, name] = this.getProperty(p, true)
                     def = def.concat(checkName(desc, name, constructPropNames))
                 }
             }
@@ -618,7 +595,7 @@ export class GirModule {
             if (cls.property) {
                 def.push(`    /* Properties of ${cls.$.name} */`)
                 for (let p of cls.property) {
-                    let [desc, name] = this.getModule(p).getProperty(p)
+                    let [desc, name] = this.getProperty(p)
                     def = def.concat(checkName(desc, name, localNames))
                 }
             }
@@ -629,7 +606,7 @@ export class GirModule {
             if (cls.method) {
                 def.push(`    /* Methods of ${cls.$.name} */`)
                 for (let f of cls.method) {
-                    let [desc, name] = this.getModule(f).getFunction(f, "    ")
+                    let [desc, name] = this.getFunction(f, "    ")
                     def = def.concat(checkName(desc, name, localNames))
                 }
             }
@@ -641,7 +618,7 @@ export class GirModule {
             if (vmeth) {
                 def.push(`    /* Virtual methods of ${cls.$.name} */`)
                 for (let f of vmeth) {
-                    let [desc, name] = this.getModule(f).getFunction(f, "    ", "vfunc_")
+                    let [desc, name] = this.getFunction(f, "    ", "vfunc_")
                     def = def.concat(checkName(desc, name, localNames))
                 }
             }
@@ -652,7 +629,7 @@ export class GirModule {
             if (signals) {
                 def.push(`    /* Signals of ${cls.$.name} */`)
                 for (let s of signals)
-                    def = def.concat(this.getModule(s   ).getSignalFunc(s))
+                    def = def.concat(this.getSignalFunc(s))
             }
             // FIXME: notify:: signals
         })

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "tsc test.ts && node_modules/ava/cli.js test.js",
-    "regress": "tsc main.ts && nodejs main.js -m Gtk-3.0 -o out && cd out && tsc sam.ts",
+    "regress": "tsc main.ts && nodejs main.js -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -o out && cd out && tsc sam.ts",
     "build": "tsc main.ts",
     "watch": "tsc --watch",
     "run": "node main.js"

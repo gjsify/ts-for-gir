@@ -562,7 +562,7 @@ export class GirModule {
             }
 
             if (localNames[name]) {
-                console.error(`Name ${name} already defined (${desc})`)
+                // console.warn(`Name ${name} already defined (${desc})`)
                 return []
             }
 
@@ -794,34 +794,28 @@ function main() {
     // console.dir(symTable)
 
     // Figure out transitive module dependencies
+    let modDependencyMap: { [name:string]: string[] } = {}
+    
     for (let k of lodash.values(girModules)) {
-        let mod: GirModule = k
-        let deps = {}
-        let arr: string[] = []
-        let todo: string[] = mod.dependencies || []
+        modDependencyMap[k.name || '-'] = lodash.map(k.dependencies || [], (val:string) => {
+            return val.split('-')[0]
+        })
+    }
+    
+    let traverseDependencies = (name, ret) => {
+        let deps = modDependencyMap[name]
         
-        // FIXME: this is a nasty hard-coded hack. What is the right solution
-        // here?
-        let fixups = { 'Pango':1, 'Gio':1 }
-        if (fixups[mod.name || '-']) {
-            todo.push('GLib-2.0')
+        for (let a of deps) {
+            if (ret[a]) continue
+            ret[a] = 1
+            traverseDependencies(a, ret)
         }
+    }
 
-        while (todo.length > 0) {
-            let d: string|undefined = todo.pop()
-            if (!d)
-                continue
-            if (deps[d])
-                continue
-            deps[d] = 1
-            arr.push(d)
-
-            todo = todo.concat(girModules[d].dependencies)
-        }
-
-        mod.transitiveDependencies = arr
-        //console.log("mod " + mod.name)
-        //console.dir(arr)
+    for (let k of lodash.values(girModules)) {
+        let ret = {}
+        traverseDependencies(k.name, ret)
+        k.transitiveDependencies = lodash.keys(ret)
     }
 
     console.log("Types loaded, generating .d.ts...")

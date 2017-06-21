@@ -152,6 +152,19 @@ export interface Pixbuf_Static {
     new (config: Pixbuf_ConstructProps): Pixbuf
 }
 export declare class Pixbuf_Static {
+    new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
+    new_from_bytes(data: GLib.Bytes, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
+    new_from_data(data: number[], colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn: PixbufDestroyNotify | null, destroy_fn_data: object): Pixbuf
+    new_from_file(filename: string): Pixbuf
+    new_from_file_at_scale(filename: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
+    new_from_file_at_size(filename: string, width: number, height: number): Pixbuf
+    new_from_inline(data_length: number, data: number[], copy_pixels: boolean): Pixbuf
+    new_from_resource(resource_path: string): Pixbuf
+    new_from_resource_at_scale(resource_path: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
+    new_from_stream(stream: Gio.InputStream, cancellable: Gio.Cancellable | null): Pixbuf
+    new_from_stream_at_scale(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable: Gio.Cancellable | null): Pixbuf
+    new_from_stream_finish(async_result: Gio.AsyncResult): Pixbuf
+    new_from_xpm_data(data: string[]): Pixbuf
     from_pixdata(pixdata: Pixdata, copy_pixels: boolean): Pixbuf
     get_file_info(filename: string): [ /* returnType */ PixbufFormat | null, /* width */ number | null, /* height */ number | null ]
     get_file_info_async(filename: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
@@ -210,6 +223,10 @@ export interface PixbufAnimation_Static {
     new (config: PixbufAnimation_ConstructProps): PixbufAnimation
 }
 export declare class PixbufAnimation_Static {
+    new_from_file(filename: string): PixbufAnimation
+    new_from_resource(resource_path: string): PixbufAnimation
+    new_from_stream(stream: Gio.InputStream, cancellable: Gio.Cancellable | null): PixbufAnimation
+    new_from_stream_finish(async_result: Gio.AsyncResult): PixbufAnimation
     new_from_stream_async(stream: Gio.InputStream, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
 }
 export declare var PixbufAnimation: PixbufAnimation_Static
@@ -319,6 +336,11 @@ export interface PixbufLoader {
 export interface PixbufLoader_Static {
     new (config: PixbufLoader_ConstructProps): PixbufLoader
 }
+export declare class PixbufLoader_Static {
+    new(): PixbufLoader
+    new_with_mime_type(mime_type: string): PixbufLoader
+    new_with_type(image_type: string): PixbufLoader
+}
 export declare var PixbufLoader: PixbufLoader_Static
 export interface PixbufSimpleAnim_ConstructProps {
     /* Properties of PixbufSimpleAnim */
@@ -374,6 +396,9 @@ export interface PixbufSimpleAnim {
 }
 export interface PixbufSimpleAnim_Static {
     new (config: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
+}
+export declare class PixbufSimpleAnim_Static {
+    new(width: number, height: number, rate: number): PixbufSimpleAnim
 }
 export declare var PixbufSimpleAnim: PixbufSimpleAnim_Static
 export interface PixbufSimpleAnimIter_ConstructProps {

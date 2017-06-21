@@ -26104,6 +26104,9 @@ export interface Download {
 export interface Download_Static {
     new (config: Download_ConstructProps): Download
 }
+export declare class Download_Static {
+    new(request: NetworkRequest): Download
+}
 export declare var Download: Download_Static
 export interface FaviconDatabase_ConstructProps {
     /* Properties of FaviconDatabase */
@@ -26412,6 +26415,9 @@ export interface NetworkRequest {
 export interface NetworkRequest_Static {
     new (config: NetworkRequest_ConstructProps): NetworkRequest
 }
+export declare class NetworkRequest_Static {
+    new(uri: string): NetworkRequest
+}
 export declare var NetworkRequest: NetworkRequest_Static
 export interface NetworkResponse_ConstructProps {
     /* Properties of NetworkResponse */
@@ -26464,6 +26470,9 @@ export interface NetworkResponse {
 }
 export interface NetworkResponse_Static {
     new (config: NetworkResponse_ConstructProps): NetworkResponse
+}
+export declare class NetworkResponse_Static {
+    new(uri: string): NetworkResponse
 }
 export declare var NetworkResponse: NetworkResponse_Static
 export interface SecurityOrigin_ConstructProps {
@@ -26744,6 +26753,10 @@ export interface WebDataSource {
 export interface WebDataSource_Static {
     new (config: WebDataSource_ConstructProps): WebDataSource
 }
+export declare class WebDataSource_Static {
+    new(): WebDataSource
+    new_with_request(request: NetworkRequest): WebDataSource
+}
 export declare var WebDataSource: WebDataSource_Static
 export interface WebDatabase_ConstructProps {
     /* Properties of WebDatabase */
@@ -26890,6 +26903,9 @@ export interface WebFrame {
 export interface WebFrame_Static {
     new (config: WebFrame_ConstructProps): WebFrame
 }
+export declare class WebFrame_Static {
+    new(web_view: WebView): WebFrame
+}
 export declare var WebFrame: WebFrame_Static
 export interface WebHistoryItem_ConstructProps {
     /* Properties of WebHistoryItem */
@@ -26947,6 +26963,10 @@ export interface WebHistoryItem {
 }
 export interface WebHistoryItem_Static {
     new (config: WebHistoryItem_ConstructProps): WebHistoryItem
+}
+export declare class WebHistoryItem_Static {
+    new(): WebHistoryItem
+    new_with_data(uri: string, title: string): WebHistoryItem
 }
 export declare var WebHistoryItem: WebHistoryItem_Static
 export interface WebInspector_ConstructProps {
@@ -27276,6 +27296,9 @@ export interface WebResource {
 export interface WebResource_Static {
     new (config: WebResource_ConstructProps): WebResource
 }
+export declare class WebResource_Static {
+    new(data: string, size: number, uri: string, mime_type: string, encoding: string, frame_name: string): WebResource
+}
 export declare var WebResource: WebResource_Static
 export interface WebSettings_ConstructProps {
     /* Properties of WebSettings */
@@ -27440,6 +27463,9 @@ export interface WebSettings {
 }
 export interface WebSettings_Static {
     new (config: WebSettings_ConstructProps): WebSettings
+}
+export declare class WebSettings_Static {
+    new(): WebSettings
 }
 export declare var WebSettings: WebSettings_Static
 export interface WebView_ConstructProps {
@@ -28204,6 +28230,9 @@ export interface WebView {
 export interface WebView_Static {
     new (config: WebView_ConstructProps): WebView
 }
+export declare class WebView_Static {
+    new(): Gtk.Widget
+}
 export declare var WebView: WebView_Static
 export interface WebWindowFeatures_ConstructProps {
     /* Properties of WebWindowFeatures */
@@ -28269,6 +28298,9 @@ export interface WebWindowFeatures {
 }
 export interface WebWindowFeatures_Static {
     new (config: WebWindowFeatures_ConstructProps): WebWindowFeatures
+}
+export declare class WebWindowFeatures_Static {
+    new(): WebWindowFeatures
 }
 export declare var WebWindowFeatures: WebWindowFeatures_Static
 export interface DOMAttrClass_ConstructProps {

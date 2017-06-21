@@ -2927,6 +2927,9 @@ export interface AppLaunchContext {
 export interface AppLaunchContext_Static {
     new (config: AppLaunchContext_ConstructProps): AppLaunchContext
 }
+export declare class AppLaunchContext_Static {
+    new(): AppLaunchContext
+}
 export declare var AppLaunchContext: AppLaunchContext_Static
 export interface Cursor_ConstructProps {
     /* Properties of Cursor */
@@ -2977,6 +2980,13 @@ export interface Cursor {
 }
 export interface Cursor_Static {
     new (config: Cursor_ConstructProps): Cursor
+}
+export declare class Cursor_Static {
+    new(cursor_type: CursorType): Cursor
+    new_for_display(display: Display, cursor_type: CursorType): Cursor
+    new_from_name(display: Display, name: string): Cursor | null
+    new_from_pixbuf(display: Display, pixbuf: GdkPixbuf.Pixbuf, x: number, y: number): Cursor
+    new_from_surface(display: Display, surface: cairo.Surface, x: number, y: number): Cursor
 }
 export declare var Cursor: Cursor_Static
 export interface Device_ConstructProps {
@@ -3863,6 +3873,7 @@ export interface Window_Static {
     new (config: Window_ConstructProps): Window
 }
 export declare class Window_Static {
+    new(parent: Window | null, attributes: WindowAttr, attributes_mask: WindowAttributesType): Window
     at_pointer(): [ /* returnType */ Window, /* win_x */ number | null, /* win_y */ number | null ]
     constrain_size(geometry: Geometry, flags: WindowHints, width: number, height: number): [ /* new_width */ number, /* new_height */ number ]
     process_all_updates(): void
@@ -4227,6 +4238,7 @@ export interface Event_Static {
     new (config: Event_ConstructProps): Event
 }
 export declare class Event_Static {
+    new(type: EventType): Event
     get(): Event | null
     handler_set(func: EventFunc, data: object, notify: GLib.DestroyNotify): void
     peek(): Event | null

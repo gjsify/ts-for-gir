@@ -437,6 +437,10 @@ export interface Buffer {
 export interface Buffer_Static {
     new (config: Buffer_ConstructProps): Buffer
 }
+export declare class Buffer_Static {
+    new(table: Gtk.TextTagTable | null): Buffer
+    new_with_language(language: Language): Buffer
+}
 export declare var Buffer: Buffer_Static
 export interface Completion_ConstructProps {
     /* Properties of Completion */
@@ -1347,6 +1351,9 @@ export interface CompletionInfo {
 export interface CompletionInfo_Static {
     new (config: CompletionInfo_ConstructProps): CompletionInfo
 }
+export declare class CompletionInfo_Static {
+    new(): CompletionInfo
+}
 export declare var CompletionInfo: CompletionInfo_Static
 export interface CompletionItem_ConstructProps {
     /* Properties of CompletionItem */
@@ -1404,6 +1411,11 @@ export interface CompletionItem {
 }
 export interface CompletionItem_Static {
     new (config: CompletionItem_ConstructProps): CompletionItem
+}
+export declare class CompletionItem_Static {
+    new(label: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
+    new_from_stock(label: string | null, text: string, stock: string, info: string | null): CompletionItem
+    new_with_markup(markup: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
 }
 export declare var CompletionItem: CompletionItem_Static
 export interface CompletionWords_ConstructProps {
@@ -1468,6 +1480,9 @@ export interface CompletionWords {
 export interface CompletionWords_Static {
     new (config: CompletionWords_ConstructProps): CompletionWords
 }
+export declare class CompletionWords_Static {
+    new(name: string | null, icon: GdkPixbuf.Pixbuf | null): CompletionWords
+}
 export declare var CompletionWords: CompletionWords_Static
 export interface File_ConstructProps {
     /* Properties of File */
@@ -1529,6 +1544,9 @@ export interface File {
 export interface File_Static {
     new (config: File_ConstructProps): File
 }
+export declare class File_Static {
+    new(): File
+}
 export declare var File: File_Static
 export interface FileLoader_ConstructProps {
     /* Properties of FileLoader */
@@ -1587,6 +1605,10 @@ export interface FileLoader {
 }
 export interface FileLoader_Static {
     new (config: FileLoader_ConstructProps): FileLoader
+}
+export declare class FileLoader_Static {
+    new(buffer: Buffer, file: File): FileLoader
+    new_from_stream(buffer: Buffer, file: File, stream: Gio.InputStream): FileLoader
 }
 export declare var FileLoader: FileLoader_Static
 export interface FileSaver_ConstructProps {
@@ -1656,6 +1678,10 @@ export interface FileSaver {
 }
 export interface FileSaver_Static {
     new (config: FileSaver_ConstructProps): FileSaver
+}
+export declare class FileSaver_Static {
+    new(buffer: Buffer, file: File): FileSaver
+    new_with_target(buffer: Buffer, file: File, target_location: Gio.File): FileSaver
 }
 export declare var FileSaver: FileSaver_Static
 export interface Gutter_ConstructProps {
@@ -1943,6 +1969,9 @@ export interface GutterRendererPixbuf {
 export interface GutterRendererPixbuf_Static {
     new (config: GutterRendererPixbuf_ConstructProps): GutterRendererPixbuf
 }
+export declare class GutterRendererPixbuf_Static {
+    new(): GutterRenderer
+}
 export declare var GutterRendererPixbuf: GutterRendererPixbuf_Static
 export interface GutterRendererText_ConstructProps {
     /* Properties of GutterRendererText */
@@ -2058,6 +2087,9 @@ export interface GutterRendererText {
 export interface GutterRendererText_Static {
     new (config: GutterRendererText_ConstructProps): GutterRendererText
 }
+export declare class GutterRendererText_Static {
+    new(): GutterRenderer
+}
 export declare var GutterRendererText: GutterRendererText_Static
 export interface Language_ConstructProps {
     /* Properties of Language */
@@ -2171,6 +2203,7 @@ export interface LanguageManager_Static {
     new (config: LanguageManager_ConstructProps): LanguageManager
 }
 export declare class LanguageManager_Static {
+    new(): LanguageManager
     get_default(): LanguageManager
 }
 export declare var LanguageManager: LanguageManager_Static
@@ -2988,6 +3021,9 @@ export interface Map {
 export interface Map_Static {
     new (config: Map_ConstructProps): Map
 }
+export declare class Map_Static {
+    new(): Gtk.Widget
+}
 export declare var Map: Map_Static
 export interface Mark_ConstructProps {
     /* Properties of Mark */
@@ -3047,6 +3083,9 @@ export interface Mark {
 }
 export interface Mark_Static {
     new (config: Mark_ConstructProps): Mark
+}
+export declare class Mark_Static {
+    new(name: string, category: string): Mark
 }
 export declare var Mark: Mark_Static
 export interface MarkAttributes_ConstructProps {
@@ -3118,6 +3157,9 @@ export interface MarkAttributes {
 }
 export interface MarkAttributes_Static {
     new (config: MarkAttributes_ConstructProps): MarkAttributes
+}
+export declare class MarkAttributes_Static {
+    new(): MarkAttributes
 }
 export declare var MarkAttributes: MarkAttributes_Static
 export interface PrintCompositor_ConstructProps {
@@ -3221,6 +3263,10 @@ export interface PrintCompositor {
 export interface PrintCompositor_Static {
     new (config: PrintCompositor_ConstructProps): PrintCompositor
 }
+export declare class PrintCompositor_Static {
+    new(buffer: Buffer): PrintCompositor
+    new_from_view(view: View): PrintCompositor
+}
 export declare var PrintCompositor: PrintCompositor_Static
 export interface SearchContext_ConstructProps {
     /* Properties of SearchContext */
@@ -3293,6 +3339,9 @@ export interface SearchContext {
 export interface SearchContext_Static {
     new (config: SearchContext_ConstructProps): SearchContext
 }
+export declare class SearchContext_Static {
+    new(buffer: Buffer, settings: SearchSettings | null): SearchContext
+}
 export declare var SearchContext: SearchContext_Static
 export interface SearchSettings_ConstructProps {
     /* Properties of SearchSettings */
@@ -3357,6 +3406,9 @@ export interface SearchSettings {
 }
 export interface SearchSettings_Static {
     new (config: SearchSettings_ConstructProps): SearchSettings
+}
+export declare class SearchSettings_Static {
+    new(): SearchSettings
 }
 export declare var SearchSettings: SearchSettings_Static
 export interface Style_ConstructProps {
@@ -4118,6 +4170,9 @@ export interface StyleSchemeChooserButton {
 export interface StyleSchemeChooserButton_Static {
     new (config: StyleSchemeChooserButton_ConstructProps): StyleSchemeChooserButton
 }
+export declare class StyleSchemeChooserButton_Static {
+    new(): Gtk.Widget
+}
 export declare var StyleSchemeChooserButton: StyleSchemeChooserButton_Static
 export interface StyleSchemeChooserWidget_ConstructProps {
     /* Properties of Container */
@@ -4697,6 +4752,9 @@ export interface StyleSchemeChooserWidget {
 export interface StyleSchemeChooserWidget_Static {
     new (config: StyleSchemeChooserWidget_ConstructProps): StyleSchemeChooserWidget
 }
+export declare class StyleSchemeChooserWidget_Static {
+    new(): Gtk.Widget
+}
 export declare var StyleSchemeChooserWidget: StyleSchemeChooserWidget_Static
 export interface StyleSchemeManager_ConstructProps {
     /* Properties of StyleSchemeManager */
@@ -4753,6 +4811,7 @@ export interface StyleSchemeManager_Static {
     new (config: StyleSchemeManager_ConstructProps): StyleSchemeManager
 }
 export declare class StyleSchemeManager_Static {
+    new(): StyleSchemeManager
     get_default(): StyleSchemeManager
 }
 export declare var StyleSchemeManager: StyleSchemeManager_Static
@@ -5560,6 +5619,10 @@ export interface View {
 }
 export interface View_Static {
     new (config: View_ConstructProps): View
+}
+export declare class View_Static {
+    new(): Gtk.Widget
+    new_with_buffer(buffer: Buffer): Gtk.Widget
 }
 export declare var View: View_Static
 export interface BufferClass_ConstructProps {

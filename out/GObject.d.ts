@@ -464,6 +464,7 @@ export interface Object_Static {
     new (config: Object_ConstructProps): Object
 }
 export declare class Object_Static {
+    newv(object_type: number, n_parameters: number, parameters: Parameter[]): Object
     compat_control(what: number, data: object): number
     interface_find_property(g_iface: object, property_name: string): ParamSpec
     interface_install_property(g_iface: object, pspec: ParamSpec): void
@@ -492,8 +493,6 @@ export interface ParamSpec {
 }
 export interface ParamSpec_Static {
     new (config: ParamSpec_ConstructProps): ParamSpec
-}
-export declare class ParamSpec_Static {
 }
 export declare var ParamSpec: ParamSpec_Static
 export interface ParamSpecBoolean_ConstructProps {
@@ -1147,6 +1146,10 @@ export interface Closure {
 export interface Closure_Static {
     new (config: Closure_ConstructProps): Closure
 }
+export declare class Closure_Static {
+    new_object(sizeof_closure: number, object: Object): Closure
+    new_simple(sizeof_closure: number, data: object): Closure
+}
 export declare var Closure: Closure_Static
 export interface ClosureNotifyData_ConstructProps {
 }
@@ -1373,8 +1376,6 @@ export interface TypeValueTable {
 export interface TypeValueTable_Static {
     new (config: TypeValueTable_ConstructProps): TypeValueTable
 }
-export declare class TypeValueTable_Static {
-}
 export declare var TypeValueTable: TypeValueTable_Static
 export interface Value_ConstructProps {
 }
@@ -1466,6 +1467,9 @@ export interface ValueArray {
 }
 export interface ValueArray_Static {
     new (config: ValueArray_ConstructProps): ValueArray
+}
+export declare class ValueArray_Static {
+    new(n_prealloced: number): ValueArray
 }
 export declare var ValueArray: ValueArray_Static
 export interface WeakRef_ConstructProps {

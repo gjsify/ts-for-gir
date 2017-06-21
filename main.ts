@@ -96,6 +96,7 @@ interface GirClass extends TsForGjsExtended {
     method?: GirFunction[]
     property?: GirVariable[]
     "virtual-method"?: GirFunction[]
+    "constructor"?: GirFunction[] | Function
 
     _module?: GirModule
 }
@@ -112,6 +113,7 @@ interface GirRecord extends TsForGjsExtended {
     }
     doc?: GirDoc[]
     field?: GirField[]
+    "constructor"?: GirFunction[] | Function
 }
 interface GirEnumerationMember {
     $: {
@@ -480,7 +482,7 @@ export class GirModule {
     }
 
     private getFunction(e: GirFunction, prefix: string, funcNamePrefix: string | null = null): [string[], string | null] {
-        if (!this.girBool(e.$.introspectable, true))
+        if (!e || !e.$ || !this.girBool(e.$.introspectable, true))
             return [[], null]
 
         let name = e.$.name
@@ -674,11 +676,23 @@ export class GirModule {
         def.push("}")
 
         // Static methods
-        if (e.function) {
-            def.push(`export declare class ${name}_Static {`)
-            for (let f of e.function)
-                def = def.concat(this.getFunction(f, "    ")[0])
-            def.push("}")
+        if (true) {
+            let stc: string[] = []
+            
+            let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
+            if (constructor_)
+                for (let f of constructor_)
+                    stc = stc.concat(this.getFunction(f, "    ")[0])
+
+            if (e.function)
+                for (let f of e.function)
+                    stc = stc.concat(this.getFunction(f, "    ")[0])
+
+            if (stc.length > 0) {
+                def.push(`export declare class ${name}_Static {`)
+                def = def.concat(stc)
+                def.push("}")
+            }
         }
 
         def.push(`export declare var ${name}: ${name}_Static`)

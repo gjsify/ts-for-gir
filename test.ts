@@ -306,6 +306,10 @@ test('constructors', t => {
             "export interface DBusNodeInfo_Static {",
             "    new (config: DBusNodeInfo_ConstructProps): DBusNodeInfo",
             "}",
+            "export declare class DBusNodeInfo_Static {",
+            "    new_for_xml(xml_data: string): DBusNodeInfo",
+            "}",
+
             "export declare var DBusNodeInfo: DBusNodeInfo_Static",   
         ])
 })

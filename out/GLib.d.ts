@@ -1469,8 +1469,6 @@ export interface Array {
 export interface Array_Static {
     new (config: Array_ConstructProps): Array
 }
-export declare class Array_Static {
-}
 export declare var Array: Array_Static
 export interface AsyncQueue_ConstructProps {
 }
@@ -1492,8 +1490,6 @@ export interface AsyncQueue {
 }
 export interface AsyncQueue_Static {
     new (config: AsyncQueue_ConstructProps): AsyncQueue
-}
-export declare class AsyncQueue_Static {
 }
 export declare var AsyncQueue: AsyncQueue_Static
 export interface BookmarkFile_ConstructProps {
@@ -1579,6 +1575,10 @@ export interface Bytes {
 export interface Bytes_Static {
     new (config: Bytes_ConstructProps): Bytes
 }
+export declare class Bytes_Static {
+    new(data: number[] | null, size: number): Bytes
+    new_take(data: number[] | null, size: number): Bytes
+}
 export declare var Bytes: Bytes_Static
 export interface Checksum_ConstructProps {
 }
@@ -1594,6 +1594,7 @@ export interface Checksum_Static {
     new (config: Checksum_ConstructProps): Checksum
 }
 export declare class Checksum_Static {
+    new(checksum_type: ChecksumType): Checksum
     type_get_length(checksum_type: ChecksumType): number
 }
 export declare var Checksum: Checksum_Static
@@ -1663,6 +1664,9 @@ export interface Date_Static {
     new (config: Date_ConstructProps): Date
 }
 export declare class Date_Static {
+    new(): Date
+    new_dmy(day: DateDay, month: DateMonth, year: DateYear): Date
+    new_julian(julian_day: number): Date
     get_days_in_month(month: DateMonth, year: DateYear): number
     get_monday_weeks_in_year(year: DateYear): number
     get_sunday_weeks_in_year(year: DateYear): number
@@ -1719,6 +1723,16 @@ export interface DateTime_Static {
     new (config: DateTime_ConstructProps): DateTime
 }
 export declare class DateTime_Static {
+    new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    new_from_timeval_local(tv: TimeVal): DateTime
+    new_from_timeval_utc(tv: TimeVal): DateTime
+    new_from_unix_local(t: number): DateTime
+    new_from_unix_utc(t: number): DateTime
+    new_local(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    new_now(tz: TimeZone): DateTime
+    new_now_local(): DateTime
+    new_now_utc(): DateTime
+    new_utc(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
     compare(dt1: object, dt2: object): number
     equal(dt1: object, dt2: object): boolean
     hash(datetime: object): number
@@ -1757,6 +1771,9 @@ export interface Error {
 }
 export interface Error_Static {
     new (config: Error_ConstructProps): Error
+}
+export declare class Error_Static {
+    new_literal(domain: Quark, code: number, message: string): Error
 }
 export declare var Error: Error_Static
 export interface HashTable_ConstructProps {
@@ -1807,8 +1824,6 @@ export interface Hmac {
 export interface Hmac_Static {
     new (config: Hmac_ConstructProps): Hmac
 }
-export declare class Hmac_Static {
-}
 export declare var Hmac: Hmac_Static
 export interface Hook_ConstructProps {
 }
@@ -1849,8 +1864,6 @@ export interface IConv {
 }
 export interface IConv_Static {
     new (config: IConv_ConstructProps): IConv
-}
-export declare class IConv_Static {
 }
 export declare var IConv: IConv_Static
 export interface IOChannel_ConstructProps {
@@ -1893,6 +1906,8 @@ export interface IOChannel_Static {
     new (config: IOChannel_ConstructProps): IOChannel
 }
 export declare class IOChannel_Static {
+    new_file(filename: string, mode: string): IOChannel
+    unix_new(fd: number): IOChannel
     error_from_errno(en: number): IOChannelError
     error_quark(): Quark
 }
@@ -1957,6 +1972,7 @@ export interface KeyFile_Static {
     new (config: KeyFile_ConstructProps): KeyFile
 }
 export declare class KeyFile_Static {
+    new(): KeyFile
     error_quark(): Quark
 }
 export declare var KeyFile: KeyFile_Static
@@ -1966,8 +1982,6 @@ export interface List {
 }
 export interface List_Static {
     new (config: List_ConstructProps): List
-}
-export declare class List_Static {
 }
 export declare var List: List_Static
 export interface MainContext_ConstructProps {
@@ -2000,6 +2014,7 @@ export interface MainContext_Static {
     new (config: MainContext_ConstructProps): MainContext
 }
 export declare class MainContext_Static {
+    new(): MainContext
     default(): MainContext
     get_thread_default(): MainContext
     ref_thread_default(): MainContext
@@ -2019,6 +2034,9 @@ export interface MainLoop {
 export interface MainLoop_Static {
     new (config: MainLoop_ConstructProps): MainLoop
 }
+export declare class MainLoop_Static {
+    new(context: MainContext | null, is_running: boolean): MainLoop
+}
 export declare var MainLoop: MainLoop_Static
 export interface MappedFile_ConstructProps {
 }
@@ -2033,6 +2051,10 @@ export interface MappedFile {
 }
 export interface MappedFile_Static {
     new (config: MappedFile_ConstructProps): MappedFile
+}
+export declare class MappedFile_Static {
+    new(filename: string, writable: boolean): MappedFile
+    new_from_fd(fd: number, writable: boolean): MappedFile
 }
 export declare var MappedFile: MappedFile_Static
 export interface MarkupParseContext_ConstructProps {
@@ -2050,6 +2072,9 @@ export interface MarkupParseContext {
 }
 export interface MarkupParseContext_Static {
     new (config: MarkupParseContext_ConstructProps): MarkupParseContext
+}
+export declare class MarkupParseContext_Static {
+    new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object, user_data_dnotify: DestroyNotify): MarkupParseContext
 }
 export declare var MarkupParseContext: MarkupParseContext_Static
 export interface MarkupParser_ConstructProps {
@@ -2110,8 +2135,6 @@ export interface Node {
 export interface Node_Static {
     new (config: Node_ConstructProps): Node
 }
-export declare class Node_Static {
-}
 export declare var Node: Node_Static
 export interface Once_ConstructProps {
 }
@@ -2154,8 +2177,6 @@ export interface OptionContext {
 export interface OptionContext_Static {
     new (config: OptionContext_ConstructProps): OptionContext
 }
-export declare class OptionContext_Static {
-}
 export declare var OptionContext: OptionContext_Static
 export interface OptionEntry_ConstructProps {
 }
@@ -2179,6 +2200,9 @@ export interface OptionGroup {
 export interface OptionGroup_Static {
     new (config: OptionGroup_ConstructProps): OptionGroup
 }
+export declare class OptionGroup_Static {
+    new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
+}
 export declare var OptionGroup: OptionGroup_Static
 export interface PatternSpec_ConstructProps {
 }
@@ -2189,8 +2213,6 @@ export interface PatternSpec {
 }
 export interface PatternSpec_Static {
     new (config: PatternSpec_ConstructProps): PatternSpec
-}
-export declare class PatternSpec_Static {
 }
 export declare var PatternSpec: PatternSpec_Static
 export interface PollFD_ConstructProps {
@@ -2219,8 +2241,6 @@ export interface PtrArray {
 export interface PtrArray_Static {
     new (config: PtrArray_ConstructProps): PtrArray
 }
-export declare class PtrArray_Static {
-}
 export declare var PtrArray: PtrArray_Static
 export interface Queue_ConstructProps {
 }
@@ -2242,8 +2262,6 @@ export interface Queue {
 }
 export interface Queue_Static {
     new (config: Queue_ConstructProps): Queue
-}
-export declare class Queue_Static {
 }
 export declare var Queue: Queue_Static
 export interface RWLock_ConstructProps {
@@ -2277,8 +2295,6 @@ export interface Rand {
 }
 export interface Rand_Static {
     new (config: Rand_ConstructProps): Rand
-}
-export declare class Rand_Static {
 }
 export declare var Rand: Rand_Static
 export interface RecMutex_ConstructProps {
@@ -2322,6 +2338,7 @@ export interface Regex_Static {
     new (config: Regex_ConstructProps): Regex
 }
 export declare class Regex_Static {
+    new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex
     check_replacement(replacement: string): [ /* returnType */ boolean, /* has_references */ boolean | null ]
     error_quark(): Quark
     escape_nul(string: string, length: number): string
@@ -2336,8 +2353,6 @@ export interface SList {
 }
 export interface SList_Static {
     new (config: SList_ConstructProps): SList
-}
-export declare class SList_Static {
 }
 export declare var SList: SList_Static
 export interface Scanner_ConstructProps {
@@ -2361,8 +2376,6 @@ export interface Scanner {
 }
 export interface Scanner_Static {
     new (config: Scanner_ConstructProps): Scanner
-}
-export declare class Scanner_Static {
 }
 export declare var Scanner: Scanner_Static
 export interface ScannerConfig_ConstructProps {
@@ -2442,6 +2455,7 @@ export interface Source_Static {
     new (config: Source_ConstructProps): Source
 }
 export declare class Source_Static {
+    new(source_funcs: SourceFuncs, struct_size: number): Source
     remove(tag: number): boolean
     remove_by_funcs_user_data(funcs: SourceFuncs, user_data: object): boolean
     remove_by_user_data(user_data: object): boolean
@@ -2529,8 +2543,6 @@ export interface StringChunk {
 export interface StringChunk_Static {
     new (config: StringChunk_ConstructProps): StringChunk
 }
-export declare class StringChunk_Static {
-}
 export declare var StringChunk: StringChunk_Static
 export interface TestCase_ConstructProps {
 }
@@ -2557,8 +2569,6 @@ export interface TestLogBuffer {
 }
 export interface TestLogBuffer_Static {
     new (config: TestLogBuffer_ConstructProps): TestLogBuffer
-}
-export declare class TestLogBuffer_Static {
 }
 export declare var TestLogBuffer: TestLogBuffer_Static
 export interface TestLogMsg_ConstructProps {
@@ -2652,6 +2662,11 @@ export interface TimeZone {
 export interface TimeZone_Static {
     new (config: TimeZone_ConstructProps): TimeZone
 }
+export declare class TimeZone_Static {
+    new(identifier: string | null): TimeZone
+    new_local(): TimeZone
+    new_utc(): TimeZone
+}
 export declare var TimeZone: TimeZone_Static
 export interface Timer_ConstructProps {
 }
@@ -2666,8 +2681,6 @@ export interface Timer {
 }
 export interface Timer_Static {
     new (config: Timer_ConstructProps): Timer
-}
-export declare class Timer_Static {
 }
 export declare var Timer: Timer_Static
 export interface TrashStack_ConstructProps {
@@ -2698,8 +2711,6 @@ export interface Tree {
 }
 export interface Tree_Static {
     new (config: Tree_ConstructProps): Tree
-}
-export declare class Tree_Static {
 }
 export declare var Tree: Tree_Static
 export interface Variant_ConstructProps {
@@ -2758,6 +2769,31 @@ export interface Variant_Static {
     new (config: Variant_ConstructProps): Variant
 }
 export declare class Variant_Static {
+    new_array(child_type: VariantType | null, children: Variant[] | null, n_children: number): Variant
+    new_boolean(value: boolean): Variant
+    new_byte(value: number): Variant
+    new_bytestring(string: number[]): Variant
+    new_bytestring_array(strv: string[], length: number): Variant
+    new_dict_entry(key: Variant, value: Variant): Variant
+    new_double(value: number): Variant
+    new_fixed_array(element_type: VariantType, elements: object, n_elements: number, element_size: number): Variant
+    new_from_bytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
+    new_from_data(type: VariantType, data: number[], size: number, trusted: boolean, notify: DestroyNotify, user_data: object): Variant
+    new_handle(value: number): Variant
+    new_int16(value: number): Variant
+    new_int32(value: number): Variant
+    new_int64(value: number): Variant
+    new_maybe(child_type: VariantType | null, child: Variant | null): Variant
+    new_object_path(object_path: string): Variant
+    new_objv(strv: string[], length: number): Variant
+    new_signature(signature: string): Variant
+    new_string(string: string): Variant
+    new_strv(strv: string[], length: number): Variant
+    new_tuple(children: Variant[], n_children: number): Variant
+    new_uint16(value: number): Variant
+    new_uint32(value: number): Variant
+    new_uint64(value: number): Variant
+    new_variant(value: Variant): Variant
     is_object_path(string: string): boolean
     is_signature(string: string): boolean
     parse(type: VariantType | null, text: string, limit: string | null, endptr: string | null): Variant
@@ -2780,6 +2816,9 @@ export interface VariantBuilder {
 export interface VariantBuilder_Static {
     new (config: VariantBuilder_ConstructProps): VariantBuilder
 }
+export declare class VariantBuilder_Static {
+    new(type: VariantType): VariantBuilder
+}
 export declare var VariantBuilder: VariantBuilder_Static
 export interface VariantDict_ConstructProps {
 }
@@ -2796,6 +2835,9 @@ export interface VariantDict {
 }
 export interface VariantDict_Static {
     new (config: VariantDict_ConstructProps): VariantDict
+}
+export declare class VariantDict_Static {
+    new(from_asv: Variant | null): VariantDict
 }
 export declare var VariantDict: VariantDict_Static
 export interface VariantIter_ConstructProps {
@@ -2840,6 +2882,11 @@ export interface VariantType_Static {
     new (config: VariantType_ConstructProps): VariantType
 }
 export declare class VariantType_Static {
+    new(type_string: string): VariantType
+    new_array(element: VariantType): VariantType
+    new_dict_entry(key: VariantType, value: VariantType): VariantType
+    new_maybe(element: VariantType): VariantType
+    new_tuple(items: VariantType[], length: number): VariantType
     checked_(arg0: string): VariantType
     string_is_valid(type_string: string): boolean
     string_scan(string: string, limit: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]

@@ -1165,6 +1165,9 @@ export interface NoOpObject {
 export interface NoOpObject_Static {
     new (config: NoOpObject_ConstructProps): NoOpObject
 }
+export declare class NoOpObject_Static {
+    new(obj: GObject.Object): Object
+}
 export declare var NoOpObject: NoOpObject_Static
 export interface NoOpObjectFactory_ConstructProps {
 }
@@ -1212,6 +1215,9 @@ export interface NoOpObjectFactory {
 }
 export interface NoOpObjectFactory_Static {
     new (config: NoOpObjectFactory_ConstructProps): NoOpObjectFactory
+}
+export declare class NoOpObjectFactory_Static {
+    new(): ObjectFactory
 }
 export declare var NoOpObjectFactory: NoOpObjectFactory_Static
 export interface Object_ConstructProps {
@@ -1519,6 +1525,9 @@ export interface Plug {
 export interface Plug_Static {
     new (config: Plug_ConstructProps): Plug
 }
+export declare class Plug_Static {
+    new(): Object
+}
 export declare var Plug: Plug_Static
 export interface Registry_ConstructProps {
 }
@@ -1618,6 +1627,9 @@ export interface Relation {
 export interface Relation_Static {
     new (config: Relation_ConstructProps): Relation
 }
+export declare class Relation_Static {
+    new(targets: Object[], n_targets: number, relationship: RelationType): Relation
+}
 export declare var Relation: Relation_Static
 export interface RelationSet_ConstructProps {
 }
@@ -1668,6 +1680,9 @@ export interface RelationSet {
 }
 export interface RelationSet_Static {
     new (config: RelationSet_ConstructProps): RelationSet
+}
+export declare class RelationSet_Static {
+    new(): RelationSet
 }
 export declare var RelationSet: RelationSet_Static
 export interface Socket_ConstructProps {
@@ -1801,6 +1816,9 @@ export interface Socket {
 export interface Socket_Static {
     new (config: Socket_ConstructProps): Socket
 }
+export declare class Socket_Static {
+    new(): Object
+}
 export declare var Socket: Socket_Static
 export interface StateSet_ConstructProps {
 }
@@ -1853,6 +1871,9 @@ export interface StateSet {
 }
 export interface StateSet_Static {
     new (config: StateSet_ConstructProps): StateSet
+}
+export declare class StateSet_Static {
+    new(): StateSet
 }
 export declare var StateSet: StateSet_Static
 export interface Util_ConstructProps {
@@ -2066,6 +2087,9 @@ export interface Range {
 }
 export interface Range_Static {
     new (config: Range_ConstructProps): Range
+}
+export declare class Range_Static {
+    new(lower_limit: number, upper_limit: number, description: string): Range
 }
 export declare var Range: Range_Static
 export interface Rectangle_ConstructProps {

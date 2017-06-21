@@ -2008,6 +2008,9 @@ export interface AppLaunchContext {
 export interface AppLaunchContext_Static {
     new (config: AppLaunchContext_ConstructProps): AppLaunchContext
 }
+export declare class AppLaunchContext_Static {
+    new(): AppLaunchContext
+}
 export declare var AppLaunchContext: AppLaunchContext_Static
 export interface Application_ConstructProps {
     /* Properties of Application */
@@ -2120,6 +2123,7 @@ export interface Application_Static {
     new (config: Application_ConstructProps): Application
 }
 export declare class Application_Static {
+    new(application_id: string | null, flags: ApplicationFlags): Application
     get_default(): Application
     id_is_valid(application_id: string): boolean
 }
@@ -2286,6 +2290,10 @@ export interface BufferedInputStream {
 export interface BufferedInputStream_Static {
     new (config: BufferedInputStream_ConstructProps): BufferedInputStream
 }
+export declare class BufferedInputStream_Static {
+    new(base_stream: InputStream): InputStream
+    new_sized(base_stream: InputStream, size: number): InputStream
+}
 export declare var BufferedInputStream: BufferedInputStream_Static
 export interface BufferedOutputStream_ConstructProps {
     /* Properties of BufferedOutputStream */
@@ -2384,6 +2392,10 @@ export interface BufferedOutputStream {
 export interface BufferedOutputStream_Static {
     new (config: BufferedOutputStream_ConstructProps): BufferedOutputStream
 }
+export declare class BufferedOutputStream_Static {
+    new(base_stream: OutputStream): OutputStream
+    new_sized(base_stream: OutputStream, size: number): OutputStream
+}
 export declare var BufferedOutputStream: BufferedOutputStream_Static
 export interface BytesIcon_ConstructProps {
     /* Properties of BytesIcon */
@@ -2430,6 +2442,9 @@ export interface BytesIcon {
 }
 export interface BytesIcon_Static {
     new (config: BytesIcon_ConstructProps): BytesIcon
+}
+export declare class BytesIcon_Static {
+    new(bytes: GLib.Bytes): BytesIcon
 }
 export declare var BytesIcon: BytesIcon_Static
 export interface Cancellable_ConstructProps {
@@ -2490,6 +2505,7 @@ export interface Cancellable_Static {
     new (config: Cancellable_ConstructProps): Cancellable
 }
 export declare class Cancellable_Static {
+    new(): Cancellable
     get_current(): Cancellable | null
 }
 export declare var Cancellable: Cancellable_Static
@@ -2543,6 +2559,9 @@ export interface CharsetConverter {
 }
 export interface CharsetConverter_Static {
     new (config: CharsetConverter_ConstructProps): CharsetConverter
+}
+export declare class CharsetConverter_Static {
+    new(to_charset: string, from_charset: string): CharsetConverter
 }
 export declare var CharsetConverter: CharsetConverter_Static
 export interface ConverterInputStream_ConstructProps {
@@ -2629,6 +2648,9 @@ export interface ConverterInputStream {
 }
 export interface ConverterInputStream_Static {
     new (config: ConverterInputStream_ConstructProps): ConverterInputStream
+}
+export declare class ConverterInputStream_Static {
+    new(base_stream: InputStream, converter: Converter): InputStream
 }
 export declare var ConverterInputStream: ConverterInputStream_Static
 export interface ConverterOutputStream_ConstructProps {
@@ -2722,6 +2744,9 @@ export interface ConverterOutputStream {
 export interface ConverterOutputStream_Static {
     new (config: ConverterOutputStream_ConstructProps): ConverterOutputStream
 }
+export declare class ConverterOutputStream_Static {
+    new(base_stream: OutputStream, converter: Converter): OutputStream
+}
 export declare var ConverterOutputStream: ConverterOutputStream_Static
 export interface Credentials_ConstructProps {
 }
@@ -2770,6 +2795,9 @@ export interface Credentials {
 }
 export interface Credentials_Static {
     new (config: Credentials_ConstructProps): Credentials
+}
+export declare class Credentials_Static {
+    new(): Credentials
 }
 export declare var Credentials: Credentials_Static
 export interface DBusActionGroup_ConstructProps {
@@ -2863,6 +2891,9 @@ export interface DBusAuthObserver {
 }
 export interface DBusAuthObserver_Static {
     new (config: DBusAuthObserver_ConstructProps): DBusAuthObserver
+}
+export declare class DBusAuthObserver_Static {
+    new(): DBusAuthObserver
 }
 export declare var DBusAuthObserver: DBusAuthObserver_Static
 export interface DBusConnection_ConstructProps {
@@ -2962,6 +2993,10 @@ export interface DBusConnection_Static {
     new (config: DBusConnection_ConstructProps): DBusConnection
 }
 export declare class DBusConnection_Static {
+    new_finish(res: AsyncResult): DBusConnection
+    new_for_address_finish(res: AsyncResult): DBusConnection
+    new_for_address_sync(address: string, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusConnection
+    new_sync(stream: IOStream, guid: string | null, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusConnection
     new(stream: IOStream, guid: string | null, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     new_for_address(address: string, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
 }
@@ -3184,6 +3219,10 @@ export interface DBusMessage_Static {
     new (config: DBusMessage_ConstructProps): DBusMessage
 }
 export declare class DBusMessage_Static {
+    new(): DBusMessage
+    new_from_blob(blob: number[], blob_len: number, capabilities: DBusCapabilityFlags): DBusMessage
+    new_method_call(name: string | null, path: string, interface_: string | null, method: string): DBusMessage
+    new_signal(path: string, interface_: string, signal: string): DBusMessage
     bytes_needed(blob: number[], blob_len: number): number
 }
 export declare var DBusMessage: DBusMessage_Static
@@ -3308,6 +3347,10 @@ export interface DBusObjectManagerClient_Static {
     new (config: DBusObjectManagerClient_ConstructProps): DBusObjectManagerClient
 }
 export declare class DBusObjectManagerClient_Static {
+    new_finish(res: AsyncResult): DBusObjectManagerClient
+    new_for_bus_finish(res: AsyncResult): DBusObjectManagerClient
+    new_for_bus_sync(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null): DBusObjectManagerClient
+    new_sync(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string | null, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null): DBusObjectManagerClient
     new(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     new_for_bus(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
 }
@@ -3365,6 +3408,9 @@ export interface DBusObjectManagerServer {
 export interface DBusObjectManagerServer_Static {
     new (config: DBusObjectManagerServer_ConstructProps): DBusObjectManagerServer
 }
+export declare class DBusObjectManagerServer_Static {
+    new(object_path: string): DBusObjectManagerServer
+}
 export declare var DBusObjectManagerServer: DBusObjectManagerServer_Static
 export interface DBusObjectProxy_ConstructProps {
     /* Properties of DBusObjectProxy */
@@ -3412,6 +3458,9 @@ export interface DBusObjectProxy {
 }
 export interface DBusObjectProxy_Static {
     new (config: DBusObjectProxy_ConstructProps): DBusObjectProxy
+}
+export declare class DBusObjectProxy_Static {
+    new(connection: DBusConnection, object_path: string): DBusObjectProxy
 }
 export declare var DBusObjectProxy: DBusObjectProxy_Static
 export interface DBusObjectSkeleton_ConstructProps {
@@ -3468,6 +3517,9 @@ export interface DBusObjectSkeleton {
 }
 export interface DBusObjectSkeleton_Static {
     new (config: DBusObjectSkeleton_ConstructProps): DBusObjectSkeleton
+}
+export declare class DBusObjectSkeleton_Static {
+    new(object_path: string): DBusObjectSkeleton
 }
 export declare var DBusObjectSkeleton: DBusObjectSkeleton_Static
 export interface DBusProxy_ConstructProps {
@@ -3551,6 +3603,10 @@ export interface DBusProxy_Static {
     new (config: DBusProxy_ConstructProps): DBusProxy
 }
 export declare class DBusProxy_Static {
+    new_finish(res: AsyncResult): DBusProxy
+    new_for_bus_finish(res: AsyncResult): DBusProxy
+    new_for_bus_sync(bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable: Cancellable | null): DBusProxy
+    new_sync(connection: DBusConnection, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable: Cancellable | null): DBusProxy
     new(connection: DBusConnection, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     new_for_bus(bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
 }
@@ -3612,6 +3668,9 @@ export interface DBusServer {
 }
 export interface DBusServer_Static {
     new (config: DBusServer_ConstructProps): DBusServer
+}
+export declare class DBusServer_Static {
+    new_sync(address: string, flags: DBusServerFlags, guid: string, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusServer
 }
 export declare var DBusServer: DBusServer_Static
 export interface DataInputStream_ConstructProps {
@@ -3740,6 +3799,9 @@ export interface DataInputStream {
 export interface DataInputStream_Static {
     new (config: DataInputStream_ConstructProps): DataInputStream
 }
+export declare class DataInputStream_Static {
+    new(base_stream: InputStream): DataInputStream
+}
 export declare var DataInputStream: DataInputStream_Static
 export interface DataOutputStream_ConstructProps {
     /* Properties of DataOutputStream */
@@ -3842,6 +3904,9 @@ export interface DataOutputStream {
 export interface DataOutputStream_Static {
     new (config: DataOutputStream_ConstructProps): DataOutputStream
 }
+export declare class DataOutputStream_Static {
+    new(base_stream: OutputStream): DataOutputStream
+}
 export declare var DataOutputStream: DataOutputStream_Static
 export interface DesktopAppInfo_ConstructProps {
     /* Properties of DesktopAppInfo */
@@ -3904,6 +3969,9 @@ export interface DesktopAppInfo_Static {
     new (config: DesktopAppInfo_ConstructProps): DesktopAppInfo
 }
 export declare class DesktopAppInfo_Static {
+    new(desktop_id: string): DesktopAppInfo
+    new_from_filename(filename: string): DesktopAppInfo
+    new_from_keyfile(key_file: GLib.KeyFile): DesktopAppInfo
     get_implementations(interface: string): GLib.List
     search(search_string: string): any
     set_desktop_env(desktop_env: string): void
@@ -3957,6 +4025,10 @@ export interface Emblem {
 export interface Emblem_Static {
     new (config: Emblem_ConstructProps): Emblem
 }
+export declare class Emblem_Static {
+    new(icon: Icon): Emblem
+    new_with_origin(icon: Icon, origin: EmblemOrigin): Emblem
+}
 export declare var Emblem: Emblem_Static
 export interface EmblemedIcon_ConstructProps {
     /* Properties of EmblemedIcon */
@@ -4006,6 +4078,9 @@ export interface EmblemedIcon {
 }
 export interface EmblemedIcon_Static {
     new (config: EmblemedIcon_ConstructProps): EmblemedIcon
+}
+export declare class EmblemedIcon_Static {
+    new(icon: Icon, emblem: Emblem | null): EmblemedIcon
 }
 export declare var EmblemedIcon: EmblemedIcon_Static
 export interface FileEnumerator_ConstructProps {
@@ -4198,6 +4273,9 @@ export interface FileIcon {
 export interface FileIcon_Static {
     new (config: FileIcon_ConstructProps): FileIcon
 }
+export declare class FileIcon_Static {
+    new(file: File): FileIcon
+}
 export declare var FileIcon: FileIcon_Static
 export interface FileInfo_ConstructProps {
 }
@@ -4302,6 +4380,9 @@ export interface FileInfo {
 }
 export interface FileInfo_Static {
     new (config: FileInfo_ConstructProps): FileInfo
+}
+export declare class FileInfo_Static {
+    new(): FileInfo
 }
 export declare var FileInfo: FileInfo_Static
 export interface FileInputStream_ConstructProps {
@@ -4587,6 +4668,9 @@ export interface FilenameCompleter {
 export interface FilenameCompleter_Static {
     new (config: FilenameCompleter_ConstructProps): FilenameCompleter
 }
+export declare class FilenameCompleter_Static {
+    new(): FilenameCompleter
+}
 export declare var FilenameCompleter: FilenameCompleter_Static
 export interface FilterInputStream_ConstructProps {
     /* Properties of FilterInputStream */
@@ -4812,6 +4896,7 @@ export interface IOModule_Static {
     new (config: IOModule_ConstructProps): IOModule
 }
 export declare class IOModule_Static {
+    new(filename: string): IOModule
     query(): string[]
 }
 export declare var IOModule: IOModule_Static
@@ -4954,6 +5039,12 @@ export interface InetAddress {
 export interface InetAddress_Static {
     new (config: InetAddress_ConstructProps): InetAddress
 }
+export declare class InetAddress_Static {
+    new_any(family: SocketFamily): InetAddress
+    new_from_bytes(bytes: number[], family: SocketFamily): InetAddress
+    new_from_string(string: string): InetAddress
+    new_loopback(family: SocketFamily): InetAddress
+}
 export declare var InetAddress: InetAddress_Static
 export interface InetAddressMask_ConstructProps {
     /* Properties of InetAddressMask */
@@ -5009,6 +5100,10 @@ export interface InetAddressMask {
 }
 export interface InetAddressMask_Static {
     new (config: InetAddressMask_ConstructProps): InetAddressMask
+}
+export declare class InetAddressMask_Static {
+    new(addr: InetAddress, length: number): InetAddressMask
+    new_from_string(mask_string: string): InetAddressMask
 }
 export declare var InetAddressMask: InetAddressMask_Static
 export interface InetSocketAddress_ConstructProps {
@@ -5073,6 +5168,10 @@ export interface InetSocketAddress {
 }
 export interface InetSocketAddress_Static {
     new (config: InetSocketAddress_ConstructProps): InetSocketAddress
+}
+export declare class InetSocketAddress_Static {
+    new(address: InetAddress, port: number): SocketAddress
+    new_from_string(address: string, port: number): SocketAddress
 }
 export declare var InetSocketAddress: InetSocketAddress_Static
 export interface InputStream_ConstructProps {
@@ -5199,6 +5298,9 @@ export interface ListStore {
 export interface ListStore_Static {
     new (config: ListStore_ConstructProps): ListStore
 }
+export declare class ListStore_Static {
+    new(item_type: number): ListStore
+}
 export declare var ListStore: ListStore_Static
 export interface MemoryInputStream_ConstructProps {
 }
@@ -5273,6 +5375,11 @@ export interface MemoryInputStream {
 }
 export interface MemoryInputStream_Static {
     new (config: MemoryInputStream_ConstructProps): MemoryInputStream
+}
+export declare class MemoryInputStream_Static {
+    new(): InputStream
+    new_from_bytes(bytes: GLib.Bytes): InputStream
+    new_from_data(data: number[], len: number, destroy: GLib.DestroyNotify | null): InputStream
 }
 export declare var MemoryInputStream: MemoryInputStream_Static
 export interface MemoryOutputStream_ConstructProps {
@@ -5364,6 +5471,9 @@ export interface MemoryOutputStream {
 export interface MemoryOutputStream_Static {
     new (config: MemoryOutputStream_ConstructProps): MemoryOutputStream
 }
+export declare class MemoryOutputStream_Static {
+    new_resizable(): OutputStream
+}
 export declare var MemoryOutputStream: MemoryOutputStream_Static
 export interface Menu_ConstructProps {
 }
@@ -5440,6 +5550,9 @@ export interface Menu {
 }
 export interface Menu_Static {
     new (config: Menu_ConstructProps): Menu
+}
+export declare class Menu_Static {
+    new(): Menu
 }
 export declare var Menu: Menu_Static
 export interface MenuAttributeIter_ConstructProps {
@@ -5542,6 +5655,12 @@ export interface MenuItem {
 }
 export interface MenuItem_Static {
     new (config: MenuItem_ConstructProps): MenuItem
+}
+export declare class MenuItem_Static {
+    new(label: string | null, detailed_action: string | null): MenuItem
+    new_from_model(model: MenuModel, item_index: number): MenuItem
+    new_section(label: string | null, section: MenuModel): MenuItem
+    new_submenu(label: string | null, submenu: MenuModel): MenuItem
 }
 export declare var MenuItem: MenuItem_Static
 export interface MenuLinkIter_ConstructProps {
@@ -5736,6 +5855,9 @@ export interface MountOperation {
 export interface MountOperation_Static {
     new (config: MountOperation_ConstructProps): MountOperation
 }
+export declare class MountOperation_Static {
+    new(): MountOperation
+}
 export declare var MountOperation: MountOperation_Static
 export interface NativeVolumeMonitor_ConstructProps {
 }
@@ -5867,6 +5989,8 @@ export interface NetworkAddress_Static {
     new (config: NetworkAddress_ConstructProps): NetworkAddress
 }
 export declare class NetworkAddress_Static {
+    new(hostname: string, port: number): NetworkAddress
+    new_loopback(port: number): NetworkAddress
     parse(host_and_port: string, default_port: number): NetworkAddress
     parse_uri(uri: string, default_port: number): NetworkAddress
 }
@@ -5925,6 +6049,9 @@ export interface NetworkService {
 export interface NetworkService_Static {
     new (config: NetworkService_ConstructProps): NetworkService
 }
+export declare class NetworkService_Static {
+    new(service: string, protocol: string, domain: string): NetworkService
+}
 export declare var NetworkService: NetworkService_Static
 export interface Notification_ConstructProps {
 }
@@ -5976,6 +6103,9 @@ export interface Notification {
 }
 export interface Notification_Static {
     new (config: Notification_ConstructProps): Notification
+}
+export declare class Notification_Static {
+    new(title: string): Notification
 }
 export declare var Notification: Notification_Static
 export interface OutputStream_ConstructProps {
@@ -6173,6 +6303,9 @@ export interface PropertyAction {
 export interface PropertyAction_Static {
     new (config: PropertyAction_ConstructProps): PropertyAction
 }
+export declare class PropertyAction_Static {
+    new(name: string, object: GObject.Object, property_name: string): PropertyAction
+}
 export declare var PropertyAction: PropertyAction_Static
 export interface ProxyAddress_ConstructProps {
     /* Properties of ProxyAddress */
@@ -6253,6 +6386,9 @@ export interface ProxyAddress {
 }
 export interface ProxyAddress_Static {
     new (config: ProxyAddress_ConstructProps): ProxyAddress
+}
+export declare class ProxyAddress_Static {
+    new(inetaddr: InetAddress, port: number, protocol: string, dest_hostname: string, dest_port: number, username: string | null, password: string | null): SocketAddress
 }
 export declare var ProxyAddress: ProxyAddress_Static
 export interface ProxyAddressEnumerator_ConstructProps {
@@ -6483,6 +6619,11 @@ export interface Settings_Static {
     new (config: Settings_ConstructProps): Settings
 }
 export declare class Settings_Static {
+    new(schema_id: string): Settings
+    new_full(schema: SettingsSchema, backend: SettingsBackend | null, path: string | null): Settings
+    new_with_backend(schema_id: string, backend: SettingsBackend): Settings
+    new_with_backend_and_path(schema_id: string, backend: SettingsBackend, path: string): Settings
+    new_with_path(schema_id: string, path: string): Settings
     list_relocatable_schemas(): string[]
     list_schemas(): string[]
     sync(): void
@@ -6546,6 +6687,10 @@ export interface SimpleAction {
 export interface SimpleAction_Static {
     new (config: SimpleAction_ConstructProps): SimpleAction
 }
+export declare class SimpleAction_Static {
+    new(name: string, parameter_type: GLib.VariantType | null): SimpleAction
+    new_stateful(name: string, parameter_type: GLib.VariantType | null, state: GLib.Variant): SimpleAction
+}
 export declare var SimpleAction: SimpleAction_Static
 export interface SimpleActionGroup_ConstructProps {
 }
@@ -6592,6 +6737,9 @@ export interface SimpleActionGroup {
 }
 export interface SimpleActionGroup_Static {
     new (config: SimpleActionGroup_ConstructProps): SimpleActionGroup
+}
+export declare class SimpleActionGroup_Static {
+    new(): SimpleActionGroup
 }
 export declare var SimpleActionGroup: SimpleActionGroup_Static
 export interface SimpleAsyncResult_ConstructProps {
@@ -6647,6 +6795,8 @@ export interface SimpleAsyncResult_Static {
     new (config: SimpleAsyncResult_ConstructProps): SimpleAsyncResult
 }
 export declare class SimpleAsyncResult_Static {
+    new(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, user_data: object, source_tag: object): SimpleAsyncResult
+    new_from_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, user_data: object, error: GLib.Error): SimpleAsyncResult
     is_valid(result: AsyncResult, source: GObject.Object | null, source_tag: object | null): boolean
 }
 export declare var SimpleAsyncResult: SimpleAsyncResult_Static
@@ -6717,6 +6867,9 @@ export interface SimpleIOStream {
 export interface SimpleIOStream_Static {
     new (config: SimpleIOStream_ConstructProps): SimpleIOStream
 }
+export declare class SimpleIOStream_Static {
+    new(input_stream: InputStream, output_stream: OutputStream): IOStream
+}
 export declare var SimpleIOStream: SimpleIOStream_Static
 export interface SimplePermission_ConstructProps {
     /* Properties of Permission */
@@ -6781,6 +6934,9 @@ export interface SimplePermission {
 }
 export interface SimplePermission_Static {
     new (config: SimplePermission_ConstructProps): SimplePermission
+}
+export declare class SimplePermission_Static {
+    new(allowed: boolean): Permission
 }
 export declare var SimplePermission: SimplePermission_Static
 export interface SimpleProxyResolver_ConstructProps {
@@ -6956,6 +7112,10 @@ export interface Socket {
 export interface Socket_Static {
     new (config: Socket_ConstructProps): Socket
 }
+export declare class Socket_Static {
+    new(family: SocketFamily, type: SocketType, protocol: SocketProtocol): Socket
+    new_from_fd(fd: number): Socket
+}
 export declare var Socket: Socket_Static
 export interface SocketAddress_ConstructProps {
     /* Properties of SocketAddress */
@@ -7008,6 +7168,9 @@ export interface SocketAddress {
 }
 export interface SocketAddress_Static {
     new (config: SocketAddress_ConstructProps): SocketAddress
+}
+export declare class SocketAddress_Static {
+    new_from_native(native: object, len: number): SocketAddress
 }
 export declare var SocketAddress: SocketAddress_Static
 export interface SocketAddressEnumerator_ConstructProps {
@@ -7156,6 +7319,9 @@ export interface SocketClient {
 }
 export interface SocketClient_Static {
     new (config: SocketClient_ConstructProps): SocketClient
+}
+export declare class SocketClient_Static {
+    new(): SocketClient
 }
 export declare var SocketClient: SocketClient_Static
 export interface SocketConnection_ConstructProps {
@@ -7355,6 +7521,9 @@ export interface SocketListener {
 export interface SocketListener_Static {
     new (config: SocketListener_ConstructProps): SocketListener
 }
+export declare class SocketListener_Static {
+    new(): SocketListener
+}
 export declare var SocketListener: SocketListener_Static
 export interface SocketService_ConstructProps {
     /* Properties of SocketService */
@@ -7431,6 +7600,9 @@ export interface SocketService {
 export interface SocketService_Static {
     new (config: SocketService_ConstructProps): SocketService
 }
+export declare class SocketService_Static {
+    new(): SocketService
+}
 export declare var SocketService: SocketService_Static
 export interface Subprocess_ConstructProps {
     /* Properties of Subprocess */
@@ -7502,6 +7674,9 @@ export interface Subprocess {
 export interface Subprocess_Static {
     new (config: Subprocess_ConstructProps): Subprocess
 }
+export declare class Subprocess_Static {
+    newv(argv: string[], flags: SubprocessFlags): Subprocess
+}
 export declare var Subprocess: Subprocess_Static
 export interface SubprocessLauncher_ConstructProps {
     /* Properties of SubprocessLauncher */
@@ -7562,6 +7737,9 @@ export interface SubprocessLauncher {
 }
 export interface SubprocessLauncher_Static {
     new (config: SubprocessLauncher_ConstructProps): SubprocessLauncher
+}
+export declare class SubprocessLauncher_Static {
+    new(flags: SubprocessFlags): SubprocessLauncher
 }
 export declare var SubprocessLauncher: SubprocessLauncher_Static
 export interface Task_ConstructProps {
@@ -7633,6 +7811,7 @@ export interface Task_Static {
     new (config: Task_ConstructProps): Task
 }
 export declare class Task_Static {
+    new(source_object: GObject.Object | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, callback_data: object): Task
     is_valid(result: AsyncResult, source_object: GObject.Object | null): boolean
     report_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, callback_data: object, source_tag: object, error: GLib.Error): void
 }
@@ -7805,6 +7984,9 @@ export interface TcpWrapperConnection {
 export interface TcpWrapperConnection_Static {
     new (config: TcpWrapperConnection_ConstructProps): TcpWrapperConnection
 }
+export declare class TcpWrapperConnection_Static {
+    new(base_io_stream: IOStream, socket: Socket): SocketConnection
+}
 export declare var TcpWrapperConnection: TcpWrapperConnection_Static
 export interface TestDBus_ConstructProps {
     /* Properties of TestDBus */
@@ -7858,6 +8040,7 @@ export interface TestDBus_Static {
     new (config: TestDBus_ConstructProps): TestDBus
 }
 export declare class TestDBus_Static {
+    new(flags: TestDBusFlags): TestDBus
     unset(): void
 }
 export declare var TestDBus: TestDBus_Static
@@ -7910,6 +8093,11 @@ export interface ThemedIcon {
 }
 export interface ThemedIcon_Static {
     new (config: ThemedIcon_ConstructProps): ThemedIcon
+}
+export declare class ThemedIcon_Static {
+    new(iconname: string): ThemedIcon
+    new_from_names(iconnames: string[], len: number): ThemedIcon
+    new_with_default_fallbacks(iconname: string): ThemedIcon
 }
 export declare var ThemedIcon: ThemedIcon_Static
 export interface ThreadedSocketService_ConstructProps {
@@ -7994,6 +8182,9 @@ export interface ThreadedSocketService {
 export interface ThreadedSocketService_Static {
     new (config: ThreadedSocketService_ConstructProps): ThreadedSocketService
 }
+export declare class ThreadedSocketService_Static {
+    new(max_threads: number): SocketService
+}
 export declare var ThreadedSocketService: ThreadedSocketService_Static
 export interface TlsCertificate_ConstructProps {
     /* Properties of TlsCertificate */
@@ -8050,6 +8241,9 @@ export interface TlsCertificate_Static {
     new (config: TlsCertificate_ConstructProps): TlsCertificate
 }
 export declare class TlsCertificate_Static {
+    new_from_file(file: string): TlsCertificate
+    new_from_files(cert_file: string, key_file: string): TlsCertificate
+    new_from_pem(data: string, length: number): TlsCertificate
     list_new_from_file(file: string): GLib.List
 }
 export declare var TlsCertificate: TlsCertificate_Static
@@ -8351,6 +8545,9 @@ export interface TlsPassword {
 export interface TlsPassword_Static {
     new (config: TlsPassword_ConstructProps): TlsPassword
 }
+export declare class TlsPassword_Static {
+    new(flags: TlsPasswordFlags, description: string): TlsPassword
+}
 export declare var TlsPassword: TlsPassword_Static
 export interface UnixConnection_ConstructProps {
     /* Properties of SocketConnection */
@@ -8493,6 +8690,8 @@ export interface UnixCredentialsMessage_Static {
     new (config: UnixCredentialsMessage_ConstructProps): UnixCredentialsMessage
 }
 export declare class UnixCredentialsMessage_Static {
+    new(): SocketControlMessage
+    new_with_credentials(credentials: Credentials): SocketControlMessage
     is_supported(): boolean
 }
 export declare var UnixCredentialsMessage: UnixCredentialsMessage_Static
@@ -8542,6 +8741,10 @@ export interface UnixFDList {
 }
 export interface UnixFDList_Static {
     new (config: UnixFDList_ConstructProps): UnixFDList
+}
+export declare class UnixFDList_Static {
+    new(): UnixFDList
+    new_from_array(fds: number[], n_fds: number): UnixFDList
 }
 export declare var UnixFDList: UnixFDList_Static
 export interface UnixFDMessage_ConstructProps {
@@ -8601,6 +8804,10 @@ export interface UnixFDMessage {
 }
 export interface UnixFDMessage_Static {
     new (config: UnixFDMessage_ConstructProps): UnixFDMessage
+}
+export declare class UnixFDMessage_Static {
+    new(): SocketControlMessage
+    new_with_fd_list(fd_list: UnixFDList): SocketControlMessage
 }
 export declare var UnixFDMessage: UnixFDMessage_Static
 export interface UnixInputStream_ConstructProps {
@@ -8683,6 +8890,9 @@ export interface UnixInputStream {
 export interface UnixInputStream_Static {
     new (config: UnixInputStream_ConstructProps): UnixInputStream
 }
+export declare class UnixInputStream_Static {
+    new(fd: number, close_fd: boolean): InputStream
+}
 export declare var UnixInputStream: UnixInputStream_Static
 export interface UnixMountMonitor_ConstructProps {
 }
@@ -8731,6 +8941,7 @@ export interface UnixMountMonitor_Static {
     new (config: UnixMountMonitor_ConstructProps): UnixMountMonitor
 }
 export declare class UnixMountMonitor_Static {
+    new(): UnixMountMonitor
     get(): UnixMountMonitor
 }
 export declare var UnixMountMonitor: UnixMountMonitor_Static
@@ -8821,6 +9032,9 @@ export interface UnixOutputStream {
 export interface UnixOutputStream_Static {
     new (config: UnixOutputStream_ConstructProps): UnixOutputStream
 }
+export declare class UnixOutputStream_Static {
+    new(fd: number, close_fd: boolean): OutputStream
+}
 export declare var UnixOutputStream: UnixOutputStream_Static
 export interface UnixSocketAddress_ConstructProps {
     /* Properties of UnixSocketAddress */
@@ -8886,6 +9100,9 @@ export interface UnixSocketAddress_Static {
     new (config: UnixSocketAddress_ConstructProps): UnixSocketAddress
 }
 export declare class UnixSocketAddress_Static {
+    new(path: string): SocketAddress
+    new_abstract(path: number[], path_len: number): SocketAddress
+    new_with_type(path: number[], path_len: number, type: UnixSocketAddressType): SocketAddress
     abstract_names_supported(): boolean
 }
 export declare var UnixSocketAddress: UnixSocketAddress_Static
@@ -9085,6 +9302,9 @@ export interface ZlibCompressor {
 export interface ZlibCompressor_Static {
     new (config: ZlibCompressor_ConstructProps): ZlibCompressor
 }
+export declare class ZlibCompressor_Static {
+    new(format: ZlibCompressorFormat, level: number): ZlibCompressor
+}
 export declare var ZlibCompressor: ZlibCompressor_Static
 export interface ZlibDecompressor_ConstructProps {
     /* Properties of ZlibDecompressor */
@@ -9132,6 +9352,9 @@ export interface ZlibDecompressor {
 }
 export interface ZlibDecompressor_Static {
     new (config: ZlibDecompressor_ConstructProps): ZlibDecompressor
+}
+export declare class ZlibDecompressor_Static {
+    new(format: ZlibCompressorFormat): ZlibDecompressor
 }
 export declare var ZlibDecompressor: ZlibDecompressor_Static
 export interface ActionEntry_ConstructProps {
@@ -9447,6 +9670,9 @@ export interface DBusNodeInfo {
 export interface DBusNodeInfo_Static {
     new (config: DBusNodeInfo_ConstructProps): DBusNodeInfo
 }
+export declare class DBusNodeInfo_Static {
+    new_for_xml(xml_data: string): DBusNodeInfo
+}
 export declare var DBusNodeInfo: DBusNodeInfo_Static
 export interface DBusObjectIface_ConstructProps {
 }
@@ -9683,6 +9909,9 @@ export interface FileAttributeInfoList {
 export interface FileAttributeInfoList_Static {
     new (config: FileAttributeInfoList_ConstructProps): FileAttributeInfoList
 }
+export declare class FileAttributeInfoList_Static {
+    new(): FileAttributeInfoList
+}
 export declare var FileAttributeInfoList: FileAttributeInfoList_Static
 export interface FileAttributeMatcher_ConstructProps {
 }
@@ -9699,6 +9928,9 @@ export interface FileAttributeMatcher {
 }
 export interface FileAttributeMatcher_Static {
     new (config: FileAttributeMatcher_ConstructProps): FileAttributeMatcher
+}
+export declare class FileAttributeMatcher_Static {
+    new(attributes: string): FileAttributeMatcher
 }
 export declare var FileAttributeMatcher: FileAttributeMatcher_Static
 export interface FileDescriptorBasedIface_ConstructProps {
@@ -9884,8 +10116,6 @@ export interface IOModuleScope {
 }
 export interface IOModuleScope_Static {
     new (config: IOModuleScope_ConstructProps): IOModuleScope
-}
-export declare class IOModuleScope_Static {
 }
 export declare var IOModuleScope: IOModuleScope_Static
 export interface IOSchedulerJob_ConstructProps {
@@ -10356,6 +10586,7 @@ export interface Resource_Static {
     new (config: Resource_ConstructProps): Resource
 }
 export declare class Resource_Static {
+    new_from_data(data: GLib.Bytes): Resource
     load(filename: string): Resource
 }
 export declare var Resource: Resource_Static
@@ -10439,6 +10670,7 @@ export interface SettingsSchemaSource_Static {
     new (config: SettingsSchemaSource_ConstructProps): SettingsSchemaSource
 }
 export declare class SettingsSchemaSource_Static {
+    new_from_directory(directory: string, parent: SettingsSchemaSource | null, trusted: boolean): SettingsSchemaSource
     get_default(): SettingsSchemaSource
 }
 export declare var SettingsSchemaSource: SettingsSchemaSource_Static
@@ -10617,6 +10849,7 @@ export interface SrvTarget_Static {
     new (config: SrvTarget_ConstructProps): SrvTarget
 }
 export declare class SrvTarget_Static {
+    new(hostname: string, port: number, priority: number, weight: number): SrvTarget
 }
 export declare var SrvTarget: SrvTarget_Static
 export interface StaticResource_ConstructProps {

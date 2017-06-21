@@ -385,6 +385,9 @@ export interface Context {
 export interface Context_Static {
     new (config: Context_ConstructProps): Context
 }
+export declare class Context_Static {
+    new(): Context
+}
 export declare var Context: Context_Static
 export interface Engine_ConstructProps {
 }
@@ -836,6 +839,9 @@ export interface FontsetSimple {
 export interface FontsetSimple_Static {
     new (config: FontsetSimple_ConstructProps): FontsetSimple
 }
+export declare class FontsetSimple_Static {
+    new(language: Language): FontsetSimple
+}
 export declare var FontsetSimple: FontsetSimple_Static
 export interface Layout_ConstructProps {
 }
@@ -934,6 +940,9 @@ export interface Layout {
 }
 export interface Layout_Static {
     new (config: Layout_ConstructProps): Layout
+}
+export declare class Layout_Static {
+    new(context: Context): Layout
 }
 export declare var Layout: Layout_Static
 export interface Renderer_ConstructProps {
@@ -1049,8 +1058,6 @@ export interface AttrFontDesc {
 export interface AttrFontDesc_Static {
     new (config: AttrFontDesc_ConstructProps): AttrFontDesc
 }
-export declare class AttrFontDesc_Static {
-}
 export declare var AttrFontDesc: AttrFontDesc_Static
 export interface AttrFontFeatures_ConstructProps {
 }
@@ -1058,8 +1065,6 @@ export interface AttrFontFeatures {
 }
 export interface AttrFontFeatures_Static {
     new (config: AttrFontFeatures_ConstructProps): AttrFontFeatures
-}
-export declare class AttrFontFeatures_Static {
 }
 export declare var AttrFontFeatures: AttrFontFeatures_Static
 export interface AttrInt_ConstructProps {
@@ -1091,8 +1096,6 @@ export interface AttrLanguage {
 export interface AttrLanguage_Static {
     new (config: AttrLanguage_ConstructProps): AttrLanguage
 }
-export declare class AttrLanguage_Static {
-}
 export declare var AttrLanguage: AttrLanguage_Static
 export interface AttrList_ConstructProps {
 }
@@ -1110,6 +1113,9 @@ export interface AttrList {
 export interface AttrList_Static {
     new (config: AttrList_ConstructProps): AttrList
 }
+export declare class AttrList_Static {
+    new(): AttrList
+}
 export declare var AttrList: AttrList_Static
 export interface AttrShape_ConstructProps {
 }
@@ -1118,8 +1124,6 @@ export interface AttrShape {
 export interface AttrShape_Static {
     new (config: AttrShape_ConstructProps): AttrShape
 }
-export declare class AttrShape_Static {
-}
 export declare var AttrShape: AttrShape_Static
 export interface AttrSize_ConstructProps {
 }
@@ -1127,8 +1131,6 @@ export interface AttrSize {
 }
 export interface AttrSize_Static {
     new (config: AttrSize_ConstructProps): AttrSize
-}
-export declare class AttrSize_Static {
 }
 export declare var AttrSize: AttrSize_Static
 export interface AttrString_ConstructProps {
@@ -1184,8 +1186,6 @@ export interface Coverage {
 }
 export interface Coverage_Static {
     new (config: Coverage_ConstructProps): Coverage
-}
-export declare class Coverage_Static {
 }
 export declare var Coverage: Coverage_Static
 export interface EngineClass_ConstructProps {
@@ -1274,6 +1274,7 @@ export interface FontDescription_Static {
     new (config: FontDescription_ConstructProps): FontDescription
 }
 export declare class FontDescription_Static {
+    new(): FontDescription
     from_string(str: string): FontDescription
 }
 export declare var FontDescription: FontDescription_Static
@@ -1318,6 +1319,9 @@ export interface FontMetrics {
 }
 export interface FontMetrics_Static {
     new (config: FontMetrics_ConstructProps): FontMetrics
+}
+export declare class FontMetrics_Static {
+    new(): FontMetrics
 }
 export declare var FontMetrics: FontMetrics_Static
 export interface FontsetClass_ConstructProps {
@@ -1399,6 +1403,9 @@ export interface GlyphString {
 export interface GlyphString_Static {
     new (config: GlyphString_ConstructProps): GlyphString
 }
+export declare class GlyphString_Static {
+    new(): GlyphString
+}
 export declare var GlyphString: GlyphString_Static
 export interface GlyphVisAttr_ConstructProps {
 }
@@ -1426,6 +1433,9 @@ export interface Item {
 }
 export interface Item_Static {
     new (config: Item_ConstructProps): Item
+}
+export declare class Item_Static {
+    new(): Item
 }
 export declare var Item: Item_Static
 export interface Language_ConstructProps {
@@ -1588,8 +1598,6 @@ export interface ScriptIter {
 export interface ScriptIter_Static {
     new (config: ScriptIter_ConstructProps): ScriptIter
 }
-export declare class ScriptIter_Static {
-}
 export declare var ScriptIter: ScriptIter_Static
 export interface TabArray_ConstructProps {
 }
@@ -1606,6 +1614,9 @@ export interface TabArray {
 }
 export interface TabArray_Static {
     new (config: TabArray_ConstructProps): TabArray
+}
+export declare class TabArray_Static {
+    new(initial_size: number, positions_in_pixels: boolean): TabArray
 }
 export declare var TabArray: TabArray_Static
 type Glyph = number

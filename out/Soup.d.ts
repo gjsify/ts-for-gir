@@ -670,6 +670,11 @@ export interface Address {
 export interface Address_Static {
     new (config: Address_ConstructProps): Address
 }
+export declare class Address_Static {
+    new(name: string, port: number): Address
+    new_any(family: AddressFamily, port: number): Address | null
+    new_from_sockaddr(sa: object, len: number): Address | null
+}
 export declare var Address: Address_Static
 export interface Auth_ConstructProps {
     /* Properties of Auth */
@@ -742,6 +747,9 @@ export interface Auth {
 }
 export interface Auth_Static {
     new (config: Auth_ConstructProps): Auth
+}
+export declare class Auth_Static {
+    new(type: number, msg: Message, auth_header: string): Auth | null
 }
 export declare var Auth: Auth_Static
 export interface AuthBasic_ConstructProps {
@@ -1299,6 +1307,9 @@ export interface Cache {
 export interface Cache_Static {
     new (config: Cache_ConstructProps): Cache
 }
+export declare class Cache_Static {
+    new(cache_dir: string, cache_type: CacheType): Cache
+}
 export declare var Cache: Cache_Static
 export interface ContentDecoder_ConstructProps {
 }
@@ -1389,6 +1400,9 @@ export interface ContentSniffer {
 export interface ContentSniffer_Static {
     new (config: ContentSniffer_ConstructProps): ContentSniffer
 }
+export declare class ContentSniffer_Static {
+    new(): ContentSniffer
+}
 export declare var ContentSniffer: ContentSniffer_Static
 export interface CookieJar_ConstructProps {
     /* Properties of CookieJar */
@@ -1454,6 +1468,9 @@ export interface CookieJar {
 }
 export interface CookieJar_Static {
     new (config: CookieJar_ConstructProps): CookieJar
+}
+export declare class CookieJar_Static {
+    new(): CookieJar
 }
 export declare var CookieJar: CookieJar_Static
 export interface CookieJarDB_ConstructProps {
@@ -1524,6 +1541,9 @@ export interface CookieJarDB {
 export interface CookieJarDB_Static {
     new (config: CookieJarDB_ConstructProps): CookieJarDB
 }
+export declare class CookieJarDB_Static {
+    new(filename: string, read_only: boolean): CookieJar
+}
 export declare var CookieJarDB: CookieJarDB_Static
 export interface CookieJarText_ConstructProps {
     /* Properties of CookieJarText */
@@ -1593,6 +1613,9 @@ export interface CookieJarText {
 export interface CookieJarText_Static {
     new (config: CookieJarText_ConstructProps): CookieJarText
 }
+export declare class CookieJarText_Static {
+    new(filename: string, read_only: boolean): CookieJar
+}
 export declare var CookieJarText: CookieJarText_Static
 export interface Logger_ConstructProps {
 }
@@ -1640,6 +1663,9 @@ export interface Logger {
 }
 export interface Logger_Static {
     new (config: Logger_ConstructProps): Logger
+}
+export declare class Logger_Static {
+    new(level: LoggerLogLevel, max_body_size: number): Logger
 }
 export declare var Logger: Logger_Static
 export interface Message_ConstructProps {
@@ -1774,6 +1800,10 @@ export interface Message {
 export interface Message_Static {
     new (config: Message_ConstructProps): Message
 }
+export declare class Message_Static {
+    new(method: string, uri_string: string): Message | null
+    new_from_uri(method: string, uri: URI): Message
+}
 export declare var Message: Message_Static
 export interface MultipartInputStream_ConstructProps {
     /* Properties of MultipartInputStream */
@@ -1862,6 +1892,9 @@ export interface MultipartInputStream {
 }
 export interface MultipartInputStream_Static {
     new (config: MultipartInputStream_ConstructProps): MultipartInputStream
+}
+export declare class MultipartInputStream_Static {
+    new(msg: Message, base_stream: Gio.InputStream): MultipartInputStream
 }
 export declare var MultipartInputStream: MultipartInputStream_Static
 export interface ProxyResolverDefault_ConstructProps {
@@ -2202,6 +2235,9 @@ export interface Requester {
 export interface Requester_Static {
     new (config: Requester_ConstructProps): Requester
 }
+export declare class Requester_Static {
+    new(): Requester
+}
 export declare var Requester: Requester_Static
 export interface Server_ConstructProps {
     /* Properties of Server */
@@ -2428,6 +2464,9 @@ export interface Session {
 export interface Session_Static {
     new (config: Session_ConstructProps): Session
 }
+export declare class Session_Static {
+    new(): Session
+}
 export declare var Session: Session_Static
 export interface SessionAsync_ConstructProps {
     /* Properties of Session */
@@ -2561,6 +2600,9 @@ export interface SessionAsync {
 export interface SessionAsync_Static {
     new (config: SessionAsync_ConstructProps): SessionAsync
 }
+export declare class SessionAsync_Static {
+    new(): Session
+}
 export declare var SessionAsync: SessionAsync_Static
 export interface SessionSync_ConstructProps {
     /* Properties of Session */
@@ -2693,6 +2735,9 @@ export interface SessionSync {
 }
 export interface SessionSync_Static {
     new (config: SessionSync_ConstructProps): SessionSync
+}
+export declare class SessionSync_Static {
+    new(): Session
 }
 export declare var SessionSync: SessionSync_Static
 export interface Socket_ConstructProps {
@@ -2859,6 +2904,9 @@ export interface WebsocketConnection {
 export interface WebsocketConnection_Static {
     new (config: WebsocketConnection_ConstructProps): WebsocketConnection
 }
+export declare class WebsocketConnection_Static {
+    new(stream: Gio.IOStream, uri: URI, type: WebsocketConnectionType, origin: string | null, protocol: string | null): WebsocketConnection
+}
 export declare var WebsocketConnection: WebsocketConnection_Static
 export interface AddressClass_ConstructProps {
 }
@@ -2929,6 +2977,11 @@ export interface Buffer {
 }
 export interface Buffer_Static {
     new (config: Buffer_ConstructProps): Buffer
+}
+export declare class Buffer_Static {
+    new(use: MemoryUse, data: number[], length: number): Buffer
+    new_take(data: number[], length: number): Buffer
+    new_with_owner(data: number[], length: number, owner: object, owner_dnotify: GLib.DestroyNotify | null): Buffer
 }
 export declare var Buffer: Buffer_Static
 export interface CacheClass_ConstructProps {
@@ -3036,6 +3089,7 @@ export interface Cookie_Static {
     new (config: Cookie_ConstructProps): Cookie
 }
 export declare class Cookie_Static {
+    new(name: string, value: string, domain: string, path: string, max_age: number): Cookie
     parse(header: string, origin: URI): Cookie | null
 }
 export declare var Cookie: Cookie_Static
@@ -3085,6 +3139,12 @@ export interface Date {
 export interface Date_Static {
     new (config: Date_ConstructProps): Date
 }
+export declare class Date_Static {
+    new(year: number, month: number, day: number, hour: number, minute: number, second: number): Date
+    new_from_now(offset_seconds: number): Date
+    new_from_string(date_string: string): Date | null
+    new_from_time_t(when: number): Date
+}
 export declare var Date: Date_Static
 export interface LoggerClass_ConstructProps {
 }
@@ -3113,6 +3173,9 @@ export interface MessageBody {
 }
 export interface MessageBody_Static {
     new (config: MessageBody_ConstructProps): MessageBody
+}
+export declare class MessageBody_Static {
+    new(): MessageBody
 }
 export declare var MessageBody: MessageBody_Static
 export interface MessageClass_ConstructProps {
@@ -3160,6 +3223,9 @@ export interface MessageHeaders {
 export interface MessageHeaders_Static {
     new (config: MessageHeaders_ConstructProps): MessageHeaders
 }
+export declare class MessageHeaders_Static {
+    new(type: MessageHeadersType): MessageHeaders
+}
 export declare var MessageHeaders: MessageHeaders_Static
 export interface MessageHeadersIter_ConstructProps {
 }
@@ -3204,6 +3270,10 @@ export interface Multipart {
 }
 export interface Multipart_Static {
     new (config: Multipart_ConstructProps): Multipart
+}
+export declare class Multipart_Static {
+    new(mime_type: string): Multipart
+    new_from_message(headers: MessageHeaders, body: MessageBody): Multipart | null
 }
 export declare var Multipart: Multipart_Static
 export interface MultipartInputStreamClass_ConstructProps {
@@ -3417,6 +3487,7 @@ export interface URI_Static {
     new (config: URI_ConstructProps): URI
 }
 export declare class URI_Static {
+    new(uri_string: string | null): URI | null
     decode(part: string): string
     encode(part: string, escape_extra: string | null): string
     normalize(part: string, unescape_extra: string | null): string

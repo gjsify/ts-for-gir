@@ -458,7 +458,7 @@ export function cookies_to_cookie_header(cookies: GLib.SList): string
 export function cookies_to_request(cookies: GLib.SList, msg: Message): void
 export function cookies_to_response(cookies: GLib.SList, msg: Message): void
 export function form_decode(encoded_form: string): GLib.HashTable
-export function form_decode_multipart(msg: Message, file_control_name: string | null, filename: string | null, content_type: string | null, file: Buffer | null): GLib.HashTable | null
+export function form_decode_multipart(msg: Message, file_control_name: string | null): [ /* returnType */ GLib.HashTable | null, /* filename */ string | null, /* content_type */ string | null, /* file */ Buffer | null ]
 export function form_encode_datalist(form_data_set: GLib.Data): string
 export function form_encode_hash(form_data_set: GLib.HashTable): string
 export function form_request_new_from_datalist(method: string, uri: string, form_data_set: GLib.Data): Message
@@ -470,14 +470,14 @@ export function header_g_string_append_param(string: GLib.String, name: string, 
 export function header_g_string_append_param_quoted(string: GLib.String, name: string, value: string): void
 export function header_parse_list(header: string): GLib.SList
 export function header_parse_param_list(header: string): GLib.HashTable
-export function header_parse_quality_list(header: string, unacceptable: GLib.SList | null): GLib.SList
+export function header_parse_quality_list(header: string): [ /* returnType */ GLib.SList, /* unacceptable */ GLib.SList | null ]
 export function header_parse_semi_param_list(header: string): GLib.HashTable
 export function headers_parse(str: string, len: number, dest: MessageHeaders): boolean
-export function headers_parse_request(str: string, len: number, req_headers: MessageHeaders, req_method: string | null, req_path: string | null, ver: HTTPVersion | null): number
-export function headers_parse_response(str: string, len: number, headers: MessageHeaders, ver: HTTPVersion | null, status_code: number | null, reason_phrase: string | null): boolean
-export function headers_parse_status_line(status_line: string, ver: HTTPVersion | null, status_code: number | null, reason_phrase: string | null): boolean
+export function headers_parse_request(str: string, len: number, req_headers: MessageHeaders): [ /* returnType */ number, /* req_method */ string | null, /* req_path */ string | null, /* ver */ HTTPVersion | null ]
+export function headers_parse_response(str: string, len: number, headers: MessageHeaders): [ /* returnType */ boolean, /* ver */ HTTPVersion | null, /* status_code */ number | null, /* reason_phrase */ string | null ]
+export function headers_parse_status_line(status_line: string): [ /* returnType */ boolean, /* ver */ HTTPVersion | null, /* status_code */ number | null, /* reason_phrase */ string | null ]
 export function http_error_quark(): GLib.Quark
-export function message_headers_iter_init(iter: MessageHeadersIter, hdrs: MessageHeaders): void
+export function message_headers_iter_init(hdrs: MessageHeaders): /* iter */ MessageHeadersIter
 export function request_error_quark(): GLib.Quark
 export function requester_error_quark(): GLib.Quark
 export function status_get_phrase(status_code: number): string
@@ -506,9 +506,9 @@ export function xmlrpc_error_quark(): GLib.Quark
 export function xmlrpc_fault_quark(): GLib.Quark
 export function xmlrpc_message_new(uri: string, method_name: string, params: GLib.Variant): Message
 export function xmlrpc_message_set_response(msg: Message, value: GLib.Variant): boolean
-export function xmlrpc_parse_method_call(method_call: string, length: number, method_name: string, params: GObject.ValueArray): boolean
-export function xmlrpc_parse_method_response(method_response: string, length: number, value: GObject.Value): boolean
-export function xmlrpc_parse_request(method_call: string, length: number, params: XMLRPCParams): string
+export function xmlrpc_parse_method_call(method_call: string, length: number): [ /* returnType */ boolean, /* method_name */ string, /* params */ GObject.ValueArray ]
+export function xmlrpc_parse_method_response(method_response: string, length: number): [ /* returnType */ boolean, /* value */ GObject.Value ]
+export function xmlrpc_parse_request(method_call: string, length: number): [ /* returnType */ string, /* params */ XMLRPCParams ]
 export function xmlrpc_parse_response(method_response: string, length: number, signature: string | null): GLib.Variant
 export function xmlrpc_variant_get_datetime(variant: GLib.Variant): Date
 export function xmlrpc_variant_new_datetime(date: Date): GLib.Variant
@@ -576,10 +576,10 @@ export interface ProxyURIResolver_ConstructProps {
 export interface ProxyURIResolver {
     /* Methods of ProxyURIResolver */
     get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback, user_data: object): void
-    get_proxy_uri_sync(uri: URI, cancellable: Gio.Cancellable | null, proxy_uri: URI): number
+    get_proxy_uri_sync(uri: URI, cancellable: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
     /* Virtual methods of ProxyURIResolver */
     vfunc_get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback, user_data: object): void
-    vfunc_get_proxy_uri_sync(uri: URI, cancellable: Gio.Cancellable | null, proxy_uri: URI): number
+    vfunc_get_proxy_uri_sync(uri: URI, cancellable: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
 }
 export interface ProxyURIResolver_Static {
     new (config: ProxyURIResolver_ConstructProps): ProxyURIResolver
@@ -1347,7 +1347,7 @@ export interface ContentSniffer_ConstructProps {
 export interface ContentSniffer {
     /* Methods of ContentSniffer */
     get_buffer_size(): number
-    sniff(msg: Message, buffer: Buffer, params: GLib.HashTable | null): string
+    sniff(msg: Message, buffer: Buffer): [ /* returnType */ string, /* params */ GLib.HashTable | null ]
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -1374,7 +1374,7 @@ export interface ContentSniffer {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of ContentSniffer */
     vfunc_get_buffer_size(): number
-    vfunc_sniff(msg: Message, buffer: Buffer, params: GLib.HashTable | null): string
+    vfunc_sniff(msg: Message, buffer: Buffer): [ /* returnType */ string, /* params */ GLib.HashTable | null ]
     /* Virtual methods of Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1682,7 +1682,7 @@ export interface Message {
     get_first_party(): URI
     get_flags(): MessageFlags
     get_http_version(): HTTPVersion
-    get_https_status(certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): boolean
+    get_https_status(): [ /* returnType */ boolean, /* certificate */ Gio.TlsCertificate, /* errors */ Gio.TlsCertificateFlags ]
     get_priority(): MessagePriority
     get_soup_request(): Request
     get_uri(): URI
@@ -1803,9 +1803,9 @@ export interface MultipartInputStream {
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: number[], count: number, cancellable: Gio.Cancellable | null): number
-    read_all(buffer: number[], count: number, bytes_read: number, cancellable: Gio.Cancellable | null): boolean
+    read_all(buffer: number[], count: number, cancellable: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
-    read_all_finish(result: Gio.AsyncResult, bytes_read: number): boolean
+    read_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_async(buffer: number[], count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Gio.Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
@@ -2733,11 +2733,11 @@ export interface Socket {
     is_connected(): boolean
     is_ssl(): boolean
     listen(): boolean
-    read(buffer: number[], len: number, nread: number, cancellable: Gio.Cancellable | null): SocketIOStatus
-    read_until(buffer: number[], len: number, boundary: object, boundary_len: number, nread: number, got_boundary: boolean, cancellable: Gio.Cancellable | null): SocketIOStatus
+    read(buffer: number[], len: number, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    read_until(buffer: number[], len: number, boundary: object, boundary_len: number, got_boundary: boolean, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
     start_proxy_ssl(ssl_host: string, cancellable: Gio.Cancellable | null): boolean
     start_ssl(cancellable: Gio.Cancellable | null): boolean
-    write(buffer: number[], len: number, nwrote: number, cancellable: Gio.Cancellable | null): SocketIOStatus
+    write(buffer: number[], len: number, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -2923,7 +2923,7 @@ export interface Buffer {
     copy(): Buffer
     free(): void
     get_as_bytes(): GLib.Bytes
-    get_data(data: number[], length: number): void
+    get_data(): [ /* data */ number[], /* length */ number ]
     get_owner(): object
     new_subbuffer(offset: number, length: number): Buffer
 }
@@ -3080,7 +3080,7 @@ export interface Date {
     is_past(): boolean
     to_string(format: DateFormat): string
     to_time_t(): number
-    to_timeval(time: GLib.TimeVal): void
+    to_timeval(): /* time */ GLib.TimeVal
 }
 export interface Date_Static {
     new (config: Date_ConstructProps): Date
@@ -3134,16 +3134,16 @@ export interface MessageHeaders {
     free(): void
     free_ranges(ranges: Range): void
     get(name: string): string | null
-    get_content_disposition(disposition: string, params: GLib.HashTable): boolean
+    get_content_disposition(): [ /* returnType */ boolean, /* disposition */ string, /* params */ GLib.HashTable ]
     get_content_length(): number
     get_content_range(start: number, end: number, total_length: number): boolean
-    get_content_type(params: GLib.HashTable | null): string | null
+    get_content_type(): [ /* returnType */ string | null, /* params */ GLib.HashTable | null ]
     get_encoding(): Encoding
     get_expectations(): Expectation
     get_headers_type(): MessageHeadersType
     get_list(name: string): string | null
     get_one(name: string): string | null
-    get_ranges(total_length: number, ranges: Range[], length: number): boolean
+    get_ranges(total_length: number): [ /* returnType */ boolean, /* ranges */ Range[], /* length */ number ]
     header_contains(name: string, token: string): boolean
     header_equals(name: string, value: string): boolean
     remove(name: string): void
@@ -3165,13 +3165,13 @@ export interface MessageHeadersIter_ConstructProps {
 }
 export interface MessageHeadersIter {
     /* Methods of MessageHeadersIter */
-    next(name: string, value: string): boolean
+    next(): [ /* returnType */ boolean, /* name */ string, /* value */ string ]
 }
 export interface MessageHeadersIter_Static {
     new (config: MessageHeadersIter_ConstructProps): MessageHeadersIter
 }
 export declare class MessageHeadersIter_Static {
-    init(iter: MessageHeadersIter, hdrs: MessageHeaders): void
+    init(hdrs: MessageHeaders): /* iter */ MessageHeadersIter
 }
 export declare var MessageHeadersIter: MessageHeadersIter_Static
 export interface MessageQueue_ConstructProps {
@@ -3199,7 +3199,7 @@ export interface Multipart {
     append_part(headers: MessageHeaders, body: Buffer): void
     free(): void
     get_length(): number
-    get_part(part: number, headers: MessageHeaders, body: Buffer): boolean
+    get_part(part: number): [ /* returnType */ boolean, /* headers */ MessageHeaders, /* body */ Buffer ]
     to_message(dest_headers: MessageHeaders, dest_body: MessageBody): void
 }
 export interface Multipart_Static {

@@ -219,7 +219,7 @@ test('interface', t => {
 
             "export declare class Action_Static {",
             "    name_is_valid(action_name: string): boolean",
-            "    parse_detailed_name(detailed_name: string, action_name: string, target_value: GLib.Variant): boolean",
+            "    parse_detailed_name(detailed_name: string): [ /* returnType */ boolean, /* action_name */ string, /* target_value */ GLib.Variant ]",
             "    print_detailed_name(action_name: string, target_value: GLib.Variant | null): string",
             "}",
 
@@ -246,7 +246,7 @@ test('interface', t => {
             "    get_action_state_type(action_name: string): GLib.VariantType | null",
             "    has_action(action_name: string): boolean",
             "    list_actions(): string[]",
-            "    query_action(action_name: string, enabled: boolean, parameter_type: GLib.VariantType | null, state_type: GLib.VariantType | null, state_hint: GLib.Variant | null, state: GLib.Variant | null): boolean",
+            "    query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]",
             "    /* Virtual methods of ActionGroup */",
             "    vfunc_action_added(action_name: string): void",
             "    vfunc_action_enabled_changed(action_name: string, enabled: boolean): void",
@@ -261,7 +261,7 @@ test('interface', t => {
             "    vfunc_get_action_state_type(action_name: string): GLib.VariantType | null",
             "    vfunc_has_action(action_name: string): boolean",
             "    vfunc_list_actions(): string[]",
-            "    vfunc_query_action(action_name: string, enabled: boolean, parameter_type: GLib.VariantType | null, state_type: GLib.VariantType | null, state_hint: GLib.Variant | null, state: GLib.Variant | null): boolean",
+            "    vfunc_query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]",
             "    /* Signals of ActionGroup */",        
             "    connect(sigName: \"action-added\", callback: ((action_name: string) => void))",
             "    connect(sigName: \"action-enabled-changed\", callback: ((action_name: string, enabled: boolean) => void))",
@@ -297,7 +297,7 @@ test('constructors', t => {
 
             "export interface DBusNodeInfo {",
             "    /* Methods of DBusNodeInfo */",
-            "    generate_xml(indent: number, string_builder: GLib.String): void",
+            "    generate_xml(indent: number): /* string_builder */ GLib.String",
             "    lookup_interface(name: string): DBusInterfaceInfo",
             "    ref(): DBusNodeInfo",
 
@@ -346,7 +346,7 @@ test('class', t => {
             "    readonly is_remote:boolean",
             "    /* Methods of ApplicationCommandLine */",
             "    create_file_for_arg(arg: string): File",
-            "    get_arguments(argc: number | null): string[]",
+            "    get_arguments(): [ /* returnType */ string[], /* argc */ number | null ]",            
             "    get_cwd(): string",
             "    get_environ(): string[]",
             "    get_exit_status(): number",

@@ -103,12 +103,12 @@ export function cclosure_marshal_VOID__ULONG(closure: Closure, return_value: Val
 export function cclosure_marshal_VOID__VARIANT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
 export function cclosure_marshal_VOID__VOID(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
 export function cclosure_marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function enum_complete_type_info(g_enum_type: number, info: TypeInfo, const_values: EnumValue): void
+export function enum_complete_type_info(g_enum_type: number, const_values: EnumValue): /* info */ TypeInfo
 export function enum_get_value(enum_class: EnumClass, value: number): EnumValue
 export function enum_get_value_by_name(enum_class: EnumClass, name: string): EnumValue
 export function enum_get_value_by_nick(enum_class: EnumClass, nick: string): EnumValue
 export function enum_register_static(name: string, const_static_values: EnumValue): number
-export function flags_complete_type_info(g_flags_type: number, info: TypeInfo, const_values: FlagsValue): void
+export function flags_complete_type_info(g_flags_type: number, const_values: FlagsValue): /* info */ TypeInfo
 export function flags_get_first_value(flags_class: FlagsClass, value: number): FlagsValue
 export function flags_get_value_by_name(flags_class: FlagsClass, name: string): FlagsValue
 export function flags_get_value_by_nick(flags_class: FlagsClass, nick: string): FlagsValue
@@ -161,12 +161,12 @@ export function signal_handlers_destroy(instance: Object): void
 export function signal_handlers_disconnect_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object, data: object): number
 export function signal_handlers_unblock_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object, data: object): number
 export function signal_has_handler_pending(instance: Object, signal_id: number, detail: GLib.Quark, may_be_blocked: boolean): boolean
-export function signal_list_ids(itype: number, n_ids: number): number[]
+export function signal_list_ids(itype: number): [ /* returnType */ number[], /* n_ids */ number ]
 export function signal_lookup(name: string, itype: number): number
 export function signal_name(signal_id: number): string
 export function signal_override_class_closure(signal_id: number, instance_type: number, class_closure: Closure): void
-export function signal_parse_name(detailed_signal: string, itype: number, signal_id_p: number, detail_p: GLib.Quark, force_detail_quark: boolean): boolean
-export function signal_query(signal_id: number, query: SignalQuery): void
+export function signal_parse_name(detailed_signal: string, itype: number, force_detail_quark: boolean): [ /* returnType */ boolean, /* signal_id_p */ number, /* detail_p */ GLib.Quark ]
+export function signal_query(signal_id: number): /* query */ SignalQuery
 export function signal_remove_emission_hook(signal_id: number, hook_id: number): void
 export function signal_set_va_marshaller(signal_id: number, instance_type: number, va_marshaller: SignalCVaMarshaller): void
 export function signal_stop_emission(instance: Object, signal_id: number, detail: GLib.Quark): void
@@ -186,7 +186,7 @@ export function type_check_instance_is_fundamentally_a(instance: TypeInstance, f
 export function type_check_is_value_type(type: number): boolean
 export function type_check_value(value: Value): boolean
 export function type_check_value_holds(value: Value, type: number): boolean
-export function type_children(type: number, n_children: number | null): number
+export function type_children(type: number): [ /* returnType */ number, /* n_children */ number | null ]
 export function type_class_add_private(g_class: object, private_size: number): void
 export function type_class_adjust_private_offset(g_class: object, private_size_or_offset: number): void
 export function type_class_peek(type: number): TypeClass
@@ -210,8 +210,8 @@ export function type_init_with_debug_flags(debug_flags: TypeDebugFlags): void
 export function type_interface_add_prerequisite(interface_type: number, prerequisite_type: number): void
 export function type_interface_get_plugin(instance_type: number, interface_type: number): TypePlugin
 export function type_interface_peek(instance_class: TypeClass, iface_type: number): TypeInterface
-export function type_interface_prerequisites(interface_type: number, n_prerequisites: number | null): number
-export function type_interfaces(type: number, n_interfaces: number | null): number
+export function type_interface_prerequisites(interface_type: number): [ /* returnType */ number, /* n_prerequisites */ number | null ]
+export function type_interfaces(type: number): [ /* returnType */ number, /* n_interfaces */ number | null ]
 export function type_is_a(type: number, is_a_type: number): boolean
 export function type_name(type: number): string
 export function type_name_from_class(g_class: TypeClass): string
@@ -219,7 +219,7 @@ export function type_name_from_instance(instance: TypeInstance): string
 export function type_next_base(leaf_type: number, root_type: number): number
 export function type_parent(type: number): number
 export function type_qname(type: number): GLib.Quark
-export function type_query(type: number, query: TypeQuery): void
+export function type_query(type: number): /* query */ TypeQuery
 export function type_register_dynamic(parent_type: number, type_name: string, plugin: TypePlugin, flags: TypeFlags): number
 export function type_register_fundamental(type_id: number, type_name: string, info: TypeInfo, finfo: TypeFundamentalInfo, flags: TypeFlags): number
 export function type_register_static(parent_type: number, type_name: string, info: TypeInfo, flags: TypeFlags): number
@@ -467,7 +467,7 @@ export declare class Object_Static {
     compat_control(what: number, data: object): number
     interface_find_property(g_iface: object, property_name: string): ParamSpec
     interface_install_property(g_iface: object, pspec: ParamSpec): void
-    interface_list_properties(g_iface: object, n_properties_p: number): ParamSpec[]
+    interface_list_properties(g_iface: object): [ /* returnType */ ParamSpec[], /* n_properties_p */ number ]
 }
 export declare var Object: Object_Static
 export interface ParamSpec_ConstructProps {
@@ -1211,7 +1211,7 @@ export interface ObjectClass {
     find_property(property_name: string): ParamSpec
     install_properties(n_pspecs: number, pspecs: ParamSpec[]): void
     install_property(property_id: number, pspec: ParamSpec): void
-    list_properties(n_properties: number): ParamSpec[]
+    list_properties(): [ /* returnType */ ParamSpec[], /* n_properties */ number ]
     override_property(property_id: number, name: string): void
 }
 export interface ObjectClass_Static {
@@ -1239,7 +1239,7 @@ export interface ParamSpecPool_ConstructProps {
 export interface ParamSpecPool {
     /* Methods of ParamSpecPool */
     insert(pspec: ParamSpec, owner_type: number): void
-    list(owner_type: number, n_pspecs_p: number): ParamSpec[]
+    list(owner_type: number): [ /* returnType */ ParamSpec[], /* n_pspecs_p */ number ]
     list_owned(owner_type: number): GLib.List
     lookup(param_name: string, owner_type: number, walk_ancestors: boolean): ParamSpec
     remove(pspec: ParamSpec): void
@@ -1339,7 +1339,7 @@ export declare class TypeInterface_Static {
     add_prerequisite(interface_type: number, prerequisite_type: number): void
     get_plugin(instance_type: number, interface_type: number): TypePlugin
     peek(instance_class: TypeClass, iface_type: number): TypeInterface
-    prerequisites(interface_type: number, n_prerequisites: number | null): number
+    prerequisites(interface_type: number): [ /* returnType */ number, /* n_prerequisites */ number | null ]
 }
 export declare var TypeInterface: TypeInterface_Static
 export interface TypeModuleClass_ConstructProps {

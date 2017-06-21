@@ -646,7 +646,7 @@ export const VOLUME_IDENTIFIER_KIND_UNIX_DEVICE:string
 export const VOLUME_IDENTIFIER_KIND_UUID:string
 export const VOLUME_MONITOR_EXTENSION_POINT_NAME:string
 export function action_name_is_valid(action_name: string): boolean
-export function action_parse_detailed_name(detailed_name: string, action_name: string, target_value: GLib.Variant): boolean
+export function action_parse_detailed_name(detailed_name: string): [ /* returnType */ boolean, /* action_name */ string, /* target_value */ GLib.Variant ]
 export function action_print_detailed_name(action_name: string, target_value: GLib.Variant | null): string
 export function app_info_create_from_commandline(commandline: string, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
 export function app_info_get_all(): GLib.List
@@ -675,7 +675,7 @@ export function content_type_get_generic_icon_name(type: string): string
 export function content_type_get_icon(type: string): Icon
 export function content_type_get_mime_type(type: string): string | null
 export function content_type_get_symbolic_icon(type: string): Icon
-export function content_type_guess(filename: string | null, data: number[] | null, data_size: number, result_uncertain: boolean | null): string
+export function content_type_guess(filename: string | null, data: number[] | null, data_size: number): [ /* returnType */ string, /* result_uncertain */ boolean | null ]
 export function content_type_guess_for_tree(root: File): string[]
 export function content_type_is_a(type: string, supertype: string): boolean
 export function content_type_is_unknown(type: string): boolean
@@ -697,7 +697,7 @@ export function dbus_error_strip_remote_error(error: GLib.Error): boolean
 export function dbus_error_unregister_error(error_domain: GLib.Quark, error_code: number, dbus_error_name: string): boolean
 export function dbus_generate_guid(): string
 export function dbus_gvalue_to_gvariant(gvalue: GObject.Value, type: GLib.VariantType): GLib.Variant
-export function dbus_gvariant_to_gvalue(value: GLib.Variant, out_gvalue: GObject.Value): void
+export function dbus_gvariant_to_gvalue(value: GLib.Variant): /* out_gvalue */ GObject.Value
 export function dbus_is_address(string: string): boolean
 export function dbus_is_guid(string: string): boolean
 export function dbus_is_interface_name(string: string): boolean
@@ -709,7 +709,7 @@ export function file_new_for_commandline_arg(arg: string): File
 export function file_new_for_commandline_arg_and_cwd(arg: string, cwd: string): File
 export function file_new_for_path(path: string): File
 export function file_new_for_uri(uri: string): File
-export function file_new_tmp(tmpl: string, iostream: FileIOStream): File
+export function file_new_tmp(tmpl: string): [ /* returnType */ File, /* iostream */ FileIOStream ]
 export function file_parse_name(parse_name: string): File
 export function icon_deserialize(value: GLib.Variant): Icon
 export function icon_hash(icon: object): number
@@ -732,14 +732,14 @@ export function pollable_source_new(pollable_stream: GObject.Object): GLib.Sourc
 export function pollable_source_new_full(pollable_stream: GObject.Object, child_source: GLib.Source | null, cancellable: Cancellable | null): GLib.Source
 export function pollable_stream_read(stream: InputStream, buffer: number[], count: number, blocking: boolean, cancellable: Cancellable | null): number
 export function pollable_stream_write(stream: OutputStream, buffer: number[], count: number, blocking: boolean, cancellable: Cancellable | null): number
-export function pollable_stream_write_all(stream: OutputStream, buffer: number[], count: number, blocking: boolean, bytes_written: number, cancellable: Cancellable | null): boolean
+export function pollable_stream_write_all(stream: OutputStream, buffer: number[], count: number, blocking: boolean, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
 export function proxy_get_default_for_protocol(protocol: string): Proxy
 export function proxy_resolver_get_default(): ProxyResolver
 export function resolver_error_quark(): GLib.Quark
 export function resource_error_quark(): GLib.Quark
 export function resource_load(filename: string): Resource
 export function resources_enumerate_children(path: string, lookup_flags: ResourceLookupFlags): string[]
-export function resources_get_info(path: string, lookup_flags: ResourceLookupFlags, size: number | null, flags: number | null): boolean
+export function resources_get_info(path: string, lookup_flags: ResourceLookupFlags): [ /* returnType */ boolean, /* size */ number | null, /* flags */ number | null ]
 export function resources_lookup_data(path: string, lookup_flags: ResourceLookupFlags): GLib.Bytes
 export function resources_open_stream(path: string, lookup_flags: ResourceLookupFlags): InputStream
 export function resources_register(resource: Resource): void
@@ -845,7 +845,7 @@ export interface SettingsBindSetMapping {
     (value: GObject.Value, expected_type: GLib.VariantType, user_data: object): GLib.Variant
 }
 export interface SettingsGetMapping {
-    (value: GLib.Variant, result: object, user_data: object): boolean
+    (value: GLib.Variant, user_data: object): boolean
 }
 export interface SimpleAsyncThreadFunc {
     (res: SimpleAsyncResult, object: GObject.Object, cancellable: Cancellable | null): void
@@ -890,7 +890,7 @@ export interface Action_Static {
 }
 export declare class Action_Static {
     name_is_valid(action_name: string): boolean
-    parse_detailed_name(detailed_name: string, action_name: string, target_value: GLib.Variant): boolean
+    parse_detailed_name(detailed_name: string): [ /* returnType */ boolean, /* action_name */ string, /* target_value */ GLib.Variant ]
     print_detailed_name(action_name: string, target_value: GLib.Variant | null): string
 }
 export declare var Action: Action_Static
@@ -911,7 +911,7 @@ export interface ActionGroup {
     get_action_state_type(action_name: string): GLib.VariantType | null
     has_action(action_name: string): boolean
     list_actions(): string[]
-    query_action(action_name: string, enabled: boolean, parameter_type: GLib.VariantType | null, state_type: GLib.VariantType | null, state_hint: GLib.Variant | null, state: GLib.Variant | null): boolean
+    query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
     /* Virtual methods of ActionGroup */
     vfunc_action_added(action_name: string): void
     vfunc_action_enabled_changed(action_name: string, enabled: boolean): void
@@ -926,7 +926,7 @@ export interface ActionGroup {
     vfunc_get_action_state_type(action_name: string): GLib.VariantType | null
     vfunc_has_action(action_name: string): boolean
     vfunc_list_actions(): string[]
-    vfunc_query_action(action_name: string, enabled: boolean, parameter_type: GLib.VariantType | null, state_type: GLib.VariantType | null, state_hint: GLib.Variant | null, state: GLib.Variant | null): boolean
+    vfunc_query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
     /* Signals of ActionGroup */
     connect(sigName: "action-added", callback: ((action_name: string) => void))
     connect(sigName: "action-enabled-changed", callback: ((action_name: string, enabled: boolean) => void))
@@ -1060,10 +1060,10 @@ export interface Converter_ConstructProps {
 }
 export interface Converter {
     /* Methods of Converter */
-    convert(inbuf: number[], inbuf_size: number, outbuf: object, outbuf_size: number, flags: ConverterFlags, bytes_read: number, bytes_written: number): ConverterResult
+    convert(inbuf: number[], inbuf_size: number, outbuf: object, outbuf_size: number, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     reset(): void
     /* Virtual methods of Converter */
-    vfunc_convert(inbuf: number[], inbuf_size: number, outbuf: object, outbuf_size: number, flags: ConverterFlags, bytes_read: number, bytes_written: number): ConverterResult
+    vfunc_convert(inbuf: number[], inbuf_size: number, outbuf: object, outbuf_size: number, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     vfunc_reset(): void
 }
 export interface Converter_Static {
@@ -1284,16 +1284,16 @@ export interface File {
     has_uri_scheme(uri_scheme: string): boolean
     hash(): number
     is_native(): boolean
-    load_contents(cancellable: Cancellable | null, contents: number[], length: number | null, etag_out: string | null): boolean
+    load_contents(cancellable: Cancellable | null): [ /* returnType */ boolean, /* contents */ number[], /* length */ number | null, /* etag_out */ string | null ]
     load_contents_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    load_contents_finish(res: AsyncResult, contents: number[], length: number | null, etag_out: string | null): boolean
-    load_partial_contents_finish(res: AsyncResult, contents: number[], length: number | null, etag_out: string | null): boolean
+    load_contents_finish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ number[], /* length */ number | null, /* etag_out */ string | null ]
+    load_partial_contents_finish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ number[], /* length */ number | null, /* etag_out */ string | null ]
     make_directory(cancellable: Cancellable | null): boolean
     make_directory_async(io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     make_directory_finish(result: AsyncResult): boolean
     make_directory_with_parents(cancellable: Cancellable | null): boolean
     make_symbolic_link(symlink_value: string, cancellable: Cancellable | null): boolean
-    measure_disk_usage_finish(result: AsyncResult, disk_usage: number | null, num_dirs: number | null, num_files: number | null): boolean
+    measure_disk_usage_finish(result: AsyncResult): [ /* returnType */ boolean, /* disk_usage */ number | null, /* num_dirs */ number | null, /* num_files */ number | null ]
     monitor(flags: FileMonitorFlags, cancellable: Cancellable | null): FileMonitor
     monitor_directory(flags: FileMonitorFlags, cancellable: Cancellable | null): FileMonitor
     monitor_file(flags: FileMonitorFlags, cancellable: Cancellable | null): FileMonitor
@@ -1323,10 +1323,10 @@ export interface File {
     read_finish(res: AsyncResult): FileInputStream
     replace(etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable: Cancellable | null): FileOutputStream
     replace_async(etag: string | null, make_backup: boolean, flags: FileCreateFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    replace_contents(contents: number[], length: number, etag: string | null, make_backup: boolean, flags: FileCreateFlags, new_etag: string | null, cancellable: Cancellable | null): boolean
+    replace_contents(contents: number[], length: number, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable: Cancellable | null): [ /* returnType */ boolean, /* new_etag */ string | null ]
     replace_contents_async(contents: number[], length: number, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     replace_contents_bytes_async(contents: GLib.Bytes, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    replace_contents_finish(res: AsyncResult, new_etag: string | null): boolean
+    replace_contents_finish(res: AsyncResult): [ /* returnType */ boolean, /* new_etag */ string | null ]
     replace_finish(res: AsyncResult): FileOutputStream
     replace_readwrite(etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable: Cancellable | null): FileIOStream
     replace_readwrite_async(etag: string | null, make_backup: boolean, flags: FileCreateFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -1340,7 +1340,7 @@ export interface File {
     set_attribute_uint32(attribute: string, value: number, flags: FileQueryInfoFlags, cancellable: Cancellable | null): boolean
     set_attribute_uint64(attribute: string, value: number, flags: FileQueryInfoFlags, cancellable: Cancellable | null): boolean
     set_attributes_async(info: FileInfo, flags: FileQueryInfoFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    set_attributes_finish(result: AsyncResult, info: FileInfo): boolean
+    set_attributes_finish(result: AsyncResult): [ /* returnType */ boolean, /* info */ FileInfo ]
     set_attributes_from_info(info: FileInfo, flags: FileQueryInfoFlags, cancellable: Cancellable | null): boolean
     set_display_name(display_name: string, cancellable: Cancellable | null): File
     set_display_name_async(display_name: string, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -1399,7 +1399,7 @@ export interface File {
     vfunc_make_directory_async(io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     vfunc_make_directory_finish(result: AsyncResult): boolean
     vfunc_make_symbolic_link(symlink_value: string, cancellable: Cancellable | null): boolean
-    vfunc_measure_disk_usage_finish(result: AsyncResult, disk_usage: number | null, num_dirs: number | null, num_files: number | null): boolean
+    vfunc_measure_disk_usage_finish(result: AsyncResult): [ /* returnType */ boolean, /* disk_usage */ number | null, /* num_dirs */ number | null, /* num_files */ number | null ]
     vfunc_monitor_dir(flags: FileMonitorFlags, cancellable: Cancellable | null): FileMonitor
     vfunc_monitor_file(flags: FileMonitorFlags, cancellable: Cancellable | null): FileMonitor
     vfunc_mount_enclosing_volume(flags: MountMountFlags, mount_operation: MountOperation | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -1433,7 +1433,7 @@ export interface File {
     vfunc_resolve_relative_path(relative_path: string): File
     vfunc_set_attribute(attribute: string, type: FileAttributeType, value_p: object | null, flags: FileQueryInfoFlags, cancellable: Cancellable | null): boolean
     vfunc_set_attributes_async(info: FileInfo, flags: FileQueryInfoFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    vfunc_set_attributes_finish(result: AsyncResult, info: FileInfo): boolean
+    vfunc_set_attributes_finish(result: AsyncResult): [ /* returnType */ boolean, /* info */ FileInfo ]
     vfunc_set_attributes_from_info(info: FileInfo, flags: FileQueryInfoFlags, cancellable: Cancellable | null): boolean
     vfunc_set_display_name(display_name: string, cancellable: Cancellable | null): File
     vfunc_set_display_name_async(display_name: string, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -1458,7 +1458,7 @@ export declare class File_Static {
     new_for_commandline_arg_and_cwd(arg: string, cwd: string): File
     new_for_path(path: string): File
     new_for_uri(uri: string): File
-    new_tmp(tmpl: string, iostream: FileIOStream): File
+    new_tmp(tmpl: string): [ /* returnType */ File, /* iostream */ FileIOStream ]
     parse_name(parse_name: string): File
 }
 export declare var File: File_Static
@@ -1532,13 +1532,13 @@ export interface LoadableIcon_ConstructProps {
 }
 export interface LoadableIcon {
     /* Methods of LoadableIcon */
-    load(size: number, type: string | null, cancellable: Cancellable | null): InputStream
+    load(size: number, cancellable: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     load_async(size: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    load_finish(res: AsyncResult, type: string | null): InputStream
+    load_finish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
     /* Virtual methods of LoadableIcon */
-    vfunc_load(size: number, type: string | null, cancellable: Cancellable | null): InputStream
+    vfunc_load(size: number, cancellable: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     vfunc_load_async(size: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    vfunc_load_finish(res: AsyncResult, type: string | null): InputStream
+    vfunc_load_finish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
 }
 export interface LoadableIcon_Static {
     new (config: LoadableIcon_ConstructProps): LoadableIcon
@@ -2092,7 +2092,7 @@ export interface Application {
     vfunc_dbus_register(connection: DBusConnection, object_path: string): boolean
     vfunc_dbus_unregister(connection: DBusConnection, object_path: string): void
     vfunc_handle_local_options(options: GLib.VariantDict): number
-    vfunc_local_command_line(arguments_: string[], exit_status: number): boolean
+    vfunc_local_command_line(arguments_: string[]): [ /* returnType */ boolean, /* exit_status */ number ]
     vfunc_open(files: File[], n_files: number, hint: string): void
     vfunc_quit_mainloop(): void
     vfunc_run_mainloop(): void
@@ -2135,7 +2135,7 @@ export interface ApplicationCommandLine {
     readonly is_remote:boolean
     /* Methods of ApplicationCommandLine */
     create_file_for_arg(arg: string): File
-    get_arguments(argc: number | null): string[]
+    get_arguments(): [ /* returnType */ string[], /* argc */ number | null ]
     get_cwd(): string
     get_environ(): string[]
     get_exit_status(): number
@@ -2207,7 +2207,7 @@ export interface BufferedInputStream {
     get_available(): number
     get_buffer_size(): number
     peek(buffer: number[], offset: number, count: number): number
-    peek_buffer(count: number): number[]
+    peek_buffer(): [ /* returnType */ number[], /* count */ number ]
     read_byte(cancellable: Cancellable | null): number
     set_buffer_size(size: number): void
     /* Methods of FilterInputStream */
@@ -2222,9 +2222,9 @@ export interface BufferedInputStream {
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: number[], count: number, cancellable: Cancellable | null): number
-    read_all(buffer: number[], count: number, bytes_read: number, cancellable: Cancellable | null): boolean
+    read_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_all_finish(result: AsyncResult, bytes_read: number): boolean
+    read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -2325,9 +2325,9 @@ export interface BufferedOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     splice_finish(result: AsyncResult): number
     write(buffer: number[], count: number, cancellable: Cancellable | null): number
-    write_all(buffer: number[], count: number, bytes_written: number, cancellable: Cancellable | null): boolean
+    write_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    write_all_finish(result: AsyncResult, bytes_written: number): boolean
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     write_bytes(bytes: GLib.Bytes, cancellable: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -2570,9 +2570,9 @@ export interface ConverterInputStream {
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: number[], count: number, cancellable: Cancellable | null): number
-    read_all(buffer: number[], count: number, bytes_read: number, cancellable: Cancellable | null): boolean
+    read_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_all_finish(result: AsyncResult, bytes_read: number): boolean
+    read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -2663,9 +2663,9 @@ export interface ConverterOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     splice_finish(result: AsyncResult): number
     write(buffer: number[], count: number, cancellable: Cancellable | null): number
-    write_all(buffer: number[], count: number, bytes_written: number, cancellable: Cancellable | null): boolean
+    write_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    write_all_finish(result: AsyncResult, bytes_written: number): boolean
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     write_bytes(bytes: GLib.Bytes, cancellable: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -2886,8 +2886,8 @@ export interface DBusConnection {
     call_finish(res: AsyncResult): GLib.Variant
     call_sync(bus_name: string | null, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant | null, reply_type: GLib.VariantType | null, flags: DBusCallFlags, timeout_msec: number, cancellable: Cancellable | null): GLib.Variant
     call_with_unix_fd_list(bus_name: string | null, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant | null, reply_type: GLib.VariantType | null, flags: DBusCallFlags, timeout_msec: number, fd_list: UnixFDList | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    call_with_unix_fd_list_finish(out_fd_list: UnixFDList | null, res: AsyncResult): GLib.Variant
-    call_with_unix_fd_list_sync(bus_name: string | null, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant | null, reply_type: GLib.VariantType | null, flags: DBusCallFlags, timeout_msec: number, fd_list: UnixFDList | null, out_fd_list: UnixFDList | null, cancellable: Cancellable | null): GLib.Variant
+    call_with_unix_fd_list_finish(res: AsyncResult): [ /* returnType */ GLib.Variant, /* out_fd_list */ UnixFDList | null ]
+    call_with_unix_fd_list_sync(bus_name: string | null, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant | null, reply_type: GLib.VariantType | null, flags: DBusCallFlags, timeout_msec: number, fd_list: UnixFDList | null, cancellable: Cancellable | null): [ /* returnType */ GLib.Variant, /* out_fd_list */ UnixFDList | null ]
     close(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     close_finish(res: AsyncResult): boolean
     close_sync(cancellable: Cancellable | null): boolean
@@ -2909,10 +2909,10 @@ export interface DBusConnection {
     register_object_with_closures(object_path: string, interface_info: DBusInterfaceInfo, method_call_closure: GObject.Closure | null, get_property_closure: GObject.Closure | null, set_property_closure: GObject.Closure | null): number
     register_subtree(object_path: string, vtable: DBusSubtreeVTable, flags: DBusSubtreeFlags, user_data: object, user_data_free_func: GLib.DestroyNotify): number
     remove_filter(filter_id: number): void
-    send_message(message: DBusMessage, flags: DBusSendMessageFlags, out_serial: number | null): boolean
-    send_message_with_reply(message: DBusMessage, flags: DBusSendMessageFlags, timeout_msec: number, out_serial: number | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
+    send_message(message: DBusMessage, flags: DBusSendMessageFlags): [ /* returnType */ boolean, /* out_serial */ number | null ]
+    send_message_with_reply(message: DBusMessage, flags: DBusSendMessageFlags, timeout_msec: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): /* out_serial */ number | null
     send_message_with_reply_finish(res: AsyncResult): DBusMessage
-    send_message_with_reply_sync(message: DBusMessage, flags: DBusSendMessageFlags, timeout_msec: number, out_serial: number | null, cancellable: Cancellable | null): DBusMessage
+    send_message_with_reply_sync(message: DBusMessage, flags: DBusSendMessageFlags, timeout_msec: number, cancellable: Cancellable | null): [ /* returnType */ DBusMessage, /* out_serial */ number | null ]
     set_exit_on_close(exit_on_close: boolean): void
     signal_subscribe(sender: string | null, interface_name: string | null, member: string | null, object_path: string | null, arg0: string | null, flags: DBusSignalFlags, callback: DBusSignalCallback, user_data: object, user_data_free_func: GLib.DestroyNotify | null): number
     signal_unsubscribe(subscription_id: number): void
@@ -3069,9 +3069,9 @@ export interface DBusMenuModel {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of MenuModel */
     vfunc_get_item_attribute_value(item_index: number, attribute: string, expected_type: GLib.VariantType | null): GLib.Variant
-    vfunc_get_item_attributes(item_index: number, attributes: GLib.HashTable): void
+    vfunc_get_item_attributes(item_index: number): /* attributes */ GLib.HashTable
     vfunc_get_item_link(item_index: number, link: string): MenuModel
-    vfunc_get_item_links(item_index: number, links: GLib.HashTable): void
+    vfunc_get_item_links(item_index: number): /* links */ GLib.HashTable
     vfunc_get_n_items(): number
     vfunc_is_mutable(): boolean
     vfunc_iterate_item_attributes(item_index: number): MenuAttributeIter
@@ -3143,7 +3143,7 @@ export interface DBusMessage {
     set_serial(serial: number): void
     set_signature(value: string): void
     set_unix_fd_list(fd_list: UnixFDList | null): void
-    to_blob(out_size: number, capabilities: DBusCapabilityFlags): number[]
+    to_blob(capabilities: DBusCapabilityFlags): [ /* returnType */ number[], /* out_size */ number ]
     to_gerror(): boolean
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -3491,8 +3491,8 @@ export interface DBusProxy {
     call_finish(res: AsyncResult): GLib.Variant
     call_sync(method_name: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeout_msec: number, cancellable: Cancellable | null): GLib.Variant
     call_with_unix_fd_list(method_name: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeout_msec: number, fd_list: UnixFDList | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    call_with_unix_fd_list_finish(out_fd_list: UnixFDList | null, res: AsyncResult): GLib.Variant
-    call_with_unix_fd_list_sync(method_name: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeout_msec: number, fd_list: UnixFDList | null, out_fd_list: UnixFDList | null, cancellable: Cancellable | null): GLib.Variant
+    call_with_unix_fd_list_finish(res: AsyncResult): [ /* returnType */ GLib.Variant, /* out_fd_list */ UnixFDList | null ]
+    call_with_unix_fd_list_sync(method_name: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeout_msec: number, fd_list: UnixFDList | null, cancellable: Cancellable | null): [ /* returnType */ GLib.Variant, /* out_fd_list */ UnixFDList | null ]
     get_cached_property(property_name: string): GLib.Variant
     get_cached_property_names(): string[]
     get_connection(): DBusConnection
@@ -3639,20 +3639,20 @@ export interface DataInputStream {
     read_int16(cancellable: Cancellable | null): number
     read_int32(cancellable: Cancellable | null): number
     read_int64(cancellable: Cancellable | null): number
-    read_line(length: number, cancellable: Cancellable | null): number[] | null
+    read_line(cancellable: Cancellable | null): [ /* returnType */ number[] | null, /* length */ number ]
     read_line_async(io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_line_finish(result: AsyncResult, length: number): number[] | null
-    read_line_finish_utf8(result: AsyncResult, length: number): string | null
-    read_line_utf8(length: number, cancellable: Cancellable | null): string | null
+    read_line_finish(result: AsyncResult): [ /* returnType */ number[] | null, /* length */ number ]
+    read_line_finish_utf8(result: AsyncResult): [ /* returnType */ string | null, /* length */ number ]
+    read_line_utf8(cancellable: Cancellable | null): [ /* returnType */ string | null, /* length */ number ]
     read_uint16(cancellable: Cancellable | null): number
     read_uint32(cancellable: Cancellable | null): number
     read_uint64(cancellable: Cancellable | null): number
-    read_until(stop_chars: string, length: number, cancellable: Cancellable | null): string
+    read_until(stop_chars: string, cancellable: Cancellable | null): [ /* returnType */ string, /* length */ number ]
     read_until_async(stop_chars: string, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_until_finish(result: AsyncResult, length: number): string
-    read_upto(stop_chars: string, stop_chars_len: number, length: number, cancellable: Cancellable | null): string
+    read_until_finish(result: AsyncResult): [ /* returnType */ string, /* length */ number ]
+    read_upto(stop_chars: string, stop_chars_len: number, cancellable: Cancellable | null): [ /* returnType */ string, /* length */ number ]
     read_upto_async(stop_chars: string, stop_chars_len: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_upto_finish(result: AsyncResult, length: number): string
+    read_upto_finish(result: AsyncResult): [ /* returnType */ string, /* length */ number ]
     set_byte_order(order: DataStreamByteOrder): void
     set_newline_type(type: DataStreamNewlineType): void
     /* Methods of BufferedInputStream */
@@ -3662,7 +3662,7 @@ export interface DataInputStream {
     get_available(): number
     get_buffer_size(): number
     peek(buffer: number[], offset: number, count: number): number
-    peek_buffer(count: number): number[]
+    peek_buffer(): [ /* returnType */ number[], /* count */ number ]
     set_buffer_size(size: number): void
     /* Methods of FilterInputStream */
     get_base_stream(): InputStream
@@ -3676,9 +3676,9 @@ export interface DataInputStream {
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: number[], count: number, cancellable: Cancellable | null): number
-    read_all(buffer: number[], count: number, bytes_read: number, cancellable: Cancellable | null): boolean
+    read_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_all_finish(result: AsyncResult, bytes_read: number): boolean
+    read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -3783,9 +3783,9 @@ export interface DataOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     splice_finish(result: AsyncResult): number
     write(buffer: number[], count: number, cancellable: Cancellable | null): number
-    write_all(buffer: number[], count: number, bytes_written: number, cancellable: Cancellable | null): boolean
+    write_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    write_all_finish(result: AsyncResult, bytes_written: number): boolean
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     write_bytes(bytes: GLib.Bytes, cancellable: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -4022,7 +4022,7 @@ export interface FileEnumerator {
     get_container(): File
     has_pending(): boolean
     is_closed(): boolean
-    iterate(out_info: FileInfo | null, out_child: File | null, cancellable: Cancellable | null): boolean
+    iterate(cancellable: Cancellable | null): [ /* returnType */ boolean, /* out_info */ FileInfo | null, /* out_child */ File | null ]
     next_file(cancellable: Cancellable | null): FileInfo | null
     next_files_async(num_files: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     next_files_finish(result: AsyncResult): GLib.List
@@ -4209,7 +4209,7 @@ export interface FileInfo {
     get_attribute_as_string(attribute: string): string
     get_attribute_boolean(attribute: string): boolean
     get_attribute_byte_string(attribute: string): string
-    get_attribute_data(attribute: string, type: FileAttributeType | null, value_pp: object | null, status: FileAttributeStatus | null): boolean
+    get_attribute_data(attribute: string): [ /* returnType */ boolean, /* type */ FileAttributeType | null, /* value_pp */ object | null, /* status */ FileAttributeStatus | null ]
     get_attribute_int32(attribute: string): number
     get_attribute_int64(attribute: string): number
     get_attribute_object(attribute: string): GObject.Object
@@ -4229,7 +4229,7 @@ export interface FileInfo {
     get_is_backup(): boolean
     get_is_hidden(): boolean
     get_is_symlink(): boolean
-    get_modification_time(result: GLib.TimeVal): void
+    get_modification_time(): /* result */ GLib.TimeVal
     get_name(): string
     get_size(): number
     get_sort_order(): number
@@ -4319,9 +4319,9 @@ export interface FileInputStream {
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: number[], count: number, cancellable: Cancellable | null): number
-    read_all(buffer: number[], count: number, bytes_read: number, cancellable: Cancellable | null): boolean
+    read_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_all_finish(result: AsyncResult, bytes_read: number): boolean
+    read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -4468,9 +4468,9 @@ export interface FileOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     splice_finish(result: AsyncResult): number
     write(buffer: number[], count: number, cancellable: Cancellable | null): number
-    write_all(buffer: number[], count: number, bytes_written: number, cancellable: Cancellable | null): boolean
+    write_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    write_all_finish(result: AsyncResult, bytes_written: number): boolean
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     write_bytes(bytes: GLib.Bytes, cancellable: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -4608,9 +4608,9 @@ export interface FilterInputStream {
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: number[], count: number, cancellable: Cancellable | null): number
-    read_all(buffer: number[], count: number, bytes_read: number, cancellable: Cancellable | null): boolean
+    read_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_all_finish(result: AsyncResult, bytes_read: number): boolean
+    read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -4696,9 +4696,9 @@ export interface FilterOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     splice_finish(result: AsyncResult): number
     write(buffer: number[], count: number, cancellable: Cancellable | null): number
-    write_all(buffer: number[], count: number, bytes_written: number, cancellable: Cancellable | null): boolean
+    write_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    write_all_finish(result: AsyncResult, bytes_written: number): boolean
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     write_bytes(bytes: GLib.Bytes, cancellable: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -5086,9 +5086,9 @@ export interface InputStream {
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: number[], count: number, cancellable: Cancellable | null): number
-    read_all(buffer: number[], count: number, bytes_read: number, cancellable: Cancellable | null): boolean
+    read_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_all_finish(result: AsyncResult, bytes_read: number): boolean
+    read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -5214,9 +5214,9 @@ export interface MemoryInputStream {
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: number[], count: number, cancellable: Cancellable | null): number
-    read_all(buffer: number[], count: number, bytes_read: number, cancellable: Cancellable | null): boolean
+    read_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_all_finish(result: AsyncResult, bytes_read: number): boolean
+    read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -5307,9 +5307,9 @@ export interface MemoryOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     splice_finish(result: AsyncResult): number
     write(buffer: number[], count: number, cancellable: Cancellable | null): number
-    write_all(buffer: number[], count: number, bytes_written: number, cancellable: Cancellable | null): boolean
+    write_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    write_all_finish(result: AsyncResult, bytes_written: number): boolean
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     write_bytes(bytes: GLib.Bytes, cancellable: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -5418,9 +5418,9 @@ export interface Menu {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of MenuModel */
     vfunc_get_item_attribute_value(item_index: number, attribute: string, expected_type: GLib.VariantType | null): GLib.Variant
-    vfunc_get_item_attributes(item_index: number, attributes: GLib.HashTable): void
+    vfunc_get_item_attributes(item_index: number): /* attributes */ GLib.HashTable
     vfunc_get_item_link(item_index: number, link: string): MenuModel
-    vfunc_get_item_links(item_index: number, links: GLib.HashTable): void
+    vfunc_get_item_links(item_index: number): /* links */ GLib.HashTable
     vfunc_get_n_items(): number
     vfunc_is_mutable(): boolean
     vfunc_iterate_item_attributes(item_index: number): MenuAttributeIter
@@ -5447,7 +5447,7 @@ export interface MenuAttributeIter_ConstructProps {
 export interface MenuAttributeIter {
     /* Methods of MenuAttributeIter */
     get_name(): string
-    get_next(out_name: string | null, value: GLib.Variant | null): boolean
+    get_next(): [ /* returnType */ boolean, /* out_name */ string | null, /* value */ GLib.Variant | null ]
     get_value(): GLib.Variant
     next(): boolean
     /* Methods of Object */
@@ -5475,7 +5475,7 @@ export interface MenuAttributeIter {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of MenuAttributeIter */
-    vfunc_get_next(out_name: string | null, value: GLib.Variant | null): boolean
+    vfunc_get_next(): [ /* returnType */ boolean, /* out_name */ string | null, /* value */ GLib.Variant | null ]
     /* Virtual methods of Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5549,7 +5549,7 @@ export interface MenuLinkIter_ConstructProps {
 export interface MenuLinkIter {
     /* Methods of MenuLinkIter */
     get_name(): string
-    get_next(out_link: string | null, value: MenuModel | null): boolean
+    get_next(): [ /* returnType */ boolean, /* out_link */ string | null, /* value */ MenuModel | null ]
     get_value(): MenuModel
     next(): boolean
     /* Methods of Object */
@@ -5577,7 +5577,7 @@ export interface MenuLinkIter {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of MenuLinkIter */
-    vfunc_get_next(out_link: string | null, value: MenuModel | null): boolean
+    vfunc_get_next(): [ /* returnType */ boolean, /* out_link */ string | null, /* value */ MenuModel | null ]
     /* Virtual methods of Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5630,9 +5630,9 @@ export interface MenuModel {
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of MenuModel */
     vfunc_get_item_attribute_value(item_index: number, attribute: string, expected_type: GLib.VariantType | null): GLib.Variant
-    vfunc_get_item_attributes(item_index: number, attributes: GLib.HashTable): void
+    vfunc_get_item_attributes(item_index: number): /* attributes */ GLib.HashTable
     vfunc_get_item_link(item_index: number, link: string): MenuModel
-    vfunc_get_item_links(item_index: number, links: GLib.HashTable): void
+    vfunc_get_item_links(item_index: number): /* links */ GLib.HashTable
     vfunc_get_n_items(): number
     vfunc_is_mutable(): boolean
     vfunc_iterate_item_attributes(item_index: number): MenuAttributeIter
@@ -5997,9 +5997,9 @@ export interface OutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     splice_finish(result: AsyncResult): number
     write(buffer: number[], count: number, cancellable: Cancellable | null): number
-    write_all(buffer: number[], count: number, bytes_written: number, cancellable: Cancellable | null): boolean
+    write_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    write_all_finish(result: AsyncResult, bytes_written: number): boolean
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     write_bytes(bytes: GLib.Bytes, cancellable: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -6886,7 +6886,7 @@ export interface Socket {
     get_local_address(): SocketAddress
     get_multicast_loopback(): boolean
     get_multicast_ttl(): number
-    get_option(level: number, optname: number, value: number): boolean
+    get_option(level: number, optname: number): [ /* returnType */ boolean, /* value */ number ]
     get_protocol(): SocketProtocol
     get_remote_address(): SocketAddress
     get_socket_type(): SocketType
@@ -6898,8 +6898,8 @@ export interface Socket {
     leave_multicast_group(group: InetAddress, source_specific: boolean, iface: string | null): boolean
     listen(): boolean
     receive(buffer: number[], size: number, cancellable: Cancellable | null): number
-    receive_from(address: SocketAddress | null, buffer: number[], size: number, cancellable: Cancellable | null): number
-    receive_message(address: SocketAddress | null, vectors: InputVector[], num_vectors: number, messages: SocketControlMessage[] | null, num_messages: number, flags: number, cancellable: Cancellable | null): number
+    receive_from(buffer: number[], size: number, cancellable: Cancellable | null): [ /* returnType */ number, /* address */ SocketAddress | null ]
+    receive_message(vectors: InputVector[], num_vectors: number, messages: SocketControlMessage[] | null, num_messages: number, flags: number, cancellable: Cancellable | null): [ /* returnType */ number, /* address */ SocketAddress | null ]
     receive_messages(messages: InputMessage, num_messages: number, flags: number, cancellable: Cancellable | null): number
     receive_with_blocking(buffer: number[], size: number, blocking: boolean, cancellable: Cancellable | null): number
     send(buffer: number[], size: number, cancellable: Cancellable | null): number
@@ -7300,13 +7300,13 @@ export interface SocketListener {
     /* Properties of SocketListener */
     listen_backlog:number
     /* Methods of SocketListener */
-    accept(source_object: GObject.Object | null, cancellable: Cancellable | null): SocketConnection
+    accept(cancellable: Cancellable | null): [ /* returnType */ SocketConnection, /* source_object */ GObject.Object | null ]
     accept_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    accept_finish(result: AsyncResult, source_object: GObject.Object | null): SocketConnection
-    accept_socket(source_object: GObject.Object | null, cancellable: Cancellable | null): Socket
+    accept_finish(result: AsyncResult): [ /* returnType */ SocketConnection, /* source_object */ GObject.Object | null ]
+    accept_socket(cancellable: Cancellable | null): [ /* returnType */ Socket, /* source_object */ GObject.Object | null ]
     accept_socket_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    accept_socket_finish(result: AsyncResult, source_object: GObject.Object | null): Socket
-    add_address(address: SocketAddress, type: SocketType, protocol: SocketProtocol, source_object: GObject.Object | null, effective_address: SocketAddress | null): boolean
+    accept_socket_finish(result: AsyncResult): [ /* returnType */ Socket, /* source_object */ GObject.Object | null ]
+    add_address(address: SocketAddress, type: SocketType, protocol: SocketProtocol, source_object: GObject.Object | null): [ /* returnType */ boolean, /* effective_address */ SocketAddress | null ]
     add_any_inet_port(source_object: GObject.Object | null): number
     add_inet_port(port: number, source_object: GObject.Object | null): boolean
     add_socket(socket: Socket, source_object: GObject.Object | null): boolean
@@ -7372,13 +7372,13 @@ export interface SocketService {
     start(): void
     stop(): void
     /* Methods of SocketListener */
-    accept(source_object: GObject.Object | null, cancellable: Cancellable | null): SocketConnection
+    accept(cancellable: Cancellable | null): [ /* returnType */ SocketConnection, /* source_object */ GObject.Object | null ]
     accept_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    accept_finish(result: AsyncResult, source_object: GObject.Object | null): SocketConnection
-    accept_socket(source_object: GObject.Object | null, cancellable: Cancellable | null): Socket
+    accept_finish(result: AsyncResult): [ /* returnType */ SocketConnection, /* source_object */ GObject.Object | null ]
+    accept_socket(cancellable: Cancellable | null): [ /* returnType */ Socket, /* source_object */ GObject.Object | null ]
     accept_socket_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    accept_socket_finish(result: AsyncResult, source_object: GObject.Object | null): Socket
-    add_address(address: SocketAddress, type: SocketType, protocol: SocketProtocol, source_object: GObject.Object | null, effective_address: SocketAddress | null): boolean
+    accept_socket_finish(result: AsyncResult): [ /* returnType */ Socket, /* source_object */ GObject.Object | null ]
+    add_address(address: SocketAddress, type: SocketType, protocol: SocketProtocol, source_object: GObject.Object | null): [ /* returnType */ boolean, /* effective_address */ SocketAddress | null ]
     add_any_inet_port(source_object: GObject.Object | null): number
     add_inet_port(port: number, source_object: GObject.Object | null): boolean
     add_socket(socket: Socket, source_object: GObject.Object | null): boolean
@@ -7440,12 +7440,12 @@ export interface Subprocess_ConstructProps {
 export interface Subprocess {
     /* Properties of Subprocess */
     /* Methods of Subprocess */
-    communicate(stdin_buf: GLib.Bytes | null, cancellable: Cancellable | null, stdout_buf: GLib.Bytes, stderr_buf: GLib.Bytes): boolean
+    communicate(stdin_buf: GLib.Bytes | null, cancellable: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ GLib.Bytes, /* stderr_buf */ GLib.Bytes ]
     communicate_async(stdin_buf: GLib.Bytes | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    communicate_finish(result: AsyncResult, stdout_buf: GLib.Bytes, stderr_buf: GLib.Bytes): boolean
-    communicate_utf8(stdin_buf: string | null, cancellable: Cancellable | null, stdout_buf: string, stderr_buf: string): boolean
+    communicate_finish(result: AsyncResult): [ /* returnType */ boolean, /* stdout_buf */ GLib.Bytes, /* stderr_buf */ GLib.Bytes ]
+    communicate_utf8(stdin_buf: string | null, cancellable: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ string, /* stderr_buf */ string ]
     communicate_utf8_async(stdin_buf: string | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    communicate_utf8_finish(result: AsyncResult, stdout_buf: string, stderr_buf: string): boolean
+    communicate_utf8_finish(result: AsyncResult): [ /* returnType */ boolean, /* stdout_buf */ string, /* stderr_buf */ string ]
     force_exit(): void
     get_exit_status(): number
     get_identifier(): string
@@ -7931,13 +7931,13 @@ export interface ThreadedSocketService {
     start(): void
     stop(): void
     /* Methods of SocketListener */
-    accept(source_object: GObject.Object | null, cancellable: Cancellable | null): SocketConnection
+    accept(cancellable: Cancellable | null): [ /* returnType */ SocketConnection, /* source_object */ GObject.Object | null ]
     accept_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    accept_finish(result: AsyncResult, source_object: GObject.Object | null): SocketConnection
-    accept_socket(source_object: GObject.Object | null, cancellable: Cancellable | null): Socket
+    accept_finish(result: AsyncResult): [ /* returnType */ SocketConnection, /* source_object */ GObject.Object | null ]
+    accept_socket(cancellable: Cancellable | null): [ /* returnType */ Socket, /* source_object */ GObject.Object | null ]
     accept_socket_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    accept_socket_finish(result: AsyncResult, source_object: GObject.Object | null): Socket
-    add_address(address: SocketAddress, type: SocketType, protocol: SocketProtocol, source_object: GObject.Object | null, effective_address: SocketAddress | null): boolean
+    accept_socket_finish(result: AsyncResult): [ /* returnType */ Socket, /* source_object */ GObject.Object | null ]
+    add_address(address: SocketAddress, type: SocketType, protocol: SocketProtocol, source_object: GObject.Object | null): [ /* returnType */ boolean, /* effective_address */ SocketAddress | null ]
     add_any_inet_port(source_object: GObject.Object | null): number
     add_inet_port(port: number, source_object: GObject.Object | null): boolean
     add_socket(socket: Socket, source_object: GObject.Object | null): boolean
@@ -8503,8 +8503,8 @@ export interface UnixFDList {
     append(fd: number): number
     get(index_: number): number
     get_length(): number
-    peek_fds(length: number | null): number[]
-    steal_fds(length: number | null): number[]
+    peek_fds(): [ /* returnType */ number[], /* length */ number | null ]
+    steal_fds(): [ /* returnType */ number[], /* length */ number | null ]
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -8553,7 +8553,7 @@ export interface UnixFDMessage {
     /* Methods of UnixFDMessage */
     append_fd(fd: number): boolean
     get_fd_list(): UnixFDList
-    steal_fds(length: number | null): number[]
+    steal_fds(): [ /* returnType */ number[], /* length */ number | null ]
     /* Methods of SocketControlMessage */
     get_level(): number
     get_msg_type(): number
@@ -8623,9 +8623,9 @@ export interface UnixInputStream {
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: number[], count: number, cancellable: Cancellable | null): number
-    read_all(buffer: number[], count: number, bytes_read: number, cancellable: Cancellable | null): boolean
+    read_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    read_all_finish(result: AsyncResult, bytes_read: number): boolean
+    read_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     read_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -8762,9 +8762,9 @@ export interface UnixOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     splice_finish(result: AsyncResult): number
     write(buffer: number[], count: number, cancellable: Cancellable | null): number
-    write_all(buffer: number[], count: number, bytes_written: number, cancellable: Cancellable | null): boolean
+    write_all(buffer: number[], count: number, cancellable: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_all_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
-    write_all_finish(result: AsyncResult, bytes_written: number): boolean
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
     write_async(buffer: number[], count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     write_bytes(bytes: GLib.Bytes, cancellable: Cancellable | null): number
     write_bytes_async(bytes: GLib.Bytes, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -9389,7 +9389,7 @@ export interface DBusInterfaceInfo {
     /* Methods of DBusInterfaceInfo */
     cache_build(): void
     cache_release(): void
-    generate_xml(indent: number, string_builder: GLib.String): void
+    generate_xml(indent: number): /* string_builder */ GLib.String
     lookup_method(name: string): DBusMethodInfo
     lookup_property(name: string): DBusPropertyInfo
     lookup_signal(name: string): DBusSignalInfo
@@ -9439,7 +9439,7 @@ export interface DBusNodeInfo_ConstructProps {
 }
 export interface DBusNodeInfo {
     /* Methods of DBusNodeInfo */
-    generate_xml(indent: number, string_builder: GLib.String): void
+    generate_xml(indent: number): /* string_builder */ GLib.String
     lookup_interface(name: string): DBusInterfaceInfo
     ref(): DBusNodeInfo
     unref(): void
@@ -10346,7 +10346,7 @@ export interface Resource {
     _register(): void
     _unregister(): void
     enumerate_children(path: string, lookup_flags: ResourceLookupFlags): string[]
-    get_info(path: string, lookup_flags: ResourceLookupFlags, size: number | null, flags: number | null): boolean
+    get_info(path: string, lookup_flags: ResourceLookupFlags): [ /* returnType */ boolean, /* size */ number | null, /* flags */ number | null ]
     lookup_data(path: string, lookup_flags: ResourceLookupFlags): GLib.Bytes
     open_stream(path: string, lookup_flags: ResourceLookupFlags): InputStream
     ref(): Resource
@@ -10430,7 +10430,7 @@ export interface SettingsSchemaSource_ConstructProps {
 }
 export interface SettingsSchemaSource {
     /* Methods of SettingsSchemaSource */
-    list_schemas(recursive: boolean, non_relocatable: string[], relocatable: string[]): void
+    list_schemas(recursive: boolean): [ /* non_relocatable */ string[], /* relocatable */ string[] ]
     lookup(schema_id: string, recursive: boolean): SettingsSchema | null
     ref(): SettingsSchemaSource
     unref(): void

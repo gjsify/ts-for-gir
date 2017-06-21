@@ -43,6 +43,7 @@ interface GirVariable extends TsForGjsExtended {
         writable?: string
         readable?: string
         "construct-only"?: string
+        direction?: string
     }
     doc?: GirDoc[]
     type?: GirType[]
@@ -387,20 +388,32 @@ export class GirModule {
         return returnType
     }
 
-    private getParameters(parameters) {
+    private getParameters(parameters): [ string, string[] ] {
         let def: string[] = []
+        let outParams: string[] = []
 
         if (parameters && parameters.length > 0) {
             let parametersArray = parameters[0].parameter
             if (parametersArray)
-                for (let param of parametersArray) {
-                    let paramName = this.fixVariableName(param.$.name, false)
+                for (let p of parametersArray) {
+                    let param: GirVariable = p
+                    let paramName = this.fixVariableName(param.$.name || '-', false)
                     let paramType = this.typeLookup(param)
-                    def.push(`${paramName}: ${paramType}`)
+
+                    let optDirection = param.$.direction
+                    if (optDirection) {
+                        if (optDirection == 'out') {
+                            outParams.push(`/* ${paramName} */ ${paramType}`)
+                            continue
+                        }
+                    }
+                    
+                    let paramDesc = `${paramName}: ${paramType}`
+                    def.push(paramDesc)
                 }
         }
 
-        return def.join(", ")
+        return [ def.join(", "), outParams ]
     }
 
     private fixVariableName(name: string, allowQuotes: boolean) {
@@ -424,7 +437,7 @@ export class GirModule {
     private getVariable(v: GirVariable, optional: boolean = false, 
                         allowQuotes: boolean = false): [string[], string|null] {
         if (!v.$.name)
-            return [[], null]
+            return [[], null] 
 
         let name = this.fixVariableName(v.$.name, allowQuotes)
         let typeName = this.typeLookup(v)
@@ -471,7 +484,7 @@ export class GirModule {
             return [[], null]
 
         let name = e.$.name
-        let params = this.getParameters(e.parameters)
+        let [params, outParams] = this.getParameters(e.parameters)
         let retType = this.getReturnType(e)
 
         if (funcNamePrefix)
@@ -484,12 +497,23 @@ export class GirModule {
         if (reservedWords[name])
             return [[`/* Function '${name}' is a reserved word */`], null]
 
+        let retTypeIsVoid = retType == 'void'
+        if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
+            if (!retTypeIsVoid) {
+                outParams.unshift(`/* returnType */ ${retType}`)
+            }
+            let retDesc = outParams.join(', ')
+            retType = `[ ${retDesc} ]`
+        } else if (outParams.length == 1 && retTypeIsVoid) {
+            retType = outParams[0]
+        }
+
         return [[`${prefix}${name}(${params}): ${retType}`], name]
     }
 
     private getSignalFunc(e: GirFunction) {
         let sigName = e.$.name
-        let params = this.getParameters(e.parameters)
+        let [params, outParams] = this.getParameters(e.parameters)
         let retType = this.getReturnType(e) 
 
         return [`    connect(sigName: "${sigName}", callback: ((${params}) => ${retType}))`]
@@ -501,7 +525,7 @@ export class GirModule {
 
     exportCallback(e: GirFunction) {
         let name = e.$.name
-        let params = this.getParameters(e.parameters)
+        let [params, outParams] = this.getParameters(e.parameters)
         let retType = this.getReturnType(e)
 
         let def: string[] = []

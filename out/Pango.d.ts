@@ -268,7 +268,7 @@ export function config_key_get_system(key: string): string
 export function default_break(text: string, length: number, analysis: Analysis | null, attrs: LogAttr, attrs_len: number): void
 export function extents_to_pixels(inclusive: Rectangle | null, nearest: Rectangle | null): void
 export function find_base_dir(text: string, length: number): Direction
-export function find_paragraph_boundary(text: string, length: number, paragraph_delimiter_index: number, next_paragraph_start: number): void
+export function find_paragraph_boundary(text: string, length: number): [ /* paragraph_delimiter_index */ number, /* next_paragraph_start */ number ]
 export function font_description_from_string(str: string): FontDescription
 export function get_lib_subdirectory(): string
 export function get_log_attrs(text: string, length: number, level: number, language: Language, log_attrs: LogAttr[], attrs_len: number): void
@@ -284,22 +284,22 @@ export function itemize_with_base_dir(context: Context, base_dir: Direction, tex
 export function language_from_string(language: string | null): Language | null
 export function language_get_default(): Language
 export function log2vis_get_embedding_levels(text: string, length: number, pbase_dir: Direction): number
-export function lookup_aliases(fontname: string, families: string[], n_families: number): void
-export function markup_parser_finish(context: GLib.MarkupParseContext, attr_list: AttrList | null, text: string | null, accel_char: number | null): boolean
+export function lookup_aliases(fontname: string): [ /* families */ string[], /* n_families */ number ]
+export function markup_parser_finish(context: GLib.MarkupParseContext): [ /* returnType */ boolean, /* attr_list */ AttrList | null, /* text */ string | null, /* accel_char */ number | null ]
 export function markup_parser_new(accel_marker: number): GLib.MarkupParseContext
 export function module_register(module: IncludedModule): void
-export function parse_enum(type: number, str: string | null, value: number | null, warn: boolean, possible_values: string | null): boolean
-export function parse_markup(markup_text: string, length: number, accel_marker: number, attr_list: AttrList | null, text: string | null, accel_char: number | null): boolean
-export function parse_stretch(str: string, stretch: Stretch, warn: boolean): boolean
-export function parse_style(str: string, style: Style, warn: boolean): boolean
-export function parse_variant(str: string, variant: Variant, warn: boolean): boolean
-export function parse_weight(str: string, weight: Weight, warn: boolean): boolean
+export function parse_enum(type: number, str: string | null, warn: boolean): [ /* returnType */ boolean, /* value */ number | null, /* possible_values */ string | null ]
+export function parse_markup(markup_text: string, length: number, accel_marker: number): [ /* returnType */ boolean, /* attr_list */ AttrList | null, /* text */ string | null, /* accel_char */ number | null ]
+export function parse_stretch(str: string, warn: boolean): [ /* returnType */ boolean, /* stretch */ Stretch ]
+export function parse_style(str: string, warn: boolean): [ /* returnType */ boolean, /* style */ Style ]
+export function parse_variant(str: string, warn: boolean): [ /* returnType */ boolean, /* variant */ Variant ]
+export function parse_weight(str: string, warn: boolean): [ /* returnType */ boolean, /* weight */ Weight ]
 export function quantize_line_geometry(thickness: number, position: number): void
-export function read_line(stream: object, str: GLib.String): number
+export function read_line(stream: object): [ /* returnType */ number, /* str */ GLib.String ]
 export function reorder_items(logical_items: GLib.List): GLib.List
-export function scan_int(pos: string, out: number): boolean
-export function scan_string(pos: string, out: GLib.String): boolean
-export function scan_word(pos: string, out: GLib.String): boolean
+export function scan_int(pos: string): [ /* returnType */ boolean, /* out */ number ]
+export function scan_string(pos: string): [ /* returnType */ boolean, /* out */ GLib.String ]
+export function scan_word(pos: string): [ /* returnType */ boolean, /* out */ GLib.String ]
 export function script_for_unichar(ch: number): Script
 export function script_get_sample_language(script: Script): Language | null
 export function shape(text: string, length: number, analysis: Analysis, glyphs: GlyphString): void
@@ -337,7 +337,7 @@ export interface Context {
     get_matrix(): Matrix | null
     get_metrics(desc: FontDescription | null, language: Language | null): FontMetrics
     get_serial(): number
-    list_families(families: FontFamily[], n_families: number): void
+    list_families(): [ /* families */ FontFamily[], /* n_families */ number ]
     load_font(desc: FontDescription): Font | null
     load_fontset(desc: FontDescription, language: Language): Fontset | null
     set_base_dir(direction: Direction): void
@@ -524,7 +524,7 @@ export interface Font {
     describe(): FontDescription
     describe_with_absolute_size(): FontDescription
     get_font_map(): FontMap | null
-    get_glyph_extents(glyph: Glyph, ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
+    get_glyph_extents(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_metrics(language: Language | null): FontMetrics
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -554,7 +554,7 @@ export interface Font {
     vfunc_describe(): FontDescription
     vfunc_describe_absolute(): FontDescription
     vfunc_get_font_map(): FontMap | null
-    vfunc_get_glyph_extents(glyph: Glyph, ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
+    vfunc_get_glyph_extents(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     vfunc_get_metrics(language: Language | null): FontMetrics
     /* Virtual methods of Object */
     vfunc_constructed(): void
@@ -581,7 +581,7 @@ export interface FontFace {
     describe(): FontDescription
     get_face_name(): string
     is_synthesized(): boolean
-    list_sizes(sizes: number[] | null, n_sizes: number): void
+    list_sizes(): [ /* sizes */ number[] | null, /* n_sizes */ number ]
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -610,7 +610,7 @@ export interface FontFace {
     vfunc_describe(): FontDescription
     vfunc_get_face_name(): string
     vfunc_is_synthesized(): boolean
-    vfunc_list_sizes(sizes: number[] | null, n_sizes: number): void
+    vfunc_list_sizes(): [ /* sizes */ number[] | null, /* n_sizes */ number ]
     /* Virtual methods of Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -632,7 +632,7 @@ export interface FontFamily {
     /* Methods of FontFamily */
     get_name(): string
     is_monospace(): boolean
-    list_faces(faces: FontFace[] | null, n_faces: number): void
+    list_faces(): [ /* faces */ FontFace[] | null, /* n_faces */ number ]
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -660,7 +660,7 @@ export interface FontFamily {
     /* Virtual methods of FontFamily */
     vfunc_get_name(): string
     vfunc_is_monospace(): boolean
-    vfunc_list_faces(faces: FontFace[] | null, n_faces: number): void
+    vfunc_list_faces(): [ /* faces */ FontFace[] | null, /* n_faces */ number ]
     /* Virtual methods of Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -684,7 +684,7 @@ export interface FontMap {
     create_context(): Context
     get_serial(): number
     get_shape_engine_type(): string
-    list_families(families: FontFamily[], n_families: number): void
+    list_families(): [ /* families */ FontFamily[], /* n_families */ number ]
     load_font(context: Context, desc: FontDescription): Font | null
     load_fontset(context: Context, desc: FontDescription, language: Language): Fontset | null
     /* Methods of Object */
@@ -714,7 +714,7 @@ export interface FontMap {
     /* Virtual methods of FontMap */
     vfunc_changed(): void
     vfunc_get_serial(): number
-    vfunc_list_families(families: FontFamily[], n_families: number): void
+    vfunc_list_families(): [ /* families */ FontFamily[], /* n_families */ number ]
     vfunc_load_font(context: Context, desc: FontDescription): Font | null
     vfunc_load_fontset(context: Context, desc: FontDescription, language: Language): Fontset | null
     /* Virtual methods of Object */
@@ -849,9 +849,9 @@ export interface Layout {
     get_baseline(): number
     get_character_count(): number
     get_context(): Context
-    get_cursor_pos(index_: number, strong_pos: Rectangle | null, weak_pos: Rectangle | null): void
+    get_cursor_pos(index_: number): [ /* strong_pos */ Rectangle | null, /* weak_pos */ Rectangle | null ]
     get_ellipsize(): EllipsizeMode
-    get_extents(ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
+    get_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_font_description(): FontDescription | null
     get_height(): number
     get_indent(): number
@@ -862,24 +862,24 @@ export interface Layout {
     get_line_readonly(line: number): LayoutLine | null
     get_lines(): GLib.SList
     get_lines_readonly(): GLib.SList
-    get_log_attrs(attrs: LogAttr[], n_attrs: number): void
-    get_log_attrs_readonly(n_attrs: number): LogAttr[]
-    get_pixel_extents(ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
-    get_pixel_size(width: number | null, height: number | null): void
+    get_log_attrs(): [ /* attrs */ LogAttr[], /* n_attrs */ number ]
+    get_log_attrs_readonly(): [ /* returnType */ LogAttr[], /* n_attrs */ number ]
+    get_pixel_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
+    get_pixel_size(): [ /* width */ number | null, /* height */ number | null ]
     get_serial(): number
     get_single_paragraph_mode(): boolean
-    get_size(width: number | null, height: number | null): void
+    get_size(): [ /* width */ number | null, /* height */ number | null ]
     get_spacing(): number
     get_tabs(): TabArray | null
     get_text(): string
     get_unknown_glyphs_count(): number
     get_width(): number
     get_wrap(): WrapMode
-    index_to_line_x(index_: number, trailing: boolean, line: number | null, x_pos: number | null): void
-    index_to_pos(index_: number, pos: Rectangle): void
+    index_to_line_x(index_: number, trailing: boolean): [ /* line */ number | null, /* x_pos */ number | null ]
+    index_to_pos(index_: number): /* pos */ Rectangle
     is_ellipsized(): boolean
     is_wrapped(): boolean
-    move_cursor_visually(strong: boolean, old_index: number, old_trailing: number, direction: number, new_index: number, new_trailing: number): void
+    move_cursor_visually(strong: boolean, old_index: number, old_trailing: number, direction: number): [ /* new_index */ number, /* new_trailing */ number ]
     set_alignment(alignment: Alignment): void
     set_attributes(attrs: AttrList | null): void
     set_auto_dir(auto_dir: boolean): void
@@ -889,14 +889,14 @@ export interface Layout {
     set_indent(indent: number): void
     set_justify(justify: boolean): void
     set_markup(markup: string, length: number): void
-    set_markup_with_accel(markup: string, length: number, accel_marker: number, accel_char: number | null): void
+    set_markup_with_accel(markup: string, length: number, accel_marker: number): /* accel_char */ number | null
     set_single_paragraph_mode(setting: boolean): void
     set_spacing(spacing: number): void
     set_tabs(tabs: TabArray | null): void
     set_text(text: string, length: number): void
     set_width(width: number): void
     set_wrap(wrap: WrapMode): void
-    xy_to_index(x: number, y: number, index_: number, trailing: number): boolean
+    xy_to_index(x: number, y: number): [ /* returnType */ boolean, /* index_ */ number, /* trailing */ number ]
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -1078,7 +1078,7 @@ export interface AttrIterator {
     get_attrs(): GLib.SList
     get_font(desc: FontDescription, language: Language | null, extra_attrs: GLib.SList | null): void
     next(): boolean
-    range(start: number, end: number): void
+    range(): [ /* start */ number, /* end */ number ]
 }
 export interface AttrIterator_Static {
     new (config: AttrIterator_ConstructProps): AttrIterator
@@ -1179,7 +1179,7 @@ export interface Coverage {
     get(index_: number): CoverageLevel
     max(other: Coverage): void
     set(index_: number, level: CoverageLevel): void
-    to_bytes(bytes: number[], n_bytes: number): void
+    to_bytes(): [ /* bytes */ number[], /* n_bytes */ number ]
     unref(): void
 }
 export interface Coverage_Static {
@@ -1387,14 +1387,14 @@ export interface GlyphString_ConstructProps {
 export interface GlyphString {
     /* Methods of GlyphString */
     copy(): GlyphString | null
-    extents(font: Font, ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
-    extents_range(start: number, end: number, font: Font, ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
+    extents(font: Font): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
+    extents_range(start: number, end: number, font: Font): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     free(): void
     get_logical_widths(text: string, length: number, embedding_level: number, logical_widths: number[]): void
     get_width(): number
-    index_to_x(text: string, length: number, analysis: Analysis, index_: number, trailing: boolean, x_pos: number): void
+    index_to_x(text: string, length: number, analysis: Analysis, index_: number, trailing: boolean): /* x_pos */ number
     set_size(new_len: number): void
-    x_to_index(text: string, length: number, analysis: Analysis, x_pos: number, index_: number, trailing: number): void
+    x_to_index(text: string, length: number, analysis: Analysis, x_pos: number): [ /* index_ */ number, /* trailing */ number ]
 }
 export interface GlyphString_Static {
     new (config: GlyphString_ConstructProps): GlyphString
@@ -1433,7 +1433,7 @@ export interface Language_ConstructProps {
 export interface Language {
     /* Methods of Language */
     get_sample_string(): string
-    get_scripts(num_scripts: number | null): Script[] | null
+    get_scripts(): [ /* returnType */ Script[] | null, /* num_scripts */ number | null ]
     includes_script(script: Script): boolean
     matches(range_list: string): boolean
     to_string(): string
@@ -1462,17 +1462,17 @@ export interface LayoutIter {
     copy(): LayoutIter | null
     free(): void
     get_baseline(): number
-    get_char_extents(logical_rect: Rectangle): void
-    get_cluster_extents(ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
+    get_char_extents(): /* logical_rect */ Rectangle
+    get_cluster_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_index(): number
     get_layout(): Layout
-    get_layout_extents(ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
+    get_layout_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_line(): LayoutLine
-    get_line_extents(ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
+    get_line_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_line_readonly(): LayoutLine
-    get_line_yrange(y0_: number | null, y1_: number | null): void
+    get_line_yrange(): [ /* y0_ */ number | null, /* y1_ */ number | null ]
     get_run(): LayoutRun | null
-    get_run_extents(ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
+    get_run_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_run_readonly(): LayoutRun | null
     next_char(): boolean
     next_cluster(): boolean
@@ -1487,13 +1487,13 @@ export interface LayoutLine_ConstructProps {
 }
 export interface LayoutLine {
     /* Methods of LayoutLine */
-    get_extents(ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
-    get_pixel_extents(ink_rect: Rectangle | null, logical_rect: Rectangle | null): void
-    get_x_ranges(start_index: number, end_index: number, ranges: number[], n_ranges: number): void
-    index_to_x(index_: number, trailing: boolean, x_pos: number): void
+    get_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
+    get_pixel_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
+    get_x_ranges(start_index: number, end_index: number): [ /* ranges */ number[], /* n_ranges */ number ]
+    index_to_x(index_: number, trailing: boolean): /* x_pos */ number
     ref(): LayoutLine
     unref(): void
-    x_to_index(x_pos: number, index_: number, trailing: number): boolean
+    x_to_index(x_pos: number): [ /* returnType */ boolean, /* index_ */ number, /* trailing */ number ]
 }
 export interface LayoutLine_Static {
     new (config: LayoutLine_ConstructProps): LayoutLine
@@ -1532,7 +1532,7 @@ export interface Matrix {
     copy(): Matrix | null
     free(): void
     get_font_scale_factor(): number
-    get_font_scale_factors(xscale: number | null, yscale: number | null): void
+    get_font_scale_factors(): [ /* xscale */ number | null, /* yscale */ number | null ]
     rotate(degrees: number): void
     scale(scale_x: number, scale_y: number): void
     transform_distance(dx: number, dy: number): void
@@ -1582,7 +1582,7 @@ export interface ScriptIter_ConstructProps {
 export interface ScriptIter {
     /* Methods of ScriptIter */
     free(): void
-    get_range(start: string | null, end: string | null, script: Script | null): void
+    get_range(): [ /* start */ string | null, /* end */ string | null, /* script */ Script | null ]
     next(): boolean
 }
 export interface ScriptIter_Static {
@@ -1599,8 +1599,8 @@ export interface TabArray {
     free(): void
     get_positions_in_pixels(): boolean
     get_size(): number
-    get_tab(tab_index: number, alignment: TabAlign | null, location: number | null): void
-    get_tabs(alignments: TabAlign | null, locations: number[] | null): void
+    get_tab(tab_index: number): [ /* alignment */ TabAlign | null, /* location */ number | null ]
+    get_tabs(): [ /* alignments */ TabAlign | null, /* locations */ number[] | null ]
     resize(new_size: number): void
     set_tab(tab_index: number, alignment: TabAlign, location: number): void
 }

@@ -157,7 +157,7 @@ export interface CompletionProvider {
     get_interactive_delay(): number
     get_name(): string
     get_priority(): number
-    get_start_iter(context: CompletionContext, proposal: CompletionProposal, iter: Gtk.TextIter): boolean
+    get_start_iter(context: CompletionContext, proposal: CompletionProposal): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
     match(context: CompletionContext): boolean
     populate(context: CompletionContext): void
     update_info(proposal: CompletionProposal, info: CompletionInfo): void
@@ -171,7 +171,7 @@ export interface CompletionProvider {
     vfunc_get_interactive_delay(): number
     vfunc_get_name(): string
     vfunc_get_priority(): number
-    vfunc_get_start_iter(context: CompletionContext, proposal: CompletionProposal, iter: Gtk.TextIter): boolean
+    vfunc_get_start_iter(context: CompletionContext, proposal: CompletionProposal): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
     vfunc_match(context: CompletionContext): boolean
     vfunc_populate(context: CompletionContext): void
     vfunc_update_info(proposal: CompletionProposal, info: CompletionInfo): void
@@ -310,28 +310,28 @@ export interface Buffer {
     deserialize_get_can_create_tags(format: Gdk.Atom): boolean
     deserialize_set_can_create_tags(format: Gdk.Atom, can_create_tags: boolean): void
     end_user_action(): void
-    get_bounds(start: Gtk.TextIter, end: Gtk.TextIter): void
+    get_bounds(): [ /* start */ Gtk.TextIter, /* end */ Gtk.TextIter ]
     get_char_count(): number
     get_copy_target_list(): Gtk.TargetList
-    get_deserialize_formats(n_formats: number): Gdk.Atom[]
-    get_end_iter(iter: Gtk.TextIter): void
+    get_deserialize_formats(): [ /* returnType */ Gdk.Atom[], /* n_formats */ number ]
+    get_end_iter(): /* iter */ Gtk.TextIter
     get_has_selection(): boolean
     get_insert(): Gtk.TextMark
-    get_iter_at_child_anchor(iter: Gtk.TextIter, anchor: Gtk.TextChildAnchor): void
-    get_iter_at_line(iter: Gtk.TextIter, line_number: number): void
-    get_iter_at_line_index(iter: Gtk.TextIter, line_number: number, byte_index: number): void
-    get_iter_at_line_offset(iter: Gtk.TextIter, line_number: number, char_offset: number): void
-    get_iter_at_mark(iter: Gtk.TextIter, mark: Gtk.TextMark): void
-    get_iter_at_offset(iter: Gtk.TextIter, char_offset: number): void
+    get_iter_at_child_anchor(anchor: Gtk.TextChildAnchor): /* iter */ Gtk.TextIter
+    get_iter_at_line(line_number: number): /* iter */ Gtk.TextIter
+    get_iter_at_line_index(line_number: number, byte_index: number): /* iter */ Gtk.TextIter
+    get_iter_at_line_offset(line_number: number, char_offset: number): /* iter */ Gtk.TextIter
+    get_iter_at_mark(mark: Gtk.TextMark): /* iter */ Gtk.TextIter
+    get_iter_at_offset(char_offset: number): /* iter */ Gtk.TextIter
     get_line_count(): number
     get_mark(name: string): Gtk.TextMark
     get_modified(): boolean
     get_paste_target_list(): Gtk.TargetList
     get_selection_bound(): Gtk.TextMark
-    get_selection_bounds(start: Gtk.TextIter, end: Gtk.TextIter): boolean
-    get_serialize_formats(n_formats: number): Gdk.Atom[]
+    get_selection_bounds(): [ /* returnType */ boolean, /* start */ Gtk.TextIter, /* end */ Gtk.TextIter ]
+    get_serialize_formats(): [ /* returnType */ Gdk.Atom[], /* n_formats */ number ]
     get_slice(start: Gtk.TextIter, end: Gtk.TextIter, include_hidden_chars: boolean): string
-    get_start_iter(iter: Gtk.TextIter): void
+    get_start_iter(): /* iter */ Gtk.TextIter
     get_tag_table(): Gtk.TextTagTable
     get_text(start: Gtk.TextIter, end: Gtk.TextIter, include_hidden_chars: boolean): string
     insert(iter: Gtk.TextIter, text: string, len: number): void
@@ -356,7 +356,7 @@ export interface Buffer {
     remove_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
     remove_tag_by_name(name: string, start: Gtk.TextIter, end: Gtk.TextIter): void
     select_range(ins: Gtk.TextIter, bound: Gtk.TextIter): void
-    serialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter, length: number): number[]
+    serialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter): [ /* returnType */ number[], /* length */ number ]
     set_modified(setting: boolean): void
     set_text(text: string, len: number): void
     unregister_deserialize_format(format: Gdk.Atom): void
@@ -539,7 +539,7 @@ export interface CompletionContext {
     /* Methods of CompletionContext */
     add_proposals(provider: CompletionProvider, proposals: GLib.List | null, finished: boolean): void
     get_activation(): CompletionActivation
-    get_iter(iter: Gtk.TextIter): boolean
+    get_iter(): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -752,7 +752,7 @@ export interface CompletionInfo {
     get_application(): Gtk.Application
     get_attached_to(): Gtk.Widget
     get_decorated(): boolean
-    get_default_size(width: number | null, height: number | null): void
+    get_default_size(): [ /* width */ number | null, /* height */ number | null ]
     get_default_widget(): Gtk.Widget
     get_deletable(): boolean
     get_destroy_with_parent(): boolean
@@ -770,12 +770,12 @@ export interface CompletionInfo {
     get_mnemonics_visible(): boolean
     get_modal(): boolean
     get_opacity(): number
-    get_position(root_x: number | null, root_y: number | null): void
+    get_position(): [ /* root_x */ number | null, /* root_y */ number | null ]
     get_resizable(): boolean
-    get_resize_grip_area(rect: Gdk.Rectangle): boolean
+    get_resize_grip_area(): [ /* returnType */ boolean, /* rect */ Gdk.Rectangle ]
     get_role(): string
     get_screen(): Gdk.Screen
-    get_size(width: number | null, height: number | null): void
+    get_size(): [ /* width */ number | null, /* height */ number | null ]
     get_skip_pager_hint(): boolean
     get_skip_taskbar_hint(): boolean
     get_title(): string
@@ -857,7 +857,7 @@ export interface CompletionInfo {
     foreach(callback: Gtk.Callback, callback_data: object): void
     get_border_width(): number
     get_children(): GLib.List
-    get_focus_chain(focusable_widgets: GLib.List): boolean
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
     get_focus_child(): Gtk.Widget
     get_focus_hadjustment(): Gtk.Adjustment
     get_focus_vadjustment(): Gtk.Adjustment
@@ -883,7 +883,7 @@ export interface CompletionInfo {
     add_tick_callback(callback: Gtk.TickCallback, user_data: object, notify: GLib.DestroyNotify): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
-    class_path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
     create_pango_layout(text: string | null): Pango.Layout
@@ -928,14 +928,14 @@ export interface CompletionInfo {
     get_allocated_baseline(): number
     get_allocated_height(): number
     get_allocated_width(): number
-    get_allocation(allocation: Gtk.Allocation): void
+    get_allocation(): /* allocation */ Gtk.Allocation
     get_ancestor(widget_type: number): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
-    get_child_requisition(requisition: Gtk.Requisition): void
+    get_child_requisition(): /* requisition */ Gtk.Requisition
     get_child_visible(): boolean
-    get_clip(clip: Gtk.Allocation): void
+    get_clip(): /* clip */ Gtk.Allocation
     get_clipboard(selection: Gdk.Atom): Gtk.Clipboard
     get_composite_name(): string
     get_device_enabled(device: Gdk.Device): boolean
@@ -967,22 +967,22 @@ export interface CompletionInfo {
     get_parent(): Gtk.Widget | null
     get_parent_window(): Gdk.Window
     get_path(): Gtk.WidgetPath
-    get_pointer(x: number | null, y: number | null): void
-    get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    get_preferred_size(minimum_size: Gtk.Requisition | null, natural_size: Gtk.Requisition | null): void
-    get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    get_pointer(): [ /* x */ number | null, /* y */ number | null ]
+    get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_size(): [ /* minimum_size */ Gtk.Requisition | null, /* natural_size */ Gtk.Requisition | null ]
+    get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     get_realized(): boolean
     get_receives_default(): boolean
     get_request_mode(): Gtk.SizeRequestMode
-    get_requisition(requisition: Gtk.Requisition): void
+    get_requisition(): /* requisition */ Gtk.Requisition
     get_root_window(): Gdk.Window
     get_scale_factor(): number
     get_sensitive(): boolean
     get_settings(): Gtk.Settings
-    get_size_request(width: number | null, height: number | null): void
+    get_size_request(): [ /* width */ number | null, /* height */ number | null ]
     get_state(): Gtk.StateType
     get_state_flags(): Gtk.StateFlags
     get_style(): Gtk.Style
@@ -1038,7 +1038,7 @@ export interface CompletionInfo {
     override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
     override_font(font_desc: Pango.FontDescription | null): void
     override_symbolic_color(name: string, color: Gdk.RGBA | null): void
-    path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_compute_expand(): void
     queue_draw(): void
     queue_draw_area(x: number, y: number, width: number, height: number): void
@@ -1113,11 +1113,11 @@ export interface CompletionInfo {
     show_now(): void
     size_allocate(allocation: Gtk.Allocation): void
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
-    size_request(requisition: Gtk.Requisition): void
+    size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
     style_get_property(property_name: string, value: GObject.Value): void
     thaw_child_notify(): void
-    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number, dest_x: number, dest_y: number): boolean
+    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
     unmap(): void
     unparent(): void
@@ -1201,11 +1201,11 @@ export interface CompletionInfo {
     vfunc_focus_in_event(event: Gdk.EventFocus): boolean
     vfunc_focus_out_event(event: Gdk.EventFocus): boolean
     vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    vfunc_get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    vfunc_get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     vfunc_get_request_mode(): Gtk.SizeRequestMode
     vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
     vfunc_grab_focus(): void
@@ -1747,10 +1747,10 @@ export interface GutterRenderer {
     begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
     end(): void
-    get_alignment(xalign: number | null, yalign: number | null): void
+    get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
     get_alignment_mode(): GutterRendererAlignmentMode
-    get_background(color: Gdk.RGBA | null): boolean
-    get_padding(xpad: number | null, ypad: number | null): void
+    get_background(): [ /* returnType */ boolean, /* color */ Gdk.RGBA | null ]
+    get_padding(): [ /* xpad */ number | null, /* ypad */ number | null ]
     get_size(): number
     get_view(): Gtk.TextView
     get_visible(): boolean
@@ -1870,10 +1870,10 @@ export interface GutterRendererPixbuf {
     begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
     end(): void
-    get_alignment(xalign: number | null, yalign: number | null): void
+    get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
     get_alignment_mode(): GutterRendererAlignmentMode
-    get_background(color: Gdk.RGBA | null): boolean
-    get_padding(xpad: number | null, ypad: number | null): void
+    get_background(): [ /* returnType */ boolean, /* color */ Gdk.RGBA | null ]
+    get_padding(): [ /* xpad */ number | null, /* ypad */ number | null ]
     get_size(): number
     get_view(): Gtk.TextView
     get_visible(): boolean
@@ -1976,8 +1976,8 @@ export interface GutterRendererText {
     yalign:number
     ypad:number
     /* Methods of GutterRendererText */
-    measure(text: string, width: number, height: number): void
-    measure_markup(markup: string, width: number, height: number): void
+    measure(text: string): [ /* width */ number, /* height */ number ]
+    measure_markup(markup: string): [ /* width */ number, /* height */ number ]
     set_markup(markup: string, length: number): void
     set_text(text: string, length: number): void
     /* Methods of GutterRenderer */
@@ -1985,10 +1985,10 @@ export interface GutterRendererText {
     begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
     draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
     end(): void
-    get_alignment(xalign: number | null, yalign: number | null): void
+    get_alignment(): [ /* xalign */ number | null, /* yalign */ number | null ]
     get_alignment_mode(): GutterRendererAlignmentMode
-    get_background(color: Gdk.RGBA | null): boolean
-    get_padding(xpad: number | null, ypad: number | null): void
+    get_background(): [ /* returnType */ boolean, /* color */ Gdk.RGBA | null ]
+    get_padding(): [ /* xpad */ number | null, /* ypad */ number | null ]
     get_size(): number
     get_view(): Gtk.TextView
     get_visible(): boolean
@@ -2385,14 +2385,14 @@ export interface Map {
     add_child_in_window(child: Gtk.Widget, which_window: Gtk.TextWindowType, xpos: number, ypos: number): void
     backward_display_line(iter: Gtk.TextIter): boolean
     backward_display_line_start(iter: Gtk.TextIter): boolean
-    buffer_to_window_coords(win: Gtk.TextWindowType, buffer_x: number, buffer_y: number, window_x: number | null, window_y: number | null): void
+    buffer_to_window_coords(win: Gtk.TextWindowType, buffer_x: number, buffer_y: number): [ /* window_x */ number | null, /* window_y */ number | null ]
     forward_display_line(iter: Gtk.TextIter): boolean
     forward_display_line_end(iter: Gtk.TextIter): boolean
     get_accepts_tab(): boolean
     get_border_window_size(type: Gtk.TextWindowType): number
     get_bottom_margin(): number
     get_buffer(): Gtk.TextBuffer
-    get_cursor_locations(iter: Gtk.TextIter | null, strong: Gdk.Rectangle | null, weak: Gdk.Rectangle | null): void
+    get_cursor_locations(iter: Gtk.TextIter | null): [ /* strong */ Gdk.Rectangle | null, /* weak */ Gdk.Rectangle | null ]
     get_cursor_visible(): boolean
     get_default_attributes(): Gtk.TextAttributes
     get_editable(): boolean
@@ -2400,13 +2400,13 @@ export interface Map {
     get_indent(): number
     get_input_hints(): Gtk.InputHints
     get_input_purpose(): Gtk.InputPurpose
-    get_iter_at_location(iter: Gtk.TextIter, x: number, y: number): void
-    get_iter_at_position(iter: Gtk.TextIter, trailing: number | null, x: number, y: number): void
-    get_iter_location(iter: Gtk.TextIter, location: Gdk.Rectangle): void
+    get_iter_at_location(x: number, y: number): /* iter */ Gtk.TextIter
+    get_iter_at_position(x: number, y: number): [ /* iter */ Gtk.TextIter, /* trailing */ number | null ]
+    get_iter_location(iter: Gtk.TextIter): /* location */ Gdk.Rectangle
     get_justification(): Gtk.Justification
     get_left_margin(): number
-    get_line_at_y(target_iter: Gtk.TextIter, y: number, line_top: number): void
-    get_line_yrange(iter: Gtk.TextIter, y: number, height: number): void
+    get_line_at_y(y: number): [ /* target_iter */ Gtk.TextIter, /* line_top */ number ]
+    get_line_yrange(iter: Gtk.TextIter): [ /* y */ number, /* height */ number ]
     get_monospace(): boolean
     get_overwrite(): boolean
     get_pixels_above_lines(): number
@@ -2416,7 +2416,7 @@ export interface Map {
     get_tabs(): Pango.TabArray
     get_top_margin(): number
     get_vadjustment(): Gtk.Adjustment
-    get_visible_rect(visible_rect: Gdk.Rectangle): void
+    get_visible_rect(): /* visible_rect */ Gdk.Rectangle
     get_window(win: Gtk.TextWindowType): Gdk.Window
     get_window_type(window: Gdk.Window): Gtk.TextWindowType
     get_wrap_mode(): Gtk.WrapMode
@@ -2450,7 +2450,7 @@ export interface Map {
     set_top_margin(top_margin: number): void
     set_wrap_mode(wrap_mode: Gtk.WrapMode): void
     starts_display_line(iter: Gtk.TextIter): boolean
-    window_to_buffer_coords(win: Gtk.TextWindowType, window_x: number, window_y: number, buffer_x: number | null, buffer_y: number | null): void
+    window_to_buffer_coords(win: Gtk.TextWindowType, window_x: number, window_y: number): [ /* buffer_x */ number | null, /* buffer_y */ number | null ]
     /* Methods of Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
@@ -2463,7 +2463,7 @@ export interface Map {
     foreach(callback: Gtk.Callback, callback_data: object): void
     get_border_width(): number
     get_children(): GLib.List
-    get_focus_chain(focusable_widgets: GLib.List): boolean
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
     get_focus_child(): Gtk.Widget
     get_focus_hadjustment(): Gtk.Adjustment
     get_focus_vadjustment(): Gtk.Adjustment
@@ -2489,7 +2489,7 @@ export interface Map {
     add_tick_callback(callback: Gtk.TickCallback, user_data: object, notify: GLib.DestroyNotify): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
-    class_path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
     create_pango_layout(text: string | null): Pango.Layout
@@ -2534,14 +2534,14 @@ export interface Map {
     get_allocated_baseline(): number
     get_allocated_height(): number
     get_allocated_width(): number
-    get_allocation(allocation: Gtk.Allocation): void
+    get_allocation(): /* allocation */ Gtk.Allocation
     get_ancestor(widget_type: number): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
-    get_child_requisition(requisition: Gtk.Requisition): void
+    get_child_requisition(): /* requisition */ Gtk.Requisition
     get_child_visible(): boolean
-    get_clip(clip: Gtk.Allocation): void
+    get_clip(): /* clip */ Gtk.Allocation
     get_clipboard(selection: Gdk.Atom): Gtk.Clipboard
     get_composite_name(): string
     get_device_enabled(device: Gdk.Device): boolean
@@ -2574,23 +2574,23 @@ export interface Map {
     get_parent(): Gtk.Widget | null
     get_parent_window(): Gdk.Window
     get_path(): Gtk.WidgetPath
-    get_pointer(x: number | null, y: number | null): void
-    get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    get_preferred_size(minimum_size: Gtk.Requisition | null, natural_size: Gtk.Requisition | null): void
-    get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    get_pointer(): [ /* x */ number | null, /* y */ number | null ]
+    get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_size(): [ /* minimum_size */ Gtk.Requisition | null, /* natural_size */ Gtk.Requisition | null ]
+    get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     get_realized(): boolean
     get_receives_default(): boolean
     get_request_mode(): Gtk.SizeRequestMode
-    get_requisition(requisition: Gtk.Requisition): void
+    get_requisition(): /* requisition */ Gtk.Requisition
     get_root_window(): Gdk.Window
     get_scale_factor(): number
     get_screen(): Gdk.Screen
     get_sensitive(): boolean
     get_settings(): Gtk.Settings
-    get_size_request(width: number | null, height: number | null): void
+    get_size_request(): [ /* width */ number | null, /* height */ number | null ]
     get_state(): Gtk.StateType
     get_state_flags(): Gtk.StateFlags
     get_style(): Gtk.Style
@@ -2646,7 +2646,7 @@ export interface Map {
     override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
     override_font(font_desc: Pango.FontDescription | null): void
     override_symbolic_color(name: string, color: Gdk.RGBA | null): void
-    path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_compute_expand(): void
     queue_draw(): void
     queue_draw_area(x: number, y: number, width: number, height: number): void
@@ -2722,11 +2722,11 @@ export interface Map {
     show_now(): void
     size_allocate(allocation: Gtk.Allocation): void
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
-    size_request(requisition: Gtk.Requisition): void
+    size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
     style_get_property(property_name: string, value: GObject.Value): void
     thaw_child_notify(): void
-    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number, dest_x: number, dest_y: number): boolean
+    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
     unmap(): void
     unparent(): void
@@ -2822,11 +2822,11 @@ export interface Map {
     vfunc_focus_in_event(event: Gdk.EventFocus): boolean
     vfunc_focus_out_event(event: Gdk.EventFocus): boolean
     vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    vfunc_get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    vfunc_get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     vfunc_get_request_mode(): Gtk.SizeRequestMode
     vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
     vfunc_grab_focus(): void
@@ -3065,7 +3065,7 @@ export interface MarkAttributes {
     pixbuf:GdkPixbuf.Pixbuf
     stock_id:string
     /* Methods of MarkAttributes */
-    get_background(background: Gdk.RGBA): boolean
+    get_background(): [ /* returnType */ boolean, /* background */ Gdk.RGBA ]
     get_gicon(): Gio.Icon
     get_icon_name(): string
     get_pixbuf(): GdkPixbuf.Pixbuf
@@ -3237,12 +3237,12 @@ export interface SearchContext {
     readonly regex_error:object
     settings:SearchSettings
     /* Methods of SearchContext */
-    backward(iter: Gtk.TextIter, match_start: Gtk.TextIter | null, match_end: Gtk.TextIter | null): boolean
+    backward(iter: Gtk.TextIter): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
     backward_async(iter: Gtk.TextIter, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
-    backward_finish(result: Gio.AsyncResult, match_start: Gtk.TextIter | null, match_end: Gtk.TextIter | null): boolean
-    forward(iter: Gtk.TextIter, match_start: Gtk.TextIter | null, match_end: Gtk.TextIter | null): boolean
+    backward_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
+    forward(iter: Gtk.TextIter): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
     forward_async(iter: Gtk.TextIter, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
-    forward_finish(result: Gio.AsyncResult, match_start: Gtk.TextIter | null, match_end: Gtk.TextIter | null): boolean
+    forward_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
     get_buffer(): Buffer
     get_highlight(): boolean
     get_match_style(): Style
@@ -3590,7 +3590,7 @@ export interface StyleSchemeChooserButton {
     /* Methods of Button */
     clicked(): void
     enter(): void
-    get_alignment(xalign: number, yalign: number): void
+    get_alignment(): [ /* xalign */ number, /* yalign */ number ]
     get_always_show_image(): boolean
     get_event_window(): Gdk.Window
     get_focus_on_click(): boolean
@@ -3626,7 +3626,7 @@ export interface StyleSchemeChooserButton {
     foreach(callback: Gtk.Callback, callback_data: object): void
     get_border_width(): number
     get_children(): GLib.List
-    get_focus_chain(focusable_widgets: GLib.List): boolean
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
     get_focus_child(): Gtk.Widget
     get_focus_hadjustment(): Gtk.Adjustment
     get_focus_vadjustment(): Gtk.Adjustment
@@ -3652,7 +3652,7 @@ export interface StyleSchemeChooserButton {
     add_tick_callback(callback: Gtk.TickCallback, user_data: object, notify: GLib.DestroyNotify): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
-    class_path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
     create_pango_layout(text: string | null): Pango.Layout
@@ -3697,14 +3697,14 @@ export interface StyleSchemeChooserButton {
     get_allocated_baseline(): number
     get_allocated_height(): number
     get_allocated_width(): number
-    get_allocation(allocation: Gtk.Allocation): void
+    get_allocation(): /* allocation */ Gtk.Allocation
     get_ancestor(widget_type: number): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
-    get_child_requisition(requisition: Gtk.Requisition): void
+    get_child_requisition(): /* requisition */ Gtk.Requisition
     get_child_visible(): boolean
-    get_clip(clip: Gtk.Allocation): void
+    get_clip(): /* clip */ Gtk.Allocation
     get_clipboard(selection: Gdk.Atom): Gtk.Clipboard
     get_composite_name(): string
     get_device_enabled(device: Gdk.Device): boolean
@@ -3737,23 +3737,23 @@ export interface StyleSchemeChooserButton {
     get_parent(): Gtk.Widget | null
     get_parent_window(): Gdk.Window
     get_path(): Gtk.WidgetPath
-    get_pointer(x: number | null, y: number | null): void
-    get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    get_preferred_size(minimum_size: Gtk.Requisition | null, natural_size: Gtk.Requisition | null): void
-    get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    get_pointer(): [ /* x */ number | null, /* y */ number | null ]
+    get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_size(): [ /* minimum_size */ Gtk.Requisition | null, /* natural_size */ Gtk.Requisition | null ]
+    get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     get_realized(): boolean
     get_receives_default(): boolean
     get_request_mode(): Gtk.SizeRequestMode
-    get_requisition(requisition: Gtk.Requisition): void
+    get_requisition(): /* requisition */ Gtk.Requisition
     get_root_window(): Gdk.Window
     get_scale_factor(): number
     get_screen(): Gdk.Screen
     get_sensitive(): boolean
     get_settings(): Gtk.Settings
-    get_size_request(width: number | null, height: number | null): void
+    get_size_request(): [ /* width */ number | null, /* height */ number | null ]
     get_state(): Gtk.StateType
     get_state_flags(): Gtk.StateFlags
     get_style(): Gtk.Style
@@ -3810,7 +3810,7 @@ export interface StyleSchemeChooserButton {
     override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
     override_font(font_desc: Pango.FontDescription | null): void
     override_symbolic_color(name: string, color: Gdk.RGBA | null): void
-    path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_compute_expand(): void
     queue_draw(): void
     queue_draw_area(x: number, y: number, width: number, height: number): void
@@ -3886,11 +3886,11 @@ export interface StyleSchemeChooserButton {
     show_now(): void
     size_allocate(allocation: Gtk.Allocation): void
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
-    size_request(requisition: Gtk.Requisition): void
+    size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
     style_get_property(property_name: string, value: GObject.Value): void
     thaw_child_notify(): void
-    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number, dest_x: number, dest_y: number): boolean
+    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
     unmap(): void
     unparent(): void
@@ -3973,11 +3973,11 @@ export interface StyleSchemeChooserButton {
     vfunc_focus_in_event(event: Gdk.EventFocus): boolean
     vfunc_focus_out_event(event: Gdk.EventFocus): boolean
     vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    vfunc_get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    vfunc_get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     vfunc_get_request_mode(): Gtk.SizeRequestMode
     vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
     vfunc_grab_focus(): void
@@ -4219,7 +4219,7 @@ export interface StyleSchemeChooserWidget {
     foreach(callback: Gtk.Callback, callback_data: object): void
     get_border_width(): number
     get_children(): GLib.List
-    get_focus_chain(focusable_widgets: GLib.List): boolean
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
     get_focus_child(): Gtk.Widget
     get_focus_hadjustment(): Gtk.Adjustment
     get_focus_vadjustment(): Gtk.Adjustment
@@ -4245,7 +4245,7 @@ export interface StyleSchemeChooserWidget {
     add_tick_callback(callback: Gtk.TickCallback, user_data: object, notify: GLib.DestroyNotify): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
-    class_path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
     create_pango_layout(text: string | null): Pango.Layout
@@ -4290,14 +4290,14 @@ export interface StyleSchemeChooserWidget {
     get_allocated_baseline(): number
     get_allocated_height(): number
     get_allocated_width(): number
-    get_allocation(allocation: Gtk.Allocation): void
+    get_allocation(): /* allocation */ Gtk.Allocation
     get_ancestor(widget_type: number): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
-    get_child_requisition(requisition: Gtk.Requisition): void
+    get_child_requisition(): /* requisition */ Gtk.Requisition
     get_child_visible(): boolean
-    get_clip(clip: Gtk.Allocation): void
+    get_clip(): /* clip */ Gtk.Allocation
     get_clipboard(selection: Gdk.Atom): Gtk.Clipboard
     get_composite_name(): string
     get_device_enabled(device: Gdk.Device): boolean
@@ -4330,23 +4330,23 @@ export interface StyleSchemeChooserWidget {
     get_parent(): Gtk.Widget | null
     get_parent_window(): Gdk.Window
     get_path(): Gtk.WidgetPath
-    get_pointer(x: number | null, y: number | null): void
-    get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    get_preferred_size(minimum_size: Gtk.Requisition | null, natural_size: Gtk.Requisition | null): void
-    get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    get_pointer(): [ /* x */ number | null, /* y */ number | null ]
+    get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_size(): [ /* minimum_size */ Gtk.Requisition | null, /* natural_size */ Gtk.Requisition | null ]
+    get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     get_realized(): boolean
     get_receives_default(): boolean
     get_request_mode(): Gtk.SizeRequestMode
-    get_requisition(requisition: Gtk.Requisition): void
+    get_requisition(): /* requisition */ Gtk.Requisition
     get_root_window(): Gdk.Window
     get_scale_factor(): number
     get_screen(): Gdk.Screen
     get_sensitive(): boolean
     get_settings(): Gtk.Settings
-    get_size_request(width: number | null, height: number | null): void
+    get_size_request(): [ /* width */ number | null, /* height */ number | null ]
     get_state(): Gtk.StateType
     get_state_flags(): Gtk.StateFlags
     get_style(): Gtk.Style
@@ -4403,7 +4403,7 @@ export interface StyleSchemeChooserWidget {
     override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
     override_font(font_desc: Pango.FontDescription | null): void
     override_symbolic_color(name: string, color: Gdk.RGBA | null): void
-    path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_compute_expand(): void
     queue_draw(): void
     queue_draw_area(x: number, y: number, width: number, height: number): void
@@ -4479,11 +4479,11 @@ export interface StyleSchemeChooserWidget {
     show_now(): void
     size_allocate(allocation: Gtk.Allocation): void
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
-    size_request(requisition: Gtk.Requisition): void
+    size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
     style_get_property(property_name: string, value: GObject.Value): void
     thaw_child_notify(): void
-    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number, dest_x: number, dest_y: number): boolean
+    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
     unmap(): void
     unparent(): void
@@ -4559,11 +4559,11 @@ export interface StyleSchemeChooserWidget {
     vfunc_focus_in_event(event: Gdk.EventFocus): boolean
     vfunc_focus_out_event(event: Gdk.EventFocus): boolean
     vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    vfunc_get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    vfunc_get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     vfunc_get_request_mode(): Gtk.SizeRequestMode
     vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
     vfunc_grab_focus(): void
@@ -4958,14 +4958,14 @@ export interface View {
     add_child_in_window(child: Gtk.Widget, which_window: Gtk.TextWindowType, xpos: number, ypos: number): void
     backward_display_line(iter: Gtk.TextIter): boolean
     backward_display_line_start(iter: Gtk.TextIter): boolean
-    buffer_to_window_coords(win: Gtk.TextWindowType, buffer_x: number, buffer_y: number, window_x: number | null, window_y: number | null): void
+    buffer_to_window_coords(win: Gtk.TextWindowType, buffer_x: number, buffer_y: number): [ /* window_x */ number | null, /* window_y */ number | null ]
     forward_display_line(iter: Gtk.TextIter): boolean
     forward_display_line_end(iter: Gtk.TextIter): boolean
     get_accepts_tab(): boolean
     get_border_window_size(type: Gtk.TextWindowType): number
     get_bottom_margin(): number
     get_buffer(): Gtk.TextBuffer
-    get_cursor_locations(iter: Gtk.TextIter | null, strong: Gdk.Rectangle | null, weak: Gdk.Rectangle | null): void
+    get_cursor_locations(iter: Gtk.TextIter | null): [ /* strong */ Gdk.Rectangle | null, /* weak */ Gdk.Rectangle | null ]
     get_cursor_visible(): boolean
     get_default_attributes(): Gtk.TextAttributes
     get_editable(): boolean
@@ -4973,13 +4973,13 @@ export interface View {
     get_indent(): number
     get_input_hints(): Gtk.InputHints
     get_input_purpose(): Gtk.InputPurpose
-    get_iter_at_location(iter: Gtk.TextIter, x: number, y: number): void
-    get_iter_at_position(iter: Gtk.TextIter, trailing: number | null, x: number, y: number): void
-    get_iter_location(iter: Gtk.TextIter, location: Gdk.Rectangle): void
+    get_iter_at_location(x: number, y: number): /* iter */ Gtk.TextIter
+    get_iter_at_position(x: number, y: number): [ /* iter */ Gtk.TextIter, /* trailing */ number | null ]
+    get_iter_location(iter: Gtk.TextIter): /* location */ Gdk.Rectangle
     get_justification(): Gtk.Justification
     get_left_margin(): number
-    get_line_at_y(target_iter: Gtk.TextIter, y: number, line_top: number): void
-    get_line_yrange(iter: Gtk.TextIter, y: number, height: number): void
+    get_line_at_y(y: number): [ /* target_iter */ Gtk.TextIter, /* line_top */ number ]
+    get_line_yrange(iter: Gtk.TextIter): [ /* y */ number, /* height */ number ]
     get_monospace(): boolean
     get_overwrite(): boolean
     get_pixels_above_lines(): number
@@ -4989,7 +4989,7 @@ export interface View {
     get_tabs(): Pango.TabArray
     get_top_margin(): number
     get_vadjustment(): Gtk.Adjustment
-    get_visible_rect(visible_rect: Gdk.Rectangle): void
+    get_visible_rect(): /* visible_rect */ Gdk.Rectangle
     get_window(win: Gtk.TextWindowType): Gdk.Window
     get_window_type(window: Gdk.Window): Gtk.TextWindowType
     get_wrap_mode(): Gtk.WrapMode
@@ -5023,7 +5023,7 @@ export interface View {
     set_top_margin(top_margin: number): void
     set_wrap_mode(wrap_mode: Gtk.WrapMode): void
     starts_display_line(iter: Gtk.TextIter): boolean
-    window_to_buffer_coords(win: Gtk.TextWindowType, window_x: number, window_y: number, buffer_x: number | null, buffer_y: number | null): void
+    window_to_buffer_coords(win: Gtk.TextWindowType, window_x: number, window_y: number): [ /* buffer_x */ number | null, /* buffer_y */ number | null ]
     /* Methods of Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
@@ -5036,7 +5036,7 @@ export interface View {
     foreach(callback: Gtk.Callback, callback_data: object): void
     get_border_width(): number
     get_children(): GLib.List
-    get_focus_chain(focusable_widgets: GLib.List): boolean
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
     get_focus_child(): Gtk.Widget
     get_focus_hadjustment(): Gtk.Adjustment
     get_focus_vadjustment(): Gtk.Adjustment
@@ -5062,7 +5062,7 @@ export interface View {
     add_tick_callback(callback: Gtk.TickCallback, user_data: object, notify: GLib.DestroyNotify): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
-    class_path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
     create_pango_layout(text: string | null): Pango.Layout
@@ -5107,14 +5107,14 @@ export interface View {
     get_allocated_baseline(): number
     get_allocated_height(): number
     get_allocated_width(): number
-    get_allocation(allocation: Gtk.Allocation): void
+    get_allocation(): /* allocation */ Gtk.Allocation
     get_ancestor(widget_type: number): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
-    get_child_requisition(requisition: Gtk.Requisition): void
+    get_child_requisition(): /* requisition */ Gtk.Requisition
     get_child_visible(): boolean
-    get_clip(clip: Gtk.Allocation): void
+    get_clip(): /* clip */ Gtk.Allocation
     get_clipboard(selection: Gdk.Atom): Gtk.Clipboard
     get_composite_name(): string
     get_device_enabled(device: Gdk.Device): boolean
@@ -5147,23 +5147,23 @@ export interface View {
     get_parent(): Gtk.Widget | null
     get_parent_window(): Gdk.Window
     get_path(): Gtk.WidgetPath
-    get_pointer(x: number | null, y: number | null): void
-    get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    get_preferred_size(minimum_size: Gtk.Requisition | null, natural_size: Gtk.Requisition | null): void
-    get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    get_pointer(): [ /* x */ number | null, /* y */ number | null ]
+    get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_size(): [ /* minimum_size */ Gtk.Requisition | null, /* natural_size */ Gtk.Requisition | null ]
+    get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     get_realized(): boolean
     get_receives_default(): boolean
     get_request_mode(): Gtk.SizeRequestMode
-    get_requisition(requisition: Gtk.Requisition): void
+    get_requisition(): /* requisition */ Gtk.Requisition
     get_root_window(): Gdk.Window
     get_scale_factor(): number
     get_screen(): Gdk.Screen
     get_sensitive(): boolean
     get_settings(): Gtk.Settings
-    get_size_request(width: number | null, height: number | null): void
+    get_size_request(): [ /* width */ number | null, /* height */ number | null ]
     get_state(): Gtk.StateType
     get_state_flags(): Gtk.StateFlags
     get_style(): Gtk.Style
@@ -5219,7 +5219,7 @@ export interface View {
     override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
     override_font(font_desc: Pango.FontDescription | null): void
     override_symbolic_color(name: string, color: Gdk.RGBA | null): void
-    path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_compute_expand(): void
     queue_draw(): void
     queue_draw_area(x: number, y: number, width: number, height: number): void
@@ -5295,11 +5295,11 @@ export interface View {
     show_now(): void
     size_allocate(allocation: Gtk.Allocation): void
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
-    size_request(requisition: Gtk.Requisition): void
+    size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
     style_get_property(property_name: string, value: GObject.Value): void
     thaw_child_notify(): void
-    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number, dest_x: number, dest_y: number): boolean
+    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
     unmap(): void
     unparent(): void
@@ -5395,11 +5395,11 @@ export interface View {
     vfunc_focus_in_event(event: Gdk.EventFocus): boolean
     vfunc_focus_out_event(event: Gdk.EventFocus): boolean
     vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    vfunc_get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    vfunc_get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     vfunc_get_request_mode(): Gtk.SizeRequestMode
     vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
     vfunc_grab_focus(): void

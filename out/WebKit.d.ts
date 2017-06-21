@@ -213,14 +213,14 @@ export interface SpellChecker_ConstructProps {
 }
 export interface SpellChecker {
     /* Methods of SpellChecker */
-    check_spelling_of_string(string: string, misspelling_location: number | null, misspelling_length: number | null): void
+    check_spelling_of_string(string: string): [ /* misspelling_location */ number | null, /* misspelling_length */ number | null ]
     get_autocorrect_suggestions_for_misspelled_word(word: string): string
     get_guesses_for_word(word: string, context: string | null): string[]
     ignore_word(word: string): void
     learn_word(word: string): void
     update_spell_checking_languages(languages: string | null): void
     /* Virtual methods of SpellChecker */
-    vfunc_check_spelling_of_string(string: string, misspelling_location: number | null, misspelling_length: number | null): void
+    vfunc_check_spelling_of_string(string: string): [ /* misspelling_location */ number | null, /* misspelling_length */ number | null ]
     vfunc_get_autocorrect_suggestions_for_misspelled_word(word: string): string
     vfunc_get_guesses_for_word(word: string, context: string | null): string[]
     vfunc_ignore_word(word: string): void
@@ -27644,7 +27644,7 @@ export interface WebView {
     foreach(callback: Gtk.Callback, callback_data: object): void
     get_border_width(): number
     get_children(): GLib.List
-    get_focus_chain(focusable_widgets: GLib.List): boolean
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
     get_focus_child(): Gtk.Widget
     get_focus_hadjustment(): Gtk.Adjustment
     get_focus_vadjustment(): Gtk.Adjustment
@@ -27670,7 +27670,7 @@ export interface WebView {
     add_tick_callback(callback: Gtk.TickCallback, user_data: object, notify: GLib.DestroyNotify): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
-    class_path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
     create_pango_layout(text: string | null): Pango.Layout
@@ -27715,14 +27715,14 @@ export interface WebView {
     get_allocated_baseline(): number
     get_allocated_height(): number
     get_allocated_width(): number
-    get_allocation(allocation: Gtk.Allocation): void
+    get_allocation(): /* allocation */ Gtk.Allocation
     get_ancestor(widget_type: number): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
-    get_child_requisition(requisition: Gtk.Requisition): void
+    get_child_requisition(): /* requisition */ Gtk.Requisition
     get_child_visible(): boolean
-    get_clip(clip: Gtk.Allocation): void
+    get_clip(): /* clip */ Gtk.Allocation
     get_clipboard(selection: Gdk.Atom): Gtk.Clipboard
     get_composite_name(): string
     get_device_enabled(device: Gdk.Device): boolean
@@ -27755,22 +27755,22 @@ export interface WebView {
     get_parent(): Gtk.Widget | null
     get_parent_window(): Gdk.Window
     get_path(): Gtk.WidgetPath
-    get_pointer(x: number | null, y: number | null): void
-    get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    get_preferred_size(minimum_size: Gtk.Requisition | null, natural_size: Gtk.Requisition | null): void
-    get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    get_pointer(): [ /* x */ number | null, /* y */ number | null ]
+    get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    get_preferred_size(): [ /* minimum_size */ Gtk.Requisition | null, /* natural_size */ Gtk.Requisition | null ]
+    get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     get_realized(): boolean
     get_receives_default(): boolean
     get_request_mode(): Gtk.SizeRequestMode
-    get_requisition(requisition: Gtk.Requisition): void
+    get_requisition(): /* requisition */ Gtk.Requisition
     get_root_window(): Gdk.Window
     get_scale_factor(): number
     get_screen(): Gdk.Screen
     get_sensitive(): boolean
-    get_size_request(width: number | null, height: number | null): void
+    get_size_request(): [ /* width */ number | null, /* height */ number | null ]
     get_state(): Gtk.StateType
     get_state_flags(): Gtk.StateFlags
     get_style(): Gtk.Style
@@ -27827,7 +27827,7 @@ export interface WebView {
     override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
     override_font(font_desc: Pango.FontDescription | null): void
     override_symbolic_color(name: string, color: Gdk.RGBA | null): void
-    path(path_length: number | null, path: string | null, path_reversed: string | null): void
+    path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_compute_expand(): void
     queue_draw(): void
     queue_draw_area(x: number, y: number, width: number, height: number): void
@@ -27903,11 +27903,11 @@ export interface WebView {
     show_now(): void
     size_allocate(allocation: Gtk.Allocation): void
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
-    size_request(requisition: Gtk.Requisition): void
+    size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
     style_get_property(property_name: string, value: GObject.Value): void
     thaw_child_notify(): void
-    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number, dest_x: number, dest_y: number): boolean
+    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
     unmap(): void
     unparent(): void
@@ -28004,11 +28004,11 @@ export interface WebView {
     vfunc_focus_in_event(event: Gdk.EventFocus): boolean
     vfunc_focus_out_event(event: Gdk.EventFocus): boolean
     vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_height_and_baseline_for_width(width: number, minimum_height: number | null, natural_height: number | null, minimum_baseline: number | null, natural_baseline: number | null): void
-    vfunc_get_preferred_height_for_width(width: number, minimum_height: number | null, natural_height: number | null): void
-    vfunc_get_preferred_width(minimum_width: number | null, natural_width: number | null): void
-    vfunc_get_preferred_width_for_height(height: number, minimum_width: number | null, natural_width: number | null): void
+    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
     vfunc_get_request_mode(): Gtk.SizeRequestMode
     vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
     vfunc_grab_focus(): void

@@ -655,16 +655,16 @@ export interface TableCell {
     /* Methods of TableCell */
     get_column_header_cells(): Object[]
     get_column_span(): number
-    get_position(row: number, column: number): boolean
-    get_row_column_span(row: number, column: number, row_span: number, column_span: number): boolean
+    get_position(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
+    get_row_column_span(): [ /* returnType */ boolean, /* row */ number, /* column */ number, /* row_span */ number, /* column_span */ number ]
     get_row_header_cells(): Object[]
     get_row_span(): number
     get_table(): Object
     /* Virtual methods of TableCell */
     vfunc_get_column_header_cells(): Object[]
     vfunc_get_column_span(): number
-    vfunc_get_position(row: number, column: number): boolean
-    vfunc_get_row_column_span(row: number, column: number, row_span: number, column_span: number): boolean
+    vfunc_get_position(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
+    vfunc_get_row_column_span(): [ /* returnType */ boolean, /* row */ number, /* column */ number, /* row_span */ number, /* column_span */ number ]
     vfunc_get_row_header_cells(): Object[]
     vfunc_get_row_span(): number
     vfunc_get_table(): Object
@@ -687,13 +687,13 @@ export interface Text {
     get_n_selections(): number
     get_offset_at_point(x: number, y: number, coords: CoordType): number
     get_range_extents(start_offset: number, end_offset: number, coord_type: CoordType, rect: TextRectangle): void
-    get_run_attributes(offset: number, start_offset: number, end_offset: number): AttributeSet
-    get_selection(selection_num: number, start_offset: number, end_offset: number): string
-    get_string_at_offset(offset: number, granularity: TextGranularity, start_offset: number, end_offset: number): string | null
+    get_run_attributes(offset: number): [ /* returnType */ AttributeSet, /* start_offset */ number, /* end_offset */ number ]
+    get_selection(selection_num: number): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    get_string_at_offset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* start_offset */ number, /* end_offset */ number ]
     get_text(start_offset: number, end_offset: number): string
-    get_text_after_offset(offset: number, boundary_type: TextBoundary, start_offset: number, end_offset: number): string
-    get_text_at_offset(offset: number, boundary_type: TextBoundary, start_offset: number, end_offset: number): string
-    get_text_before_offset(offset: number, boundary_type: TextBoundary, start_offset: number, end_offset: number): string
+    get_text_after_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    get_text_at_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    get_text_before_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
     remove_selection(selection_num: number): boolean
     set_caret_offset(offset: number): boolean
     set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
@@ -708,13 +708,13 @@ export interface Text {
     vfunc_get_n_selections(): number
     vfunc_get_offset_at_point(x: number, y: number, coords: CoordType): number
     vfunc_get_range_extents(start_offset: number, end_offset: number, coord_type: CoordType, rect: TextRectangle): void
-    vfunc_get_run_attributes(offset: number, start_offset: number, end_offset: number): AttributeSet
-    vfunc_get_selection(selection_num: number, start_offset: number, end_offset: number): string
-    vfunc_get_string_at_offset(offset: number, granularity: TextGranularity, start_offset: number, end_offset: number): string | null
+    vfunc_get_run_attributes(offset: number): [ /* returnType */ AttributeSet, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_get_selection(selection_num: number): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_get_string_at_offset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* start_offset */ number, /* end_offset */ number ]
     vfunc_get_text(start_offset: number, end_offset: number): string
-    vfunc_get_text_after_offset(offset: number, boundary_type: TextBoundary, start_offset: number, end_offset: number): string
-    vfunc_get_text_at_offset(offset: number, boundary_type: TextBoundary, start_offset: number, end_offset: number): string
-    vfunc_get_text_before_offset(offset: number, boundary_type: TextBoundary, start_offset: number, end_offset: number): string
+    vfunc_get_text_after_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_get_text_at_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_get_text_before_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
     vfunc_remove_selection(selection_num: number): boolean
     vfunc_set_caret_offset(offset: number): boolean
     vfunc_set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
@@ -748,7 +748,7 @@ export interface Value {
     get_minimum_value(value: GObject.Value): void
     get_range(): Range | null
     get_sub_ranges(): GLib.SList
-    get_value_and_text(value: number, text: string | null): void
+    get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     set_current_value(value: GObject.Value): boolean
     set_value(new_value: number): void
     /* Virtual methods of Value */
@@ -759,7 +759,7 @@ export interface Value {
     vfunc_get_minimum_value(value: GObject.Value): void
     vfunc_get_range(): Range | null
     vfunc_get_sub_ranges(): GLib.SList
-    vfunc_get_value_and_text(value: number, text: string | null): void
+    vfunc_get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     vfunc_set_current_value(value: GObject.Value): boolean
     vfunc_set_value(new_value: number): void
     /* Signals of Value */

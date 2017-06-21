@@ -65,7 +65,7 @@ export interface PixbufDestroyNotify {
     (pixels: number[], data: object): void
 }
 export interface PixbufSaveFunc {
-    (buf: number[], count: number, error: GLib.Error, data: object): boolean
+    (buf: number[], count: number, data: object): boolean
 }
 export interface Pixbuf_ConstructProps {
     /* Properties of Pixbuf */
@@ -100,7 +100,7 @@ export interface Pixbuf {
     get_option(key: string): string
     get_options(): GLib.HashTable
     get_pixels(): number[]
-    get_pixels_with_length(length: number): number[]
+    get_pixels_with_length(): [ /* returnType */ number[], /* length */ number ]
     get_rowstride(): number
     get_width(): number
     new_subpixbuf(src_x: number, src_y: number, width: number, height: number): Pixbuf
@@ -108,7 +108,7 @@ export interface Pixbuf {
     read_pixels(): number
     rotate_simple(angle: PixbufRotation): Pixbuf | null
     saturate_and_pixelate(dest: Pixbuf, saturation: number, pixelate: boolean): void
-    save_to_bufferv(buffer: number[], buffer_size: number, type: string, option_keys: string[], option_values: string[]): boolean
+    save_to_bufferv(type: string, option_keys: string[], option_values: string[]): [ /* returnType */ boolean, /* buffer */ number[], /* buffer_size */ number ]
     save_to_callbackv(save_func: PixbufSaveFunc, user_data: object, type: string, option_keys: string[], option_values: string[]): boolean
     savev(filename: string, type: string, option_keys: string[], option_values: string[]): boolean
     scale(dest: Pixbuf, dest_x: number, dest_y: number, dest_width: number, dest_height: number, offset_x: number, offset_y: number, scale_x: number, scale_y: number, interp_type: InterpType): void
@@ -153,9 +153,9 @@ export interface Pixbuf_Static {
 }
 export declare class Pixbuf_Static {
     from_pixdata(pixdata: Pixdata, copy_pixels: boolean): Pixbuf
-    get_file_info(filename: string, width: number | null, height: number | null): PixbufFormat | null
+    get_file_info(filename: string): [ /* returnType */ PixbufFormat | null, /* width */ number | null, /* height */ number | null ]
     get_file_info_async(filename: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
-    get_file_info_finish(async_result: Gio.AsyncResult, width: number, height: number): PixbufFormat
+    get_file_info_finish(async_result: Gio.AsyncResult): [ /* returnType */ PixbufFormat, /* width */ number, /* height */ number ]
     get_formats(): GLib.SList
     new_from_stream_async(stream: Gio.InputStream, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     new_from_stream_at_scale_async(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
@@ -464,7 +464,7 @@ export interface Pixdata_ConstructProps {
 export interface Pixdata {
     /* Methods of Pixdata */
     deserialize(stream_length: number, stream: number[]): boolean
-    serialize(stream_length_p: number): number[]
+    serialize(): [ /* returnType */ number[], /* stream_length_p */ number ]
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String
 }
 export interface Pixdata_Static {

@@ -2753,7 +2753,7 @@ export function atom_intern_static_string(atom_name: string): Atom
 export function beep(): void
 export function cairo_create(window: Window): cairo.Context
 export function cairo_draw_from_gl(cr: cairo.Context, window: Window, source: number, source_type: number, buffer_scale: number, x: number, y: number, width: number, height: number): void
-export function cairo_get_clip_rectangle(cr: cairo.Context, rect: Rectangle | null): boolean
+export function cairo_get_clip_rectangle(cr: cairo.Context): [ /* returnType */ boolean, /* rect */ Rectangle | null ]
 export function cairo_rectangle(cr: cairo.Context, rectangle: Rectangle): void
 export function cairo_region(cr: cairo.Context, region: cairo.Region): void
 export function cairo_region_create_from_surface(surface: cairo.Surface): cairo.Region
@@ -2762,14 +2762,14 @@ export function cairo_set_source_pixbuf(cr: cairo.Context, pixbuf: GdkPixbuf.Pix
 export function cairo_set_source_rgba(cr: cairo.Context, rgba: RGBA): void
 export function cairo_set_source_window(cr: cairo.Context, window: Window, x: number, y: number): void
 export function cairo_surface_create_from_pixbuf(pixbuf: GdkPixbuf.Pixbuf, scale: number, for_window: Window | null): cairo.Surface
-export function color_parse(spec: string, color: Color): boolean
+export function color_parse(spec: string): [ /* returnType */ boolean, /* color */ Color ]
 export function disable_multidevice(): void
 export function drag_abort(context: DragContext, time_: number): void
 export function drag_begin(window: Window, targets: GLib.List): DragContext
 export function drag_begin_for_device(window: Window, device: Device, targets: GLib.List): DragContext
 export function drag_drop(context: DragContext, time_: number): void
 export function drag_drop_succeeded(context: DragContext): boolean
-export function drag_find_window_for_screen(context: DragContext, drag_window: Window, screen: Screen, x_root: number, y_root: number, dest_window: Window, protocol: DragProtocol): void
+export function drag_find_window_for_screen(context: DragContext, drag_window: Window, screen: Screen, x_root: number, y_root: number): [ /* dest_window */ Window, /* protocol */ DragProtocol ]
 export function drag_get_selection(context: DragContext): Atom
 export function drag_motion(context: DragContext, dest_window: Window, protocol: DragProtocol, x_root: number, y_root: number, suggested_action: DragAction, possible_actions: DragAction, time_: number): boolean
 export function drag_status(context: DragContext, action: DragAction, time_: number): void
@@ -2782,9 +2782,9 @@ export function event_get(): Event | null
 export function event_handler_set(func: EventFunc, data: object, notify: GLib.DestroyNotify): void
 export function event_peek(): Event | null
 export function event_request_motions(event: EventMotion): void
-export function events_get_angle(event1: Event, event2: Event, angle: number): boolean
-export function events_get_center(event1: Event, event2: Event, x: number, y: number): boolean
-export function events_get_distance(event1: Event, event2: Event, distance: number): boolean
+export function events_get_angle(event1: Event, event2: Event): [ /* returnType */ boolean, /* angle */ number ]
+export function events_get_center(event1: Event, event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
+export function events_get_distance(event1: Event, event2: Event): [ /* returnType */ boolean, /* distance */ number ]
 export function events_pending(): boolean
 export function flush(): void
 export function get_default_root_window(): Window
@@ -2797,7 +2797,7 @@ export function init(argc: number, argv: string[]): void
 export function init_check(argc: number, argv: string[]): boolean
 export function keyboard_grab(window: Window, owner_events: boolean, time_: number): GrabStatus
 export function keyboard_ungrab(time_: number): void
-export function keyval_convert_case(symbol: number, lower: number, upper: number): void
+export function keyval_convert_case(symbol: number): [ /* lower */ number, /* upper */ number ]
 export function keyval_from_name(keyval_name: string): number
 export function keyval_is_lower(keyval: number): boolean
 export function keyval_is_upper(keyval: number): boolean
@@ -2821,9 +2821,9 @@ export function pointer_is_grabbed(): boolean
 export function pointer_ungrab(time_: number): void
 export function pre_parse_libgtk_only(): void
 export function property_delete(window: Window, property: Atom): void
-export function property_get(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number, actual_property_type: Atom, actual_format: number, actual_length: number, data: number[]): boolean
-export function query_depths(depths: number[], count: number): void
-export function query_visual_types(visual_types: VisualType[], count: number): void
+export function property_get(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number): [ /* returnType */ boolean, /* actual_property_type */ Atom, /* actual_format */ number, /* actual_length */ number, /* data */ number[] ]
+export function query_depths(): [ /* depths */ number[], /* count */ number ]
+export function query_visual_types(): [ /* visual_types */ VisualType[], /* count */ number ]
 export function selection_convert(requestor: Window, selection: Atom, target: Atom, time_: number): void
 export function selection_owner_get(selection: Atom): Window | null
 export function selection_owner_get_for_display(display: Display, selection: Atom): Window | null
@@ -2840,7 +2840,7 @@ export function synthesize_window_state(window: Window, unset_flags: WindowState
 export function test_render_sync(window: Window): void
 export function test_simulate_button(window: Window, x: number, y: number, button: number, modifiers: ModifierType, button_pressrelease: EventType): boolean
 export function test_simulate_key(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, key_pressrelease: EventType): boolean
-export function text_property_to_utf8_list_for_display(display: Display, encoding: Atom, format: number, text: number[], length: number, list: string[]): number
+export function text_property_to_utf8_list_for_display(display: Display, encoding: Atom, format: number, text: number[], length: number): [ /* returnType */ number, /* list */ string[] ]
 export function threads_add_idle_full(priority: number, function_: GLib.SourceFunc, data: object, notify: GLib.DestroyNotify | null): number
 export function threads_add_timeout_full(priority: number, interval: number, function_: GLib.SourceFunc, data: object, notify: GLib.DestroyNotify | null): number
 export function threads_add_timeout_seconds_full(priority: number, interval: number, function_: GLib.SourceFunc, data: object, notify: GLib.DestroyNotify | null): number
@@ -2939,7 +2939,7 @@ export interface Cursor {
     get_cursor_type(): CursorType
     get_display(): Display
     get_image(): GdkPixbuf.Pixbuf | null
-    get_surface(x_hot: number | null, y_hot: number | null): cairo.Surface | null
+    get_surface(): [ /* returnType */ cairo.Surface | null, /* x_hot */ number | null, /* y_hot */ number | null ]
     ref(): Cursor
     unref(): void
     /* Methods of Object */
@@ -3002,19 +3002,19 @@ export interface Device {
     get_device_type(): DeviceType
     get_display(): Display
     get_has_cursor(): boolean
-    get_key(index_: number, keyval: number, modifiers: ModifierType): boolean
+    get_key(index_: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ ModifierType ]
     get_last_event_window(): Window
     get_mode(): InputMode
     get_n_axes(): number
     get_n_keys(): number
     get_name(): string
-    get_position(screen: Screen | null, x: number | null, y: number | null): void
-    get_position_double(screen: Screen | null, x: number | null, y: number | null): void
+    get_position(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
+    get_position_double(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
     get_product_id(): string | null
     get_source(): InputSource
     get_vendor_id(): string | null
-    get_window_at_position(win_x: number | null, win_y: number | null): Window | null
-    get_window_at_position_double(win_x: number | null, win_y: number | null): Window | null
+    get_window_at_position(): [ /* returnType */ Window | null, /* win_x */ number | null, /* win_y */ number | null ]
+    get_window_at_position_double(): [ /* returnType */ Window | null, /* win_x */ number | null, /* win_y */ number | null ]
     grab(window: Window, grab_ownership: GrabOwnership, owner_events: boolean, event_mask: EventMask, cursor: Cursor | null, time_: number): GrabStatus
     list_axes(): GLib.List
     list_slave_devices(): GLib.List | null
@@ -3064,7 +3064,7 @@ export interface Device_Static {
     new (config: Device_ConstructProps): Device
 }
 export declare class Device_Static {
-    grab_info_libgtk_only(display: Display, device: Device, grab_window: Window, owner_events: boolean): boolean
+    grab_info_libgtk_only(display: Display, device: Device): [ /* returnType */ boolean, /* grab_window */ Window, /* owner_events */ boolean ]
 }
 export declare var Device: Device_Static
 export interface DeviceManager_ConstructProps {
@@ -3134,12 +3134,12 @@ export interface Display {
     get_default_screen(): Screen
     get_device_manager(): DeviceManager | null
     get_event(): Event | null
-    get_maximal_cursor_size(width: number, height: number): void
+    get_maximal_cursor_size(): [ /* width */ number, /* height */ number ]
     get_n_screens(): number
     get_name(): string
-    get_pointer(screen: Screen | null, x: number | null, y: number | null, mask: ModifierType | null): void
+    get_pointer(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null, /* mask */ ModifierType | null ]
     get_screen(screen_num: number): Screen
-    get_window_at_pointer(win_x: number | null, win_y: number | null): Window | null
+    get_window_at_pointer(): [ /* returnType */ Window | null, /* win_x */ number | null, /* win_y */ number | null ]
     has_pending(): boolean
     is_closed(): boolean
     keyboard_ungrab(time_: number): void
@@ -3389,9 +3389,9 @@ export interface GLContext {
     get_debug_enabled(): boolean
     get_display(): Display
     get_forward_compatible(): boolean
-    get_required_version(major: number | null, minor: number | null): void
+    get_required_version(): [ /* major */ number | null, /* minor */ number | null ]
     get_shared_context(): GLContext
-    get_version(major: number, minor: number): void
+    get_version(): [ /* major */ number, /* minor */ number ]
     get_window(): Window
     make_current(): void
     realize(): boolean
@@ -3448,8 +3448,8 @@ export interface Keymap {
     add_virtual_modifiers(state: ModifierType): void
     get_caps_lock_state(): boolean
     get_direction(): Pango.Direction
-    get_entries_for_keycode(hardware_keycode: number, keys: KeymapKey[], keyvals: number[], n_entries: number): boolean
-    get_entries_for_keyval(keyval: number, keys: KeymapKey[], n_keys: number): boolean
+    get_entries_for_keycode(hardware_keycode: number): [ /* returnType */ boolean, /* keys */ KeymapKey[], /* keyvals */ number[], /* n_entries */ number ]
+    get_entries_for_keyval(keyval: number): [ /* returnType */ boolean, /* keys */ KeymapKey[], /* n_keys */ number ]
     get_modifier_mask(intent: ModifierIntent): ModifierType
     get_modifier_state(): number
     get_num_lock_state(): boolean
@@ -3457,7 +3457,7 @@ export interface Keymap {
     have_bidi_layouts(): boolean
     lookup_key(key: KeymapKey): number
     map_virtual_modifiers(state: ModifierType): boolean
-    translate_keyboard_state(hardware_keycode: number, state: ModifierType, group: number, keyval: number | null, effective_group: number | null, level: number | null, consumed_modifiers: ModifierType | null): boolean
+    translate_keyboard_state(hardware_keycode: number, state: ModifierType, group: number): [ /* returnType */ boolean, /* keyval */ number | null, /* effective_group */ number | null, /* level */ number | null, /* consumed_modifiers */ ModifierType | null ]
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -3522,12 +3522,12 @@ export interface Screen {
     get_height_mm(): number
     get_monitor_at_point(x: number, y: number): number
     get_monitor_at_window(window: Window): number
-    get_monitor_geometry(monitor_num: number, dest: Rectangle | null): void
+    get_monitor_geometry(monitor_num: number): /* dest */ Rectangle | null
     get_monitor_height_mm(monitor_num: number): number
     get_monitor_plug_name(monitor_num: number): string | null
     get_monitor_scale_factor(monitor_num: number): number
     get_monitor_width_mm(monitor_num: number): number
-    get_monitor_workarea(monitor_num: number, dest: Rectangle | null): void
+    get_monitor_workarea(monitor_num: number): /* dest */ Rectangle | null
     get_n_monitors(): number
     get_number(): number
     get_primary_monitor(): number
@@ -3600,12 +3600,12 @@ export interface Visual_ConstructProps {
 export interface Visual {
     /* Methods of Visual */
     get_bits_per_rgb(): number
-    get_blue_pixel_details(mask: number | null, shift: number | null, precision: number | null): void
+    get_blue_pixel_details(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
     get_byte_order(): ByteOrder
     get_colormap_size(): number
     get_depth(): number
-    get_green_pixel_details(mask: number | null, shift: number | null, precision: number | null): void
-    get_red_pixel_details(mask: number | null, shift: number | null, precision: number | null): void
+    get_green_pixel_details(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
+    get_red_pixel_details(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
     get_screen(): Screen
     get_visual_type(): VisualType
     /* Methods of Object */
@@ -3672,8 +3672,8 @@ export interface Window {
     begin_resize_drag(edge: WindowEdge, button: number, root_x: number, root_y: number, timestamp: number): void
     begin_resize_drag_for_device(edge: WindowEdge, device: Device, button: number, root_x: number, root_y: number, timestamp: number): void
     configure_finished(): void
-    coords_from_parent(parent_x: number, parent_y: number, x: number | null, y: number | null): void
-    coords_to_parent(x: number, y: number, parent_x: number | null, parent_y: number | null): void
+    coords_from_parent(parent_x: number, parent_y: number): [ /* x */ number | null, /* y */ number | null ]
+    coords_to_parent(x: number, y: number): [ /* parent_x */ number | null, /* parent_y */ number | null ]
     create_gl_context(): GLContext
     create_similar_image_surface(format: number, width: number, height: number, scale: number): cairo.Surface
     create_similar_surface(content: cairo.Content, width: number, height: number): cairo.Surface
@@ -3697,32 +3697,32 @@ export interface Window {
     get_clip_region(): cairo.Region
     get_composited(): boolean
     get_cursor(): Cursor | null
-    get_decorations(decorations: WMDecoration): boolean
+    get_decorations(): [ /* returnType */ boolean, /* decorations */ WMDecoration ]
     get_device_cursor(device: Device): Cursor | null
     get_device_events(device: Device): EventMask
-    get_device_position(device: Device, x: number | null, y: number | null, mask: ModifierType | null): Window | null
-    get_device_position_double(device: Device, x: number | null, y: number | null, mask: ModifierType | null): Window | null
+    get_device_position(device: Device): [ /* returnType */ Window | null, /* x */ number | null, /* y */ number | null, /* mask */ ModifierType | null ]
+    get_device_position_double(device: Device): [ /* returnType */ Window | null, /* x */ number | null, /* y */ number | null, /* mask */ ModifierType | null ]
     get_display(): Display
-    get_drag_protocol(target: Window | null): DragProtocol
+    get_drag_protocol(): [ /* returnType */ DragProtocol, /* target */ Window | null ]
     get_effective_parent(): Window
     get_effective_toplevel(): Window
     get_event_compression(): boolean
     get_events(): EventMask
     get_focus_on_map(): boolean
     get_frame_clock(): FrameClock
-    get_frame_extents(rect: Rectangle): void
+    get_frame_extents(): /* rect */ Rectangle
     get_fullscreen_mode(): FullscreenMode
-    get_geometry(x: number | null, y: number | null, width: number | null, height: number | null): void
+    get_geometry(): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
     get_group(): Window
     get_height(): number
     get_modal_hint(): boolean
-    get_origin(x: number | null, y: number | null): number
+    get_origin(): [ /* returnType */ number, /* x */ number | null, /* y */ number | null ]
     get_parent(): Window
     get_pass_through(): boolean
-    get_pointer(x: number | null, y: number | null, mask: ModifierType | null): Window | null
-    get_position(x: number | null, y: number | null): void
-    get_root_coords(x: number, y: number, root_x: number, root_y: number): void
-    get_root_origin(x: number, y: number): void
+    get_pointer(): [ /* returnType */ Window | null, /* x */ number | null, /* y */ number | null, /* mask */ ModifierType | null ]
+    get_position(): [ /* x */ number | null, /* y */ number | null ]
+    get_root_coords(x: number, y: number): [ /* root_x */ number, /* root_y */ number ]
+    get_root_origin(): [ /* x */ number, /* y */ number ]
     get_scale_factor(): number
     get_screen(): Screen
     get_source_events(source: InputSource): EventMask
@@ -3731,7 +3731,7 @@ export interface Window {
     get_toplevel(): Window
     get_type_hint(): WindowTypeHint
     get_update_area(): cairo.Region
-    get_user_data(data: object): void
+    get_user_data(): /* data */ object
     get_visible_region(): cairo.Region
     get_visual(): Visual
     get_width(): number
@@ -3853,9 +3853,9 @@ export interface Window {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Window */
     connect(sigName: "create-surface", callback: ((width: number, height: number) => cairo.Surface))
-    connect(sigName: "from-embedder", callback: ((embedder_x: number, embedder_y: number, offscreen_x: number, offscreen_y: number) => void))
+    connect(sigName: "from-embedder", callback: ((embedder_x: number, embedder_y: number) => void))
     connect(sigName: "pick-embedded-child", callback: ((x: number, y: number) => Window | null))
-    connect(sigName: "to-embedder", callback: ((offscreen_x: number, offscreen_y: number, embedder_x: number, embedder_y: number) => void))
+    connect(sigName: "to-embedder", callback: ((offscreen_x: number, offscreen_y: number) => void))
     /* Signals of Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
@@ -3863,8 +3863,8 @@ export interface Window_Static {
     new (config: Window_ConstructProps): Window
 }
 export declare class Window_Static {
-    at_pointer(win_x: number | null, win_y: number | null): Window
-    constrain_size(geometry: Geometry, flags: WindowHints, width: number, height: number, new_width: number, new_height: number): void
+    at_pointer(): [ /* returnType */ Window, /* win_x */ number | null, /* win_y */ number | null ]
+    constrain_size(geometry: Geometry, flags: WindowHints, width: number, height: number): [ /* new_width */ number, /* new_height */ number ]
     process_all_updates(): void
     set_debug_updates(setting: boolean): void
 }
@@ -3897,7 +3897,7 @@ export interface Color_Static {
     new (config: Color_ConstructProps): Color
 }
 export declare class Color_Static {
-    parse(spec: string, color: Color): boolean
+    parse(spec: string): [ /* returnType */ boolean, /* color */ Color ]
 }
 export declare var Color: Color_Static
 export interface EventAny_ConstructProps {
@@ -4152,8 +4152,8 @@ export interface Rectangle_ConstructProps {
 }
 export interface Rectangle {
     /* Methods of Rectangle */
-    intersect(src2: Rectangle, dest: Rectangle | null): boolean
-    union(src2: Rectangle, dest: Rectangle): void
+    intersect(src2: Rectangle): [ /* returnType */ boolean, /* dest */ Rectangle | null ]
+    union(src2: Rectangle): /* dest */ Rectangle
 }
 export interface Rectangle_Static {
     new (config: Rectangle_ConstructProps): Rectangle
@@ -4195,26 +4195,26 @@ export interface Event_ConstructProps {
 }
 export interface Event {
     /* Methods of Event */
-    _get_angle(event2: Event, angle: number): boolean
-    _get_center(event2: Event, x: number, y: number): boolean
-    _get_distance(event2: Event, distance: number): boolean
+    _get_angle(event2: Event): [ /* returnType */ boolean, /* angle */ number ]
+    _get_center(event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
+    _get_distance(event2: Event): [ /* returnType */ boolean, /* distance */ number ]
     copy(): Event
     free(): void
-    get_axis(axis_use: AxisUse, value: number): boolean
-    get_button(button: number): boolean
-    get_click_count(click_count: number): boolean
-    get_coords(x_win: number | null, y_win: number | null): boolean
+    get_axis(axis_use: AxisUse): [ /* returnType */ boolean, /* value */ number ]
+    get_button(): [ /* returnType */ boolean, /* button */ number ]
+    get_click_count(): [ /* returnType */ boolean, /* click_count */ number ]
+    get_coords(): [ /* returnType */ boolean, /* x_win */ number | null, /* y_win */ number | null ]
     get_device(): Device | null
     get_event_sequence(): EventSequence
     get_event_type(): EventType
-    get_keycode(keycode: number): boolean
-    get_keyval(keyval: number): boolean
-    get_root_coords(x_root: number | null, y_root: number | null): boolean
+    get_keycode(): [ /* returnType */ boolean, /* keycode */ number ]
+    get_keyval(): [ /* returnType */ boolean, /* keyval */ number ]
+    get_root_coords(): [ /* returnType */ boolean, /* x_root */ number | null, /* y_root */ number | null ]
     get_screen(): Screen
-    get_scroll_deltas(delta_x: number, delta_y: number): boolean
-    get_scroll_direction(direction: ScrollDirection): boolean
+    get_scroll_deltas(): [ /* returnType */ boolean, /* delta_x */ number, /* delta_y */ number ]
+    get_scroll_direction(): [ /* returnType */ boolean, /* direction */ ScrollDirection ]
     get_source_device(): Device | null
-    get_state(state: ModifierType): boolean
+    get_state(): [ /* returnType */ boolean, /* state */ ModifierType ]
     get_time(): number
     get_window(): Window
     put(): void

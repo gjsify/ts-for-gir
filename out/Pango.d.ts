@@ -322,6 +322,10 @@ export interface FontsetForeachFunc {
 export interface Context_ConstructProps {
 }
 export interface Context {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Pango.Context */
     changed(): void
     get_base_dir(): Direction
@@ -389,6 +393,12 @@ export declare var Context: Context_Static
 export interface Engine_ConstructProps {
 }
 export interface Engine {
+    /* Fields of Pango.Engine */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -431,6 +441,13 @@ export declare var Engine: Engine_Static
 export interface EngineLang_ConstructProps {
 }
 export interface EngineLang {
+    /* Fields of Pango.EngineLang */
+    parent_instance:Engine
+    /* Fields of Pango.Engine */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -475,6 +492,13 @@ export declare var EngineLang: EngineLang_Static
 export interface EngineShape_ConstructProps {
 }
 export interface EngineShape {
+    /* Fields of Pango.EngineShape */
+    parent_instance:Engine
+    /* Fields of Pango.Engine */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -520,6 +544,12 @@ export declare var EngineShape: EngineShape_Static
 export interface Font_ConstructProps {
 }
 export interface Font {
+    /* Fields of Pango.Font */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Pango.Font */
     describe(): FontDescription
     describe_with_absolute_size(): FontDescription
@@ -577,6 +607,12 @@ export declare var Font: Font_Static
 export interface FontFace_ConstructProps {
 }
 export interface FontFace {
+    /* Fields of Pango.FontFace */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Pango.FontFace */
     describe(): FontDescription
     get_face_name(): string
@@ -629,6 +665,12 @@ export declare var FontFace: FontFace_Static
 export interface FontFamily_ConstructProps {
 }
 export interface FontFamily {
+    /* Fields of Pango.FontFamily */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Pango.FontFamily */
     get_name(): string
     is_monospace(): boolean
@@ -679,6 +721,12 @@ export declare var FontFamily: FontFamily_Static
 export interface FontMap_ConstructProps {
 }
 export interface FontMap {
+    /* Fields of Pango.FontMap */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Pango.FontMap */
     changed(): void
     create_context(): Context
@@ -735,6 +783,12 @@ export declare var FontMap: FontMap_Static
 export interface Fontset_ConstructProps {
 }
 export interface Fontset {
+    /* Fields of Pango.Fontset */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Pango.Fontset */
     foreach(func: FontsetForeachFunc, data: object): void
     get_font(wc: number): Font
@@ -786,6 +840,12 @@ export declare var Fontset: Fontset_Static
 export interface FontsetSimple_ConstructProps {
 }
 export interface FontsetSimple {
+    /* Fields of Pango.Fontset */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Pango.FontsetSimple */
     append(font: Font): void
     size(): number
@@ -843,6 +903,10 @@ export declare var FontsetSimple: FontsetSimple_Static
 export interface Layout_ConstructProps {
 }
 export interface Layout {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Pango.Layout */
     context_changed(): void
     copy(): Layout
@@ -945,6 +1009,17 @@ export declare var Layout: Layout_Static
 export interface Renderer_ConstructProps {
 }
 export interface Renderer {
+    /* Fields of Pango.Renderer */
+    parent_instance:GObject.Object
+    underline:Underline
+    strikethrough:boolean
+    active_count:number
+    matrix:Matrix
+    priv:RendererPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Pango.Renderer */
     activate(): void
     deactivate(): void
@@ -1017,36 +1092,65 @@ export interface Renderer_Static {
 }
 export declare var Renderer: Renderer_Static
 export interface Analysis {
+    /* Fields of Pango.Analysis */
+    shape_engine:EngineShape
+    lang_engine:EngineLang
+    font:Font
+    level:number
+    gravity:number
+    flags:number
+    script:number
+    language:Language
+    extra_attrs:GLib.SList
 }
 export interface Analysis_Static {
 }
 export declare var Analysis: Analysis_Static
 export interface AttrClass {
+    /* Fields of Pango.AttrClass */
+    type:AttrType
+    destroy:any
+    equal:any
 }
 export interface AttrClass_Static {
 }
 export declare var AttrClass: AttrClass_Static
 export interface AttrColor {
+    /* Fields of Pango.AttrColor */
+    attr:Attribute
+    color:Color
 }
 export interface AttrColor_Static {
 }
 export declare var AttrColor: AttrColor_Static
 export interface AttrFloat {
+    /* Fields of Pango.AttrFloat */
+    attr:Attribute
+    value:number
 }
 export interface AttrFloat_Static {
 }
 export declare var AttrFloat: AttrFloat_Static
 export interface AttrFontDesc {
+    /* Fields of Pango.AttrFontDesc */
+    attr:Attribute
+    desc:FontDescription
 }
 export interface AttrFontDesc_Static {
 }
 export declare var AttrFontDesc: AttrFontDesc_Static
 export interface AttrFontFeatures {
+    /* Fields of Pango.AttrFontFeatures */
+    attr:Attribute
+    features:string
 }
 export interface AttrFontFeatures_Static {
 }
 export declare var AttrFontFeatures: AttrFontFeatures_Static
 export interface AttrInt {
+    /* Fields of Pango.AttrInt */
+    attr:Attribute
+    value:number
 }
 export interface AttrInt_Static {
 }
@@ -1063,6 +1167,9 @@ export interface AttrIterator_Static {
 }
 export declare var AttrIterator: AttrIterator_Static
 export interface AttrLanguage {
+    /* Fields of Pango.AttrLanguage */
+    attr:Attribute
+    value:Language
 }
 export interface AttrLanguage_Static {
 }
@@ -1085,21 +1192,38 @@ export declare class AttrList_Static {
 }
 export declare var AttrList: AttrList_Static
 export interface AttrShape {
+    /* Fields of Pango.AttrShape */
+    attr:Attribute
+    ink_rect:Rectangle
+    logical_rect:Rectangle
+    data:object
+    destroy_func:GLib.DestroyNotify
 }
 export interface AttrShape_Static {
 }
 export declare var AttrShape: AttrShape_Static
 export interface AttrSize {
+    /* Fields of Pango.AttrSize */
+    attr:Attribute
+    size:number
+    absolute:number
 }
 export interface AttrSize_Static {
 }
 export declare var AttrSize: AttrSize_Static
 export interface AttrString {
+    /* Fields of Pango.AttrString */
+    attr:Attribute
+    value:string
 }
 export interface AttrString_Static {
 }
 export declare var AttrString: AttrString_Static
 export interface Attribute {
+    /* Fields of Pango.Attribute */
+    klass:AttrClass
+    start_index:number
+    end_index:number
     /* Methods of Pango.Attribute */
     destroy(): void
     equal(attr2: Attribute): boolean
@@ -1109,6 +1233,10 @@ export interface Attribute_Static {
 }
 export declare var Attribute: Attribute_Static
 export interface Color {
+    /* Fields of Pango.Color */
+    red:number
+    green:number
+    blue:number
     /* Methods of Pango.Color */
     copy(): Color | null
     free(): void
@@ -1135,31 +1263,56 @@ export interface Coverage_Static {
 }
 export declare var Coverage: Coverage_Static
 export interface EngineClass {
+    /* Fields of Pango.EngineClass */
+    parent_class:GObject.ObjectClass
 }
 export interface EngineClass_Static {
 }
 export declare var EngineClass: EngineClass_Static
 export interface EngineInfo {
+    /* Fields of Pango.EngineInfo */
+    id:string
+    engine_type:string
+    render_type:string
+    scripts:EngineScriptInfo
+    n_scripts:number
 }
 export interface EngineInfo_Static {
 }
 export declare var EngineInfo: EngineInfo_Static
 export interface EngineLangClass {
+    /* Fields of Pango.EngineLangClass */
+    parent_class:EngineClass
+    script_break:any
 }
 export interface EngineLangClass_Static {
 }
 export declare var EngineLangClass: EngineLangClass_Static
 export interface EngineScriptInfo {
+    /* Fields of Pango.EngineScriptInfo */
+    script:Script
+    langs:string
 }
 export interface EngineScriptInfo_Static {
 }
 export declare var EngineScriptInfo: EngineScriptInfo_Static
 export interface EngineShapeClass {
+    /* Fields of Pango.EngineShapeClass */
+    parent_class:EngineClass
+    script_shape:any
+    covers:any
 }
 export interface EngineShapeClass_Static {
 }
 export declare var EngineShapeClass: EngineShapeClass_Static
 export interface FontClass {
+    /* Fields of Pango.FontClass */
+    parent_class:GObject.ObjectClass
+    describe:any
+    get_glyph_extents:any
+    get_metrics:any
+    get_font_map:any
+    describe_absolute:any
 }
 export interface FontClass_Static {
 }
@@ -1204,21 +1357,50 @@ export declare class FontDescription_Static {
 }
 export declare var FontDescription: FontDescription_Static
 export interface FontFaceClass {
+    /* Fields of Pango.FontFaceClass */
+    parent_class:GObject.ObjectClass
+    get_face_name:any
+    describe:any
+    list_sizes:any
+    is_synthesized:any
 }
 export interface FontFaceClass_Static {
 }
 export declare var FontFaceClass: FontFaceClass_Static
 export interface FontFamilyClass {
+    /* Fields of Pango.FontFamilyClass */
+    parent_class:GObject.ObjectClass
+    list_faces:any
+    get_name:any
+    is_monospace:any
 }
 export interface FontFamilyClass_Static {
 }
 export declare var FontFamilyClass: FontFamilyClass_Static
 export interface FontMapClass {
+    /* Fields of Pango.FontMapClass */
+    parent_class:GObject.ObjectClass
+    load_font:any
+    list_families:any
+    load_fontset:any
+    shape_engine_type:string
+    get_serial:any
+    changed:any
 }
 export interface FontMapClass_Static {
 }
 export declare var FontMapClass: FontMapClass_Static
 export interface FontMetrics {
+    /* Fields of Pango.FontMetrics */
+    ref_count:number
+    ascent:number
+    descent:number
+    approximate_char_width:number
+    approximate_digit_width:number
+    underline_position:number
+    underline_thickness:number
+    strikethrough_position:number
+    strikethrough_thickness:number
     /* Methods of Pango.FontMetrics */
     get_approximate_char_width(): number
     get_approximate_digit_width(): number
@@ -1238,6 +1420,12 @@ export declare class FontMetrics_Static {
 }
 export declare var FontMetrics: FontMetrics_Static
 export interface FontsetClass {
+    /* Fields of Pango.FontsetClass */
+    parent_class:GObject.ObjectClass
+    get_font:any
+    get_metrics:any
+    get_language:any
+    foreach:any
 }
 export interface FontsetClass_Static {
 }
@@ -1248,16 +1436,27 @@ export interface FontsetSimpleClass_Static {
 }
 export declare var FontsetSimpleClass: FontsetSimpleClass_Static
 export interface GlyphGeometry {
+    /* Fields of Pango.GlyphGeometry */
+    width:GlyphUnit
+    x_offset:GlyphUnit
+    y_offset:GlyphUnit
 }
 export interface GlyphGeometry_Static {
 }
 export declare var GlyphGeometry: GlyphGeometry_Static
 export interface GlyphInfo {
+    /* Fields of Pango.GlyphInfo */
+    glyph:Glyph
+    geometry:GlyphGeometry
+    attr:GlyphVisAttr
 }
 export interface GlyphInfo_Static {
 }
 export declare var GlyphInfo: GlyphInfo_Static
 export interface GlyphItem {
+    /* Fields of Pango.GlyphItem */
+    item:Item
+    glyphs:GlyphString
     /* Methods of Pango.GlyphItem */
     apply_attrs(text: string, list: AttrList): GLib.SList
     copy(): GlyphItem | null
@@ -1270,6 +1469,15 @@ export interface GlyphItem_Static {
 }
 export declare var GlyphItem: GlyphItem_Static
 export interface GlyphItemIter {
+    /* Fields of Pango.GlyphItemIter */
+    glyph_item:GlyphItem
+    text:string
+    start_glyph:number
+    start_index:number
+    start_char:number
+    end_glyph:number
+    end_index:number
+    end_char:number
     /* Methods of Pango.GlyphItemIter */
     copy(): GlyphItemIter | null
     free(): void
@@ -1282,6 +1490,11 @@ export interface GlyphItemIter_Static {
 }
 export declare var GlyphItemIter: GlyphItemIter_Static
 export interface GlyphString {
+    /* Fields of Pango.GlyphString */
+    num_glyphs:number
+    glyphs:GlyphInfo[]
+    log_clusters:number
+    space:number
     /* Methods of Pango.GlyphString */
     copy(): GlyphString | null
     extents(font: Font): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
@@ -1300,16 +1513,27 @@ export declare class GlyphString_Static {
 }
 export declare var GlyphString: GlyphString_Static
 export interface GlyphVisAttr {
+    /* Fields of Pango.GlyphVisAttr */
+    is_cluster_start:number
 }
 export interface GlyphVisAttr_Static {
 }
 export declare var GlyphVisAttr: GlyphVisAttr_Static
 export interface IncludedModule {
+    /* Fields of Pango.IncludedModule */
+    list:any
+    init:any
+    exit:any
 }
 export interface IncludedModule_Static {
 }
 export declare var IncludedModule: IncludedModule_Static
 export interface Item {
+    /* Fields of Pango.Item */
+    offset:number
+    length:number
+    num_chars:number
+    analysis:Analysis
     /* Methods of Pango.Item */
     copy(): Item | null
     free(): void
@@ -1368,6 +1592,13 @@ export interface LayoutIter_Static {
 }
 export declare var LayoutIter: LayoutIter_Static
 export interface LayoutLine {
+    /* Fields of Pango.LayoutLine */
+    layout:Layout
+    start_index:number
+    length:number
+    runs:GLib.SList
+    is_paragraph_start:number
+    resolved_dir:number
     /* Methods of Pango.LayoutLine */
     get_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_pixel_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
@@ -1381,6 +1612,20 @@ export interface LayoutLine_Static {
 }
 export declare var LayoutLine: LayoutLine_Static
 export interface LogAttr {
+    /* Fields of Pango.LogAttr */
+    is_line_break:number
+    is_mandatory_break:number
+    is_char_break:number
+    is_white:number
+    is_cursor_position:number
+    is_word_start:number
+    is_word_end:number
+    is_sentence_boundary:number
+    is_sentence_start:number
+    is_sentence_end:number
+    backspace_deletes_character:number
+    is_expandable_space:number
+    is_word_boundary:number
 }
 export interface LogAttr_Static {
 }
@@ -1397,6 +1642,13 @@ export interface MapEntry_Static {
 }
 export declare var MapEntry: MapEntry_Static
 export interface Matrix {
+    /* Fields of Pango.Matrix */
+    xx:number
+    xy:number
+    yx:number
+    yy:number
+    x0:number
+    y0:number
     /* Methods of Pango.Matrix */
     concat(new_matrix: Matrix): void
     copy(): Matrix | null
@@ -1415,11 +1667,29 @@ export interface Matrix_Static {
 }
 export declare var Matrix: Matrix_Static
 export interface Rectangle {
+    /* Fields of Pango.Rectangle */
+    x:number
+    y:number
+    width:number
+    height:number
 }
 export interface Rectangle_Static {
 }
 export declare var Rectangle: Rectangle_Static
 export interface RendererClass {
+    /* Fields of Pango.RendererClass */
+    parent_class:GObject.ObjectClass
+    draw_glyphs:any
+    draw_rectangle:any
+    draw_error_underline:any
+    draw_shape:any
+    draw_trapezoid:any
+    draw_glyph:any
+    part_changed:any
+    begin:any
+    end:any
+    prepare_run:any
+    draw_glyph_item:any
 }
 export interface RendererClass_Static {
 }
@@ -1430,6 +1700,9 @@ export interface RendererPrivate_Static {
 }
 export declare var RendererPrivate: RendererPrivate_Static
 export interface ScriptForLang {
+    /* Fields of Pango.ScriptForLang */
+    lang:number[]
+    scripts:Script[]
 }
 export interface ScriptForLang_Static {
 }

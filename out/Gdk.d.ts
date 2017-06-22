@@ -2867,6 +2867,13 @@ export interface AppLaunchContext_ConstructProps {
 }
 export interface AppLaunchContext {
     /* Properties of Gdk.AppLaunchContext */
+    /* Fields of Gio.AppLaunchContext */
+    parent_instance:GObject.Object
+    priv:Gio.AppLaunchContextPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.AppLaunchContext */
     set_desktop(desktop: number): void
     set_display(display: Display): void
@@ -2938,6 +2945,10 @@ export interface Cursor_ConstructProps {
 }
 export interface Cursor {
     /* Properties of Gdk.Cursor */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.Cursor */
     get_cursor_type(): CursorType
     get_display(): Display
@@ -3006,6 +3017,10 @@ export interface Device {
     readonly associated_device:Device
     input_mode:InputMode
     readonly n_axes:number
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.Device */
     get_associated_device(): Device | null
     get_axis_use(index_: number): AxisUse
@@ -3086,6 +3101,10 @@ export interface DeviceManager_ConstructProps {
 }
 export interface DeviceManager {
     /* Properties of Gdk.DeviceManager */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.DeviceManager */
     get_client_pointer(): Device
     get_display(): Display | null
@@ -3136,6 +3155,10 @@ export declare var DeviceManager: DeviceManager_Static
 export interface Display_ConstructProps {
 }
 export interface Display {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.Display */
     beep(): void
     close(): void
@@ -3229,6 +3252,10 @@ export interface DisplayManager_ConstructProps {
 export interface DisplayManager {
     /* Properties of Gdk.DisplayManager */
     default_display:Display
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.DisplayManager */
     get_default_display(): Display | null
     list_displays(): GLib.SList
@@ -3282,6 +3309,10 @@ export declare var DisplayManager: DisplayManager_Static
 export interface DragContext_ConstructProps {
 }
 export interface DragContext {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.DragContext */
     get_actions(): DragAction
     get_dest_window(): Window
@@ -3334,6 +3365,10 @@ export declare var DragContext: DragContext_Static
 export interface FrameClock_ConstructProps {
 }
 export interface FrameClock {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.FrameClock */
     begin_updating(): void
     end_updating(): void
@@ -3399,6 +3434,10 @@ export interface GLContext_ConstructProps {
 }
 export interface GLContext {
     /* Properties of Gdk.GLContext */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.GLContext */
     get_debug_enabled(): boolean
     get_display(): Display
@@ -3458,6 +3497,10 @@ export declare var GLContext: GLContext_Static
 export interface Keymap_ConstructProps {
 }
 export interface Keymap {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.Keymap */
     add_virtual_modifiers(state: ModifierType): void
     get_caps_lock_state(): boolean
@@ -3528,6 +3571,10 @@ export interface Screen {
     /* Properties of Gdk.Screen */
     font_options:object
     resolution:number
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.Screen */
     get_active_window(): Window | null
     get_display(): Display
@@ -3614,6 +3661,10 @@ export declare var Screen: Screen_Static
 export interface Visual_ConstructProps {
 }
 export interface Visual {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.Visual */
     get_bits_per_rgb(): number
     get_blue_pixel_details(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
@@ -3679,6 +3730,10 @@ export interface Window_ConstructProps {
 export interface Window {
     /* Properties of Gdk.Window */
     cursor:Cursor
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gdk.Window */
     beep(): void
     begin_move_drag(button: number, root_x: number, root_y: number, timestamp: number): void
@@ -3899,6 +3954,11 @@ export declare class Atom_Static {
 }
 export declare var Atom: Atom_Static
 export interface Color {
+    /* Fields of Gdk.Color */
+    pixel:number
+    red:number
+    green:number
+    blue:number
     /* Methods of Gdk.Color */
     copy(): Color
     equal(colorb: Color): boolean
@@ -3913,76 +3973,212 @@ export declare class Color_Static {
 }
 export declare var Color: Color_Static
 export interface EventAny {
+    /* Fields of Gdk.EventAny */
+    type:EventType
+    window:Window
+    send_event:number
 }
 export interface EventAny_Static {
 }
 export declare var EventAny: EventAny_Static
 export interface EventButton {
+    /* Fields of Gdk.EventButton */
+    type:EventType
+    window:Window
+    send_event:number
+    time:number
+    x:number
+    y:number
+    axes:number
+    state:ModifierType
+    button:number
+    device:Device
+    x_root:number
+    y_root:number
 }
 export interface EventButton_Static {
 }
 export declare var EventButton: EventButton_Static
 export interface EventConfigure {
+    /* Fields of Gdk.EventConfigure */
+    type:EventType
+    window:Window
+    send_event:number
+    x:number
+    y:number
+    width:number
+    height:number
 }
 export interface EventConfigure_Static {
 }
 export declare var EventConfigure: EventConfigure_Static
 export interface EventCrossing {
+    /* Fields of Gdk.EventCrossing */
+    type:EventType
+    window:Window
+    send_event:number
+    subwindow:Window
+    time:number
+    x:number
+    y:number
+    x_root:number
+    y_root:number
+    mode:CrossingMode
+    detail:NotifyType
+    focus:boolean
+    state:ModifierType
 }
 export interface EventCrossing_Static {
 }
 export declare var EventCrossing: EventCrossing_Static
 export interface EventDND {
+    /* Fields of Gdk.EventDND */
+    type:EventType
+    window:Window
+    send_event:number
+    context:DragContext
+    time:number
+    x_root:number
+    y_root:number
 }
 export interface EventDND_Static {
 }
 export declare var EventDND: EventDND_Static
 export interface EventExpose {
+    /* Fields of Gdk.EventExpose */
+    type:EventType
+    window:Window
+    send_event:number
+    area:Rectangle
+    region:cairo.Region
+    count:number
 }
 export interface EventExpose_Static {
 }
 export declare var EventExpose: EventExpose_Static
 export interface EventFocus {
+    /* Fields of Gdk.EventFocus */
+    type:EventType
+    window:Window
+    send_event:number
+    in_:number
 }
 export interface EventFocus_Static {
 }
 export declare var EventFocus: EventFocus_Static
 export interface EventGrabBroken {
+    /* Fields of Gdk.EventGrabBroken */
+    type:EventType
+    window:Window
+    send_event:number
+    keyboard:boolean
+    implicit:boolean
+    grab_window:Window
 }
 export interface EventGrabBroken_Static {
 }
 export declare var EventGrabBroken: EventGrabBroken_Static
 export interface EventKey {
+    /* Fields of Gdk.EventKey */
+    type:EventType
+    window:Window
+    send_event:number
+    time:number
+    state:ModifierType
+    keyval:number
+    length:number
+    string:string
+    hardware_keycode:number
+    group:number
+    is_modifier:number
 }
 export interface EventKey_Static {
 }
 export declare var EventKey: EventKey_Static
 export interface EventMotion {
+    /* Fields of Gdk.EventMotion */
+    type:EventType
+    window:Window
+    send_event:number
+    time:number
+    x:number
+    y:number
+    axes:number
+    state:ModifierType
+    is_hint:number
+    device:Device
+    x_root:number
+    y_root:number
 }
 export interface EventMotion_Static {
 }
 export declare var EventMotion: EventMotion_Static
 export interface EventOwnerChange {
+    /* Fields of Gdk.EventOwnerChange */
+    type:EventType
+    window:Window
+    send_event:number
+    owner:Window
+    reason:OwnerChange
+    selection:Atom
+    time:number
+    selection_time:number
 }
 export interface EventOwnerChange_Static {
 }
 export declare var EventOwnerChange: EventOwnerChange_Static
 export interface EventProperty {
+    /* Fields of Gdk.EventProperty */
+    type:EventType
+    window:Window
+    send_event:number
+    atom:Atom
+    time:number
+    state:PropertyState
 }
 export interface EventProperty_Static {
 }
 export declare var EventProperty: EventProperty_Static
 export interface EventProximity {
+    /* Fields of Gdk.EventProximity */
+    type:EventType
+    window:Window
+    send_event:number
+    time:number
+    device:Device
 }
 export interface EventProximity_Static {
 }
 export declare var EventProximity: EventProximity_Static
 export interface EventScroll {
+    /* Fields of Gdk.EventScroll */
+    type:EventType
+    window:Window
+    send_event:number
+    time:number
+    x:number
+    y:number
+    state:ModifierType
+    direction:ScrollDirection
+    device:Device
+    x_root:number
+    y_root:number
+    delta_x:number
+    delta_y:number
 }
 export interface EventScroll_Static {
 }
 export declare var EventScroll: EventScroll_Static
 export interface EventSelection {
+    /* Fields of Gdk.EventSelection */
+    type:EventType
+    window:Window
+    send_event:number
+    selection:Atom
+    target:Atom
+    property:Atom
+    time:number
+    requestor:Window
 }
 export interface EventSelection_Static {
 }
@@ -3993,31 +4189,92 @@ export interface EventSequence_Static {
 }
 export declare var EventSequence: EventSequence_Static
 export interface EventSetting {
+    /* Fields of Gdk.EventSetting */
+    type:EventType
+    window:Window
+    send_event:number
+    action:SettingAction
+    name:string
 }
 export interface EventSetting_Static {
 }
 export declare var EventSetting: EventSetting_Static
 export interface EventTouch {
+    /* Fields of Gdk.EventTouch */
+    type:EventType
+    window:Window
+    send_event:number
+    time:number
+    x:number
+    y:number
+    axes:number
+    state:ModifierType
+    sequence:EventSequence
+    emulating_pointer:boolean
+    device:Device
+    x_root:number
+    y_root:number
 }
 export interface EventTouch_Static {
 }
 export declare var EventTouch: EventTouch_Static
 export interface EventTouchpadPinch {
+    /* Fields of Gdk.EventTouchpadPinch */
+    type:EventType
+    window:Window
+    send_event:number
+    phase:TouchpadGesturePhase
+    n_fingers:number
+    time:number
+    x:number
+    y:number
+    dx:number
+    dy:number
+    angle_delta:number
+    scale:number
+    x_root:number
+    y_root:number
+    state:ModifierType
 }
 export interface EventTouchpadPinch_Static {
 }
 export declare var EventTouchpadPinch: EventTouchpadPinch_Static
 export interface EventTouchpadSwipe {
+    /* Fields of Gdk.EventTouchpadSwipe */
+    type:EventType
+    window:Window
+    send_event:number
+    phase:TouchpadGesturePhase
+    n_fingers:number
+    time:number
+    x:number
+    y:number
+    dx:number
+    dy:number
+    x_root:number
+    y_root:number
+    state:ModifierType
 }
 export interface EventTouchpadSwipe_Static {
 }
 export declare var EventTouchpadSwipe: EventTouchpadSwipe_Static
 export interface EventVisibility {
+    /* Fields of Gdk.EventVisibility */
+    type:EventType
+    window:Window
+    send_event:number
+    state:VisibilityState
 }
 export interface EventVisibility_Static {
 }
 export declare var EventVisibility: EventVisibility_Static
 export interface EventWindowState {
+    /* Fields of Gdk.EventWindowState */
+    type:EventType
+    window:Window
+    send_event:number
+    changed_mask:WindowState
+    new_window_state:WindowState
 }
 export interface EventWindowState_Static {
 }
@@ -4047,21 +4304,45 @@ export interface FrameTimings_Static {
 }
 export declare var FrameTimings: FrameTimings_Static
 export interface Geometry {
+    /* Fields of Gdk.Geometry */
+    min_width:number
+    min_height:number
+    max_width:number
+    max_height:number
+    base_width:number
+    base_height:number
+    width_inc:number
+    height_inc:number
+    min_aspect:number
+    max_aspect:number
+    win_gravity:Gravity
 }
 export interface Geometry_Static {
 }
 export declare var Geometry: Geometry_Static
 export interface KeymapKey {
+    /* Fields of Gdk.KeymapKey */
+    keycode:number
+    group:number
+    level:number
 }
 export interface KeymapKey_Static {
 }
 export declare var KeymapKey: KeymapKey_Static
 export interface Point {
+    /* Fields of Gdk.Point */
+    x:number
+    y:number
 }
 export interface Point_Static {
 }
 export declare var Point: Point_Static
 export interface RGBA {
+    /* Fields of Gdk.RGBA */
+    red:number
+    green:number
+    blue:number
+    alpha:number
     /* Methods of Gdk.RGBA */
     copy(): RGBA
     equal(p2: RGBA): boolean
@@ -4074,6 +4355,11 @@ export interface RGBA_Static {
 }
 export declare var RGBA: RGBA_Static
 export interface Rectangle {
+    /* Fields of Gdk.Rectangle */
+    x:number
+    y:number
+    width:number
+    height:number
     /* Methods of Gdk.Rectangle */
     intersect(src2: Rectangle): [ /* returnType */ boolean, /* dest */ Rectangle | null ]
     union(src2: Rectangle): /* dest */ Rectangle
@@ -4082,16 +4368,39 @@ export interface Rectangle_Static {
 }
 export declare var Rectangle: Rectangle_Static
 export interface TimeCoord {
+    /* Fields of Gdk.TimeCoord */
+    time:number
+    axes:number[]
 }
 export interface TimeCoord_Static {
 }
 export declare var TimeCoord: TimeCoord_Static
 export interface WindowAttr {
+    /* Fields of Gdk.WindowAttr */
+    title:string
+    event_mask:number
+    x:number
+    y:number
+    width:number
+    height:number
+    wclass:WindowWindowClass
+    visual:Visual
+    window_type:WindowType
+    cursor:Cursor
+    wmclass_name:string
+    wmclass_class:string
+    override_redirect:boolean
+    type_hint:WindowTypeHint
 }
 export interface WindowAttr_Static {
 }
 export declare var WindowAttr: WindowAttr_Static
 export interface WindowClass {
+    /* Fields of Gdk.WindowClass */
+    parent_class:GObject.ObjectClass
+    to_embedder:any
+    from_embedder:any
+    create_surface:any
 }
 export interface WindowClass_Static {
 }
@@ -4102,6 +4411,29 @@ export interface WindowRedirect_Static {
 }
 export declare var WindowRedirect: WindowRedirect_Static
 export interface Event {
+    /* Fields of Gdk.Event */
+    type:EventType
+    any:EventAny
+    expose:EventExpose
+    visibility:EventVisibility
+    motion:EventMotion
+    button:EventButton
+    touch:EventTouch
+    scroll:EventScroll
+    key:EventKey
+    crossing:EventCrossing
+    focus_change:EventFocus
+    configure:EventConfigure
+    property:EventProperty
+    selection:EventSelection
+    owner_change:EventOwnerChange
+    proximity:EventProximity
+    dnd:EventDND
+    window_state:EventWindowState
+    setting:EventSetting
+    grab_broken:EventGrabBroken
+    touchpad_swipe:EventTouchpadSwipe
+    touchpad_pinch:EventTouchpadPinch
     /* Methods of Gdk.Event */
     _get_angle(event2: Event): [ /* returnType */ boolean, /* angle */ number ]
     _get_center(event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]

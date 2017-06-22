@@ -774,6 +774,18 @@ export interface GObjectAccessible {
     accessible_table_row_header:Object
     accessible_table_summary:Object
     accessible_value:number
+    /* Fields of Atk.GObjectAccessible */
+    parent:Object
+    /* Fields of Atk.Object */
+    description:string
+    name:string
+    role:Role
+    relation_set:RelationSet
+    layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.GObjectAccessible */
     get_object(): GObject.Object
     /* Methods of Atk.Object */
@@ -898,6 +910,12 @@ export interface Hyperlink {
     readonly number_of_anchors:number
     readonly selected_link:boolean
     readonly start_index:number
+    /* Fields of Atk.Hyperlink */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.Hyperlink */
     get_end_index(): number
     get_n_anchors(): number
@@ -965,6 +983,12 @@ export declare var Hyperlink: Hyperlink_Static
 export interface Misc_ConstructProps {
 }
 export interface Misc {
+    /* Fields of Atk.Misc */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.Misc */
     threads_enter(): void
     threads_leave(): void
@@ -1045,6 +1069,18 @@ export interface NoOpObject {
     accessible_table_row_header:Object
     accessible_table_summary:Object
     accessible_value:number
+    /* Fields of Atk.NoOpObject */
+    parent:Object
+    /* Fields of Atk.Object */
+    description:string
+    name:string
+    role:Role
+    relation_set:RelationSet
+    layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_attributes(): AttributeSet
@@ -1161,6 +1197,13 @@ export declare var NoOpObject: NoOpObject_Static
 export interface NoOpObjectFactory_ConstructProps {
 }
 export interface NoOpObjectFactory {
+    /* Fields of Atk.NoOpObjectFactory */
+    parent:ObjectFactory
+    /* Fields of Atk.ObjectFactory */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.ObjectFactory */
     create_accessible(obj: GObject.Object): Object
     get_accessible_type(): number
@@ -1241,6 +1284,17 @@ export interface Object {
     accessible_table_row_header:Object
     accessible_table_summary:Object
     accessible_value:number
+    /* Fields of Atk.Object */
+    parent:GObject.Object
+    description:string
+    name:string
+    role:Role
+    relation_set:RelationSet
+    layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_attributes(): AttributeSet
@@ -1354,6 +1408,12 @@ export declare var Object: Object_Static
 export interface ObjectFactory_ConstructProps {
 }
 export interface ObjectFactory {
+    /* Fields of Atk.ObjectFactory */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.ObjectFactory */
     create_accessible(obj: GObject.Object): Object
     get_accessible_type(): number
@@ -1431,6 +1491,18 @@ export interface Plug {
     accessible_table_row_header:Object
     accessible_table_summary:Object
     accessible_value:number
+    /* Fields of Atk.Plug */
+    parent:Object
+    /* Fields of Atk.Object */
+    description:string
+    name:string
+    role:Role
+    relation_set:RelationSet
+    layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.Plug */
     get_id(): string
     /* Methods of Atk.Object */
@@ -1551,6 +1623,14 @@ export declare var Plug: Plug_Static
 export interface Registry_ConstructProps {
 }
 export interface Registry {
+    /* Fields of Atk.Registry */
+    parent:GObject.Object
+    factory_type_registry:GLib.HashTable
+    factory_singleton_cache:GLib.HashTable
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.Registry */
     get_factory(type: number): ObjectFactory
     get_factory_type(type: number): number
@@ -1603,6 +1683,13 @@ export interface Relation {
     /* Properties of Atk.Relation */
     relation_type:RelationType
     target:GObject.ValueArray
+    /* Fields of Atk.Relation */
+    parent:GObject.Object
+    relationship:RelationType
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.Relation */
     add_target(target: Object): void
     get_relation_type(): RelationType
@@ -1655,6 +1742,13 @@ export declare var Relation: Relation_Static
 export interface RelationSet_ConstructProps {
 }
 export interface RelationSet {
+    /* Fields of Atk.RelationSet */
+    parent:GObject.Object
+    relations:object[]
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.RelationSet */
     add(relation: Relation): void
     add_relation_by_type(relationship: RelationType, target: Object): void
@@ -1738,6 +1832,19 @@ export interface Socket {
     accessible_table_row_header:Object
     accessible_table_summary:Object
     accessible_value:number
+    /* Fields of Atk.Socket */
+    parent:Object
+    embedded_plug_id:string
+    /* Fields of Atk.Object */
+    description:string
+    name:string
+    role:Role
+    relation_set:RelationSet
+    layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.Socket */
     embed(plug_id: string): void
     is_occupied(): boolean
@@ -1859,6 +1966,12 @@ export declare var Socket: Socket_Static
 export interface StateSet_ConstructProps {
 }
 export interface StateSet {
+    /* Fields of Atk.StateSet */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Atk.StateSet */
     add_state(type: StateType): boolean
     add_states(types: StateType[], n_types: number): void
@@ -1915,6 +2028,12 @@ export declare var StateSet: StateSet_Static
 export interface Util_ConstructProps {
 }
 export interface Util {
+    /* Fields of Atk.Util */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -1955,11 +2074,23 @@ export interface Util_Static {
 }
 export declare var Util: Util_Static
 export interface ActionIface {
+    /* Fields of Atk.ActionIface */
+    parent:GObject.TypeInterface
+    do_action:any
+    get_n_actions:any
+    get_description:any
+    get_name:any
+    get_keybinding:any
+    set_description:any
+    get_localized_name:any
 }
 export interface ActionIface_Static {
 }
 export declare var ActionIface: ActionIface_Static
 export interface Attribute {
+    /* Fields of Atk.Attribute */
+    name:string
+    value:string
 }
 export interface Attribute_Static {
 }
@@ -1968,41 +2099,107 @@ export declare class Attribute_Static {
 }
 export declare var Attribute: Attribute_Static
 export interface ComponentIface {
+    /* Fields of Atk.ComponentIface */
+    parent:GObject.TypeInterface
+    contains:any
+    ref_accessible_at_point:any
+    get_extents:any
+    get_position:any
+    get_size:any
+    grab_focus:any
+    remove_focus_handler:any
+    set_extents:any
+    set_position:any
+    set_size:any
+    get_layer:any
+    get_mdi_zorder:any
+    bounds_changed:any
+    get_alpha:any
 }
 export interface ComponentIface_Static {
 }
 export declare var ComponentIface: ComponentIface_Static
 export interface DocumentIface {
+    /* Fields of Atk.DocumentIface */
+    parent:GObject.TypeInterface
+    get_document_type:any
+    get_document:any
+    get_document_locale:any
+    get_document_attribute_value:any
+    set_document_attribute:any
+    get_current_page_number:any
+    get_page_count:any
 }
 export interface DocumentIface_Static {
 }
 export declare var DocumentIface: DocumentIface_Static
 export interface EditableTextIface {
+    /* Fields of Atk.EditableTextIface */
+    parent_interface:GObject.TypeInterface
+    set_run_attributes:any
+    set_text_contents:any
+    insert_text:any
+    copy_text:any
+    cut_text:any
+    delete_text:any
+    paste_text:any
 }
 export interface EditableTextIface_Static {
 }
 export declare var EditableTextIface: EditableTextIface_Static
 export interface GObjectAccessibleClass {
+    /* Fields of Atk.GObjectAccessibleClass */
+    parent_class:ObjectClass
+    pad1:Function
+    pad2:Function
 }
 export interface GObjectAccessibleClass_Static {
 }
 export declare var GObjectAccessibleClass: GObjectAccessibleClass_Static
 export interface HyperlinkClass {
+    /* Fields of Atk.HyperlinkClass */
+    parent:GObject.ObjectClass
+    get_uri:any
+    get_object:any
+    get_end_index:any
+    get_start_index:any
+    is_valid:any
+    get_n_anchors:any
+    link_state:any
+    is_selected_link:any
+    link_activated:any
+    pad1:Function
 }
 export interface HyperlinkClass_Static {
 }
 export declare var HyperlinkClass: HyperlinkClass_Static
 export interface HyperlinkImplIface {
+    /* Fields of Atk.HyperlinkImplIface */
+    parent:GObject.TypeInterface
+    get_hyperlink:any
 }
 export interface HyperlinkImplIface_Static {
 }
 export declare var HyperlinkImplIface: HyperlinkImplIface_Static
 export interface HypertextIface {
+    /* Fields of Atk.HypertextIface */
+    parent:GObject.TypeInterface
+    get_link:any
+    get_n_links:any
+    get_link_index:any
+    link_selected:any
 }
 export interface HypertextIface_Static {
 }
 export declare var HypertextIface: HypertextIface_Static
 export interface ImageIface {
+    /* Fields of Atk.ImageIface */
+    parent:GObject.TypeInterface
+    get_image_position:any
+    get_image_description:any
+    get_image_size:any
+    set_image_description:any
+    get_image_locale:any
 }
 export interface ImageIface_Static {
 }
@@ -2015,41 +2212,98 @@ export interface Implementor_Static {
 }
 export declare var Implementor: Implementor_Static
 export interface KeyEventStruct {
+    /* Fields of Atk.KeyEventStruct */
+    type:number
+    state:number
+    keyval:number
+    length:number
+    string:string
+    keycode:number
+    timestamp:number
 }
 export interface KeyEventStruct_Static {
 }
 export declare var KeyEventStruct: KeyEventStruct_Static
 export interface MiscClass {
+    /* Fields of Atk.MiscClass */
+    parent:GObject.ObjectClass
+    threads_enter:any
+    threads_leave:any
+    vfuncs:object[]
 }
 export interface MiscClass_Static {
 }
 export declare var MiscClass: MiscClass_Static
 export interface NoOpObjectClass {
+    /* Fields of Atk.NoOpObjectClass */
+    parent_class:ObjectClass
 }
 export interface NoOpObjectClass_Static {
 }
 export declare var NoOpObjectClass: NoOpObjectClass_Static
 export interface NoOpObjectFactoryClass {
+    /* Fields of Atk.NoOpObjectFactoryClass */
+    parent_class:ObjectFactoryClass
 }
 export interface NoOpObjectFactoryClass_Static {
 }
 export declare var NoOpObjectFactoryClass: NoOpObjectFactoryClass_Static
 export interface ObjectClass {
+    /* Fields of Atk.ObjectClass */
+    parent:GObject.ObjectClass
+    get_name:any
+    get_description:any
+    get_parent:any
+    get_n_children:any
+    get_index_in_parent:any
+    ref_relation_set:any
+    get_role:any
+    get_layer:any
+    get_mdi_zorder:any
+    ref_state_set:any
+    set_name:any
+    set_description:any
+    set_parent:any
+    set_role:any
+    remove_property_change_handler:any
+    initialize:any
+    children_changed:any
+    focus_event:any
+    property_change:any
+    state_change:any
+    visible_data_changed:any
+    active_descendant_changed:any
+    get_attributes:any
+    get_object_locale:any
+    pad1:Function
 }
 export interface ObjectClass_Static {
 }
 export declare var ObjectClass: ObjectClass_Static
 export interface ObjectFactoryClass {
+    /* Fields of Atk.ObjectFactoryClass */
+    parent_class:GObject.ObjectClass
+    invalidate:any
+    get_accessible_type:any
+    pad1:Function
+    pad2:Function
 }
 export interface ObjectFactoryClass_Static {
 }
 export declare var ObjectFactoryClass: ObjectFactoryClass_Static
 export interface PlugClass {
+    /* Fields of Atk.PlugClass */
+    parent_class:ObjectClass
+    get_object_id:any
 }
 export interface PlugClass_Static {
 }
 export declare var PlugClass: PlugClass_Static
 export interface PropertyValues {
+    /* Fields of Atk.PropertyValues */
+    property_name:string
+    old_value:GObject.Value
+    new_value:GObject.Value
 }
 export interface PropertyValues_Static {
 }
@@ -2069,81 +2323,221 @@ export declare class Range_Static {
 }
 export declare var Range: Range_Static
 export interface Rectangle {
+    /* Fields of Atk.Rectangle */
+    x:number
+    y:number
+    width:number
+    height:number
 }
 export interface Rectangle_Static {
 }
 export declare var Rectangle: Rectangle_Static
 export interface RegistryClass {
+    /* Fields of Atk.RegistryClass */
+    parent_class:GObject.ObjectClass
 }
 export interface RegistryClass_Static {
 }
 export declare var RegistryClass: RegistryClass_Static
 export interface RelationClass {
+    /* Fields of Atk.RelationClass */
+    parent:GObject.ObjectClass
 }
 export interface RelationClass_Static {
 }
 export declare var RelationClass: RelationClass_Static
 export interface RelationSetClass {
+    /* Fields of Atk.RelationSetClass */
+    parent:GObject.ObjectClass
+    pad1:Function
+    pad2:Function
 }
 export interface RelationSetClass_Static {
 }
 export declare var RelationSetClass: RelationSetClass_Static
 export interface SelectionIface {
+    /* Fields of Atk.SelectionIface */
+    parent:GObject.TypeInterface
+    add_selection:any
+    clear_selection:any
+    ref_selection:any
+    get_selection_count:any
+    is_child_selected:any
+    remove_selection:any
+    select_all_selection:any
+    selection_changed:any
 }
 export interface SelectionIface_Static {
 }
 export declare var SelectionIface: SelectionIface_Static
 export interface SocketClass {
+    /* Fields of Atk.SocketClass */
+    parent_class:ObjectClass
+    embed:any
 }
 export interface SocketClass_Static {
 }
 export declare var SocketClass: SocketClass_Static
 export interface StateSetClass {
+    /* Fields of Atk.StateSetClass */
+    parent:GObject.ObjectClass
 }
 export interface StateSetClass_Static {
 }
 export declare var StateSetClass: StateSetClass_Static
 export interface StreamableContentIface {
+    /* Fields of Atk.StreamableContentIface */
+    parent:GObject.TypeInterface
+    get_n_mime_types:any
+    get_mime_type:any
+    get_stream:any
+    get_uri:any
+    pad1:Function
+    pad2:Function
+    pad3:Function
 }
 export interface StreamableContentIface_Static {
 }
 export declare var StreamableContentIface: StreamableContentIface_Static
 export interface TableCellIface {
+    /* Fields of Atk.TableCellIface */
+    parent:GObject.TypeInterface
+    get_column_span:any
+    get_column_header_cells:any
+    get_position:any
+    get_row_span:any
+    get_row_header_cells:any
+    get_row_column_span:any
+    get_table:any
 }
 export interface TableCellIface_Static {
 }
 export declare var TableCellIface: TableCellIface_Static
 export interface TableIface {
+    /* Fields of Atk.TableIface */
+    parent:GObject.TypeInterface
+    ref_at:any
+    get_index_at:any
+    get_column_at_index:any
+    get_row_at_index:any
+    get_n_columns:any
+    get_n_rows:any
+    get_column_extent_at:any
+    get_row_extent_at:any
+    get_caption:any
+    get_column_description:any
+    get_column_header:any
+    get_row_description:any
+    get_row_header:any
+    get_summary:any
+    set_caption:any
+    set_column_description:any
+    set_column_header:any
+    set_row_description:any
+    set_row_header:any
+    set_summary:any
+    get_selected_columns:any
+    get_selected_rows:any
+    is_column_selected:any
+    is_row_selected:any
+    is_selected:any
+    add_row_selection:any
+    remove_row_selection:any
+    add_column_selection:any
+    remove_column_selection:any
+    row_inserted:any
+    column_inserted:any
+    row_deleted:any
+    column_deleted:any
+    row_reordered:any
+    column_reordered:any
+    model_changed:any
 }
 export interface TableIface_Static {
 }
 export declare var TableIface: TableIface_Static
 export interface TextIface {
+    /* Fields of Atk.TextIface */
+    parent:GObject.TypeInterface
+    get_text:any
+    get_text_after_offset:any
+    get_text_at_offset:any
+    get_character_at_offset:any
+    get_text_before_offset:any
+    get_caret_offset:any
+    get_run_attributes:any
+    get_default_attributes:any
+    get_character_extents:any
+    get_character_count:any
+    get_offset_at_point:any
+    get_n_selections:any
+    get_selection:any
+    add_selection:any
+    remove_selection:any
+    set_selection:any
+    set_caret_offset:any
+    text_changed:any
+    text_caret_moved:any
+    text_selection_changed:any
+    text_attributes_changed:any
+    get_range_extents:any
+    get_bounded_ranges:any
+    get_string_at_offset:any
 }
 export interface TextIface_Static {
 }
 export declare var TextIface: TextIface_Static
 export interface TextRange {
+    /* Fields of Atk.TextRange */
+    bounds:TextRectangle
+    start_offset:number
+    end_offset:number
+    content:string
 }
 export interface TextRange_Static {
 }
 export declare var TextRange: TextRange_Static
 export interface TextRectangle {
+    /* Fields of Atk.TextRectangle */
+    x:number
+    y:number
+    width:number
+    height:number
 }
 export interface TextRectangle_Static {
 }
 export declare var TextRectangle: TextRectangle_Static
 export interface UtilClass {
+    /* Fields of Atk.UtilClass */
+    parent:GObject.ObjectClass
+    remove_global_event_listener:any
+    remove_key_event_listener:any
+    get_toolkit_name:any
+    get_toolkit_version:any
 }
 export interface UtilClass_Static {
 }
 export declare var UtilClass: UtilClass_Static
 export interface ValueIface {
+    /* Fields of Atk.ValueIface */
+    parent:GObject.TypeInterface
+    get_current_value:any
+    get_maximum_value:any
+    get_minimum_value:any
+    set_current_value:any
+    get_minimum_increment:any
+    get_value_and_text:any
+    get_range:any
+    get_increment:any
+    get_sub_ranges:any
+    set_value:any
 }
 export interface ValueIface_Static {
 }
 export declare var ValueIface: ValueIface_Static
 export interface WindowIface {
+    /* Fields of Atk.WindowIface */
+    parent:GObject.TypeInterface
 }
 export interface WindowIface_Static {
 }

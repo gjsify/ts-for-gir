@@ -1454,6 +1454,9 @@ export interface VoidFunc {
     (): void
 }
 export interface Array {
+    /* Fields of GLib.Array */
+    data:string
+    len:number
 }
 export interface Array_Static {
 }
@@ -1525,6 +1528,9 @@ export declare class BookmarkFile_Static {
 }
 export declare var BookmarkFile: BookmarkFile_Static
 export interface ByteArray {
+    /* Fields of GLib.ByteArray */
+    data:number
+    len:number
 }
 export interface ByteArray_Static {
 }
@@ -1572,6 +1578,9 @@ export declare class Checksum_Static {
 }
 export declare var Checksum: Checksum_Static
 export interface Cond {
+    /* Fields of GLib.Cond */
+    p:object
+    i:number[]
     /* Methods of GLib.Cond */
     broadcast(): void
     clear(): void
@@ -1589,6 +1598,13 @@ export interface Data_Static {
 }
 export declare var Data: Data_Static
 export interface Date {
+    /* Fields of GLib.Date */
+    julian_days:number
+    julian:number
+    dmy:number
+    day:number
+    month:number
+    year:number
     /* Methods of GLib.Date */
     add_days(n_days: number): void
     add_months(n_months: number): void
@@ -1700,6 +1716,9 @@ export declare class DateTime_Static {
 }
 export declare var DateTime: DateTime_Static
 export interface DebugKey {
+    /* Fields of GLib.DebugKey */
+    key:string
+    value:number
 }
 export interface DebugKey_Static {
 }
@@ -1717,6 +1736,10 @@ export declare class Dir_Static {
 }
 export declare var Dir: Dir_Static
 export interface Error {
+    /* Fields of GLib.Error */
+    domain:Quark
+    code:number
+    message:string
     /* Methods of GLib.Error */
     copy(): Error
     free(): void
@@ -1748,6 +1771,13 @@ export declare class HashTable_Static {
 }
 export declare var HashTable: HashTable_Static
 export interface HashTableIter {
+    /* Fields of GLib.HashTableIter */
+    dummy1:object
+    dummy2:object
+    dummy3:object
+    dummy4:number
+    dummy5:boolean
+    dummy6:object
     /* Methods of GLib.HashTableIter */
     init(hash_table: HashTable): void
     next(key: object | null, value: object | null): boolean
@@ -1769,6 +1799,15 @@ export interface Hmac_Static {
 }
 export declare var Hmac: Hmac_Static
 export interface Hook {
+    /* Fields of GLib.Hook */
+    data:object
+    next:Hook
+    prev:Hook
+    ref_count:number
+    hook_id:number
+    flags:number
+    func:object
+    destroy:DestroyNotify
     /* Methods of GLib.Hook */
     compare_ids(sibling: Hook): number
 }
@@ -1784,6 +1823,14 @@ export declare class Hook_Static {
 }
 export declare var Hook: Hook_Static
 export interface HookList {
+    /* Fields of GLib.HookList */
+    seq_id:number
+    hook_size:number
+    is_setup:number
+    hooks:Hook
+    dummy3:object
+    finalize_hook:HookFinalizeFunc
+    dummy:object[]
     /* Methods of GLib.HookList */
     clear(): void
     init(hook_size: number): void
@@ -1801,6 +1848,27 @@ export interface IConv_Static {
 }
 export declare var IConv: IConv_Static
 export interface IOChannel {
+    /* Fields of GLib.IOChannel */
+    ref_count:number
+    funcs:IOFuncs
+    encoding:string
+    read_cd:IConv
+    write_cd:IConv
+    line_term:string
+    line_term_len:number
+    buf_size:number
+    read_buf:String
+    encoded_read_buf:String
+    write_buf:String
+    partial_write_buf:number[]
+    use_buffer:number
+    do_encode:number
+    close_on_unref:number
+    is_readable:number
+    is_writeable:number
+    is_seekable:number
+    reserved1:object
+    reserved2:object
     /* Methods of GLib.IOChannel */
     close(): void
     flush(): IOStatus
@@ -1844,6 +1912,15 @@ export declare class IOChannel_Static {
 }
 export declare var IOChannel: IOChannel_Static
 export interface IOFuncs {
+    /* Fields of GLib.IOFuncs */
+    io_read:any
+    io_write:any
+    io_seek:any
+    io_close:any
+    io_create_watch:any
+    io_free:any
+    io_set_flags:any
+    io_get_flags:any
 }
 export interface IOFuncs_Static {
 }
@@ -1902,6 +1979,10 @@ export declare class KeyFile_Static {
 }
 export declare var KeyFile: KeyFile_Static
 export interface List {
+    /* Fields of GLib.List */
+    data:object
+    next:List
+    prev:List
 }
 export interface List_Static {
 }
@@ -1988,6 +2069,12 @@ export declare class MarkupParseContext_Static {
 }
 export declare var MarkupParseContext: MarkupParseContext_Static
 export interface MarkupParser {
+    /* Fields of GLib.MarkupParser */
+    start_element:any
+    end_element:any
+    text:any
+    passthrough:any
+    error:any
 }
 export interface MarkupParser_Static {
 }
@@ -2014,11 +2101,19 @@ export interface MatchInfo_Static {
 }
 export declare var MatchInfo: MatchInfo_Static
 export interface MemVTable {
+    /* Fields of GLib.MemVTable */
+    free:any
 }
 export interface MemVTable_Static {
 }
 export declare var MemVTable: MemVTable_Static
 export interface Node {
+    /* Fields of GLib.Node */
+    data:object
+    next:Node
+    prev:Node
+    parent:Node
+    children:Node
     /* Methods of GLib.Node */
     child_index(data: object): number
     child_position(child: Node): number
@@ -2035,6 +2130,9 @@ export interface Node_Static {
 }
 export declare var Node: Node_Static
 export interface Once {
+    /* Fields of GLib.Once */
+    status:OnceStatus
+    retval:object
     /* Methods of GLib.Once */
 }
 export interface Once_Static {
@@ -2071,6 +2169,14 @@ export interface OptionContext_Static {
 }
 export declare var OptionContext: OptionContext_Static
 export interface OptionEntry {
+    /* Fields of GLib.OptionEntry */
+    long_name:string
+    short_name:number
+    flags:number
+    arg:OptionArg
+    arg_data:object
+    description:string
+    arg_description:string
 }
 export interface OptionEntry_Static {
 }
@@ -2099,11 +2205,19 @@ export interface PatternSpec_Static {
 }
 export declare var PatternSpec: PatternSpec_Static
 export interface PollFD {
+    /* Fields of GLib.PollFD */
+    fd:number
+    events:number
+    revents:number
 }
 export interface PollFD_Static {
 }
 export declare var PollFD: PollFD_Static
 export interface Private {
+    /* Fields of GLib.Private */
+    p:object
+    notify:DestroyNotify
+    future:object[]
     /* Methods of GLib.Private */
     replace(value: object): void
     set(value: object): void
@@ -2112,11 +2226,18 @@ export interface Private_Static {
 }
 export declare var Private: Private_Static
 export interface PtrArray {
+    /* Fields of GLib.PtrArray */
+    pdata:object
+    len:number
 }
 export interface PtrArray_Static {
 }
 export declare var PtrArray: PtrArray_Static
 export interface Queue {
+    /* Fields of GLib.Queue */
+    head:List
+    tail:List
+    length:number
     /* Methods of GLib.Queue */
     clear(): void
     free(): void
@@ -2136,6 +2257,9 @@ export interface Queue_Static {
 }
 export declare var Queue: Queue_Static
 export interface RWLock {
+    /* Fields of GLib.RWLock */
+    p:object
+    i:number[]
     /* Methods of GLib.RWLock */
     clear(): void
     init(): void
@@ -2163,6 +2287,9 @@ export interface Rand_Static {
 }
 export declare var Rand: Rand_Static
 export interface RecMutex {
+    /* Fields of GLib.RecMutex */
+    p:object
+    i:number[]
     /* Methods of GLib.RecMutex */
     clear(): void
     init(): void
@@ -2207,11 +2334,36 @@ export declare class Regex_Static {
 }
 export declare var Regex: Regex_Static
 export interface SList {
+    /* Fields of GLib.SList */
+    data:object
+    next:SList
 }
 export interface SList_Static {
 }
 export declare var SList: SList_Static
 export interface Scanner {
+    /* Fields of GLib.Scanner */
+    user_data:object
+    max_parse_errors:number
+    parse_errors:number
+    input_name:string
+    qdata:Data
+    config:ScannerConfig
+    token:TokenType
+    value:TokenValue
+    line:number
+    position:number
+    next_token:TokenType
+    next_value:TokenValue
+    next_line:number
+    next_position:number
+    symbol_table:HashTable
+    input_fd:number
+    text:string
+    text_end:string
+    buffer:string
+    scope_id:number
+    msg_handler:ScannerMsgFunc
     /* Methods of GLib.Scanner */
     cur_line(): number
     cur_position(): number
@@ -2232,6 +2384,34 @@ export interface Scanner_Static {
 }
 export declare var Scanner: Scanner_Static
 export interface ScannerConfig {
+    /* Fields of GLib.ScannerConfig */
+    cset_skip_characters:string
+    cset_identifier_first:string
+    cset_identifier_nth:string
+    cpair_comment_single:string
+    case_sensitive:number
+    skip_comment_multi:number
+    skip_comment_single:number
+    scan_comment_multi:number
+    scan_identifier:number
+    scan_identifier_1char:number
+    scan_identifier_NULL:number
+    scan_symbols:number
+    scan_binary:number
+    scan_octal:number
+    scan_float:number
+    scan_hex:number
+    scan_hex_dollar:number
+    scan_string_sq:number
+    scan_string_dq:number
+    numbers_2_int:number
+    int_2_float:number
+    identifier_2_string:number
+    char_2_token:number
+    symbol_2_token:number
+    scope_0_fallback:number
+    store_int64:number
+    padding_dummy:number
 }
 export interface ScannerConfig_Static {
 }
@@ -2264,6 +2444,20 @@ export interface SequenceIter_Static {
 }
 export declare var SequenceIter: SequenceIter_Static
 export interface Source {
+    /* Fields of GLib.Source */
+    callback_data:object
+    callback_funcs:SourceCallbackFuncs
+    source_funcs:SourceFuncs
+    ref_count:number
+    context:MainContext
+    priority:number
+    flags:number
+    source_id:number
+    poll_fds:SList
+    prev:Source
+    next:Source
+    name:string
+    priv:SourcePrivate
     /* Methods of GLib.Source */
     add_child_source(child_source: Source): void
     add_poll(fd: PollFD): void
@@ -2304,11 +2498,20 @@ export declare class Source_Static {
 }
 export declare var Source: Source_Static
 export interface SourceCallbackFuncs {
+    /* Fields of GLib.SourceCallbackFuncs */
+    ref:any
+    unref:any
 }
 export interface SourceCallbackFuncs_Static {
 }
 export declare var SourceCallbackFuncs: SourceCallbackFuncs_Static
 export interface SourceFuncs {
+    /* Fields of GLib.SourceFuncs */
+    prepare:any
+    check:any
+    finalize:any
+    closure_callback:SourceFunc
+    closure_marshal:SourceDummyMarshal
 }
 export interface SourceFuncs_Static {
 }
@@ -2324,6 +2527,10 @@ export interface StatBuf_Static {
 }
 export declare var StatBuf: StatBuf_Static
 export interface String {
+    /* Fields of GLib.String */
+    str:string
+    len:number
+    allocated_len:number
     /* Methods of GLib.String */
     append(val: string): String
     append_c(c: number): String
@@ -2373,11 +2580,21 @@ export interface TestCase_Static {
 }
 export declare var TestCase: TestCase_Static
 export interface TestConfig {
+    /* Fields of GLib.TestConfig */
+    test_initialized:boolean
+    test_quick:boolean
+    test_perf:boolean
+    test_verbose:boolean
+    test_quiet:boolean
+    test_undefined:boolean
 }
 export interface TestConfig_Static {
 }
 export declare var TestConfig: TestConfig_Static
 export interface TestLogBuffer {
+    /* Fields of GLib.TestLogBuffer */
+    data:String
+    msgs:SList
     /* Methods of GLib.TestLogBuffer */
     free(): void
     push(n_bytes: number, bytes: number): void
@@ -2386,6 +2603,12 @@ export interface TestLogBuffer_Static {
 }
 export declare var TestLogBuffer: TestLogBuffer_Static
 export interface TestLogMsg {
+    /* Fields of GLib.TestLogMsg */
+    log_type:TestLogType
+    n_strings:number
+    strings:string
+    n_nums:number
+    nums:number
     /* Methods of GLib.TestLogMsg */
     free(): void
 }
@@ -2415,6 +2638,10 @@ export declare class Thread_Static {
 }
 export declare var Thread: Thread_Static
 export interface ThreadPool {
+    /* Fields of GLib.ThreadPool */
+    func:Func
+    user_data:object
+    exclusive:boolean
     /* Methods of GLib.ThreadPool */
     free(immediate: boolean, wait_: boolean): void
     get_max_threads(): number
@@ -2436,6 +2663,9 @@ export declare class ThreadPool_Static {
 }
 export declare var ThreadPool: ThreadPool_Static
 export interface TimeVal {
+    /* Fields of GLib.TimeVal */
+    tv_sec:number
+    tv_usec:number
     /* Methods of GLib.TimeVal */
     add(microseconds: number): void
     to_iso8601(): string
@@ -2477,6 +2707,8 @@ export interface Timer_Static {
 }
 export declare var Timer: Timer_Static
 export interface TrashStack {
+    /* Fields of GLib.TrashStack */
+    next:TrashStack
 }
 export interface TrashStack_Static {
 }
@@ -2587,6 +2819,8 @@ export declare class Variant_Static {
 }
 export declare var Variant: Variant_Static
 export interface VariantBuilder {
+    /* Fields of GLib.VariantBuilder */
+    x:number[]
     /* Methods of GLib.VariantBuilder */
     add_value(value: Variant): void
     close(): void
@@ -2602,6 +2836,8 @@ export declare class VariantBuilder_Static {
 }
 export declare var VariantBuilder: VariantBuilder_Static
 export interface VariantDict {
+    /* Fields of GLib.VariantDict */
+    x:number[]
     /* Methods of GLib.VariantDict */
     clear(): void
     contains(key: string): boolean
@@ -2619,6 +2855,8 @@ export declare class VariantDict_Static {
 }
 export declare var VariantDict: VariantDict_Static
 export interface VariantIter {
+    /* Fields of undefined */
+    x:number[]
     /* Methods of undefined */
     free(): void
     n_children(): number
@@ -2665,16 +2903,23 @@ export declare class VariantType_Static {
 }
 export declare var VariantType: VariantType_Static
 export interface DoubleIEEE754 {
+    /* Fields of GLib.DoubleIEEE754 */
+    v_double:number
 }
 export interface DoubleIEEE754_Static {
 }
 export declare var DoubleIEEE754: DoubleIEEE754_Static
 export interface FloatIEEE754 {
+    /* Fields of GLib.FloatIEEE754 */
+    v_float:number
 }
 export interface FloatIEEE754_Static {
 }
 export declare var FloatIEEE754: FloatIEEE754_Static
 export interface Mutex {
+    /* Fields of GLib.Mutex */
+    p:object
+    i:number[]
     /* Methods of GLib.Mutex */
     clear(): void
     init(): void
@@ -2686,6 +2931,19 @@ export interface Mutex_Static {
 }
 export declare var Mutex: Mutex_Static
 export interface TokenValue {
+    /* Fields of GLib.TokenValue */
+    v_symbol:object
+    v_identifier:string
+    v_binary:number
+    v_octal:number
+    v_int:number
+    v_int64:number
+    v_float:number
+    v_hex:number
+    v_string:string
+    v_comment:string
+    v_char:number
+    v_error:number
 }
 export interface TokenValue_Static {
 }

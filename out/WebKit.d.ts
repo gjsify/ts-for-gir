@@ -260,6 +260,16 @@ export interface DOMAttr {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMAttr */
+    parent_instance:DOMNode
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMAttr */
     get_is_id(): boolean
     get_name(): string
@@ -379,6 +389,15 @@ export interface DOMAudioTrack {
     readonly label:string
     readonly language:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMAudioTrack */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMAudioTrack */
     get_enabled(): boolean
     get_id(): string
@@ -439,6 +458,15 @@ export interface DOMAudioTrackList {
     /* Properties of WebKit.DOMAudioTrackList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMAudioTrackList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMAudioTrackList */
     dispatch_event(evt: DOMEvent): boolean
     get_length(): number
@@ -493,6 +521,13 @@ export interface DOMBarInfo {
     /* Properties of WebKit.DOMBarInfo */
     readonly visible:boolean
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -545,6 +580,15 @@ export interface DOMBarProp {
     /* Properties of WebKit.DOMBarProp */
     readonly visible:boolean
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMBarProp */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMBarProp */
     get_visible(): boolean
     /* Methods of GObject.Object */
@@ -599,6 +643,15 @@ export interface DOMBatteryManager {
     readonly discharging_time:number
     readonly level:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMBatteryManager */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMBatteryManager */
     dispatch_event(event: DOMEvent): boolean
     get_charging(): boolean
@@ -658,6 +711,15 @@ export interface DOMBlob {
     readonly size:number
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMBlob */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMBlob */
     get_size(): number
     slice(start: number, end: number, contentType: string): DOMBlob
@@ -738,6 +800,18 @@ export interface DOMCDATASection {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMCDATASection */
+    parent_instance:DOMText
+    /* Fields of WebKit.DOMText */
+    /* Fields of WebKit.DOMCharacterData */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMText */
     get_whole_text(): string
     replace_whole_text(content: string): DOMText
@@ -858,6 +932,15 @@ export interface DOMCSSRule {
     readonly parent_style_sheet:DOMCSSStyleSheet
     readonly type:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMCSSRule */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSRule */
     get_css_text(): string
     get_parent_rule(): DOMCSSRule
@@ -915,6 +998,15 @@ export interface DOMCSSRuleList {
     /* Properties of WebKit.DOMCSSRuleList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMCSSRuleList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSRuleList */
     get_length(): number
     item(index: number): DOMCSSRule
@@ -970,6 +1062,15 @@ export interface DOMCSSStyleDeclaration {
     readonly length:number
     readonly parent_rule:DOMCSSRule
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMCSSStyleDeclaration */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSStyleDeclaration */
     get_css_text(): string
     get_length(): number
@@ -1045,6 +1146,16 @@ export interface DOMCSSStyleSheet {
     readonly title:string
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMCSSStyleSheet */
+    parent_instance:DOMStyleSheet
+    /* Fields of WebKit.DOMStyleSheet */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSStyleSheet */
     add_rule(selector: string, style: string, index: number): number
     delete_rule(index: number): void
@@ -1121,6 +1232,15 @@ export interface DOMCSSValue {
     css_text:string
     readonly css_value_type:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMCSSValue */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSValue */
     get_css_text(): string
     get_css_value_type(): number
@@ -1198,6 +1318,16 @@ export interface DOMCharacterData {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMCharacterData */
+    parent_instance:DOMNode
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMCharacterData */
     append_data(data: string): void
     delete_data(offset: number, length: number): void
@@ -1332,6 +1462,17 @@ export interface DOMComment {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMComment */
+    parent_instance:DOMCharacterData
+    /* Fields of WebKit.DOMCharacterData */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMCharacterData */
     append_data(data: string): void
     delete_data(offset: number, length: number): void
@@ -1440,6 +1581,15 @@ export interface DOMConsole_ConstructProps {
 }
 export interface DOMConsole {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMConsole */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMConsole */
     get_memory(): object
     group_end(): void
@@ -1492,6 +1642,15 @@ export interface DOMDOMApplicationCache {
     /* Properties of WebKit.DOMDOMApplicationCache */
     readonly status:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMApplicationCache */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMApplicationCache */
     abort(): void
     dispatch_event(evt: DOMEvent): boolean
@@ -1544,6 +1703,15 @@ export interface DOMDOMImplementation_ConstructProps {
 }
 export interface DOMDOMImplementation {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMImplementation */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMImplementation */
     create_css_style_sheet(title: string, media: string): DOMCSSStyleSheet
     create_document(namespaceURI: string | null, qualifiedName: string, doctype: DOMDocumentType | null): DOMDocument
@@ -1601,6 +1769,15 @@ export interface DOMDOMMimeType {
     readonly suffixes:string
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMMimeType */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMMimeType */
     get_description(): string
     get_enabled_plugin(): DOMDOMPlugin
@@ -1657,6 +1834,15 @@ export interface DOMDOMMimeTypeArray {
     /* Properties of WebKit.DOMDOMMimeTypeArray */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMMimeTypeArray */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMMimeTypeArray */
     get_length(): number
     item(index: number): DOMDOMMimeType
@@ -1710,6 +1896,15 @@ export interface DOMDOMNamedFlowCollection {
     /* Properties of WebKit.DOMDOMNamedFlowCollection */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMNamedFlowCollection */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMNamedFlowCollection */
     get_length(): number
     item(index: number): DOMWebKitNamedFlow
@@ -1766,6 +1961,15 @@ export interface DOMDOMPlugin {
     readonly length:number
     readonly name:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMPlugin */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMPlugin */
     get_description(): string
     get_filename(): string
@@ -1825,6 +2029,15 @@ export interface DOMDOMPluginArray {
     /* Properties of WebKit.DOMDOMPluginArray */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMPluginArray */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMPluginArray */
     get_length(): number
     item(index: number): DOMDOMPlugin
@@ -1883,6 +2096,15 @@ export interface DOMDOMSecurityPolicy {
     readonly is_active:boolean
     readonly report_ur_is:DOMDOMStringList
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMSecurityPolicy */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMSecurityPolicy */
     allows_connection_to(url: string): boolean
     allows_font_from(url: string): boolean
@@ -1962,6 +2184,15 @@ export interface DOMDOMSelection {
     readonly range_count:number
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMSelection */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMSelection */
     add_range(range: DOMRange): void
     collapse(node: DOMNode, index: number): void
@@ -2050,6 +2281,16 @@ export interface DOMDOMSettableTokenList {
     /* Properties of WebKit.DOMDOMTokenList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMSettableTokenList */
+    parent_instance:DOMDOMTokenList
+    /* Fields of WebKit.DOMDOMTokenList */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMSettableTokenList */
     get_value(): string
     set_value(value: string): void
@@ -2110,6 +2351,15 @@ export interface DOMDOMStringList {
     /* Properties of WebKit.DOMDOMStringList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMStringList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMStringList */
     contains(string: string): boolean
     get_length(): number
@@ -2160,6 +2410,15 @@ export interface DOMDOMStringMap_ConstructProps {
 }
 export interface DOMDOMStringMap {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMStringMap */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -2208,6 +2467,15 @@ export interface DOMDOMTokenList {
     /* Properties of WebKit.DOMDOMTokenList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMTokenList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMTokenList */
     add(tokens: string): void
     contains(token: string): boolean
@@ -2311,6 +2579,15 @@ export interface DOMDOMWindow {
     readonly webkit_storage_info:DOMStorageInfo
     readonly window:DOMDOMWindow
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMWindow */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMWindow */
     alert(message: string): void
     atob(string: string): string
@@ -2481,6 +2758,15 @@ export interface DOMDOMWindowCSS_ConstructProps {
 }
 export interface DOMDOMWindowCSS {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDOMWindowCSS */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMWindowCSS */
     supports(property: string, value: string): boolean
     /* Methods of GObject.Object */
@@ -2531,6 +2817,15 @@ export interface DOMDatabase {
     /* Properties of WebKit.DOMDatabase */
     readonly version:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDatabase */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDatabase */
     get_version(): string
     /* Methods of GObject.Object */
@@ -2649,6 +2944,16 @@ export interface DOMDocument {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDocument */
+    parent_instance:DOMNode
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDocument */
     adopt_node(source: DOMNode): DOMNode
     caret_range_from_point(x: number, y: number): DOMRange
@@ -2901,6 +3206,16 @@ export interface DOMDocumentFragment {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDocumentFragment */
+    parent_instance:DOMNode
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDocumentFragment */
     query_selector(selectors: string): DOMElement
     query_selector_all(selectors: string): DOMNodeList
@@ -3032,6 +3347,16 @@ export interface DOMDocumentType {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMDocumentType */
+    parent_instance:DOMNode
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMDocumentType */
     get_entities(): DOMNamedNodeMap
     get_internal_subset(): string
@@ -3197,6 +3522,16 @@ export interface DOMElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMElement */
+    parent_instance:DOMNode
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMElement */
     blur(): void
     focus(): void
@@ -3401,6 +3736,16 @@ export interface DOMEntityReference {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMEntityReference */
+    parent_instance:DOMNode
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMNode */
     append_child(newChild: DOMNode): DOMNode
     clone_node(deep: boolean): DOMNode
@@ -3515,6 +3860,15 @@ export interface DOMEvent {
     readonly time_stamp:number
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMEvent */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMEvent */
     get_bubbles(): boolean
     get_cancel_bubble(): boolean
@@ -3596,6 +3950,16 @@ export interface DOMFile {
     readonly size:number
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMFile */
+    parent_instance:DOMBlob
+    /* Fields of WebKit.DOMBlob */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMFile */
     get_name(): string
     get_webkit_relative_path(): string
@@ -3655,6 +4019,15 @@ export interface DOMFileList {
     /* Properties of WebKit.DOMFileList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMFileList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMFileList */
     get_length(): number
     item(index: number): DOMFile
@@ -3709,6 +4082,15 @@ export interface DOMGamepad {
     readonly index:number
     readonly timestamp:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMGamepad */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMGamepad */
     get_id(): string
     get_index(): number
@@ -3764,6 +4146,15 @@ export interface DOMGamepadList {
     /* Properties of WebKit.DOMGamepadList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMGamepadList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMGamepadList */
     get_length(): number
     item(index: number): DOMGamepad
@@ -3813,6 +4204,15 @@ export interface DOMGeolocation_ConstructProps {
 }
 export interface DOMGeolocation {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMGeolocation */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMGeolocation */
     clear_watch(watchID: number): void
     /* Methods of GObject.Object */
@@ -3988,6 +4388,18 @@ export interface DOMHTMLAnchorElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLAnchorElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLAnchorElement */
     get_charset(): string
     get_coords(): string
@@ -4402,6 +4814,18 @@ export interface DOMHTMLAppletElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLAppletElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLAppletElement */
     get_align(): string
     get_alt(): string
@@ -4789,6 +5213,18 @@ export interface DOMHTMLAreaElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLAreaElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLAreaElement */
     get_alt(): string
     get_coords(): string
@@ -5204,6 +5640,19 @@ export interface DOMHTMLAudioElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLAudioElement */
+    parent_instance:DOMHTMLMediaElement
+    /* Fields of WebKit.DOMHTMLMediaElement */
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMediaElement */
     add_text_track(kind: string, label: string, language: string): DOMTextTrack
     can_play_type(type: string): string
@@ -5628,6 +6077,18 @@ export interface DOMHTMLBRElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLBRElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLBRElement */
     get_clear(): string
     set_clear(value: string): void
@@ -5968,6 +6429,18 @@ export interface DOMHTMLBaseElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLBaseElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLBaseElement */
     get_href(): string
     get_target(): string
@@ -6313,6 +6786,18 @@ export interface DOMHTMLBaseFontElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLBaseFontElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLBaseFontElement */
     get_color(): string
     get_face(): string
@@ -6667,6 +7152,18 @@ export interface DOMHTMLBodyElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLBodyElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLBodyElement */
     get_a_link(): string
     get_background(): string
@@ -7043,6 +7540,18 @@ export interface DOMHTMLButtonElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLButtonElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLButtonElement */
     check_validity(): boolean
     get_autofocus(): boolean
@@ -7420,6 +7929,18 @@ export interface DOMHTMLCanvasElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLCanvasElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLCanvasElement */
     get_height(): number
     get_width(): number
@@ -7674,6 +8195,15 @@ export interface DOMHTMLCollection {
     /* Properties of WebKit.DOMHTMLCollection */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLCollection */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLCollection */
     get_length(): number
     item(index: number): DOMNode
@@ -7814,6 +8344,18 @@ export interface DOMHTMLDListElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLDListElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDListElement */
     get_compact(): boolean
     set_compact(value: boolean): void
@@ -8152,6 +8694,18 @@ export interface DOMHTMLDetailsElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLDetailsElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDetailsElement */
     get_open(): boolean
     set_open(value: boolean): void
@@ -8490,6 +9044,18 @@ export interface DOMHTMLDirectoryElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLDirectoryElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDirectoryElement */
     get_compact(): boolean
     set_compact(value: boolean): void
@@ -8828,6 +9394,18 @@ export interface DOMHTMLDivElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLDivElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDivElement */
     get_align(): string
     set_align(value: string): void
@@ -9168,6 +9746,17 @@ export interface DOMHTMLDocument {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLDocument */
+    parent_instance:DOMDocument
+    /* Fields of WebKit.DOMDocument */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDocument */
     capture_events(): void
     clear(): void
@@ -9525,6 +10114,17 @@ export interface DOMHTMLElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLElement */
+    parent_instance:DOMElement
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLElement */
     click(): void
     get_access_key(): string
@@ -9869,6 +10469,18 @@ export interface DOMHTMLEmbedElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLEmbedElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLEmbedElement */
     get_align(): string
     get_height(): number
@@ -10228,6 +10840,18 @@ export interface DOMHTMLFieldSetElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLFieldSetElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFieldSetElement */
     check_validity(): boolean
     get_disabled(): boolean
@@ -10586,6 +11210,18 @@ export interface DOMHTMLFontElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLFontElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFontElement */
     get_color(): string
     get_face(): string
@@ -10952,6 +11588,18 @@ export interface DOMHTMLFormElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLFormElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFormElement */
     check_validity(): boolean
     dispatch_form_change(): void
@@ -11347,6 +11995,18 @@ export interface DOMHTMLFrameElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLFrameElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFrameElement */
     get_content_document(): DOMDocument
     get_content_window(): DOMDOMWindow
@@ -11716,6 +12376,18 @@ export interface DOMHTMLFrameSetElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLFrameSetElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFrameSetElement */
     get_cols(): string
     get_rows(): string
@@ -12063,6 +12735,18 @@ export interface DOMHTMLHRElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLHRElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLHRElement */
     get_align(): string
     get_no_shade(): boolean
@@ -12410,6 +13094,18 @@ export interface DOMHTMLHeadElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLHeadElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLHeadElement */
     get_profile(): string
     set_profile(value: string): void
@@ -12748,6 +13444,18 @@ export interface DOMHTMLHeadingElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLHeadingElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLHeadingElement */
     get_align(): string
     set_align(value: string): void
@@ -13088,6 +13796,18 @@ export interface DOMHTMLHtmlElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLHtmlElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLHtmlElement */
     get_manifest(): string
     get_version(): string
@@ -13455,6 +14175,18 @@ export interface DOMHTMLIFrameElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLIFrameElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLIFrameElement */
     get_align(): string
     get_content_document(): DOMDocument
@@ -13866,6 +14598,18 @@ export interface DOMHTMLImageElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLImageElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLImageElement */
     get_align(): string
     get_alt(): string
@@ -14343,6 +15087,18 @@ export interface DOMHTMLInputElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLInputElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLInputElement */
     check_validity(): boolean
     get_accept(): string
@@ -14836,6 +15592,18 @@ export interface DOMHTMLKeygenElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLKeygenElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLKeygenElement */
     check_validity(): boolean
     get_autofocus(): boolean
@@ -15201,6 +15969,18 @@ export interface DOMHTMLLIElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLLIElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLLIElement */
     get_value(): number
     set_value(value: number): void
@@ -15542,6 +16322,18 @@ export interface DOMHTMLLabelElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLLabelElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLLabelElement */
     get_control(): DOMHTMLElement
     get_form(): DOMHTMLFormElement
@@ -15885,6 +16677,18 @@ export interface DOMHTMLLegendElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLLegendElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLLegendElement */
     get_align(): string
     get_form(): DOMHTMLFormElement
@@ -16242,6 +17046,18 @@ export interface DOMHTMLLinkElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLLinkElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLLinkElement */
     get_charset(): string
     get_disabled(): boolean
@@ -16605,6 +17421,18 @@ export interface DOMHTMLMapElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLMapElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMapElement */
     get_areas(): DOMHTMLCollection
     get_name(): string
@@ -16965,6 +17793,18 @@ export interface DOMHTMLMarqueeElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLMarqueeElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMarqueeElement */
     get_behavior(): string
     get_bg_color(): string
@@ -17380,6 +18220,18 @@ export interface DOMHTMLMediaElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLMediaElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMediaElement */
     add_text_track(kind: string, label: string, language: string): DOMTextTrack
     can_play_type(type: string): string
@@ -17804,6 +18656,18 @@ export interface DOMHTMLMenuElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLMenuElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMenuElement */
     get_compact(): boolean
     set_compact(value: boolean): void
@@ -18148,6 +19012,18 @@ export interface DOMHTMLMetaElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLMetaElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMetaElement */
     get_content(): string
     get_http_equiv(): string
@@ -18497,6 +19373,18 @@ export interface DOMHTMLModElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLModElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLModElement */
     get_cite(): string
     get_date_time(): string
@@ -18844,6 +19732,18 @@ export interface DOMHTMLOListElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLOListElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLOListElement */
     get_compact(): boolean
     get_reversed(): boolean
@@ -19224,6 +20124,18 @@ export interface DOMHTMLObjectElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLObjectElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLObjectElement */
     check_validity(): boolean
     get_align(): string
@@ -19617,6 +20529,18 @@ export interface DOMHTMLOptGroupElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLOptGroupElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLOptGroupElement */
     get_disabled(): boolean
     get_label(): string
@@ -19969,6 +20893,18 @@ export interface DOMHTMLOptionElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLOptionElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLOptionElement */
     get_default_selected(): boolean
     get_disabled(): boolean
@@ -20242,6 +21178,16 @@ export interface DOMHTMLOptionsCollection {
     selected_index:number
     /* Properties of WebKit.DOMHTMLCollection */
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLOptionsCollection */
+    parent_instance:DOMHTMLCollection
+    /* Fields of WebKit.DOMHTMLCollection */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLOptionsCollection */
     get_length(): number
     get_selected_index(): number
@@ -20386,6 +21332,18 @@ export interface DOMHTMLParagraphElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLParagraphElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLParagraphElement */
     get_align(): string
     set_align(value: string): void
@@ -20730,6 +21688,18 @@ export interface DOMHTMLParamElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLParamElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLParamElement */
     get_name(): string
     get_value(): string
@@ -21077,6 +22047,18 @@ export interface DOMHTMLPreElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLPreElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLPreElement */
     get_width(): number
     get_wrap(): boolean
@@ -21334,6 +22316,15 @@ export interface DOMHTMLPropertiesCollection {
     readonly names:DOMDOMStringList
     /* Properties of WebKit.DOMHTMLCollection */
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLCollection */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLCollection */
     get_length(): number
     item(index: number): DOMNode
@@ -21481,6 +22472,18 @@ export interface DOMHTMLQuoteElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLQuoteElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLQuoteElement */
     get_cite(): string
     set_cite(value: string): void
@@ -21837,6 +22840,18 @@ export interface DOMHTMLScriptElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLScriptElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLScriptElement */
     get_async(): boolean
     get_charset(): string
@@ -22224,6 +23239,18 @@ export interface DOMHTMLSelectElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLSelectElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLSelectElement */
     add(element: DOMHTMLElement, before: DOMHTMLElement): void
     check_validity(): boolean
@@ -22611,6 +23638,18 @@ export interface DOMHTMLStyleElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLStyleElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLStyleElement */
     get_disabled(): boolean
     get_media(): string
@@ -22957,6 +23996,18 @@ export interface DOMHTMLTableCaptionElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLTableCaptionElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableCaptionElement */
     get_align(): string
     set_align(value: string): void
@@ -23322,6 +24373,18 @@ export interface DOMHTMLTableCellElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLTableCellElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableCellElement */
     get_abbr(): string
     get_align(): string
@@ -23711,6 +24774,18 @@ export interface DOMHTMLTableColElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLTableColElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableColElement */
     get_align(): string
     get_ch(): string
@@ -24085,6 +25160,18 @@ export interface DOMHTMLTableElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLTableElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableElement */
     create_caption(): DOMHTMLElement
     create_t_body(): DOMHTMLElement
@@ -24480,6 +25567,18 @@ export interface DOMHTMLTableRowElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLTableRowElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableRowElement */
     delete_cell(index: number): void
     get_align(): string
@@ -24845,6 +25944,18 @@ export interface DOMHTMLTableSectionElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLTableSectionElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableSectionElement */
     delete_row(index: number): void
     get_align(): string
@@ -25237,6 +26348,18 @@ export interface DOMHTMLTextAreaElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLTextAreaElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTextAreaElement */
     check_validity(): boolean
     get_autocapitalize(): string
@@ -25645,6 +26768,18 @@ export interface DOMHTMLTitleElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLTitleElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTitleElement */
     get_text(): string
     set_text(value: string): void
@@ -25985,6 +27120,18 @@ export interface DOMHTMLUListElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLUListElement */
+    parent_instance:DOMHTMLElement
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLUListElement */
     get_compact(): boolean
     set_compact(value: boolean): void
@@ -26385,6 +27532,19 @@ export interface DOMHTMLVideoElement {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHTMLVideoElement */
+    parent_instance:DOMHTMLMediaElement
+    /* Fields of WebKit.DOMHTMLMediaElement */
+    /* Fields of WebKit.DOMHTMLElement */
+    /* Fields of WebKit.DOMElement */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLVideoElement */
     get_height(): number
     get_poster(): string
@@ -26751,6 +27911,15 @@ export interface DOMHistory {
     /* Properties of WebKit.DOMHistory */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMHistory */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMHistory */
     back(): void
     forward(): void
@@ -26837,6 +28006,17 @@ export interface DOMKeyboardEvent {
     readonly time_stamp:number
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMKeyboardEvent */
+    parent_instance:DOMUIEvent
+    /* Fields of WebKit.DOMUIEvent */
+    /* Fields of WebKit.DOMEvent */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMKeyboardEvent */
     get_alt_graph_key(): boolean
     get_alt_key(): boolean
@@ -26959,6 +28139,15 @@ export interface DOMLocation {
     readonly protocol:string
     readonly search:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMLocation */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMLocation */
     get_ancestor_origins(): DOMDOMStringList
     get_hash(): string
@@ -27043,6 +28232,15 @@ export interface DOMMediaController {
     readonly seekable:DOMTimeRanges
     volume:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMMediaController */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMMediaController */
     get_buffered(): DOMTimeRanges
     get_current_time(): number
@@ -27122,6 +28320,15 @@ export interface DOMMediaError {
     /* Properties of WebKit.DOMMediaError */
     readonly code:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMMediaError */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMMediaError */
     get_code(): number
     /* Methods of GObject.Object */
@@ -27175,6 +28382,15 @@ export interface DOMMediaList {
     readonly length:number
     media_text:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMMediaList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMMediaList */
     append_medium(newMedium: string): void
     delete_medium(oldMedium: string): void
@@ -27233,6 +28449,15 @@ export interface DOMMediaQueryList {
     readonly matches:boolean
     readonly media:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMMediaQueryList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMMediaQueryList */
     get_matches(): boolean
     get_media(): string
@@ -27288,6 +28513,13 @@ export interface DOMMemoryInfo {
     readonly total_js_heap_size:number
     readonly used_js_heap_size:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -27341,6 +28573,15 @@ export interface DOMMessagePort_ConstructProps {
 }
 export interface DOMMessagePort {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMMessagePort */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -27386,6 +28627,13 @@ export interface DOMMicroDataItemValue_ConstructProps {
 }
 export interface DOMMicroDataItemValue {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -27477,6 +28725,17 @@ export interface DOMMouseEvent {
     readonly time_stamp:number
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMMouseEvent */
+    parent_instance:DOMUIEvent
+    /* Fields of WebKit.DOMUIEvent */
+    /* Fields of WebKit.DOMEvent */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMMouseEvent */
     get_alt_key(): boolean
     get_button(): number
@@ -27611,6 +28870,15 @@ export interface DOMNamedNodeMap {
     /* Properties of WebKit.DOMNamedNodeMap */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMNamedNodeMap */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMNamedNodeMap */
     get_length(): number
     get_named_item(name: string): DOMNode
@@ -27686,6 +28954,15 @@ export interface DOMNavigator {
     readonly webkit_persistent_storage:DOMStorageQuota
     readonly webkit_temporary_storage:DOMStorageQuota
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMNavigator */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMNavigator */
     get_app_code_name(): string
     get_app_name(): string
@@ -27795,6 +29072,15 @@ export interface DOMNode {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMNode */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMNode */
     append_child(newChild: DOMNode): DOMNode
     clone_node(deep: boolean): DOMNode
@@ -27894,6 +29180,15 @@ export interface DOMNodeFilter_ConstructProps {
 }
 export interface DOMNodeFilter {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMNodeFilter */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMNodeFilter */
     accept_node(n: DOMNode): number
     /* Methods of GObject.Object */
@@ -27949,6 +29244,15 @@ export interface DOMNodeIterator {
     readonly root:DOMNode
     readonly what_to_show:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMNodeIterator */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMNodeIterator */
     detach(): void
     get_expand_entity_references(): boolean
@@ -28013,6 +29317,15 @@ export interface DOMNodeList {
     /* Properties of WebKit.DOMNodeList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMNodeList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMNodeList */
     get_length(): number
     item(index: number): DOMNode
@@ -28062,6 +29375,13 @@ export interface DOMObject_ConstructProps {
 }
 export interface DOMObject {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -28111,6 +29431,15 @@ export interface DOMPerformance {
     readonly navigation:DOMPerformanceNavigation
     readonly timing:DOMPerformanceTiming
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMPerformance */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformance */
     get_memory(): object
     get_navigation(): DOMPerformanceNavigation
@@ -28169,6 +29498,15 @@ export interface DOMPerformanceEntry {
     readonly name:string
     readonly start_time:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMPerformanceEntry */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformanceEntry */
     get_duration(): number
     get_entry_type(): string
@@ -28226,6 +29564,15 @@ export interface DOMPerformanceEntryList {
     /* Properties of WebKit.DOMPerformanceEntryList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMPerformanceEntryList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformanceEntryList */
     get_length(): number
     item(index: number): DOMPerformanceEntry
@@ -28279,6 +29626,15 @@ export interface DOMPerformanceNavigation {
     readonly redirect_count:number
     readonly type:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMPerformanceNavigation */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformanceNavigation */
     get_redirect_count(): number
     /* Methods of GObject.Object */
@@ -28351,6 +29707,15 @@ export interface DOMPerformanceTiming {
     readonly unload_event_end:number
     readonly unload_event_start:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMPerformanceTiming */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformanceTiming */
     get_connect_end(): number
     get_connect_start(): number
@@ -28469,6 +29834,17 @@ export interface DOMProcessingInstruction {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMProcessingInstruction */
+    parent_instance:DOMCharacterData
+    /* Fields of WebKit.DOMCharacterData */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMProcessingInstruction */
     get_data(): string
     get_sheet(): DOMStyleSheet
@@ -28587,6 +29963,15 @@ export interface DOMPropertyNodeList {
     readonly length:number
     /* Properties of WebKit.DOMNodeList */
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMNodeList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMNodeList */
     get_length(): number
     item(index: number): DOMNode
@@ -28649,6 +30034,15 @@ export interface DOMRange {
     readonly start_offset:number
     readonly text:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMRange */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMRange */
     clone_contents(): DOMDocumentFragment
     clone_range(): DOMRange
@@ -28743,6 +30137,15 @@ export interface DOMScreen {
     readonly pixel_depth:number
     readonly width:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMScreen */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMScreen */
     get_avail_height(): number
     get_avail_left(): number
@@ -28835,6 +30238,17 @@ export interface DOMShadowRoot {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMShadowRoot */
+    parent_instance:DOMDocumentFragment
+    /* Fields of WebKit.DOMDocumentFragment */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMShadowRoot */
     element_from_point(x: number, y: number): DOMElement
     get_active_element(): DOMElement
@@ -28958,6 +30372,15 @@ export interface DOMStorage {
     /* Properties of WebKit.DOMStorage */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMStorage */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMStorage */
     clear(): void
     get_item(key: string): string
@@ -29011,6 +30434,15 @@ export interface DOMStorageInfo_ConstructProps {
 }
 export interface DOMStorageInfo {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMStorageInfo */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -29056,6 +30488,15 @@ export interface DOMStorageQuota_ConstructProps {
 }
 export interface DOMStorageQuota {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMStorageQuota */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -29104,6 +30545,15 @@ export interface DOMStyleMedia {
     /* Properties of WebKit.DOMStyleMedia */
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMStyleMedia */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMStyleMedia */
     match_medium(mediaquery: string): boolean
     /* Methods of GObject.Object */
@@ -29162,6 +30612,15 @@ export interface DOMStyleSheet {
     readonly title:string
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMStyleSheet */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMStyleSheet */
     get_disabled(): boolean
     get_href(): string
@@ -29225,6 +30684,15 @@ export interface DOMStyleSheetList {
     /* Properties of WebKit.DOMStyleSheetList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMStyleSheetList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMStyleSheetList */
     get_length(): number
     item(index: number): DOMStyleSheet
@@ -29303,6 +30771,17 @@ export interface DOMText {
     readonly previous_sibling:DOMNode
     text_content:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMText */
+    parent_instance:DOMCharacterData
+    /* Fields of WebKit.DOMCharacterData */
+    /* Fields of WebKit.DOMNode */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMText */
     get_whole_text(): string
     replace_whole_text(content: string): DOMText
@@ -29426,6 +30905,15 @@ export interface DOMTextTrack {
     readonly language:string
     mode:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMTextTrack */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMTextTrack */
     add_cue(cue: DOMTextTrackCue): void
     dispatch_event(evt: DOMEvent): boolean
@@ -29515,6 +31003,15 @@ export interface DOMTextTrackCue {
     readonly track:DOMTextTrack
     vertical:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMTextTrackCue */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMTextTrackCue */
     dispatch_event(evt: DOMEvent): boolean
     get_align(): string
@@ -29601,6 +31098,15 @@ export interface DOMTextTrackCueList {
     /* Properties of WebKit.DOMTextTrackCueList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMTextTrackCueList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMTextTrackCueList */
     get_cue_by_id(id: string): DOMTextTrackCue
     get_length(): number
@@ -29654,6 +31160,15 @@ export interface DOMTextTrackList {
     /* Properties of WebKit.DOMTextTrackList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMTextTrackList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMTextTrackList */
     dispatch_event(evt: DOMEvent): boolean
     get_length(): number
@@ -29708,6 +31223,15 @@ export interface DOMTimeRanges {
     /* Properties of WebKit.DOMTimeRanges */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMTimeRanges */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMTimeRanges */
     end(index: number): number
     get_length(): number
@@ -29772,6 +31296,15 @@ export interface DOMTouch {
     readonly webkit_radius_y:number
     readonly webkit_rotation_angle:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMTouch */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMTouch */
     get_client_x(): number
     get_client_y(): number
@@ -29857,6 +31390,16 @@ export interface DOMTrackEvent {
     readonly time_stamp:number
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMTrackEvent */
+    parent_instance:DOMEvent
+    /* Fields of WebKit.DOMEvent */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMEvent */
     get_bubbles(): boolean
     get_cancel_bubble(): boolean
@@ -29937,6 +31480,15 @@ export interface DOMTreeWalker {
     readonly root:DOMNode
     readonly what_to_show:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMTreeWalker */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMTreeWalker */
     first_child(): DOMNode
     get_current_node(): DOMNode
@@ -30027,6 +31579,16 @@ export interface DOMUIEvent {
     readonly time_stamp:number
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMUIEvent */
+    parent_instance:DOMEvent
+    /* Fields of WebKit.DOMEvent */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMUIEvent */
     get_char_code(): number
     get_detail(): number
@@ -30132,6 +31694,15 @@ export interface DOMValidityState {
     readonly valid:boolean
     readonly value_missing:boolean
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMValidityState */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMValidityState */
     get_bad_input(): boolean
     get_custom_error(): boolean
@@ -30205,6 +31776,15 @@ export interface DOMVideoPlaybackQuality {
     readonly total_frame_delay:number
     readonly total_video_frames:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMVideoPlaybackQuality */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMVideoPlaybackQuality */
     get_corrupted_video_frames(): number
     get_creation_time(): number
@@ -30269,6 +31849,15 @@ export interface DOMVideoTrack {
     readonly language:string
     selected:boolean
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMVideoTrack */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMVideoTrack */
     get_id(): string
     get_kind(): string
@@ -30329,6 +31918,15 @@ export interface DOMVideoTrackList {
     /* Properties of WebKit.DOMVideoTrackList */
     readonly length:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMVideoTrackList */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMVideoTrackList */
     dispatch_event(evt: DOMEvent): boolean
     get_length(): number
@@ -30385,6 +31983,15 @@ export interface DOMWebKitNamedFlow {
     readonly name:string
     readonly overset:boolean
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMWebKitNamedFlow */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMWebKitNamedFlow */
     dispatch_event(event: DOMEvent): boolean
     get_content(): DOMNodeList
@@ -30450,6 +32057,15 @@ export interface DOMWebKitPoint {
     x:number
     y:number
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMWebKitPoint */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMWebKitPoint */
     get_x(): number
     get_y(): number
@@ -30558,6 +32174,18 @@ export interface DOMWheelEvent {
     readonly time_stamp:number
     readonly type:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMWheelEvent */
+    parent_instance:DOMMouseEvent
+    /* Fields of WebKit.DOMMouseEvent */
+    /* Fields of WebKit.DOMUIEvent */
+    /* Fields of WebKit.DOMEvent */
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMWheelEvent */
     get_delta_mode(): number
     get_delta_x(): number
@@ -30707,6 +32335,15 @@ export interface DOMXPathExpression_ConstructProps {
 }
 export interface DOMXPathExpression {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMXPathExpression */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMXPathExpression */
     evaluate(contextNode: DOMNode, type: number, inResult: DOMXPathResult): DOMXPathResult
     /* Methods of GObject.Object */
@@ -30754,6 +32391,15 @@ export interface DOMXPathNSResolver_ConstructProps {
 }
 export interface DOMXPathNSResolver {
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMXPathNSResolver */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMXPathNSResolver */
     lookup_namespace_uri(prefix: string): string
     /* Methods of GObject.Object */
@@ -30810,6 +32456,15 @@ export interface DOMXPathResult {
     readonly snapshot_length:number
     readonly string_value:string
     /* Properties of WebKit.DOMObject */
+    /* Fields of WebKit.DOMXPathResult */
+    parent_instance:DOMObject
+    /* Fields of WebKit.DOMObject */
+    parentInstance:GObject.Object
+    coreObject:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.DOMXPathResult */
     get_boolean_value(): boolean
     get_invalid_iterator_state(): boolean
@@ -30880,6 +32535,13 @@ export interface Download {
     readonly status:DownloadStatus
     readonly suggested_filename:string
     readonly total_size:number
+    /* Fields of WebKit.Download */
+    parent_instance:GObject.Object
+    priv:DownloadPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.Download */
     cancel(): void
     get_current_size(): number
@@ -30951,6 +32613,13 @@ export interface FaviconDatabase_ConstructProps {
 export interface FaviconDatabase {
     /* Properties of WebKit.FaviconDatabase */
     path:string
+    /* Fields of WebKit.FaviconDatabase */
+    parent_instance:GObject.Object
+    priv:FaviconDatabasePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.FaviconDatabase */
     clear(): void
     get_favicon_pixbuf(page_uri: string, width: number, height: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
@@ -31010,6 +32679,13 @@ export interface FileChooserRequest {
     readonly mime_types:string[]
     readonly select_multiple:boolean
     readonly selected_files:string[]
+    /* Fields of WebKit.FileChooserRequest */
+    parent:GObject.Object
+    priv:FileChooserRequestPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.FileChooserRequest */
     get_mime_types(): string[]
     get_mime_types_filter(): Gtk.FileFilter
@@ -31062,6 +32738,13 @@ export declare var FileChooserRequest: FileChooserRequest_Static
 export interface GeolocationPolicyDecision_ConstructProps {
 }
 export interface GeolocationPolicyDecision {
+    /* Fields of WebKit.GeolocationPolicyDecision */
+    parent_instance:GObject.Object
+    priv:GeolocationPolicyDecisionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -31113,6 +32796,13 @@ export interface HitTestResult_ConstructProps {
 }
 export interface HitTestResult {
     /* Properties of WebKit.HitTestResult */
+    /* Fields of WebKit.HitTestResult */
+    parent_instance:GObject.Object
+    priv:HitTestResultPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -31159,6 +32849,13 @@ export interface IconDatabase_ConstructProps {
 export interface IconDatabase {
     /* Properties of WebKit.IconDatabase */
     path:string
+    /* Fields of WebKit.IconDatabase */
+    parent_instance:GObject.Object
+    priv:IconDatabasePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.IconDatabase */
     clear(): void
     get_icon_pixbuf(page_uri: string): GdkPixbuf.Pixbuf
@@ -31215,6 +32912,13 @@ export interface NetworkRequest_ConstructProps {
 export interface NetworkRequest {
     /* Properties of WebKit.NetworkRequest */
     uri:string
+    /* Fields of WebKit.NetworkRequest */
+    parent_instance:GObject.Object
+    priv:NetworkRequestPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.NetworkRequest */
     get_message(): Soup.Message
     get_uri(): string
@@ -31271,6 +32975,13 @@ export interface NetworkResponse {
     /* Properties of WebKit.NetworkResponse */
     readonly suggested_filename:string
     uri:string
+    /* Fields of WebKit.NetworkResponse */
+    parent_instance:GObject.Object
+    priv:NetworkResponsePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.NetworkResponse */
     get_message(): Soup.Message
     get_suggested_filename(): string
@@ -31331,6 +33042,13 @@ export interface SecurityOrigin {
     readonly protocol:string
     web_database_quota:number
     readonly web_database_usage:number
+    /* Fields of WebKit.SecurityOrigin */
+    parent_instance:GObject.Object
+    priv:SecurityOriginPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.SecurityOrigin */
     get_all_web_databases(): GLib.List
     get_host(): string
@@ -31386,6 +33104,12 @@ export declare var SecurityOrigin: SecurityOrigin_Static
 export interface SoupAuthDialog_ConstructProps {
 }
 export interface SoupAuthDialog {
+    /* Fields of WebKit.SoupAuthDialog */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -31453,6 +33177,13 @@ export interface ViewportAttributes {
     readonly user_scalable:boolean
     readonly valid:boolean
     readonly width:number
+    /* Fields of WebKit.ViewportAttributes */
+    parent_instance:GObject.Object
+    priv:ViewportAttributesPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.ViewportAttributes */
     recompute(): void
     /* Methods of GObject.Object */
@@ -31511,6 +33242,13 @@ export declare var ViewportAttributes: ViewportAttributes_Static
 export interface WebBackForwardList_ConstructProps {
 }
 export interface WebBackForwardList {
+    /* Fields of WebKit.WebBackForwardList */
+    parent_instance:GObject.Object
+    priv:WebBackForwardListPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebBackForwardList */
     add_item(history_item: WebHistoryItem): void
     clear(): void
@@ -31570,6 +33308,13 @@ export declare var WebBackForwardList: WebBackForwardList_Static
 export interface WebDataSource_ConstructProps {
 }
 export interface WebDataSource {
+    /* Fields of WebKit.WebDataSource */
+    parent_instance:GObject.Object
+    priv:WebDataSourcePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebDataSource */
     get_data(): GLib.String
     get_encoding(): string
@@ -31633,6 +33378,13 @@ export interface WebDatabase {
     readonly expected_size:number
     readonly filename:string
     readonly size:number
+    /* Fields of WebKit.WebDatabase */
+    parent_instance:GObject.Object
+    priv:WebDatabasePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebDatabase */
     get_display_name(): string
     get_expected_size(): number
@@ -31695,6 +33447,13 @@ export interface WebFrame {
     readonly title:string
     readonly uri:string
     readonly vertical_scrollbar_policy:Gtk.PolicyType
+    /* Fields of WebKit.WebFrame */
+    parent_instance:GObject.Object
+    priv:WebFramePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebFrame */
     find_frame(name: string): WebFrame
     get_data_source(): WebDataSource
@@ -31792,6 +33551,13 @@ export interface WebHistoryItem {
     readonly original_uri:string
     readonly title:string
     readonly uri:string
+    /* Fields of WebKit.WebHistoryItem */
+    parent_instance:GObject.Object
+    priv:WebHistoryItemPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebHistoryItem */
     copy(): WebHistoryItem
     get_alternate_title(): string
@@ -31859,6 +33625,13 @@ export interface WebInspector {
     javascript_profiling_enabled:boolean
     timeline_profiling_enabled:boolean
     readonly web_view:WebView
+    /* Fields of WebKit.WebInspector */
+    parent_instance:GObject.Object
+    priv:WebInspectorPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebInspector */
     close(): void
     get_inspected_uri(): string
@@ -31928,6 +33701,13 @@ export interface WebNavigationAction {
     /* Properties of WebKit.WebNavigationAction */
     original_uri:string
     reason:WebNavigationReason
+    /* Fields of WebKit.WebNavigationAction */
+    parent_instance:GObject.Object
+    priv:WebNavigationActionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebNavigationAction */
     get_button(): number
     get_modifier_state(): number
@@ -31984,6 +33764,13 @@ export interface WebPlugin_ConstructProps {
 export interface WebPlugin {
     /* Properties of WebKit.WebPlugin */
     enabled:boolean
+    /* Fields of WebKit.WebPlugin */
+    parentInstance:GObject.Object
+    priv:WebPluginPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebPlugin */
     get_description(): string
     get_enabled(): boolean
@@ -32033,6 +33820,13 @@ export declare var WebPlugin: WebPlugin_Static
 export interface WebPluginDatabase_ConstructProps {
 }
 export interface WebPluginDatabase {
+    /* Fields of WebKit.WebPluginDatabase */
+    parentInstance:GObject.Object
+    priv:WebPluginDatabasePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebPluginDatabase */
     get_plugin_for_mimetype(mime_type: string): WebPlugin
     get_plugins(): GLib.SList
@@ -32082,6 +33876,13 @@ export declare var WebPluginDatabase: WebPluginDatabase_Static
 export interface WebPolicyDecision_ConstructProps {
 }
 export interface WebPolicyDecision {
+    /* Fields of WebKit.WebPolicyDecision */
+    parent_instance:GObject.Object
+    priv:WebPolicyDecisionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebPolicyDecision */
     download(): void
     ignore(): void
@@ -32134,6 +33935,13 @@ export interface WebResource {
     readonly encoding:string
     readonly frame_name:string
     readonly mime_type:string
+    /* Fields of WebKit.WebResource */
+    parent_instance:GObject.Object
+    priv:WebResourcePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebResource */
     get_data(): GLib.String
     get_encoding(): string
@@ -32312,6 +34120,13 @@ export interface WebSettings {
     user_agent:string
     user_stylesheet_uri:string
     zoom_step:number
+    /* Fields of WebKit.WebSettings */
+    parent_instance:GObject.Object
+    priv:WebSettingsPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebSettings */
     copy(): WebSettings
     get_user_agent(): string
@@ -32532,6 +34347,17 @@ export interface WebView {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Fields of WebKit.WebView */
+    parent_instance:Gtk.Container
+    priv:WebViewPrivate
+    /* Fields of Gtk.Container */
+    widget:Gtk.Widget
+    /* Fields of Gtk.Widget */
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of WebKit.WebView */
     can_copy_clipboard(): boolean
     can_cut_clipboard(): boolean
@@ -33267,6 +35093,13 @@ export interface WebWindowFeatures {
     width:number
     x:number
     y:number
+    /* Fields of WebKit.WebWindowFeatures */
+    parent_instance:GObject.Object
+    priv:WebWindowFeaturesPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of WebKit.WebWindowFeatures */
     equal(features2: WebWindowFeatures): boolean
     /* Methods of GObject.Object */
@@ -33322,186 +35155,260 @@ export declare class WebWindowFeatures_Static {
 }
 export declare var WebWindowFeatures: WebWindowFeatures_Static
 export interface DOMAttrClass {
+    /* Fields of WebKit.DOMAttrClass */
+    parent_class:DOMNodeClass
 }
 export interface DOMAttrClass_Static {
 }
 export declare var DOMAttrClass: DOMAttrClass_Static
 export interface DOMAudioTrackClass {
+    /* Fields of WebKit.DOMAudioTrackClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMAudioTrackClass_Static {
 }
 export declare var DOMAudioTrackClass: DOMAudioTrackClass_Static
 export interface DOMAudioTrackListClass {
+    /* Fields of WebKit.DOMAudioTrackListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMAudioTrackListClass_Static {
 }
 export declare var DOMAudioTrackListClass: DOMAudioTrackListClass_Static
 export interface DOMBarPropClass {
+    /* Fields of WebKit.DOMBarPropClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMBarPropClass_Static {
 }
 export declare var DOMBarPropClass: DOMBarPropClass_Static
 export interface DOMBatteryManagerClass {
+    /* Fields of WebKit.DOMBatteryManagerClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMBatteryManagerClass_Static {
 }
 export declare var DOMBatteryManagerClass: DOMBatteryManagerClass_Static
 export interface DOMBlobClass {
+    /* Fields of WebKit.DOMBlobClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMBlobClass_Static {
 }
 export declare var DOMBlobClass: DOMBlobClass_Static
 export interface DOMCDATASectionClass {
+    /* Fields of WebKit.DOMCDATASectionClass */
+    parent_class:DOMTextClass
 }
 export interface DOMCDATASectionClass_Static {
 }
 export declare var DOMCDATASectionClass: DOMCDATASectionClass_Static
 export interface DOMCSSRuleClass {
+    /* Fields of WebKit.DOMCSSRuleClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMCSSRuleClass_Static {
 }
 export declare var DOMCSSRuleClass: DOMCSSRuleClass_Static
 export interface DOMCSSRuleListClass {
+    /* Fields of WebKit.DOMCSSRuleListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMCSSRuleListClass_Static {
 }
 export declare var DOMCSSRuleListClass: DOMCSSRuleListClass_Static
 export interface DOMCSSStyleDeclarationClass {
+    /* Fields of WebKit.DOMCSSStyleDeclarationClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMCSSStyleDeclarationClass_Static {
 }
 export declare var DOMCSSStyleDeclarationClass: DOMCSSStyleDeclarationClass_Static
 export interface DOMCSSStyleSheetClass {
+    /* Fields of WebKit.DOMCSSStyleSheetClass */
+    parent_class:DOMStyleSheetClass
 }
 export interface DOMCSSStyleSheetClass_Static {
 }
 export declare var DOMCSSStyleSheetClass: DOMCSSStyleSheetClass_Static
 export interface DOMCSSValueClass {
+    /* Fields of WebKit.DOMCSSValueClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMCSSValueClass_Static {
 }
 export declare var DOMCSSValueClass: DOMCSSValueClass_Static
 export interface DOMCharacterDataClass {
+    /* Fields of WebKit.DOMCharacterDataClass */
+    parent_class:DOMNodeClass
 }
 export interface DOMCharacterDataClass_Static {
 }
 export declare var DOMCharacterDataClass: DOMCharacterDataClass_Static
 export interface DOMCommentClass {
+    /* Fields of WebKit.DOMCommentClass */
+    parent_class:DOMCharacterDataClass
 }
 export interface DOMCommentClass_Static {
 }
 export declare var DOMCommentClass: DOMCommentClass_Static
 export interface DOMConsoleClass {
+    /* Fields of WebKit.DOMConsoleClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMConsoleClass_Static {
 }
 export declare var DOMConsoleClass: DOMConsoleClass_Static
 export interface DOMDOMApplicationCacheClass {
+    /* Fields of WebKit.DOMDOMApplicationCacheClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMApplicationCacheClass_Static {
 }
 export declare var DOMDOMApplicationCacheClass: DOMDOMApplicationCacheClass_Static
 export interface DOMDOMImplementationClass {
+    /* Fields of WebKit.DOMDOMImplementationClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMImplementationClass_Static {
 }
 export declare var DOMDOMImplementationClass: DOMDOMImplementationClass_Static
 export interface DOMDOMMimeTypeArrayClass {
+    /* Fields of WebKit.DOMDOMMimeTypeArrayClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMMimeTypeArrayClass_Static {
 }
 export declare var DOMDOMMimeTypeArrayClass: DOMDOMMimeTypeArrayClass_Static
 export interface DOMDOMMimeTypeClass {
+    /* Fields of WebKit.DOMDOMMimeTypeClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMMimeTypeClass_Static {
 }
 export declare var DOMDOMMimeTypeClass: DOMDOMMimeTypeClass_Static
 export interface DOMDOMNamedFlowCollectionClass {
+    /* Fields of WebKit.DOMDOMNamedFlowCollectionClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMNamedFlowCollectionClass_Static {
 }
 export declare var DOMDOMNamedFlowCollectionClass: DOMDOMNamedFlowCollectionClass_Static
 export interface DOMDOMPluginArrayClass {
+    /* Fields of WebKit.DOMDOMPluginArrayClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMPluginArrayClass_Static {
 }
 export declare var DOMDOMPluginArrayClass: DOMDOMPluginArrayClass_Static
 export interface DOMDOMPluginClass {
+    /* Fields of WebKit.DOMDOMPluginClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMPluginClass_Static {
 }
 export declare var DOMDOMPluginClass: DOMDOMPluginClass_Static
 export interface DOMDOMSecurityPolicyClass {
+    /* Fields of WebKit.DOMDOMSecurityPolicyClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMSecurityPolicyClass_Static {
 }
 export declare var DOMDOMSecurityPolicyClass: DOMDOMSecurityPolicyClass_Static
 export interface DOMDOMSelectionClass {
+    /* Fields of WebKit.DOMDOMSelectionClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMSelectionClass_Static {
 }
 export declare var DOMDOMSelectionClass: DOMDOMSelectionClass_Static
 export interface DOMDOMSettableTokenListClass {
+    /* Fields of WebKit.DOMDOMSettableTokenListClass */
+    parent_class:DOMDOMTokenListClass
 }
 export interface DOMDOMSettableTokenListClass_Static {
 }
 export declare var DOMDOMSettableTokenListClass: DOMDOMSettableTokenListClass_Static
 export interface DOMDOMStringListClass {
+    /* Fields of WebKit.DOMDOMStringListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMStringListClass_Static {
 }
 export declare var DOMDOMStringListClass: DOMDOMStringListClass_Static
 export interface DOMDOMStringMapClass {
+    /* Fields of WebKit.DOMDOMStringMapClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMStringMapClass_Static {
 }
 export declare var DOMDOMStringMapClass: DOMDOMStringMapClass_Static
 export interface DOMDOMTokenListClass {
+    /* Fields of WebKit.DOMDOMTokenListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMTokenListClass_Static {
 }
 export declare var DOMDOMTokenListClass: DOMDOMTokenListClass_Static
 export interface DOMDOMWindowCSSClass {
+    /* Fields of WebKit.DOMDOMWindowCSSClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMWindowCSSClass_Static {
 }
 export declare var DOMDOMWindowCSSClass: DOMDOMWindowCSSClass_Static
 export interface DOMDOMWindowClass {
+    /* Fields of WebKit.DOMDOMWindowClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDOMWindowClass_Static {
 }
 export declare var DOMDOMWindowClass: DOMDOMWindowClass_Static
 export interface DOMDatabaseClass {
+    /* Fields of WebKit.DOMDatabaseClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMDatabaseClass_Static {
 }
 export declare var DOMDatabaseClass: DOMDatabaseClass_Static
 export interface DOMDocumentClass {
+    /* Fields of WebKit.DOMDocumentClass */
+    parent_class:DOMNodeClass
 }
 export interface DOMDocumentClass_Static {
 }
 export declare var DOMDocumentClass: DOMDocumentClass_Static
 export interface DOMDocumentFragmentClass {
+    /* Fields of WebKit.DOMDocumentFragmentClass */
+    parent_class:DOMNodeClass
 }
 export interface DOMDocumentFragmentClass_Static {
 }
 export declare var DOMDocumentFragmentClass: DOMDocumentFragmentClass_Static
 export interface DOMDocumentTypeClass {
+    /* Fields of WebKit.DOMDocumentTypeClass */
+    parent_class:DOMNodeClass
 }
 export interface DOMDocumentTypeClass_Static {
 }
 export declare var DOMDocumentTypeClass: DOMDocumentTypeClass_Static
 export interface DOMElementClass {
+    /* Fields of WebKit.DOMElementClass */
+    parent_class:DOMNodeClass
 }
 export interface DOMElementClass_Static {
 }
 export declare var DOMElementClass: DOMElementClass_Static
 export interface DOMEntityReferenceClass {
+    /* Fields of WebKit.DOMEntityReferenceClass */
+    parent_class:DOMNodeClass
 }
 export interface DOMEntityReferenceClass_Static {
 }
 export declare var DOMEntityReferenceClass: DOMEntityReferenceClass_Static
 export interface DOMEventClass {
+    /* Fields of WebKit.DOMEventClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMEventClass_Static {
 }
@@ -33512,426 +35419,599 @@ export interface DOMEventTargetClass_Static {
 }
 export declare var DOMEventTargetClass: DOMEventTargetClass_Static
 export interface DOMEventTargetIface {
+    /* Fields of WebKit.DOMEventTargetIface */
+    gIface:GObject.TypeInterface
+    dispatch_event:any
+    add_event_listener:any
+    remove_event_listener:any
 }
 export interface DOMEventTargetIface_Static {
 }
 export declare var DOMEventTargetIface: DOMEventTargetIface_Static
 export interface DOMFileClass {
+    /* Fields of WebKit.DOMFileClass */
+    parent_class:DOMBlobClass
 }
 export interface DOMFileClass_Static {
 }
 export declare var DOMFileClass: DOMFileClass_Static
 export interface DOMFileListClass {
+    /* Fields of WebKit.DOMFileListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMFileListClass_Static {
 }
 export declare var DOMFileListClass: DOMFileListClass_Static
 export interface DOMGamepadClass {
+    /* Fields of WebKit.DOMGamepadClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMGamepadClass_Static {
 }
 export declare var DOMGamepadClass: DOMGamepadClass_Static
 export interface DOMGamepadListClass {
+    /* Fields of WebKit.DOMGamepadListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMGamepadListClass_Static {
 }
 export declare var DOMGamepadListClass: DOMGamepadListClass_Static
 export interface DOMGeolocationClass {
+    /* Fields of WebKit.DOMGeolocationClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMGeolocationClass_Static {
 }
 export declare var DOMGeolocationClass: DOMGeolocationClass_Static
 export interface DOMHTMLAnchorElementClass {
+    /* Fields of WebKit.DOMHTMLAnchorElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLAnchorElementClass_Static {
 }
 export declare var DOMHTMLAnchorElementClass: DOMHTMLAnchorElementClass_Static
 export interface DOMHTMLAppletElementClass {
+    /* Fields of WebKit.DOMHTMLAppletElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLAppletElementClass_Static {
 }
 export declare var DOMHTMLAppletElementClass: DOMHTMLAppletElementClass_Static
 export interface DOMHTMLAreaElementClass {
+    /* Fields of WebKit.DOMHTMLAreaElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLAreaElementClass_Static {
 }
 export declare var DOMHTMLAreaElementClass: DOMHTMLAreaElementClass_Static
 export interface DOMHTMLAudioElementClass {
+    /* Fields of WebKit.DOMHTMLAudioElementClass */
+    parent_class:DOMHTMLMediaElementClass
 }
 export interface DOMHTMLAudioElementClass_Static {
 }
 export declare var DOMHTMLAudioElementClass: DOMHTMLAudioElementClass_Static
 export interface DOMHTMLBRElementClass {
+    /* Fields of WebKit.DOMHTMLBRElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLBRElementClass_Static {
 }
 export declare var DOMHTMLBRElementClass: DOMHTMLBRElementClass_Static
 export interface DOMHTMLBaseElementClass {
+    /* Fields of WebKit.DOMHTMLBaseElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLBaseElementClass_Static {
 }
 export declare var DOMHTMLBaseElementClass: DOMHTMLBaseElementClass_Static
 export interface DOMHTMLBaseFontElementClass {
+    /* Fields of WebKit.DOMHTMLBaseFontElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLBaseFontElementClass_Static {
 }
 export declare var DOMHTMLBaseFontElementClass: DOMHTMLBaseFontElementClass_Static
 export interface DOMHTMLBodyElementClass {
+    /* Fields of WebKit.DOMHTMLBodyElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLBodyElementClass_Static {
 }
 export declare var DOMHTMLBodyElementClass: DOMHTMLBodyElementClass_Static
 export interface DOMHTMLButtonElementClass {
+    /* Fields of WebKit.DOMHTMLButtonElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLButtonElementClass_Static {
 }
 export declare var DOMHTMLButtonElementClass: DOMHTMLButtonElementClass_Static
 export interface DOMHTMLCanvasElementClass {
+    /* Fields of WebKit.DOMHTMLCanvasElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLCanvasElementClass_Static {
 }
 export declare var DOMHTMLCanvasElementClass: DOMHTMLCanvasElementClass_Static
 export interface DOMHTMLCollectionClass {
+    /* Fields of WebKit.DOMHTMLCollectionClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMHTMLCollectionClass_Static {
 }
 export declare var DOMHTMLCollectionClass: DOMHTMLCollectionClass_Static
 export interface DOMHTMLDListElementClass {
+    /* Fields of WebKit.DOMHTMLDListElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLDListElementClass_Static {
 }
 export declare var DOMHTMLDListElementClass: DOMHTMLDListElementClass_Static
 export interface DOMHTMLDetailsElementClass {
+    /* Fields of WebKit.DOMHTMLDetailsElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLDetailsElementClass_Static {
 }
 export declare var DOMHTMLDetailsElementClass: DOMHTMLDetailsElementClass_Static
 export interface DOMHTMLDirectoryElementClass {
+    /* Fields of WebKit.DOMHTMLDirectoryElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLDirectoryElementClass_Static {
 }
 export declare var DOMHTMLDirectoryElementClass: DOMHTMLDirectoryElementClass_Static
 export interface DOMHTMLDivElementClass {
+    /* Fields of WebKit.DOMHTMLDivElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLDivElementClass_Static {
 }
 export declare var DOMHTMLDivElementClass: DOMHTMLDivElementClass_Static
 export interface DOMHTMLDocumentClass {
+    /* Fields of WebKit.DOMHTMLDocumentClass */
+    parent_class:DOMDocumentClass
 }
 export interface DOMHTMLDocumentClass_Static {
 }
 export declare var DOMHTMLDocumentClass: DOMHTMLDocumentClass_Static
 export interface DOMHTMLElementClass {
+    /* Fields of WebKit.DOMHTMLElementClass */
+    parent_class:DOMElementClass
 }
 export interface DOMHTMLElementClass_Static {
 }
 export declare var DOMHTMLElementClass: DOMHTMLElementClass_Static
 export interface DOMHTMLEmbedElementClass {
+    /* Fields of WebKit.DOMHTMLEmbedElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLEmbedElementClass_Static {
 }
 export declare var DOMHTMLEmbedElementClass: DOMHTMLEmbedElementClass_Static
 export interface DOMHTMLFieldSetElementClass {
+    /* Fields of WebKit.DOMHTMLFieldSetElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFieldSetElementClass_Static {
 }
 export declare var DOMHTMLFieldSetElementClass: DOMHTMLFieldSetElementClass_Static
 export interface DOMHTMLFontElementClass {
+    /* Fields of WebKit.DOMHTMLFontElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFontElementClass_Static {
 }
 export declare var DOMHTMLFontElementClass: DOMHTMLFontElementClass_Static
 export interface DOMHTMLFormElementClass {
+    /* Fields of WebKit.DOMHTMLFormElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFormElementClass_Static {
 }
 export declare var DOMHTMLFormElementClass: DOMHTMLFormElementClass_Static
 export interface DOMHTMLFrameElementClass {
+    /* Fields of WebKit.DOMHTMLFrameElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFrameElementClass_Static {
 }
 export declare var DOMHTMLFrameElementClass: DOMHTMLFrameElementClass_Static
 export interface DOMHTMLFrameSetElementClass {
+    /* Fields of WebKit.DOMHTMLFrameSetElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFrameSetElementClass_Static {
 }
 export declare var DOMHTMLFrameSetElementClass: DOMHTMLFrameSetElementClass_Static
 export interface DOMHTMLHRElementClass {
+    /* Fields of WebKit.DOMHTMLHRElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLHRElementClass_Static {
 }
 export declare var DOMHTMLHRElementClass: DOMHTMLHRElementClass_Static
 export interface DOMHTMLHeadElementClass {
+    /* Fields of WebKit.DOMHTMLHeadElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLHeadElementClass_Static {
 }
 export declare var DOMHTMLHeadElementClass: DOMHTMLHeadElementClass_Static
 export interface DOMHTMLHeadingElementClass {
+    /* Fields of WebKit.DOMHTMLHeadingElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLHeadingElementClass_Static {
 }
 export declare var DOMHTMLHeadingElementClass: DOMHTMLHeadingElementClass_Static
 export interface DOMHTMLHtmlElementClass {
+    /* Fields of WebKit.DOMHTMLHtmlElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLHtmlElementClass_Static {
 }
 export declare var DOMHTMLHtmlElementClass: DOMHTMLHtmlElementClass_Static
 export interface DOMHTMLIFrameElementClass {
+    /* Fields of WebKit.DOMHTMLIFrameElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLIFrameElementClass_Static {
 }
 export declare var DOMHTMLIFrameElementClass: DOMHTMLIFrameElementClass_Static
 export interface DOMHTMLImageElementClass {
+    /* Fields of WebKit.DOMHTMLImageElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLImageElementClass_Static {
 }
 export declare var DOMHTMLImageElementClass: DOMHTMLImageElementClass_Static
 export interface DOMHTMLInputElementClass {
+    /* Fields of WebKit.DOMHTMLInputElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLInputElementClass_Static {
 }
 export declare var DOMHTMLInputElementClass: DOMHTMLInputElementClass_Static
 export interface DOMHTMLKeygenElementClass {
+    /* Fields of WebKit.DOMHTMLKeygenElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLKeygenElementClass_Static {
 }
 export declare var DOMHTMLKeygenElementClass: DOMHTMLKeygenElementClass_Static
 export interface DOMHTMLLIElementClass {
+    /* Fields of WebKit.DOMHTMLLIElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLLIElementClass_Static {
 }
 export declare var DOMHTMLLIElementClass: DOMHTMLLIElementClass_Static
 export interface DOMHTMLLabelElementClass {
+    /* Fields of WebKit.DOMHTMLLabelElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLLabelElementClass_Static {
 }
 export declare var DOMHTMLLabelElementClass: DOMHTMLLabelElementClass_Static
 export interface DOMHTMLLegendElementClass {
+    /* Fields of WebKit.DOMHTMLLegendElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLLegendElementClass_Static {
 }
 export declare var DOMHTMLLegendElementClass: DOMHTMLLegendElementClass_Static
 export interface DOMHTMLLinkElementClass {
+    /* Fields of WebKit.DOMHTMLLinkElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLLinkElementClass_Static {
 }
 export declare var DOMHTMLLinkElementClass: DOMHTMLLinkElementClass_Static
 export interface DOMHTMLMapElementClass {
+    /* Fields of WebKit.DOMHTMLMapElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMapElementClass_Static {
 }
 export declare var DOMHTMLMapElementClass: DOMHTMLMapElementClass_Static
 export interface DOMHTMLMarqueeElementClass {
+    /* Fields of WebKit.DOMHTMLMarqueeElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMarqueeElementClass_Static {
 }
 export declare var DOMHTMLMarqueeElementClass: DOMHTMLMarqueeElementClass_Static
 export interface DOMHTMLMediaElementClass {
+    /* Fields of WebKit.DOMHTMLMediaElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMediaElementClass_Static {
 }
 export declare var DOMHTMLMediaElementClass: DOMHTMLMediaElementClass_Static
 export interface DOMHTMLMenuElementClass {
+    /* Fields of WebKit.DOMHTMLMenuElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMenuElementClass_Static {
 }
 export declare var DOMHTMLMenuElementClass: DOMHTMLMenuElementClass_Static
 export interface DOMHTMLMetaElementClass {
+    /* Fields of WebKit.DOMHTMLMetaElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMetaElementClass_Static {
 }
 export declare var DOMHTMLMetaElementClass: DOMHTMLMetaElementClass_Static
 export interface DOMHTMLModElementClass {
+    /* Fields of WebKit.DOMHTMLModElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLModElementClass_Static {
 }
 export declare var DOMHTMLModElementClass: DOMHTMLModElementClass_Static
 export interface DOMHTMLOListElementClass {
+    /* Fields of WebKit.DOMHTMLOListElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLOListElementClass_Static {
 }
 export declare var DOMHTMLOListElementClass: DOMHTMLOListElementClass_Static
 export interface DOMHTMLObjectElementClass {
+    /* Fields of WebKit.DOMHTMLObjectElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLObjectElementClass_Static {
 }
 export declare var DOMHTMLObjectElementClass: DOMHTMLObjectElementClass_Static
 export interface DOMHTMLOptGroupElementClass {
+    /* Fields of WebKit.DOMHTMLOptGroupElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLOptGroupElementClass_Static {
 }
 export declare var DOMHTMLOptGroupElementClass: DOMHTMLOptGroupElementClass_Static
 export interface DOMHTMLOptionElementClass {
+    /* Fields of WebKit.DOMHTMLOptionElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLOptionElementClass_Static {
 }
 export declare var DOMHTMLOptionElementClass: DOMHTMLOptionElementClass_Static
 export interface DOMHTMLOptionsCollectionClass {
+    /* Fields of WebKit.DOMHTMLOptionsCollectionClass */
+    parent_class:DOMHTMLCollectionClass
 }
 export interface DOMHTMLOptionsCollectionClass_Static {
 }
 export declare var DOMHTMLOptionsCollectionClass: DOMHTMLOptionsCollectionClass_Static
 export interface DOMHTMLParagraphElementClass {
+    /* Fields of WebKit.DOMHTMLParagraphElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLParagraphElementClass_Static {
 }
 export declare var DOMHTMLParagraphElementClass: DOMHTMLParagraphElementClass_Static
 export interface DOMHTMLParamElementClass {
+    /* Fields of WebKit.DOMHTMLParamElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLParamElementClass_Static {
 }
 export declare var DOMHTMLParamElementClass: DOMHTMLParamElementClass_Static
 export interface DOMHTMLPreElementClass {
+    /* Fields of WebKit.DOMHTMLPreElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLPreElementClass_Static {
 }
 export declare var DOMHTMLPreElementClass: DOMHTMLPreElementClass_Static
 export interface DOMHTMLQuoteElementClass {
+    /* Fields of WebKit.DOMHTMLQuoteElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLQuoteElementClass_Static {
 }
 export declare var DOMHTMLQuoteElementClass: DOMHTMLQuoteElementClass_Static
 export interface DOMHTMLScriptElementClass {
+    /* Fields of WebKit.DOMHTMLScriptElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLScriptElementClass_Static {
 }
 export declare var DOMHTMLScriptElementClass: DOMHTMLScriptElementClass_Static
 export interface DOMHTMLSelectElementClass {
+    /* Fields of WebKit.DOMHTMLSelectElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLSelectElementClass_Static {
 }
 export declare var DOMHTMLSelectElementClass: DOMHTMLSelectElementClass_Static
 export interface DOMHTMLStyleElementClass {
+    /* Fields of WebKit.DOMHTMLStyleElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLStyleElementClass_Static {
 }
 export declare var DOMHTMLStyleElementClass: DOMHTMLStyleElementClass_Static
 export interface DOMHTMLTableCaptionElementClass {
+    /* Fields of WebKit.DOMHTMLTableCaptionElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableCaptionElementClass_Static {
 }
 export declare var DOMHTMLTableCaptionElementClass: DOMHTMLTableCaptionElementClass_Static
 export interface DOMHTMLTableCellElementClass {
+    /* Fields of WebKit.DOMHTMLTableCellElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableCellElementClass_Static {
 }
 export declare var DOMHTMLTableCellElementClass: DOMHTMLTableCellElementClass_Static
 export interface DOMHTMLTableColElementClass {
+    /* Fields of WebKit.DOMHTMLTableColElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableColElementClass_Static {
 }
 export declare var DOMHTMLTableColElementClass: DOMHTMLTableColElementClass_Static
 export interface DOMHTMLTableElementClass {
+    /* Fields of WebKit.DOMHTMLTableElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableElementClass_Static {
 }
 export declare var DOMHTMLTableElementClass: DOMHTMLTableElementClass_Static
 export interface DOMHTMLTableRowElementClass {
+    /* Fields of WebKit.DOMHTMLTableRowElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableRowElementClass_Static {
 }
 export declare var DOMHTMLTableRowElementClass: DOMHTMLTableRowElementClass_Static
 export interface DOMHTMLTableSectionElementClass {
+    /* Fields of WebKit.DOMHTMLTableSectionElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableSectionElementClass_Static {
 }
 export declare var DOMHTMLTableSectionElementClass: DOMHTMLTableSectionElementClass_Static
 export interface DOMHTMLTextAreaElementClass {
+    /* Fields of WebKit.DOMHTMLTextAreaElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTextAreaElementClass_Static {
 }
 export declare var DOMHTMLTextAreaElementClass: DOMHTMLTextAreaElementClass_Static
 export interface DOMHTMLTitleElementClass {
+    /* Fields of WebKit.DOMHTMLTitleElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTitleElementClass_Static {
 }
 export declare var DOMHTMLTitleElementClass: DOMHTMLTitleElementClass_Static
 export interface DOMHTMLUListElementClass {
+    /* Fields of WebKit.DOMHTMLUListElementClass */
+    parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLUListElementClass_Static {
 }
 export declare var DOMHTMLUListElementClass: DOMHTMLUListElementClass_Static
 export interface DOMHTMLVideoElementClass {
+    /* Fields of WebKit.DOMHTMLVideoElementClass */
+    parent_class:DOMHTMLMediaElementClass
 }
 export interface DOMHTMLVideoElementClass_Static {
 }
 export declare var DOMHTMLVideoElementClass: DOMHTMLVideoElementClass_Static
 export interface DOMHistoryClass {
+    /* Fields of WebKit.DOMHistoryClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMHistoryClass_Static {
 }
 export declare var DOMHistoryClass: DOMHistoryClass_Static
 export interface DOMKeyboardEventClass {
+    /* Fields of WebKit.DOMKeyboardEventClass */
+    parent_class:DOMUIEventClass
 }
 export interface DOMKeyboardEventClass_Static {
 }
 export declare var DOMKeyboardEventClass: DOMKeyboardEventClass_Static
 export interface DOMLocationClass {
+    /* Fields of WebKit.DOMLocationClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMLocationClass_Static {
 }
 export declare var DOMLocationClass: DOMLocationClass_Static
 export interface DOMMediaControllerClass {
+    /* Fields of WebKit.DOMMediaControllerClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMMediaControllerClass_Static {
 }
 export declare var DOMMediaControllerClass: DOMMediaControllerClass_Static
 export interface DOMMediaErrorClass {
+    /* Fields of WebKit.DOMMediaErrorClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMMediaErrorClass_Static {
 }
 export declare var DOMMediaErrorClass: DOMMediaErrorClass_Static
 export interface DOMMediaListClass {
+    /* Fields of WebKit.DOMMediaListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMMediaListClass_Static {
 }
 export declare var DOMMediaListClass: DOMMediaListClass_Static
 export interface DOMMediaQueryListClass {
+    /* Fields of WebKit.DOMMediaQueryListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMMediaQueryListClass_Static {
 }
 export declare var DOMMediaQueryListClass: DOMMediaQueryListClass_Static
 export interface DOMMessagePortClass {
+    /* Fields of WebKit.DOMMessagePortClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMMessagePortClass_Static {
 }
 export declare var DOMMessagePortClass: DOMMessagePortClass_Static
 export interface DOMMouseEventClass {
+    /* Fields of WebKit.DOMMouseEventClass */
+    parent_class:DOMUIEventClass
 }
 export interface DOMMouseEventClass_Static {
 }
 export declare var DOMMouseEventClass: DOMMouseEventClass_Static
 export interface DOMNamedNodeMapClass {
+    /* Fields of WebKit.DOMNamedNodeMapClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMNamedNodeMapClass_Static {
 }
 export declare var DOMNamedNodeMapClass: DOMNamedNodeMapClass_Static
 export interface DOMNavigatorClass {
+    /* Fields of WebKit.DOMNavigatorClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMNavigatorClass_Static {
 }
 export declare var DOMNavigatorClass: DOMNavigatorClass_Static
 export interface DOMNodeClass {
+    /* Fields of WebKit.DOMNodeClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMNodeClass_Static {
 }
 export declare var DOMNodeClass: DOMNodeClass_Static
 export interface DOMNodeFilterClass {
+    /* Fields of WebKit.DOMNodeFilterClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMNodeFilterClass_Static {
 }
 export declare var DOMNodeFilterClass: DOMNodeFilterClass_Static
 export interface DOMNodeIteratorClass {
+    /* Fields of WebKit.DOMNodeIteratorClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMNodeIteratorClass_Static {
 }
 export declare var DOMNodeIteratorClass: DOMNodeIteratorClass_Static
 export interface DOMNodeListClass {
+    /* Fields of WebKit.DOMNodeListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMNodeListClass_Static {
 }
 export declare var DOMNodeListClass: DOMNodeListClass_Static
 export interface DOMObjectClass {
+    /* Fields of WebKit.DOMObjectClass */
+    parentClass:GObject.ObjectClass
 }
 export interface DOMObjectClass_Static {
 }
@@ -33942,181 +36022,253 @@ export interface DOMObjectPrivate_Static {
 }
 export declare var DOMObjectPrivate: DOMObjectPrivate_Static
 export interface DOMPerformanceClass {
+    /* Fields of WebKit.DOMPerformanceClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMPerformanceClass_Static {
 }
 export declare var DOMPerformanceClass: DOMPerformanceClass_Static
 export interface DOMPerformanceEntryClass {
+    /* Fields of WebKit.DOMPerformanceEntryClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMPerformanceEntryClass_Static {
 }
 export declare var DOMPerformanceEntryClass: DOMPerformanceEntryClass_Static
 export interface DOMPerformanceEntryListClass {
+    /* Fields of WebKit.DOMPerformanceEntryListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMPerformanceEntryListClass_Static {
 }
 export declare var DOMPerformanceEntryListClass: DOMPerformanceEntryListClass_Static
 export interface DOMPerformanceNavigationClass {
+    /* Fields of WebKit.DOMPerformanceNavigationClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMPerformanceNavigationClass_Static {
 }
 export declare var DOMPerformanceNavigationClass: DOMPerformanceNavigationClass_Static
 export interface DOMPerformanceTimingClass {
+    /* Fields of WebKit.DOMPerformanceTimingClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMPerformanceTimingClass_Static {
 }
 export declare var DOMPerformanceTimingClass: DOMPerformanceTimingClass_Static
 export interface DOMProcessingInstructionClass {
+    /* Fields of WebKit.DOMProcessingInstructionClass */
+    parent_class:DOMCharacterDataClass
 }
 export interface DOMProcessingInstructionClass_Static {
 }
 export declare var DOMProcessingInstructionClass: DOMProcessingInstructionClass_Static
 export interface DOMRangeClass {
+    /* Fields of WebKit.DOMRangeClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMRangeClass_Static {
 }
 export declare var DOMRangeClass: DOMRangeClass_Static
 export interface DOMScreenClass {
+    /* Fields of WebKit.DOMScreenClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMScreenClass_Static {
 }
 export declare var DOMScreenClass: DOMScreenClass_Static
 export interface DOMShadowRootClass {
+    /* Fields of WebKit.DOMShadowRootClass */
+    parent_class:DOMDocumentFragmentClass
 }
 export interface DOMShadowRootClass_Static {
 }
 export declare var DOMShadowRootClass: DOMShadowRootClass_Static
 export interface DOMStorageClass {
+    /* Fields of WebKit.DOMStorageClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMStorageClass_Static {
 }
 export declare var DOMStorageClass: DOMStorageClass_Static
 export interface DOMStorageInfoClass {
+    /* Fields of WebKit.DOMStorageInfoClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMStorageInfoClass_Static {
 }
 export declare var DOMStorageInfoClass: DOMStorageInfoClass_Static
 export interface DOMStorageQuotaClass {
+    /* Fields of WebKit.DOMStorageQuotaClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMStorageQuotaClass_Static {
 }
 export declare var DOMStorageQuotaClass: DOMStorageQuotaClass_Static
 export interface DOMStyleMediaClass {
+    /* Fields of WebKit.DOMStyleMediaClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMStyleMediaClass_Static {
 }
 export declare var DOMStyleMediaClass: DOMStyleMediaClass_Static
 export interface DOMStyleSheetClass {
+    /* Fields of WebKit.DOMStyleSheetClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMStyleSheetClass_Static {
 }
 export declare var DOMStyleSheetClass: DOMStyleSheetClass_Static
 export interface DOMStyleSheetListClass {
+    /* Fields of WebKit.DOMStyleSheetListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMStyleSheetListClass_Static {
 }
 export declare var DOMStyleSheetListClass: DOMStyleSheetListClass_Static
 export interface DOMTextClass {
+    /* Fields of WebKit.DOMTextClass */
+    parent_class:DOMCharacterDataClass
 }
 export interface DOMTextClass_Static {
 }
 export declare var DOMTextClass: DOMTextClass_Static
 export interface DOMTextTrackClass {
+    /* Fields of WebKit.DOMTextTrackClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMTextTrackClass_Static {
 }
 export declare var DOMTextTrackClass: DOMTextTrackClass_Static
 export interface DOMTextTrackCueClass {
+    /* Fields of WebKit.DOMTextTrackCueClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMTextTrackCueClass_Static {
 }
 export declare var DOMTextTrackCueClass: DOMTextTrackCueClass_Static
 export interface DOMTextTrackCueListClass {
+    /* Fields of WebKit.DOMTextTrackCueListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMTextTrackCueListClass_Static {
 }
 export declare var DOMTextTrackCueListClass: DOMTextTrackCueListClass_Static
 export interface DOMTextTrackListClass {
+    /* Fields of WebKit.DOMTextTrackListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMTextTrackListClass_Static {
 }
 export declare var DOMTextTrackListClass: DOMTextTrackListClass_Static
 export interface DOMTimeRangesClass {
+    /* Fields of WebKit.DOMTimeRangesClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMTimeRangesClass_Static {
 }
 export declare var DOMTimeRangesClass: DOMTimeRangesClass_Static
 export interface DOMTouchClass {
+    /* Fields of WebKit.DOMTouchClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMTouchClass_Static {
 }
 export declare var DOMTouchClass: DOMTouchClass_Static
 export interface DOMTrackEventClass {
+    /* Fields of WebKit.DOMTrackEventClass */
+    parent_class:DOMEventClass
 }
 export interface DOMTrackEventClass_Static {
 }
 export declare var DOMTrackEventClass: DOMTrackEventClass_Static
 export interface DOMTreeWalkerClass {
+    /* Fields of WebKit.DOMTreeWalkerClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMTreeWalkerClass_Static {
 }
 export declare var DOMTreeWalkerClass: DOMTreeWalkerClass_Static
 export interface DOMUIEventClass {
+    /* Fields of WebKit.DOMUIEventClass */
+    parent_class:DOMEventClass
 }
 export interface DOMUIEventClass_Static {
 }
 export declare var DOMUIEventClass: DOMUIEventClass_Static
 export interface DOMValidityStateClass {
+    /* Fields of WebKit.DOMValidityStateClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMValidityStateClass_Static {
 }
 export declare var DOMValidityStateClass: DOMValidityStateClass_Static
 export interface DOMVideoPlaybackQualityClass {
+    /* Fields of WebKit.DOMVideoPlaybackQualityClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMVideoPlaybackQualityClass_Static {
 }
 export declare var DOMVideoPlaybackQualityClass: DOMVideoPlaybackQualityClass_Static
 export interface DOMVideoTrackClass {
+    /* Fields of WebKit.DOMVideoTrackClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMVideoTrackClass_Static {
 }
 export declare var DOMVideoTrackClass: DOMVideoTrackClass_Static
 export interface DOMVideoTrackListClass {
+    /* Fields of WebKit.DOMVideoTrackListClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMVideoTrackListClass_Static {
 }
 export declare var DOMVideoTrackListClass: DOMVideoTrackListClass_Static
 export interface DOMWebKitNamedFlowClass {
+    /* Fields of WebKit.DOMWebKitNamedFlowClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMWebKitNamedFlowClass_Static {
 }
 export declare var DOMWebKitNamedFlowClass: DOMWebKitNamedFlowClass_Static
 export interface DOMWebKitPointClass {
+    /* Fields of WebKit.DOMWebKitPointClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMWebKitPointClass_Static {
 }
 export declare var DOMWebKitPointClass: DOMWebKitPointClass_Static
 export interface DOMWheelEventClass {
+    /* Fields of WebKit.DOMWheelEventClass */
+    parent_class:DOMMouseEventClass
 }
 export interface DOMWheelEventClass_Static {
 }
 export declare var DOMWheelEventClass: DOMWheelEventClass_Static
 export interface DOMXPathExpressionClass {
+    /* Fields of WebKit.DOMXPathExpressionClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMXPathExpressionClass_Static {
 }
 export declare var DOMXPathExpressionClass: DOMXPathExpressionClass_Static
 export interface DOMXPathNSResolverClass {
+    /* Fields of WebKit.DOMXPathNSResolverClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMXPathNSResolverClass_Static {
 }
 export declare var DOMXPathNSResolverClass: DOMXPathNSResolverClass_Static
 export interface DOMXPathResultClass {
+    /* Fields of WebKit.DOMXPathResultClass */
+    parent_class:DOMObjectClass
 }
 export interface DOMXPathResultClass_Static {
 }
 export declare var DOMXPathResultClass: DOMXPathResultClass_Static
 export interface DownloadClass {
+    /* Fields of WebKit.DownloadClass */
+    parent_class:GObject.ObjectClass
 }
 export interface DownloadClass_Static {
 }
@@ -34127,6 +36279,8 @@ export interface DownloadPrivate_Static {
 }
 export declare var DownloadPrivate: DownloadPrivate_Static
 export interface FaviconDatabaseClass {
+    /* Fields of WebKit.FaviconDatabaseClass */
+    parent_class:GObject.ObjectClass
 }
 export interface FaviconDatabaseClass_Static {
 }
@@ -34137,6 +36291,8 @@ export interface FaviconDatabasePrivate_Static {
 }
 export declare var FaviconDatabasePrivate: FaviconDatabasePrivate_Static
 export interface FileChooserRequestClass {
+    /* Fields of WebKit.FileChooserRequestClass */
+    parent_class:GObject.ObjectClass
 }
 export interface FileChooserRequestClass_Static {
 }
@@ -34147,6 +36303,8 @@ export interface FileChooserRequestPrivate_Static {
 }
 export declare var FileChooserRequestPrivate: FileChooserRequestPrivate_Static
 export interface GeolocationPolicyDecisionClass {
+    /* Fields of WebKit.GeolocationPolicyDecisionClass */
+    parent_class:GObject.ObjectClass
 }
 export interface GeolocationPolicyDecisionClass_Static {
 }
@@ -34157,6 +36315,8 @@ export interface GeolocationPolicyDecisionPrivate_Static {
 }
 export declare var GeolocationPolicyDecisionPrivate: GeolocationPolicyDecisionPrivate_Static
 export interface HitTestResultClass {
+    /* Fields of WebKit.HitTestResultClass */
+    parent_class:GObject.ObjectClass
 }
 export interface HitTestResultClass_Static {
 }
@@ -34167,6 +36327,8 @@ export interface HitTestResultPrivate_Static {
 }
 export declare var HitTestResultPrivate: HitTestResultPrivate_Static
 export interface IconDatabaseClass {
+    /* Fields of WebKit.IconDatabaseClass */
+    parent_class:GObject.ObjectClass
 }
 export interface IconDatabaseClass_Static {
 }
@@ -34177,6 +36339,8 @@ export interface IconDatabasePrivate_Static {
 }
 export declare var IconDatabasePrivate: IconDatabasePrivate_Static
 export interface NetworkRequestClass {
+    /* Fields of WebKit.NetworkRequestClass */
+    parent_class:GObject.ObjectClass
 }
 export interface NetworkRequestClass_Static {
 }
@@ -34187,6 +36351,8 @@ export interface NetworkRequestPrivate_Static {
 }
 export declare var NetworkRequestPrivate: NetworkRequestPrivate_Static
 export interface NetworkResponseClass {
+    /* Fields of WebKit.NetworkResponseClass */
+    parent_class:GObject.ObjectClass
 }
 export interface NetworkResponseClass_Static {
 }
@@ -34197,6 +36363,8 @@ export interface NetworkResponsePrivate_Static {
 }
 export declare var NetworkResponsePrivate: NetworkResponsePrivate_Static
 export interface SecurityOriginClass {
+    /* Fields of WebKit.SecurityOriginClass */
+    parent_class:GObject.ObjectClass
 }
 export interface SecurityOriginClass_Static {
 }
@@ -34207,16 +36375,28 @@ export interface SecurityOriginPrivate_Static {
 }
 export declare var SecurityOriginPrivate: SecurityOriginPrivate_Static
 export interface SoupAuthDialogClass {
+    /* Fields of WebKit.SoupAuthDialogClass */
+    parent_class:GObject.ObjectClass
 }
 export interface SoupAuthDialogClass_Static {
 }
 export declare var SoupAuthDialogClass: SoupAuthDialogClass_Static
 export interface SpellCheckerInterface {
+    /* Fields of WebKit.SpellCheckerInterface */
+    g_iface:GObject.TypeInterface
+    check_spelling_of_string:any
+    get_guesses_for_word:any
+    update_spell_checking_languages:any
+    get_autocorrect_suggestions_for_misspelled_word:any
+    learn_word:any
+    ignore_word:any
 }
 export interface SpellCheckerInterface_Static {
 }
 export declare var SpellCheckerInterface: SpellCheckerInterface_Static
 export interface ViewportAttributesClass {
+    /* Fields of WebKit.ViewportAttributesClass */
+    parent_class:GObject.ObjectClass
 }
 export interface ViewportAttributesClass_Static {
 }
@@ -34227,6 +36407,8 @@ export interface ViewportAttributesPrivate_Static {
 }
 export declare var ViewportAttributesPrivate: ViewportAttributesPrivate_Static
 export interface WebBackForwardListClass {
+    /* Fields of WebKit.WebBackForwardListClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebBackForwardListClass_Static {
 }
@@ -34237,6 +36419,8 @@ export interface WebBackForwardListPrivate_Static {
 }
 export declare var WebBackForwardListPrivate: WebBackForwardListPrivate_Static
 export interface WebDataSourceClass {
+    /* Fields of WebKit.WebDataSourceClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebDataSourceClass_Static {
 }
@@ -34247,6 +36431,8 @@ export interface WebDataSourcePrivate_Static {
 }
 export declare var WebDataSourcePrivate: WebDataSourcePrivate_Static
 export interface WebDatabaseClass {
+    /* Fields of WebKit.WebDatabaseClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebDatabaseClass_Static {
 }
@@ -34257,6 +36443,8 @@ export interface WebDatabasePrivate_Static {
 }
 export declare var WebDatabasePrivate: WebDatabasePrivate_Static
 export interface WebFrameClass {
+    /* Fields of WebKit.WebFrameClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebFrameClass_Static {
 }
@@ -34267,6 +36455,8 @@ export interface WebFramePrivate_Static {
 }
 export declare var WebFramePrivate: WebFramePrivate_Static
 export interface WebHistoryItemClass {
+    /* Fields of WebKit.WebHistoryItemClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebHistoryItemClass_Static {
 }
@@ -34277,6 +36467,8 @@ export interface WebHistoryItemPrivate_Static {
 }
 export declare var WebHistoryItemPrivate: WebHistoryItemPrivate_Static
 export interface WebInspectorClass {
+    /* Fields of WebKit.WebInspectorClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebInspectorClass_Static {
 }
@@ -34287,6 +36479,8 @@ export interface WebInspectorPrivate_Static {
 }
 export declare var WebInspectorPrivate: WebInspectorPrivate_Static
 export interface WebNavigationActionClass {
+    /* Fields of WebKit.WebNavigationActionClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebNavigationActionClass_Static {
 }
@@ -34297,11 +36491,15 @@ export interface WebNavigationActionPrivate_Static {
 }
 export declare var WebNavigationActionPrivate: WebNavigationActionPrivate_Static
 export interface WebPluginClass {
+    /* Fields of WebKit.WebPluginClass */
+    parentClass:GObject.ObjectClass
 }
 export interface WebPluginClass_Static {
 }
 export declare var WebPluginClass: WebPluginClass_Static
 export interface WebPluginDatabaseClass {
+    /* Fields of WebKit.WebPluginDatabaseClass */
+    parentClass:GObject.ObjectClass
 }
 export interface WebPluginDatabaseClass_Static {
 }
@@ -34312,6 +36510,10 @@ export interface WebPluginDatabasePrivate_Static {
 }
 export declare var WebPluginDatabasePrivate: WebPluginDatabasePrivate_Static
 export interface WebPluginMIMEType {
+    /* Fields of WebKit.WebPluginMIMEType */
+    name:string
+    description:string
+    extensions:string
 }
 export interface WebPluginMIMEType_Static {
 }
@@ -34322,6 +36524,8 @@ export interface WebPluginPrivate_Static {
 }
 export declare var WebPluginPrivate: WebPluginPrivate_Static
 export interface WebPolicyDecisionClass {
+    /* Fields of WebKit.WebPolicyDecisionClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebPolicyDecisionClass_Static {
 }
@@ -34332,6 +36536,8 @@ export interface WebPolicyDecisionPrivate_Static {
 }
 export declare var WebPolicyDecisionPrivate: WebPolicyDecisionPrivate_Static
 export interface WebResourceClass {
+    /* Fields of WebKit.WebResourceClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebResourceClass_Static {
 }
@@ -34342,6 +36548,8 @@ export interface WebResourcePrivate_Static {
 }
 export declare var WebResourcePrivate: WebResourcePrivate_Static
 export interface WebSettingsClass {
+    /* Fields of WebKit.WebSettingsClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebSettingsClass_Static {
 }
@@ -34352,6 +36560,28 @@ export interface WebSettingsPrivate_Static {
 }
 export declare var WebSettingsPrivate: WebSettingsPrivate_Static
 export interface WebViewClass {
+    /* Fields of WebKit.WebViewClass */
+    parent_class:Gtk.ContainerClass
+    web_view_ready:any
+    close_web_view:any
+    navigation_requested:any
+    choose_file:any
+    script_alert:any
+    script_confirm:any
+    script_prompt:any
+    console_message:any
+    select_all:any
+    cut_clipboard:any
+    copy_clipboard:any
+    paste_clipboard:any
+    move_cursor:any
+    set_scroll_adjustments:any
+    undo:any
+    redo:any
+    should_allow_editing_action:any
+    entering_fullscreen:any
+    leaving_fullscreen:any
+    run_file_chooser:any
 }
 export interface WebViewClass_Static {
 }
@@ -34362,6 +36592,8 @@ export interface WebViewPrivate_Static {
 }
 export declare var WebViewPrivate: WebViewPrivate_Static
 export interface WebWindowFeaturesClass {
+    /* Fields of WebKit.WebWindowFeaturesClass */
+    parent_class:GObject.ObjectClass
 }
 export interface WebWindowFeaturesClass_Static {
 }

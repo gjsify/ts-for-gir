@@ -325,6 +325,10 @@ export interface Binding_ConstructProps {
 }
 export interface Binding {
     /* Properties of GObject.Binding */
+    /* Fields of GObject.Object */
+    g_type_instance:TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Binding */
     get_flags(): BindingFlags
     get_source(): Object
@@ -374,6 +378,11 @@ export declare var Binding: Binding_Static
 export interface InitiallyUnowned_ConstructProps {
 }
 export interface InitiallyUnowned {
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
@@ -416,6 +425,10 @@ export declare var InitiallyUnowned: InitiallyUnowned_Static
 export interface Object_ConstructProps {
 }
 export interface Object {
+    /* Fields of GObject.Object */
+    g_type_instance:TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
@@ -463,6 +476,17 @@ export declare class Object_Static {
 }
 export declare var Object: Object_Static
 export interface ParamSpec {
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -484,6 +508,20 @@ export interface ParamSpec_Static {
 }
 export declare var ParamSpec: ParamSpec_Static
 export interface ParamSpecBoolean {
+    /* Fields of GObject.ParamSpecBoolean */
+    parent_instance:ParamSpec
+    default_value:boolean
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -505,6 +543,19 @@ export interface ParamSpecBoolean_Static {
 }
 export declare var ParamSpecBoolean: ParamSpecBoolean_Static
 export interface ParamSpecBoxed {
+    /* Fields of GObject.ParamSpecBoxed */
+    parent_instance:ParamSpec
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -526,6 +577,22 @@ export interface ParamSpecBoxed_Static {
 }
 export declare var ParamSpecBoxed: ParamSpecBoxed_Static
 export interface ParamSpecChar {
+    /* Fields of GObject.ParamSpecChar */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -547,6 +614,23 @@ export interface ParamSpecChar_Static {
 }
 export declare var ParamSpecChar: ParamSpecChar_Static
 export interface ParamSpecDouble {
+    /* Fields of GObject.ParamSpecDouble */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    epsilon:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -568,6 +652,21 @@ export interface ParamSpecDouble_Static {
 }
 export declare var ParamSpecDouble: ParamSpecDouble_Static
 export interface ParamSpecEnum {
+    /* Fields of GObject.ParamSpecEnum */
+    parent_instance:ParamSpec
+    enum_class:EnumClass
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -589,6 +688,21 @@ export interface ParamSpecEnum_Static {
 }
 export declare var ParamSpecEnum: ParamSpecEnum_Static
 export interface ParamSpecFlags {
+    /* Fields of GObject.ParamSpecFlags */
+    parent_instance:ParamSpec
+    flags_class:FlagsClass
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -610,6 +724,23 @@ export interface ParamSpecFlags_Static {
 }
 export declare var ParamSpecFlags: ParamSpecFlags_Static
 export interface ParamSpecFloat {
+    /* Fields of GObject.ParamSpecFloat */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    epsilon:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -631,6 +762,20 @@ export interface ParamSpecFloat_Static {
 }
 export declare var ParamSpecFloat: ParamSpecFloat_Static
 export interface ParamSpecGType {
+    /* Fields of GObject.ParamSpecGType */
+    parent_instance:ParamSpec
+    is_a_type:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -652,6 +797,22 @@ export interface ParamSpecGType_Static {
 }
 export declare var ParamSpecGType: ParamSpecGType_Static
 export interface ParamSpecInt {
+    /* Fields of GObject.ParamSpecInt */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -673,6 +834,22 @@ export interface ParamSpecInt_Static {
 }
 export declare var ParamSpecInt: ParamSpecInt_Static
 export interface ParamSpecInt64 {
+    /* Fields of GObject.ParamSpecInt64 */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -694,6 +871,22 @@ export interface ParamSpecInt64_Static {
 }
 export declare var ParamSpecInt64: ParamSpecInt64_Static
 export interface ParamSpecLong {
+    /* Fields of GObject.ParamSpecLong */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -715,6 +908,19 @@ export interface ParamSpecLong_Static {
 }
 export declare var ParamSpecLong: ParamSpecLong_Static
 export interface ParamSpecObject {
+    /* Fields of GObject.ParamSpecObject */
+    parent_instance:ParamSpec
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -736,6 +942,20 @@ export interface ParamSpecObject_Static {
 }
 export declare var ParamSpecObject: ParamSpecObject_Static
 export interface ParamSpecOverride {
+    /* Fields of GObject.ParamSpecOverride */
+    parent_instance:ParamSpec
+    overridden:ParamSpec
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -757,6 +977,19 @@ export interface ParamSpecOverride_Static {
 }
 export declare var ParamSpecOverride: ParamSpecOverride_Static
 export interface ParamSpecParam {
+    /* Fields of GObject.ParamSpecParam */
+    parent_instance:ParamSpec
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -778,6 +1011,19 @@ export interface ParamSpecParam_Static {
 }
 export declare var ParamSpecParam: ParamSpecParam_Static
 export interface ParamSpecPointer {
+    /* Fields of GObject.ParamSpecPointer */
+    parent_instance:ParamSpec
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -799,6 +1045,25 @@ export interface ParamSpecPointer_Static {
 }
 export declare var ParamSpecPointer: ParamSpecPointer_Static
 export interface ParamSpecString {
+    /* Fields of GObject.ParamSpecString */
+    parent_instance:ParamSpec
+    default_value:string
+    cset_first:string
+    cset_nth:string
+    substitutor:number
+    null_fold_if_empty:number
+    ensure_non_null:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -820,6 +1085,22 @@ export interface ParamSpecString_Static {
 }
 export declare var ParamSpecString: ParamSpecString_Static
 export interface ParamSpecUChar {
+    /* Fields of GObject.ParamSpecUChar */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -841,6 +1122,22 @@ export interface ParamSpecUChar_Static {
 }
 export declare var ParamSpecUChar: ParamSpecUChar_Static
 export interface ParamSpecUInt {
+    /* Fields of GObject.ParamSpecUInt */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -862,6 +1159,22 @@ export interface ParamSpecUInt_Static {
 }
 export declare var ParamSpecUInt: ParamSpecUInt_Static
 export interface ParamSpecUInt64 {
+    /* Fields of GObject.ParamSpecUInt64 */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -883,6 +1196,22 @@ export interface ParamSpecUInt64_Static {
 }
 export declare var ParamSpecUInt64: ParamSpecUInt64_Static
 export interface ParamSpecULong {
+    /* Fields of GObject.ParamSpecULong */
+    parent_instance:ParamSpec
+    minimum:number
+    maximum:number
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -904,6 +1233,20 @@ export interface ParamSpecULong_Static {
 }
 export declare var ParamSpecULong: ParamSpecULong_Static
 export interface ParamSpecUnichar {
+    /* Fields of GObject.ParamSpecUnichar */
+    parent_instance:ParamSpec
+    default_value:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -925,6 +1268,21 @@ export interface ParamSpecUnichar_Static {
 }
 export declare var ParamSpecUnichar: ParamSpecUnichar_Static
 export interface ParamSpecValueArray {
+    /* Fields of GObject.ParamSpecValueArray */
+    parent_instance:ParamSpec
+    element_spec:ParamSpec
+    fixed_n_elements:number
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -946,6 +1304,22 @@ export interface ParamSpecValueArray_Static {
 }
 export declare var ParamSpecValueArray: ParamSpecValueArray_Static
 export interface ParamSpecVariant {
+    /* Fields of GObject.ParamSpecVariant */
+    parent_instance:ParamSpec
+    type:GLib.VariantType
+    default_value:GLib.Variant
+    padding:object[]
+    /* Fields of GObject.ParamSpec */
+    g_type_instance:TypeInstance
+    name:string
+    flags:ParamFlags
+    value_type:number
+    owner_type:number
+    _nick:string
+    _blurb:string
+    qdata:GLib.Data
+    ref_count:number
+    param_id:number
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -969,6 +1343,16 @@ export declare var ParamSpecVariant: ParamSpecVariant_Static
 export interface TypeModule_ConstructProps {
 }
 export interface TypeModule {
+    /* Fields of GObject.TypeModule */
+    parent_instance:Object
+    use_count:number
+    type_infos:GLib.SList
+    interface_infos:GLib.SList
+    name:string
+    /* Fields of GObject.Object */
+    g_type_instance:TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.TypeModule */
     add_interface(instance_type: number, interface_type: number, interface_info: InterfaceInfo): void
     register_enum(name: string, const_static_values: EnumValue): number
@@ -1020,6 +1404,9 @@ export interface TypeModule_Static {
 }
 export declare var TypeModule: TypeModule_Static
 export interface CClosure {
+    /* Fields of GObject.CClosure */
+    closure:Closure
+    callback:object
 }
 export interface CClosure_Static {
 }
@@ -1050,6 +1437,20 @@ export declare class CClosure_Static {
 }
 export declare var CClosure: CClosure_Static
 export interface Closure {
+    /* Fields of GObject.Closure */
+    ref_count:number
+    meta_marshal_nouse:number
+    n_guards:number
+    n_fnotifiers:number
+    n_inotifiers:number
+    in_inotify:number
+    floating:number
+    derivative_flag:number
+    in_marshal:number
+    is_invalid:number
+    marshal:any
+    data:object
+    notifiers:ClosureNotifyData
     /* Methods of GObject.Closure */
     invalidate(): void
     invoke(return_value: Value | null, n_param_values: number, param_values: Value[], invocation_hint: object | null): void
@@ -1065,41 +1466,91 @@ export declare class Closure_Static {
 }
 export declare var Closure: Closure_Static
 export interface ClosureNotifyData {
+    /* Fields of GObject.ClosureNotifyData */
+    data:object
+    notify:ClosureNotify
 }
 export interface ClosureNotifyData_Static {
 }
 export declare var ClosureNotifyData: ClosureNotifyData_Static
 export interface EnumClass {
+    /* Fields of GObject.EnumClass */
+    g_type_class:TypeClass
+    minimum:number
+    maximum:number
+    n_values:number
+    values:EnumValue
 }
 export interface EnumClass_Static {
 }
 export declare var EnumClass: EnumClass_Static
 export interface EnumValue {
+    /* Fields of GObject.EnumValue */
+    value:number
+    value_name:string
+    value_nick:string
 }
 export interface EnumValue_Static {
 }
 export declare var EnumValue: EnumValue_Static
 export interface FlagsClass {
+    /* Fields of GObject.FlagsClass */
+    g_type_class:TypeClass
+    mask:number
+    n_values:number
+    values:FlagsValue
 }
 export interface FlagsClass_Static {
 }
 export declare var FlagsClass: FlagsClass_Static
 export interface FlagsValue {
+    /* Fields of GObject.FlagsValue */
+    value:number
+    value_name:string
+    value_nick:string
 }
 export interface FlagsValue_Static {
 }
 export declare var FlagsValue: FlagsValue_Static
 export interface InitiallyUnownedClass {
+    /* Fields of GObject.InitiallyUnownedClass */
+    g_type_class:TypeClass
+    construct_properties:GLib.SList
+    set_property:any
+    get_property:any
+    dispose:any
+    finalize:any
+    dispatch_properties_changed:any
+    notify:any
+    constructed:any
+    flags:number
+    pdummy:object[]
 }
 export interface InitiallyUnownedClass_Static {
 }
 export declare var InitiallyUnownedClass: InitiallyUnownedClass_Static
 export interface InterfaceInfo {
+    /* Fields of GObject.InterfaceInfo */
+    interface_init:InterfaceInitFunc
+    interface_finalize:InterfaceFinalizeFunc
+    interface_data:object
 }
 export interface InterfaceInfo_Static {
 }
 export declare var InterfaceInfo: InterfaceInfo_Static
 export interface ObjectClass {
+    /* Fields of GObject.ObjectClass */
+    g_type_class:TypeClass
+    construct_properties:GLib.SList
+    set_property:any
+    get_property:any
+    dispose:any
+    finalize:any
+    dispatch_properties_changed:any
+    notify:any
+    constructed:any
+    flags:number
+    pdummy:object[]
     /* Methods of GObject.ObjectClass */
     find_property(property_name: string): ParamSpec
     install_properties(n_pspecs: number, pspecs: ParamSpec[]): void
@@ -1111,11 +1562,22 @@ export interface ObjectClass_Static {
 }
 export declare var ObjectClass: ObjectClass_Static
 export interface ObjectConstructParam {
+    /* Fields of GObject.ObjectConstructParam */
+    pspec:ParamSpec
+    value:Value
 }
 export interface ObjectConstructParam_Static {
 }
 export declare var ObjectConstructParam: ObjectConstructParam_Static
 export interface ParamSpecClass {
+    /* Fields of GObject.ParamSpecClass */
+    g_type_class:TypeClass
+    value_type:number
+    finalize:any
+    value_set_default:any
+    value_validate:any
+    values_cmp:any
+    dummy:object[]
 }
 export interface ParamSpecClass_Static {
 }
@@ -1135,26 +1597,52 @@ export declare class ParamSpecPool_Static {
 }
 export declare var ParamSpecPool: ParamSpecPool_Static
 export interface ParamSpecTypeInfo {
+    /* Fields of GObject.ParamSpecTypeInfo */
+    instance_size:number
+    n_preallocs:number
+    instance_init:any
+    value_type:number
+    finalize:any
+    value_set_default:any
+    value_validate:any
+    values_cmp:any
 }
 export interface ParamSpecTypeInfo_Static {
 }
 export declare var ParamSpecTypeInfo: ParamSpecTypeInfo_Static
 export interface Parameter {
+    /* Fields of GObject.Parameter */
+    name:string
+    value:Value
 }
 export interface Parameter_Static {
 }
 export declare var Parameter: Parameter_Static
 export interface SignalInvocationHint {
+    /* Fields of GObject.SignalInvocationHint */
+    signal_id:number
+    detail:GLib.Quark
+    run_type:SignalFlags
 }
 export interface SignalInvocationHint_Static {
 }
 export declare var SignalInvocationHint: SignalInvocationHint_Static
 export interface SignalQuery {
+    /* Fields of GObject.SignalQuery */
+    signal_id:number
+    signal_name:string
+    itype:number
+    signal_flags:SignalFlags
+    return_type:number
+    n_params:number
+    param_types:number
 }
 export interface SignalQuery_Static {
 }
 export declare var SignalQuery: SignalQuery_Static
 export interface TypeClass {
+    /* Fields of GObject.TypeClass */
+    g_type:number
     /* Methods of GObject.TypeClass */
     peek_parent(): TypeClass
     unref(): void
@@ -1170,22 +1658,40 @@ export declare class TypeClass_Static {
 }
 export declare var TypeClass: TypeClass_Static
 export interface TypeFundamentalInfo {
+    /* Fields of GObject.TypeFundamentalInfo */
+    type_flags:TypeFundamentalFlags
 }
 export interface TypeFundamentalInfo_Static {
 }
 export declare var TypeFundamentalInfo: TypeFundamentalInfo_Static
 export interface TypeInfo {
+    /* Fields of GObject.TypeInfo */
+    class_size:number
+    base_init:BaseInitFunc
+    base_finalize:BaseFinalizeFunc
+    class_init:ClassInitFunc
+    class_finalize:ClassFinalizeFunc
+    class_data:object
+    instance_size:number
+    n_preallocs:number
+    instance_init:InstanceInitFunc
+    value_table:TypeValueTable
 }
 export interface TypeInfo_Static {
 }
 export declare var TypeInfo: TypeInfo_Static
 export interface TypeInstance {
+    /* Fields of GObject.TypeInstance */
+    g_class:TypeClass
     /* Methods of GObject.TypeInstance */
 }
 export interface TypeInstance_Static {
 }
 export declare var TypeInstance: TypeInstance_Static
 export interface TypeInterface {
+    /* Fields of GObject.TypeInterface */
+    g_type:number
+    g_instance_type:number
     /* Methods of GObject.TypeInterface */
     peek_parent(): TypeInterface
 }
@@ -1199,26 +1705,56 @@ export declare class TypeInterface_Static {
 }
 export declare var TypeInterface: TypeInterface_Static
 export interface TypeModuleClass {
+    /* Fields of GObject.TypeModuleClass */
+    parent_class:ObjectClass
+    load:any
+    unload:any
+    reserved1:any
+    reserved2:any
+    reserved3:any
+    reserved4:any
 }
 export interface TypeModuleClass_Static {
 }
 export declare var TypeModuleClass: TypeModuleClass_Static
 export interface TypePluginClass {
+    /* Fields of GObject.TypePluginClass */
+    base_iface:TypeInterface
+    use_plugin:TypePluginUse
+    unuse_plugin:TypePluginUnuse
+    complete_type_info:TypePluginCompleteTypeInfo
+    complete_interface_info:TypePluginCompleteInterfaceInfo
 }
 export interface TypePluginClass_Static {
 }
 export declare var TypePluginClass: TypePluginClass_Static
 export interface TypeQuery {
+    /* Fields of GObject.TypeQuery */
+    type:number
+    type_name:string
+    class_size:number
+    instance_size:number
 }
 export interface TypeQuery_Static {
 }
 export declare var TypeQuery: TypeQuery_Static
 export interface TypeValueTable {
+    /* Fields of GObject.TypeValueTable */
+    value_init:any
+    value_free:any
+    value_copy:any
+    collect_format:string
+    collect_value:any
+    lcopy_format:string
+    lcopy_value:any
 }
 export interface TypeValueTable_Static {
 }
 export declare var TypeValueTable: TypeValueTable_Static
 export interface Value {
+    /* Fields of GObject.Value */
+    g_type:number
+    data:_Value__data__union[]
     /* Methods of GObject.Value */
     copy(dest_value: Value): void
     dup_object(): Object
@@ -1290,6 +1826,10 @@ export declare class Value_Static {
 }
 export declare var Value: Value_Static
 export interface ValueArray {
+    /* Fields of GObject.ValueArray */
+    n_values:number
+    values:Value
+    n_prealloced:number
     /* Methods of GObject.ValueArray */
     append(value: Value | null): ValueArray
     copy(): ValueArray
@@ -1314,11 +1854,27 @@ export interface WeakRef_Static {
 }
 export declare var WeakRef: WeakRef_Static
 export interface TypeCValue {
+    /* Fields of GObject.TypeCValue */
+    v_int:number
+    v_long:number
+    v_int64:number
+    v_double:number
+    v_pointer:object
 }
 export interface TypeCValue_Static {
 }
 export declare var TypeCValue: TypeCValue_Static
 export interface _Value__data__union {
+    /* Fields of GObject._Value__data__union */
+    v_int:number
+    v_uint:number
+    v_long:number
+    v_ulong:number
+    v_int64:number
+    v_uint64:number
+    v_float:number
+    v_double:number
+    v_pointer:object
 }
 export interface _Value__data__union_Static {
 }

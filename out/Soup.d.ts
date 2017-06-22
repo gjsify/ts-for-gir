@@ -607,6 +607,12 @@ export interface Address_ConstructProps {
 export interface Address {
     /* Properties of Soup.Address */
     readonly physical:string
+    /* Fields of Soup.Address */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Address */
     equal_by_ip(addr2: Address): boolean
     equal_by_name(addr2: Address): boolean
@@ -678,6 +684,12 @@ export interface Auth {
     is_for_proxy:boolean
     realm:string
     readonly scheme_name:string
+    /* Fields of Soup.Auth */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Auth */
     authenticate(username: string, password: string): void
     get_authorization(msg: Message): string
@@ -759,6 +771,12 @@ export interface AuthBasic {
     is_for_proxy:boolean
     realm:string
     readonly scheme_name:string
+    /* Fields of Soup.Auth */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Auth */
     authenticate(username: string, password: string): void
     get_authorization(msg: Message): string
@@ -837,6 +855,12 @@ export interface AuthDigest {
     is_for_proxy:boolean
     realm:string
     readonly scheme_name:string
+    /* Fields of Soup.Auth */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Auth */
     authenticate(username: string, password: string): void
     get_authorization(msg: Message): string
@@ -921,6 +945,12 @@ export interface AuthDomain {
     generic_auth_callback:object
     generic_auth_data:object
     remove_path:string
+    /* Fields of Soup.AuthDomain */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.AuthDomain */
     accepts(msg: Message): string | null
     basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, user_data: object, dnotify: GLib.DestroyNotify): void
@@ -1006,6 +1036,13 @@ export interface AuthDomainBasic {
     generic_auth_callback:object
     generic_auth_data:object
     remove_path:string
+    /* Fields of Soup.AuthDomainBasic */
+    parent:AuthDomain
+    /* Fields of Soup.AuthDomain */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.AuthDomain */
     accepts(msg: Message): string | null
     basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, user_data: object, dnotify: GLib.DestroyNotify): void
@@ -1093,6 +1130,13 @@ export interface AuthDomainDigest {
     generic_auth_callback:object
     generic_auth_data:object
     remove_path:string
+    /* Fields of Soup.AuthDomainDigest */
+    parent:AuthDomain
+    /* Fields of Soup.AuthDomain */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.AuthDomain */
     accepts(msg: Message): string | null
     basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, user_data: object, dnotify: GLib.DestroyNotify): void
@@ -1161,6 +1205,13 @@ export declare var AuthDomainDigest: AuthDomainDigest_Static
 export interface AuthManager_ConstructProps {
 }
 export interface AuthManager {
+    /* Fields of Soup.AuthManager */
+    parent:GObject.Object
+    priv:AuthManagerPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.AuthManager */
     use_auth(uri: URI, auth: Auth): void
     /* Methods of GObject.Object */
@@ -1219,6 +1270,12 @@ export interface AuthNTLM {
     is_for_proxy:boolean
     realm:string
     readonly scheme_name:string
+    /* Fields of Soup.Auth */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Auth */
     authenticate(username: string, password: string): void
     get_authorization(msg: Message): string
@@ -1291,6 +1348,13 @@ export interface Cache_ConstructProps {
 }
 export interface Cache {
     /* Properties of Soup.Cache */
+    /* Fields of Soup.Cache */
+    parent_instance:GObject.Object
+    priv:CachePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Cache */
     clear(): void
     dump(): void
@@ -1345,6 +1409,13 @@ export declare var Cache: Cache_Static
 export interface ContentDecoder_ConstructProps {
 }
 export interface ContentDecoder {
+    /* Fields of Soup.ContentDecoder */
+    parent:GObject.Object
+    priv:ContentDecoderPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -1387,6 +1458,13 @@ export declare var ContentDecoder: ContentDecoder_Static
 export interface ContentSniffer_ConstructProps {
 }
 export interface ContentSniffer {
+    /* Fields of Soup.ContentSniffer */
+    parent:GObject.Object
+    priv:ContentSnifferPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.ContentSniffer */
     get_buffer_size(): number
     sniff(msg: Message, buffer: Buffer): [ /* returnType */ string, /* params */ GLib.HashTable | null ]
@@ -1443,6 +1521,12 @@ export interface CookieJar_ConstructProps {
 export interface CookieJar {
     /* Properties of Soup.CookieJar */
     accept_policy:CookieJarAcceptPolicy
+    /* Fields of Soup.CookieJar */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.CookieJar */
     add_cookie(cookie: Cookie): void
     add_cookie_with_first_party(first_party: URI, cookie: Cookie): void
@@ -1516,6 +1600,13 @@ export interface CookieJarDB {
     /* Properties of Soup.CookieJarDB */
     /* Properties of Soup.CookieJar */
     accept_policy:CookieJarAcceptPolicy
+    /* Fields of Soup.CookieJarDB */
+    parent:CookieJar
+    /* Fields of Soup.CookieJar */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.CookieJar */
     add_cookie(cookie: Cookie): void
     add_cookie_with_first_party(first_party: URI, cookie: Cookie): void
@@ -1589,6 +1680,13 @@ export interface CookieJarText {
     /* Properties of Soup.CookieJarText */
     /* Properties of Soup.CookieJar */
     accept_policy:CookieJarAcceptPolicy
+    /* Fields of Soup.CookieJarText */
+    parent:CookieJar
+    /* Fields of Soup.CookieJar */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.CookieJar */
     add_cookie(cookie: Cookie): void
     add_cookie_with_first_party(first_party: URI, cookie: Cookie): void
@@ -1654,6 +1752,12 @@ export declare var CookieJarText: CookieJarText_Static
 export interface Logger_ConstructProps {
 }
 export interface Logger {
+    /* Fields of Soup.Logger */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Logger */
     attach(session: Session): void
     detach(session: Session): void
@@ -1734,6 +1838,12 @@ export interface Message {
     tls_certificate:Gio.TlsCertificate
     tls_errors:Gio.TlsCertificateFlags
     uri:URI
+    /* Fields of Soup.Message */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Message */
     content_sniffed(content_type: string, params: GLib.HashTable): void
     disable_feature(feature_type: number): void
@@ -1866,6 +1976,16 @@ export interface MultipartInputStream {
     /* Properties of Soup.MultipartInputStream */
     /* Properties of Gio.FilterInputStream */
     close_base_stream:boolean
+    /* Fields of Soup.MultipartInputStream */
+    parent_instance:Gio.FilterInputStream
+    priv:MultipartInputStreamPrivate
+    /* Fields of Gio.FilterInputStream */
+    base_stream:Gio.InputStream
+    /* Fields of Gio.InputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.MultipartInputStream */
     get_headers(): MessageHeaders | null
     next_part(cancellable: Gio.Cancellable | null): Gio.InputStream | null
@@ -1955,6 +2075,12 @@ export interface ProxyResolverDefault_ConstructProps {
 export interface ProxyResolverDefault {
     /* Properties of Soup.ProxyResolverDefault */
     gproxy_resolver:Gio.ProxyResolver
+    /* Fields of Soup.ProxyResolverDefault */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -2002,6 +2128,13 @@ export interface Request_ConstructProps {
 }
 export interface Request {
     /* Properties of Soup.Request */
+    /* Fields of Soup.Request */
+    parent:GObject.Object
+    priv:RequestPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Request */
     get_content_length(): number
     get_content_type(): string | null
@@ -2063,6 +2196,14 @@ export interface RequestData_ConstructProps {
 }
 export interface RequestData {
     /* Properties of Soup.Request */
+    /* Fields of Soup.RequestData */
+    parent:Request
+    priv:RequestDataPrivate
+    /* Fields of Soup.Request */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Request */
     get_content_length(): number
     get_content_type(): string | null
@@ -2124,6 +2265,14 @@ export interface RequestFile_ConstructProps {
 }
 export interface RequestFile {
     /* Properties of Soup.Request */
+    /* Fields of Soup.RequestFile */
+    parent:Request
+    priv:RequestFilePrivate
+    /* Fields of Soup.Request */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.RequestFile */
     get_file(): Gio.File
     /* Methods of Soup.Request */
@@ -2187,6 +2336,14 @@ export interface RequestHTTP_ConstructProps {
 }
 export interface RequestHTTP {
     /* Properties of Soup.Request */
+    /* Fields of Soup.RequestHTTP */
+    parent:Request
+    priv:RequestHTTPPrivate
+    /* Fields of Soup.Request */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.RequestHTTP */
     get_message(): Message
     /* Methods of Soup.Request */
@@ -2246,6 +2403,13 @@ export declare var RequestHTTP: RequestHTTP_Static
 export interface Requester_ConstructProps {
 }
 export interface Requester {
+    /* Fields of Soup.Requester */
+    parent:GObject.Object
+    priv:RequesterPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Requester */
     request(uri_string: string): Request
     request_uri(uri: URI): Request
@@ -2309,6 +2473,12 @@ export interface Server {
     http_aliases:string[]
     https_aliases:string[]
     server_header:string
+    /* Fields of Soup.Server */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Server */
     accept_iostream(stream: Gio.IOStream, local_addr: Gio.SocketAddress | null, remote_addr: Gio.SocketAddress | null): boolean
     add_auth_domain(auth_domain: AuthDomain): void
@@ -2430,6 +2600,12 @@ export interface Session {
     use_ntlm:boolean
     use_thread_context:boolean
     user_agent:string
+    /* Fields of Soup.Session */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Session */
     abort(): void
     add_feature(feature: SessionFeature): void
@@ -2581,6 +2757,13 @@ export interface SessionAsync {
     use_ntlm:boolean
     use_thread_context:boolean
     user_agent:string
+    /* Fields of Soup.SessionAsync */
+    parent:Session
+    /* Fields of Soup.Session */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Session */
     abort(): void
     add_feature(feature: SessionFeature): void
@@ -2732,6 +2915,13 @@ export interface SessionSync {
     use_ntlm:boolean
     use_thread_context:boolean
     user_agent:string
+    /* Fields of Soup.SessionSync */
+    parent:Session
+    /* Fields of Soup.Session */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Session */
     abort(): void
     add_feature(feature: SessionFeature): void
@@ -2866,6 +3056,12 @@ export interface Socket {
     readonly tls_certificate:Gio.TlsCertificate
     readonly tls_errors:Gio.TlsCertificateFlags
     readonly trusted_certificate:boolean
+    /* Fields of Soup.Socket */
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.Socket */
     connect_async(cancellable: Gio.Cancellable | null, callback: SocketCallback, user_data: object): void
     connect_sync(cancellable: Gio.Cancellable | null): number
@@ -2950,6 +3146,13 @@ export interface WebsocketConnection_ConstructProps {
 export interface WebsocketConnection {
     /* Properties of Soup.WebsocketConnection */
     readonly state:WebsocketState
+    /* Fields of Soup.WebsocketConnection */
+    parent:GObject.Object
+    pv:WebsocketConnectionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Soup.WebsocketConnection */
     close(code: number, data: string | null): void
     get_close_code(): number
@@ -3016,31 +3219,55 @@ export declare class WebsocketConnection_Static {
 }
 export declare var WebsocketConnection: WebsocketConnection_Static
 export interface AddressClass {
+    /* Fields of Soup.AddressClass */
+    parent_class:GObject.ObjectClass
 }
 export interface AddressClass_Static {
 }
 export declare var AddressClass: AddressClass_Static
 export interface AuthClass {
+    /* Fields of Soup.AuthClass */
+    parent_class:GObject.ObjectClass
+    scheme_name:string
+    strength:number
+    update:any
+    get_protection_space:any
+    authenticate:any
+    is_authenticated:any
+    get_authorization:any
+    is_ready:any
 }
 export interface AuthClass_Static {
 }
 export declare var AuthClass: AuthClass_Static
 export interface AuthDomainBasicClass {
+    /* Fields of Soup.AuthDomainBasicClass */
+    parent_class:AuthDomainClass
 }
 export interface AuthDomainBasicClass_Static {
 }
 export declare var AuthDomainBasicClass: AuthDomainBasicClass_Static
 export interface AuthDomainClass {
+    /* Fields of Soup.AuthDomainClass */
+    parent_class:GObject.ObjectClass
+    accepts:any
+    challenge:any
+    check_password:any
 }
 export interface AuthDomainClass_Static {
 }
 export declare var AuthDomainClass: AuthDomainClass_Static
 export interface AuthDomainDigestClass {
+    /* Fields of Soup.AuthDomainDigestClass */
+    parent_class:AuthDomainClass
 }
 export interface AuthDomainDigestClass_Static {
 }
 export declare var AuthDomainDigestClass: AuthDomainDigestClass_Static
 export interface AuthManagerClass {
+    /* Fields of Soup.AuthManagerClass */
+    parent_class:GObject.ObjectClass
+    authenticate:any
 }
 export interface AuthManagerClass_Static {
 }
@@ -3051,6 +3278,9 @@ export interface AuthManagerPrivate_Static {
 }
 export declare var AuthManagerPrivate: AuthManagerPrivate_Static
 export interface Buffer {
+    /* Fields of Soup.Buffer */
+    data:object
+    length:number
     /* Methods of Soup.Buffer */
     copy(): Buffer
     free(): void
@@ -3068,6 +3298,9 @@ export declare class Buffer_Static {
 }
 export declare var Buffer: Buffer_Static
 export interface CacheClass {
+    /* Fields of Soup.CacheClass */
+    parent_class:GObject.ObjectClass
+    get_cacheability:any
 }
 export interface CacheClass_Static {
 }
@@ -3098,6 +3331,8 @@ export interface Connection_Static {
 }
 export declare var Connection: Connection_Static
 export interface ContentDecoderClass {
+    /* Fields of Soup.ContentDecoderClass */
+    parent_class:GObject.ObjectClass
 }
 export interface ContentDecoderClass_Static {
 }
@@ -3108,6 +3343,10 @@ export interface ContentDecoderPrivate_Static {
 }
 export declare var ContentDecoderPrivate: ContentDecoderPrivate_Static
 export interface ContentSnifferClass {
+    /* Fields of Soup.ContentSnifferClass */
+    parent_class:GObject.ObjectClass
+    sniff:any
+    get_buffer_size:any
 }
 export interface ContentSnifferClass_Static {
 }
@@ -3118,6 +3357,14 @@ export interface ContentSnifferPrivate_Static {
 }
 export declare var ContentSnifferPrivate: ContentSnifferPrivate_Static
 export interface Cookie {
+    /* Fields of Soup.Cookie */
+    name:string
+    value:string
+    domain:string
+    path:string
+    expires:Date
+    secure:boolean
+    http_only:boolean
     /* Methods of Soup.Cookie */
     applies_to_uri(uri: URI): boolean
     copy(): Cookie
@@ -3150,21 +3397,39 @@ export declare class Cookie_Static {
 }
 export declare var Cookie: Cookie_Static
 export interface CookieJarClass {
+    /* Fields of Soup.CookieJarClass */
+    parent_class:GObject.ObjectClass
+    save:any
+    is_persistent:any
+    changed:any
 }
 export interface CookieJarClass_Static {
 }
 export declare var CookieJarClass: CookieJarClass_Static
 export interface CookieJarDBClass {
+    /* Fields of Soup.CookieJarDBClass */
+    parent_class:CookieJarClass
 }
 export interface CookieJarDBClass_Static {
 }
 export declare var CookieJarDBClass: CookieJarDBClass_Static
 export interface CookieJarTextClass {
+    /* Fields of Soup.CookieJarTextClass */
+    parent_class:CookieJarClass
 }
 export interface CookieJarTextClass_Static {
 }
 export declare var CookieJarTextClass: CookieJarTextClass_Static
 export interface Date {
+    /* Fields of Soup.Date */
+    year:number
+    month:number
+    day:number
+    hour:number
+    minute:number
+    second:number
+    utc:boolean
+    offset:number
     /* Methods of Soup.Date */
     copy(): Date
     free(): void
@@ -3191,11 +3456,16 @@ export declare class Date_Static {
 }
 export declare var Date: Date_Static
 export interface LoggerClass {
+    /* Fields of Soup.LoggerClass */
+    parent_class:GObject.ObjectClass
 }
 export interface LoggerClass_Static {
 }
 export declare var LoggerClass: LoggerClass_Static
 export interface MessageBody {
+    /* Fields of Soup.MessageBody */
+    data:string
+    length:number
     /* Methods of Soup.MessageBody */
     append(use: MemoryUse, data: number[], length: number): void
     append_buffer(buffer: Buffer): void
@@ -3217,6 +3487,19 @@ export declare class MessageBody_Static {
 }
 export declare var MessageBody: MessageBody_Static
 export interface MessageClass {
+    /* Fields of Soup.MessageClass */
+    parent_class:GObject.ObjectClass
+    wrote_informational:any
+    wrote_headers:any
+    wrote_chunk:any
+    wrote_body:any
+    got_informational:any
+    got_headers:any
+    got_chunk:any
+    got_body:any
+    restarted:any
+    finished:any
+    starting:any
 }
 export interface MessageClass_Static {
 }
@@ -3260,6 +3543,8 @@ export declare class MessageHeaders_Static {
 }
 export declare var MessageHeaders: MessageHeaders_Static
 export interface MessageHeadersIter {
+    /* Fields of Soup.MessageHeadersIter */
+    dummy:object[]
     /* Methods of Soup.MessageHeadersIter */
     next(): [ /* returnType */ boolean, /* name */ string, /* value */ string ]
 }
@@ -3297,6 +3582,8 @@ export declare class Multipart_Static {
 }
 export declare var Multipart: Multipart_Static
 export interface MultipartInputStreamClass {
+    /* Fields of Soup.MultipartInputStreamClass */
+    parent_class:Gio.FilterInputStreamClass
 }
 export interface MultipartInputStreamClass_Static {
 }
@@ -3307,31 +3594,55 @@ export interface MultipartInputStreamPrivate_Static {
 }
 export declare var MultipartInputStreamPrivate: MultipartInputStreamPrivate_Static
 export interface PasswordManagerInterface {
+    /* Fields of Soup.PasswordManagerInterface */
+    base:GObject.TypeInterface
+    get_passwords_async:any
+    get_passwords_sync:any
 }
 export interface PasswordManagerInterface_Static {
 }
 export declare var PasswordManagerInterface: PasswordManagerInterface_Static
 export interface ProxyResolverDefaultClass {
+    /* Fields of Soup.ProxyResolverDefaultClass */
+    parent_class:GObject.ObjectClass
 }
 export interface ProxyResolverDefaultClass_Static {
 }
 export declare var ProxyResolverDefaultClass: ProxyResolverDefaultClass_Static
 export interface ProxyURIResolverInterface {
+    /* Fields of Soup.ProxyURIResolverInterface */
+    base:GObject.TypeInterface
+    get_proxy_uri_async:any
+    get_proxy_uri_sync:any
 }
 export interface ProxyURIResolverInterface_Static {
 }
 export declare var ProxyURIResolverInterface: ProxyURIResolverInterface_Static
 export interface Range {
+    /* Fields of Soup.Range */
+    start:number
+    end:number
 }
 export interface Range_Static {
 }
 export declare var Range: Range_Static
 export interface RequestClass {
+    /* Fields of Soup.RequestClass */
+    parent:GObject.ObjectClass
+    schemes:string
+    check_uri:any
+    send:any
+    send_async:any
+    send_finish:any
+    get_content_length:any
+    get_content_type:any
 }
 export interface RequestClass_Static {
 }
 export declare var RequestClass: RequestClass_Static
 export interface RequestDataClass {
+    /* Fields of Soup.RequestDataClass */
+    parent:RequestClass
 }
 export interface RequestDataClass_Static {
 }
@@ -3342,6 +3653,8 @@ export interface RequestDataPrivate_Static {
 }
 export declare var RequestDataPrivate: RequestDataPrivate_Static
 export interface RequestFileClass {
+    /* Fields of Soup.RequestFileClass */
+    parent:RequestClass
 }
 export interface RequestFileClass_Static {
 }
@@ -3352,6 +3665,8 @@ export interface RequestFilePrivate_Static {
 }
 export declare var RequestFilePrivate: RequestFilePrivate_Static
 export interface RequestHTTPClass {
+    /* Fields of Soup.RequestHTTPClass */
+    parent:RequestClass
 }
 export interface RequestHTTPClass_Static {
 }
@@ -3367,6 +3682,8 @@ export interface RequestPrivate_Static {
 }
 export declare var RequestPrivate: RequestPrivate_Static
 export interface RequesterClass {
+    /* Fields of Soup.RequesterClass */
+    parent_class:GObject.ObjectClass
 }
 export interface RequesterClass_Static {
 }
@@ -3377,36 +3694,82 @@ export interface RequesterPrivate_Static {
 }
 export declare var RequesterPrivate: RequesterPrivate_Static
 export interface ServerClass {
+    /* Fields of Soup.ServerClass */
+    parent_class:GObject.ObjectClass
+    request_started:any
+    request_read:any
+    request_finished:any
+    request_aborted:any
 }
 export interface ServerClass_Static {
 }
 export declare var ServerClass: ServerClass_Static
 export interface SessionAsyncClass {
+    /* Fields of Soup.SessionAsyncClass */
+    parent_class:SessionClass
 }
 export interface SessionAsyncClass_Static {
 }
 export declare var SessionAsyncClass: SessionAsyncClass_Static
 export interface SessionClass {
+    /* Fields of Soup.SessionClass */
+    parent_class:GObject.ObjectClass
+    request_started:any
+    authenticate:any
+    queue_message:any
+    requeue_message:any
+    send_message:any
+    cancel_message:any
+    auth_required:any
+    flush_queue:any
+    kick:any
 }
 export interface SessionClass_Static {
 }
 export declare var SessionClass: SessionClass_Static
 export interface SessionFeatureInterface {
+    /* Fields of Soup.SessionFeatureInterface */
+    parent:GObject.TypeInterface
+    attach:any
+    detach:any
+    request_queued:any
+    request_started:any
+    request_unqueued:any
+    add_feature:any
+    remove_feature:any
+    has_feature:any
 }
 export interface SessionFeatureInterface_Static {
 }
 export declare var SessionFeatureInterface: SessionFeatureInterface_Static
 export interface SessionSyncClass {
+    /* Fields of Soup.SessionSyncClass */
+    parent_class:SessionClass
 }
 export interface SessionSyncClass_Static {
 }
 export declare var SessionSyncClass: SessionSyncClass_Static
 export interface SocketClass {
+    /* Fields of Soup.SocketClass */
+    parent_class:GObject.ObjectClass
+    readable:any
+    writable:any
+    disconnected:any
+    new_connection:any
 }
 export interface SocketClass_Static {
 }
 export declare var SocketClass: SocketClass_Static
 export interface URI {
+    /* Fields of Soup.URI */
+    scheme:string
+    user:string
+    password:string
+    host:string
+    port:number
+    path:string
+    query:string
+    fragment:string
     /* Methods of Soup.URI */
     copy(): URI
     copy_host(): URI
@@ -3445,6 +3808,12 @@ export declare class URI_Static {
 }
 export declare var URI: URI_Static
 export interface WebsocketConnectionClass {
+    /* Fields of Soup.WebsocketConnectionClass */
+    parent:GObject.ObjectClass
+    message:any
+    error:any
+    closing:any
+    closed:any
 }
 export interface WebsocketConnectionClass_Static {
 }

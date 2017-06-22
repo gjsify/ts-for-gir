@@ -60,6 +60,7 @@ interface GirFunction extends TsForGjsExtended {
         version?: string
         "c-identifier"?: string
         introspectable?: string
+        "moved-to"?: string
     }
     doc?: GirDoc[]
     parameters?: GirParameter[]
@@ -73,22 +74,13 @@ interface GirSignal extends TsForGjsExtended {
     doc?: GirDoc[]
     "return-value"?: GirParameter[]
 }
-interface GirInterface extends TsForGjsExtended {
-    $: {
-        name: string
-    }
-    doc?: GirDoc[]
-    "constructor"?: GirFunction[] | Function
-    function?: GirFunction[]
-    method?: GirFunction[]
-    property?: GirVariable[]
-    "virtual-method"?: GirFunction[]
-}
 interface GirClass extends TsForGjsExtended {
     $: {
         name: string
         parent?: string
         version?: string
+        // Not sure what this means
+        disguised?: string
         // c:symbol-prefix, c:type, glib:get-type, glib:type-name
     }
     doc?: GirDoc[]
@@ -96,25 +88,11 @@ interface GirClass extends TsForGjsExtended {
     "glib:signal"?: GirFunction[]
     method?: GirFunction[]
     property?: GirVariable[]
+    field?: GirVariable[]
     "virtual-method"?: GirFunction[]
     "constructor"?: GirFunction[] | Function
 
     _module?: GirModule
-}
-interface GirField {
-    $: {
-        name: string
-    }
-    callback?: GirFunction[]
-}
-interface GirRecord extends TsForGjsExtended {
-    $: {
-        name: string
-        "c:type"?: string
-    }
-    doc?: GirDoc[]
-    field?: GirField[]
-    "constructor"?: GirFunction[] | Function
 }
 interface GirEnumerationMember {
     $: {
@@ -155,9 +133,9 @@ interface GirNamespace {
     constant?: GirVariable[]
     enumeration?: GirEnumeration[]
     function?: GirFunction[]
-    interface?: GirInterface[]
-    record?: GirRecord[]
-    union?: GirRecord[]
+    interface?: GirClass[]
+    record?: GirClass[]
+    union?: GirClass[]
 }
 
 interface GirRepository {
@@ -262,18 +240,19 @@ export class GirModule {
         if (this.ns.callback) 
             for (let f of this.ns.callback) 
                 annotateFunctionArguments(f)
-                    
-        if (this.ns.class)
-            for (let c of this.ns.class) {
-                annotateFunctions(c.function)
-                annotateFunctions(c.method)
-                annotateFunctions(c["virtual-method"])
-                annotateFunctions(c["glib:signal"])
-                annotateVariables(c.property)
-            }
 
-        // if (this.ns.)
-        // props
+        let objs = (this.ns.class ? this.ns.class : []).concat(
+                    this.ns.record ? this.ns.record : []).concat(
+                    this.ns.interface ? this.ns.interface : [])
+
+        for (let c of objs) {
+            annotateFunctions(c.function)
+            annotateFunctions(c.method)
+            annotateFunctions(c["virtual-method"])
+            annotateFunctions(c["glib:signal"])
+            annotateVariables(c.property)
+            annotateVariables(c.field)
+        }
         
         this.symTable = dict
     }
@@ -313,7 +292,7 @@ export class GirModule {
 
         if (arr) {
             let podTypeMapArray = {
-                // 'guint8': 'gjs.ByteArray',
+                // 'guint8': 'gjs.ByteArray', 'gint8': 'gjs.ByteArray',
                 'gunichar': 'string'
             }
             if (podTypeMapArray[type.$.name] != null)
@@ -330,6 +309,9 @@ export class GirModule {
             'gdouble': 'number', 'gssize': 'number', 'gsize': 'number', 'long': 'number',
             'object': 'any', 'va_list': 'any', 'gshort': 'number'
         }
+        // GLib.ByteArray, GLib.Bytes: gjs.ByteArray
+        // GObject.Value: any
+        // GObject.Closure: Function
 
         if (podTypeMap[type.$.name] != null)
             return podTypeMap[type.$.name] + suffix
@@ -346,7 +328,7 @@ export class GirModule {
                 'char*': 'string',
                 'gchar*': 'string',
                 'gchar**': 'any',  // FIXME
-                'GType': 'number',
+                'GType': 'number',  // GObject.Type ?
             }
             if (cTypeMap[cType]) {
                 return cTypeMap[cType]
@@ -354,6 +336,10 @@ export class GirModule {
         }
 
         let fullTypeName: string = type.$.name
+
+        if (fullTypeName == 'GObject.Closure') {
+            // console.warn('hello')
+        }
         
         // Fully qualify our type name if need be
         if (fullTypeName.indexOf(".") < 0) {
@@ -599,7 +585,7 @@ export class GirModule {
             this.traverseInheritanceTree(parent, callback)
     }
 
-    private isDerivedFromGObject(e: GirInterface | GirClass): boolean {
+    private isDerivedFromGObject(e: GirClass | GirClass): boolean {
         let ret = false
         this.traverseInheritanceTree(e, (cls) => {
             if (cls._fullSymName == "GObject.Object") {
@@ -609,7 +595,7 @@ export class GirModule {
         return ret
     }
 
-    private exportObjectInternal(e: GirInterface | GirClass) {
+    private exportObjectInternal(e: GirClass | GirClass) {
         let name = e.$.name
         let def: string[] = []
         let isDerivedFromGObject = this.isDerivedFromGObject(e)
@@ -664,6 +650,20 @@ export class GirModule {
                         if (origName) propertyNames.push(origName)
                     }
                     def = def.concat(aDesc)
+                }
+            }
+        })
+
+        // Fields
+        this.traverseInheritanceTree(e, (cls) => {
+            if (cls.field) {
+                def.push(`    /* Fields of ${cls._fullSymName} */`)
+                for (let f of cls.field) {
+                    let [desc, name] = this.getVariable(f, false, false)
+                    let [aDesc, added] = checkName(desc, name, localNames)
+                    if (added) {
+                        def.push(`    ${aDesc[0]}`)
+                    }
                 }
             }
         })
@@ -754,7 +754,7 @@ export class GirModule {
         return [`type ${name} = ${typeName}`]
     }
 
-    exportInterface(e: GirInterface) {
+    exportInterface(e: GirClass) {
         return this.exportObjectInternal(e)
     }
 

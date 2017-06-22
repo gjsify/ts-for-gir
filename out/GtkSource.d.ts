@@ -240,6 +240,14 @@ export interface Buffer {
     readonly has_selection:boolean
     readonly paste_target_list:Gtk.TargetList
     text:string
+    /* Fields of GtkSource.Buffer */
+    parent_instance:Gtk.TextBuffer
+    priv:BufferPrivate
+    /* Fields of Gtk.TextBuffer */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.Buffer */
     backward_iter_to_source_mark(iter: Gtk.TextIter, category: string | null): boolean
     begin_not_undoable_action(): void
@@ -461,6 +469,13 @@ export interface Completion {
     select_on_show:boolean
     show_headers:boolean
     show_icons:boolean
+    /* Fields of GtkSource.Completion */
+    parent_instance:GObject.Object
+    priv:CompletionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.Completion */
     add_provider(provider: CompletionProvider): boolean
     block_interactive(): void
@@ -545,6 +560,14 @@ export interface CompletionContext {
     /* Properties of GtkSource.CompletionContext */
     activation:CompletionActivation
     iter:Gtk.TextIter
+    /* Fields of GtkSource.CompletionContext */
+    parent:GObject.InitiallyUnowned
+    priv:CompletionContextPrivate
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of GtkSource.CompletionContext */
     add_proposals(provider: CompletionProvider, proposals: GLib.List | null, finished: boolean): void
     get_activation(): CompletionActivation
@@ -743,6 +766,21 @@ export interface CompletionInfo {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Fields of GtkSource.CompletionInfo */
+    priv:CompletionInfoPrivate
+    /* Fields of Gtk.Window */
+    bin:Gtk.Bin
+    /* Fields of Gtk.Bin */
+    container:Gtk.Container
+    /* Fields of Gtk.Container */
+    widget:Gtk.Widget
+    /* Fields of Gtk.Widget */
+    parent_instance:GObject.InitiallyUnowned
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of GtkSource.CompletionInfo */
     get_widget(): Gtk.Widget
     move_to_iter(view: Gtk.TextView, iter: Gtk.TextIter | null): void
@@ -1454,6 +1492,13 @@ export interface CompletionItem {
     label:string
     markup:string
     text:string
+    /* Fields of GtkSource.CompletionItem */
+    parent:GObject.Object
+    priv:CompletionItemPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -1526,6 +1571,13 @@ export interface CompletionWords {
     priority:number
     proposals_batch_size:number
     scan_batch_size:number
+    /* Fields of GtkSource.CompletionWords */
+    parent:GObject.Object
+    priv:CompletionWordsPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.CompletionWords */
     register(buffer: Gtk.TextBuffer): void
     unregister(buffer: Gtk.TextBuffer): void
@@ -1590,6 +1642,13 @@ export interface File {
     location:Gio.File
     readonly newline_type:NewlineType
     readonly read_only:boolean
+    /* Fields of GtkSource.File */
+    parent:GObject.Object
+    priv:FilePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.File */
     check_file_on_disk(): void
     get_compression_type(): CompressionType
@@ -1657,6 +1716,13 @@ export interface FileLoader_ConstructProps {
 }
 export interface FileLoader {
     /* Properties of GtkSource.FileLoader */
+    /* Fields of GtkSource.FileLoader */
+    parent:GObject.Object
+    priv:FileLoaderPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.FileLoader */
     get_buffer(): Buffer
     get_compression_type(): CompressionType
@@ -1727,6 +1793,13 @@ export interface FileSaver {
     encoding:Encoding
     flags:FileSaverFlags
     newline_type:NewlineType
+    /* Fields of GtkSource.FileSaver */
+    object:GObject.Object
+    priv:FileSaverPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.FileSaver */
     get_buffer(): Buffer
     get_compression_type(): CompressionType
@@ -1799,6 +1872,13 @@ export interface Gutter {
     /* Properties of GtkSource.Gutter */
     xpad:number
     ypad:number
+    /* Fields of GtkSource.Gutter */
+    parent:GObject.Object
+    priv:GutterPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.Gutter */
     get_padding(xpad: number, ypad: number): void
     get_renderer_at_pos(x: number, y: number): GutterRenderer | null
@@ -1874,6 +1954,14 @@ export interface GutterRenderer {
     xpad:number
     yalign:number
     ypad:number
+    /* Fields of GtkSource.GutterRenderer */
+    parent:GObject.InitiallyUnowned
+    priv:GutterRendererPrivate
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of GtkSource.GutterRenderer */
     activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -1999,6 +2087,15 @@ export interface GutterRendererPixbuf {
     xpad:number
     yalign:number
     ypad:number
+    /* Fields of GtkSource.GutterRendererPixbuf */
+    parent:GutterRenderer
+    priv:GutterRendererPixbufPrivate
+    /* Fields of GtkSource.GutterRenderer */
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of GtkSource.GutterRendererPixbuf */
     get_gicon(): Gio.Icon
     get_icon_name(): string
@@ -2136,6 +2233,15 @@ export interface GutterRendererText {
     xpad:number
     yalign:number
     ypad:number
+    /* Fields of GtkSource.GutterRendererText */
+    parent:GutterRenderer
+    priv:GutterRendererTextPrivate
+    /* Fields of GtkSource.GutterRenderer */
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of GtkSource.GutterRendererText */
     measure(text: string): [ /* width */ number, /* height */ number ]
     measure_markup(markup: string): [ /* width */ number, /* height */ number ]
@@ -2245,6 +2351,13 @@ export interface Language {
     readonly id:string
     readonly name:string
     readonly section:string
+    /* Fields of GtkSource.Language */
+    parent_instance:GObject.Object
+    priv:LanguagePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.Language */
     get_globs(): string[] | null
     get_hidden(): boolean
@@ -2307,6 +2420,13 @@ export interface LanguageManager {
     /* Properties of GtkSource.LanguageManager */
     readonly language_ids:string[]
     search_path:string[]
+    /* Fields of GtkSource.LanguageManager */
+    parent_instance:GObject.Object
+    priv:LanguageManagerPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.LanguageManager */
     get_language(id: string): Language | null
     get_language_ids(): string[] | null
@@ -2525,6 +2645,19 @@ export interface Map {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Fields of GtkSource.Map */
+    parent_instance:View
+    /* Fields of GtkSource.View */
+    priv:ViewPrivate
+    /* Fields of Gtk.TextView */
+    /* Fields of Gtk.Container */
+    widget:Gtk.Widget
+    /* Fields of Gtk.Widget */
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of GtkSource.Map */
     get_view(): View | null
     set_view(view: View): void
@@ -3265,6 +3398,15 @@ export interface Mark_ConstructProps {
 export interface Mark {
     /* Properties of GtkSource.Mark */
     /* Properties of Gtk.TextMark */
+    /* Fields of GtkSource.Mark */
+    parent_instance:Gtk.TextMark
+    priv:MarkPrivate
+    /* Fields of Gtk.TextMark */
+    segment:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.Mark */
     get_category(): string
     next(category: string | null): Mark | null
@@ -3333,6 +3475,13 @@ export interface MarkAttributes {
     icon_name:string
     pixbuf:GdkPixbuf.Pixbuf
     stock_id:string
+    /* Fields of GtkSource.MarkAttributes */
+    parent:GObject.Object
+    priv:MarkAttributesPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.MarkAttributes */
     get_background(): [ /* returnType */ boolean, /* background */ Gdk.RGBA ]
     get_gicon(): Gio.Icon
@@ -3424,6 +3573,13 @@ export interface PrintCompositor {
     print_line_numbers:number
     tab_width:number
     wrap_mode:Gtk.WrapMode
+    /* Fields of GtkSource.PrintCompositor */
+    parent_instance:GObject.Object
+    priv:PrintCompositorPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.PrintCompositor */
     draw_page(context: Gtk.PrintContext, page_nr: number): void
     get_body_font_name(): string
@@ -3528,6 +3684,13 @@ export interface SearchContext {
     readonly occurrences_count:number
     readonly regex_error:object
     settings:SearchSettings
+    /* Fields of GtkSource.SearchContext */
+    parent:GObject.Object
+    priv:SearchContextPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.SearchContext */
     backward(iter: Gtk.TextIter): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
     backward_async(iter: Gtk.TextIter, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
@@ -3609,6 +3772,13 @@ export interface SearchSettings {
     regex_enabled:boolean
     search_text:string
     wrap_around:boolean
+    /* Fields of GtkSource.SearchSettings */
+    parent:GObject.Object
+    priv:SearchSettingsPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.SearchSettings */
     get_at_word_boundaries(): boolean
     get_case_sensitive(): boolean
@@ -3691,6 +3861,10 @@ export interface Style_ConstructProps {
 }
 export interface Style {
     /* Properties of GtkSource.Style */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.Style */
     copy(): Style
     /* Methods of GObject.Object */
@@ -3741,6 +3915,13 @@ export interface StyleScheme {
     readonly description:string
     readonly filename:string
     readonly name:string
+    /* Fields of GtkSource.StyleScheme */
+    base:GObject.Object
+    priv:StyleSchemePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.StyleScheme */
     get_authors(): string[] | null
     get_description(): string | null
@@ -3898,6 +4079,21 @@ export interface StyleSchemeChooserButton {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Fields of GtkSource.StyleSchemeChooserButton */
+    /* Fields of Gtk.Button */
+    bin:Gtk.Bin
+    priv:Gtk.ButtonPrivate
+    /* Fields of Gtk.Bin */
+    container:Gtk.Container
+    /* Fields of Gtk.Container */
+    widget:Gtk.Widget
+    /* Fields of Gtk.Widget */
+    parent_instance:GObject.InitiallyUnowned
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of Gtk.Button */
     clicked(): void
     enter(): void
@@ -4570,6 +4766,19 @@ export interface StyleSchemeChooserWidget {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Fields of GtkSource.StyleSchemeChooserWidget */
+    /* Fields of Gtk.Bin */
+    container:Gtk.Container
+    priv:Gtk.BinPrivate
+    /* Fields of Gtk.Container */
+    widget:Gtk.Widget
+    /* Fields of Gtk.Widget */
+    parent_instance:GObject.InitiallyUnowned
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of Gtk.Bin */
     get_child(): Gtk.Widget
     /* Methods of Gtk.Container */
@@ -5115,6 +5324,13 @@ export interface StyleSchemeManager {
     /* Properties of GtkSource.StyleSchemeManager */
     readonly scheme_ids:string[]
     search_path:string[]
+    /* Fields of GtkSource.StyleSchemeManager */
+    parent:GObject.Object
+    priv:StyleSchemeManagerPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GtkSource.StyleSchemeManager */
     append_search_path(path: string): void
     force_rescan(): void
@@ -5329,6 +5545,18 @@ export interface View {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Fields of GtkSource.View */
+    priv:ViewPrivate
+    /* Fields of Gtk.TextView */
+    parent_instance:Gtk.Container
+    /* Fields of Gtk.Container */
+    widget:Gtk.Widget
+    /* Fields of Gtk.Widget */
+    /* Fields of GObject.InitiallyUnowned */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
+    /* Fields of GObject.Object */
     /* Methods of GtkSource.View */
     get_auto_indent(): boolean
     get_background_pattern(): BackgroundPatternType
@@ -6056,6 +6284,11 @@ export declare class View_Static {
 }
 export declare var View: View_Static
 export interface BufferClass {
+    /* Fields of GtkSource.BufferClass */
+    parent_class:Gtk.TextBufferClass
+    undo:any
+    redo:any
+    bracket_matched:any
 }
 export interface BufferClass_Static {
 }
@@ -6066,11 +6299,23 @@ export interface BufferPrivate_Static {
 }
 export declare var BufferPrivate: BufferPrivate_Static
 export interface CompletionClass {
+    /* Fields of GtkSource.CompletionClass */
+    parent_class:GObject.ObjectClass
+    proposal_activated:any
+    show:any
+    hide:any
+    populate_context:any
+    move_cursor:any
+    move_page:any
+    activate_proposal:any
 }
 export interface CompletionClass_Static {
 }
 export declare var CompletionClass: CompletionClass_Static
 export interface CompletionContextClass {
+    /* Fields of GtkSource.CompletionContextClass */
+    parent_class:GObject.InitiallyUnownedClass
+    cancelled:any
 }
 export interface CompletionContextClass_Static {
 }
@@ -6081,6 +6326,9 @@ export interface CompletionContextPrivate_Static {
 }
 export declare var CompletionContextPrivate: CompletionContextPrivate_Static
 export interface CompletionInfoClass {
+    /* Fields of GtkSource.CompletionInfoClass */
+    parent_class:Gtk.WindowClass
+    before_show:any
 }
 export interface CompletionInfoClass_Static {
 }
@@ -6091,6 +6339,8 @@ export interface CompletionInfoPrivate_Static {
 }
 export declare var CompletionInfoPrivate: CompletionInfoPrivate_Static
 export interface CompletionItemClass {
+    /* Fields of GtkSource.CompletionItemClass */
+    parent_class:GObject.ObjectClass
 }
 export interface CompletionItemClass_Static {
 }
@@ -6106,16 +6356,45 @@ export interface CompletionPrivate_Static {
 }
 export declare var CompletionPrivate: CompletionPrivate_Static
 export interface CompletionProposalIface {
+    /* Fields of GtkSource.CompletionProposalIface */
+    parent:GObject.TypeInterface
+    get_label:any
+    get_markup:any
+    get_text:any
+    get_icon:any
+    get_icon_name:any
+    get_gicon:any
+    get_info:any
+    hash:any
+    equal:any
+    changed:any
 }
 export interface CompletionProposalIface_Static {
 }
 export declare var CompletionProposalIface: CompletionProposalIface_Static
 export interface CompletionProviderIface {
+    /* Fields of GtkSource.CompletionProviderIface */
+    g_iface:GObject.TypeInterface
+    get_name:any
+    get_icon:any
+    get_icon_name:any
+    get_gicon:any
+    populate:any
+    match:any
+    get_activation:any
+    get_info_widget:any
+    update_info:any
+    get_start_iter:any
+    activate_proposal:any
+    get_interactive_delay:any
+    get_priority:any
 }
 export interface CompletionProviderIface_Static {
 }
 export declare var CompletionProviderIface: CompletionProviderIface_Static
 export interface CompletionWordsClass {
+    /* Fields of GtkSource.CompletionWordsClass */
+    parent_class:GObject.ObjectClass
 }
 export interface CompletionWordsClass_Static {
 }
@@ -6144,11 +6423,17 @@ export declare class Encoding_Static {
 }
 export declare var Encoding: Encoding_Static
 export interface FileClass {
+    /* Fields of GtkSource.FileClass */
+    parent_class:GObject.ObjectClass
+    padding:object[]
 }
 export interface FileClass_Static {
 }
 export declare var FileClass: FileClass_Static
 export interface FileLoaderClass {
+    /* Fields of GtkSource.FileLoaderClass */
+    parent_class:GObject.ObjectClass
+    padding:object[]
 }
 export interface FileLoaderClass_Static {
 }
@@ -6164,6 +6449,9 @@ export interface FilePrivate_Static {
 }
 export declare var FilePrivate: FilePrivate_Static
 export interface FileSaverClass {
+    /* Fields of GtkSource.FileSaverClass */
+    parent_class:GObject.ObjectClass
+    padding:object[]
 }
 export interface FileSaverClass_Static {
 }
@@ -6174,6 +6462,8 @@ export interface FileSaverPrivate_Static {
 }
 export declare var FileSaverPrivate: FileSaverPrivate_Static
 export interface GutterClass {
+    /* Fields of GtkSource.GutterClass */
+    parent_class:GObject.ObjectClass
 }
 export interface GutterClass_Static {
 }
@@ -6184,11 +6474,25 @@ export interface GutterPrivate_Static {
 }
 export declare var GutterPrivate: GutterPrivate_Static
 export interface GutterRendererClass {
+    /* Fields of GtkSource.GutterRendererClass */
+    parent_class:GObject.InitiallyUnownedClass
+    begin:any
+    draw:any
+    end:any
+    change_view:any
+    change_buffer:any
+    query_activatable:any
+    activate:any
+    queue_draw:any
+    query_tooltip:any
+    query_data:any
 }
 export interface GutterRendererClass_Static {
 }
 export declare var GutterRendererClass: GutterRendererClass_Static
 export interface GutterRendererPixbufClass {
+    /* Fields of GtkSource.GutterRendererPixbufClass */
+    parent_class:GutterRendererClass
 }
 export interface GutterRendererPixbufClass_Static {
 }
@@ -6204,6 +6508,8 @@ export interface GutterRendererPrivate_Static {
 }
 export declare var GutterRendererPrivate: GutterRendererPrivate_Static
 export interface GutterRendererTextClass {
+    /* Fields of GtkSource.GutterRendererTextClass */
+    parent_class:GutterRendererClass
 }
 export interface GutterRendererTextClass_Static {
 }
@@ -6214,11 +6520,15 @@ export interface GutterRendererTextPrivate_Static {
 }
 export declare var GutterRendererTextPrivate: GutterRendererTextPrivate_Static
 export interface LanguageClass {
+    /* Fields of GtkSource.LanguageClass */
+    parent_class:GObject.ObjectClass
 }
 export interface LanguageClass_Static {
 }
 export declare var LanguageClass: LanguageClass_Static
 export interface LanguageManagerClass {
+    /* Fields of GtkSource.LanguageManagerClass */
+    parent_class:GObject.ObjectClass
 }
 export interface LanguageManagerClass_Static {
 }
@@ -6234,11 +6544,16 @@ export interface LanguagePrivate_Static {
 }
 export declare var LanguagePrivate: LanguagePrivate_Static
 export interface MapClass {
+    /* Fields of GtkSource.MapClass */
+    parent_class:ViewClass
+    padding:object[]
 }
 export interface MapClass_Static {
 }
 export declare var MapClass: MapClass_Static
 export interface MarkAttributesClass {
+    /* Fields of GtkSource.MarkAttributesClass */
+    parent_class:GObject.ObjectClass
 }
 export interface MarkAttributesClass_Static {
 }
@@ -6249,6 +6564,8 @@ export interface MarkAttributesPrivate_Static {
 }
 export declare var MarkAttributesPrivate: MarkAttributesPrivate_Static
 export interface MarkClass {
+    /* Fields of GtkSource.MarkClass */
+    parent_class:Gtk.TextMarkClass
 }
 export interface MarkClass_Static {
 }
@@ -6259,6 +6576,8 @@ export interface MarkPrivate_Static {
 }
 export declare var MarkPrivate: MarkPrivate_Static
 export interface PrintCompositorClass {
+    /* Fields of GtkSource.PrintCompositorClass */
+    parent_class:GObject.ObjectClass
 }
 export interface PrintCompositorClass_Static {
 }
@@ -6269,6 +6588,9 @@ export interface PrintCompositorPrivate_Static {
 }
 export declare var PrintCompositorPrivate: PrintCompositorPrivate_Static
 export interface SearchContextClass {
+    /* Fields of GtkSource.SearchContextClass */
+    parent_class:GObject.ObjectClass
+    padding:object[]
 }
 export interface SearchContextClass_Static {
 }
@@ -6279,6 +6601,9 @@ export interface SearchContextPrivate_Static {
 }
 export declare var SearchContextPrivate: SearchContextPrivate_Static
 export interface SearchSettingsClass {
+    /* Fields of GtkSource.SearchSettingsClass */
+    parent_class:GObject.ObjectClass
+    padding:object[]
 }
 export interface SearchSettingsClass_Static {
 }
@@ -6294,26 +6619,39 @@ export interface StyleClass_Static {
 }
 export declare var StyleClass: StyleClass_Static
 export interface StyleSchemeChooserButtonClass {
+    /* Fields of GtkSource.StyleSchemeChooserButtonClass */
+    parent:Gtk.ButtonClass
 }
 export interface StyleSchemeChooserButtonClass_Static {
 }
 export declare var StyleSchemeChooserButtonClass: StyleSchemeChooserButtonClass_Static
 export interface StyleSchemeChooserInterface {
+    /* Fields of GtkSource.StyleSchemeChooserInterface */
+    base_interface:GObject.TypeInterface
+    get_style_scheme:any
+    set_style_scheme:any
+    padding:object[]
 }
 export interface StyleSchemeChooserInterface_Static {
 }
 export declare var StyleSchemeChooserInterface: StyleSchemeChooserInterface_Static
 export interface StyleSchemeChooserWidgetClass {
+    /* Fields of GtkSource.StyleSchemeChooserWidgetClass */
+    parent:Gtk.BinClass
 }
 export interface StyleSchemeChooserWidgetClass_Static {
 }
 export declare var StyleSchemeChooserWidgetClass: StyleSchemeChooserWidgetClass_Static
 export interface StyleSchemeClass {
+    /* Fields of GtkSource.StyleSchemeClass */
+    base_class:GObject.ObjectClass
 }
 export interface StyleSchemeClass_Static {
 }
 export declare var StyleSchemeClass: StyleSchemeClass_Static
 export interface StyleSchemeManagerClass {
+    /* Fields of GtkSource.StyleSchemeManagerClass */
+    parent_class:GObject.ObjectClass
 }
 export interface StyleSchemeManagerClass_Static {
 }
@@ -6329,11 +6667,29 @@ export interface StyleSchemePrivate_Static {
 }
 export declare var StyleSchemePrivate: StyleSchemePrivate_Static
 export interface UndoManagerIface {
+    /* Fields of GtkSource.UndoManagerIface */
+    parent:GObject.TypeInterface
+    can_undo:any
+    can_redo:any
+    undo:any
+    redo:any
+    begin_not_undoable_action:any
+    end_not_undoable_action:any
+    can_undo_changed:any
+    can_redo_changed:any
 }
 export interface UndoManagerIface_Static {
 }
 export declare var UndoManagerIface: UndoManagerIface_Static
 export interface ViewClass {
+    /* Fields of GtkSource.ViewClass */
+    parent_class:Gtk.TextViewClass
+    undo:any
+    redo:any
+    line_mark_activated:any
+    show_completion:any
+    move_lines:any
+    move_words:any
 }
 export interface ViewClass_Static {
 }

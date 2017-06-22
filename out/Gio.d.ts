@@ -1793,6 +1793,10 @@ export declare var Volume: Volume_Static
 export interface AppInfoMonitor_ConstructProps {
 }
 export interface AppInfoMonitor {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -1840,6 +1844,13 @@ export declare var AppInfoMonitor: AppInfoMonitor_Static
 export interface AppLaunchContext_ConstructProps {
 }
 export interface AppLaunchContext {
+    /* Fields of Gio.AppLaunchContext */
+    parent_instance:GObject.Object
+    priv:AppLaunchContextPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.AppLaunchContext */
     get_display(info: AppInfo, files: GLib.List): string
     get_environment(): string[]
@@ -1915,6 +1926,13 @@ export interface Application {
     readonly is_registered:boolean
     readonly is_remote:boolean
     resource_base_path:string
+    /* Fields of Gio.Application */
+    parent_instance:GObject.Object
+    priv:ApplicationPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Application */
     activate(): void
     add_main_option(long_name: string, short_name: number, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: string, arg_description: string | null): void
@@ -2030,6 +2048,13 @@ export interface ApplicationCommandLine_ConstructProps {
 export interface ApplicationCommandLine {
     /* Properties of Gio.ApplicationCommandLine */
     readonly is_remote:boolean
+    /* Fields of Gio.ApplicationCommandLine */
+    parent_instance:GObject.Object
+    priv:ApplicationCommandLinePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.ApplicationCommandLine */
     create_file_for_arg(arg: string): File
     get_arguments(): [ /* returnType */ string[], /* argc */ number | null ]
@@ -2098,6 +2123,16 @@ export interface BufferedInputStream {
     buffer_size:number
     /* Properties of Gio.FilterInputStream */
     close_base_stream:boolean
+    /* Fields of Gio.BufferedInputStream */
+    parent_instance:FilterInputStream
+    priv:BufferedInputStreamPrivate
+    /* Fields of Gio.FilterInputStream */
+    base_stream:InputStream
+    /* Fields of Gio.InputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.BufferedInputStream */
     fill(count: number, cancellable: Cancellable | null): number
     fill_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -2204,6 +2239,16 @@ export interface BufferedOutputStream {
     auto_grow:boolean
     buffer_size:number
     /* Properties of Gio.FilterOutputStream */
+    /* Fields of Gio.BufferedOutputStream */
+    parent_instance:FilterOutputStream
+    priv:BufferedOutputStreamPrivate
+    /* Fields of Gio.FilterOutputStream */
+    base_stream:OutputStream
+    /* Fields of Gio.OutputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.BufferedOutputStream */
     get_auto_grow(): boolean
     get_buffer_size(): number
@@ -2301,6 +2346,10 @@ export interface BytesIcon_ConstructProps {
 }
 export interface BytesIcon {
     /* Properties of Gio.BytesIcon */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.BytesIcon */
     get_bytes(): GLib.Bytes
     /* Methods of GObject.Object */
@@ -2348,6 +2397,13 @@ export declare var BytesIcon: BytesIcon_Static
 export interface Cancellable_ConstructProps {
 }
 export interface Cancellable {
+    /* Fields of Gio.Cancellable */
+    parent_instance:GObject.Object
+    priv:CancellablePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Cancellable */
     cancel(): void
     connect(callback: GObject.Callback, data: object, data_destroy_func: GLib.DestroyNotify | null): number
@@ -2416,6 +2472,10 @@ export interface CharsetConverter_ConstructProps {
 export interface CharsetConverter {
     /* Properties of Gio.CharsetConverter */
     use_fallback:boolean
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.CharsetConverter */
     get_num_fallbacks(): number
     get_use_fallback(): boolean
@@ -2474,6 +2534,16 @@ export interface ConverterInputStream {
     /* Properties of Gio.ConverterInputStream */
     /* Properties of Gio.FilterInputStream */
     close_base_stream:boolean
+    /* Fields of Gio.ConverterInputStream */
+    parent_instance:FilterInputStream
+    priv:ConverterInputStreamPrivate
+    /* Fields of Gio.FilterInputStream */
+    base_stream:InputStream
+    /* Fields of Gio.InputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.ConverterInputStream */
     get_converter(): Converter
     /* Methods of Gio.FilterInputStream */
@@ -2563,6 +2633,16 @@ export interface ConverterOutputStream_ConstructProps {
 export interface ConverterOutputStream {
     /* Properties of Gio.ConverterOutputStream */
     /* Properties of Gio.FilterOutputStream */
+    /* Fields of Gio.ConverterOutputStream */
+    parent_instance:FilterOutputStream
+    priv:ConverterOutputStreamPrivate
+    /* Fields of Gio.FilterOutputStream */
+    base_stream:OutputStream
+    /* Fields of Gio.OutputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.ConverterOutputStream */
     get_converter(): Converter
     /* Methods of Gio.FilterOutputStream */
@@ -2651,6 +2731,10 @@ export declare var ConverterOutputStream: ConverterOutputStream_Static
 export interface Credentials_ConstructProps {
 }
 export interface Credentials {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Credentials */
     get_unix_pid(): number
     get_unix_user(): number
@@ -2703,6 +2787,10 @@ export declare var Credentials: Credentials_Static
 export interface DBusActionGroup_ConstructProps {
 }
 export interface DBusActionGroup {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -2748,6 +2836,10 @@ export declare var DBusActionGroup: DBusActionGroup_Static
 export interface DBusAuthObserver_ConstructProps {
 }
 export interface DBusAuthObserver {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusAuthObserver */
     allow_mechanism(mechanism: string): boolean
     authorize_authenticated_peer(stream: IOStream, credentials: Credentials | null): boolean
@@ -2811,6 +2903,10 @@ export interface DBusConnection {
     readonly closed:boolean
     exit_on_close:boolean
     readonly unique_name:string
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusConnection */
     add_filter(filter_function: DBusMessageFilterFunction, user_data: object, user_data_free_func: GLib.DestroyNotify): number
     call(bus_name: string | null, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant | null, reply_type: GLib.VariantType | null, flags: DBusCallFlags, timeout_msec: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -2912,6 +3008,13 @@ export interface DBusInterfaceSkeleton_ConstructProps {
 export interface DBusInterfaceSkeleton {
     /* Properties of Gio.DBusInterfaceSkeleton */
     g_flags:DBusInterfaceSkeletonFlags
+    /* Fields of Gio.DBusInterfaceSkeleton */
+    parent_instance:GObject.Object
+    priv:DBusInterfaceSkeletonPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusInterfaceSkeleton */
     export(connection: DBusConnection, object_path: string): boolean
     flush(): void
@@ -2975,6 +3078,13 @@ export declare var DBusInterfaceSkeleton: DBusInterfaceSkeleton_Static
 export interface DBusMenuModel_ConstructProps {
 }
 export interface DBusMenuModel {
+    /* Fields of Gio.MenuModel */
+    parent_instance:GObject.Object
+    priv:MenuModelPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.MenuModel */
     get_item_attribute_value(item_index: number, attribute: string, expected_type: GLib.VariantType | null): GLib.Variant
     get_item_link(item_index: number, link: string): MenuModel
@@ -3042,6 +3152,10 @@ export interface DBusMessage_ConstructProps {
 export interface DBusMessage {
     /* Properties of Gio.DBusMessage */
     readonly locked:boolean
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusMessage */
     copy(): DBusMessage
     get_arg0(): string
@@ -3135,6 +3249,10 @@ export declare var DBusMessage: DBusMessage_Static
 export interface DBusMethodInvocation_ConstructProps {
 }
 export interface DBusMethodInvocation {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusMethodInvocation */
     get_connection(): DBusConnection
     get_interface_name(): string
@@ -3203,6 +3321,13 @@ export interface DBusObjectManagerClient_ConstructProps {
 export interface DBusObjectManagerClient {
     /* Properties of Gio.DBusObjectManagerClient */
     readonly name_owner:string
+    /* Fields of Gio.DBusObjectManagerClient */
+    parent_instance:GObject.Object
+    priv:DBusObjectManagerClientPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusObjectManagerClient */
     get_connection(): DBusConnection
     get_flags(): DBusObjectManagerClientFlags
@@ -3270,6 +3395,13 @@ export interface DBusObjectManagerServer_ConstructProps {
 export interface DBusObjectManagerServer {
     /* Properties of Gio.DBusObjectManagerServer */
     connection:DBusConnection
+    /* Fields of Gio.DBusObjectManagerServer */
+    parent_instance:GObject.Object
+    priv:DBusObjectManagerServerPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusObjectManagerServer */
     export(object: DBusObjectSkeleton): void
     export_uniquely(object: DBusObjectSkeleton): void
@@ -3327,6 +3459,13 @@ export interface DBusObjectProxy_ConstructProps {
 }
 export interface DBusObjectProxy {
     /* Properties of Gio.DBusObjectProxy */
+    /* Fields of Gio.DBusObjectProxy */
+    parent_instance:GObject.Object
+    priv:DBusObjectProxyPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusObjectProxy */
     get_connection(): DBusConnection
     /* Methods of GObject.Object */
@@ -3378,6 +3517,13 @@ export interface DBusObjectSkeleton_ConstructProps {
 export interface DBusObjectSkeleton {
     /* Properties of Gio.DBusObjectSkeleton */
     g_object_path:string
+    /* Fields of Gio.DBusObjectSkeleton */
+    parent_instance:GObject.Object
+    priv:DBusObjectSkeletonPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusObjectSkeleton */
     add_interface(interface_: DBusInterfaceSkeleton): void
     flush(): void
@@ -3447,6 +3593,13 @@ export interface DBusProxy {
     g_default_timeout:number
     g_interface_info:DBusInterfaceInfo
     readonly g_name_owner:string
+    /* Fields of Gio.DBusProxy */
+    parent_instance:GObject.Object
+    priv:DBusProxyPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusProxy */
     call(method_name: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeout_msec: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     call_finish(res: AsyncResult): GLib.Variant
@@ -3534,6 +3687,10 @@ export interface DBusServer {
     /* Properties of Gio.DBusServer */
     readonly active:boolean
     readonly client_address:string
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DBusServer */
     get_client_address(): string
     get_flags(): DBusServerFlags
@@ -3605,6 +3762,17 @@ export interface DataInputStream {
     buffer_size:number
     /* Properties of Gio.FilterInputStream */
     close_base_stream:boolean
+    /* Fields of Gio.DataInputStream */
+    parent_instance:BufferedInputStream
+    priv:DataInputStreamPrivate
+    /* Fields of Gio.BufferedInputStream */
+    /* Fields of Gio.FilterInputStream */
+    base_stream:InputStream
+    /* Fields of Gio.InputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DataInputStream */
     get_byte_order(): DataStreamByteOrder
     get_newline_type(): DataStreamNewlineType
@@ -3732,6 +3900,16 @@ export interface DataOutputStream {
     /* Properties of Gio.DataOutputStream */
     byte_order:DataStreamByteOrder
     /* Properties of Gio.FilterOutputStream */
+    /* Fields of Gio.DataOutputStream */
+    parent_instance:FilterOutputStream
+    priv:DataOutputStreamPrivate
+    /* Fields of Gio.FilterOutputStream */
+    base_stream:OutputStream
+    /* Fields of Gio.OutputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DataOutputStream */
     get_byte_order(): DataStreamByteOrder
     put_byte(data: number, cancellable: Cancellable | null): boolean
@@ -3833,6 +4011,10 @@ export interface DesktopAppInfo_ConstructProps {
 }
 export interface DesktopAppInfo {
     /* Properties of Gio.DesktopAppInfo */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.DesktopAppInfo */
     get_action_name(action_name: string): string
     get_boolean(key: string): boolean
@@ -3903,6 +4085,10 @@ export interface Emblem_ConstructProps {
 }
 export interface Emblem {
     /* Properties of Gio.Emblem */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Emblem */
     get_icon(): Icon
     get_origin(): EmblemOrigin
@@ -3955,6 +4141,13 @@ export interface EmblemedIcon_ConstructProps {
 }
 export interface EmblemedIcon {
     /* Properties of Gio.EmblemedIcon */
+    /* Fields of Gio.EmblemedIcon */
+    parent_instance:GObject.Object
+    priv:EmblemedIconPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.EmblemedIcon */
     add_emblem(emblem: Emblem): void
     clear_emblems(): void
@@ -4008,6 +4201,13 @@ export interface FileEnumerator_ConstructProps {
 }
 export interface FileEnumerator {
     /* Properties of Gio.FileEnumerator */
+    /* Fields of Gio.FileEnumerator */
+    parent_instance:GObject.Object
+    priv:FileEnumeratorPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FileEnumerator */
     close(cancellable: Cancellable | null): boolean
     close_async(io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -4075,6 +4275,14 @@ export interface FileIOStream {
     readonly closed:boolean
     readonly input_stream:InputStream
     readonly output_stream:OutputStream
+    /* Fields of Gio.FileIOStream */
+    parent_instance:IOStream
+    priv:FileIOStreamPrivate
+    /* Fields of Gio.IOStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FileIOStream */
     get_etag(): string
     query_info(attributes: string, cancellable: Cancellable | null): FileInfo
@@ -4155,6 +4363,10 @@ export interface FileIcon_ConstructProps {
 }
 export interface FileIcon {
     /* Properties of Gio.FileIcon */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FileIcon */
     get_file(): File
     /* Methods of GObject.Object */
@@ -4202,6 +4414,10 @@ export declare var FileIcon: FileIcon_Static
 export interface FileInfo_ConstructProps {
 }
 export interface FileInfo {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FileInfo */
     clear_status(): void
     copy_into(dest_info: FileInfo): void
@@ -4310,6 +4526,14 @@ export declare var FileInfo: FileInfo_Static
 export interface FileInputStream_ConstructProps {
 }
 export interface FileInputStream {
+    /* Fields of Gio.FileInputStream */
+    parent_instance:InputStream
+    priv:FileInputStreamPrivate
+    /* Fields of Gio.InputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FileInputStream */
     query_info(attributes: string, cancellable: Cancellable | null): FileInfo
     query_info_async(attributes: string, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -4398,6 +4622,13 @@ export interface FileMonitor {
     /* Properties of Gio.FileMonitor */
     readonly cancelled:boolean
     rate_limit:number
+    /* Fields of Gio.FileMonitor */
+    parent_instance:GObject.Object
+    priv:FileMonitorPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FileMonitor */
     cancel(): boolean
     emit_event(child: File, other_file: File, event_type: FileMonitorEvent): void
@@ -4452,6 +4683,14 @@ export declare var FileMonitor: FileMonitor_Static
 export interface FileOutputStream_ConstructProps {
 }
 export interface FileOutputStream {
+    /* Fields of Gio.FileOutputStream */
+    parent_instance:OutputStream
+    priv:FileOutputStreamPrivate
+    /* Fields of Gio.OutputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FileOutputStream */
     get_etag(): string
     query_info(attributes: string, cancellable: Cancellable | null): FileInfo
@@ -4546,6 +4785,10 @@ export declare var FileOutputStream: FileOutputStream_Static
 export interface FilenameCompleter_ConstructProps {
 }
 export interface FilenameCompleter {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FilenameCompleter */
     get_completion_suffix(initial_text: string): string
     get_completions(initial_text: string): string[]
@@ -4604,6 +4847,15 @@ export interface FilterInputStream_ConstructProps {
 export interface FilterInputStream {
     /* Properties of Gio.FilterInputStream */
     close_base_stream:boolean
+    /* Fields of Gio.FilterInputStream */
+    parent_instance:InputStream
+    base_stream:InputStream
+    /* Fields of Gio.InputStream */
+    priv:InputStreamPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FilterInputStream */
     get_base_stream(): InputStream
     get_close_base_stream(): boolean
@@ -4685,6 +4937,15 @@ export interface FilterOutputStream_ConstructProps {
 }
 export interface FilterOutputStream {
     /* Properties of Gio.FilterOutputStream */
+    /* Fields of Gio.FilterOutputStream */
+    parent_instance:OutputStream
+    base_stream:OutputStream
+    /* Fields of Gio.OutputStream */
+    priv:OutputStreamPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.FilterOutputStream */
     get_base_stream(): OutputStream
     get_close_base_stream(): boolean
@@ -4768,6 +5029,16 @@ export declare var FilterOutputStream: FilterOutputStream_Static
 export interface IOModule_ConstructProps {
 }
 export interface IOModule {
+    /* Fields of GObject.TypeModule */
+    parent_instance:GObject.Object
+    use_count:number
+    type_infos:GLib.SList
+    interface_infos:GLib.SList
+    name:string
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.IOModule */
     load(): void
     unload(): void
@@ -4833,6 +5104,13 @@ export interface IOStream {
     readonly closed:boolean
     readonly input_stream:InputStream
     readonly output_stream:OutputStream
+    /* Fields of Gio.IOStream */
+    parent_instance:GObject.Object
+    priv:IOStreamPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.IOStream */
     clear_pending(): void
     close(cancellable: Cancellable | null): boolean
@@ -4912,6 +5190,13 @@ export interface InetAddress {
     readonly is_mc_site_local:boolean
     readonly is_multicast:boolean
     readonly is_site_local:boolean
+    /* Fields of Gio.InetAddress */
+    parent_instance:GObject.Object
+    priv:InetAddressPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.InetAddress */
     equal(other_address: InetAddress): boolean
     get_family(): SocketFamily
@@ -4994,6 +5279,13 @@ export interface InetAddressMask {
     address:InetAddress
     readonly family:SocketFamily
     length:number
+    /* Fields of Gio.InetAddressMask */
+    parent_instance:GObject.Object
+    priv:InetAddressMaskPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.InetAddressMask */
     equal(mask2: InetAddressMask): boolean
     get_address(): InetAddress
@@ -5059,6 +5351,14 @@ export interface InetSocketAddress {
     /* Properties of Gio.InetSocketAddress */
     /* Properties of Gio.SocketAddress */
     readonly family:SocketFamily
+    /* Fields of Gio.InetSocketAddress */
+    parent_instance:SocketAddress
+    priv:InetSocketAddressPrivate
+    /* Fields of Gio.SocketAddress */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.InetSocketAddress */
     get_address(): InetAddress
     get_flowinfo(): number
@@ -5119,6 +5419,13 @@ export declare var InetSocketAddress: InetSocketAddress_Static
 export interface InputStream_ConstructProps {
 }
 export interface InputStream {
+    /* Fields of Gio.InputStream */
+    parent_instance:GObject.Object
+    priv:InputStreamPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.InputStream */
     clear_pending(): void
     close(cancellable: Cancellable | null): boolean
@@ -5194,6 +5501,10 @@ export interface ListStore_ConstructProps {
 }
 export interface ListStore {
     /* Properties of Gio.ListStore */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.ListStore */
     append(item: GObject.Object): void
     insert(position: number, item: GObject.Object): void
@@ -5247,6 +5558,14 @@ export declare var ListStore: ListStore_Static
 export interface MemoryInputStream_ConstructProps {
 }
 export interface MemoryInputStream {
+    /* Fields of Gio.MemoryInputStream */
+    parent_instance:InputStream
+    priv:MemoryInputStreamPrivate
+    /* Fields of Gio.InputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.MemoryInputStream */
     add_bytes(bytes: GLib.Bytes): void
     add_data(data: number[], len: number, destroy: GLib.DestroyNotify | null): void
@@ -5332,6 +5651,14 @@ export interface MemoryOutputStream_ConstructProps {
 export interface MemoryOutputStream {
     /* Properties of Gio.MemoryOutputStream */
     readonly data_size:number
+    /* Fields of Gio.MemoryOutputStream */
+    parent_instance:OutputStream
+    priv:MemoryOutputStreamPrivate
+    /* Fields of Gio.OutputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.MemoryOutputStream */
     get_data(): object
     get_data_size(): number
@@ -5419,6 +5746,13 @@ export declare var MemoryOutputStream: MemoryOutputStream_Static
 export interface Menu_ConstructProps {
 }
 export interface Menu {
+    /* Fields of Gio.MenuModel */
+    parent_instance:GObject.Object
+    priv:MenuModelPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Menu */
     append(label: string | null, detailed_action: string | null): void
     append_item(item: MenuItem): void
@@ -5499,6 +5833,13 @@ export declare var Menu: Menu_Static
 export interface MenuAttributeIter_ConstructProps {
 }
 export interface MenuAttributeIter {
+    /* Fields of Gio.MenuAttributeIter */
+    parent_instance:GObject.Object
+    priv:MenuAttributeIterPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.MenuAttributeIter */
     get_name(): string
     get_next(): [ /* returnType */ boolean, /* out_name */ string | null, /* value */ GLib.Variant | null ]
@@ -5548,6 +5889,10 @@ export declare var MenuAttributeIter: MenuAttributeIter_Static
 export interface MenuItem_ConstructProps {
 }
 export interface MenuItem {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.MenuItem */
     get_attribute_value(attribute: string, expected_type: GLib.VariantType | null): GLib.Variant
     get_link(link: string): MenuModel
@@ -5607,6 +5952,13 @@ export declare var MenuItem: MenuItem_Static
 export interface MenuLinkIter_ConstructProps {
 }
 export interface MenuLinkIter {
+    /* Fields of Gio.MenuLinkIter */
+    parent_instance:GObject.Object
+    priv:MenuLinkIterPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.MenuLinkIter */
     get_name(): string
     get_next(): [ /* returnType */ boolean, /* out_link */ string | null, /* value */ MenuModel | null ]
@@ -5656,6 +6008,13 @@ export declare var MenuLinkIter: MenuLinkIter_Static
 export interface MenuModel_ConstructProps {
 }
 export interface MenuModel {
+    /* Fields of Gio.MenuModel */
+    parent_instance:GObject.Object
+    priv:MenuModelPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.MenuModel */
     get_item_attribute_value(item_index: number, attribute: string, expected_type: GLib.VariantType | null): GLib.Variant
     get_item_link(item_index: number, link: string): MenuModel
@@ -5731,6 +6090,13 @@ export interface MountOperation {
     password:string
     password_save:PasswordSave
     username:string
+    /* Fields of Gio.MountOperation */
+    parent_instance:GObject.Object
+    priv:MountOperationPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.MountOperation */
     get_anonymous(): boolean
     get_choice(): number
@@ -5809,6 +6175,14 @@ export declare var MountOperation: MountOperation_Static
 export interface NativeVolumeMonitor_ConstructProps {
 }
 export interface NativeVolumeMonitor {
+    /* Fields of Gio.NativeVolumeMonitor */
+    parent_instance:VolumeMonitor
+    /* Fields of Gio.VolumeMonitor */
+    priv:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.VolumeMonitor */
     get_connected_drives(): GLib.List
     get_mount_for_uuid(uuid: string): Mount
@@ -5893,6 +6267,13 @@ export interface NetworkAddress_ConstructProps {
 }
 export interface NetworkAddress {
     /* Properties of Gio.NetworkAddress */
+    /* Fields of Gio.NetworkAddress */
+    parent_instance:GObject.Object
+    priv:NetworkAddressPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.NetworkAddress */
     get_hostname(): string
     get_port(): number
@@ -5952,6 +6333,13 @@ export interface NetworkService_ConstructProps {
 export interface NetworkService {
     /* Properties of Gio.NetworkService */
     scheme:string
+    /* Fields of Gio.NetworkService */
+    parent_instance:GObject.Object
+    priv:NetworkServicePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.NetworkService */
     get_domain(): string
     get_protocol(): string
@@ -6004,6 +6392,10 @@ export declare var NetworkService: NetworkService_Static
 export interface Notification_ConstructProps {
 }
 export interface Notification {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Notification */
     add_button(label: string, detailed_action: string): void
     add_button_with_target_value(label: string, action: string, target: GLib.Variant | null): void
@@ -6059,6 +6451,13 @@ export declare var Notification: Notification_Static
 export interface OutputStream_ConstructProps {
 }
 export interface OutputStream {
+    /* Fields of Gio.OutputStream */
+    parent_instance:GObject.Object
+    priv:OutputStreamPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.OutputStream */
     clear_pending(): void
     close(cancellable: Cancellable | null): boolean
@@ -6143,6 +6542,13 @@ export interface Permission {
     readonly allowed:boolean
     readonly can_acquire:boolean
     readonly can_release:boolean
+    /* Fields of Gio.Permission */
+    parent_instance:GObject.Object
+    priv:PermissionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Permission */
     acquire(cancellable: Cancellable | null): boolean
     acquire_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -6216,6 +6622,10 @@ export interface PropertyAction {
     readonly parameter_type:GLib.VariantType
     readonly state:GLib.Variant
     readonly state_type:GLib.VariantType
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -6283,6 +6693,15 @@ export interface ProxyAddress {
     /* Properties of Gio.InetSocketAddress */
     /* Properties of Gio.SocketAddress */
     readonly family:SocketFamily
+    /* Fields of Gio.ProxyAddress */
+    parent_instance:InetSocketAddress
+    priv:ProxyAddressPrivate
+    /* Fields of Gio.InetSocketAddress */
+    /* Fields of Gio.SocketAddress */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.ProxyAddress */
     get_destination_hostname(): string
     get_destination_port(): number
@@ -6357,6 +6776,14 @@ export interface ProxyAddressEnumerator_ConstructProps {
 export interface ProxyAddressEnumerator {
     /* Properties of Gio.ProxyAddressEnumerator */
     proxy_resolver:ProxyResolver
+    /* Fields of Gio.ProxyAddressEnumerator */
+    parent_instance:SocketAddressEnumerator
+    priv:ProxyAddressEnumeratorPrivate
+    /* Fields of Gio.SocketAddressEnumerator */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SocketAddressEnumerator */
     next(cancellable: Cancellable | null): SocketAddress
     next_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -6408,6 +6835,13 @@ export declare var ProxyAddressEnumerator: ProxyAddressEnumerator_Static
 export interface Resolver_ConstructProps {
 }
 export interface Resolver {
+    /* Fields of Gio.Resolver */
+    parent_instance:GObject.Object
+    priv:ResolverPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Resolver */
     lookup_by_address(address: InetAddress, cancellable: Cancellable | null): string
     lookup_by_address_async(address: InetAddress, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -6490,6 +6924,13 @@ export interface Settings {
     /* Properties of Gio.Settings */
     readonly delay_apply:boolean
     readonly has_unapplied:boolean
+    /* Fields of Gio.Settings */
+    parent_instance:GObject.Object
+    priv:SettingsPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Settings */
     apply(): void
     bind(key: string, object: GObject.Object, property: string, flags: SettingsBindFlags): void
@@ -6600,6 +7041,10 @@ export interface SimpleAction {
     enabled:boolean
     state:GLib.Variant
     readonly state_type:GLib.VariantType
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SimpleAction */
     set_enabled(enabled: boolean): void
     set_state(value: GLib.Variant): void
@@ -6656,6 +7101,13 @@ export declare var SimpleAction: SimpleAction_Static
 export interface SimpleActionGroup_ConstructProps {
 }
 export interface SimpleActionGroup {
+    /* Fields of Gio.SimpleActionGroup */
+    parent_instance:GObject.Object
+    priv:SimpleActionGroupPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SimpleActionGroup */
     add_entries(entries: ActionEntry[], n_entries: number, user_data: object): void
     insert(action: Action): void
@@ -6706,6 +7158,10 @@ export declare var SimpleActionGroup: SimpleActionGroup_Static
 export interface SimpleAsyncResult_ConstructProps {
 }
 export interface SimpleAsyncResult {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SimpleAsyncResult */
     complete(): void
     complete_in_idle(): void
@@ -6773,6 +7229,13 @@ export interface SimpleIOStream {
     readonly closed:boolean
     readonly input_stream:InputStream
     readonly output_stream:OutputStream
+    /* Fields of Gio.IOStream */
+    parent_instance:GObject.Object
+    priv:IOStreamPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.IOStream */
     clear_pending(): void
     close(cancellable: Cancellable | null): boolean
@@ -6843,6 +7306,13 @@ export interface SimplePermission {
     readonly allowed:boolean
     readonly can_acquire:boolean
     readonly can_release:boolean
+    /* Fields of Gio.Permission */
+    parent_instance:GObject.Object
+    priv:PermissionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Permission */
     acquire(cancellable: Cancellable | null): boolean
     acquire_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -6915,6 +7385,13 @@ export interface SimpleProxyResolver {
     /* Properties of Gio.SimpleProxyResolver */
     default_proxy:string
     ignore_hosts:string[]
+    /* Fields of Gio.SimpleProxyResolver */
+    parent_instance:GObject.Object
+    priv:SimpleProxyResolverPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SimpleProxyResolver */
     set_default_proxy(default_proxy: string): void
     set_ignore_hosts(ignore_hosts: string): void
@@ -6990,6 +7467,13 @@ export interface Socket {
     readonly remote_address:SocketAddress
     timeout:number
     ttl:number
+    /* Fields of Gio.Socket */
+    parent_instance:GObject.Object
+    priv:SocketPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Socket */
     accept(cancellable: Cancellable | null): Socket
     bind(address: SocketAddress, allow_reuse: boolean): boolean
@@ -7102,6 +7586,12 @@ export interface SocketAddress_ConstructProps {
 export interface SocketAddress {
     /* Properties of Gio.SocketAddress */
     readonly family:SocketFamily
+    /* Fields of Gio.SocketAddress */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SocketAddress */
     get_family(): SocketFamily
     get_native_size(): number
@@ -7156,6 +7646,12 @@ export declare var SocketAddress: SocketAddress_Static
 export interface SocketAddressEnumerator_ConstructProps {
 }
 export interface SocketAddressEnumerator {
+    /* Fields of Gio.SocketAddressEnumerator */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SocketAddressEnumerator */
     next(cancellable: Cancellable | null): SocketAddress
     next_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -7226,6 +7722,13 @@ export interface SocketClient {
     tls:boolean
     tls_validation_flags:TlsCertificateFlags
     type:SocketType
+    /* Fields of Gio.SocketClient */
+    parent_instance:GObject.Object
+    priv:SocketClientPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SocketClient */
     add_application_proxy(protocol: string): void
     connect(connectable: SocketConnectable, cancellable: Cancellable | null): SocketConnection
@@ -7324,6 +7827,14 @@ export interface SocketConnection {
     readonly closed:boolean
     readonly input_stream:InputStream
     readonly output_stream:OutputStream
+    /* Fields of Gio.SocketConnection */
+    parent_instance:IOStream
+    priv:SocketConnectionPrivate
+    /* Fields of Gio.IOStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SocketConnection */
     connect(address: SocketAddress, cancellable: Cancellable | null): boolean
     connect_async(address: SocketAddress, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -7398,6 +7909,13 @@ export declare var SocketConnection: SocketConnection_Static
 export interface SocketControlMessage_ConstructProps {
 }
 export interface SocketControlMessage {
+    /* Fields of Gio.SocketControlMessage */
+    parent_instance:GObject.Object
+    priv:SocketControlMessagePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SocketControlMessage */
     get_level(): number
     get_msg_type(): number
@@ -7457,6 +7975,13 @@ export interface SocketListener_ConstructProps {
 export interface SocketListener {
     /* Properties of Gio.SocketListener */
     listen_backlog:number
+    /* Fields of Gio.SocketListener */
+    parent_instance:GObject.Object
+    priv:SocketListenerPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SocketListener */
     accept(cancellable: Cancellable | null): [ /* returnType */ SocketConnection, /* source_object */ GObject.Object | null ]
     accept_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -7529,6 +8054,14 @@ export interface SocketService {
     active:boolean
     /* Properties of Gio.SocketListener */
     listen_backlog:number
+    /* Fields of Gio.SocketService */
+    parent_instance:SocketListener
+    priv:SocketServicePrivate
+    /* Fields of Gio.SocketListener */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SocketService */
     is_active(): boolean
     start(): void
@@ -7606,6 +8139,10 @@ export interface Subprocess_ConstructProps {
 }
 export interface Subprocess {
     /* Properties of Gio.Subprocess */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Subprocess */
     communicate(stdin_buf: GLib.Bytes | null, cancellable: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ GLib.Bytes, /* stderr_buf */ GLib.Bytes ]
     communicate_async(stdin_buf: GLib.Bytes | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -7679,6 +8216,10 @@ export interface SubprocessLauncher_ConstructProps {
 }
 export interface SubprocessLauncher {
     /* Properties of Gio.SubprocessLauncher */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SubprocessLauncher */
     getenv(variable: string): string
     set_child_setup(child_setup: GLib.SpawnChildSetupFunc, user_data: object, destroy_notify: GLib.DestroyNotify): void
@@ -7743,6 +8284,10 @@ export interface Task_ConstructProps {
 export interface Task {
     /* Properties of Gio.Task */
     readonly completed:boolean
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Task */
     get_cancellable(): Cancellable
     get_check_cancellable(): boolean
@@ -7827,6 +8372,15 @@ export interface TcpConnection {
     readonly closed:boolean
     readonly input_stream:InputStream
     readonly output_stream:OutputStream
+    /* Fields of Gio.TcpConnection */
+    parent_instance:SocketConnection
+    priv:TcpConnectionPrivate
+    /* Fields of Gio.SocketConnection */
+    /* Fields of Gio.IOStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.TcpConnection */
     get_graceful_disconnect(): boolean
     set_graceful_disconnect(graceful_disconnect: boolean): void
@@ -7916,6 +8470,16 @@ export interface TcpWrapperConnection {
     readonly closed:boolean
     readonly input_stream:InputStream
     readonly output_stream:OutputStream
+    /* Fields of Gio.TcpWrapperConnection */
+    parent_instance:TcpConnection
+    priv:TcpWrapperConnectionPrivate
+    /* Fields of Gio.TcpConnection */
+    /* Fields of Gio.SocketConnection */
+    /* Fields of Gio.IOStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.TcpWrapperConnection */
     get_base_io_stream(): IOStream
     /* Methods of Gio.TcpConnection */
@@ -7998,6 +8562,10 @@ export interface TestDBus_ConstructProps {
 }
 export interface TestDBus {
     /* Properties of Gio.TestDBus */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.TestDBus */
     add_service_dir(path: string): void
     down(): void
@@ -8056,6 +8624,10 @@ export interface ThemedIcon_ConstructProps {
 }
 export interface ThemedIcon {
     /* Properties of Gio.ThemedIcon */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.ThemedIcon */
     append_name(iconname: string): void
     get_names(): string[]
@@ -8118,6 +8690,15 @@ export interface ThreadedSocketService {
     active:boolean
     /* Properties of Gio.SocketListener */
     listen_backlog:number
+    /* Fields of Gio.ThreadedSocketService */
+    parent_instance:SocketService
+    priv:ThreadedSocketServicePrivate
+    /* Fields of Gio.SocketService */
+    /* Fields of Gio.SocketListener */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.SocketService */
     is_active(): boolean
     start(): void
@@ -8202,6 +8783,13 @@ export interface TlsCertificate_ConstructProps {
 }
 export interface TlsCertificate {
     /* Properties of Gio.TlsCertificate */
+    /* Fields of Gio.TlsCertificate */
+    parent_instance:GObject.Object
+    priv:TlsCertificatePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.TlsCertificate */
     get_issuer(): TlsCertificate
     is_same(cert_two: TlsCertificate): boolean
@@ -8278,6 +8866,14 @@ export interface TlsConnection {
     readonly closed:boolean
     readonly input_stream:InputStream
     readonly output_stream:OutputStream
+    /* Fields of Gio.TlsConnection */
+    parent_instance:IOStream
+    priv:TlsConnectionPrivate
+    /* Fields of Gio.IOStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.TlsConnection */
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate
@@ -8374,6 +8970,13 @@ export declare var TlsConnection: TlsConnection_Static
 export interface TlsDatabase_ConstructProps {
 }
 export interface TlsDatabase {
+    /* Fields of Gio.TlsDatabase */
+    parent_instance:GObject.Object
+    priv:TlsDatabasePrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.TlsDatabase */
     create_certificate_handle(certificate: TlsCertificate): string | null
     lookup_certificate_for_handle(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null): TlsCertificate
@@ -8444,6 +9047,13 @@ export declare var TlsDatabase: TlsDatabase_Static
 export interface TlsInteraction_ConstructProps {
 }
 export interface TlsInteraction {
+    /* Fields of Gio.TlsInteraction */
+    parent_instance:GObject.Object
+    priv:TlsInteractionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.TlsInteraction */
     ask_password(password: TlsPassword, cancellable: Cancellable | null): TlsInteractionResult
     ask_password_async(password: TlsPassword, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
@@ -8510,6 +9120,13 @@ export interface TlsPassword {
     description:string
     flags:TlsPasswordFlags
     warning:string
+    /* Fields of Gio.TlsPassword */
+    parent_instance:GObject.Object
+    priv:TlsPasswordPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.TlsPassword */
     get_description(): string
     get_flags(): TlsPasswordFlags
@@ -8580,6 +9197,15 @@ export interface UnixConnection {
     readonly closed:boolean
     readonly input_stream:InputStream
     readonly output_stream:OutputStream
+    /* Fields of Gio.UnixConnection */
+    parent_instance:SocketConnection
+    priv:UnixConnectionPrivate
+    /* Fields of Gio.SocketConnection */
+    /* Fields of Gio.IOStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.UnixConnection */
     receive_credentials(cancellable: Cancellable | null): Credentials
     receive_credentials_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -8662,6 +9288,14 @@ export interface UnixCredentialsMessage_ConstructProps {
 }
 export interface UnixCredentialsMessage {
     /* Properties of Gio.UnixCredentialsMessage */
+    /* Fields of Gio.UnixCredentialsMessage */
+    parent_instance:SocketControlMessage
+    priv:UnixCredentialsMessagePrivate
+    /* Fields of Gio.SocketControlMessage */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.UnixCredentialsMessage */
     get_credentials(): Credentials
     /* Methods of Gio.SocketControlMessage */
@@ -8721,6 +9355,13 @@ export declare var UnixCredentialsMessage: UnixCredentialsMessage_Static
 export interface UnixFDList_ConstructProps {
 }
 export interface UnixFDList {
+    /* Fields of Gio.UnixFDList */
+    parent_instance:GObject.Object
+    priv:UnixFDListPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.UnixFDList */
     append(fd: number): number
     get(index_: number): number
@@ -8776,6 +9417,14 @@ export interface UnixFDMessage_ConstructProps {
 }
 export interface UnixFDMessage {
     /* Properties of Gio.UnixFDMessage */
+    /* Fields of Gio.UnixFDMessage */
+    parent_instance:SocketControlMessage
+    priv:UnixFDMessagePrivate
+    /* Fields of Gio.SocketControlMessage */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.UnixFDMessage */
     append_fd(fd: number): boolean
     get_fd_list(): UnixFDList
@@ -8841,6 +9490,14 @@ export interface UnixInputStream_ConstructProps {
 export interface UnixInputStream {
     /* Properties of Gio.UnixInputStream */
     close_fd:boolean
+    /* Fields of Gio.UnixInputStream */
+    parent_instance:InputStream
+    priv:UnixInputStreamPrivate
+    /* Fields of Gio.InputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.UnixInputStream */
     get_close_fd(): boolean
     get_fd(): number
@@ -8921,6 +9578,10 @@ export declare var UnixInputStream: UnixInputStream_Static
 export interface UnixMountMonitor_ConstructProps {
 }
 export interface UnixMountMonitor {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.UnixMountMonitor */
     set_rate_limit(limit_msec: number): void
     /* Methods of GObject.Object */
@@ -8977,6 +9638,14 @@ export interface UnixOutputStream_ConstructProps {
 export interface UnixOutputStream {
     /* Properties of Gio.UnixOutputStream */
     close_fd:boolean
+    /* Fields of Gio.UnixOutputStream */
+    parent_instance:OutputStream
+    priv:UnixOutputStreamPrivate
+    /* Fields of Gio.OutputStream */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.UnixOutputStream */
     get_close_fd(): boolean
     get_fd(): number
@@ -9073,6 +9742,14 @@ export interface UnixSocketAddress {
     /* Properties of Gio.UnixSocketAddress */
     /* Properties of Gio.SocketAddress */
     readonly family:SocketFamily
+    /* Fields of Gio.UnixSocketAddress */
+    parent_instance:SocketAddress
+    priv:UnixSocketAddressPrivate
+    /* Fields of Gio.SocketAddress */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.UnixSocketAddress */
     get_address_type(): UnixSocketAddressType
     get_is_abstract(): boolean
@@ -9135,6 +9812,12 @@ export declare var UnixSocketAddress: UnixSocketAddress_Static
 export interface Vfs_ConstructProps {
 }
 export interface Vfs {
+    /* Fields of Gio.Vfs */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.Vfs */
     get_file_for_path(path: string): File
     get_file_for_uri(uri: string): File
@@ -9198,6 +9881,13 @@ export declare var Vfs: Vfs_Static
 export interface VolumeMonitor_ConstructProps {
 }
 export interface VolumeMonitor {
+    /* Fields of Gio.VolumeMonitor */
+    parent_instance:GObject.Object
+    priv:object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.VolumeMonitor */
     get_connected_drives(): GLib.List
     get_mount_for_uuid(uuid: string): Mount
@@ -9287,6 +9977,10 @@ export interface ZlibCompressor_ConstructProps {
 export interface ZlibCompressor {
     /* Properties of Gio.ZlibCompressor */
     file_info:FileInfo
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.ZlibCompressor */
     get_file_info(): FileInfo
     set_file_info(file_info: FileInfo | null): void
@@ -9340,6 +10034,10 @@ export interface ZlibDecompressor_ConstructProps {
 export interface ZlibDecompressor {
     /* Properties of Gio.ZlibDecompressor */
     readonly file_info:FileInfo
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    ref_count:number
+    qdata:GLib.Data
     /* Methods of Gio.ZlibDecompressor */
     get_file_info(): FileInfo
     /* Methods of GObject.Object */
@@ -9386,31 +10084,100 @@ export declare class ZlibDecompressor_Static {
 }
 export declare var ZlibDecompressor: ZlibDecompressor_Static
 export interface ActionEntry {
+    /* Fields of Gio.ActionEntry */
+    name:string
+    activate:any
+    parameter_type:string
+    state:string
+    change_state:any
+    padding:number[]
 }
 export interface ActionEntry_Static {
 }
 export declare var ActionEntry: ActionEntry_Static
 export interface ActionGroupInterface {
+    /* Fields of Gio.ActionGroupInterface */
+    g_iface:GObject.TypeInterface
+    has_action:any
+    list_actions:any
+    get_action_enabled:any
+    get_action_parameter_type:any
+    get_action_state_type:any
+    get_action_state_hint:any
+    get_action_state:any
+    change_action_state:any
+    activate_action:any
+    action_added:any
+    action_removed:any
+    action_enabled_changed:any
+    action_state_changed:any
+    query_action:any
 }
 export interface ActionGroupInterface_Static {
 }
 export declare var ActionGroupInterface: ActionGroupInterface_Static
 export interface ActionInterface {
+    /* Fields of Gio.ActionInterface */
+    g_iface:GObject.TypeInterface
+    get_name:any
+    get_parameter_type:any
+    get_state_type:any
+    get_state_hint:any
+    get_enabled:any
+    get_state:any
+    change_state:any
+    activate:any
 }
 export interface ActionInterface_Static {
 }
 export declare var ActionInterface: ActionInterface_Static
 export interface ActionMapInterface {
+    /* Fields of Gio.ActionMapInterface */
+    g_iface:GObject.TypeInterface
+    lookup_action:any
+    add_action:any
+    remove_action:any
 }
 export interface ActionMapInterface_Static {
 }
 export declare var ActionMapInterface: ActionMapInterface_Static
 export interface AppInfoIface {
+    /* Fields of Gio.AppInfoIface */
+    g_iface:GObject.TypeInterface
+    dup:any
+    equal:any
+    get_id:any
+    get_name:any
+    get_description:any
+    get_executable:any
+    get_icon:any
+    launch:any
+    supports_uris:any
+    supports_files:any
+    launch_uris:any
+    should_show:any
+    set_as_default_for_type:any
+    set_as_default_for_extension:any
+    add_supports_type:any
+    can_remove_supports_type:any
+    remove_supports_type:any
+    can_delete:any
+    do_delete:any
+    get_commandline:any
+    get_display_name:any
+    set_as_last_used_for_type:any
+    get_supported_types:any
 }
 export interface AppInfoIface_Static {
 }
 export declare var AppInfoIface: AppInfoIface_Static
 export interface AppLaunchContextClass {
+    /* Fields of Gio.AppLaunchContextClass */
+    parent_class:GObject.ObjectClass
+    get_display:any
+    get_startup_notify_id:any
+    launch_failed:any
+    launched:any
 }
 export interface AppLaunchContextClass_Static {
 }
@@ -9421,11 +10188,34 @@ export interface AppLaunchContextPrivate_Static {
 }
 export declare var AppLaunchContextPrivate: AppLaunchContextPrivate_Static
 export interface ApplicationClass {
+    /* Fields of Gio.ApplicationClass */
+    parent_class:GObject.ObjectClass
+    startup:any
+    activate:any
+    open:any
+    command_line:any
+    local_command_line:any
+    before_emit:any
+    after_emit:any
+    add_platform_data:any
+    quit_mainloop:any
+    run_mainloop:any
+    shutdown:any
+    dbus_register:any
+    dbus_unregister:any
+    handle_local_options:any
+    padding:object[]
 }
 export interface ApplicationClass_Static {
 }
 export declare var ApplicationClass: ApplicationClass_Static
 export interface ApplicationCommandLineClass {
+    /* Fields of Gio.ApplicationCommandLineClass */
+    parent_class:GObject.ObjectClass
+    print_literal:any
+    printerr_literal:any
+    get_stdin:any
+    padding:object[]
 }
 export interface ApplicationCommandLineClass_Static {
 }
@@ -9441,16 +10231,30 @@ export interface ApplicationPrivate_Static {
 }
 export declare var ApplicationPrivate: ApplicationPrivate_Static
 export interface AsyncInitableIface {
+    /* Fields of Gio.AsyncInitableIface */
+    g_iface:GObject.TypeInterface
+    init_async:any
+    init_finish:any
 }
 export interface AsyncInitableIface_Static {
 }
 export declare var AsyncInitableIface: AsyncInitableIface_Static
 export interface AsyncResultIface {
+    /* Fields of Gio.AsyncResultIface */
+    g_iface:GObject.TypeInterface
+    get_user_data:any
+    get_source_object:any
+    is_tagged:any
 }
 export interface AsyncResultIface_Static {
 }
 export declare var AsyncResultIface: AsyncResultIface_Static
 export interface BufferedInputStreamClass {
+    /* Fields of Gio.BufferedInputStreamClass */
+    parent_class:FilterInputStreamClass
+    fill:any
+    fill_async:any
+    fill_finish:any
 }
 export interface BufferedInputStreamClass_Static {
 }
@@ -9461,6 +10265,8 @@ export interface BufferedInputStreamPrivate_Static {
 }
 export declare var BufferedInputStreamPrivate: BufferedInputStreamPrivate_Static
 export interface BufferedOutputStreamClass {
+    /* Fields of Gio.BufferedOutputStreamClass */
+    parent_class:FilterOutputStreamClass
 }
 export interface BufferedOutputStreamClass_Static {
 }
@@ -9471,6 +10277,9 @@ export interface BufferedOutputStreamPrivate_Static {
 }
 export declare var BufferedOutputStreamPrivate: BufferedOutputStreamPrivate_Static
 export interface CancellableClass {
+    /* Fields of Gio.CancellableClass */
+    parent_class:GObject.ObjectClass
+    cancelled:any
 }
 export interface CancellableClass_Static {
 }
@@ -9481,16 +10290,24 @@ export interface CancellablePrivate_Static {
 }
 export declare var CancellablePrivate: CancellablePrivate_Static
 export interface CharsetConverterClass {
+    /* Fields of Gio.CharsetConverterClass */
+    parent_class:GObject.ObjectClass
 }
 export interface CharsetConverterClass_Static {
 }
 export declare var CharsetConverterClass: CharsetConverterClass_Static
 export interface ConverterIface {
+    /* Fields of Gio.ConverterIface */
+    g_iface:GObject.TypeInterface
+    convert:any
+    reset:any
 }
 export interface ConverterIface_Static {
 }
 export declare var ConverterIface: ConverterIface_Static
 export interface ConverterInputStreamClass {
+    /* Fields of Gio.ConverterInputStreamClass */
+    parent_class:FilterInputStreamClass
 }
 export interface ConverterInputStreamClass_Static {
 }
@@ -9501,6 +10318,8 @@ export interface ConverterInputStreamPrivate_Static {
 }
 export declare var ConverterInputStreamPrivate: ConverterInputStreamPrivate_Static
 export interface ConverterOutputStreamClass {
+    /* Fields of Gio.ConverterOutputStreamClass */
+    parent_class:FilterOutputStreamClass
 }
 export interface ConverterOutputStreamClass_Static {
 }
@@ -9516,6 +10335,11 @@ export interface CredentialsClass_Static {
 }
 export declare var CredentialsClass: CredentialsClass_Static
 export interface DBusAnnotationInfo {
+    /* Fields of Gio.DBusAnnotationInfo */
+    ref_count:number
+    key:string
+    value:string
+    annotations:DBusAnnotationInfo[]
     /* Methods of Gio.DBusAnnotationInfo */
     ref(): DBusAnnotationInfo
     unref(): void
@@ -9527,6 +10351,11 @@ export declare class DBusAnnotationInfo_Static {
 }
 export declare var DBusAnnotationInfo: DBusAnnotationInfo_Static
 export interface DBusArgInfo {
+    /* Fields of Gio.DBusArgInfo */
+    ref_count:number
+    name:string
+    signature:string
+    annotations:DBusAnnotationInfo[]
     /* Methods of Gio.DBusArgInfo */
     ref(): DBusArgInfo
     unref(): void
@@ -9535,16 +10364,32 @@ export interface DBusArgInfo_Static {
 }
 export declare var DBusArgInfo: DBusArgInfo_Static
 export interface DBusErrorEntry {
+    /* Fields of Gio.DBusErrorEntry */
+    error_code:number
+    dbus_error_name:string
 }
 export interface DBusErrorEntry_Static {
 }
 export declare var DBusErrorEntry: DBusErrorEntry_Static
 export interface DBusInterfaceIface {
+    /* Fields of Gio.DBusInterfaceIface */
+    parent_iface:GObject.TypeInterface
+    get_info:any
+    get_object:any
+    set_object:any
+    dup_object:any
 }
 export interface DBusInterfaceIface_Static {
 }
 export declare var DBusInterfaceIface: DBusInterfaceIface_Static
 export interface DBusInterfaceInfo {
+    /* Fields of Gio.DBusInterfaceInfo */
+    ref_count:number
+    name:string
+    methods:DBusMethodInfo[]
+    signals:DBusSignalInfo[]
+    properties:DBusPropertyInfo[]
+    annotations:DBusAnnotationInfo[]
     /* Methods of Gio.DBusInterfaceInfo */
     cache_build(): void
     cache_release(): void
@@ -9559,6 +10404,14 @@ export interface DBusInterfaceInfo_Static {
 }
 export declare var DBusInterfaceInfo: DBusInterfaceInfo_Static
 export interface DBusInterfaceSkeletonClass {
+    /* Fields of Gio.DBusInterfaceSkeletonClass */
+    parent_class:GObject.ObjectClass
+    get_info:any
+    get_properties:any
+    flush:any
+    vfunc_padding:object[]
+    g_authorize_method:any
+    signal_padding:object[]
 }
 export interface DBusInterfaceSkeletonClass_Static {
 }
@@ -9569,11 +10422,22 @@ export interface DBusInterfaceSkeletonPrivate_Static {
 }
 export declare var DBusInterfaceSkeletonPrivate: DBusInterfaceSkeletonPrivate_Static
 export interface DBusInterfaceVTable {
+    /* Fields of Gio.DBusInterfaceVTable */
+    method_call:DBusInterfaceMethodCallFunc
+    get_property:DBusInterfaceGetPropertyFunc
+    set_property:DBusInterfaceSetPropertyFunc
+    padding:object[]
 }
 export interface DBusInterfaceVTable_Static {
 }
 export declare var DBusInterfaceVTable: DBusInterfaceVTable_Static
 export interface DBusMethodInfo {
+    /* Fields of Gio.DBusMethodInfo */
+    ref_count:number
+    name:string
+    in_args:DBusArgInfo[]
+    out_args:DBusArgInfo[]
+    annotations:DBusAnnotationInfo[]
     /* Methods of Gio.DBusMethodInfo */
     ref(): DBusMethodInfo
     unref(): void
@@ -9582,6 +10446,12 @@ export interface DBusMethodInfo_Static {
 }
 export declare var DBusMethodInfo: DBusMethodInfo_Static
 export interface DBusNodeInfo {
+    /* Fields of Gio.DBusNodeInfo */
+    ref_count:number
+    path:string
+    interfaces:DBusInterfaceInfo[]
+    nodes:DBusNodeInfo[]
+    annotations:DBusAnnotationInfo[]
     /* Methods of Gio.DBusNodeInfo */
     generate_xml(indent: number): /* string_builder */ GLib.String
     lookup_interface(name: string): DBusInterfaceInfo
@@ -9595,11 +10465,23 @@ export declare class DBusNodeInfo_Static {
 }
 export declare var DBusNodeInfo: DBusNodeInfo_Static
 export interface DBusObjectIface {
+    /* Fields of Gio.DBusObjectIface */
+    parent_iface:GObject.TypeInterface
+    get_object_path:any
+    get_interfaces:any
+    get_interface:any
+    interface_added:any
+    interface_removed:any
 }
 export interface DBusObjectIface_Static {
 }
 export declare var DBusObjectIface: DBusObjectIface_Static
 export interface DBusObjectManagerClientClass {
+    /* Fields of Gio.DBusObjectManagerClientClass */
+    parent_class:GObject.ObjectClass
+    interface_proxy_signal:any
+    interface_proxy_properties_changed:any
+    padding:object[]
 }
 export interface DBusObjectManagerClientClass_Static {
 }
@@ -9610,11 +10492,24 @@ export interface DBusObjectManagerClientPrivate_Static {
 }
 export declare var DBusObjectManagerClientPrivate: DBusObjectManagerClientPrivate_Static
 export interface DBusObjectManagerIface {
+    /* Fields of Gio.DBusObjectManagerIface */
+    parent_iface:GObject.TypeInterface
+    get_object_path:any
+    get_objects:any
+    get_object:any
+    get_interface:any
+    object_added:any
+    object_removed:any
+    interface_added:any
+    interface_removed:any
 }
 export interface DBusObjectManagerIface_Static {
 }
 export declare var DBusObjectManagerIface: DBusObjectManagerIface_Static
 export interface DBusObjectManagerServerClass {
+    /* Fields of Gio.DBusObjectManagerServerClass */
+    parent_class:GObject.ObjectClass
+    padding:object[]
 }
 export interface DBusObjectManagerServerClass_Static {
 }
@@ -9625,6 +10520,9 @@ export interface DBusObjectManagerServerPrivate_Static {
 }
 export declare var DBusObjectManagerServerPrivate: DBusObjectManagerServerPrivate_Static
 export interface DBusObjectProxyClass {
+    /* Fields of Gio.DBusObjectProxyClass */
+    parent_class:GObject.ObjectClass
+    padding:object[]
 }
 export interface DBusObjectProxyClass_Static {
 }
@@ -9635,6 +10533,10 @@ export interface DBusObjectProxyPrivate_Static {
 }
 export declare var DBusObjectProxyPrivate: DBusObjectProxyPrivate_Static
 export interface DBusObjectSkeletonClass {
+    /* Fields of Gio.DBusObjectSkeletonClass */
+    parent_class:GObject.ObjectClass
+    authorize_method:any
+    padding:object[]
 }
 export interface DBusObjectSkeletonClass_Static {
 }
@@ -9645,6 +10547,12 @@ export interface DBusObjectSkeletonPrivate_Static {
 }
 export declare var DBusObjectSkeletonPrivate: DBusObjectSkeletonPrivate_Static
 export interface DBusPropertyInfo {
+    /* Fields of Gio.DBusPropertyInfo */
+    ref_count:number
+    name:string
+    signature:string
+    flags:DBusPropertyInfoFlags
+    annotations:DBusAnnotationInfo[]
     /* Methods of Gio.DBusPropertyInfo */
     ref(): DBusPropertyInfo
     unref(): void
@@ -9653,6 +10561,11 @@ export interface DBusPropertyInfo_Static {
 }
 export declare var DBusPropertyInfo: DBusPropertyInfo_Static
 export interface DBusProxyClass {
+    /* Fields of Gio.DBusProxyClass */
+    parent_class:GObject.ObjectClass
+    g_properties_changed:any
+    g_signal:any
+    padding:object[]
 }
 export interface DBusProxyClass_Static {
 }
@@ -9663,6 +10576,11 @@ export interface DBusProxyPrivate_Static {
 }
 export declare var DBusProxyPrivate: DBusProxyPrivate_Static
 export interface DBusSignalInfo {
+    /* Fields of Gio.DBusSignalInfo */
+    ref_count:number
+    name:string
+    args:DBusArgInfo[]
+    annotations:DBusAnnotationInfo[]
     /* Methods of Gio.DBusSignalInfo */
     ref(): DBusSignalInfo
     unref(): void
@@ -9671,11 +10589,17 @@ export interface DBusSignalInfo_Static {
 }
 export declare var DBusSignalInfo: DBusSignalInfo_Static
 export interface DBusSubtreeVTable {
+    /* Fields of Gio.DBusSubtreeVTable */
+    introspect:DBusSubtreeIntrospectFunc
+    dispatch:DBusSubtreeDispatchFunc
+    padding:object[]
 }
 export interface DBusSubtreeVTable_Static {
 }
 export declare var DBusSubtreeVTable: DBusSubtreeVTable_Static
 export interface DataInputStreamClass {
+    /* Fields of Gio.DataInputStreamClass */
+    parent_class:BufferedInputStreamClass
 }
 export interface DataInputStreamClass_Static {
 }
@@ -9686,6 +10610,8 @@ export interface DataInputStreamPrivate_Static {
 }
 export declare var DataInputStreamPrivate: DataInputStreamPrivate_Static
 export interface DataOutputStreamClass {
+    /* Fields of Gio.DataOutputStreamClass */
+    parent_class:FilterOutputStreamClass
 }
 export interface DataOutputStreamClass_Static {
 }
@@ -9696,21 +10622,66 @@ export interface DataOutputStreamPrivate_Static {
 }
 export declare var DataOutputStreamPrivate: DataOutputStreamPrivate_Static
 export interface DatagramBasedInterface {
+    /* Fields of Gio.DatagramBasedInterface */
+    g_iface:GObject.TypeInterface
+    receive_messages:any
+    send_messages:any
+    create_source:any
+    condition_check:any
+    condition_wait:any
 }
 export interface DatagramBasedInterface_Static {
 }
 export declare var DatagramBasedInterface: DatagramBasedInterface_Static
 export interface DesktopAppInfoClass {
+    /* Fields of Gio.DesktopAppInfoClass */
+    parent_class:GObject.ObjectClass
 }
 export interface DesktopAppInfoClass_Static {
 }
 export declare var DesktopAppInfoClass: DesktopAppInfoClass_Static
 export interface DesktopAppInfoLookupIface {
+    /* Fields of Gio.DesktopAppInfoLookupIface */
+    g_iface:GObject.TypeInterface
+    get_default_for_uri_scheme:any
 }
 export interface DesktopAppInfoLookupIface_Static {
 }
 export declare var DesktopAppInfoLookupIface: DesktopAppInfoLookupIface_Static
 export interface DriveIface {
+    /* Fields of Gio.DriveIface */
+    g_iface:GObject.TypeInterface
+    changed:any
+    disconnected:any
+    eject_button:any
+    get_name:any
+    get_icon:any
+    has_volumes:any
+    get_volumes:any
+    is_media_removable:any
+    has_media:any
+    is_media_check_automatic:any
+    can_eject:any
+    can_poll_for_media:any
+    eject:any
+    eject_finish:any
+    poll_for_media:any
+    poll_for_media_finish:any
+    get_identifier:any
+    enumerate_identifiers:any
+    get_start_stop_type:any
+    can_start:any
+    can_start_degraded:any
+    start:any
+    start_finish:any
+    can_stop:any
+    stop:any
+    stop_finish:any
+    stop_button:any
+    eject_with_operation:any
+    eject_with_operation_finish:any
+    get_sort_key:any
+    get_symbolic_icon:any
 }
 export interface DriveIface_Static {
 }
@@ -9721,6 +10692,8 @@ export interface EmblemClass_Static {
 }
 export declare var EmblemClass: EmblemClass_Static
 export interface EmblemedIconClass {
+    /* Fields of Gio.EmblemedIconClass */
+    parent_class:GObject.ObjectClass
 }
 export interface EmblemedIconClass_Static {
 }
@@ -9731,11 +10704,18 @@ export interface EmblemedIconPrivate_Static {
 }
 export declare var EmblemedIconPrivate: EmblemedIconPrivate_Static
 export interface FileAttributeInfo {
+    /* Fields of Gio.FileAttributeInfo */
+    name:string
+    type:FileAttributeType
+    flags:FileAttributeInfoFlags
 }
 export interface FileAttributeInfo_Static {
 }
 export declare var FileAttributeInfo: FileAttributeInfo_Static
 export interface FileAttributeInfoList {
+    /* Fields of Gio.FileAttributeInfoList */
+    infos:FileAttributeInfo
+    n_infos:number
     /* Methods of Gio.FileAttributeInfoList */
     add(name: string, type: FileAttributeType, flags: FileAttributeInfoFlags): void
     dup(): FileAttributeInfoList
@@ -9767,11 +10747,22 @@ export declare class FileAttributeMatcher_Static {
 }
 export declare var FileAttributeMatcher: FileAttributeMatcher_Static
 export interface FileDescriptorBasedIface {
+    /* Fields of Gio.FileDescriptorBasedIface */
+    g_iface:GObject.TypeInterface
+    get_fd:any
 }
 export interface FileDescriptorBasedIface_Static {
 }
 export declare var FileDescriptorBasedIface: FileDescriptorBasedIface_Static
 export interface FileEnumeratorClass {
+    /* Fields of Gio.FileEnumeratorClass */
+    parent_class:GObject.ObjectClass
+    next_file:any
+    close_fn:any
+    next_files_async:any
+    next_files_finish:any
+    close_async:any
+    close_finish:any
 }
 export interface FileEnumeratorClass_Static {
 }
@@ -9782,6 +10773,17 @@ export interface FileEnumeratorPrivate_Static {
 }
 export declare var FileEnumeratorPrivate: FileEnumeratorPrivate_Static
 export interface FileIOStreamClass {
+    /* Fields of Gio.FileIOStreamClass */
+    parent_class:IOStreamClass
+    tell:any
+    can_seek:any
+    seek:any
+    can_truncate:any
+    truncate_fn:any
+    query_info:any
+    query_info_async:any
+    query_info_finish:any
+    get_etag:any
 }
 export interface FileIOStreamClass_Static {
 }
@@ -9797,6 +10799,100 @@ export interface FileIconClass_Static {
 }
 export declare var FileIconClass: FileIconClass_Static
 export interface FileIface {
+    /* Fields of Gio.FileIface */
+    g_iface:GObject.TypeInterface
+    dup:any
+    hash:any
+    equal:any
+    is_native:any
+    has_uri_scheme:any
+    get_uri_scheme:any
+    get_basename:any
+    get_path:any
+    get_uri:any
+    get_parse_name:any
+    get_parent:any
+    prefix_matches:any
+    get_relative_path:any
+    resolve_relative_path:any
+    get_child_for_display_name:any
+    enumerate_children:any
+    enumerate_children_async:any
+    enumerate_children_finish:any
+    query_info:any
+    query_info_async:any
+    query_info_finish:any
+    query_filesystem_info:any
+    query_filesystem_info_async:any
+    query_filesystem_info_finish:any
+    find_enclosing_mount:any
+    find_enclosing_mount_async:any
+    find_enclosing_mount_finish:any
+    set_display_name:any
+    set_display_name_async:any
+    set_display_name_finish:any
+    query_settable_attributes:any
+    query_writable_namespaces:any
+    set_attribute:any
+    set_attributes_from_info:any
+    set_attributes_async:any
+    set_attributes_finish:any
+    read_fn:any
+    read_async:any
+    read_finish:any
+    append_to:any
+    append_to_async:any
+    append_to_finish:any
+    create:any
+    create_async:any
+    create_finish:any
+    replace:any
+    replace_async:any
+    replace_finish:any
+    delete_file:any
+    delete_file_async:any
+    delete_file_finish:any
+    trash:any
+    trash_async:any
+    trash_finish:any
+    make_directory:any
+    make_directory_async:any
+    make_directory_finish:any
+    make_symbolic_link:any
+    copy:any
+    copy_finish:any
+    move:any
+    mount_mountable:any
+    mount_mountable_finish:any
+    unmount_mountable:any
+    unmount_mountable_finish:any
+    eject_mountable:any
+    eject_mountable_finish:any
+    mount_enclosing_volume:any
+    mount_enclosing_volume_finish:any
+    monitor_dir:any
+    monitor_file:any
+    open_readwrite:any
+    open_readwrite_async:any
+    open_readwrite_finish:any
+    create_readwrite:any
+    create_readwrite_async:any
+    create_readwrite_finish:any
+    replace_readwrite:any
+    replace_readwrite_async:any
+    replace_readwrite_finish:any
+    start_mountable:any
+    start_mountable_finish:any
+    stop_mountable:any
+    stop_mountable_finish:any
+    supports_thread_contexts:boolean
+    unmount_mountable_with_operation:any
+    unmount_mountable_with_operation_finish:any
+    eject_mountable_with_operation:any
+    eject_mountable_with_operation_finish:any
+    poll_mountable:any
+    poll_mountable_finish:any
+    measure_disk_usage_finish:any
 }
 export interface FileIface_Static {
 }
@@ -9807,6 +10903,14 @@ export interface FileInfoClass_Static {
 }
 export declare var FileInfoClass: FileInfoClass_Static
 export interface FileInputStreamClass {
+    /* Fields of Gio.FileInputStreamClass */
+    parent_class:InputStreamClass
+    tell:any
+    can_seek:any
+    seek:any
+    query_info:any
+    query_info_async:any
+    query_info_finish:any
 }
 export interface FileInputStreamClass_Static {
 }
@@ -9817,6 +10921,10 @@ export interface FileInputStreamPrivate_Static {
 }
 export declare var FileInputStreamPrivate: FileInputStreamPrivate_Static
 export interface FileMonitorClass {
+    /* Fields of Gio.FileMonitorClass */
+    parent_class:GObject.ObjectClass
+    changed:any
+    cancel:any
 }
 export interface FileMonitorClass_Static {
 }
@@ -9827,6 +10935,17 @@ export interface FileMonitorPrivate_Static {
 }
 export declare var FileMonitorPrivate: FileMonitorPrivate_Static
 export interface FileOutputStreamClass {
+    /* Fields of Gio.FileOutputStreamClass */
+    parent_class:OutputStreamClass
+    tell:any
+    can_seek:any
+    seek:any
+    can_truncate:any
+    truncate_fn:any
+    query_info:any
+    query_info_async:any
+    query_info_finish:any
+    get_etag:any
 }
 export interface FileOutputStreamClass_Static {
 }
@@ -9837,16 +10956,23 @@ export interface FileOutputStreamPrivate_Static {
 }
 export declare var FileOutputStreamPrivate: FileOutputStreamPrivate_Static
 export interface FilenameCompleterClass {
+    /* Fields of Gio.FilenameCompleterClass */
+    parent_class:GObject.ObjectClass
+    got_completion_data:any
 }
 export interface FilenameCompleterClass_Static {
 }
 export declare var FilenameCompleterClass: FilenameCompleterClass_Static
 export interface FilterInputStreamClass {
+    /* Fields of Gio.FilterInputStreamClass */
+    parent_class:InputStreamClass
 }
 export interface FilterInputStreamClass_Static {
 }
 export declare var FilterInputStreamClass: FilterInputStreamClass_Static
 export interface FilterOutputStreamClass {
+    /* Fields of Gio.FilterOutputStreamClass */
+    parent_class:OutputStreamClass
 }
 export interface FilterOutputStreamClass_Static {
 }
@@ -9902,6 +11028,13 @@ export interface IOStreamAdapter_Static {
 }
 export declare var IOStreamAdapter: IOStreamAdapter_Static
 export interface IOStreamClass {
+    /* Fields of Gio.IOStreamClass */
+    parent_class:GObject.ObjectClass
+    get_input_stream:any
+    get_output_stream:any
+    close_fn:any
+    close_async:any
+    close_finish:any
 }
 export interface IOStreamClass_Static {
 }
@@ -9912,16 +11045,27 @@ export interface IOStreamPrivate_Static {
 }
 export declare var IOStreamPrivate: IOStreamPrivate_Static
 export interface IconIface {
+    /* Fields of Gio.IconIface */
+    g_iface:GObject.TypeInterface
+    hash:any
+    equal:any
+    serialize:any
 }
 export interface IconIface_Static {
 }
 export declare var IconIface: IconIface_Static
 export interface InetAddressClass {
+    /* Fields of Gio.InetAddressClass */
+    parent_class:GObject.ObjectClass
+    to_string:any
+    to_bytes:any
 }
 export interface InetAddressClass_Static {
 }
 export declare var InetAddressClass: InetAddressClass_Static
 export interface InetAddressMaskClass {
+    /* Fields of Gio.InetAddressMaskClass */
+    parent_class:GObject.ObjectClass
 }
 export interface InetAddressMaskClass_Static {
 }
@@ -9937,6 +11081,8 @@ export interface InetAddressPrivate_Static {
 }
 export declare var InetAddressPrivate: InetAddressPrivate_Static
 export interface InetSocketAddressClass {
+    /* Fields of Gio.InetSocketAddressClass */
+    parent_class:SocketAddressClass
 }
 export interface InetSocketAddressClass_Static {
 }
@@ -9947,16 +11093,38 @@ export interface InetSocketAddressPrivate_Static {
 }
 export declare var InetSocketAddressPrivate: InetSocketAddressPrivate_Static
 export interface InitableIface {
+    /* Fields of Gio.InitableIface */
+    g_iface:GObject.TypeInterface
+    init:any
 }
 export interface InitableIface_Static {
 }
 export declare var InitableIface: InitableIface_Static
 export interface InputMessage {
+    /* Fields of Gio.InputMessage */
+    address:SocketAddress
+    vectors:InputVector[]
+    num_vectors:number
+    bytes_received:number
+    flags:number
+    control_messages:SocketControlMessage[]
+    num_control_messages:number
 }
 export interface InputMessage_Static {
 }
 export declare var InputMessage: InputMessage_Static
 export interface InputStreamClass {
+    /* Fields of Gio.InputStreamClass */
+    parent_class:GObject.ObjectClass
+    read_fn:any
+    skip:any
+    close_fn:any
+    read_async:any
+    read_finish:any
+    skip_async:any
+    skip_finish:any
+    close_async:any
+    close_finish:any
 }
 export interface InputStreamClass_Static {
 }
@@ -9967,26 +11135,42 @@ export interface InputStreamPrivate_Static {
 }
 export declare var InputStreamPrivate: InputStreamPrivate_Static
 export interface InputVector {
+    /* Fields of Gio.InputVector */
+    buffer:object
+    size:number
 }
 export interface InputVector_Static {
 }
 export declare var InputVector: InputVector_Static
 export interface ListModelInterface {
+    /* Fields of Gio.ListModelInterface */
+    g_iface:GObject.TypeInterface
+    get_item_type:any
+    get_n_items:any
 }
 export interface ListModelInterface_Static {
 }
 export declare var ListModelInterface: ListModelInterface_Static
 export interface ListStoreClass {
+    /* Fields of Gio.ListStoreClass */
+    parent_class:GObject.ObjectClass
 }
 export interface ListStoreClass_Static {
 }
 export declare var ListStoreClass: ListStoreClass_Static
 export interface LoadableIconIface {
+    /* Fields of Gio.LoadableIconIface */
+    g_iface:GObject.TypeInterface
+    load:any
+    load_async:any
+    load_finish:any
 }
 export interface LoadableIconIface_Static {
 }
 export declare var LoadableIconIface: LoadableIconIface_Static
 export interface MemoryInputStreamClass {
+    /* Fields of Gio.MemoryInputStreamClass */
+    parent_class:InputStreamClass
 }
 export interface MemoryInputStreamClass_Static {
 }
@@ -9997,6 +11181,8 @@ export interface MemoryInputStreamPrivate_Static {
 }
 export declare var MemoryInputStreamPrivate: MemoryInputStreamPrivate_Static
 export interface MemoryOutputStreamClass {
+    /* Fields of Gio.MemoryOutputStreamClass */
+    parent_class:OutputStreamClass
 }
 export interface MemoryOutputStreamClass_Static {
 }
@@ -10007,6 +11193,9 @@ export interface MemoryOutputStreamPrivate_Static {
 }
 export declare var MemoryOutputStreamPrivate: MemoryOutputStreamPrivate_Static
 export interface MenuAttributeIterClass {
+    /* Fields of Gio.MenuAttributeIterClass */
+    parent_class:GObject.ObjectClass
+    get_next:any
 }
 export interface MenuAttributeIterClass_Static {
 }
@@ -10017,6 +11206,9 @@ export interface MenuAttributeIterPrivate_Static {
 }
 export declare var MenuAttributeIterPrivate: MenuAttributeIterPrivate_Static
 export interface MenuLinkIterClass {
+    /* Fields of Gio.MenuLinkIterClass */
+    parent_class:GObject.ObjectClass
+    get_next:any
 }
 export interface MenuLinkIterClass_Static {
 }
@@ -10027,6 +11219,16 @@ export interface MenuLinkIterPrivate_Static {
 }
 export declare var MenuLinkIterPrivate: MenuLinkIterPrivate_Static
 export interface MenuModelClass {
+    /* Fields of Gio.MenuModelClass */
+    parent_class:GObject.ObjectClass
+    is_mutable:any
+    get_n_items:any
+    get_item_attributes:any
+    iterate_item_attributes:any
+    get_item_attribute_value:any
+    get_item_links:any
+    iterate_item_links:any
+    get_item_link:any
 }
 export interface MenuModelClass_Static {
 }
@@ -10037,11 +11239,47 @@ export interface MenuModelPrivate_Static {
 }
 export declare var MenuModelPrivate: MenuModelPrivate_Static
 export interface MountIface {
+    /* Fields of Gio.MountIface */
+    g_iface:GObject.TypeInterface
+    changed:any
+    unmounted:any
+    get_root:any
+    get_name:any
+    get_icon:any
+    get_uuid:any
+    get_volume:any
+    get_drive:any
+    can_unmount:any
+    can_eject:any
+    unmount:any
+    unmount_finish:any
+    eject:any
+    eject_finish:any
+    remount:any
+    remount_finish:any
+    guess_content_type:any
+    guess_content_type_finish:any
+    guess_content_type_sync:any
+    pre_unmount:any
+    unmount_with_operation:any
+    unmount_with_operation_finish:any
+    eject_with_operation:any
+    eject_with_operation_finish:any
+    get_default_location:any
+    get_sort_key:any
+    get_symbolic_icon:any
 }
 export interface MountIface_Static {
 }
 export declare var MountIface: MountIface_Static
 export interface MountOperationClass {
+    /* Fields of Gio.MountOperationClass */
+    parent_class:GObject.ObjectClass
+    ask_password:any
+    ask_question:any
+    reply:any
+    aborted:any
+    show_unmount_progress:any
 }
 export interface MountOperationClass_Static {
 }
@@ -10057,11 +11295,15 @@ export interface NativeSocketAddress_Static {
 }
 export declare var NativeSocketAddress: NativeSocketAddress_Static
 export interface NativeVolumeMonitorClass {
+    /* Fields of Gio.NativeVolumeMonitorClass */
+    parent_class:VolumeMonitorClass
 }
 export interface NativeVolumeMonitorClass_Static {
 }
 export declare var NativeVolumeMonitorClass: NativeVolumeMonitorClass_Static
 export interface NetworkAddressClass {
+    /* Fields of Gio.NetworkAddressClass */
+    parent_class:GObject.ObjectClass
 }
 export interface NetworkAddressClass_Static {
 }
@@ -10072,11 +11314,19 @@ export interface NetworkAddressPrivate_Static {
 }
 export declare var NetworkAddressPrivate: NetworkAddressPrivate_Static
 export interface NetworkMonitorInterface {
+    /* Fields of Gio.NetworkMonitorInterface */
+    g_iface:GObject.TypeInterface
+    network_changed:any
+    can_reach:any
+    can_reach_async:any
+    can_reach_finish:any
 }
 export interface NetworkMonitorInterface_Static {
 }
 export declare var NetworkMonitorInterface: NetworkMonitorInterface_Static
 export interface NetworkServiceClass {
+    /* Fields of Gio.NetworkServiceClass */
+    parent_class:GObject.ObjectClass
 }
 export interface NetworkServiceClass_Static {
 }
@@ -10087,11 +11337,32 @@ export interface NetworkServicePrivate_Static {
 }
 export declare var NetworkServicePrivate: NetworkServicePrivate_Static
 export interface OutputMessage {
+    /* Fields of Gio.OutputMessage */
+    address:SocketAddress
+    vectors:OutputVector
+    num_vectors:number
+    bytes_sent:number
+    control_messages:SocketControlMessage[]
+    num_control_messages:number
 }
 export interface OutputMessage_Static {
 }
 export declare var OutputMessage: OutputMessage_Static
 export interface OutputStreamClass {
+    /* Fields of Gio.OutputStreamClass */
+    parent_class:GObject.ObjectClass
+    write_fn:any
+    splice:any
+    flush:any
+    close_fn:any
+    write_async:any
+    write_finish:any
+    splice_async:any
+    splice_finish:any
+    flush_async:any
+    flush_finish:any
+    close_async:any
+    close_finish:any
 }
 export interface OutputStreamClass_Static {
 }
@@ -10102,11 +11373,23 @@ export interface OutputStreamPrivate_Static {
 }
 export declare var OutputStreamPrivate: OutputStreamPrivate_Static
 export interface OutputVector {
+    /* Fields of Gio.OutputVector */
+    buffer:object
+    size:number
 }
 export interface OutputVector_Static {
 }
 export declare var OutputVector: OutputVector_Static
 export interface PermissionClass {
+    /* Fields of Gio.PermissionClass */
+    parent_class:GObject.ObjectClass
+    acquire:any
+    acquire_async:any
+    acquire_finish:any
+    release:any
+    release_async:any
+    release_finish:any
+    reserved:object[]
 }
 export interface PermissionClass_Static {
 }
@@ -10117,21 +11400,37 @@ export interface PermissionPrivate_Static {
 }
 export declare var PermissionPrivate: PermissionPrivate_Static
 export interface PollableInputStreamInterface {
+    /* Fields of Gio.PollableInputStreamInterface */
+    g_iface:GObject.TypeInterface
+    can_poll:any
+    is_readable:any
+    create_source:any
+    read_nonblocking:any
 }
 export interface PollableInputStreamInterface_Static {
 }
 export declare var PollableInputStreamInterface: PollableInputStreamInterface_Static
 export interface PollableOutputStreamInterface {
+    /* Fields of Gio.PollableOutputStreamInterface */
+    g_iface:GObject.TypeInterface
+    can_poll:any
+    is_writable:any
+    create_source:any
+    write_nonblocking:any
 }
 export interface PollableOutputStreamInterface_Static {
 }
 export declare var PollableOutputStreamInterface: PollableOutputStreamInterface_Static
 export interface ProxyAddressClass {
+    /* Fields of Gio.ProxyAddressClass */
+    parent_class:InetSocketAddressClass
 }
 export interface ProxyAddressClass_Static {
 }
 export declare var ProxyAddressClass: ProxyAddressClass_Static
 export interface ProxyAddressEnumeratorClass {
+    /* Fields of Gio.ProxyAddressEnumeratorClass */
+    parent_class:SocketAddressEnumeratorClass
 }
 export interface ProxyAddressEnumeratorClass_Static {
 }
@@ -10147,21 +11446,51 @@ export interface ProxyAddressPrivate_Static {
 }
 export declare var ProxyAddressPrivate: ProxyAddressPrivate_Static
 export interface ProxyInterface {
+    /* Fields of Gio.ProxyInterface */
+    g_iface:GObject.TypeInterface
+    connect:any
+    connect_async:any
+    connect_finish:any
+    supports_hostname:any
 }
 export interface ProxyInterface_Static {
 }
 export declare var ProxyInterface: ProxyInterface_Static
 export interface ProxyResolverInterface {
+    /* Fields of Gio.ProxyResolverInterface */
+    g_iface:GObject.TypeInterface
+    is_supported:any
+    lookup:any
+    lookup_async:any
+    lookup_finish:any
 }
 export interface ProxyResolverInterface_Static {
 }
 export declare var ProxyResolverInterface: ProxyResolverInterface_Static
 export interface RemoteActionGroupInterface {
+    /* Fields of Gio.RemoteActionGroupInterface */
+    g_iface:GObject.TypeInterface
+    activate_action_full:any
+    change_action_state_full:any
 }
 export interface RemoteActionGroupInterface_Static {
 }
 export declare var RemoteActionGroupInterface: RemoteActionGroupInterface_Static
 export interface ResolverClass {
+    /* Fields of Gio.ResolverClass */
+    parent_class:GObject.ObjectClass
+    reload:any
+    lookup_by_name:any
+    lookup_by_name_async:any
+    lookup_by_name_finish:any
+    lookup_by_address:any
+    lookup_by_address_async:any
+    lookup_by_address_finish:any
+    lookup_service_async:any
+    lookup_service_finish:any
+    lookup_records:any
+    lookup_records_async:any
+    lookup_records_finish:any
 }
 export interface ResolverClass_Static {
 }
@@ -10190,6 +11519,13 @@ export declare class Resource_Static {
 }
 export declare var Resource: Resource_Static
 export interface SeekableIface {
+    /* Fields of Gio.SeekableIface */
+    g_iface:GObject.TypeInterface
+    tell:any
+    can_seek:any
+    seek:any
+    can_truncate:any
+    truncate_fn:any
 }
 export interface SeekableIface_Static {
 }
@@ -10200,6 +11536,13 @@ export interface SettingsBackend_Static {
 }
 export declare var SettingsBackend: SettingsBackend_Static
 export interface SettingsClass {
+    /* Fields of Gio.SettingsClass */
+    parent_class:GObject.ObjectClass
+    writable_changed:any
+    changed:any
+    writable_change_event:any
+    change_event:any
+    padding:object[]
 }
 export interface SettingsClass_Static {
 }
@@ -10253,6 +11596,9 @@ export declare class SettingsSchemaSource_Static {
 }
 export declare var SettingsSchemaSource: SettingsSchemaSource_Static
 export interface SimpleActionGroupClass {
+    /* Fields of Gio.SimpleActionGroupClass */
+    parent_class:GObject.ObjectClass
+    padding:object[]
 }
 export interface SimpleActionGroupClass_Static {
 }
@@ -10268,6 +11614,8 @@ export interface SimpleAsyncResultClass_Static {
 }
 export declare var SimpleAsyncResultClass: SimpleAsyncResultClass_Static
 export interface SimpleProxyResolverClass {
+    /* Fields of Gio.SimpleProxyResolverClass */
+    parent_class:GObject.ObjectClass
 }
 export interface SimpleProxyResolverClass_Static {
 }
@@ -10278,21 +11626,36 @@ export interface SimpleProxyResolverPrivate_Static {
 }
 export declare var SimpleProxyResolverPrivate: SimpleProxyResolverPrivate_Static
 export interface SocketAddressClass {
+    /* Fields of Gio.SocketAddressClass */
+    parent_class:GObject.ObjectClass
+    get_family:any
+    get_native_size:any
+    to_native:any
 }
 export interface SocketAddressClass_Static {
 }
 export declare var SocketAddressClass: SocketAddressClass_Static
 export interface SocketAddressEnumeratorClass {
+    /* Fields of Gio.SocketAddressEnumeratorClass */
+    parent_class:GObject.ObjectClass
+    next:any
+    next_async:any
+    next_finish:any
 }
 export interface SocketAddressEnumeratorClass_Static {
 }
 export declare var SocketAddressEnumeratorClass: SocketAddressEnumeratorClass_Static
 export interface SocketClass {
+    /* Fields of Gio.SocketClass */
+    parent_class:GObject.ObjectClass
 }
 export interface SocketClass_Static {
 }
 export declare var SocketClass: SocketClass_Static
 export interface SocketClientClass {
+    /* Fields of Gio.SocketClientClass */
+    parent_class:GObject.ObjectClass
+    event:any
 }
 export interface SocketClientClass_Static {
 }
@@ -10303,11 +11666,18 @@ export interface SocketClientPrivate_Static {
 }
 export declare var SocketClientPrivate: SocketClientPrivate_Static
 export interface SocketConnectableIface {
+    /* Fields of Gio.SocketConnectableIface */
+    g_iface:GObject.TypeInterface
+    enumerate:any
+    proxy_enumerate:any
+    to_string:any
 }
 export interface SocketConnectableIface_Static {
 }
 export declare var SocketConnectableIface: SocketConnectableIface_Static
 export interface SocketConnectionClass {
+    /* Fields of Gio.SocketConnectionClass */
+    parent_class:IOStreamClass
 }
 export interface SocketConnectionClass_Static {
 }
@@ -10318,6 +11688,12 @@ export interface SocketConnectionPrivate_Static {
 }
 export declare var SocketConnectionPrivate: SocketConnectionPrivate_Static
 export interface SocketControlMessageClass {
+    /* Fields of Gio.SocketControlMessageClass */
+    parent_class:GObject.ObjectClass
+    get_size:any
+    get_level:any
+    get_type:any
+    serialize:any
 }
 export interface SocketControlMessageClass_Static {
 }
@@ -10328,6 +11704,10 @@ export interface SocketControlMessagePrivate_Static {
 }
 export declare var SocketControlMessagePrivate: SocketControlMessagePrivate_Static
 export interface SocketListenerClass {
+    /* Fields of Gio.SocketListenerClass */
+    parent_class:GObject.ObjectClass
+    changed:any
+    event:any
 }
 export interface SocketListenerClass_Static {
 }
@@ -10343,6 +11723,9 @@ export interface SocketPrivate_Static {
 }
 export declare var SocketPrivate: SocketPrivate_Static
 export interface SocketServiceClass {
+    /* Fields of Gio.SocketServiceClass */
+    parent_class:SocketListenerClass
+    incoming:any
 }
 export interface SocketServiceClass_Static {
 }
@@ -10368,6 +11751,12 @@ export declare class SrvTarget_Static {
 }
 export declare var SrvTarget: SrvTarget_Static
 export interface StaticResource {
+    /* Fields of Gio.StaticResource */
+    data:number
+    data_len:number
+    resource:Resource
+    next:StaticResource
+    padding:object
     /* Methods of Gio.StaticResource */
     fini(): void
     get_resource(): Resource
@@ -10382,6 +11771,8 @@ export interface TaskClass_Static {
 }
 export declare var TaskClass: TaskClass_Static
 export interface TcpConnectionClass {
+    /* Fields of Gio.TcpConnectionClass */
+    parent_class:SocketConnectionClass
 }
 export interface TcpConnectionClass_Static {
 }
@@ -10392,6 +11783,8 @@ export interface TcpConnectionPrivate_Static {
 }
 export declare var TcpConnectionPrivate: TcpConnectionPrivate_Static
 export interface TcpWrapperConnectionClass {
+    /* Fields of Gio.TcpWrapperConnectionClass */
+    parent_class:TcpConnectionClass
 }
 export interface TcpWrapperConnectionClass_Static {
 }
@@ -10407,6 +11800,9 @@ export interface ThemedIconClass_Static {
 }
 export declare var ThemedIconClass: ThemedIconClass_Static
 export interface ThreadedSocketServiceClass {
+    /* Fields of Gio.ThreadedSocketServiceClass */
+    parent_class:SocketServiceClass
+    run:any
 }
 export interface ThreadedSocketServiceClass_Static {
 }
@@ -10417,11 +11813,23 @@ export interface ThreadedSocketServicePrivate_Static {
 }
 export declare var ThreadedSocketServicePrivate: ThreadedSocketServicePrivate_Static
 export interface TlsBackendInterface {
+    /* Fields of Gio.TlsBackendInterface */
+    g_iface:GObject.TypeInterface
+    supports_tls:any
+    get_certificate_type:any
+    get_client_connection_type:any
+    get_server_connection_type:any
+    get_file_database_type:any
+    get_default_database:any
 }
 export interface TlsBackendInterface_Static {
 }
 export declare var TlsBackendInterface: TlsBackendInterface_Static
 export interface TlsCertificateClass {
+    /* Fields of Gio.TlsCertificateClass */
+    parent_class:GObject.ObjectClass
+    verify:any
+    padding:object[]
 }
 export interface TlsCertificateClass_Static {
 }
@@ -10432,11 +11840,21 @@ export interface TlsCertificatePrivate_Static {
 }
 export declare var TlsCertificatePrivate: TlsCertificatePrivate_Static
 export interface TlsClientConnectionInterface {
+    /* Fields of Gio.TlsClientConnectionInterface */
+    g_iface:GObject.TypeInterface
+    copy_session_state:any
 }
 export interface TlsClientConnectionInterface_Static {
 }
 export declare var TlsClientConnectionInterface: TlsClientConnectionInterface_Static
 export interface TlsConnectionClass {
+    /* Fields of Gio.TlsConnectionClass */
+    parent_class:IOStreamClass
+    accept_certificate:any
+    handshake:any
+    handshake_async:any
+    handshake_finish:any
+    padding:object[]
 }
 export interface TlsConnectionClass_Static {
 }
@@ -10447,6 +11865,22 @@ export interface TlsConnectionPrivate_Static {
 }
 export declare var TlsConnectionPrivate: TlsConnectionPrivate_Static
 export interface TlsDatabaseClass {
+    /* Fields of Gio.TlsDatabaseClass */
+    parent_class:GObject.ObjectClass
+    verify_chain:any
+    verify_chain_async:any
+    verify_chain_finish:any
+    create_certificate_handle:any
+    lookup_certificate_for_handle:any
+    lookup_certificate_for_handle_async:any
+    lookup_certificate_for_handle_finish:any
+    lookup_certificate_issuer:any
+    lookup_certificate_issuer_async:any
+    lookup_certificate_issuer_finish:any
+    lookup_certificates_issued_by:any
+    lookup_certificates_issued_by_async:any
+    lookup_certificates_issued_by_finish:any
+    padding:object[]
 }
 export interface TlsDatabaseClass_Static {
 }
@@ -10457,11 +11891,23 @@ export interface TlsDatabasePrivate_Static {
 }
 export declare var TlsDatabasePrivate: TlsDatabasePrivate_Static
 export interface TlsFileDatabaseInterface {
+    /* Fields of Gio.TlsFileDatabaseInterface */
+    g_iface:GObject.TypeInterface
+    padding:object[]
 }
 export interface TlsFileDatabaseInterface_Static {
 }
 export declare var TlsFileDatabaseInterface: TlsFileDatabaseInterface_Static
 export interface TlsInteractionClass {
+    /* Fields of Gio.TlsInteractionClass */
+    parent_class:GObject.ObjectClass
+    ask_password:any
+    ask_password_async:any
+    ask_password_finish:any
+    request_certificate:any
+    request_certificate_async:any
+    request_certificate_finish:any
+    padding:object[]
 }
 export interface TlsInteractionClass_Static {
 }
@@ -10472,6 +11918,12 @@ export interface TlsInteractionPrivate_Static {
 }
 export declare var TlsInteractionPrivate: TlsInteractionPrivate_Static
 export interface TlsPasswordClass {
+    /* Fields of Gio.TlsPasswordClass */
+    parent_class:GObject.ObjectClass
+    get_value:any
+    set_value:any
+    get_default_warning:any
+    padding:object[]
 }
 export interface TlsPasswordClass_Static {
 }
@@ -10482,11 +11934,15 @@ export interface TlsPasswordPrivate_Static {
 }
 export declare var TlsPasswordPrivate: TlsPasswordPrivate_Static
 export interface TlsServerConnectionInterface {
+    /* Fields of Gio.TlsServerConnectionInterface */
+    g_iface:GObject.TypeInterface
 }
 export interface TlsServerConnectionInterface_Static {
 }
 export declare var TlsServerConnectionInterface: TlsServerConnectionInterface_Static
 export interface UnixConnectionClass {
+    /* Fields of Gio.UnixConnectionClass */
+    parent_class:SocketConnectionClass
 }
 export interface UnixConnectionClass_Static {
 }
@@ -10497,6 +11953,8 @@ export interface UnixConnectionPrivate_Static {
 }
 export declare var UnixConnectionPrivate: UnixConnectionPrivate_Static
 export interface UnixCredentialsMessageClass {
+    /* Fields of Gio.UnixCredentialsMessageClass */
+    parent_class:SocketControlMessageClass
 }
 export interface UnixCredentialsMessageClass_Static {
 }
@@ -10507,6 +11965,8 @@ export interface UnixCredentialsMessagePrivate_Static {
 }
 export declare var UnixCredentialsMessagePrivate: UnixCredentialsMessagePrivate_Static
 export interface UnixFDListClass {
+    /* Fields of Gio.UnixFDListClass */
+    parent_class:GObject.ObjectClass
 }
 export interface UnixFDListClass_Static {
 }
@@ -10517,6 +11977,8 @@ export interface UnixFDListPrivate_Static {
 }
 export declare var UnixFDListPrivate: UnixFDListPrivate_Static
 export interface UnixFDMessageClass {
+    /* Fields of Gio.UnixFDMessageClass */
+    parent_class:SocketControlMessageClass
 }
 export interface UnixFDMessageClass_Static {
 }
@@ -10527,6 +11989,8 @@ export interface UnixFDMessagePrivate_Static {
 }
 export declare var UnixFDMessagePrivate: UnixFDMessagePrivate_Static
 export interface UnixInputStreamClass {
+    /* Fields of Gio.UnixInputStreamClass */
+    parent_class:InputStreamClass
 }
 export interface UnixInputStreamClass_Static {
 }
@@ -10566,6 +12030,8 @@ export interface UnixMountPoint_Static {
 }
 export declare var UnixMountPoint: UnixMountPoint_Static
 export interface UnixOutputStreamClass {
+    /* Fields of Gio.UnixOutputStreamClass */
+    parent_class:OutputStreamClass
 }
 export interface UnixOutputStreamClass_Static {
 }
@@ -10576,6 +12042,8 @@ export interface UnixOutputStreamPrivate_Static {
 }
 export declare var UnixOutputStreamPrivate: UnixOutputStreamPrivate_Static
 export interface UnixSocketAddressClass {
+    /* Fields of Gio.UnixSocketAddressClass */
+    parent_class:SocketAddressClass
 }
 export interface UnixSocketAddressClass_Static {
 }
@@ -10586,26 +12054,85 @@ export interface UnixSocketAddressPrivate_Static {
 }
 export declare var UnixSocketAddressPrivate: UnixSocketAddressPrivate_Static
 export interface VfsClass {
+    /* Fields of Gio.VfsClass */
+    parent_class:GObject.ObjectClass
+    is_active:any
+    get_file_for_path:any
+    get_file_for_uri:any
+    get_supported_uri_schemes:any
+    parse_name:any
+    local_file_add_info:any
+    add_writable_namespaces:any
+    local_file_set_attributes:any
+    local_file_removed:any
+    local_file_moved:any
 }
 export interface VfsClass_Static {
 }
 export declare var VfsClass: VfsClass_Static
 export interface VolumeIface {
+    /* Fields of Gio.VolumeIface */
+    g_iface:GObject.TypeInterface
+    changed:any
+    removed:any
+    get_name:any
+    get_icon:any
+    get_uuid:any
+    get_drive:any
+    get_mount:any
+    can_mount:any
+    can_eject:any
+    mount_fn:any
+    mount_finish:any
+    eject:any
+    eject_finish:any
+    get_identifier:any
+    enumerate_identifiers:any
+    should_automount:any
+    get_activation_root:any
+    eject_with_operation:any
+    eject_with_operation_finish:any
+    get_sort_key:any
+    get_symbolic_icon:any
 }
 export interface VolumeIface_Static {
 }
 export declare var VolumeIface: VolumeIface_Static
 export interface VolumeMonitorClass {
+    /* Fields of Gio.VolumeMonitorClass */
+    parent_class:GObject.ObjectClass
+    volume_added:any
+    volume_removed:any
+    volume_changed:any
+    mount_added:any
+    mount_removed:any
+    mount_pre_unmount:any
+    mount_changed:any
+    drive_connected:any
+    drive_disconnected:any
+    drive_changed:any
+    is_supported:any
+    get_connected_drives:any
+    get_volumes:any
+    get_mounts:any
+    get_volume_for_uuid:any
+    get_mount_for_uuid:any
+    drive_eject_button:any
+    drive_stop_button:any
 }
 export interface VolumeMonitorClass_Static {
 }
 export declare var VolumeMonitorClass: VolumeMonitorClass_Static
 export interface ZlibCompressorClass {
+    /* Fields of Gio.ZlibCompressorClass */
+    parent_class:GObject.ObjectClass
 }
 export interface ZlibCompressorClass_Static {
 }
 export declare var ZlibCompressorClass: ZlibCompressorClass_Static
 export interface ZlibDecompressorClass {
+    /* Fields of Gio.ZlibDecompressorClass */
+    parent_class:GObject.ObjectClass
 }
 export interface ZlibDecompressorClass_Static {
 }

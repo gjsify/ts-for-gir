@@ -59,6 +59,11 @@ export interface Path_Static {
 }
 export declare var Path: Path_Static
 export interface RectangleInt {
+    /* Fields of cairo.RectangleInt */
+    x:number
+    y:number
+    width:number
+    height:number
 }
 export interface RectangleInt_Static {
 }

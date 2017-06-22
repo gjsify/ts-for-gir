@@ -325,7 +325,7 @@ export interface FontsetForeachFunc {
 export interface Context_ConstructProps {
 }
 export interface Context {
-    /* Methods of Context */
+    /* Methods of Pango.Context */
     changed(): void
     get_base_dir(): Direction
     get_base_gravity(): Gravity
@@ -347,7 +347,7 @@ export interface Context {
     set_gravity_hint(hint: GravityHint): void
     set_language(language: Language): void
     set_matrix(matrix: Matrix | null): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -371,7 +371,7 @@ export interface Context {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -379,7 +379,7 @@ export interface Context {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Context_Static {
@@ -392,7 +392,7 @@ export declare var Context: Context_Static
 export interface Engine_ConstructProps {
 }
 export interface Engine {
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -416,7 +416,7 @@ export interface Engine {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -424,7 +424,7 @@ export interface Engine {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Engine_Static {
@@ -434,7 +434,7 @@ export declare var Engine: Engine_Static
 export interface EngineLang_ConstructProps {
 }
 export interface EngineLang {
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -458,9 +458,9 @@ export interface EngineLang {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EngineLang */
+    /* Virtual methods of Pango.EngineLang */
     vfunc_script_break(text: string, len: number, analysis: Analysis, attrs: LogAttr, attrs_len: number): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -468,7 +468,7 @@ export interface EngineLang {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface EngineLang_Static {
@@ -478,7 +478,7 @@ export declare var EngineLang: EngineLang_Static
 export interface EngineShape_ConstructProps {
 }
 export interface EngineShape {
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -502,10 +502,10 @@ export interface EngineShape {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of EngineShape */
+    /* Virtual methods of Pango.EngineShape */
     vfunc_covers(font: Font, language: Language, wc: number): CoverageLevel
     vfunc_script_shape(font: Font, item_text: string, item_length: number, analysis: Analysis, glyphs: GlyphString, paragraph_text: string, paragraph_length: number): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -513,7 +513,7 @@ export interface EngineShape {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface EngineShape_Static {
@@ -523,13 +523,13 @@ export declare var EngineShape: EngineShape_Static
 export interface Font_ConstructProps {
 }
 export interface Font {
-    /* Methods of Font */
+    /* Methods of Pango.Font */
     describe(): FontDescription
     describe_with_absolute_size(): FontDescription
     get_font_map(): FontMap | null
     get_glyph_extents(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_metrics(language: Language | null): FontMetrics
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -553,13 +553,13 @@ export interface Font {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Font */
+    /* Virtual methods of Pango.Font */
     vfunc_describe(): FontDescription
     vfunc_describe_absolute(): FontDescription
     vfunc_get_font_map(): FontMap | null
     vfunc_get_glyph_extents(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     vfunc_get_metrics(language: Language | null): FontMetrics
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -567,7 +567,7 @@ export interface Font {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Font_Static {
@@ -580,12 +580,12 @@ export declare var Font: Font_Static
 export interface FontFace_ConstructProps {
 }
 export interface FontFace {
-    /* Methods of FontFace */
+    /* Methods of Pango.FontFace */
     describe(): FontDescription
     get_face_name(): string
     is_synthesized(): boolean
     list_sizes(): [ /* sizes */ number[] | null, /* n_sizes */ number ]
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -609,12 +609,12 @@ export interface FontFace {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of FontFace */
+    /* Virtual methods of Pango.FontFace */
     vfunc_describe(): FontDescription
     vfunc_get_face_name(): string
     vfunc_is_synthesized(): boolean
     vfunc_list_sizes(): [ /* sizes */ number[] | null, /* n_sizes */ number ]
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -622,7 +622,7 @@ export interface FontFace {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface FontFace_Static {
@@ -632,11 +632,11 @@ export declare var FontFace: FontFace_Static
 export interface FontFamily_ConstructProps {
 }
 export interface FontFamily {
-    /* Methods of FontFamily */
+    /* Methods of Pango.FontFamily */
     get_name(): string
     is_monospace(): boolean
     list_faces(): [ /* faces */ FontFace[] | null, /* n_faces */ number ]
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -660,11 +660,11 @@ export interface FontFamily {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of FontFamily */
+    /* Virtual methods of Pango.FontFamily */
     vfunc_get_name(): string
     vfunc_is_monospace(): boolean
     vfunc_list_faces(): [ /* faces */ FontFace[] | null, /* n_faces */ number ]
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -672,7 +672,7 @@ export interface FontFamily {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface FontFamily_Static {
@@ -682,7 +682,7 @@ export declare var FontFamily: FontFamily_Static
 export interface FontMap_ConstructProps {
 }
 export interface FontMap {
-    /* Methods of FontMap */
+    /* Methods of Pango.FontMap */
     changed(): void
     create_context(): Context
     get_serial(): number
@@ -690,7 +690,7 @@ export interface FontMap {
     list_families(): [ /* families */ FontFamily[], /* n_families */ number ]
     load_font(context: Context, desc: FontDescription): Font | null
     load_fontset(context: Context, desc: FontDescription, language: Language): Fontset | null
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -714,13 +714,13 @@ export interface FontMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of FontMap */
+    /* Virtual methods of Pango.FontMap */
     vfunc_changed(): void
     vfunc_get_serial(): number
     vfunc_list_families(): [ /* families */ FontFamily[], /* n_families */ number ]
     vfunc_load_font(context: Context, desc: FontDescription): Font | null
     vfunc_load_fontset(context: Context, desc: FontDescription, language: Language): Fontset | null
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -728,7 +728,7 @@ export interface FontMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface FontMap_Static {
@@ -738,11 +738,11 @@ export declare var FontMap: FontMap_Static
 export interface Fontset_ConstructProps {
 }
 export interface Fontset {
-    /* Methods of Fontset */
+    /* Methods of Pango.Fontset */
     foreach(func: FontsetForeachFunc, data: object): void
     get_font(wc: number): Font
     get_metrics(): FontMetrics
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -766,12 +766,12 @@ export interface Fontset {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Fontset */
+    /* Virtual methods of Pango.Fontset */
     vfunc_foreach(func: FontsetForeachFunc, data: object): void
     vfunc_get_font(wc: number): Font
     vfunc_get_language(): Language
     vfunc_get_metrics(): FontMetrics
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -779,7 +779,7 @@ export interface Fontset {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Fontset_Static {
@@ -789,14 +789,14 @@ export declare var Fontset: Fontset_Static
 export interface FontsetSimple_ConstructProps {
 }
 export interface FontsetSimple {
-    /* Methods of FontsetSimple */
+    /* Methods of Pango.FontsetSimple */
     append(font: Font): void
     size(): number
-    /* Methods of Fontset */
+    /* Methods of Pango.Fontset */
     foreach(func: FontsetForeachFunc, data: object): void
     get_font(wc: number): Font
     get_metrics(): FontMetrics
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -820,12 +820,12 @@ export interface FontsetSimple {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Fontset */
+    /* Virtual methods of Pango.Fontset */
     vfunc_foreach(func: FontsetForeachFunc, data: object): void
     vfunc_get_font(wc: number): Font
     vfunc_get_language(): Language
     vfunc_get_metrics(): FontMetrics
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -833,7 +833,7 @@ export interface FontsetSimple {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface FontsetSimple_Static {
@@ -846,7 +846,7 @@ export declare var FontsetSimple: FontsetSimple_Static
 export interface Layout_ConstructProps {
 }
 export interface Layout {
-    /* Methods of Layout */
+    /* Methods of Pango.Layout */
     context_changed(): void
     copy(): Layout
     get_alignment(): Alignment
@@ -903,7 +903,7 @@ export interface Layout {
     set_width(width: number): void
     set_wrap(wrap: WrapMode): void
     xy_to_index(x: number, y: number): [ /* returnType */ boolean, /* index_ */ number, /* trailing */ number ]
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -927,7 +927,7 @@ export interface Layout {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -935,7 +935,7 @@ export interface Layout {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Layout_Static {
@@ -948,7 +948,7 @@ export declare var Layout: Layout_Static
 export interface Renderer_ConstructProps {
 }
 export interface Renderer {
-    /* Methods of Renderer */
+    /* Methods of Pango.Renderer */
     activate(): void
     deactivate(): void
     draw_error_underline(x: number, y: number, width: number, height: number): void
@@ -968,7 +968,7 @@ export interface Renderer {
     set_alpha(part: RenderPart, alpha: number): void
     set_color(part: RenderPart, color: Color | null): void
     set_matrix(matrix: Matrix | null): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -992,7 +992,7 @@ export interface Renderer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Renderer */
+    /* Virtual methods of Pango.Renderer */
     vfunc_begin(): void
     vfunc_draw_error_underline(x: number, y: number, width: number, height: number): void
     vfunc_draw_glyph(font: Font, glyph: Glyph, x: number, y: number): void
@@ -1004,7 +1004,7 @@ export interface Renderer {
     vfunc_end(): void
     vfunc_part_changed(part: RenderPart): void
     vfunc_prepare_run(run: LayoutRun): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1012,73 +1012,50 @@ export interface Renderer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Renderer_Static {
     new (config: Renderer_ConstructProps): Renderer
 }
 export declare var Renderer: Renderer_Static
-export interface Analysis_ConstructProps {
-}
 export interface Analysis {
 }
 export interface Analysis_Static {
-    new (config: Analysis_ConstructProps): Analysis
 }
 export declare var Analysis: Analysis_Static
-export interface AttrClass_ConstructProps {
-}
 export interface AttrClass {
 }
 export interface AttrClass_Static {
-    new (config: AttrClass_ConstructProps): AttrClass
 }
 export declare var AttrClass: AttrClass_Static
-export interface AttrColor_ConstructProps {
-}
 export interface AttrColor {
 }
 export interface AttrColor_Static {
-    new (config: AttrColor_ConstructProps): AttrColor
 }
 export declare var AttrColor: AttrColor_Static
-export interface AttrFloat_ConstructProps {
-}
 export interface AttrFloat {
 }
 export interface AttrFloat_Static {
-    new (config: AttrFloat_ConstructProps): AttrFloat
 }
 export declare var AttrFloat: AttrFloat_Static
-export interface AttrFontDesc_ConstructProps {
-}
 export interface AttrFontDesc {
 }
 export interface AttrFontDesc_Static {
-    new (config: AttrFontDesc_ConstructProps): AttrFontDesc
 }
 export declare var AttrFontDesc: AttrFontDesc_Static
-export interface AttrFontFeatures_ConstructProps {
-}
 export interface AttrFontFeatures {
 }
 export interface AttrFontFeatures_Static {
-    new (config: AttrFontFeatures_ConstructProps): AttrFontFeatures
 }
 export declare var AttrFontFeatures: AttrFontFeatures_Static
-export interface AttrInt_ConstructProps {
-}
 export interface AttrInt {
 }
 export interface AttrInt_Static {
-    new (config: AttrInt_ConstructProps): AttrInt
 }
 export declare var AttrInt: AttrInt_Static
-export interface AttrIterator_ConstructProps {
-}
 export interface AttrIterator {
-    /* Methods of AttrIterator */
+    /* Methods of Pango.AttrIterator */
     destroy(): void
     get_attrs(): GLib.SList
     get_font(desc: FontDescription, language: Language | null, extra_attrs: GLib.SList | null): void
@@ -1086,21 +1063,15 @@ export interface AttrIterator {
     range(): [ /* start */ number, /* end */ number ]
 }
 export interface AttrIterator_Static {
-    new (config: AttrIterator_ConstructProps): AttrIterator
 }
 export declare var AttrIterator: AttrIterator_Static
-export interface AttrLanguage_ConstructProps {
-}
 export interface AttrLanguage {
 }
 export interface AttrLanguage_Static {
-    new (config: AttrLanguage_ConstructProps): AttrLanguage
 }
 export declare var AttrLanguage: AttrLanguage_Static
-export interface AttrList_ConstructProps {
-}
 export interface AttrList {
-    /* Methods of AttrList */
+    /* Methods of Pango.AttrList */
     change(attr: Attribute): void
     copy(): AttrList | null
     filter(func: AttrFilterFunc, data: object): AttrList | null
@@ -1111,73 +1082,52 @@ export interface AttrList {
     unref(): void
 }
 export interface AttrList_Static {
-    new (config: AttrList_ConstructProps): AttrList
 }
 export declare class AttrList_Static {
     new(): AttrList
 }
 export declare var AttrList: AttrList_Static
-export interface AttrShape_ConstructProps {
-}
 export interface AttrShape {
 }
 export interface AttrShape_Static {
-    new (config: AttrShape_ConstructProps): AttrShape
 }
 export declare var AttrShape: AttrShape_Static
-export interface AttrSize_ConstructProps {
-}
 export interface AttrSize {
 }
 export interface AttrSize_Static {
-    new (config: AttrSize_ConstructProps): AttrSize
 }
 export declare var AttrSize: AttrSize_Static
-export interface AttrString_ConstructProps {
-}
 export interface AttrString {
 }
 export interface AttrString_Static {
-    new (config: AttrString_ConstructProps): AttrString
 }
 export declare var AttrString: AttrString_Static
-export interface Attribute_ConstructProps {
-}
 export interface Attribute {
-    /* Methods of Attribute */
+    /* Methods of Pango.Attribute */
     destroy(): void
     equal(attr2: Attribute): boolean
     init(klass: AttrClass): void
 }
 export interface Attribute_Static {
-    new (config: Attribute_ConstructProps): Attribute
 }
 export declare var Attribute: Attribute_Static
-export interface Color_ConstructProps {
-}
 export interface Color {
-    /* Methods of Color */
+    /* Methods of Pango.Color */
     copy(): Color | null
     free(): void
     parse(spec: string): boolean
     to_string(): string
 }
 export interface Color_Static {
-    new (config: Color_ConstructProps): Color
 }
 export declare var Color: Color_Static
-export interface ContextClass_ConstructProps {
-}
 export interface ContextClass {
 }
 export interface ContextClass_Static {
-    new (config: ContextClass_ConstructProps): ContextClass
 }
 export declare var ContextClass: ContextClass_Static
-export interface Coverage_ConstructProps {
-}
 export interface Coverage {
-    /* Methods of Coverage */
+    /* Methods of Pango.Coverage */
     get(index_: number): CoverageLevel
     max(other: Coverage): void
     set(index_: number, level: CoverageLevel): void
@@ -1185,61 +1135,40 @@ export interface Coverage {
     unref(): void
 }
 export interface Coverage_Static {
-    new (config: Coverage_ConstructProps): Coverage
 }
 export declare var Coverage: Coverage_Static
-export interface EngineClass_ConstructProps {
-}
 export interface EngineClass {
 }
 export interface EngineClass_Static {
-    new (config: EngineClass_ConstructProps): EngineClass
 }
 export declare var EngineClass: EngineClass_Static
-export interface EngineInfo_ConstructProps {
-}
 export interface EngineInfo {
 }
 export interface EngineInfo_Static {
-    new (config: EngineInfo_ConstructProps): EngineInfo
 }
 export declare var EngineInfo: EngineInfo_Static
-export interface EngineLangClass_ConstructProps {
-}
 export interface EngineLangClass {
 }
 export interface EngineLangClass_Static {
-    new (config: EngineLangClass_ConstructProps): EngineLangClass
 }
 export declare var EngineLangClass: EngineLangClass_Static
-export interface EngineScriptInfo_ConstructProps {
-}
 export interface EngineScriptInfo {
 }
 export interface EngineScriptInfo_Static {
-    new (config: EngineScriptInfo_ConstructProps): EngineScriptInfo
 }
 export declare var EngineScriptInfo: EngineScriptInfo_Static
-export interface EngineShapeClass_ConstructProps {
-}
 export interface EngineShapeClass {
 }
 export interface EngineShapeClass_Static {
-    new (config: EngineShapeClass_ConstructProps): EngineShapeClass
 }
 export declare var EngineShapeClass: EngineShapeClass_Static
-export interface FontClass_ConstructProps {
-}
 export interface FontClass {
 }
 export interface FontClass_Static {
-    new (config: FontClass_ConstructProps): FontClass
 }
 export declare var FontClass: FontClass_Static
-export interface FontDescription_ConstructProps {
-}
 export interface FontDescription {
-    /* Methods of FontDescription */
+    /* Methods of Pango.FontDescription */
     better_match(old_match: FontDescription | null, new_match: FontDescription): boolean
     copy(): FontDescription | null
     copy_static(): FontDescription | null
@@ -1271,41 +1200,29 @@ export interface FontDescription {
     unset_fields(to_unset: FontMask): void
 }
 export interface FontDescription_Static {
-    new (config: FontDescription_ConstructProps): FontDescription
 }
 export declare class FontDescription_Static {
     new(): FontDescription
     from_string(str: string): FontDescription
 }
 export declare var FontDescription: FontDescription_Static
-export interface FontFaceClass_ConstructProps {
-}
 export interface FontFaceClass {
 }
 export interface FontFaceClass_Static {
-    new (config: FontFaceClass_ConstructProps): FontFaceClass
 }
 export declare var FontFaceClass: FontFaceClass_Static
-export interface FontFamilyClass_ConstructProps {
-}
 export interface FontFamilyClass {
 }
 export interface FontFamilyClass_Static {
-    new (config: FontFamilyClass_ConstructProps): FontFamilyClass
 }
 export declare var FontFamilyClass: FontFamilyClass_Static
-export interface FontMapClass_ConstructProps {
-}
 export interface FontMapClass {
 }
 export interface FontMapClass_Static {
-    new (config: FontMapClass_ConstructProps): FontMapClass
 }
 export declare var FontMapClass: FontMapClass_Static
-export interface FontMetrics_ConstructProps {
-}
 export interface FontMetrics {
-    /* Methods of FontMetrics */
+    /* Methods of Pango.FontMetrics */
     get_approximate_char_width(): number
     get_approximate_digit_width(): number
     get_ascent(): number
@@ -1318,48 +1235,33 @@ export interface FontMetrics {
     unref(): void
 }
 export interface FontMetrics_Static {
-    new (config: FontMetrics_ConstructProps): FontMetrics
 }
 export declare class FontMetrics_Static {
     new(): FontMetrics
 }
 export declare var FontMetrics: FontMetrics_Static
-export interface FontsetClass_ConstructProps {
-}
 export interface FontsetClass {
 }
 export interface FontsetClass_Static {
-    new (config: FontsetClass_ConstructProps): FontsetClass
 }
 export declare var FontsetClass: FontsetClass_Static
-export interface FontsetSimpleClass_ConstructProps {
-}
 export interface FontsetSimpleClass {
 }
 export interface FontsetSimpleClass_Static {
-    new (config: FontsetSimpleClass_ConstructProps): FontsetSimpleClass
 }
 export declare var FontsetSimpleClass: FontsetSimpleClass_Static
-export interface GlyphGeometry_ConstructProps {
-}
 export interface GlyphGeometry {
 }
 export interface GlyphGeometry_Static {
-    new (config: GlyphGeometry_ConstructProps): GlyphGeometry
 }
 export declare var GlyphGeometry: GlyphGeometry_Static
-export interface GlyphInfo_ConstructProps {
-}
 export interface GlyphInfo {
 }
 export interface GlyphInfo_Static {
-    new (config: GlyphInfo_ConstructProps): GlyphInfo
 }
 export declare var GlyphInfo: GlyphInfo_Static
-export interface GlyphItem_ConstructProps {
-}
 export interface GlyphItem {
-    /* Methods of GlyphItem */
+    /* Methods of Pango.GlyphItem */
     apply_attrs(text: string, list: AttrList): GLib.SList
     copy(): GlyphItem | null
     free(): void
@@ -1368,13 +1270,10 @@ export interface GlyphItem {
     split(text: string, split_index: number): GlyphItem
 }
 export interface GlyphItem_Static {
-    new (config: GlyphItem_ConstructProps): GlyphItem
 }
 export declare var GlyphItem: GlyphItem_Static
-export interface GlyphItemIter_ConstructProps {
-}
 export interface GlyphItemIter {
-    /* Methods of GlyphItemIter */
+    /* Methods of Pango.GlyphItemIter */
     copy(): GlyphItemIter | null
     free(): void
     init_end(glyph_item: GlyphItem, text: string): boolean
@@ -1383,13 +1282,10 @@ export interface GlyphItemIter {
     prev_cluster(): boolean
 }
 export interface GlyphItemIter_Static {
-    new (config: GlyphItemIter_ConstructProps): GlyphItemIter
 }
 export declare var GlyphItemIter: GlyphItemIter_Static
-export interface GlyphString_ConstructProps {
-}
 export interface GlyphString {
-    /* Methods of GlyphString */
+    /* Methods of Pango.GlyphString */
     copy(): GlyphString | null
     extents(font: Font): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     extents_range(start: number, end: number, font: Font): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
@@ -1401,47 +1297,35 @@ export interface GlyphString {
     x_to_index(text: string, length: number, analysis: Analysis, x_pos: number): [ /* index_ */ number, /* trailing */ number ]
 }
 export interface GlyphString_Static {
-    new (config: GlyphString_ConstructProps): GlyphString
 }
 export declare class GlyphString_Static {
     new(): GlyphString
 }
 export declare var GlyphString: GlyphString_Static
-export interface GlyphVisAttr_ConstructProps {
-}
 export interface GlyphVisAttr {
 }
 export interface GlyphVisAttr_Static {
-    new (config: GlyphVisAttr_ConstructProps): GlyphVisAttr
 }
 export declare var GlyphVisAttr: GlyphVisAttr_Static
-export interface IncludedModule_ConstructProps {
-}
 export interface IncludedModule {
 }
 export interface IncludedModule_Static {
-    new (config: IncludedModule_ConstructProps): IncludedModule
 }
 export declare var IncludedModule: IncludedModule_Static
-export interface Item_ConstructProps {
-}
 export interface Item {
-    /* Methods of Item */
+    /* Methods of Pango.Item */
     copy(): Item | null
     free(): void
     split(split_index: number, split_offset: number): Item
 }
 export interface Item_Static {
-    new (config: Item_ConstructProps): Item
 }
 export declare class Item_Static {
     new(): Item
 }
 export declare var Item: Item_Static
-export interface Language_ConstructProps {
-}
 export interface Language {
-    /* Methods of Language */
+    /* Methods of Pango.Language */
     get_sample_string(): string
     get_scripts(): [ /* returnType */ Script[] | null, /* num_scripts */ number | null ]
     includes_script(script: Script): boolean
@@ -1449,25 +1333,19 @@ export interface Language {
     to_string(): string
 }
 export interface Language_Static {
-    new (config: Language_ConstructProps): Language
 }
 export declare class Language_Static {
     from_string(language: string | null): Language | null
     get_default(): Language
 }
 export declare var Language: Language_Static
-export interface LayoutClass_ConstructProps {
-}
 export interface LayoutClass {
 }
 export interface LayoutClass_Static {
-    new (config: LayoutClass_ConstructProps): LayoutClass
 }
 export declare var LayoutClass: LayoutClass_Static
-export interface LayoutIter_ConstructProps {
-}
 export interface LayoutIter {
-    /* Methods of LayoutIter */
+    /* Methods of Pango.LayoutIter */
     at_last_line(): boolean
     copy(): LayoutIter | null
     free(): void
@@ -1490,13 +1368,10 @@ export interface LayoutIter {
     next_run(): boolean
 }
 export interface LayoutIter_Static {
-    new (config: LayoutIter_ConstructProps): LayoutIter
 }
 export declare var LayoutIter: LayoutIter_Static
-export interface LayoutLine_ConstructProps {
-}
 export interface LayoutLine {
-    /* Methods of LayoutLine */
+    /* Methods of Pango.LayoutLine */
     get_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_pixel_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_x_ranges(start_index: number, end_index: number): [ /* ranges */ number[], /* n_ranges */ number ]
@@ -1506,38 +1381,26 @@ export interface LayoutLine {
     x_to_index(x_pos: number): [ /* returnType */ boolean, /* index_ */ number, /* trailing */ number ]
 }
 export interface LayoutLine_Static {
-    new (config: LayoutLine_ConstructProps): LayoutLine
 }
 export declare var LayoutLine: LayoutLine_Static
-export interface LogAttr_ConstructProps {
-}
 export interface LogAttr {
 }
 export interface LogAttr_Static {
-    new (config: LogAttr_ConstructProps): LogAttr
 }
 export declare var LogAttr: LogAttr_Static
-export interface Map_ConstructProps {
-}
 export interface Map {
-    /* Methods of Map */
+    /* Methods of Pango.Map */
 }
 export interface Map_Static {
-    new (config: Map_ConstructProps): Map
 }
 export declare var Map: Map_Static
-export interface MapEntry_ConstructProps {
-}
 export interface MapEntry {
 }
 export interface MapEntry_Static {
-    new (config: MapEntry_ConstructProps): MapEntry
 }
 export declare var MapEntry: MapEntry_Static
-export interface Matrix_ConstructProps {
-}
 export interface Matrix {
-    /* Methods of Matrix */
+    /* Methods of Pango.Matrix */
     concat(new_matrix: Matrix): void
     copy(): Matrix | null
     free(): void
@@ -1552,57 +1415,39 @@ export interface Matrix {
     translate(tx: number, ty: number): void
 }
 export interface Matrix_Static {
-    new (config: Matrix_ConstructProps): Matrix
 }
 export declare var Matrix: Matrix_Static
-export interface Rectangle_ConstructProps {
-}
 export interface Rectangle {
 }
 export interface Rectangle_Static {
-    new (config: Rectangle_ConstructProps): Rectangle
 }
 export declare var Rectangle: Rectangle_Static
-export interface RendererClass_ConstructProps {
-}
 export interface RendererClass {
 }
 export interface RendererClass_Static {
-    new (config: RendererClass_ConstructProps): RendererClass
 }
 export declare var RendererClass: RendererClass_Static
-export interface RendererPrivate_ConstructProps {
-}
 export interface RendererPrivate {
 }
 export interface RendererPrivate_Static {
-    new (config: RendererPrivate_ConstructProps): RendererPrivate
 }
 export declare var RendererPrivate: RendererPrivate_Static
-export interface ScriptForLang_ConstructProps {
-}
 export interface ScriptForLang {
 }
 export interface ScriptForLang_Static {
-    new (config: ScriptForLang_ConstructProps): ScriptForLang
 }
 export declare var ScriptForLang: ScriptForLang_Static
-export interface ScriptIter_ConstructProps {
-}
 export interface ScriptIter {
-    /* Methods of ScriptIter */
+    /* Methods of Pango.ScriptIter */
     free(): void
     get_range(): [ /* start */ string | null, /* end */ string | null, /* script */ Script | null ]
     next(): boolean
 }
 export interface ScriptIter_Static {
-    new (config: ScriptIter_ConstructProps): ScriptIter
 }
 export declare var ScriptIter: ScriptIter_Static
-export interface TabArray_ConstructProps {
-}
 export interface TabArray {
-    /* Methods of TabArray */
+    /* Methods of Pango.TabArray */
     copy(): TabArray
     free(): void
     get_positions_in_pixels(): boolean
@@ -1613,7 +1458,6 @@ export interface TabArray {
     set_tab(tab_index: number, alignment: TabAlign, location: number): void
 }
 export interface TabArray_Static {
-    new (config: TabArray_ConstructProps): TabArray
 }
 export declare class TabArray_Static {
     new(initial_size: number, positions_in_pixels: boolean): TabArray

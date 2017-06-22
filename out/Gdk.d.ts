@@ -2862,26 +2862,26 @@ export interface WindowInvalidateHandlerFunc {
     (window: Window, region: cairo.Region): void
 }
 export interface AppLaunchContext_ConstructProps {
-    /* Properties of AppLaunchContext */
+    /* Properties of Gdk.AppLaunchContext */
     display?:Display
 }
 export interface AppLaunchContext {
-    /* Properties of AppLaunchContext */
-    /* Methods of AppLaunchContext */
+    /* Properties of Gdk.AppLaunchContext */
+    /* Methods of Gdk.AppLaunchContext */
     set_desktop(desktop: number): void
     set_display(display: Display): void
     set_icon(icon: Gio.Icon | null): void
     set_icon_name(icon_name: string | null): void
     set_screen(screen: Screen): void
     set_timestamp(timestamp: number): void
-    /* Methods of AppLaunchContext */
+    /* Methods of Gio.AppLaunchContext */
     get_display(info: Gio.AppInfo, files: GLib.List): string
     get_environment(): string[]
     get_startup_notify_id(info: Gio.AppInfo, files: GLib.List): string
     launch_failed(startup_notify_id: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2905,12 +2905,12 @@ export interface AppLaunchContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of AppLaunchContext */
+    /* Virtual methods of Gio.AppLaunchContext */
     vfunc_get_display(info: Gio.AppInfo, files: GLib.List): string
     vfunc_get_startup_notify_id(info: Gio.AppInfo, files: GLib.List): string
     vfunc_launch_failed(startup_notify_id: string): void
     vfunc_launched(info: Gio.AppInfo, platform_data: GLib.Variant): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2918,10 +2918,10 @@ export interface AppLaunchContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of AppLaunchContext */
+    /* Signals of Gio.AppLaunchContext */
     connect(sigName: "launch-failed", callback: ((startup_notify_id: string) => void))
     connect(sigName: "launched", callback: ((info: Gio.AppInfo, platform_data: GLib.Variant) => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface AppLaunchContext_Static {
@@ -2932,20 +2932,20 @@ export declare class AppLaunchContext_Static {
 }
 export declare var AppLaunchContext: AppLaunchContext_Static
 export interface Cursor_ConstructProps {
-    /* Properties of Cursor */
+    /* Properties of Gdk.Cursor */
     cursor_type?:CursorType
     display?:Display
 }
 export interface Cursor {
-    /* Properties of Cursor */
-    /* Methods of Cursor */
+    /* Properties of Gdk.Cursor */
+    /* Methods of Gdk.Cursor */
     get_cursor_type(): CursorType
     get_display(): Display
     get_image(): GdkPixbuf.Pixbuf | null
     get_surface(): [ /* returnType */ cairo.Surface | null, /* x_hot */ number | null, /* y_hot */ number | null ]
     ref(): Cursor
     unref(): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2967,7 +2967,7 @@ export interface Cursor {
     steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2975,7 +2975,7 @@ export interface Cursor {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Cursor_Static {
@@ -2990,7 +2990,7 @@ export declare class Cursor_Static {
 }
 export declare var Cursor: Cursor_Static
 export interface Device_ConstructProps {
-    /* Properties of Device */
+    /* Properties of Gdk.Device */
     device_manager?:DeviceManager
     display?:Display
     has_cursor?:boolean
@@ -3002,11 +3002,11 @@ export interface Device_ConstructProps {
     vendor_id?:string
 }
 export interface Device {
-    /* Properties of Device */
+    /* Properties of Gdk.Device */
     readonly associated_device:Device
     input_mode:InputMode
     readonly n_axes:number
-    /* Methods of Device */
+    /* Methods of Gdk.Device */
     get_associated_device(): Device | null
     get_axis_use(index_: number): AxisUse
     get_device_type(): DeviceType
@@ -3033,7 +3033,7 @@ export interface Device {
     set_mode(mode: InputMode): boolean
     ungrab(time_: number): void
     warp(screen: Screen, x: number, y: number): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3057,7 +3057,7 @@ export interface Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3065,10 +3065,13 @@ export interface Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Device */
+    /* Signals of Gdk.Device */
     connect(sigName: "changed", callback: (() => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::associated-device", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::input-mode", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::n-axes", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Device_Static {
     new (config: Device_ConstructProps): Device
@@ -3078,16 +3081,16 @@ export declare class Device_Static {
 }
 export declare var Device: Device_Static
 export interface DeviceManager_ConstructProps {
-    /* Properties of DeviceManager */
+    /* Properties of Gdk.DeviceManager */
     display?:Display
 }
 export interface DeviceManager {
-    /* Properties of DeviceManager */
-    /* Methods of DeviceManager */
+    /* Properties of Gdk.DeviceManager */
+    /* Methods of Gdk.DeviceManager */
     get_client_pointer(): Device
     get_display(): Display | null
     list_devices(type: DeviceType): GLib.List
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3111,7 +3114,7 @@ export interface DeviceManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3119,11 +3122,11 @@ export interface DeviceManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of DeviceManager */
+    /* Signals of Gdk.DeviceManager */
     connect(sigName: "device-added", callback: ((device: Device) => void))
     connect(sigName: "device-changed", callback: ((device: Device) => void))
     connect(sigName: "device-removed", callback: ((device: Device) => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface DeviceManager_Static {
@@ -3133,7 +3136,7 @@ export declare var DeviceManager: DeviceManager_Static
 export interface Display_ConstructProps {
 }
 export interface Display {
-    /* Methods of Display */
+    /* Methods of Gdk.Display */
     beep(): void
     close(): void
     device_is_grabbed(device: Device): boolean
@@ -3172,7 +3175,7 @@ export interface Display {
     supports_shapes(): boolean
     sync(): void
     warp_pointer(screen: Screen, x: number, y: number): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3196,7 +3199,7 @@ export interface Display {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3204,10 +3207,10 @@ export interface Display {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Display */
+    /* Signals of Gdk.Display */
     connect(sigName: "closed", callback: ((is_error: boolean) => void))
     connect(sigName: "opened", callback: (() => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Display_Static {
@@ -3220,18 +3223,18 @@ export declare class Display_Static {
 }
 export declare var Display: Display_Static
 export interface DisplayManager_ConstructProps {
-    /* Properties of DisplayManager */
+    /* Properties of Gdk.DisplayManager */
     default_display?:Display
 }
 export interface DisplayManager {
-    /* Properties of DisplayManager */
+    /* Properties of Gdk.DisplayManager */
     default_display:Display
-    /* Methods of DisplayManager */
+    /* Methods of Gdk.DisplayManager */
     get_default_display(): Display | null
     list_displays(): GLib.SList
     open_display(name: string): Display | null
     set_default_display(display: Display): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3255,7 +3258,7 @@ export interface DisplayManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3263,10 +3266,11 @@ export interface DisplayManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of DisplayManager */
+    /* Signals of Gdk.DisplayManager */
     connect(sigName: "display-opened", callback: ((display: Display) => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::default-display", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface DisplayManager_Static {
     new (config: DisplayManager_ConstructProps): DisplayManager
@@ -3278,7 +3282,7 @@ export declare var DisplayManager: DisplayManager_Static
 export interface DragContext_ConstructProps {
 }
 export interface DragContext {
-    /* Methods of DragContext */
+    /* Methods of Gdk.DragContext */
     get_actions(): DragAction
     get_dest_window(): Window
     get_device(): Device
@@ -3288,7 +3292,7 @@ export interface DragContext {
     get_suggested_action(): DragAction
     list_targets(): GLib.List
     set_device(device: Device): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3312,7 +3316,7 @@ export interface DragContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3320,7 +3324,7 @@ export interface DragContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface DragContext_Static {
@@ -3330,7 +3334,7 @@ export declare var DragContext: DragContext_Static
 export interface FrameClock_ConstructProps {
 }
 export interface FrameClock {
-    /* Methods of FrameClock */
+    /* Methods of Gdk.FrameClock */
     begin_updating(): void
     end_updating(): void
     get_current_timings(): FrameTimings | null
@@ -3340,7 +3344,7 @@ export interface FrameClock {
     get_refresh_info(base_time: number, refresh_interval_return: number, presentation_time_return: number): void
     get_timings(frame_counter: number): FrameTimings | null
     request_phase(phase: FrameClockPhase): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3364,7 +3368,7 @@ export interface FrameClock {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3372,7 +3376,7 @@ export interface FrameClock {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of FrameClock */
+    /* Signals of Gdk.FrameClock */
     connect(sigName: "after-paint", callback: (() => void))
     connect(sigName: "before-paint", callback: (() => void))
     connect(sigName: "flush-events", callback: (() => void))
@@ -3380,7 +3384,7 @@ export interface FrameClock {
     connect(sigName: "paint", callback: (() => void))
     connect(sigName: "resume-events", callback: (() => void))
     connect(sigName: "update", callback: (() => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface FrameClock_Static {
@@ -3388,14 +3392,14 @@ export interface FrameClock_Static {
 }
 export declare var FrameClock: FrameClock_Static
 export interface GLContext_ConstructProps {
-    /* Properties of GLContext */
+    /* Properties of Gdk.GLContext */
     display?:Display
     shared_context?:GLContext
     window?:Window
 }
 export interface GLContext {
-    /* Properties of GLContext */
-    /* Methods of GLContext */
+    /* Properties of Gdk.GLContext */
+    /* Methods of Gdk.GLContext */
     get_debug_enabled(): boolean
     get_display(): Display
     get_forward_compatible(): boolean
@@ -3408,7 +3412,7 @@ export interface GLContext {
     set_debug_enabled(enabled: boolean): void
     set_forward_compatible(compatible: boolean): void
     set_required_version(major: number, minor: number): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3432,7 +3436,7 @@ export interface GLContext {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3440,7 +3444,7 @@ export interface GLContext {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface GLContext_Static {
@@ -3454,7 +3458,7 @@ export declare var GLContext: GLContext_Static
 export interface Keymap_ConstructProps {
 }
 export interface Keymap {
-    /* Methods of Keymap */
+    /* Methods of Gdk.Keymap */
     add_virtual_modifiers(state: ModifierType): void
     get_caps_lock_state(): boolean
     get_direction(): Pango.Direction
@@ -3468,7 +3472,7 @@ export interface Keymap {
     lookup_key(key: KeymapKey): number
     map_virtual_modifiers(state: ModifierType): boolean
     translate_keyboard_state(hardware_keycode: number, state: ModifierType, group: number): [ /* returnType */ boolean, /* keyval */ number | null, /* effective_group */ number | null, /* level */ number | null, /* consumed_modifiers */ ModifierType | null ]
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3492,7 +3496,7 @@ export interface Keymap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3500,11 +3504,11 @@ export interface Keymap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Keymap */
+    /* Signals of Gdk.Keymap */
     connect(sigName: "direction-changed", callback: (() => void))
     connect(sigName: "keys-changed", callback: (() => void))
     connect(sigName: "state-changed", callback: (() => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Keymap_Static {
@@ -3516,15 +3520,15 @@ export declare class Keymap_Static {
 }
 export declare var Keymap: Keymap_Static
 export interface Screen_ConstructProps {
-    /* Properties of Screen */
+    /* Properties of Gdk.Screen */
     font_options?:object
     resolution?:number
 }
 export interface Screen {
-    /* Properties of Screen */
+    /* Properties of Gdk.Screen */
     font_options:object
     resolution:number
-    /* Methods of Screen */
+    /* Methods of Gdk.Screen */
     get_active_window(): Window | null
     get_display(): Display
     get_font_options(): cairo.FontOptions | null
@@ -3555,7 +3559,7 @@ export interface Screen {
     make_display_name(): string
     set_font_options(options: cairo.FontOptions | null): void
     set_resolution(dpi: number): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3579,7 +3583,7 @@ export interface Screen {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3587,12 +3591,14 @@ export interface Screen {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Screen */
+    /* Signals of Gdk.Screen */
     connect(sigName: "composited-changed", callback: (() => void))
     connect(sigName: "monitors-changed", callback: (() => void))
     connect(sigName: "size-changed", callback: (() => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::font-options", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::resolution", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Screen_Static {
     new (config: Screen_ConstructProps): Screen
@@ -3608,7 +3614,7 @@ export declare var Screen: Screen_Static
 export interface Visual_ConstructProps {
 }
 export interface Visual {
-    /* Methods of Visual */
+    /* Methods of Gdk.Visual */
     get_bits_per_rgb(): number
     get_blue_pixel_details(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
     get_byte_order(): ByteOrder
@@ -3618,7 +3624,7 @@ export interface Visual {
     get_red_pixel_details(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
     get_screen(): Screen
     get_visual_type(): VisualType
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3642,7 +3648,7 @@ export interface Visual {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3650,7 +3656,7 @@ export interface Visual {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Visual_Static {
@@ -3667,13 +3673,13 @@ export declare class Visual_Static {
 }
 export declare var Visual: Visual_Static
 export interface Window_ConstructProps {
-    /* Properties of Window */
+    /* Properties of Gdk.Window */
     cursor?:Cursor
 }
 export interface Window {
-    /* Properties of Window */
+    /* Properties of Gdk.Window */
     cursor:Cursor
-    /* Methods of Window */
+    /* Methods of Gdk.Window */
     beep(): void
     begin_move_drag(button: number, root_x: number, root_y: number, timestamp: number): void
     begin_move_drag_for_device(device: Device, button: number, root_x: number, root_y: number, timestamp: number): void
@@ -3825,7 +3831,7 @@ export interface Window {
     unmaximize(): void
     unstick(): void
     withdraw(): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3849,11 +3855,11 @@ export interface Window {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Window */
+    /* Virtual methods of Gdk.Window */
     vfunc_create_surface(width: number, height: number): cairo.Surface
     vfunc_from_embedder(embedder_x: number, embedder_y: number, offscreen_x: number, offscreen_y: number): void
     vfunc_to_embedder(offscreen_x: number, offscreen_y: number, embedder_x: number, embedder_y: number): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3861,13 +3867,14 @@ export interface Window {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Window */
+    /* Signals of Gdk.Window */
     connect(sigName: "create-surface", callback: ((width: number, height: number) => cairo.Surface))
     connect(sigName: "from-embedder", callback: ((embedder_x: number, embedder_y: number) => void))
     connect(sigName: "pick-embedded-child", callback: ((x: number, y: number) => Window | null))
     connect(sigName: "to-embedder", callback: ((offscreen_x: number, offscreen_y: number) => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::cursor", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Window_Static {
     new (config: Window_ConstructProps): Window
@@ -3880,24 +3887,19 @@ export declare class Window_Static {
     set_debug_updates(setting: boolean): void
 }
 export declare var Window: Window_Static
-export interface Atom_ConstructProps {
-}
 export interface Atom {
-    /* Methods of Atom */
+    /* Methods of Gdk.Atom */
     name(): string
 }
 export interface Atom_Static {
-    new (config: Atom_ConstructProps): Atom
 }
 export declare class Atom_Static {
     intern(atom_name: string, only_if_exists: boolean): Atom
     intern_static_string(atom_name: string): Atom
 }
 export declare var Atom: Atom_Static
-export interface Color_ConstructProps {
-}
 export interface Color {
-    /* Methods of Color */
+    /* Methods of Gdk.Color */
     copy(): Color
     equal(colorb: Color): boolean
     free(): void
@@ -3905,208 +3907,133 @@ export interface Color {
     to_string(): string
 }
 export interface Color_Static {
-    new (config: Color_ConstructProps): Color
 }
 export declare class Color_Static {
     parse(spec: string): [ /* returnType */ boolean, /* color */ Color ]
 }
 export declare var Color: Color_Static
-export interface EventAny_ConstructProps {
-}
 export interface EventAny {
 }
 export interface EventAny_Static {
-    new (config: EventAny_ConstructProps): EventAny
 }
 export declare var EventAny: EventAny_Static
-export interface EventButton_ConstructProps {
-}
 export interface EventButton {
 }
 export interface EventButton_Static {
-    new (config: EventButton_ConstructProps): EventButton
 }
 export declare var EventButton: EventButton_Static
-export interface EventConfigure_ConstructProps {
-}
 export interface EventConfigure {
 }
 export interface EventConfigure_Static {
-    new (config: EventConfigure_ConstructProps): EventConfigure
 }
 export declare var EventConfigure: EventConfigure_Static
-export interface EventCrossing_ConstructProps {
-}
 export interface EventCrossing {
 }
 export interface EventCrossing_Static {
-    new (config: EventCrossing_ConstructProps): EventCrossing
 }
 export declare var EventCrossing: EventCrossing_Static
-export interface EventDND_ConstructProps {
-}
 export interface EventDND {
 }
 export interface EventDND_Static {
-    new (config: EventDND_ConstructProps): EventDND
 }
 export declare var EventDND: EventDND_Static
-export interface EventExpose_ConstructProps {
-}
 export interface EventExpose {
 }
 export interface EventExpose_Static {
-    new (config: EventExpose_ConstructProps): EventExpose
 }
 export declare var EventExpose: EventExpose_Static
-export interface EventFocus_ConstructProps {
-}
 export interface EventFocus {
 }
 export interface EventFocus_Static {
-    new (config: EventFocus_ConstructProps): EventFocus
 }
 export declare var EventFocus: EventFocus_Static
-export interface EventGrabBroken_ConstructProps {
-}
 export interface EventGrabBroken {
 }
 export interface EventGrabBroken_Static {
-    new (config: EventGrabBroken_ConstructProps): EventGrabBroken
 }
 export declare var EventGrabBroken: EventGrabBroken_Static
-export interface EventKey_ConstructProps {
-}
 export interface EventKey {
 }
 export interface EventKey_Static {
-    new (config: EventKey_ConstructProps): EventKey
 }
 export declare var EventKey: EventKey_Static
-export interface EventMotion_ConstructProps {
-}
 export interface EventMotion {
 }
 export interface EventMotion_Static {
-    new (config: EventMotion_ConstructProps): EventMotion
 }
 export declare var EventMotion: EventMotion_Static
-export interface EventOwnerChange_ConstructProps {
-}
 export interface EventOwnerChange {
 }
 export interface EventOwnerChange_Static {
-    new (config: EventOwnerChange_ConstructProps): EventOwnerChange
 }
 export declare var EventOwnerChange: EventOwnerChange_Static
-export interface EventProperty_ConstructProps {
-}
 export interface EventProperty {
 }
 export interface EventProperty_Static {
-    new (config: EventProperty_ConstructProps): EventProperty
 }
 export declare var EventProperty: EventProperty_Static
-export interface EventProximity_ConstructProps {
-}
 export interface EventProximity {
 }
 export interface EventProximity_Static {
-    new (config: EventProximity_ConstructProps): EventProximity
 }
 export declare var EventProximity: EventProximity_Static
-export interface EventScroll_ConstructProps {
-}
 export interface EventScroll {
 }
 export interface EventScroll_Static {
-    new (config: EventScroll_ConstructProps): EventScroll
 }
 export declare var EventScroll: EventScroll_Static
-export interface EventSelection_ConstructProps {
-}
 export interface EventSelection {
 }
 export interface EventSelection_Static {
-    new (config: EventSelection_ConstructProps): EventSelection
 }
 export declare var EventSelection: EventSelection_Static
-export interface EventSequence_ConstructProps {
-}
 export interface EventSequence {
 }
 export interface EventSequence_Static {
-    new (config: EventSequence_ConstructProps): EventSequence
 }
 export declare var EventSequence: EventSequence_Static
-export interface EventSetting_ConstructProps {
-}
 export interface EventSetting {
 }
 export interface EventSetting_Static {
-    new (config: EventSetting_ConstructProps): EventSetting
 }
 export declare var EventSetting: EventSetting_Static
-export interface EventTouch_ConstructProps {
-}
 export interface EventTouch {
 }
 export interface EventTouch_Static {
-    new (config: EventTouch_ConstructProps): EventTouch
 }
 export declare var EventTouch: EventTouch_Static
-export interface EventTouchpadPinch_ConstructProps {
-}
 export interface EventTouchpadPinch {
 }
 export interface EventTouchpadPinch_Static {
-    new (config: EventTouchpadPinch_ConstructProps): EventTouchpadPinch
 }
 export declare var EventTouchpadPinch: EventTouchpadPinch_Static
-export interface EventTouchpadSwipe_ConstructProps {
-}
 export interface EventTouchpadSwipe {
 }
 export interface EventTouchpadSwipe_Static {
-    new (config: EventTouchpadSwipe_ConstructProps): EventTouchpadSwipe
 }
 export declare var EventTouchpadSwipe: EventTouchpadSwipe_Static
-export interface EventVisibility_ConstructProps {
-}
 export interface EventVisibility {
 }
 export interface EventVisibility_Static {
-    new (config: EventVisibility_ConstructProps): EventVisibility
 }
 export declare var EventVisibility: EventVisibility_Static
-export interface EventWindowState_ConstructProps {
-}
 export interface EventWindowState {
 }
 export interface EventWindowState_Static {
-    new (config: EventWindowState_ConstructProps): EventWindowState
 }
 export declare var EventWindowState: EventWindowState_Static
-export interface FrameClockClass_ConstructProps {
-}
 export interface FrameClockClass {
 }
 export interface FrameClockClass_Static {
-    new (config: FrameClockClass_ConstructProps): FrameClockClass
 }
 export declare var FrameClockClass: FrameClockClass_Static
-export interface FrameClockPrivate_ConstructProps {
-}
 export interface FrameClockPrivate {
 }
 export interface FrameClockPrivate_Static {
-    new (config: FrameClockPrivate_ConstructProps): FrameClockPrivate
 }
 export declare var FrameClockPrivate: FrameClockPrivate_Static
-export interface FrameTimings_ConstructProps {
-}
 export interface FrameTimings {
-    /* Methods of FrameTimings */
+    /* Methods of Gdk.FrameTimings */
     get_complete(): boolean
     get_frame_counter(): number
     get_frame_time(): number
@@ -4117,37 +4044,25 @@ export interface FrameTimings {
     unref(): void
 }
 export interface FrameTimings_Static {
-    new (config: FrameTimings_ConstructProps): FrameTimings
 }
 export declare var FrameTimings: FrameTimings_Static
-export interface Geometry_ConstructProps {
-}
 export interface Geometry {
 }
 export interface Geometry_Static {
-    new (config: Geometry_ConstructProps): Geometry
 }
 export declare var Geometry: Geometry_Static
-export interface KeymapKey_ConstructProps {
-}
 export interface KeymapKey {
 }
 export interface KeymapKey_Static {
-    new (config: KeymapKey_ConstructProps): KeymapKey
 }
 export declare var KeymapKey: KeymapKey_Static
-export interface Point_ConstructProps {
-}
 export interface Point {
 }
 export interface Point_Static {
-    new (config: Point_ConstructProps): Point
 }
 export declare var Point: Point_Static
-export interface RGBA_ConstructProps {
-}
 export interface RGBA {
-    /* Methods of RGBA */
+    /* Methods of Gdk.RGBA */
     copy(): RGBA
     equal(p2: RGBA): boolean
     free(): void
@@ -4156,56 +4071,38 @@ export interface RGBA {
     to_string(): string
 }
 export interface RGBA_Static {
-    new (config: RGBA_ConstructProps): RGBA
 }
 export declare var RGBA: RGBA_Static
-export interface Rectangle_ConstructProps {
-}
 export interface Rectangle {
-    /* Methods of Rectangle */
+    /* Methods of Gdk.Rectangle */
     intersect(src2: Rectangle): [ /* returnType */ boolean, /* dest */ Rectangle | null ]
     union(src2: Rectangle): /* dest */ Rectangle
 }
 export interface Rectangle_Static {
-    new (config: Rectangle_ConstructProps): Rectangle
 }
 export declare var Rectangle: Rectangle_Static
-export interface TimeCoord_ConstructProps {
-}
 export interface TimeCoord {
 }
 export interface TimeCoord_Static {
-    new (config: TimeCoord_ConstructProps): TimeCoord
 }
 export declare var TimeCoord: TimeCoord_Static
-export interface WindowAttr_ConstructProps {
-}
 export interface WindowAttr {
 }
 export interface WindowAttr_Static {
-    new (config: WindowAttr_ConstructProps): WindowAttr
 }
 export declare var WindowAttr: WindowAttr_Static
-export interface WindowClass_ConstructProps {
-}
 export interface WindowClass {
 }
 export interface WindowClass_Static {
-    new (config: WindowClass_ConstructProps): WindowClass
 }
 export declare var WindowClass: WindowClass_Static
-export interface WindowRedirect_ConstructProps {
-}
 export interface WindowRedirect {
 }
 export interface WindowRedirect_Static {
-    new (config: WindowRedirect_ConstructProps): WindowRedirect
 }
 export declare var WindowRedirect: WindowRedirect_Static
-export interface Event_ConstructProps {
-}
 export interface Event {
-    /* Methods of Event */
+    /* Methods of Gdk.Event */
     _get_angle(event2: Event): [ /* returnType */ boolean, /* angle */ number ]
     _get_center(event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
     _get_distance(event2: Event): [ /* returnType */ boolean, /* distance */ number ]
@@ -4235,7 +4132,6 @@ export interface Event {
     triggers_context_menu(): boolean
 }
 export interface Event_Static {
-    new (config: Event_ConstructProps): Event
 }
 export declare class Event_Static {
     new(type: EventType): Event

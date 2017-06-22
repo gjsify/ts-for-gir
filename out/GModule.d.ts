@@ -17,17 +17,14 @@ export interface ModuleCheckInit {
 export interface ModuleUnload {
     (module: Module): void
 }
-export interface Module_ConstructProps {
-}
 export interface Module {
-    /* Methods of Module */
+    /* Methods of GModule.Module */
     close(): boolean
     make_resident(): void
     name(): string
     symbol(symbol_name: string): [ /* returnType */ boolean, /* symbol */ object ]
 }
 export interface Module_Static {
-    new (config: Module_ConstructProps): Module
 }
 export declare class Module_Static {
     build_path(directory: string | null, module_name: string): string

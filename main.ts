@@ -448,16 +448,16 @@ export class GirModule {
         return [[`${name}${nameSuffix}:${typeName}`], name]
     }
 
-    private getProperty(v: GirVariable, construct: boolean = false): [string[], string|null] {
+    private getProperty(v: GirVariable, construct: boolean = false): [string[], string|null, string|null] {
         if (this.girBool(v.$["construct-only"]) && !construct)
-            return [[], null]
+            return [[], null, null]
         if (!this.girBool(v.$.writable) && construct)
-            return [[], null]
+            return [[], null, null]
 
         let propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
         let [propDesc,propName] = this.getVariable(v, construct, true)
 
-        return [[`    ${propPrefix}${propDesc}`], propName]
+        return [[`    ${propPrefix}${propDesc}`], propName, v.$.name || null]
     }
 
     exportEnumeration(e: GirEnumeration) {
@@ -574,55 +574,71 @@ export class GirModule {
             this.traverseInheritanceTree(parent, callback)
     }
 
+    private isDerivedFromGObject(e: GirInterface | GirClass): boolean {
+        let ret = false
+        this.traverseInheritanceTree(e, (cls) => {
+            if (cls._fullSymName == "GObject.Object") {
+                ret = true
+            }
+        })
+        return ret
+    }
+
     private exportObjectInternal(e: GirInterface | GirClass) {
         let name = e.$.name
         let def: string[] = []
+        let isDerivedFromGObject = this.isDerivedFromGObject(e)
 
-        let checkName = (desc: string[], name, localNames) => {
+        let checkName = (desc: string[], name, localNames): [string[], boolean] => {
             if (!desc || desc.length == 0)
-                return []
+                return [[], false]
 
             if (!name) {
                 console.error(`No name for ${desc}`)
-                return []
+                return [[], false]
             }
 
             if (localNames[name]) {
                 // console.warn(`Name ${name} already defined (${desc})`)
-                return []
+                return [[], false]
             }
 
             localNames[name] = 1
-            return desc
+            return [desc, true]
         }
 
         // Properties for construction
-        // XXX: shouldn't really make this for interfaces, as they
-        // can't be instantiated?
-        def.push(`export interface ${name}_ConstructProps {`)
-        let constructPropNames = {}
-        this.traverseInheritanceTree(e, (cls) => {
-            if (cls.property) {
-                def.push(`    /* Properties of ${cls.$.name} */`)
-                for (let p of cls.property) {
-                    let [desc, name] = this.getProperty(p, true)
-                    def = def.concat(checkName(desc, name, constructPropNames))
+        if (isDerivedFromGObject) {
+            def.push(`export interface ${name}_ConstructProps {`)
+            let constructPropNames = {}
+            this.traverseInheritanceTree(e, (cls) => {
+                if (cls.property) {
+                    def.push(`    /* Properties of ${cls._fullSymName} */`)
+                    for (let p of cls.property) {
+                        let [desc, name] = this.getProperty(p, true)
+                        def = def.concat(checkName(desc, name, constructPropNames)[0])
+                    }
                 }
-            }
-        })
-        def.push("}")
+            })
+            def.push("}")
+        }
 
         // Instance side
         def.push(`export interface ${name} {`)
         
         let localNames = {}
+        let propertyNames: string[] = []
 
         this.traverseInheritanceTree(e, (cls) => {
             if (cls.property) {
-                def.push(`    /* Properties of ${cls.$.name} */`)
+                def.push(`    /* Properties of ${cls._fullSymName} */`)
                 for (let p of cls.property) {
-                    let [desc, name] = this.getProperty(p)
-                    def = def.concat(checkName(desc, name, localNames))
+                    let [desc, name, origName] = this.getProperty(p)
+                    let [aDesc, added] = checkName(desc, name, localNames)
+                    if (added) {
+                        if (origName) propertyNames.push(origName)
+                    }
+                    def = def.concat(aDesc)
                 }
             }
         })
@@ -630,10 +646,10 @@ export class GirModule {
         // Instance methods
         this.traverseInheritanceTree(e, (cls) => {
             if (cls.method) {
-                def.push(`    /* Methods of ${cls.$.name} */`)
+                def.push(`    /* Methods of ${cls._fullSymName} */`)
                 for (let f of cls.method) {
                     let [desc, name] = this.getFunction(f, "    ")
-                    def = def.concat(checkName(desc, name, localNames))
+                    def = def.concat(checkName(desc, name, localNames)[0])
                 }
             }
         })
@@ -642,10 +658,10 @@ export class GirModule {
         this.traverseInheritanceTree(e, (cls) => {
             let vmeth = cls["virtual-method"]
             if (vmeth) {
-                def.push(`    /* Virtual methods of ${cls.$.name} */`)
+                def.push(`    /* Virtual methods of ${cls._fullSymName} */`)
                 for (let f of vmeth) {
                     let [desc, name] = this.getFunction(f, "    ", "vfunc_")
-                    def = def.concat(checkName(desc, name, localNames))
+                    def = def.concat(checkName(desc, name, localNames)[0])
                 }
             }
         })
@@ -653,12 +669,20 @@ export class GirModule {
         this.traverseInheritanceTree(e, (cls) => {
             let signals = cls["glib:signal"]
             if (signals) {
-                def.push(`    /* Signals of ${cls.$.name} */`)
+                def.push(`    /* Signals of ${cls._fullSymName} */`)
                 for (let s of signals)
                     def = def.concat(this.getSignalFunc(s))
             }
             // FIXME: notify:: signals
         })
+
+        if (isDerivedFromGObject) {
+            let prefix = "GObject."
+            if (this.name == "GObject") prefix = ""
+            for (let p of propertyNames) {
+                def.push(`    connect(sigName: "notify::${p}", callback: ((pspec: ${prefix}ParamSpec) => void))`)
+            }
+        }
 
         // TODO: Records have fields
 
@@ -666,11 +690,7 @@ export class GirModule {
 
         // Static side: default constructor
         def.push(`export interface ${name}_Static {`)
-        // FIXME: what logic does GJS choose here? When should we generate
-        // the default GJS constructor?
-        // I think this should only happen for things derived from
-        // GObject?
-        if (e.constructor && e.constructor.length > 0) {
+        if (isDerivedFromGObject) {
             def.push(`    new (config: ${name}_ConstructProps): ${name}`)
         }
         def.push("}")

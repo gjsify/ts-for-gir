@@ -68,7 +68,7 @@ export interface PixbufSaveFunc {
     (buf: number[], count: number, data: object): boolean
 }
 export interface Pixbuf_ConstructProps {
-    /* Properties of Pixbuf */
+    /* Properties of GdkPixbuf.Pixbuf */
     bits_per_sample?:number
     colorspace?:Colorspace
     has_alpha?:boolean
@@ -80,8 +80,8 @@ export interface Pixbuf_ConstructProps {
     width?:number
 }
 export interface Pixbuf {
-    /* Properties of Pixbuf */
-    /* Methods of Pixbuf */
+    /* Properties of GdkPixbuf.Pixbuf */
+    /* Methods of GdkPixbuf.Pixbuf */
     add_alpha(substitute_color: boolean, r: number, g: number, b: number): Pixbuf
     apply_embedded_orientation(): Pixbuf
     composite(dest: Pixbuf, dest_x: number, dest_y: number, dest_width: number, dest_height: number, offset_x: number, offset_y: number, scale_x: number, scale_y: number, interp_type: InterpType, overall_alpha: number): void
@@ -113,7 +113,7 @@ export interface Pixbuf {
     savev(filename: string, type: string, option_keys: string[], option_values: string[]): boolean
     scale(dest: Pixbuf, dest_x: number, dest_y: number, dest_width: number, dest_height: number, offset_x: number, offset_y: number, scale_x: number, scale_y: number, interp_type: InterpType): void
     scale_simple(dest_width: number, dest_height: number, interp_type: InterpType): Pixbuf
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -137,7 +137,7 @@ export interface Pixbuf {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -145,7 +145,7 @@ export interface Pixbuf {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface Pixbuf_Static {
@@ -178,13 +178,13 @@ export declare var Pixbuf: Pixbuf_Static
 export interface PixbufAnimation_ConstructProps {
 }
 export interface PixbufAnimation {
-    /* Methods of PixbufAnimation */
+    /* Methods of GdkPixbuf.PixbufAnimation */
     get_height(): number
     get_iter(start_time: GLib.TimeVal | null): PixbufAnimationIter
     get_static_image(): Pixbuf
     get_width(): number
     is_static_image(): boolean
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -208,7 +208,7 @@ export interface PixbufAnimation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -216,7 +216,7 @@ export interface PixbufAnimation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufAnimation_Static {
@@ -233,12 +233,12 @@ export declare var PixbufAnimation: PixbufAnimation_Static
 export interface PixbufAnimationIter_ConstructProps {
 }
 export interface PixbufAnimationIter {
-    /* Methods of PixbufAnimationIter */
+    /* Methods of GdkPixbuf.PixbufAnimationIter */
     advance(current_time: GLib.TimeVal | null): boolean
     get_delay_time(): number
     get_pixbuf(): Pixbuf
     on_currently_loading_frame(): boolean
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -262,7 +262,7 @@ export interface PixbufAnimationIter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -270,7 +270,7 @@ export interface PixbufAnimationIter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufAnimationIter_Static {
@@ -280,7 +280,7 @@ export declare var PixbufAnimationIter: PixbufAnimationIter_Static
 export interface PixbufLoader_ConstructProps {
 }
 export interface PixbufLoader {
-    /* Methods of PixbufLoader */
+    /* Methods of GdkPixbuf.PixbufLoader */
     close(): boolean
     get_animation(): PixbufAnimation
     get_format(): PixbufFormat | null
@@ -288,7 +288,7 @@ export interface PixbufLoader {
     set_size(width: number, height: number): void
     write(buf: number[], count: number): boolean
     write_bytes(buffer: GLib.Bytes): boolean
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -312,12 +312,12 @@ export interface PixbufLoader {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of PixbufLoader */
+    /* Virtual methods of GdkPixbuf.PixbufLoader */
     vfunc_area_prepared(): void
     vfunc_area_updated(x: number, y: number, width: number, height: number): void
     vfunc_closed(): void
     vfunc_size_prepared(width: number, height: number): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -325,12 +325,12 @@ export interface PixbufLoader {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of PixbufLoader */
+    /* Signals of GdkPixbuf.PixbufLoader */
     connect(sigName: "area-prepared", callback: (() => void))
     connect(sigName: "area-updated", callback: ((x: number, y: number, width: number, height: number) => void))
     connect(sigName: "closed", callback: (() => void))
     connect(sigName: "size-prepared", callback: ((width: number, height: number) => void))
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufLoader_Static {
@@ -343,23 +343,23 @@ export declare class PixbufLoader_Static {
 }
 export declare var PixbufLoader: PixbufLoader_Static
 export interface PixbufSimpleAnim_ConstructProps {
-    /* Properties of PixbufSimpleAnim */
+    /* Properties of GdkPixbuf.PixbufSimpleAnim */
     loop?:boolean
 }
 export interface PixbufSimpleAnim {
-    /* Properties of PixbufSimpleAnim */
+    /* Properties of GdkPixbuf.PixbufSimpleAnim */
     loop:boolean
-    /* Methods of PixbufSimpleAnim */
+    /* Methods of GdkPixbuf.PixbufSimpleAnim */
     add_frame(pixbuf: Pixbuf): void
     get_loop(): boolean
     set_loop(loop: boolean): void
-    /* Methods of PixbufAnimation */
+    /* Methods of GdkPixbuf.PixbufAnimation */
     get_height(): number
     get_iter(start_time: GLib.TimeVal | null): PixbufAnimationIter
     get_static_image(): Pixbuf
     get_width(): number
     is_static_image(): boolean
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -383,7 +383,7 @@ export interface PixbufSimpleAnim {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -391,8 +391,9 @@ export interface PixbufSimpleAnim {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::loop", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufSimpleAnim_Static {
     new (config: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
@@ -404,12 +405,12 @@ export declare var PixbufSimpleAnim: PixbufSimpleAnim_Static
 export interface PixbufSimpleAnimIter_ConstructProps {
 }
 export interface PixbufSimpleAnimIter {
-    /* Methods of PixbufAnimationIter */
+    /* Methods of GdkPixbuf.PixbufAnimationIter */
     advance(current_time: GLib.TimeVal | null): boolean
     get_delay_time(): number
     get_pixbuf(): Pixbuf
     on_currently_loading_frame(): boolean
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -433,7 +434,7 @@ export interface PixbufSimpleAnimIter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -441,17 +442,15 @@ export interface PixbufSimpleAnimIter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufSimpleAnimIter_Static {
     new (config: PixbufSimpleAnimIter_ConstructProps): PixbufSimpleAnimIter
 }
 export declare var PixbufSimpleAnimIter: PixbufSimpleAnimIter_Static
-export interface PixbufFormat_ConstructProps {
-}
 export interface PixbufFormat {
-    /* Methods of PixbufFormat */
+    /* Methods of GdkPixbuf.PixbufFormat */
     copy(): PixbufFormat
     free(): void
     get_description(): string
@@ -465,35 +464,25 @@ export interface PixbufFormat {
     set_disabled(disabled: boolean): void
 }
 export interface PixbufFormat_Static {
-    new (config: PixbufFormat_ConstructProps): PixbufFormat
 }
 export declare var PixbufFormat: PixbufFormat_Static
-export interface PixbufLoaderClass_ConstructProps {
-}
 export interface PixbufLoaderClass {
 }
 export interface PixbufLoaderClass_Static {
-    new (config: PixbufLoaderClass_ConstructProps): PixbufLoaderClass
 }
 export declare var PixbufLoaderClass: PixbufLoaderClass_Static
-export interface PixbufSimpleAnimClass_ConstructProps {
-}
 export interface PixbufSimpleAnimClass {
 }
 export interface PixbufSimpleAnimClass_Static {
-    new (config: PixbufSimpleAnimClass_ConstructProps): PixbufSimpleAnimClass
 }
 export declare var PixbufSimpleAnimClass: PixbufSimpleAnimClass_Static
-export interface Pixdata_ConstructProps {
-}
 export interface Pixdata {
-    /* Methods of Pixdata */
+    /* Methods of GdkPixbuf.Pixdata */
     deserialize(stream_length: number, stream: number[]): boolean
     serialize(): [ /* returnType */ number[], /* stream_length_p */ number ]
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String
 }
 export interface Pixdata_Static {
-    new (config: Pixdata_ConstructProps): Pixdata
 }
 export declare var Pixdata: Pixdata_Static
 type PixbufAnimationIter_autoptr = object

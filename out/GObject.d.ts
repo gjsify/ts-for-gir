@@ -311,21 +311,18 @@ export interface ValueTransform {
 export interface WeakNotify {
     (data: object, where_the_object_was: Object): void
 }
-export interface TypePlugin_ConstructProps {
-}
 export interface TypePlugin {
-    /* Methods of TypePlugin */
+    /* Methods of GObject.TypePlugin */
     complete_interface_info(instance_type: number, interface_type: number, info: InterfaceInfo): void
     complete_type_info(g_type: number, info: TypeInfo, value_table: TypeValueTable): void
     unuse(): void
     use(): void
 }
 export interface TypePlugin_Static {
-    new (config: TypePlugin_ConstructProps): TypePlugin
 }
 export declare var TypePlugin: TypePlugin_Static
 export interface Binding_ConstructProps {
-    /* Properties of Binding */
+    /* Properties of GObject.Binding */
     flags?:BindingFlags
     source?:Object
     source_property?:string
@@ -333,15 +330,15 @@ export interface Binding_ConstructProps {
     target_property?:string
 }
 export interface Binding {
-    /* Properties of Binding */
-    /* Methods of Binding */
+    /* Properties of GObject.Binding */
+    /* Methods of GObject.Binding */
     get_flags(): BindingFlags
     get_source(): Object
     get_source_property(): string
     get_target(): Object
     get_target_property(): string
     unbind(): void
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
@@ -365,7 +362,7 @@ export interface Binding {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
     vfunc_dispose(): void
@@ -373,7 +370,7 @@ export interface Binding {
     vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: ParamSpec) => void))
 }
 export interface Binding_Static {
@@ -383,7 +380,7 @@ export declare var Binding: Binding_Static
 export interface InitiallyUnowned_ConstructProps {
 }
 export interface InitiallyUnowned {
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
@@ -407,7 +404,7 @@ export interface InitiallyUnowned {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
     vfunc_dispose(): void
@@ -415,7 +412,7 @@ export interface InitiallyUnowned {
     vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: ParamSpec) => void))
 }
 export interface InitiallyUnowned_Static {
@@ -425,7 +422,7 @@ export declare var InitiallyUnowned: InitiallyUnowned_Static
 export interface Object_ConstructProps {
 }
 export interface Object {
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
@@ -449,7 +446,7 @@ export interface Object {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
     vfunc_dispose(): void
@@ -457,7 +454,7 @@ export interface Object {
     vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: ParamSpec) => void))
 }
 export interface Object_Static {
@@ -471,10 +468,8 @@ export declare class Object_Static {
     interface_list_properties(g_iface: object): [ /* returnType */ ParamSpec[], /* n_properties_p */ number ]
 }
 export declare var Object: Object_Static
-export interface ParamSpec_ConstructProps {
-}
 export interface ParamSpec {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -485,20 +480,17 @@ export interface ParamSpec {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpec_Static {
-    new (config: ParamSpec_ConstructProps): ParamSpec
 }
 export declare var ParamSpec: ParamSpec_Static
-export interface ParamSpecBoolean_ConstructProps {
-}
 export interface ParamSpecBoolean {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -509,20 +501,17 @@ export interface ParamSpecBoolean {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecBoolean_Static {
-    new (config: ParamSpecBoolean_ConstructProps): ParamSpecBoolean
 }
 export declare var ParamSpecBoolean: ParamSpecBoolean_Static
-export interface ParamSpecBoxed_ConstructProps {
-}
 export interface ParamSpecBoxed {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -533,20 +522,17 @@ export interface ParamSpecBoxed {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecBoxed_Static {
-    new (config: ParamSpecBoxed_ConstructProps): ParamSpecBoxed
 }
 export declare var ParamSpecBoxed: ParamSpecBoxed_Static
-export interface ParamSpecChar_ConstructProps {
-}
 export interface ParamSpecChar {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -557,20 +543,17 @@ export interface ParamSpecChar {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecChar_Static {
-    new (config: ParamSpecChar_ConstructProps): ParamSpecChar
 }
 export declare var ParamSpecChar: ParamSpecChar_Static
-export interface ParamSpecDouble_ConstructProps {
-}
 export interface ParamSpecDouble {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -581,20 +564,17 @@ export interface ParamSpecDouble {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecDouble_Static {
-    new (config: ParamSpecDouble_ConstructProps): ParamSpecDouble
 }
 export declare var ParamSpecDouble: ParamSpecDouble_Static
-export interface ParamSpecEnum_ConstructProps {
-}
 export interface ParamSpecEnum {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -605,20 +585,17 @@ export interface ParamSpecEnum {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecEnum_Static {
-    new (config: ParamSpecEnum_ConstructProps): ParamSpecEnum
 }
 export declare var ParamSpecEnum: ParamSpecEnum_Static
-export interface ParamSpecFlags_ConstructProps {
-}
 export interface ParamSpecFlags {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -629,20 +606,17 @@ export interface ParamSpecFlags {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecFlags_Static {
-    new (config: ParamSpecFlags_ConstructProps): ParamSpecFlags
 }
 export declare var ParamSpecFlags: ParamSpecFlags_Static
-export interface ParamSpecFloat_ConstructProps {
-}
 export interface ParamSpecFloat {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -653,20 +627,17 @@ export interface ParamSpecFloat {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecFloat_Static {
-    new (config: ParamSpecFloat_ConstructProps): ParamSpecFloat
 }
 export declare var ParamSpecFloat: ParamSpecFloat_Static
-export interface ParamSpecGType_ConstructProps {
-}
 export interface ParamSpecGType {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -677,20 +648,17 @@ export interface ParamSpecGType {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecGType_Static {
-    new (config: ParamSpecGType_ConstructProps): ParamSpecGType
 }
 export declare var ParamSpecGType: ParamSpecGType_Static
-export interface ParamSpecInt_ConstructProps {
-}
 export interface ParamSpecInt {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -701,20 +669,17 @@ export interface ParamSpecInt {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecInt_Static {
-    new (config: ParamSpecInt_ConstructProps): ParamSpecInt
 }
 export declare var ParamSpecInt: ParamSpecInt_Static
-export interface ParamSpecInt64_ConstructProps {
-}
 export interface ParamSpecInt64 {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -725,20 +690,17 @@ export interface ParamSpecInt64 {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecInt64_Static {
-    new (config: ParamSpecInt64_ConstructProps): ParamSpecInt64
 }
 export declare var ParamSpecInt64: ParamSpecInt64_Static
-export interface ParamSpecLong_ConstructProps {
-}
 export interface ParamSpecLong {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -749,20 +711,17 @@ export interface ParamSpecLong {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecLong_Static {
-    new (config: ParamSpecLong_ConstructProps): ParamSpecLong
 }
 export declare var ParamSpecLong: ParamSpecLong_Static
-export interface ParamSpecObject_ConstructProps {
-}
 export interface ParamSpecObject {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -773,20 +732,17 @@ export interface ParamSpecObject {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecObject_Static {
-    new (config: ParamSpecObject_ConstructProps): ParamSpecObject
 }
 export declare var ParamSpecObject: ParamSpecObject_Static
-export interface ParamSpecOverride_ConstructProps {
-}
 export interface ParamSpecOverride {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -797,20 +753,17 @@ export interface ParamSpecOverride {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecOverride_Static {
-    new (config: ParamSpecOverride_ConstructProps): ParamSpecOverride
 }
 export declare var ParamSpecOverride: ParamSpecOverride_Static
-export interface ParamSpecParam_ConstructProps {
-}
 export interface ParamSpecParam {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -821,20 +774,17 @@ export interface ParamSpecParam {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecParam_Static {
-    new (config: ParamSpecParam_ConstructProps): ParamSpecParam
 }
 export declare var ParamSpecParam: ParamSpecParam_Static
-export interface ParamSpecPointer_ConstructProps {
-}
 export interface ParamSpecPointer {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -845,20 +795,17 @@ export interface ParamSpecPointer {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecPointer_Static {
-    new (config: ParamSpecPointer_ConstructProps): ParamSpecPointer
 }
 export declare var ParamSpecPointer: ParamSpecPointer_Static
-export interface ParamSpecString_ConstructProps {
-}
 export interface ParamSpecString {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -869,20 +816,17 @@ export interface ParamSpecString {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecString_Static {
-    new (config: ParamSpecString_ConstructProps): ParamSpecString
 }
 export declare var ParamSpecString: ParamSpecString_Static
-export interface ParamSpecUChar_ConstructProps {
-}
 export interface ParamSpecUChar {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -893,20 +837,17 @@ export interface ParamSpecUChar {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecUChar_Static {
-    new (config: ParamSpecUChar_ConstructProps): ParamSpecUChar
 }
 export declare var ParamSpecUChar: ParamSpecUChar_Static
-export interface ParamSpecUInt_ConstructProps {
-}
 export interface ParamSpecUInt {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -917,20 +858,17 @@ export interface ParamSpecUInt {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecUInt_Static {
-    new (config: ParamSpecUInt_ConstructProps): ParamSpecUInt
 }
 export declare var ParamSpecUInt: ParamSpecUInt_Static
-export interface ParamSpecUInt64_ConstructProps {
-}
 export interface ParamSpecUInt64 {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -941,20 +879,17 @@ export interface ParamSpecUInt64 {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecUInt64_Static {
-    new (config: ParamSpecUInt64_ConstructProps): ParamSpecUInt64
 }
 export declare var ParamSpecUInt64: ParamSpecUInt64_Static
-export interface ParamSpecULong_ConstructProps {
-}
 export interface ParamSpecULong {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -965,20 +900,17 @@ export interface ParamSpecULong {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecULong_Static {
-    new (config: ParamSpecULong_ConstructProps): ParamSpecULong
 }
 export declare var ParamSpecULong: ParamSpecULong_Static
-export interface ParamSpecUnichar_ConstructProps {
-}
 export interface ParamSpecUnichar {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -989,20 +921,17 @@ export interface ParamSpecUnichar {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecUnichar_Static {
-    new (config: ParamSpecUnichar_ConstructProps): ParamSpecUnichar
 }
 export declare var ParamSpecUnichar: ParamSpecUnichar_Static
-export interface ParamSpecValueArray_ConstructProps {
-}
 export interface ParamSpecValueArray {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -1013,20 +942,17 @@ export interface ParamSpecValueArray {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecValueArray_Static {
-    new (config: ParamSpecValueArray_ConstructProps): ParamSpecValueArray
 }
 export declare var ParamSpecValueArray: ParamSpecValueArray_Static
-export interface ParamSpecVariant_ConstructProps {
-}
 export interface ParamSpecVariant {
-    /* Methods of ParamSpec */
+    /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
     get_name(): string
@@ -1037,20 +963,19 @@ export interface ParamSpecVariant {
     set_qdata(quark: GLib.Quark, data: object): void
     sink(): void
     steal_qdata(quark: GLib.Quark): object
-    /* Virtual methods of ParamSpec */
+    /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecVariant_Static {
-    new (config: ParamSpecVariant_ConstructProps): ParamSpecVariant
 }
 export declare var ParamSpecVariant: ParamSpecVariant_Static
 export interface TypeModule_ConstructProps {
 }
 export interface TypeModule {
-    /* Methods of TypeModule */
+    /* Methods of GObject.TypeModule */
     add_interface(instance_type: number, interface_type: number, interface_info: InterfaceInfo): void
     register_enum(name: string, const_static_values: EnumValue): number
     register_flags(name: string, const_static_values: FlagsValue): number
@@ -1058,7 +983,7 @@ export interface TypeModule {
     set_name(name: string): void
     unuse(): void
     use(): boolean
-    /* Methods of Object */
+    /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
     bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
@@ -1082,10 +1007,10 @@ export interface TypeModule {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
-    /* Virtual methods of TypeModule */
+    /* Virtual methods of GObject.TypeModule */
     vfunc_load(): boolean
     vfunc_unload(): void
-    /* Virtual methods of Object */
+    /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
     vfunc_dispose(): void
@@ -1093,19 +1018,16 @@ export interface TypeModule {
     vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
-    /* Signals of Object */
+    /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((pspec: ParamSpec) => void))
 }
 export interface TypeModule_Static {
     new (config: TypeModule_ConstructProps): TypeModule
 }
 export declare var TypeModule: TypeModule_Static
-export interface CClosure_ConstructProps {
-}
 export interface CClosure {
 }
 export interface CClosure_Static {
-    new (config: CClosure_ConstructProps): CClosure
 }
 export declare class CClosure_Static {
     marshal_BOOLEAN__BOXED_BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
@@ -1133,10 +1055,8 @@ export declare class CClosure_Static {
     marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
 }
 export declare var CClosure: CClosure_Static
-export interface Closure_ConstructProps {
-}
 export interface Closure {
-    /* Methods of Closure */
+    /* Methods of GObject.Closure */
     invalidate(): void
     invoke(return_value: Value | null, n_param_values: number, param_values: Value[], invocation_hint: object | null): void
     ref(): Closure
@@ -1144,73 +1064,49 @@ export interface Closure {
     unref(): void
 }
 export interface Closure_Static {
-    new (config: Closure_ConstructProps): Closure
 }
 export declare class Closure_Static {
     new_object(sizeof_closure: number, object: Object): Closure
     new_simple(sizeof_closure: number, data: object): Closure
 }
 export declare var Closure: Closure_Static
-export interface ClosureNotifyData_ConstructProps {
-}
 export interface ClosureNotifyData {
 }
 export interface ClosureNotifyData_Static {
-    new (config: ClosureNotifyData_ConstructProps): ClosureNotifyData
 }
 export declare var ClosureNotifyData: ClosureNotifyData_Static
-export interface EnumClass_ConstructProps {
-}
 export interface EnumClass {
 }
 export interface EnumClass_Static {
-    new (config: EnumClass_ConstructProps): EnumClass
 }
 export declare var EnumClass: EnumClass_Static
-export interface EnumValue_ConstructProps {
-}
 export interface EnumValue {
 }
 export interface EnumValue_Static {
-    new (config: EnumValue_ConstructProps): EnumValue
 }
 export declare var EnumValue: EnumValue_Static
-export interface FlagsClass_ConstructProps {
-}
 export interface FlagsClass {
 }
 export interface FlagsClass_Static {
-    new (config: FlagsClass_ConstructProps): FlagsClass
 }
 export declare var FlagsClass: FlagsClass_Static
-export interface FlagsValue_ConstructProps {
-}
 export interface FlagsValue {
 }
 export interface FlagsValue_Static {
-    new (config: FlagsValue_ConstructProps): FlagsValue
 }
 export declare var FlagsValue: FlagsValue_Static
-export interface InitiallyUnownedClass_ConstructProps {
-}
 export interface InitiallyUnownedClass {
 }
 export interface InitiallyUnownedClass_Static {
-    new (config: InitiallyUnownedClass_ConstructProps): InitiallyUnownedClass
 }
 export declare var InitiallyUnownedClass: InitiallyUnownedClass_Static
-export interface InterfaceInfo_ConstructProps {
-}
 export interface InterfaceInfo {
 }
 export interface InterfaceInfo_Static {
-    new (config: InterfaceInfo_ConstructProps): InterfaceInfo
 }
 export declare var InterfaceInfo: InterfaceInfo_Static
-export interface ObjectClass_ConstructProps {
-}
 export interface ObjectClass {
-    /* Methods of ObjectClass */
+    /* Methods of GObject.ObjectClass */
     find_property(property_name: string): ParamSpec
     install_properties(n_pspecs: number, pspecs: ParamSpec[]): void
     install_property(property_id: number, pspec: ParamSpec): void
@@ -1218,29 +1114,20 @@ export interface ObjectClass {
     override_property(property_id: number, name: string): void
 }
 export interface ObjectClass_Static {
-    new (config: ObjectClass_ConstructProps): ObjectClass
 }
 export declare var ObjectClass: ObjectClass_Static
-export interface ObjectConstructParam_ConstructProps {
-}
 export interface ObjectConstructParam {
 }
 export interface ObjectConstructParam_Static {
-    new (config: ObjectConstructParam_ConstructProps): ObjectConstructParam
 }
 export declare var ObjectConstructParam: ObjectConstructParam_Static
-export interface ParamSpecClass_ConstructProps {
-}
 export interface ParamSpecClass {
 }
 export interface ParamSpecClass_Static {
-    new (config: ParamSpecClass_ConstructProps): ParamSpecClass
 }
 export declare var ParamSpecClass: ParamSpecClass_Static
-export interface ParamSpecPool_ConstructProps {
-}
 export interface ParamSpecPool {
-    /* Methods of ParamSpecPool */
+    /* Methods of GObject.ParamSpecPool */
     insert(pspec: ParamSpec, owner_type: number): void
     list(owner_type: number): [ /* returnType */ ParamSpec[], /* n_pspecs_p */ number ]
     list_owned(owner_type: number): GLib.List
@@ -1248,53 +1135,37 @@ export interface ParamSpecPool {
     remove(pspec: ParamSpec): void
 }
 export interface ParamSpecPool_Static {
-    new (config: ParamSpecPool_ConstructProps): ParamSpecPool
 }
 export declare class ParamSpecPool_Static {
     new(type_prefixing: boolean): ParamSpecPool
 }
 export declare var ParamSpecPool: ParamSpecPool_Static
-export interface ParamSpecTypeInfo_ConstructProps {
-}
 export interface ParamSpecTypeInfo {
 }
 export interface ParamSpecTypeInfo_Static {
-    new (config: ParamSpecTypeInfo_ConstructProps): ParamSpecTypeInfo
 }
 export declare var ParamSpecTypeInfo: ParamSpecTypeInfo_Static
-export interface Parameter_ConstructProps {
-}
 export interface Parameter {
 }
 export interface Parameter_Static {
-    new (config: Parameter_ConstructProps): Parameter
 }
 export declare var Parameter: Parameter_Static
-export interface SignalInvocationHint_ConstructProps {
-}
 export interface SignalInvocationHint {
 }
 export interface SignalInvocationHint_Static {
-    new (config: SignalInvocationHint_ConstructProps): SignalInvocationHint
 }
 export declare var SignalInvocationHint: SignalInvocationHint_Static
-export interface SignalQuery_ConstructProps {
-}
 export interface SignalQuery {
 }
 export interface SignalQuery_Static {
-    new (config: SignalQuery_ConstructProps): SignalQuery
 }
 export declare var SignalQuery: SignalQuery_Static
-export interface TypeClass_ConstructProps {
-}
 export interface TypeClass {
-    /* Methods of TypeClass */
+    /* Methods of GObject.TypeClass */
     peek_parent(): TypeClass
     unref(): void
 }
 export interface TypeClass_Static {
-    new (config: TypeClass_ConstructProps): TypeClass
 }
 export declare class TypeClass_Static {
     add_private(g_class: object, private_size: number): void
@@ -1304,39 +1175,27 @@ export declare class TypeClass_Static {
     ref(type: number): TypeClass
 }
 export declare var TypeClass: TypeClass_Static
-export interface TypeFundamentalInfo_ConstructProps {
-}
 export interface TypeFundamentalInfo {
 }
 export interface TypeFundamentalInfo_Static {
-    new (config: TypeFundamentalInfo_ConstructProps): TypeFundamentalInfo
 }
 export declare var TypeFundamentalInfo: TypeFundamentalInfo_Static
-export interface TypeInfo_ConstructProps {
-}
 export interface TypeInfo {
 }
 export interface TypeInfo_Static {
-    new (config: TypeInfo_ConstructProps): TypeInfo
 }
 export declare var TypeInfo: TypeInfo_Static
-export interface TypeInstance_ConstructProps {
-}
 export interface TypeInstance {
-    /* Methods of TypeInstance */
+    /* Methods of GObject.TypeInstance */
 }
 export interface TypeInstance_Static {
-    new (config: TypeInstance_ConstructProps): TypeInstance
 }
 export declare var TypeInstance: TypeInstance_Static
-export interface TypeInterface_ConstructProps {
-}
 export interface TypeInterface {
-    /* Methods of TypeInterface */
+    /* Methods of GObject.TypeInterface */
     peek_parent(): TypeInterface
 }
 export interface TypeInterface_Static {
-    new (config: TypeInterface_ConstructProps): TypeInterface
 }
 export declare class TypeInterface_Static {
     add_prerequisite(interface_type: number, prerequisite_type: number): void
@@ -1345,42 +1204,28 @@ export declare class TypeInterface_Static {
     prerequisites(interface_type: number): [ /* returnType */ number, /* n_prerequisites */ number | null ]
 }
 export declare var TypeInterface: TypeInterface_Static
-export interface TypeModuleClass_ConstructProps {
-}
 export interface TypeModuleClass {
 }
 export interface TypeModuleClass_Static {
-    new (config: TypeModuleClass_ConstructProps): TypeModuleClass
 }
 export declare var TypeModuleClass: TypeModuleClass_Static
-export interface TypePluginClass_ConstructProps {
-}
 export interface TypePluginClass {
 }
 export interface TypePluginClass_Static {
-    new (config: TypePluginClass_ConstructProps): TypePluginClass
 }
 export declare var TypePluginClass: TypePluginClass_Static
-export interface TypeQuery_ConstructProps {
-}
 export interface TypeQuery {
 }
 export interface TypeQuery_Static {
-    new (config: TypeQuery_ConstructProps): TypeQuery
 }
 export declare var TypeQuery: TypeQuery_Static
-export interface TypeValueTable_ConstructProps {
-}
 export interface TypeValueTable {
 }
 export interface TypeValueTable_Static {
-    new (config: TypeValueTable_ConstructProps): TypeValueTable
 }
 export declare var TypeValueTable: TypeValueTable_Static
-export interface Value_ConstructProps {
-}
 export interface Value {
-    /* Methods of Value */
+    /* Methods of GObject.Value */
     copy(dest_value: Value): void
     dup_object(): Object
     dup_string(): string
@@ -1444,17 +1289,14 @@ export interface Value {
     unset(): void
 }
 export interface Value_Static {
-    new (config: Value_ConstructProps): Value
 }
 export declare class Value_Static {
     type_compatible(src_type: number, dest_type: number): boolean
     type_transformable(src_type: number, dest_type: number): boolean
 }
 export declare var Value: Value_Static
-export interface ValueArray_ConstructProps {
-}
 export interface ValueArray {
-    /* Methods of ValueArray */
+    /* Methods of GObject.ValueArray */
     append(value: Value | null): ValueArray
     copy(): ValueArray
     free(): void
@@ -1466,35 +1308,25 @@ export interface ValueArray {
     sort_with_data(compare_func: GLib.CompareDataFunc, user_data: object): ValueArray
 }
 export interface ValueArray_Static {
-    new (config: ValueArray_ConstructProps): ValueArray
 }
 export declare class ValueArray_Static {
     new(n_prealloced: number): ValueArray
 }
 export declare var ValueArray: ValueArray_Static
-export interface WeakRef_ConstructProps {
-}
 export interface WeakRef {
-    /* Methods of WeakRef */
+    /* Methods of GObject.WeakRef */
 }
 export interface WeakRef_Static {
-    new (config: WeakRef_ConstructProps): WeakRef
 }
 export declare var WeakRef: WeakRef_Static
-export interface TypeCValue_ConstructProps {
-}
 export interface TypeCValue {
 }
 export interface TypeCValue_Static {
-    new (config: TypeCValue_ConstructProps): TypeCValue
 }
 export declare var TypeCValue: TypeCValue_Static
-export interface _Value__data__union_ConstructProps {
-}
 export interface _Value__data__union {
 }
 export interface _Value__data__union_Static {
-    new (config: _Value__data__union_ConstructProps): _Value__data__union
 }
 export declare var _Value__data__union: _Value__data__union_Static
 type InitiallyUnowned_autoptr = object

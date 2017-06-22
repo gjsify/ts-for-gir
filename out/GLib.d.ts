@@ -1462,18 +1462,13 @@ export interface UnixFDSourceFunc {
 export interface VoidFunc {
     (): void
 }
-export interface Array_ConstructProps {
-}
 export interface Array {
 }
 export interface Array_Static {
-    new (config: Array_ConstructProps): Array
 }
 export declare var Array: Array_Static
-export interface AsyncQueue_ConstructProps {
-}
 export interface AsyncQueue {
-    /* Methods of AsyncQueue */
+    /* Methods of GLib.AsyncQueue */
     length(): number
     length_unlocked(): number
     lock(): void
@@ -1489,13 +1484,10 @@ export interface AsyncQueue {
     unref_and_unlock(): void
 }
 export interface AsyncQueue_Static {
-    new (config: AsyncQueue_ConstructProps): AsyncQueue
 }
 export declare var AsyncQueue: AsyncQueue_Static
-export interface BookmarkFile_ConstructProps {
-}
 export interface BookmarkFile {
-    /* Methods of BookmarkFile */
+    /* Methods of GLib.BookmarkFile */
     add_application(uri: string, name: string | null, exec: string | null): void
     add_group(uri: string, group: string): void
     free(): void
@@ -1536,18 +1528,14 @@ export interface BookmarkFile {
     to_file(filename: string): boolean
 }
 export interface BookmarkFile_Static {
-    new (config: BookmarkFile_ConstructProps): BookmarkFile
 }
 export declare class BookmarkFile_Static {
     error_quark(): Quark
 }
 export declare var BookmarkFile: BookmarkFile_Static
-export interface ByteArray_ConstructProps {
-}
 export interface ByteArray {
 }
 export interface ByteArray_Static {
-    new (config: ByteArray_ConstructProps): ByteArray
 }
 export declare class ByteArray_Static {
     free(array: number[], free_segment: boolean): number
@@ -1557,10 +1545,8 @@ export declare class ByteArray_Static {
     unref(array: number[]): void
 }
 export declare var ByteArray: ByteArray_Static
-export interface Bytes_ConstructProps {
-}
 export interface Bytes {
-    /* Methods of Bytes */
+    /* Methods of GLib.Bytes */
     compare(bytes2: Bytes): number
     equal(bytes2: Bytes): boolean
     get_data(): [ /* returnType */ number[], /* size */ number | null ]
@@ -1573,17 +1559,14 @@ export interface Bytes {
     unref_to_data(size: number): object
 }
 export interface Bytes_Static {
-    new (config: Bytes_ConstructProps): Bytes
 }
 export declare class Bytes_Static {
     new(data: number[] | null, size: number): Bytes
     new_take(data: number[] | null, size: number): Bytes
 }
 export declare var Bytes: Bytes_Static
-export interface Checksum_ConstructProps {
-}
 export interface Checksum {
-    /* Methods of Checksum */
+    /* Methods of GLib.Checksum */
     copy(): Checksum
     free(): void
     get_string(): string
@@ -1591,17 +1574,14 @@ export interface Checksum {
     update(data: number[], length: number): void
 }
 export interface Checksum_Static {
-    new (config: Checksum_ConstructProps): Checksum
 }
 export declare class Checksum_Static {
     new(checksum_type: ChecksumType): Checksum
     type_get_length(checksum_type: ChecksumType): number
 }
 export declare var Checksum: Checksum_Static
-export interface Cond_ConstructProps {
-}
 export interface Cond {
-    /* Methods of Cond */
+    /* Methods of GLib.Cond */
     broadcast(): void
     clear(): void
     init(): void
@@ -1610,21 +1590,15 @@ export interface Cond {
     wait_until(mutex: Mutex, end_time: number): boolean
 }
 export interface Cond_Static {
-    new (config: Cond_ConstructProps): Cond
 }
 export declare var Cond: Cond_Static
-export interface Data_ConstructProps {
-}
 export interface Data {
 }
 export interface Data_Static {
-    new (config: Data_ConstructProps): Data
 }
 export declare var Data: Data_Static
-export interface Date_ConstructProps {
-}
 export interface Date {
-    /* Methods of Date */
+    /* Methods of GLib.Date */
     add_days(n_days: number): void
     add_months(n_months: number): void
     add_years(n_years: number): void
@@ -1661,7 +1635,6 @@ export interface Date {
     valid(): boolean
 }
 export interface Date_Static {
-    new (config: Date_ConstructProps): Date
 }
 export declare class Date_Static {
     new(): Date
@@ -1680,10 +1653,8 @@ export declare class Date_Static {
     valid_year(year: DateYear): boolean
 }
 export declare var Date: Date_Static
-export interface DateTime_ConstructProps {
-}
 export interface DateTime {
-    /* Methods of DateTime */
+    /* Methods of GLib.DateTime */
     add(timespan: TimeSpan): DateTime
     add_days(days: number): DateTime
     add_full(years: number, months: number, days: number, hours: number, minutes: number, seconds: number): DateTime
@@ -1720,7 +1691,6 @@ export interface DateTime {
     unref(): void
 }
 export interface DateTime_Static {
-    new (config: DateTime_ConstructProps): DateTime
 }
 export declare class DateTime_Static {
     new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
@@ -1738,50 +1708,38 @@ export declare class DateTime_Static {
     hash(datetime: object): number
 }
 export declare var DateTime: DateTime_Static
-export interface DebugKey_ConstructProps {
-}
 export interface DebugKey {
 }
 export interface DebugKey_Static {
-    new (config: DebugKey_ConstructProps): DebugKey
 }
 export declare var DebugKey: DebugKey_Static
-export interface Dir_ConstructProps {
-}
 export interface Dir {
-    /* Methods of Dir */
+    /* Methods of GLib.Dir */
     close(): void
     read_name(): string
     rewind(): void
 }
 export interface Dir_Static {
-    new (config: Dir_ConstructProps): Dir
 }
 export declare class Dir_Static {
     make_tmp(tmpl: string): string
 }
 export declare var Dir: Dir_Static
-export interface Error_ConstructProps {
-}
 export interface Error {
-    /* Methods of Error */
+    /* Methods of GLib.Error */
     copy(): Error
     free(): void
     matches(domain: Quark, code: number): boolean
 }
 export interface Error_Static {
-    new (config: Error_ConstructProps): Error
 }
 export declare class Error_Static {
     new_literal(domain: Quark, code: number, message: string): Error
 }
 export declare var Error: Error_Static
-export interface HashTable_ConstructProps {
-}
 export interface HashTable {
 }
 export interface HashTable_Static {
-    new (config: HashTable_ConstructProps): HashTable
 }
 export declare class HashTable_Static {
     add(hash_table: HashTable, key: object): boolean
@@ -1798,10 +1756,8 @@ export declare class HashTable_Static {
     unref(hash_table: HashTable): void
 }
 export declare var HashTable: HashTable_Static
-export interface HashTableIter_ConstructProps {
-}
 export interface HashTableIter {
-    /* Methods of HashTableIter */
+    /* Methods of GLib.HashTableIter */
     init(hash_table: HashTable): void
     next(key: object | null, value: object | null): boolean
     remove(): void
@@ -1809,30 +1765,23 @@ export interface HashTableIter {
     steal(): void
 }
 export interface HashTableIter_Static {
-    new (config: HashTableIter_ConstructProps): HashTableIter
 }
 export declare var HashTableIter: HashTableIter_Static
-export interface Hmac_ConstructProps {
-}
 export interface Hmac {
-    /* Methods of Hmac */
+    /* Methods of GLib.Hmac */
     get_digest(buffer: number, digest_len: number): void
     get_string(): string
     unref(): void
     update(data: number[], length: number): void
 }
 export interface Hmac_Static {
-    new (config: Hmac_ConstructProps): Hmac
 }
 export declare var Hmac: Hmac_Static
-export interface Hook_ConstructProps {
-}
 export interface Hook {
-    /* Methods of Hook */
+    /* Methods of GLib.Hook */
     compare_ids(sibling: Hook): number
 }
 export interface Hook_Static {
-    new (config: Hook_ConstructProps): Hook
 }
 export declare class Hook_Static {
     destroy(hook_list: HookList, hook_id: number): boolean
@@ -1843,33 +1792,25 @@ export declare class Hook_Static {
     unref(hook_list: HookList, hook: Hook): void
 }
 export declare var Hook: Hook_Static
-export interface HookList_ConstructProps {
-}
 export interface HookList {
-    /* Methods of HookList */
+    /* Methods of GLib.HookList */
     clear(): void
     init(hook_size: number): void
     invoke(may_recurse: boolean): void
     invoke_check(may_recurse: boolean): void
 }
 export interface HookList_Static {
-    new (config: HookList_ConstructProps): HookList
 }
 export declare var HookList: HookList_Static
-export interface IConv_ConstructProps {
-}
 export interface IConv {
-    /* Methods of IConv */
+    /* Methods of GLib.IConv */
     close(): number
 }
 export interface IConv_Static {
-    new (config: IConv_ConstructProps): IConv
 }
 export declare var IConv: IConv_Static
-export interface IOChannel_ConstructProps {
-}
 export interface IOChannel {
-    /* Methods of IOChannel */
+    /* Methods of GLib.IOChannel */
     close(): void
     flush(): IOStatus
     get_buffer_condition(): IOCondition
@@ -1903,7 +1844,6 @@ export interface IOChannel {
     write_unichar(thechar: number): IOStatus
 }
 export interface IOChannel_Static {
-    new (config: IOChannel_ConstructProps): IOChannel
 }
 export declare class IOChannel_Static {
     new_file(filename: string, mode: string): IOChannel
@@ -1912,18 +1852,13 @@ export declare class IOChannel_Static {
     error_quark(): Quark
 }
 export declare var IOChannel: IOChannel_Static
-export interface IOFuncs_ConstructProps {
-}
 export interface IOFuncs {
 }
 export interface IOFuncs_Static {
-    new (config: IOFuncs_ConstructProps): IOFuncs
 }
 export declare var IOFuncs: IOFuncs_Static
-export interface KeyFile_ConstructProps {
-}
 export interface KeyFile {
-    /* Methods of KeyFile */
+    /* Methods of GLib.KeyFile */
     get_boolean(group_name: string, key: string): boolean
     get_boolean_list(group_name: string, key: string): [ /* returnType */ boolean[], /* length */ number ]
     get_comment(group_name: string | null, key: string): string
@@ -1969,25 +1904,19 @@ export interface KeyFile {
     unref(): void
 }
 export interface KeyFile_Static {
-    new (config: KeyFile_ConstructProps): KeyFile
 }
 export declare class KeyFile_Static {
     new(): KeyFile
     error_quark(): Quark
 }
 export declare var KeyFile: KeyFile_Static
-export interface List_ConstructProps {
-}
 export interface List {
 }
 export interface List_Static {
-    new (config: List_ConstructProps): List
 }
 export declare var List: List_Static
-export interface MainContext_ConstructProps {
-}
 export interface MainContext {
-    /* Methods of MainContext */
+    /* Methods of GLib.MainContext */
     acquire(): boolean
     add_poll(fd: PollFD, priority: number): void
     check(max_priority: number, fds: PollFD[], n_fds: number): number
@@ -2011,7 +1940,6 @@ export interface MainContext {
     wakeup(): void
 }
 export interface MainContext_Static {
-    new (config: MainContext_ConstructProps): MainContext
 }
 export declare class MainContext_Static {
     new(): MainContext
@@ -2020,10 +1948,8 @@ export declare class MainContext_Static {
     ref_thread_default(): MainContext
 }
 export declare var MainContext: MainContext_Static
-export interface MainLoop_ConstructProps {
-}
 export interface MainLoop {
-    /* Methods of MainLoop */
+    /* Methods of GLib.MainLoop */
     get_context(): MainContext
     is_running(): boolean
     quit(): void
@@ -2032,16 +1958,13 @@ export interface MainLoop {
     unref(): void
 }
 export interface MainLoop_Static {
-    new (config: MainLoop_ConstructProps): MainLoop
 }
 export declare class MainLoop_Static {
     new(context: MainContext | null, is_running: boolean): MainLoop
 }
 export declare var MainLoop: MainLoop_Static
-export interface MappedFile_ConstructProps {
-}
 export interface MappedFile {
-    /* Methods of MappedFile */
+    /* Methods of GLib.MappedFile */
     free(): void
     get_bytes(): Bytes
     get_contents(): string
@@ -2050,17 +1973,14 @@ export interface MappedFile {
     unref(): void
 }
 export interface MappedFile_Static {
-    new (config: MappedFile_ConstructProps): MappedFile
 }
 export declare class MappedFile_Static {
     new(filename: string, writable: boolean): MappedFile
     new_from_fd(fd: number, writable: boolean): MappedFile
 }
 export declare var MappedFile: MappedFile_Static
-export interface MarkupParseContext_ConstructProps {
-}
 export interface MarkupParseContext {
-    /* Methods of MarkupParseContext */
+    /* Methods of GLib.MarkupParseContext */
     end_parse(): boolean
     free(): void
     get_element(): string
@@ -2071,24 +1991,18 @@ export interface MarkupParseContext {
     unref(): void
 }
 export interface MarkupParseContext_Static {
-    new (config: MarkupParseContext_ConstructProps): MarkupParseContext
 }
 export declare class MarkupParseContext_Static {
     new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object, user_data_dnotify: DestroyNotify): MarkupParseContext
 }
 export declare var MarkupParseContext: MarkupParseContext_Static
-export interface MarkupParser_ConstructProps {
-}
 export interface MarkupParser {
 }
 export interface MarkupParser_Static {
-    new (config: MarkupParser_ConstructProps): MarkupParser
 }
 export declare var MarkupParser: MarkupParser_Static
-export interface MatchInfo_ConstructProps {
-}
 export interface MatchInfo {
-    /* Methods of MatchInfo */
+    /* Methods of GLib.MatchInfo */
     expand_references(string_to_expand: string): string
     fetch(match_num: number): string
     fetch_all(): string[]
@@ -2106,21 +2020,15 @@ export interface MatchInfo {
     unref(): void
 }
 export interface MatchInfo_Static {
-    new (config: MatchInfo_ConstructProps): MatchInfo
 }
 export declare var MatchInfo: MatchInfo_Static
-export interface MemVTable_ConstructProps {
-}
 export interface MemVTable {
 }
 export interface MemVTable_Static {
-    new (config: MemVTable_ConstructProps): MemVTable
 }
 export declare var MemVTable: MemVTable_Static
-export interface Node_ConstructProps {
-}
 export interface Node {
-    /* Methods of Node */
+    /* Methods of GLib.Node */
     child_index(data: object): number
     child_position(child: Node): number
     depth(): number
@@ -2133,26 +2041,20 @@ export interface Node {
     unlink(): void
 }
 export interface Node_Static {
-    new (config: Node_ConstructProps): Node
 }
 export declare var Node: Node_Static
-export interface Once_ConstructProps {
-}
 export interface Once {
-    /* Methods of Once */
+    /* Methods of GLib.Once */
 }
 export interface Once_Static {
-    new (config: Once_ConstructProps): Once
 }
 export declare class Once_Static {
     init_enter(location: object): boolean
     init_leave(location: object, result: number): void
 }
 export declare var Once: Once_Static
-export interface OptionContext_ConstructProps {
-}
 export interface OptionContext {
-    /* Methods of OptionContext */
+    /* Methods of GLib.OptionContext */
     add_group(group: OptionGroup): void
     add_main_entries(entries: OptionEntry, translation_domain: string | null): void
     free(): void
@@ -2175,21 +2077,15 @@ export interface OptionContext {
     set_translation_domain(domain: string): void
 }
 export interface OptionContext_Static {
-    new (config: OptionContext_ConstructProps): OptionContext
 }
 export declare var OptionContext: OptionContext_Static
-export interface OptionEntry_ConstructProps {
-}
 export interface OptionEntry {
 }
 export interface OptionEntry_Static {
-    new (config: OptionEntry_ConstructProps): OptionEntry
 }
 export declare var OptionEntry: OptionEntry_Static
-export interface OptionGroup_ConstructProps {
-}
 export interface OptionGroup {
-    /* Methods of OptionGroup */
+    /* Methods of GLib.OptionGroup */
     add_entries(entries: OptionEntry): void
     free(): void
     ref(): OptionGroup
@@ -2198,54 +2094,39 @@ export interface OptionGroup {
     unref(): void
 }
 export interface OptionGroup_Static {
-    new (config: OptionGroup_ConstructProps): OptionGroup
 }
 export declare class OptionGroup_Static {
     new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
 }
 export declare var OptionGroup: OptionGroup_Static
-export interface PatternSpec_ConstructProps {
-}
 export interface PatternSpec {
-    /* Methods of PatternSpec */
+    /* Methods of GLib.PatternSpec */
     equal(pspec2: PatternSpec): boolean
     free(): void
 }
 export interface PatternSpec_Static {
-    new (config: PatternSpec_ConstructProps): PatternSpec
 }
 export declare var PatternSpec: PatternSpec_Static
-export interface PollFD_ConstructProps {
-}
 export interface PollFD {
 }
 export interface PollFD_Static {
-    new (config: PollFD_ConstructProps): PollFD
 }
 export declare var PollFD: PollFD_Static
-export interface Private_ConstructProps {
-}
 export interface Private {
-    /* Methods of Private */
+    /* Methods of GLib.Private */
     replace(value: object): void
     set(value: object): void
 }
 export interface Private_Static {
-    new (config: Private_ConstructProps): Private
 }
 export declare var Private: Private_Static
-export interface PtrArray_ConstructProps {
-}
 export interface PtrArray {
 }
 export interface PtrArray_Static {
-    new (config: PtrArray_ConstructProps): PtrArray
 }
 export declare var PtrArray: PtrArray_Static
-export interface Queue_ConstructProps {
-}
 export interface Queue {
-    /* Methods of Queue */
+    /* Methods of GLib.Queue */
     clear(): void
     free(): void
     free_full(free_func: DestroyNotify): void
@@ -2261,13 +2142,10 @@ export interface Queue {
     reverse(): void
 }
 export interface Queue_Static {
-    new (config: Queue_ConstructProps): Queue
 }
 export declare var Queue: Queue_Static
-export interface RWLock_ConstructProps {
-}
 export interface RWLock {
-    /* Methods of RWLock */
+    /* Methods of GLib.RWLock */
     clear(): void
     init(): void
     reader_lock(): void
@@ -2278,13 +2156,10 @@ export interface RWLock {
     writer_unlock(): void
 }
 export interface RWLock_Static {
-    new (config: RWLock_ConstructProps): RWLock
 }
 export declare var RWLock: RWLock_Static
-export interface Rand_ConstructProps {
-}
 export interface Rand {
-    /* Methods of Rand */
+    /* Methods of GLib.Rand */
     double(): number
     double_range(begin: number, end: number): number
     free(): void
@@ -2294,13 +2169,10 @@ export interface Rand {
     set_seed_array(seed: number, seed_length: number): void
 }
 export interface Rand_Static {
-    new (config: Rand_ConstructProps): Rand
 }
 export declare var Rand: Rand_Static
-export interface RecMutex_ConstructProps {
-}
 export interface RecMutex {
-    /* Methods of RecMutex */
+    /* Methods of GLib.RecMutex */
     clear(): void
     init(): void
     lock(): void
@@ -2308,13 +2180,10 @@ export interface RecMutex {
     unlock(): void
 }
 export interface RecMutex_Static {
-    new (config: RecMutex_ConstructProps): RecMutex
 }
 export declare var RecMutex: RecMutex_Static
-export interface Regex_ConstructProps {
-}
 export interface Regex {
-    /* Methods of Regex */
+    /* Methods of GLib.Regex */
     get_capture_count(): number
     get_compile_flags(): RegexCompileFlags
     get_has_cr_or_lf(): boolean
@@ -2335,7 +2204,6 @@ export interface Regex {
     unref(): void
 }
 export interface Regex_Static {
-    new (config: Regex_ConstructProps): Regex
 }
 export declare class Regex_Static {
     new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex
@@ -2347,18 +2215,13 @@ export declare class Regex_Static {
     split_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): string[]
 }
 export declare var Regex: Regex_Static
-export interface SList_ConstructProps {
-}
 export interface SList {
 }
 export interface SList_Static {
-    new (config: SList_ConstructProps): SList
 }
 export declare var SList: SList_Static
-export interface Scanner_ConstructProps {
-}
 export interface Scanner {
-    /* Methods of Scanner */
+    /* Methods of GLib.Scanner */
     cur_line(): number
     cur_position(): number
     cur_token(): TokenType
@@ -2375,27 +2238,20 @@ export interface Scanner {
     unexp_token(expected_token: TokenType, identifier_spec: string, symbol_spec: string, symbol_name: string, message: string, is_error: number): void
 }
 export interface Scanner_Static {
-    new (config: Scanner_ConstructProps): Scanner
 }
 export declare var Scanner: Scanner_Static
-export interface ScannerConfig_ConstructProps {
-}
 export interface ScannerConfig {
 }
 export interface ScannerConfig_Static {
-    new (config: ScannerConfig_ConstructProps): ScannerConfig
 }
 export declare var ScannerConfig: ScannerConfig_Static
-export interface Sequence_ConstructProps {
-}
 export interface Sequence {
-    /* Methods of Sequence */
+    /* Methods of GLib.Sequence */
     free(): void
     get_length(): number
     is_empty(): boolean
 }
 export interface Sequence_Static {
-    new (config: Sequence_ConstructProps): Sequence
 }
 export declare class Sequence_Static {
     move(src: SequenceIter, dest: SequenceIter): void
@@ -2406,23 +2262,18 @@ export declare class Sequence_Static {
     swap(a: SequenceIter, b: SequenceIter): void
 }
 export declare var Sequence: Sequence_Static
-export interface SequenceIter_ConstructProps {
-}
 export interface SequenceIter {
-    /* Methods of SequenceIter */
+    /* Methods of GLib.SequenceIter */
     compare(b: SequenceIter): number
     get_position(): number
     is_begin(): boolean
     is_end(): boolean
 }
 export interface SequenceIter_Static {
-    new (config: SequenceIter_ConstructProps): SequenceIter
 }
 export declare var SequenceIter: SequenceIter_Static
-export interface Source_ConstructProps {
-}
 export interface Source {
-    /* Methods of Source */
+    /* Methods of GLib.Source */
     add_child_source(child_source: Source): void
     add_poll(fd: PollFD): void
     attach(context: MainContext | null): number
@@ -2452,7 +2303,6 @@ export interface Source {
     unref(): void
 }
 export interface Source_Static {
-    new (config: Source_ConstructProps): Source
 }
 export declare class Source_Static {
     new(source_funcs: SourceFuncs, struct_size: number): Source
@@ -2462,42 +2312,28 @@ export declare class Source_Static {
     set_name_by_id(tag: number, name: string): void
 }
 export declare var Source: Source_Static
-export interface SourceCallbackFuncs_ConstructProps {
-}
 export interface SourceCallbackFuncs {
 }
 export interface SourceCallbackFuncs_Static {
-    new (config: SourceCallbackFuncs_ConstructProps): SourceCallbackFuncs
 }
 export declare var SourceCallbackFuncs: SourceCallbackFuncs_Static
-export interface SourceFuncs_ConstructProps {
-}
 export interface SourceFuncs {
 }
 export interface SourceFuncs_Static {
-    new (config: SourceFuncs_ConstructProps): SourceFuncs
 }
 export declare var SourceFuncs: SourceFuncs_Static
-export interface SourcePrivate_ConstructProps {
-}
 export interface SourcePrivate {
 }
 export interface SourcePrivate_Static {
-    new (config: SourcePrivate_ConstructProps): SourcePrivate
 }
 export declare var SourcePrivate: SourcePrivate_Static
-export interface StatBuf_ConstructProps {
-}
 export interface StatBuf {
 }
 export interface StatBuf_Static {
-    new (config: StatBuf_ConstructProps): StatBuf
 }
 export declare var StatBuf: StatBuf_Static
-export interface String_ConstructProps {
-}
 export interface String {
-    /* Methods of String */
+    /* Methods of GLib.String */
     append(val: string): String
     append_c(c: number): String
     append_len(val: string, len: number): String
@@ -2527,13 +2363,10 @@ export interface String {
     up(): String
 }
 export interface String_Static {
-    new (config: String_ConstructProps): String
 }
 export declare var String: String_Static
-export interface StringChunk_ConstructProps {
-}
 export interface StringChunk {
-    /* Methods of StringChunk */
+    /* Methods of GLib.StringChunk */
     clear(): void
     free(): void
     insert(string: string): string
@@ -2541,66 +2374,47 @@ export interface StringChunk {
     insert_len(string: string, len: number): string
 }
 export interface StringChunk_Static {
-    new (config: StringChunk_ConstructProps): StringChunk
 }
 export declare var StringChunk: StringChunk_Static
-export interface TestCase_ConstructProps {
-}
 export interface TestCase {
 }
 export interface TestCase_Static {
-    new (config: TestCase_ConstructProps): TestCase
 }
 export declare var TestCase: TestCase_Static
-export interface TestConfig_ConstructProps {
-}
 export interface TestConfig {
 }
 export interface TestConfig_Static {
-    new (config: TestConfig_ConstructProps): TestConfig
 }
 export declare var TestConfig: TestConfig_Static
-export interface TestLogBuffer_ConstructProps {
-}
 export interface TestLogBuffer {
-    /* Methods of TestLogBuffer */
+    /* Methods of GLib.TestLogBuffer */
     free(): void
     push(n_bytes: number, bytes: number): void
 }
 export interface TestLogBuffer_Static {
-    new (config: TestLogBuffer_ConstructProps): TestLogBuffer
 }
 export declare var TestLogBuffer: TestLogBuffer_Static
-export interface TestLogMsg_ConstructProps {
-}
 export interface TestLogMsg {
-    /* Methods of TestLogMsg */
+    /* Methods of GLib.TestLogMsg */
     free(): void
 }
 export interface TestLogMsg_Static {
-    new (config: TestLogMsg_ConstructProps): TestLogMsg
 }
 export declare var TestLogMsg: TestLogMsg_Static
-export interface TestSuite_ConstructProps {
-}
 export interface TestSuite {
-    /* Methods of TestSuite */
+    /* Methods of GLib.TestSuite */
     add(test_case: TestCase): void
     add_suite(nestedsuite: TestSuite): void
 }
 export interface TestSuite_Static {
-    new (config: TestSuite_ConstructProps): TestSuite
 }
 export declare var TestSuite: TestSuite_Static
-export interface Thread_ConstructProps {
-}
 export interface Thread {
-    /* Methods of Thread */
+    /* Methods of GLib.Thread */
     ref(): Thread
     unref(): void
 }
 export interface Thread_Static {
-    new (config: Thread_ConstructProps): Thread
 }
 export declare class Thread_Static {
     error_quark(): Quark
@@ -2609,10 +2423,8 @@ export declare class Thread_Static {
     yield(): void
 }
 export declare var Thread: Thread_Static
-export interface ThreadPool_ConstructProps {
-}
 export interface ThreadPool {
-    /* Methods of ThreadPool */
+    /* Methods of GLib.ThreadPool */
     free(immediate: boolean, wait_: boolean): void
     get_max_threads(): number
     get_num_threads(): number
@@ -2622,7 +2434,6 @@ export interface ThreadPool {
     unprocessed(): number
 }
 export interface ThreadPool_Static {
-    new (config: ThreadPool_ConstructProps): ThreadPool
 }
 export declare class ThreadPool_Static {
     get_max_idle_time(): number
@@ -2633,24 +2444,19 @@ export declare class ThreadPool_Static {
     stop_unused_threads(): void
 }
 export declare var ThreadPool: ThreadPool_Static
-export interface TimeVal_ConstructProps {
-}
 export interface TimeVal {
-    /* Methods of TimeVal */
+    /* Methods of GLib.TimeVal */
     add(microseconds: number): void
     to_iso8601(): string
 }
 export interface TimeVal_Static {
-    new (config: TimeVal_ConstructProps): TimeVal
 }
 export declare class TimeVal_Static {
     from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
 }
 export declare var TimeVal: TimeVal_Static
-export interface TimeZone_ConstructProps {
-}
 export interface TimeZone {
-    /* Methods of TimeZone */
+    /* Methods of GLib.TimeZone */
     adjust_time(type: TimeType, time_: number): number
     find_interval(type: TimeType, time_: number): number
     get_abbreviation(interval: number): string
@@ -2660,7 +2466,6 @@ export interface TimeZone {
     unref(): void
 }
 export interface TimeZone_Static {
-    new (config: TimeZone_ConstructProps): TimeZone
 }
 export declare class TimeZone_Static {
     new(identifier: string | null): TimeZone
@@ -2668,10 +2473,8 @@ export declare class TimeZone_Static {
     new_utc(): TimeZone
 }
 export declare var TimeZone: TimeZone_Static
-export interface Timer_ConstructProps {
-}
 export interface Timer {
-    /* Methods of Timer */
+    /* Methods of GLib.Timer */
     continue(): void
     destroy(): void
     elapsed(microseconds: number): number
@@ -2680,25 +2483,19 @@ export interface Timer {
     stop(): void
 }
 export interface Timer_Static {
-    new (config: Timer_ConstructProps): Timer
 }
 export declare var Timer: Timer_Static
-export interface TrashStack_ConstructProps {
-}
 export interface TrashStack {
 }
 export interface TrashStack_Static {
-    new (config: TrashStack_ConstructProps): TrashStack
 }
 export declare class TrashStack_Static {
     height(stack_p: TrashStack): number
     push(stack_p: TrashStack, data_p: object): void
 }
 export declare var TrashStack: TrashStack_Static
-export interface Tree_ConstructProps {
-}
 export interface Tree {
-    /* Methods of Tree */
+    /* Methods of GLib.Tree */
     destroy(): void
     height(): number
     insert(key: object, value: object): void
@@ -2710,13 +2507,10 @@ export interface Tree {
     unref(): void
 }
 export interface Tree_Static {
-    new (config: Tree_ConstructProps): Tree
 }
 export declare var Tree: Tree_Static
-export interface Variant_ConstructProps {
-}
 export interface Variant {
-    /* Methods of Variant */
+    /* Methods of GLib.Variant */
     byteswap(): Variant
     check_format_string(format_string: string, copy_only: boolean): boolean
     classify(): VariantClass
@@ -2766,7 +2560,6 @@ export interface Variant {
     unref(): void
 }
 export interface Variant_Static {
-    new (config: Variant_ConstructProps): Variant
 }
 export declare class Variant_Static {
     new_array(child_type: VariantType | null, children: Variant[] | null, n_children: number): Variant
@@ -2802,10 +2595,8 @@ export declare class Variant_Static {
     parser_get_error_quark(): Quark
 }
 export declare var Variant: Variant_Static
-export interface VariantBuilder_ConstructProps {
-}
 export interface VariantBuilder {
-    /* Methods of VariantBuilder */
+    /* Methods of GLib.VariantBuilder */
     add_value(value: Variant): void
     close(): void
     end(): Variant
@@ -2814,16 +2605,13 @@ export interface VariantBuilder {
     unref(): void
 }
 export interface VariantBuilder_Static {
-    new (config: VariantBuilder_ConstructProps): VariantBuilder
 }
 export declare class VariantBuilder_Static {
     new(type: VariantType): VariantBuilder
 }
 export declare var VariantBuilder: VariantBuilder_Static
-export interface VariantDict_ConstructProps {
-}
 export interface VariantDict {
-    /* Methods of VariantDict */
+    /* Methods of GLib.VariantDict */
     clear(): void
     contains(key: string): boolean
     end(): Variant
@@ -2834,28 +2622,22 @@ export interface VariantDict {
     unref(): void
 }
 export interface VariantDict_Static {
-    new (config: VariantDict_ConstructProps): VariantDict
 }
 export declare class VariantDict_Static {
     new(from_asv: Variant | null): VariantDict
 }
 export declare var VariantDict: VariantDict_Static
-export interface VariantIter_ConstructProps {
-}
 export interface VariantIter {
-    /* Methods of VariantIter */
+    /* Methods of GLib.VariantIter */
     free(): void
     n_children(): number
     next_value(): Variant
 }
 export interface VariantIter_Static {
-    new (config: VariantIter_ConstructProps): VariantIter
 }
 export declare var VariantIter: VariantIter_Static
-export interface VariantType_ConstructProps {
-}
 export interface VariantType {
-    /* Methods of VariantType */
+    /* Methods of GLib.VariantType */
     copy(): VariantType
     dup_string(): string
     element(): VariantType
@@ -2879,7 +2661,6 @@ export interface VariantType {
     value(): VariantType
 }
 export interface VariantType_Static {
-    new (config: VariantType_ConstructProps): VariantType
 }
 export declare class VariantType_Static {
     new(type_string: string): VariantType
@@ -2892,26 +2673,18 @@ export declare class VariantType_Static {
     string_scan(string: string, limit: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
 }
 export declare var VariantType: VariantType_Static
-export interface DoubleIEEE754_ConstructProps {
-}
 export interface DoubleIEEE754 {
 }
 export interface DoubleIEEE754_Static {
-    new (config: DoubleIEEE754_ConstructProps): DoubleIEEE754
 }
 export declare var DoubleIEEE754: DoubleIEEE754_Static
-export interface FloatIEEE754_ConstructProps {
-}
 export interface FloatIEEE754 {
 }
 export interface FloatIEEE754_Static {
-    new (config: FloatIEEE754_ConstructProps): FloatIEEE754
 }
 export declare var FloatIEEE754: FloatIEEE754_Static
-export interface Mutex_ConstructProps {
-}
 export interface Mutex {
-    /* Methods of Mutex */
+    /* Methods of GLib.Mutex */
     clear(): void
     init(): void
     lock(): void
@@ -2919,15 +2692,11 @@ export interface Mutex {
     unlock(): void
 }
 export interface Mutex_Static {
-    new (config: Mutex_ConstructProps): Mutex
 }
 export declare var Mutex: Mutex_Static
-export interface TokenValue_ConstructProps {
-}
 export interface TokenValue {
 }
 export interface TokenValue_Static {
-    new (config: TokenValue_ConstructProps): TokenValue
 }
 export declare var TokenValue: TokenValue_Static
 type Array_autoptr = object

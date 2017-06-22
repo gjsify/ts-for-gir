@@ -922,10 +922,10 @@ export interface ActionGroup {
     vfunc_list_actions(): string[]
     vfunc_query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
     /* Signals of Gio.ActionGroup */
-    connect(sigName: "action-added", callback: ((action_name: string) => void))
-    connect(sigName: "action-enabled-changed", callback: ((action_name: string, enabled: boolean) => void))
-    connect(sigName: "action-removed", callback: ((action_name: string) => void))
-    connect(sigName: "action-state-changed", callback: ((action_name: string, value: GLib.Variant) => void))
+    connect(sigName: "action-added", callback: ((obj: ActionGroup, action_name: string) => void))
+    connect(sigName: "action-enabled-changed", callback: ((obj: ActionGroup, action_name: string, enabled: boolean) => void))
+    connect(sigName: "action-removed", callback: ((obj: ActionGroup, action_name: string) => void))
+    connect(sigName: "action-state-changed", callback: ((obj: ActionGroup, action_name: string, value: GLib.Variant) => void))
 }
 export interface ActionGroup_Static {
 }
@@ -1073,8 +1073,8 @@ export interface DBusObject {
     vfunc_interface_added(interface_: DBusInterface): void
     vfunc_interface_removed(interface_: DBusInterface): void
     /* Signals of Gio.DBusObject */
-    connect(sigName: "interface-added", callback: ((interface: DBusInterface) => void))
-    connect(sigName: "interface-removed", callback: ((interface: DBusInterface) => void))
+    connect(sigName: "interface-added", callback: ((obj: DBusObject, interface: DBusInterface) => void))
+    connect(sigName: "interface-removed", callback: ((obj: DBusObject, interface: DBusInterface) => void))
 }
 export interface DBusObject_Static {
 }
@@ -1095,10 +1095,10 @@ export interface DBusObjectManager {
     vfunc_object_added(object: DBusObject): void
     vfunc_object_removed(object: DBusObject): void
     /* Signals of Gio.DBusObjectManager */
-    connect(sigName: "interface-added", callback: ((object: DBusObject, interface: DBusInterface) => void))
-    connect(sigName: "interface-removed", callback: ((object: DBusObject, interface: DBusInterface) => void))
-    connect(sigName: "object-added", callback: ((object: DBusObject) => void))
-    connect(sigName: "object-removed", callback: ((object: DBusObject) => void))
+    connect(sigName: "interface-added", callback: ((obj: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void))
+    connect(sigName: "interface-removed", callback: ((obj: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void))
+    connect(sigName: "object-added", callback: ((obj: DBusObjectManager, object: DBusObject) => void))
+    connect(sigName: "object-removed", callback: ((obj: DBusObjectManager, object: DBusObject) => void))
 }
 export interface DBusObjectManager_Static {
 }
@@ -1191,10 +1191,10 @@ export interface Drive {
     vfunc_stop_button(): void
     vfunc_stop_finish(result: AsyncResult): boolean
     /* Signals of Gio.Drive */
-    connect(sigName: "changed", callback: (() => void))
-    connect(sigName: "disconnected", callback: (() => void))
-    connect(sigName: "eject-button", callback: (() => void))
-    connect(sigName: "stop-button", callback: (() => void))
+    connect(sigName: "changed", callback: ((obj: Drive) => void))
+    connect(sigName: "disconnected", callback: ((obj: Drive) => void))
+    connect(sigName: "eject-button", callback: ((obj: Drive) => void))
+    connect(sigName: "stop-button", callback: ((obj: Drive) => void))
 }
 export interface Drive_Static {
 }
@@ -1468,7 +1468,7 @@ export interface ListModel {
     vfunc_get_item_type(): number
     vfunc_get_n_items(): number
     /* Signals of Gio.ListModel */
-    connect(sigName: "items-changed", callback: ((position: number, removed: number, added: number) => void))
+    connect(sigName: "items-changed", callback: ((obj: ListModel, position: number, removed: number, added: number) => void))
 }
 export interface ListModel_Static {
 }
@@ -1544,9 +1544,9 @@ export interface Mount {
     vfunc_unmount_with_operation_finish(result: AsyncResult): boolean
     vfunc_unmounted(): void
     /* Signals of Gio.Mount */
-    connect(sigName: "changed", callback: (() => void))
-    connect(sigName: "pre-unmount", callback: (() => void))
-    connect(sigName: "unmounted", callback: (() => void))
+    connect(sigName: "changed", callback: ((obj: Mount) => void))
+    connect(sigName: "pre-unmount", callback: ((obj: Mount) => void))
+    connect(sigName: "unmounted", callback: ((obj: Mount) => void))
 }
 export interface Mount_Static {
 }
@@ -1569,7 +1569,7 @@ export interface NetworkMonitor {
     vfunc_can_reach_finish(result: AsyncResult): boolean
     vfunc_network_changed(available: boolean): void
     /* Signals of Gio.NetworkMonitor */
-    connect(sigName: "network-changed", callback: ((available: boolean) => void))
+    connect(sigName: "network-changed", callback: ((obj: NetworkMonitor, available: boolean) => void))
 }
 export interface NetworkMonitor_Static {
 }
@@ -1790,8 +1790,8 @@ export interface Volume {
     vfunc_removed(): void
     vfunc_should_automount(): boolean
     /* Signals of Gio.Volume */
-    connect(sigName: "changed", callback: (() => void))
-    connect(sigName: "removed", callback: (() => void))
+    connect(sigName: "changed", callback: ((obj: Volume) => void))
+    connect(sigName: "removed", callback: ((obj: Volume) => void))
 }
 export interface Volume_Static {
 }
@@ -1832,9 +1832,9 @@ export interface AppInfoMonitor {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.AppInfoMonitor */
-    connect(sigName: "changed", callback: (() => void))
+    connect(sigName: "changed", callback: ((obj: AppInfoMonitor) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: AppInfoMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface AppInfoMonitor_Static {
     new (config: AppInfoMonitor_ConstructProps): AppInfoMonitor
@@ -1891,10 +1891,10 @@ export interface AppLaunchContext {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.AppLaunchContext */
-    connect(sigName: "launch-failed", callback: ((startup_notify_id: string) => void))
-    connect(sigName: "launched", callback: ((info: AppInfo, platform_data: GLib.Variant) => void))
+    connect(sigName: "launch-failed", callback: ((obj: AppLaunchContext, startup_notify_id: string) => void))
+    connect(sigName: "launched", callback: ((obj: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void))
 }
 export interface AppLaunchContext_Static {
     new (config: AppLaunchContext_ConstructProps): AppLaunchContext
@@ -2001,22 +2001,22 @@ export interface Application {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.Application */
-    connect(sigName: "activate", callback: (() => void))
-    connect(sigName: "command-line", callback: ((command_line: ApplicationCommandLine) => number))
-    connect(sigName: "handle-local-options", callback: ((options: GLib.VariantDict) => number))
-    connect(sigName: "open", callback: ((files: File[], n_files: number, hint: string) => void))
-    connect(sigName: "shutdown", callback: (() => void))
-    connect(sigName: "startup", callback: (() => void))
+    connect(sigName: "activate", callback: ((obj: Application) => void))
+    connect(sigName: "command-line", callback: ((obj: Application, command_line: ApplicationCommandLine) => number))
+    connect(sigName: "handle-local-options", callback: ((obj: Application, options: GLib.VariantDict) => number))
+    connect(sigName: "open", callback: ((obj: Application, files: File[], n_files: number, hint: string) => void))
+    connect(sigName: "shutdown", callback: ((obj: Application) => void))
+    connect(sigName: "startup", callback: ((obj: Application) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::action-group", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::application-id", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::flags", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::inactivity-timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-busy", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-registered", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-remote", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resource-base-path", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::action-group", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::application-id", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::flags", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::inactivity-timeout", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-busy", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-registered", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-remote", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::resource-base-path", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
 }
 export interface Application_Static {
     new (config: Application_ConstructProps): Application
@@ -2085,8 +2085,8 @@ export interface ApplicationCommandLine {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-remote", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-remote", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void))
 }
 export interface ApplicationCommandLine_Static {
     new (config: ApplicationCommandLine_ConstructProps): ApplicationCommandLine
@@ -2185,9 +2185,9 @@ export interface BufferedInputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::buffer-size", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::close-base-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::buffer-size", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::close-base-stream", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface BufferedInputStream_Static {
     new (config: BufferedInputStream_ConstructProps): BufferedInputStream
@@ -2289,9 +2289,9 @@ export interface BufferedOutputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::auto-grow", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::buffer-size", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::auto-grow", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::buffer-size", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface BufferedOutputStream_Static {
     new (config: BufferedOutputStream_ConstructProps): BufferedOutputStream
@@ -2342,7 +2342,7 @@ export interface BytesIcon {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: BytesIcon, pspec: GObject.ParamSpec) => void))
 }
 export interface BytesIcon_Static {
     new (config: BytesIcon_ConstructProps): BytesIcon
@@ -2401,9 +2401,9 @@ export interface Cancellable {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.Cancellable */
-    connect(sigName: "cancelled", callback: (() => void))
+    connect(sigName: "cancelled", callback: ((obj: Cancellable) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Cancellable, pspec: GObject.ParamSpec) => void))
 }
 export interface Cancellable_Static {
     new (config: Cancellable_ConstructProps): Cancellable
@@ -2459,8 +2459,8 @@ export interface CharsetConverter {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-fallback", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::use-fallback", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void))
 }
 export interface CharsetConverter_Static {
     new (config: CharsetConverter_ConstructProps): CharsetConverter
@@ -2549,8 +2549,8 @@ export interface ConverterInputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::close-base-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::close-base-stream", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface ConverterInputStream_Static {
     new (config: ConverterInputStream_ConstructProps): ConverterInputStream
@@ -2645,7 +2645,7 @@ export interface ConverterOutputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ConverterOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface ConverterOutputStream_Static {
     new (config: ConverterOutputStream_ConstructProps): ConverterOutputStream
@@ -2697,7 +2697,7 @@ export interface Credentials {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Credentials, pspec: GObject.ParamSpec) => void))
 }
 export interface Credentials_Static {
     new (config: Credentials_ConstructProps): Credentials
@@ -2742,7 +2742,7 @@ export interface DBusActionGroup {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusActionGroup, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusActionGroup_Static {
     new (config: DBusActionGroup_ConstructProps): DBusActionGroup
@@ -2790,10 +2790,10 @@ export interface DBusAuthObserver {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.DBusAuthObserver */
-    connect(sigName: "allow-mechanism", callback: ((mechanism: string) => boolean))
-    connect(sigName: "authorize-authenticated-peer", callback: ((stream: IOStream, credentials: Credentials | null) => boolean))
+    connect(sigName: "allow-mechanism", callback: ((obj: DBusAuthObserver, mechanism: string) => boolean))
+    connect(sigName: "authorize-authenticated-peer", callback: ((obj: DBusAuthObserver, stream: IOStream, credentials: Credentials | null) => boolean))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusAuthObserver, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusAuthObserver_Static {
     new (config: DBusAuthObserver_ConstructProps): DBusAuthObserver
@@ -2891,13 +2891,13 @@ export interface DBusConnection {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.DBusConnection */
-    connect(sigName: "closed", callback: ((remote_peer_vanished: boolean, error: GLib.Error | null) => void))
+    connect(sigName: "closed", callback: ((obj: DBusConnection, remote_peer_vanished: boolean, error: GLib.Error | null) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::capabilities", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::exit-on-close", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::unique-name", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::capabilities", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::closed", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::exit-on-close", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::unique-name", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusConnection_Static {
     new (config: DBusConnection_ConstructProps): DBusConnection
@@ -2969,10 +2969,10 @@ export interface DBusInterfaceSkeleton {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.DBusInterfaceSkeleton */
-    connect(sigName: "g-authorize-method", callback: ((invocation: DBusMethodInvocation) => boolean))
+    connect(sigName: "g-authorize-method", callback: ((obj: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::g-flags", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::g-flags", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusInterfaceSkeleton_Static {
     new (config: DBusInterfaceSkeleton_ConstructProps): DBusInterfaceSkeleton
@@ -3031,9 +3031,9 @@ export interface DBusMenuModel {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.MenuModel */
-    connect(sigName: "items-changed", callback: ((position: number, removed: number, added: number) => void))
+    connect(sigName: "items-changed", callback: ((obj: DBusMenuModel, position: number, removed: number, added: number) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusMenuModel, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusMenuModel_Static {
     new (config: DBusMenuModel_ConstructProps): DBusMenuModel
@@ -3124,8 +3124,8 @@ export interface DBusMessage {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::locked", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::locked", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusMessage_Static {
     new (config: DBusMessage_ConstructProps): DBusMessage
@@ -3189,7 +3189,7 @@ export interface DBusMethodInvocation {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusMethodInvocation, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusMethodInvocation_Static {
     new (config: DBusMethodInvocation_ConstructProps): DBusMethodInvocation
@@ -3250,11 +3250,11 @@ export interface DBusObjectManagerClient {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.DBusObjectManagerClient */
-    connect(sigName: "interface-proxy-properties-changed", callback: ((object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void))
-    connect(sigName: "interface-proxy-signal", callback: ((object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void))
+    connect(sigName: "interface-proxy-properties-changed", callback: ((obj: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void))
+    connect(sigName: "interface-proxy-signal", callback: ((obj: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::name-owner", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::name-owner", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusObjectManagerClient_Static {
     new (config: DBusObjectManagerClient_ConstructProps): DBusObjectManagerClient
@@ -3316,8 +3316,8 @@ export interface DBusObjectManagerServer {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::connection", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::connection", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusObjectManagerServer_Static {
     new (config: DBusObjectManagerServer_ConstructProps): DBusObjectManagerServer
@@ -3368,7 +3368,7 @@ export interface DBusObjectProxy {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusObjectProxy, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusObjectProxy_Static {
     new (config: DBusObjectProxy_ConstructProps): DBusObjectProxy
@@ -3425,10 +3425,10 @@ export interface DBusObjectSkeleton {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.DBusObjectSkeleton */
-    connect(sigName: "authorize-method", callback: ((interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean))
+    connect(sigName: "authorize-method", callback: ((obj: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::g-object-path", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::g-object-path", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusObjectSkeleton_Static {
     new (config: DBusObjectSkeleton_ConstructProps): DBusObjectSkeleton
@@ -3509,13 +3509,13 @@ export interface DBusProxy {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.DBusProxy */
-    connect(sigName: "g-properties-changed", callback: ((changed_properties: GLib.Variant, invalidated_properties: string[]) => void))
-    connect(sigName: "g-signal", callback: ((sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void))
+    connect(sigName: "g-properties-changed", callback: ((obj: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void))
+    connect(sigName: "g-signal", callback: ((obj: DBusProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::g-default-timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::g-interface-info", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::g-name-owner", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::g-default-timeout", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::g-interface-info", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::g-name-owner", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusProxy_Static {
     new (config: DBusProxy_ConstructProps): DBusProxy
@@ -3580,11 +3580,11 @@ export interface DBusServer {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.DBusServer */
-    connect(sigName: "new-connection", callback: ((connection: DBusConnection) => boolean))
+    connect(sigName: "new-connection", callback: ((obj: DBusServer, connection: DBusConnection) => boolean))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::active", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::client-address", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::active", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::client-address", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusServer_Static {
     new (config: DBusServer_ConstructProps): DBusServer
@@ -3714,11 +3714,11 @@ export interface DataInputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::byte-order", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::newline-type", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::buffer-size", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::close-base-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::byte-order", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::newline-type", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::buffer-size", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::close-base-stream", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface DataInputStream_Static {
     new (config: DataInputStream_ConstructProps): DataInputStream
@@ -3823,8 +3823,8 @@ export interface DataOutputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::byte-order", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::byte-order", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface DataOutputStream_Static {
     new (config: DataOutputStream_ConstructProps): DataOutputStream
@@ -3888,7 +3888,7 @@ export interface DesktopAppInfo {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: DesktopAppInfo, pspec: GObject.ParamSpec) => void))
 }
 export interface DesktopAppInfo_Static {
     new (config: DesktopAppInfo_ConstructProps): DesktopAppInfo
@@ -3945,7 +3945,7 @@ export interface Emblem {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Emblem, pspec: GObject.ParamSpec) => void))
 }
 export interface Emblem_Static {
     new (config: Emblem_ConstructProps): Emblem
@@ -3999,7 +3999,7 @@ export interface EmblemedIcon {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: EmblemedIcon, pspec: GObject.ParamSpec) => void))
 }
 export interface EmblemedIcon_Static {
     new (config: EmblemedIcon_ConstructProps): EmblemedIcon
@@ -4067,7 +4067,7 @@ export interface FileEnumerator {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FileEnumerator, pspec: GObject.ParamSpec) => void))
 }
 export interface FileEnumerator_Static {
     new (config: FileEnumerator_ConstructProps): FileEnumerator
@@ -4146,10 +4146,10 @@ export interface FileIOStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::closed", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::input-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::output-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FileIOStream_Static {
     new (config: FileIOStream_ConstructProps): FileIOStream
@@ -4196,7 +4196,7 @@ export interface FileIcon {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FileIcon, pspec: GObject.ParamSpec) => void))
 }
 export interface FileIcon_Static {
     new (config: FileIcon_ConstructProps): FileIcon
@@ -4304,7 +4304,7 @@ export interface FileInfo {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FileInfo, pspec: GObject.ParamSpec) => void))
 }
 export interface FileInfo_Static {
     new (config: FileInfo_ConstructProps): FileInfo
@@ -4390,7 +4390,7 @@ export interface FileInputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FileInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FileInputStream_Static {
     new (config: FileInputStream_ConstructProps): FileInputStream
@@ -4445,11 +4445,11 @@ export interface FileMonitor {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.FileMonitor */
-    connect(sigName: "changed", callback: ((file: File, other_file: File | null, event_type: FileMonitorEvent) => void))
+    connect(sigName: "changed", callback: ((obj: FileMonitor, file: File, other_file: File | null, event_type: FileMonitorEvent) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::cancelled", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::rate-limit", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::cancelled", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::rate-limit", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface FileMonitor_Static {
     new (config: FileMonitor_ConstructProps): FileMonitor
@@ -4543,7 +4543,7 @@ export interface FileOutputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FileOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FileOutputStream_Static {
     new (config: FileOutputStream_ConstructProps): FileOutputStream
@@ -4591,9 +4591,9 @@ export interface FilenameCompleter {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.FilenameCompleter */
-    connect(sigName: "got-completion-data", callback: (() => void))
+    connect(sigName: "got-completion-data", callback: ((obj: FilenameCompleter) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FilenameCompleter, pspec: GObject.ParamSpec) => void))
 }
 export interface FilenameCompleter_Static {
     new (config: FilenameCompleter_ConstructProps): FilenameCompleter
@@ -4677,8 +4677,8 @@ export interface FilterInputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::close-base-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::close-base-stream", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FilterInputStream_Static {
     new (config: FilterInputStream_ConstructProps): FilterInputStream
@@ -4765,7 +4765,7 @@ export interface FilterOutputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: FilterOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FilterOutputStream_Static {
     new (config: FilterOutputStream_ConstructProps): FilterOutputStream
@@ -4821,7 +4821,7 @@ export interface IOModule {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: IOModule, pspec: GObject.ParamSpec) => void))
 }
 export interface IOModule_Static {
     new (config: IOModule_ConstructProps): IOModule
@@ -4889,10 +4889,10 @@ export interface IOStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::closed", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::input-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::output-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void))
 }
 export interface IOStream_Static {
     new (config: IOStream_ConstructProps): IOStream
@@ -4968,17 +4968,17 @@ export interface InetAddress {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-any", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-link-local", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-loopback", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-mc-global", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-mc-link-local", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-mc-node-local", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-mc-org-local", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-mc-site-local", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-multicast", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-site-local", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-any", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-link-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-loopback", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-mc-global", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-mc-link-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-mc-node-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-mc-org-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-mc-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-multicast", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface InetAddress_Static {
     new (config: InetAddress_ConstructProps): InetAddress
@@ -5040,10 +5040,10 @@ export interface InetAddressMask {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::address", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::family", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::length", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::address", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::family", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::length", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void))
 }
 export interface InetAddressMask_Static {
     new (config: InetAddressMask_ConstructProps): InetAddressMask
@@ -5111,8 +5111,8 @@ export interface InetSocketAddress {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::family", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::family", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface InetSocketAddress_Static {
     new (config: InetSocketAddress_ConstructProps): InetSocketAddress
@@ -5188,7 +5188,7 @@ export interface InputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: InputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface InputStream_Static {
     new (config: InputStream_ConstructProps): InputStream
@@ -5241,7 +5241,7 @@ export interface ListStore {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ListStore, pspec: GObject.ParamSpec) => void))
 }
 export interface ListStore_Static {
     new (config: ListStore_ConstructProps): ListStore
@@ -5319,7 +5319,7 @@ export interface MemoryInputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: MemoryInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface MemoryInputStream_Static {
     new (config: MemoryInputStream_ConstructProps): MemoryInputStream
@@ -5414,8 +5414,8 @@ export interface MemoryOutputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::data-size", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::data-size", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface MemoryOutputStream_Static {
     new (config: MemoryOutputStream_ConstructProps): MemoryOutputStream
@@ -5493,9 +5493,9 @@ export interface Menu {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.MenuModel */
-    connect(sigName: "items-changed", callback: ((position: number, removed: number, added: number) => void))
+    connect(sigName: "items-changed", callback: ((obj: Menu, position: number, removed: number, added: number) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Menu, pspec: GObject.ParamSpec) => void))
 }
 export interface Menu_Static {
     new (config: Menu_ConstructProps): Menu
@@ -5547,7 +5547,7 @@ export interface MenuAttributeIter {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: MenuAttributeIter, pspec: GObject.ParamSpec) => void))
 }
 export interface MenuAttributeIter_Static {
     new (config: MenuAttributeIter_ConstructProps): MenuAttributeIter
@@ -5600,7 +5600,7 @@ export interface MenuItem {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: MenuItem, pspec: GObject.ParamSpec) => void))
 }
 export interface MenuItem_Static {
     new (config: MenuItem_ConstructProps): MenuItem
@@ -5655,7 +5655,7 @@ export interface MenuLinkIter {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: MenuLinkIter, pspec: GObject.ParamSpec) => void))
 }
 export interface MenuLinkIter_Static {
     new (config: MenuLinkIter_ConstructProps): MenuLinkIter
@@ -5714,9 +5714,9 @@ export interface MenuModel {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.MenuModel */
-    connect(sigName: "items-changed", callback: ((position: number, removed: number, added: number) => void))
+    connect(sigName: "items-changed", callback: ((obj: MenuModel, position: number, removed: number, added: number) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: MenuModel, pspec: GObject.ParamSpec) => void))
 }
 export interface MenuModel_Static {
     new (config: MenuModel_ConstructProps): MenuModel
@@ -5792,20 +5792,20 @@ export interface MountOperation {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.MountOperation */
-    connect(sigName: "aborted", callback: (() => void))
-    connect(sigName: "ask-password", callback: ((message: string, default_user: string, default_domain: string, flags: AskPasswordFlags) => void))
-    connect(sigName: "ask-question", callback: ((message: string, choices: string[]) => void))
-    connect(sigName: "reply", callback: ((result: MountOperationResult) => void))
-    connect(sigName: "show-processes", callback: ((message: string, processes: GLib.Pid[], choices: string[]) => void))
-    connect(sigName: "show-unmount-progress", callback: ((message: string, time_left: number, bytes_left: number) => void))
+    connect(sigName: "aborted", callback: ((obj: MountOperation) => void))
+    connect(sigName: "ask-password", callback: ((obj: MountOperation, message: string, default_user: string, default_domain: string, flags: AskPasswordFlags) => void))
+    connect(sigName: "ask-question", callback: ((obj: MountOperation, message: string, choices: string[]) => void))
+    connect(sigName: "reply", callback: ((obj: MountOperation, result: MountOperationResult) => void))
+    connect(sigName: "show-processes", callback: ((obj: MountOperation, message: string, processes: GLib.Pid[], choices: string[]) => void))
+    connect(sigName: "show-unmount-progress", callback: ((obj: MountOperation, message: string, time_left: number, bytes_left: number) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::anonymous", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::choice", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::domain", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::password", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::password-save", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::username", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::anonymous", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::choice", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::domain", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::password", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::password-save", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::username", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
 }
 export interface MountOperation_Static {
     new (config: MountOperation_ConstructProps): MountOperation
@@ -5874,20 +5874,20 @@ export interface NativeVolumeMonitor {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.VolumeMonitor */
-    connect(sigName: "drive-changed", callback: ((drive: Drive) => void))
-    connect(sigName: "drive-connected", callback: ((drive: Drive) => void))
-    connect(sigName: "drive-disconnected", callback: ((drive: Drive) => void))
-    connect(sigName: "drive-eject-button", callback: ((drive: Drive) => void))
-    connect(sigName: "drive-stop-button", callback: ((drive: Drive) => void))
-    connect(sigName: "mount-added", callback: ((mount: Mount) => void))
-    connect(sigName: "mount-changed", callback: ((mount: Mount) => void))
-    connect(sigName: "mount-pre-unmount", callback: ((mount: Mount) => void))
-    connect(sigName: "mount-removed", callback: ((mount: Mount) => void))
-    connect(sigName: "volume-added", callback: ((volume: Volume) => void))
-    connect(sigName: "volume-changed", callback: ((volume: Volume) => void))
-    connect(sigName: "volume-removed", callback: ((volume: Volume) => void))
+    connect(sigName: "drive-changed", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void))
+    connect(sigName: "drive-connected", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void))
+    connect(sigName: "drive-disconnected", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void))
+    connect(sigName: "drive-eject-button", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void))
+    connect(sigName: "drive-stop-button", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void))
+    connect(sigName: "mount-added", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void))
+    connect(sigName: "mount-changed", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void))
+    connect(sigName: "mount-pre-unmount", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void))
+    connect(sigName: "mount-removed", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void))
+    connect(sigName: "volume-added", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void))
+    connect(sigName: "volume-changed", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void))
+    connect(sigName: "volume-removed", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface NativeVolumeMonitor_Static {
     new (config: NativeVolumeMonitor_ConstructProps): NativeVolumeMonitor
@@ -5938,7 +5938,7 @@ export interface NetworkAddress {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: NetworkAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface NetworkAddress_Static {
     new (config: NetworkAddress_ConstructProps): NetworkAddress
@@ -5999,8 +5999,8 @@ export interface NetworkService {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scheme", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::scheme", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void))
 }
 export interface NetworkService_Static {
     new (config: NetworkService_ConstructProps): NetworkService
@@ -6055,7 +6055,7 @@ export interface Notification {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
 }
 export interface Notification_Static {
     new (config: Notification_ConstructProps): Notification
@@ -6137,7 +6137,7 @@ export interface OutputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: OutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface OutputStream_Static {
     new (config: OutputStream_ConstructProps): OutputStream
@@ -6202,10 +6202,10 @@ export interface Permission {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::allowed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-acquire", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-release", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::allowed", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::can-acquire", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::can-release", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void))
 }
 export interface Permission_Static {
     new (config: Permission_ConstructProps): Permission
@@ -6257,11 +6257,11 @@ export interface PropertyAction {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::enabled", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::parameter-type", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::state", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::state-type", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::enabled", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::parameter-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::state", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::state-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
 }
 export interface PropertyAction_Static {
     new (config: PropertyAction_ConstructProps): PropertyAction
@@ -6345,8 +6345,8 @@ export interface ProxyAddress {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::family", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::family", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface ProxyAddress_Static {
     new (config: ProxyAddress_ConstructProps): ProxyAddress
@@ -6406,8 +6406,8 @@ export interface ProxyAddressEnumerator {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proxy-resolver", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::proxy-resolver", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void))
 }
 export interface ProxyAddressEnumerator_Static {
     new (config: ProxyAddressEnumerator_ConstructProps): ProxyAddressEnumerator
@@ -6476,9 +6476,9 @@ export interface Resolver {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.Resolver */
-    connect(sigName: "reload", callback: (() => void))
+    connect(sigName: "reload", callback: ((obj: Resolver) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Resolver, pspec: GObject.ParamSpec) => void))
 }
 export interface Resolver_Static {
     new (config: Resolver_ConstructProps): Resolver
@@ -6573,14 +6573,14 @@ export interface Settings {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.Settings */
-    connect(sigName: "change-event", callback: ((keys: GLib.Quark[] | null, n_keys: number) => boolean))
-    connect(sigName: "changed", callback: ((key: string) => void))
-    connect(sigName: "writable-change-event", callback: ((key: number) => boolean))
-    connect(sigName: "writable-changed", callback: ((key: string) => void))
+    connect(sigName: "change-event", callback: ((obj: Settings, keys: GLib.Quark[] | null, n_keys: number) => boolean))
+    connect(sigName: "changed", callback: ((obj: Settings, key: string) => void))
+    connect(sigName: "writable-change-event", callback: ((obj: Settings, key: number) => boolean))
+    connect(sigName: "writable-changed", callback: ((obj: Settings, key: string) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::delay-apply", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-unapplied", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::delay-apply", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::has-unapplied", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
 }
 export interface Settings_Static {
     new (config: Settings_ConstructProps): Settings
@@ -6646,13 +6646,13 @@ export interface SimpleAction {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.SimpleAction */
-    connect(sigName: "activate", callback: ((parameter: GLib.Variant | null) => void))
-    connect(sigName: "change-state", callback: ((value: GLib.Variant | null) => void))
+    connect(sigName: "activate", callback: ((obj: SimpleAction, parameter: GLib.Variant | null) => void))
+    connect(sigName: "change-state", callback: ((obj: SimpleAction, value: GLib.Variant | null) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::enabled", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::state", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::state-type", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::enabled", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::state", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::state-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleAction_Static {
     new (config: SimpleAction_ConstructProps): SimpleAction
@@ -6703,7 +6703,7 @@ export interface SimpleActionGroup {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleActionGroup_Static {
     new (config: SimpleActionGroup_ConstructProps): SimpleActionGroup
@@ -6759,7 +6759,7 @@ export interface SimpleAsyncResult {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SimpleAsyncResult, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleAsyncResult_Static {
     new (config: SimpleAsyncResult_ConstructProps): SimpleAsyncResult
@@ -6832,10 +6832,10 @@ export interface SimpleIOStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::closed", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::input-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::output-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleIOStream_Static {
     new (config: SimpleIOStream_ConstructProps): SimpleIOStream
@@ -6903,10 +6903,10 @@ export interface SimplePermission {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::allowed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-acquire", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-release", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::allowed", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::can-acquire", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::can-release", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void))
 }
 export interface SimplePermission_Static {
     new (config: SimplePermission_ConstructProps): SimplePermission
@@ -6961,9 +6961,9 @@ export interface SimpleProxyResolver {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::default-proxy", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ignore-hosts", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::default-proxy", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ignore-hosts", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleProxyResolver_Static {
     new (config: SimpleProxyResolver_ConstructProps): SimpleProxyResolver
@@ -7085,17 +7085,17 @@ export interface Socket {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::blocking", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::broadcast", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::keepalive", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::listen-backlog", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::local-address", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::multicast-loopback", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::multicast-ttl", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remote-address", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ttl", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::blocking", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::broadcast", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::keepalive", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::listen-backlog", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::local-address", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::multicast-loopback", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::multicast-ttl", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::remote-address", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::timeout", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ttl", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
 }
 export interface Socket_Static {
     new (config: Socket_ConstructProps): Socket
@@ -7152,8 +7152,8 @@ export interface SocketAddress {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::family", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::family", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketAddress_Static {
     new (config: SocketAddress_ConstructProps): SocketAddress
@@ -7206,7 +7206,7 @@ export interface SocketAddressEnumerator {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketAddressEnumerator_Static {
     new (config: SocketAddressEnumerator_ConstructProps): SocketAddressEnumerator
@@ -7302,18 +7302,18 @@ export interface SocketClient {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.SocketClient */
-    connect(sigName: "event", callback: ((event: SocketClientEvent, connectable: SocketConnectable, connection: IOStream | null) => void))
+    connect(sigName: "event", callback: ((obj: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection: IOStream | null) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::enable-proxy", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::family", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::local-address", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::protocol", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proxy-resolver", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-validation-flags", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::type", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::enable-proxy", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::family", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::local-address", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::protocol", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::proxy-resolver", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::timeout", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-validation-flags", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::type", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketClient_Static {
     new (config: SocketClient_ConstructProps): SocketClient
@@ -7391,10 +7391,10 @@ export interface SocketConnection {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::closed", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::input-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::output-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketConnection_Static {
     new (config: SocketConnection_ConstructProps): SocketConnection
@@ -7450,7 +7450,7 @@ export interface SocketControlMessage {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SocketControlMessage, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketControlMessage_Static {
     new (config: SocketControlMessage_ConstructProps): SocketControlMessage
@@ -7515,10 +7515,10 @@ export interface SocketListener {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.SocketListener */
-    connect(sigName: "event", callback: ((event: SocketListenerEvent, socket: Socket) => void))
+    connect(sigName: "event", callback: ((obj: SocketListener, event: SocketListenerEvent, socket: Socket) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::listen-backlog", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::listen-backlog", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketListener_Static {
     new (config: SocketListener_ConstructProps): SocketListener
@@ -7593,13 +7593,13 @@ export interface SocketService {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.SocketService */
-    connect(sigName: "incoming", callback: ((connection: SocketConnection, source_object: GObject.Object | null) => boolean))
+    connect(sigName: "incoming", callback: ((obj: SocketService, connection: SocketConnection, source_object: GObject.Object | null) => boolean))
     /* Signals of Gio.SocketListener */
-    connect(sigName: "event", callback: ((event: SocketListenerEvent, socket: Socket) => void))
+    connect(sigName: "event", callback: ((obj: SocketService, event: SocketListenerEvent, socket: Socket) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::active", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::listen-backlog", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::active", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::listen-backlog", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketService_Static {
     new (config: SocketService_ConstructProps): SocketService
@@ -7673,7 +7673,7 @@ export interface Subprocess {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Subprocess, pspec: GObject.ParamSpec) => void))
 }
 export interface Subprocess_Static {
     new (config: Subprocess_ConstructProps): Subprocess
@@ -7737,7 +7737,7 @@ export interface SubprocessLauncher {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void))
 }
 export interface SubprocessLauncher_Static {
     new (config: SubprocessLauncher_ConstructProps): SubprocessLauncher
@@ -7809,8 +7809,8 @@ export interface Task {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::completed", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Task, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::completed", callback: ((obj: Task, pspec: GObject.ParamSpec) => void))
 }
 export interface Task_Static {
     new (config: Task_ConstructProps): Task
@@ -7897,11 +7897,11 @@ export interface TcpConnection {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::graceful-disconnect", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::graceful-disconnect", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::closed", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::input-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::output-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface TcpConnection_Static {
     new (config: TcpConnection_ConstructProps): TcpConnection
@@ -7988,11 +7988,11 @@ export interface TcpWrapperConnection {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::graceful-disconnect", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::graceful-disconnect", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::closed", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::input-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::output-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface TcpWrapperConnection_Static {
     new (config: TcpWrapperConnection_ConstructProps): TcpWrapperConnection
@@ -8047,7 +8047,7 @@ export interface TestDBus {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: TestDBus, pspec: GObject.ParamSpec) => void))
 }
 export interface TestDBus_Static {
     new (config: TestDBus_ConstructProps): TestDBus
@@ -8102,7 +8102,7 @@ export interface ThemedIcon {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ThemedIcon, pspec: GObject.ParamSpec) => void))
 }
 export interface ThemedIcon_Static {
     new (config: ThemedIcon_ConstructProps): ThemedIcon
@@ -8184,15 +8184,15 @@ export interface ThreadedSocketService {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.ThreadedSocketService */
-    connect(sigName: "run", callback: ((connection: SocketConnection, source_object: GObject.Object) => boolean))
+    connect(sigName: "run", callback: ((obj: ThreadedSocketService, connection: SocketConnection, source_object: GObject.Object) => boolean))
     /* Signals of Gio.SocketService */
-    connect(sigName: "incoming", callback: ((connection: SocketConnection, source_object: GObject.Object | null) => boolean))
+    connect(sigName: "incoming", callback: ((obj: ThreadedSocketService, connection: SocketConnection, source_object: GObject.Object | null) => boolean))
     /* Signals of Gio.SocketListener */
-    connect(sigName: "event", callback: ((event: SocketListenerEvent, socket: Socket) => void))
+    connect(sigName: "event", callback: ((obj: ThreadedSocketService, event: SocketListenerEvent, socket: Socket) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::active", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::listen-backlog", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::active", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::listen-backlog", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void))
 }
 export interface ThreadedSocketService_Static {
     new (config: ThreadedSocketService_ConstructProps): ThreadedSocketService
@@ -8250,7 +8250,7 @@ export interface TlsCertificate {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: TlsCertificate, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsCertificate_Static {
     new (config: TlsCertificate_ConstructProps): TlsCertificate
@@ -8361,20 +8361,20 @@ export interface TlsConnection {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.TlsConnection */
-    connect(sigName: "accept-certificate", callback: ((peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean))
+    connect(sigName: "accept-certificate", callback: ((obj: TlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::certificate", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::database", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::interaction", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::peer-certificate", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::peer-certificate-errors", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::rehandshake-mode", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::require-close-notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-system-certdb", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::certificate", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::database", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::interaction", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::peer-certificate", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::peer-certificate-errors", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::rehandshake-mode", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::require-close-notify", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::use-system-certdb", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::closed", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::input-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::output-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsConnection_Static {
     new (config: TlsConnection_ConstructProps): TlsConnection
@@ -8444,7 +8444,7 @@ export interface TlsDatabase {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: TlsDatabase, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsDatabase_Static {
     new (config: TlsDatabase_ConstructProps): TlsDatabase
@@ -8502,7 +8502,7 @@ export interface TlsInteraction {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: TlsInteraction, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsInteraction_Static {
     new (config: TlsInteraction_ConstructProps): TlsInteraction
@@ -8566,10 +8566,10 @@ export interface TlsPassword {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::description", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::flags", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::warning", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::description", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::flags", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::warning", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsPassword_Static {
     new (config: TlsPassword_ConstructProps): TlsPassword
@@ -8656,10 +8656,10 @@ export interface UnixConnection {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::closed", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::input-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::output-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixConnection_Static {
     new (config: UnixConnection_ConstructProps): UnixConnection
@@ -8716,7 +8716,7 @@ export interface UnixCredentialsMessage {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixCredentialsMessage_Static {
     new (config: UnixCredentialsMessage_ConstructProps): UnixCredentialsMessage
@@ -8769,7 +8769,7 @@ export interface UnixFDList {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: UnixFDList, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixFDList_Static {
     new (config: UnixFDList_ConstructProps): UnixFDList
@@ -8832,7 +8832,7 @@ export interface UnixFDMessage {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: UnixFDMessage, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixFDMessage_Static {
     new (config: UnixFDMessage_ConstructProps): UnixFDMessage
@@ -8917,8 +8917,8 @@ export interface UnixInputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::close-fd", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::close-fd", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixInputStream_Static {
     new (config: UnixInputStream_ConstructProps): UnixInputStream
@@ -8965,10 +8965,10 @@ export interface UnixMountMonitor {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.UnixMountMonitor */
-    connect(sigName: "mountpoints-changed", callback: (() => void))
-    connect(sigName: "mounts-changed", callback: (() => void))
+    connect(sigName: "mountpoints-changed", callback: ((obj: UnixMountMonitor) => void))
+    connect(sigName: "mounts-changed", callback: ((obj: UnixMountMonitor) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: UnixMountMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixMountMonitor_Static {
     new (config: UnixMountMonitor_ConstructProps): UnixMountMonitor
@@ -9060,8 +9060,8 @@ export interface UnixOutputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::close-fd", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::close-fd", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixOutputStream_Static {
     new (config: UnixOutputStream_ConstructProps): UnixOutputStream
@@ -9128,8 +9128,8 @@ export interface UnixSocketAddress {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::family", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::family", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixSocketAddress_Static {
     new (config: UnixSocketAddress_ConstructProps): UnixSocketAddress
@@ -9194,7 +9194,7 @@ export interface Vfs {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Vfs, pspec: GObject.ParamSpec) => void))
 }
 export interface Vfs_Static {
     new (config: Vfs_ConstructProps): Vfs
@@ -9264,20 +9264,20 @@ export interface VolumeMonitor {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.VolumeMonitor */
-    connect(sigName: "drive-changed", callback: ((drive: Drive) => void))
-    connect(sigName: "drive-connected", callback: ((drive: Drive) => void))
-    connect(sigName: "drive-disconnected", callback: ((drive: Drive) => void))
-    connect(sigName: "drive-eject-button", callback: ((drive: Drive) => void))
-    connect(sigName: "drive-stop-button", callback: ((drive: Drive) => void))
-    connect(sigName: "mount-added", callback: ((mount: Mount) => void))
-    connect(sigName: "mount-changed", callback: ((mount: Mount) => void))
-    connect(sigName: "mount-pre-unmount", callback: ((mount: Mount) => void))
-    connect(sigName: "mount-removed", callback: ((mount: Mount) => void))
-    connect(sigName: "volume-added", callback: ((volume: Volume) => void))
-    connect(sigName: "volume-changed", callback: ((volume: Volume) => void))
-    connect(sigName: "volume-removed", callback: ((volume: Volume) => void))
+    connect(sigName: "drive-changed", callback: ((obj: VolumeMonitor, drive: Drive) => void))
+    connect(sigName: "drive-connected", callback: ((obj: VolumeMonitor, drive: Drive) => void))
+    connect(sigName: "drive-disconnected", callback: ((obj: VolumeMonitor, drive: Drive) => void))
+    connect(sigName: "drive-eject-button", callback: ((obj: VolumeMonitor, drive: Drive) => void))
+    connect(sigName: "drive-stop-button", callback: ((obj: VolumeMonitor, drive: Drive) => void))
+    connect(sigName: "mount-added", callback: ((obj: VolumeMonitor, mount: Mount) => void))
+    connect(sigName: "mount-changed", callback: ((obj: VolumeMonitor, mount: Mount) => void))
+    connect(sigName: "mount-pre-unmount", callback: ((obj: VolumeMonitor, mount: Mount) => void))
+    connect(sigName: "mount-removed", callback: ((obj: VolumeMonitor, mount: Mount) => void))
+    connect(sigName: "volume-added", callback: ((obj: VolumeMonitor, volume: Volume) => void))
+    connect(sigName: "volume-changed", callback: ((obj: VolumeMonitor, volume: Volume) => void))
+    connect(sigName: "volume-removed", callback: ((obj: VolumeMonitor, volume: Volume) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: VolumeMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface VolumeMonitor_Static {
     new (config: VolumeMonitor_ConstructProps): VolumeMonitor
@@ -9332,8 +9332,8 @@ export interface ZlibCompressor {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::file-info", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::file-info", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void))
 }
 export interface ZlibCompressor_Static {
     new (config: ZlibCompressor_ConstructProps): ZlibCompressor
@@ -9384,8 +9384,8 @@ export interface ZlibDecompressor {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::file-info", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::file-info", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void))
 }
 export interface ZlibDecompressor_Static {
     new (config: ZlibDecompressor_ConstructProps): ZlibDecompressor

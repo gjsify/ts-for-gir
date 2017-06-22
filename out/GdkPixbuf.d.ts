@@ -146,7 +146,7 @@ export interface Pixbuf {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Pixbuf, pspec: GObject.ParamSpec) => void))
 }
 export interface Pixbuf_Static {
     new (config: Pixbuf_ConstructProps): Pixbuf
@@ -217,7 +217,7 @@ export interface PixbufAnimation {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: PixbufAnimation, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufAnimation_Static {
     new (config: PixbufAnimation_ConstructProps): PixbufAnimation
@@ -271,7 +271,7 @@ export interface PixbufAnimationIter {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufAnimationIter_Static {
     new (config: PixbufAnimationIter_ConstructProps): PixbufAnimationIter
@@ -326,12 +326,12 @@ export interface PixbufLoader {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GdkPixbuf.PixbufLoader */
-    connect(sigName: "area-prepared", callback: (() => void))
-    connect(sigName: "area-updated", callback: ((x: number, y: number, width: number, height: number) => void))
-    connect(sigName: "closed", callback: (() => void))
-    connect(sigName: "size-prepared", callback: ((width: number, height: number) => void))
+    connect(sigName: "area-prepared", callback: ((obj: PixbufLoader) => void))
+    connect(sigName: "area-updated", callback: ((obj: PixbufLoader, x: number, y: number, width: number, height: number) => void))
+    connect(sigName: "closed", callback: ((obj: PixbufLoader) => void))
+    connect(sigName: "size-prepared", callback: ((obj: PixbufLoader, width: number, height: number) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: PixbufLoader, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufLoader_Static {
     new (config: PixbufLoader_ConstructProps): PixbufLoader
@@ -392,8 +392,8 @@ export interface PixbufSimpleAnim {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::loop", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufSimpleAnim_Static {
     new (config: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
@@ -443,7 +443,7 @@ export interface PixbufSimpleAnimIter {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufSimpleAnimIter_Static {
     new (config: PixbufSimpleAnimIter_ConstructProps): PixbufSimpleAnimIter

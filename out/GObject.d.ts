@@ -371,7 +371,7 @@ export interface Binding {
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Binding, pspec: ParamSpec) => void))
 }
 export interface Binding_Static {
     new (config: Binding_ConstructProps): Binding
@@ -413,7 +413,7 @@ export interface InitiallyUnowned {
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: InitiallyUnowned, pspec: ParamSpec) => void))
 }
 export interface InitiallyUnowned_Static {
     new (config: InitiallyUnowned_ConstructProps): InitiallyUnowned
@@ -455,7 +455,7 @@ export interface Object {
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Object, pspec: ParamSpec) => void))
 }
 export interface Object_Static {
     new (config: Object_ConstructProps): Object
@@ -1019,7 +1019,7 @@ export interface TypeModule {
     vfunc_notify(pspec: ParamSpec): void
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: TypeModule, pspec: ParamSpec) => void))
 }
 export interface TypeModule_Static {
     new (config: TypeModule_ConstructProps): TypeModule

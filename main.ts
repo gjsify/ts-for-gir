@@ -513,12 +513,13 @@ export class GirModule {
         return [[`${prefix}${name}(${params}): ${retType}`], name]
     }
 
-    private getSignalFunc(e: GirFunction) {
+    private getSignalFunc(e: GirFunction, clsName: string) {
         let sigName = e.$.name
         let [params, outParams] = this.getParameters(e.parameters)
         let retType = this.getReturnType(e) 
+        let paramComma = params.length > 0 ? ', ' : ''
 
-        return [`    connect(sigName: "${sigName}", callback: ((${params}) => ${retType}))`]
+        return [`    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType}))`]
     }
 
     exportFunction(e: GirFunction) {
@@ -671,16 +672,15 @@ export class GirModule {
             if (signals) {
                 def.push(`    /* Signals of ${cls._fullSymName} */`)
                 for (let s of signals)
-                    def = def.concat(this.getSignalFunc(s))
+                    def = def.concat(this.getSignalFunc(s, name))
             }
-            // FIXME: notify:: signals
         })
 
         if (isDerivedFromGObject) {
             let prefix = "GObject."
             if (this.name == "GObject") prefix = ""
             for (let p of propertyNames) {
-                def.push(`    connect(sigName: "notify::${p}", callback: ((pspec: ${prefix}ParamSpec) => void))`)
+                def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void))`)
             }
         }
 

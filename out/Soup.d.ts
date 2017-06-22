@@ -656,8 +656,8 @@ export interface Address {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::physical", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Address, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::physical", callback: ((obj: Address, pspec: GObject.ParamSpec) => void))
 }
 export interface Address_Static {
     new (config: Address_ConstructProps): Address
@@ -735,12 +735,12 @@ export interface Auth {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::host", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-authenticated", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-for-proxy", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::realm", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scheme-name", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::host", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-authenticated", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-for-proxy", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::realm", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::scheme-name", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void))
 }
 export interface Auth_Static {
     new (config: Auth_ConstructProps): Auth
@@ -816,12 +816,12 @@ export interface AuthBasic {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::host", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-authenticated", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-for-proxy", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::realm", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scheme-name", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::host", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-authenticated", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-for-proxy", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::realm", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::scheme-name", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthBasic_Static {
     new (config: AuthBasic_ConstructProps): AuthBasic
@@ -894,12 +894,12 @@ export interface AuthDigest {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::host", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-authenticated", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-for-proxy", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::realm", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scheme-name", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::host", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-authenticated", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-for-proxy", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::realm", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::scheme-name", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthDigest_Static {
     new (config: AuthDigest_ConstructProps): AuthDigest
@@ -972,13 +972,13 @@ export interface AuthDomain {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-path", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::filter", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::filter-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::generic-auth-callback", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::generic-auth-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remove-path", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::add-path", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::filter", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::filter-data", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::generic-auth-callback", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::generic-auth-data", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::remove-path", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthDomain_Static {
     new (config: AuthDomain_ConstructProps): AuthDomain
@@ -1057,15 +1057,15 @@ export interface AuthDomainBasic {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::auth-callback", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::auth-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-path", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::filter", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::filter-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::generic-auth-callback", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::generic-auth-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remove-path", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::auth-callback", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::auth-data", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::add-path", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::filter", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::filter-data", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::generic-auth-callback", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::generic-auth-data", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::remove-path", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthDomainBasic_Static {
     new (config: AuthDomainBasic_ConstructProps): AuthDomainBasic
@@ -1144,15 +1144,15 @@ export interface AuthDomainDigest {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::auth-callback", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::auth-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-path", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::filter", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::filter-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::generic-auth-callback", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::generic-auth-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remove-path", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::auth-callback", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::auth-data", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::add-path", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::filter", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::filter-data", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::generic-auth-callback", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::generic-auth-data", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::remove-path", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthDomainDigest_Static {
     new (config: AuthDomainDigest_ConstructProps): AuthDomainDigest
@@ -1201,9 +1201,9 @@ export interface AuthManager {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.AuthManager */
-    connect(sigName: "authenticate", callback: ((msg: Message, auth: Auth, retrying: boolean) => void))
+    connect(sigName: "authenticate", callback: ((obj: AuthManager, msg: Message, auth: Auth, retrying: boolean) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: AuthManager, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthManager_Static {
     new (config: AuthManager_ConstructProps): AuthManager
@@ -1276,12 +1276,12 @@ export interface AuthNTLM {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::host", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-authenticated", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-for-proxy", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::realm", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scheme-name", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::host", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-authenticated", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-for-proxy", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::realm", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::scheme-name", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthNTLM_Static {
     new (config: AuthNTLM_ConstructProps): AuthNTLM
@@ -1336,7 +1336,7 @@ export interface Cache {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Cache, pspec: GObject.ParamSpec) => void))
 }
 export interface Cache_Static {
     new (config: Cache_ConstructProps): Cache
@@ -1381,7 +1381,7 @@ export interface ContentDecoder {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ContentDecoder, pspec: GObject.ParamSpec) => void))
 }
 export interface ContentDecoder_Static {
     new (config: ContentDecoder_ConstructProps): ContentDecoder
@@ -1429,7 +1429,7 @@ export interface ContentSniffer {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ContentSniffer, pspec: GObject.ParamSpec) => void))
 }
 export interface ContentSniffer_Static {
     new (config: ContentSniffer_ConstructProps): ContentSniffer
@@ -1496,10 +1496,10 @@ export interface CookieJar {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.CookieJar */
-    connect(sigName: "changed", callback: ((old_cookie: Cookie, new_cookie: Cookie) => void))
+    connect(sigName: "changed", callback: ((obj: CookieJar, old_cookie: Cookie, new_cookie: Cookie) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-policy", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: CookieJar, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::accept-policy", callback: ((obj: CookieJar, pspec: GObject.ParamSpec) => void))
 }
 export interface CookieJar_Static {
     new (config: CookieJar_ConstructProps): CookieJar
@@ -1569,10 +1569,10 @@ export interface CookieJarDB {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.CookieJar */
-    connect(sigName: "changed", callback: ((old_cookie: Cookie, new_cookie: Cookie) => void))
+    connect(sigName: "changed", callback: ((obj: CookieJarDB, old_cookie: Cookie, new_cookie: Cookie) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-policy", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: CookieJarDB, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::accept-policy", callback: ((obj: CookieJarDB, pspec: GObject.ParamSpec) => void))
 }
 export interface CookieJarDB_Static {
     new (config: CookieJarDB_ConstructProps): CookieJarDB
@@ -1642,10 +1642,10 @@ export interface CookieJarText {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.CookieJar */
-    connect(sigName: "changed", callback: ((old_cookie: Cookie, new_cookie: Cookie) => void))
+    connect(sigName: "changed", callback: ((obj: CookieJarText, old_cookie: Cookie, new_cookie: Cookie) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-policy", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: CookieJarText, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::accept-policy", callback: ((obj: CookieJarText, pspec: GObject.ParamSpec) => void))
 }
 export interface CookieJarText_Static {
     new (config: CookieJarText_ConstructProps): CookieJarText
@@ -1696,7 +1696,7 @@ export interface Logger {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Logger, pspec: GObject.ParamSpec) => void))
 }
 export interface Logger_Static {
     new (config: Logger_ConstructProps): Logger
@@ -1817,38 +1817,38 @@ export interface Message {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.Message */
-    connect(sigName: "content-sniffed", callback: ((type: string, params: GLib.HashTable) => void))
-    connect(sigName: "finished", callback: (() => void))
-    connect(sigName: "got-body", callback: (() => void))
-    connect(sigName: "got-chunk", callback: ((chunk: Buffer) => void))
-    connect(sigName: "got-headers", callback: (() => void))
-    connect(sigName: "got-informational", callback: (() => void))
-    connect(sigName: "network-event", callback: ((event: Gio.SocketClientEvent, connection: Gio.IOStream) => void))
-    connect(sigName: "restarted", callback: (() => void))
-    connect(sigName: "starting", callback: (() => void))
-    connect(sigName: "wrote-body", callback: (() => void))
-    connect(sigName: "wrote-body-data", callback: ((chunk: Buffer) => void))
-    connect(sigName: "wrote-chunk", callback: (() => void))
-    connect(sigName: "wrote-headers", callback: (() => void))
-    connect(sigName: "wrote-informational", callback: (() => void))
+    connect(sigName: "content-sniffed", callback: ((obj: Message, type: string, params: GLib.HashTable) => void))
+    connect(sigName: "finished", callback: ((obj: Message) => void))
+    connect(sigName: "got-body", callback: ((obj: Message) => void))
+    connect(sigName: "got-chunk", callback: ((obj: Message, chunk: Buffer) => void))
+    connect(sigName: "got-headers", callback: ((obj: Message) => void))
+    connect(sigName: "got-informational", callback: ((obj: Message) => void))
+    connect(sigName: "network-event", callback: ((obj: Message, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void))
+    connect(sigName: "restarted", callback: ((obj: Message) => void))
+    connect(sigName: "starting", callback: ((obj: Message) => void))
+    connect(sigName: "wrote-body", callback: ((obj: Message) => void))
+    connect(sigName: "wrote-body-data", callback: ((obj: Message, chunk: Buffer) => void))
+    connect(sigName: "wrote-chunk", callback: ((obj: Message) => void))
+    connect(sigName: "wrote-headers", callback: ((obj: Message) => void))
+    connect(sigName: "wrote-informational", callback: ((obj: Message) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::first-party", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::flags", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::http-version", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::method", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::priority", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::reason-phrase", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::request-body", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::request-body-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::request-headers", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::response-body", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::response-body-data", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::response-headers", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::status-code", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-certificate", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-errors", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::uri", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::first-party", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::flags", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::http-version", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::method", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::priority", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::reason-phrase", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::request-body", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::request-body-data", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::request-headers", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::response-body", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::response-body-data", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::response-headers", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::status-code", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-certificate", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-errors", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::uri", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
 }
 export interface Message_Static {
     new (config: Message_ConstructProps): Message
@@ -1941,8 +1941,8 @@ export interface MultipartInputStream {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::close-base-stream", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: MultipartInputStream, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::close-base-stream", callback: ((obj: MultipartInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface MultipartInputStream_Static {
     new (config: MultipartInputStream_ConstructProps): MultipartInputStream
@@ -1991,8 +1991,8 @@ export interface ProxyResolverDefault {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::gproxy-resolver", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: ProxyResolverDefault, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::gproxy-resolver", callback: ((obj: ProxyResolverDefault, pspec: GObject.ParamSpec) => void))
 }
 export interface ProxyResolverDefault_Static {
     new (config: ProxyResolverDefault_ConstructProps): ProxyResolverDefault
@@ -2053,7 +2053,7 @@ export interface Request {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Request, pspec: GObject.ParamSpec) => void))
 }
 export interface Request_Static {
     new (config: Request_ConstructProps): Request
@@ -2114,7 +2114,7 @@ export interface RequestData {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: RequestData, pspec: GObject.ParamSpec) => void))
 }
 export interface RequestData_Static {
     new (config: RequestData_ConstructProps): RequestData
@@ -2177,7 +2177,7 @@ export interface RequestFile {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: RequestFile, pspec: GObject.ParamSpec) => void))
 }
 export interface RequestFile_Static {
     new (config: RequestFile_ConstructProps): RequestFile
@@ -2240,7 +2240,7 @@ export interface RequestHTTP {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: RequestHTTP, pspec: GObject.ParamSpec) => void))
 }
 export interface RequestHTTP_Static {
     new (config: RequestHTTP_ConstructProps): RequestHTTP
@@ -2285,7 +2285,7 @@ export interface Requester {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Requester, pspec: GObject.ParamSpec) => void))
 }
 export interface Requester_Static {
     new (config: Requester_ConstructProps): Requester
@@ -2376,15 +2376,15 @@ export interface Server {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.Server */
-    connect(sigName: "request-aborted", callback: ((message: Message, client: ClientContext) => void))
-    connect(sigName: "request-finished", callback: ((message: Message, client: ClientContext) => void))
-    connect(sigName: "request-read", callback: ((message: Message, client: ClientContext) => void))
-    connect(sigName: "request-started", callback: ((message: Message, client: ClientContext) => void))
+    connect(sigName: "request-aborted", callback: ((obj: Server, message: Message, client: ClientContext) => void))
+    connect(sigName: "request-finished", callback: ((obj: Server, message: Message, client: ClientContext) => void))
+    connect(sigName: "request-read", callback: ((obj: Server, message: Message, client: ClientContext) => void))
+    connect(sigName: "request-started", callback: ((obj: Server, message: Message, client: ClientContext) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::http-aliases", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::https-aliases", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::server-header", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Server, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::http-aliases", callback: ((obj: Server, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::https-aliases", callback: ((obj: Server, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::server-header", callback: ((obj: Server, pspec: GObject.ParamSpec) => void))
 }
 export interface Server_Static {
     new (config: Server_ConstructProps): Server
@@ -2510,35 +2510,35 @@ export interface Session {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.Session */
-    connect(sigName: "authenticate", callback: ((msg: Message, auth: Auth, retrying: boolean) => void))
-    connect(sigName: "connection-created", callback: ((connection: GObject.Object) => void))
-    connect(sigName: "request-queued", callback: ((msg: Message) => void))
-    connect(sigName: "request-started", callback: ((msg: Message, socket: Socket) => void))
-    connect(sigName: "request-unqueued", callback: ((msg: Message) => void))
-    connect(sigName: "tunneling", callback: ((connection: GObject.Object) => void))
+    connect(sigName: "authenticate", callback: ((obj: Session, msg: Message, auth: Auth, retrying: boolean) => void))
+    connect(sigName: "connection-created", callback: ((obj: Session, connection: GObject.Object) => void))
+    connect(sigName: "request-queued", callback: ((obj: Session, msg: Message) => void))
+    connect(sigName: "request-started", callback: ((obj: Session, msg: Message, socket: Socket) => void))
+    connect(sigName: "request-unqueued", callback: ((obj: Session, msg: Message) => void))
+    connect(sigName: "tunneling", callback: ((obj: Session, connection: GObject.Object) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-language", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-language-auto", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature-by-type", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::http-aliases", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::https-aliases", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::idle-timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::max-conns", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::max-conns-per-host", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proxy-resolver", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proxy-uri", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remove-feature-by-type", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-ca-file", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-strict", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-use-system-ca-file", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-database", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-interaction", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-ntlm", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-thread-context", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::user-agent", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::accept-language", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::accept-language-auto", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::add-feature", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::add-feature-by-type", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::http-aliases", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::https-aliases", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::idle-timeout", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::max-conns", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::max-conns-per-host", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::proxy-resolver", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::proxy-uri", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::remove-feature-by-type", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-ca-file", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-strict", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::timeout", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-database", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-interaction", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::use-ntlm", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::use-thread-context", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::user-agent", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
 }
 export interface Session_Static {
     new (config: Session_ConstructProps): Session
@@ -2667,35 +2667,35 @@ export interface SessionAsync {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.Session */
-    connect(sigName: "authenticate", callback: ((msg: Message, auth: Auth, retrying: boolean) => void))
-    connect(sigName: "connection-created", callback: ((connection: GObject.Object) => void))
-    connect(sigName: "request-queued", callback: ((msg: Message) => void))
-    connect(sigName: "request-started", callback: ((msg: Message, socket: Socket) => void))
-    connect(sigName: "request-unqueued", callback: ((msg: Message) => void))
-    connect(sigName: "tunneling", callback: ((connection: GObject.Object) => void))
+    connect(sigName: "authenticate", callback: ((obj: SessionAsync, msg: Message, auth: Auth, retrying: boolean) => void))
+    connect(sigName: "connection-created", callback: ((obj: SessionAsync, connection: GObject.Object) => void))
+    connect(sigName: "request-queued", callback: ((obj: SessionAsync, msg: Message) => void))
+    connect(sigName: "request-started", callback: ((obj: SessionAsync, msg: Message, socket: Socket) => void))
+    connect(sigName: "request-unqueued", callback: ((obj: SessionAsync, msg: Message) => void))
+    connect(sigName: "tunneling", callback: ((obj: SessionAsync, connection: GObject.Object) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-language", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-language-auto", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature-by-type", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::http-aliases", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::https-aliases", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::idle-timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::max-conns", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::max-conns-per-host", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proxy-resolver", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proxy-uri", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remove-feature-by-type", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-ca-file", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-strict", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-use-system-ca-file", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-database", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-interaction", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-ntlm", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-thread-context", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::user-agent", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::accept-language", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::accept-language-auto", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::add-feature", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::add-feature-by-type", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::http-aliases", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::https-aliases", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::idle-timeout", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::max-conns", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::max-conns-per-host", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::proxy-resolver", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::proxy-uri", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::remove-feature-by-type", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-ca-file", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-strict", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::timeout", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-database", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-interaction", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::use-ntlm", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::use-thread-context", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::user-agent", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
 }
 export interface SessionAsync_Static {
     new (config: SessionAsync_ConstructProps): SessionAsync
@@ -2824,35 +2824,35 @@ export interface SessionSync {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.Session */
-    connect(sigName: "authenticate", callback: ((msg: Message, auth: Auth, retrying: boolean) => void))
-    connect(sigName: "connection-created", callback: ((connection: GObject.Object) => void))
-    connect(sigName: "request-queued", callback: ((msg: Message) => void))
-    connect(sigName: "request-started", callback: ((msg: Message, socket: Socket) => void))
-    connect(sigName: "request-unqueued", callback: ((msg: Message) => void))
-    connect(sigName: "tunneling", callback: ((connection: GObject.Object) => void))
+    connect(sigName: "authenticate", callback: ((obj: SessionSync, msg: Message, auth: Auth, retrying: boolean) => void))
+    connect(sigName: "connection-created", callback: ((obj: SessionSync, connection: GObject.Object) => void))
+    connect(sigName: "request-queued", callback: ((obj: SessionSync, msg: Message) => void))
+    connect(sigName: "request-started", callback: ((obj: SessionSync, msg: Message, socket: Socket) => void))
+    connect(sigName: "request-unqueued", callback: ((obj: SessionSync, msg: Message) => void))
+    connect(sigName: "tunneling", callback: ((obj: SessionSync, connection: GObject.Object) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-language", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-language-auto", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature-by-type", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::http-aliases", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::https-aliases", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::idle-timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::max-conns", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::max-conns-per-host", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proxy-resolver", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proxy-uri", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remove-feature-by-type", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-ca-file", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-strict", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-use-system-ca-file", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-database", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-interaction", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-ntlm", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-thread-context", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::user-agent", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::accept-language", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::accept-language-auto", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::add-feature", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::add-feature-by-type", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::http-aliases", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::https-aliases", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::idle-timeout", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::max-conns", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::max-conns-per-host", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::proxy-resolver", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::proxy-uri", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::remove-feature-by-type", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-ca-file", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-strict", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::timeout", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-database", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-interaction", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::use-ntlm", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::use-thread-context", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::user-agent", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
 }
 export interface SessionSync_Static {
     new (config: SessionSync_ConstructProps): SessionSync
@@ -2942,22 +2942,22 @@ export interface Socket {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.Socket */
-    connect(sigName: "disconnected", callback: (() => void))
-    connect(sigName: "event", callback: ((event: Gio.SocketClientEvent, connection: Gio.IOStream) => void))
-    connect(sigName: "new-connection", callback: ((new_: Socket) => void))
-    connect(sigName: "readable", callback: (() => void))
-    connect(sigName: "writable", callback: (() => void))
+    connect(sigName: "disconnected", callback: ((obj: Socket) => void))
+    connect(sigName: "event", callback: ((obj: Socket, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void))
+    connect(sigName: "new-connection", callback: ((obj: Socket, new_: Socket) => void))
+    connect(sigName: "readable", callback: ((obj: Socket) => void))
+    connect(sigName: "writable", callback: ((obj: Socket) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ipv6-only", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-server", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::non-blocking", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::socket-properties", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ssl-creds", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::timeout", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-certificate", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tls-errors", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::trusted-certificate", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ipv6-only", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::is-server", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::non-blocking", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::socket-properties", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::ssl-creds", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::timeout", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-certificate", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::tls-errors", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::trusted-certificate", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
 }
 export interface Socket_Static {
     new (config: Socket_ConstructProps): Socket
@@ -3024,13 +3024,13 @@ export interface WebsocketConnection {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Soup.WebsocketConnection */
-    connect(sigName: "closed", callback: (() => void))
-    connect(sigName: "closing", callback: (() => void))
-    connect(sigName: "error", callback: ((error: GLib.Error) => void))
-    connect(sigName: "message", callback: ((type: number, message: GLib.Bytes) => void))
+    connect(sigName: "closed", callback: ((obj: WebsocketConnection) => void))
+    connect(sigName: "closing", callback: ((obj: WebsocketConnection) => void))
+    connect(sigName: "error", callback: ((obj: WebsocketConnection, error: GLib.Error) => void))
+    connect(sigName: "message", callback: ((obj: WebsocketConnection, type: number, message: GLib.Bytes) => void))
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::state", callback: ((pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::state", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface WebsocketConnection_Static {
     new (config: WebsocketConnection_ConstructProps): WebsocketConnection

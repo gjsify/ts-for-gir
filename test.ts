@@ -181,10 +181,6 @@ test('interface', t => {
 
     t.deepEqual(mod.exportInterface(TestData.interfaceAction),
         [ 
-            "export interface Action_ConstructProps {",
-            "    /* Properties of Action */",
-            "}",
-
             "export interface Action {",
             "    /* Properties of Action */",
             "    readonly enabled:boolean",
@@ -214,7 +210,6 @@ test('interface', t => {
             "}",
 
             "export interface Action_Static {",
-            "    new (config: Action_ConstructProps): Action",
             "}",
 
             "export declare class Action_Static {",
@@ -229,8 +224,6 @@ test('interface', t => {
     
     t.deepEqual(mod.exportInterface(TestData.interfaceActionGroup),
         [
-            "export interface ActionGroup_ConstructProps {",
-            "}",
             "export interface ActionGroup {",
             "    /* Methods of ActionGroup */",
             "    action_added(action_name: string): void",
@@ -269,7 +262,6 @@ test('interface', t => {
             "    connect(sigName: \"action-state-changed\", callback: ((action_name: string, value: GLib.Variant) => void))",
             "}",
             "export interface ActionGroup_Static {",
-                "    new (config: ActionGroup_ConstructProps): ActionGroup",
             "}",
             "export declare var ActionGroup: ActionGroup_Static",    
 
@@ -292,9 +284,6 @@ test('constructors', t => {
 
     t.deepEqual(mod.exportInterface(TestData.interfaceDBusNodeInfo),
         [
-            "export interface DBusNodeInfo_ConstructProps {",
-            "}",
-
             "export interface DBusNodeInfo {",
             "    /* Methods of DBusNodeInfo */",
             "    generate_xml(indent: number): /* string_builder */ GLib.String",
@@ -304,7 +293,6 @@ test('constructors', t => {
             "    unref(): void",
             "}",
             "export interface DBusNodeInfo_Static {",
-            "    new (config: DBusNodeInfo_ConstructProps): DBusNodeInfo",
             "}",
             "export declare class DBusNodeInfo_Static {",
             "    new_for_xml(xml_data: string): DBusNodeInfo",
@@ -360,7 +348,7 @@ test('class', t => {
             "    get_stdin(): InputStream",
             "    getenv(name: string): string",
             "    set_exit_status(exit_status: number): void",
-            "    /* Methods of Object */",
+            "    /* Methods of GObject.Object */",
             "    bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding",
             "    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding",
             "    bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding",
@@ -388,7 +376,7 @@ test('class', t => {
             "    vfunc_get_stdin(): InputStream",
             "    vfunc_print_literal(message: string): void",
             "    vfunc_printerr_literal(message: string): void",
-            "    /* Virtual methods of Object */",
+            "    /* Virtual methods of GObject.Object */",
             "    vfunc_constructed(): void",
             "    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void",
             "    vfunc_dispose(): void",
@@ -396,8 +384,9 @@ test('class', t => {
             "    vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void",
             "    vfunc_notify(pspec: ParamSpec): void",
             "    vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void",
-            "    /* Signals of Object */",
+            "    /* Signals of GObject.Object */",
             "    connect(sigName: \"notify\", callback: ((pspec: ParamSpec) => void))",
+            "    connect(sigName: \"notify::is-remote\", callback: ((pspec: GObject.ParamSpec) => void))",
             "}",
             "export interface ApplicationCommandLine_Static {",
             "    new (config: ApplicationCommandLine_ConstructProps): ApplicationCommandLine",

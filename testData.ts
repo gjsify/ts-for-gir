@@ -1,4 +1,5 @@
 export let classGObject = {
+    _fullSymName: 'GObject.Object',
     '$':
     {
         name: 'Object',
@@ -2511,6 +2512,7 @@ export let classGObject = {
 }
 
 export let classApplicationCommandLine = {
+    _fullSymName: 'ApplicationCommandLine',
     '$':
     {
         name: 'ApplicationCommandLine',
@@ -3307,6 +3309,7 @@ export let classApplicationCommandLine = {
 }
 
 export let interfaceDBusNodeInfo = {
+    _fullSymName: 'DBusNodeInfo',
     '$':
     {
         name: 'DBusNodeInfo',
@@ -3568,6 +3571,7 @@ export let interfaceDBusNodeInfo = {
 
 
 export let interfaceActionGroup = {
+    _fullSymName: 'ActionGroup',
     '$':
     {
         name: 'ActionGroup',
@@ -5060,6 +5064,7 @@ export let interfaceActionGroup = {
 
 
 export let interfaceAction = {
+    _fullSymName: 'Action',
     '$':
     {
         name: 'Action',

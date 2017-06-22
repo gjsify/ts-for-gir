@@ -44,6 +44,7 @@ interface GirVariable extends TsForGjsExtended {
         readable?: string
         "construct-only"?: string
         direction?: string
+        introspectable?: string
     }
     doc?: GirDoc[]
     type?: GirType[]
@@ -439,6 +440,8 @@ export class GirModule {
     private getVariable(v: GirVariable, optional: boolean = false, 
                         allowQuotes: boolean = false): [string[], string|null] {
         if (!v.$.name)
+            return [[], null]
+        if (!v || !v.$ || !this.girBool(v.$.introspectable, true))
             return [[], null] 
 
         let name = this.fixVariableName(v.$.name, allowQuotes)
@@ -456,6 +459,9 @@ export class GirModule {
 
         let propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
         let [propDesc,propName] = this.getVariable(v, construct, true)
+
+        if (!propName)
+            return [[], null, null]
 
         return [[`    ${propPrefix}${propDesc}`], propName, v.$.name || null]
     }
@@ -478,7 +484,9 @@ export class GirModule {
 
     exportConstant(e: GirVariable) {
         let [varDesc, varName] = this.getVariable(e)
-        return [`export const ${varDesc}`]
+        if (varName)
+            return [`export const ${varDesc}`]
+        return []
     }
 
     private getFunction(e: GirFunction, prefix: string, funcNamePrefix: string | null = null): [string[], string | null] {

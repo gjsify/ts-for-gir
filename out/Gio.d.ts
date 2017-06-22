@@ -5333,8 +5333,6 @@ export declare var MemoryInputStream: MemoryInputStream_Static
 export interface MemoryOutputStream_ConstructProps {
     /* Properties of Gio.MemoryOutputStream */
     data?:object
-    destroy_function?:object
-    realloc_function?:object
     size?:number
 }
 export interface MemoryOutputStream {
@@ -6489,7 +6487,6 @@ export declare class Resolver_Static {
 export declare var Resolver: Resolver_Static
 export interface Settings_ConstructProps {
     /* Properties of Gio.Settings */
-    backend?:any
     path?:string
     schema?:string
     schema_id?:string

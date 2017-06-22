@@ -406,8 +406,6 @@ export const SERVER_SSL_KEY_FILE:string
 export const SERVER_TLS_CERTIFICATE:string
 export const SESSION_ACCEPT_LANGUAGE:string
 export const SESSION_ACCEPT_LANGUAGE_AUTO:string
-export const SESSION_ADD_FEATURE:string
-export const SESSION_ADD_FEATURE_BY_TYPE:string
 export const SESSION_ASYNC_CONTEXT:string
 export const SESSION_ASYNC_H:number
 export const SESSION_FEATURE_H:number
@@ -420,7 +418,6 @@ export const SESSION_MAX_CONNS:string
 export const SESSION_MAX_CONNS_PER_HOST:string
 export const SESSION_PROXY_RESOLVER:string
 export const SESSION_PROXY_URI:string
-export const SESSION_REMOVE_FEATURE_BY_TYPE:string
 export const SESSION_SSL_CA_FILE:string
 export const SESSION_SSL_STRICT:string
 export const SESSION_SSL_USE_SYSTEM_CA_FILE:string
@@ -2394,8 +2391,6 @@ export interface Session_ConstructProps {
     /* Properties of Soup.Session */
     accept_language?:string
     accept_language_auto?:boolean
-    add_feature?:SessionFeature
-    add_feature_by_type?:number
     async_context?:object
     http_aliases?:string[]
     https_aliases?:string[]
@@ -2405,7 +2400,6 @@ export interface Session_ConstructProps {
     max_conns_per_host?:number
     proxy_resolver?:Gio.ProxyResolver
     proxy_uri?:URI
-    remove_feature_by_type?:number
     ssl_ca_file?:string
     ssl_strict?:boolean
     ssl_use_system_ca_file?:boolean
@@ -2420,8 +2414,6 @@ export interface Session {
     /* Properties of Soup.Session */
     accept_language:string
     accept_language_auto:boolean
-    add_feature:SessionFeature
-    add_feature_by_type:number
     http_aliases:string[]
     https_aliases:string[]
     idle_timeout:number
@@ -2429,7 +2421,6 @@ export interface Session {
     max_conns_per_host:number
     proxy_resolver:Gio.ProxyResolver
     proxy_uri:URI
-    remove_feature_by_type:number
     ssl_ca_file:string
     ssl_strict:boolean
     ssl_use_system_ca_file:boolean
@@ -2441,6 +2432,8 @@ export interface Session {
     user_agent:string
     /* Methods of Soup.Session */
     abort(): void
+    add_feature(feature: SessionFeature): void
+    add_feature_by_type(feature_type: number): void
     cancel_message(msg: Message, status_code: number): void
     get_async_context(): GLib.MainContext | null
     get_feature(feature_type: number): SessionFeature | null
@@ -2453,6 +2446,7 @@ export interface Session {
     queue_message(msg: Message, callback: SessionCallback | null, user_data: object | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
+    remove_feature_by_type(feature_type: number): void
     request(uri_string: string): Request
     request_http(method: string, uri_string: string): RequestHTTP
     request_http_uri(method: string, uri: URI): RequestHTTP
@@ -2520,8 +2514,6 @@ export interface Session {
     connect(sigName: "notify", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accept-language", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accept-language-auto", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature-by-type", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::http-aliases", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::https-aliases", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::idle-timeout", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
@@ -2529,7 +2521,6 @@ export interface Session {
     connect(sigName: "notify::max-conns-per-host", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::proxy-resolver", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::proxy-uri", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remove-feature-by-type", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-ca-file", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-strict", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
@@ -2551,8 +2542,6 @@ export interface SessionAsync_ConstructProps {
     /* Properties of Soup.Session */
     accept_language?:string
     accept_language_auto?:boolean
-    add_feature?:SessionFeature
-    add_feature_by_type?:number
     async_context?:object
     http_aliases?:string[]
     https_aliases?:string[]
@@ -2562,7 +2551,6 @@ export interface SessionAsync_ConstructProps {
     max_conns_per_host?:number
     proxy_resolver?:Gio.ProxyResolver
     proxy_uri?:URI
-    remove_feature_by_type?:number
     ssl_ca_file?:string
     ssl_strict?:boolean
     ssl_use_system_ca_file?:boolean
@@ -2577,8 +2565,6 @@ export interface SessionAsync {
     /* Properties of Soup.Session */
     accept_language:string
     accept_language_auto:boolean
-    add_feature:SessionFeature
-    add_feature_by_type:number
     http_aliases:string[]
     https_aliases:string[]
     idle_timeout:number
@@ -2586,7 +2572,6 @@ export interface SessionAsync {
     max_conns_per_host:number
     proxy_resolver:Gio.ProxyResolver
     proxy_uri:URI
-    remove_feature_by_type:number
     ssl_ca_file:string
     ssl_strict:boolean
     ssl_use_system_ca_file:boolean
@@ -2598,6 +2583,8 @@ export interface SessionAsync {
     user_agent:string
     /* Methods of Soup.Session */
     abort(): void
+    add_feature(feature: SessionFeature): void
+    add_feature_by_type(feature_type: number): void
     cancel_message(msg: Message, status_code: number): void
     get_async_context(): GLib.MainContext | null
     get_feature(feature_type: number): SessionFeature | null
@@ -2610,6 +2597,7 @@ export interface SessionAsync {
     queue_message(msg: Message, callback: SessionCallback | null, user_data: object | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
+    remove_feature_by_type(feature_type: number): void
     request(uri_string: string): Request
     request_http(method: string, uri_string: string): RequestHTTP
     request_http_uri(method: string, uri: URI): RequestHTTP
@@ -2677,8 +2665,6 @@ export interface SessionAsync {
     connect(sigName: "notify", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accept-language", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accept-language-auto", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature-by-type", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::http-aliases", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::https-aliases", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::idle-timeout", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
@@ -2686,7 +2672,6 @@ export interface SessionAsync {
     connect(sigName: "notify::max-conns-per-host", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::proxy-resolver", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::proxy-uri", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remove-feature-by-type", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-ca-file", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-strict", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
@@ -2708,8 +2693,6 @@ export interface SessionSync_ConstructProps {
     /* Properties of Soup.Session */
     accept_language?:string
     accept_language_auto?:boolean
-    add_feature?:SessionFeature
-    add_feature_by_type?:number
     async_context?:object
     http_aliases?:string[]
     https_aliases?:string[]
@@ -2719,7 +2702,6 @@ export interface SessionSync_ConstructProps {
     max_conns_per_host?:number
     proxy_resolver?:Gio.ProxyResolver
     proxy_uri?:URI
-    remove_feature_by_type?:number
     ssl_ca_file?:string
     ssl_strict?:boolean
     ssl_use_system_ca_file?:boolean
@@ -2734,8 +2716,6 @@ export interface SessionSync {
     /* Properties of Soup.Session */
     accept_language:string
     accept_language_auto:boolean
-    add_feature:SessionFeature
-    add_feature_by_type:number
     http_aliases:string[]
     https_aliases:string[]
     idle_timeout:number
@@ -2743,7 +2723,6 @@ export interface SessionSync {
     max_conns_per_host:number
     proxy_resolver:Gio.ProxyResolver
     proxy_uri:URI
-    remove_feature_by_type:number
     ssl_ca_file:string
     ssl_strict:boolean
     ssl_use_system_ca_file:boolean
@@ -2755,6 +2734,8 @@ export interface SessionSync {
     user_agent:string
     /* Methods of Soup.Session */
     abort(): void
+    add_feature(feature: SessionFeature): void
+    add_feature_by_type(feature_type: number): void
     cancel_message(msg: Message, status_code: number): void
     get_async_context(): GLib.MainContext | null
     get_feature(feature_type: number): SessionFeature | null
@@ -2767,6 +2748,7 @@ export interface SessionSync {
     queue_message(msg: Message, callback: SessionCallback | null, user_data: object | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
+    remove_feature_by_type(feature_type: number): void
     request(uri_string: string): Request
     request_http(method: string, uri_string: string): RequestHTTP
     request_http_uri(method: string, uri: URI): RequestHTTP
@@ -2834,8 +2816,6 @@ export interface SessionSync {
     connect(sigName: "notify", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accept-language", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accept-language-auto", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::add-feature-by-type", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::http-aliases", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::https-aliases", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::idle-timeout", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
@@ -2843,7 +2823,6 @@ export interface SessionSync {
     connect(sigName: "notify::max-conns-per-host", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::proxy-resolver", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::proxy-uri", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remove-feature-by-type", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-ca-file", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-strict", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
@@ -2871,7 +2850,6 @@ export interface Socket_ConstructProps {
     local_address?:Address
     non_blocking?:boolean
     remote_address?:Address
-    socket_properties?:any
     ssl_creds?:object
     ssl_fallback?:boolean
     ssl_strict?:boolean
@@ -2883,7 +2861,6 @@ export interface Socket {
     ipv6_only:boolean
     readonly is_server:boolean
     non_blocking:boolean
-    socket_properties:any
     ssl_creds:object
     timeout:number
     readonly tls_certificate:Gio.TlsCertificate
@@ -2952,7 +2929,6 @@ export interface Socket {
     connect(sigName: "notify::ipv6-only", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::is-server", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::non-blocking", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::socket-properties", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ssl-creds", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::timeout", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::tls-certificate", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))

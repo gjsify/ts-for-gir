@@ -109,9 +109,6 @@ export function file_loader_error_quark(): GLib.Quark
 export function file_saver_error_quark(): GLib.Quark
 export function utils_escape_search_text(text: string): string
 export function utils_unescape_search_text(text: string): string
-export interface MountOperationFactory {
-    (file: File, userdata: object): Gio.MountOperation
-}
 export interface CompletionProposal {
     /* Methods of GtkSource.CompletionProposal */
     changed(): void

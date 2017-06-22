@@ -313,9 +313,6 @@ export function units_to_double(i: number): number
 export function version(): number
 export function version_check(required_major: number, required_minor: number, required_micro: number): string | null
 export function version_string(): string
-export interface AttrDataCopyFunc {
-    (user_data: object): object
-}
 export interface AttrFilterFunc {
     (attribute: Attribute, user_data: object): boolean
 }

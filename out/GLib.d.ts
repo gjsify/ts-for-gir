@@ -1339,17 +1339,11 @@ export interface CompareDataFunc {
 export interface CompareFunc {
     (a: object, b: object): number
 }
-export interface CopyFunc {
-    (src: object, data: object): object
-}
 export interface DataForeachFunc {
     (key_id: Quark, data: object, user_data: object): void
 }
 export interface DestroyNotify {
     (data: object): void
-}
-export interface DuplicateFunc {
-    (data: object, user_data: object): object
 }
 export interface EqualFunc {
     (a: object, b: object): boolean
@@ -1446,9 +1440,6 @@ export interface TestFunc {
 }
 export interface TestLogFatalFunc {
     (log_domain: string, log_level: LogLevelFlags, message: string, user_data: object): boolean
-}
-export interface ThreadFunc {
-    (data: object): object
 }
 export interface TranslateFunc {
     (str: string, data: object): string
@@ -2628,7 +2619,7 @@ export declare class VariantDict_Static {
 }
 export declare var VariantDict: VariantDict_Static
 export interface VariantIter {
-    /* Methods of GLib.VariantIter */
+    /* Methods of undefined */
     free(): void
     n_children(): number
     next_value(): Variant

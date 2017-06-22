@@ -808,9 +808,6 @@ export interface DBusSignalCallback {
 export interface DBusSubtreeDispatchFunc {
     (connection: DBusConnection, sender: string, object_path: string, interface_name: string, node: string, out_user_data: object | null, user_data: object): DBusInterfaceVTable
 }
-export interface DBusSubtreeEnumerateFunc {
-    (connection: DBusConnection, sender: string, object_path: string, user_data: object): string[]
-}
 export interface DBusSubtreeIntrospectFunc {
     (connection: DBusConnection, sender: string, object_path: string, node: string, user_data: object): DBusInterfaceInfo
 }
@@ -834,9 +831,6 @@ export interface IOSchedulerJobFunc {
 }
 export interface PollableSourceFunc {
     (pollable_stream: GObject.Object, user_data: object): boolean
-}
-export interface ReallocFunc {
-    (data: object, size: number): object
 }
 export interface SettingsBindGetMapping {
     (value: GObject.Value, variant: GLib.Variant, user_data: object): boolean

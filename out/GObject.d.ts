@@ -236,9 +236,6 @@ export interface BaseInitFunc {
 export interface BindingTransformFunc {
     (binding: Binding, from_value: Value, to_value: Value, user_data: object): boolean
 }
-export interface BoxedCopyFunc {
-    (boxed: object): object
-}
 export interface BoxedFreeFunc {
     (boxed: object): void
 }
@@ -301,9 +298,6 @@ export interface TypePluginUnuse {
 }
 export interface TypePluginUse {
     (plugin: TypePlugin): void
-}
-export interface VaClosureMarshal {
-    (closure: Closure, return_value: Value | null, instance: TypeInstance, args: any, marshal_data: object | null, n_params: number, param_types: number): void
 }
 export interface ValueTransform {
     (src_value: Value, dest_value: Value): void
@@ -1332,5 +1326,5 @@ export declare var _Value__data__union: _Value__data__union_Static
 type InitiallyUnowned_autoptr = object
 type Object_autoptr = object
 type SignalCMarshaller = ClosureMarshal
-type SignalCVaMarshaller = VaClosureMarshal
+type SignalCVaMarshaller = any
 type Type = number

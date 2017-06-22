@@ -129,6 +129,7 @@ export interface GirEnumeration extends TsForGjsExtended {
         name: string
         version?: string
         "c:type"?: string
+        introspectable?: string
         // glib:get-type, glib:type-name
     }
     doc?: GirDoc[]
@@ -138,6 +139,7 @@ interface GirAlias extends TsForGjsExtended {
     $: {
         name: string
         "c:type"?: string
+        introspectable?: string        
     }
     type?: GirType[]
 }
@@ -192,6 +194,13 @@ export class GirModule {
         let loadTypesInternal = (arr) => {
             if (arr) {
                 for (let x of arr) {
+                    if (x.$) {
+                        if (x.$.introspectable) {
+                            if (!this.girBool(x.$.introspectable, true))
+                                continue 
+                        }
+                    }
+
                     let symName = `${this.name}.${x.$.name}`
                     if (dict[symName]) {
                         console.warn(`Warn: duplicate symbol: ${symName}`)
@@ -468,6 +477,10 @@ export class GirModule {
 
     exportEnumeration(e: GirEnumeration) {
         let def: string[] = []
+
+        if (!e || !e.$ || !this.girBool(e.$.introspectable, true))
+            return []
+
         def.push(`export enum ${e.$.name} {`)
         if (e.member) {
             for (let member of e.member) {
@@ -535,6 +548,9 @@ export class GirModule {
     }
 
     exportCallback(e: GirFunction) {
+        if (!e || !e.$ || !this.girBool(e.$.introspectable, true))
+            return []
+
         let name = e.$.name
         let [params, outParams] = this.getParameters(e.parameters)
         let retType = this.getReturnType(e)
@@ -729,6 +745,9 @@ export class GirModule {
     }
 
     exportAlias(e: GirAlias) {
+        if (!e || !e.$ || !this.girBool(e.$.introspectable, true))
+            return []
+
         let typeName = this.typeLookup(e)
         let name = e.$.name
 

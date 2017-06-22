@@ -897,10 +897,10 @@ export interface CompletionInfo {
     /* Methods of Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
-    child_get_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify(child: Gtk.Widget, child_property: string): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
-    child_set_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
     forall(callback: Gtk.Callback, callback_data: object): void
     foreach(callback: Gtk.Callback, callback_data: object): void
@@ -1164,7 +1164,7 @@ export interface CompletionInfo {
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
     size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
-    style_get_property(property_name: string, value: GObject.Value): void
+    style_get_property(property_name: string, value: any): void
     thaw_child_notify(): void
     translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
@@ -1211,10 +1211,10 @@ export interface CompletionInfo {
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
     vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
@@ -2771,10 +2771,10 @@ export interface Map {
     /* Methods of Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
-    child_get_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify(child: Gtk.Widget, child_property: string): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
-    child_set_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
     forall(callback: Gtk.Callback, callback_data: object): void
     foreach(callback: Gtk.Callback, callback_data: object): void
@@ -3041,7 +3041,7 @@ export interface Map {
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
     size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
-    style_get_property(property_name: string, value: GObject.Value): void
+    style_get_property(property_name: string, value: any): void
     thaw_child_notify(): void
     translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
@@ -3100,10 +3100,10 @@ export interface Map {
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
     vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
@@ -4124,10 +4124,10 @@ export interface StyleSchemeChooserButton {
     /* Methods of Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
-    child_get_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify(child: Gtk.Widget, child_property: string): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
-    child_set_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
     forall(callback: Gtk.Callback, callback_data: object): void
     foreach(callback: Gtk.Callback, callback_data: object): void
@@ -4395,7 +4395,7 @@ export interface StyleSchemeChooserButton {
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
     size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
-    style_get_property(property_name: string, value: GObject.Value): void
+    style_get_property(property_name: string, value: any): void
     thaw_child_notify(): void
     translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
@@ -4441,10 +4441,10 @@ export interface StyleSchemeChooserButton {
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
     vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
@@ -4784,10 +4784,10 @@ export interface StyleSchemeChooserWidget {
     /* Methods of Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
-    child_get_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify(child: Gtk.Widget, child_property: string): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
-    child_set_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
     forall(callback: Gtk.Callback, callback_data: object): void
     foreach(callback: Gtk.Callback, callback_data: object): void
@@ -5055,7 +5055,7 @@ export interface StyleSchemeChooserWidget {
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
     size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
-    style_get_property(property_name: string, value: GObject.Value): void
+    style_get_property(property_name: string, value: any): void
     thaw_child_notify(): void
     translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
@@ -5094,10 +5094,10 @@ export interface StyleSchemeChooserWidget {
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
     vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
@@ -5667,10 +5667,10 @@ export interface View {
     /* Methods of Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
-    child_get_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify(child: Gtk.Widget, child_property: string): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
-    child_set_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
     forall(callback: Gtk.Callback, callback_data: object): void
     foreach(callback: Gtk.Callback, callback_data: object): void
@@ -5937,7 +5937,7 @@ export interface View {
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
     size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
-    style_get_property(property_name: string, value: GObject.Value): void
+    style_get_property(property_name: string, value: any): void
     thaw_child_notify(): void
     translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
@@ -5996,10 +5996,10 @@ export interface View {
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
     vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void

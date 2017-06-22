@@ -194,14 +194,14 @@ export function set_web_database_directory_path(path: string): void
 export interface DOMEventTarget {
     /* Methods of WebKit.DOMEventTarget */
     add_event_listener(event_name: string, handler: GObject.Callback, use_capture: boolean, user_data: object): boolean
-    add_event_listener_with_closure(event_name: string, handler: GObject.Closure, use_capture: boolean): boolean
+    add_event_listener_with_closure(event_name: string, handler: Function, use_capture: boolean): boolean
     dispatch_event(event: DOMEvent): boolean
     remove_event_listener(event_name: string, handler: GObject.Callback, use_capture: boolean): boolean
-    remove_event_listener_with_closure(event_name: string, handler: GObject.Closure, use_capture: boolean): boolean
+    remove_event_listener_with_closure(event_name: string, handler: Function, use_capture: boolean): boolean
     /* Virtual methods of WebKit.DOMEventTarget */
-    vfunc_add_event_listener(event_name: string, handler: GObject.Closure, use_capture: boolean): boolean
+    vfunc_add_event_listener(event_name: string, handler: Function, use_capture: boolean): boolean
     vfunc_dispatch_event(event: DOMEvent): boolean
-    vfunc_remove_event_listener(event_name: string, handler: GObject.Closure, use_capture: boolean): boolean
+    vfunc_remove_event_listener(event_name: string, handler: Function, use_capture: boolean): boolean
 }
 export interface DOMEventTarget_Static {
 }
@@ -34435,10 +34435,10 @@ export interface WebView {
     /* Methods of Gtk.Container */
     add(widget: Gtk.Widget): void
     check_resize(): void
-    child_get_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify(child: Gtk.Widget, child_property: string): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
-    child_set_property(child: Gtk.Widget, property_name: string, value: GObject.Value): void
+    child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
     forall(callback: Gtk.Callback, callback_data: object): void
     foreach(callback: Gtk.Callback, callback_data: object): void
@@ -34705,7 +34705,7 @@ export interface WebView {
     size_allocate_with_baseline(allocation: Gtk.Allocation, baseline: number): void
     size_request(): /* requisition */ Gtk.Requisition
     style_attach(): void
-    style_get_property(property_name: string, value: GObject.Value): void
+    style_get_property(property_name: string, value: any): void
     thaw_child_notify(): void
     translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
@@ -34765,10 +34765,10 @@ export interface WebView {
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
     vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_set_focus_child(child: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void

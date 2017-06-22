@@ -661,12 +661,12 @@ export function async_initable_newv_async(object_type: number, n_parameters: num
 export function bus_get(bus_type: BusType, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
 export function bus_get_finish(res: AsyncResult): DBusConnection
 export function bus_get_sync(bus_type: BusType, cancellable: Cancellable | null): DBusConnection
-export function bus_own_name_on_connection_with_closures(connection: DBusConnection, name: string, flags: BusNameOwnerFlags, name_acquired_closure: GObject.Closure | null, name_lost_closure: GObject.Closure | null): number
-export function bus_own_name_with_closures(bus_type: BusType, name: string, flags: BusNameOwnerFlags, bus_acquired_closure: GObject.Closure | null, name_acquired_closure: GObject.Closure | null, name_lost_closure: GObject.Closure | null): number
+export function bus_own_name_on_connection_with_closures(connection: DBusConnection, name: string, flags: BusNameOwnerFlags, name_acquired_closure: Function, name_lost_closure: Function): number
+export function bus_own_name_with_closures(bus_type: BusType, name: string, flags: BusNameOwnerFlags, bus_acquired_closure: Function, name_acquired_closure: Function, name_lost_closure: Function): number
 export function bus_unown_name(owner_id: number): void
 export function bus_unwatch_name(watcher_id: number): void
-export function bus_watch_name_on_connection_with_closures(connection: DBusConnection, name: string, flags: BusNameWatcherFlags, name_appeared_closure: GObject.Closure | null, name_vanished_closure: GObject.Closure | null): number
-export function bus_watch_name_with_closures(bus_type: BusType, name: string, flags: BusNameWatcherFlags, name_appeared_closure: GObject.Closure | null, name_vanished_closure: GObject.Closure | null): number
+export function bus_watch_name_on_connection_with_closures(connection: DBusConnection, name: string, flags: BusNameWatcherFlags, name_appeared_closure: Function, name_vanished_closure: Function): number
+export function bus_watch_name_with_closures(bus_type: BusType, name: string, flags: BusNameWatcherFlags, name_appeared_closure: Function, name_vanished_closure: Function): number
 export function content_type_can_be_executable(type: string): boolean
 export function content_type_equals(type1: string, type2: string): boolean
 export function content_type_from_mime_type(mime_type: string): string | null
@@ -696,8 +696,8 @@ export function dbus_error_register_error_domain(error_domain_quark_name: string
 export function dbus_error_strip_remote_error(error: GLib.Error): boolean
 export function dbus_error_unregister_error(error_domain: GLib.Quark, error_code: number, dbus_error_name: string): boolean
 export function dbus_generate_guid(): string
-export function dbus_gvalue_to_gvariant(gvalue: GObject.Value, type: GLib.VariantType): GLib.Variant
-export function dbus_gvariant_to_gvalue(value: GLib.Variant): /* out_gvalue */ GObject.Value
+export function dbus_gvalue_to_gvariant(gvalue: any, type: GLib.VariantType): GLib.Variant
+export function dbus_gvariant_to_gvalue(value: GLib.Variant): /* out_gvalue */ any
 export function dbus_is_address(string: string): boolean
 export function dbus_is_guid(string: string): boolean
 export function dbus_is_interface_name(string: string): boolean
@@ -833,10 +833,10 @@ export interface PollableSourceFunc {
     (pollable_stream: GObject.Object, user_data: object): boolean
 }
 export interface SettingsBindGetMapping {
-    (value: GObject.Value, variant: GLib.Variant, user_data: object): boolean
+    (value: any, variant: GLib.Variant, user_data: object): boolean
 }
 export interface SettingsBindSetMapping {
-    (value: GObject.Value, expected_type: GLib.VariantType, user_data: object): GLib.Variant
+    (value: any, expected_type: GLib.VariantType, user_data: object): GLib.Variant
 }
 export interface SettingsGetMapping {
     (value: GLib.Variant, user_data: object): boolean
@@ -2933,7 +2933,7 @@ export interface DBusConnection {
     get_unique_name(): string
     is_closed(): boolean
     register_object(object_path: string, interface_info: DBusInterfaceInfo, vtable: DBusInterfaceVTable | null, user_data: object | null, user_data_free_func: GLib.DestroyNotify): number
-    register_object_with_closures(object_path: string, interface_info: DBusInterfaceInfo, method_call_closure: GObject.Closure | null, get_property_closure: GObject.Closure | null, set_property_closure: GObject.Closure | null): number
+    register_object_with_closures(object_path: string, interface_info: DBusInterfaceInfo, method_call_closure: Function, get_property_closure: Function, set_property_closure: Function): number
     register_subtree(object_path: string, vtable: DBusSubtreeVTable, flags: DBusSubtreeFlags, user_data: object, user_data_free_func: GLib.DestroyNotify): number
     remove_filter(filter_id: number): void
     send_message(message: DBusMessage, flags: DBusSendMessageFlags): [ /* returnType */ boolean, /* out_serial */ number | null ]

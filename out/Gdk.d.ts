@@ -2835,7 +2835,7 @@ export function set_allowed_backends(backends: string): void
 export function set_double_click_time(msec: number): void
 export function set_program_class(program_class: string): void
 export function set_show_events(show_events: boolean): void
-export function setting_get(name: string, value: GObject.Value): boolean
+export function setting_get(name: string, value: any): boolean
 export function synthesize_window_state(window: Window, unset_flags: WindowState, set_flags: WindowState): void
 export function test_render_sync(window: Window): void
 export function test_simulate_button(window: Window, x: number, y: number, button: number, modifiers: ModifierType, button_pressrelease: EventType): boolean
@@ -3595,7 +3595,7 @@ export interface Screen {
     get_resolution(): number
     get_rgba_visual(): Visual | null
     get_root_window(): Window
-    get_setting(name: string, value: GObject.Value): boolean
+    get_setting(name: string, value: any): boolean
     get_system_visual(): Visual
     get_toplevel_windows(): GLib.List
     get_width(): number

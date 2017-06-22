@@ -700,26 +700,26 @@ export declare class Text_Static {
 export declare var Text: Text_Static
 export interface Value {
     /* Methods of Atk.Value */
-    get_current_value(value: GObject.Value): void
+    get_current_value(value: any): void
     get_increment(): number
-    get_maximum_value(value: GObject.Value): void
-    get_minimum_increment(value: GObject.Value): void
-    get_minimum_value(value: GObject.Value): void
+    get_maximum_value(value: any): void
+    get_minimum_increment(value: any): void
+    get_minimum_value(value: any): void
     get_range(): Range | null
     get_sub_ranges(): GLib.SList
     get_value_and_text(): [ /* value */ number, /* text */ string | null ]
-    set_current_value(value: GObject.Value): boolean
+    set_current_value(value: any): boolean
     set_value(new_value: number): void
     /* Virtual methods of Atk.Value */
-    vfunc_get_current_value(value: GObject.Value): void
+    vfunc_get_current_value(value: any): void
     vfunc_get_increment(): number
-    vfunc_get_maximum_value(value: GObject.Value): void
-    vfunc_get_minimum_increment(value: GObject.Value): void
-    vfunc_get_minimum_value(value: GObject.Value): void
+    vfunc_get_maximum_value(value: any): void
+    vfunc_get_minimum_increment(value: any): void
+    vfunc_get_minimum_value(value: any): void
     vfunc_get_range(): Range | null
     vfunc_get_sub_ranges(): GLib.SList
     vfunc_get_value_and_text(): [ /* value */ number, /* text */ string | null ]
-    vfunc_set_current_value(value: GObject.Value): boolean
+    vfunc_set_current_value(value: any): boolean
     vfunc_set_value(new_value: number): void
     /* Signals of Atk.Value */
     connect(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void))
@@ -2302,8 +2302,8 @@ export declare var PlugClass: PlugClass_Static
 export interface PropertyValues {
     /* Fields of Atk.PropertyValues */
     property_name:string
-    old_value:GObject.Value
-    new_value:GObject.Value
+    old_value:any
+    new_value:any
 }
 export interface PropertyValues_Static {
 }

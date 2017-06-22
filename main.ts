@@ -337,8 +337,13 @@ export class GirModule {
 
         let fullTypeName: string = type.$.name
 
-        if (fullTypeName == 'GObject.Closure') {
-            // console.warn('hello')
+        let fullTypeMap = {
+            'GObject.Value': 'any',
+            'GObject.Closure': 'Function'
+        }
+
+        if (fullTypeMap[fullTypeName]) {
+            return fullTypeMap[fullTypeName]
         }
         
         // Fully qualify our type name if need be

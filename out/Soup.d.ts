@@ -488,15 +488,15 @@ export function uri_decode(part: string): string
 export function uri_encode(part: string, escape_extra: string | null): string
 export function uri_normalize(part: string, unescape_extra: string | null): string
 export function value_array_new(): GObject.ValueArray
-export function value_hash_insert_value(hash: GLib.HashTable, key: string, value: GObject.Value): void
+export function value_hash_insert_value(hash: GLib.HashTable, key: string, value: any): void
 export function value_hash_new(): GLib.HashTable
 export function websocket_client_prepare_handshake(msg: Message, origin: string | null, protocols: string[] | null): void
 export function websocket_client_verify_handshake(msg: Message): boolean
 export function websocket_error_get_quark(): GLib.Quark
 export function websocket_server_check_handshake(msg: Message, origin: string | null, protocols: string[] | null): boolean
 export function websocket_server_process_handshake(msg: Message, expected_origin: string | null, protocols: string[] | null): boolean
-export function xmlrpc_build_method_call(method_name: string, params: GObject.Value[], n_params: number): string | null
-export function xmlrpc_build_method_response(value: GObject.Value): string | null
+export function xmlrpc_build_method_call(method_name: string, params: any, n_params: number): string | null
+export function xmlrpc_build_method_response(value: any): string | null
 export function xmlrpc_build_request(method_name: string, params: GLib.Variant): string
 export function xmlrpc_build_response(value: GLib.Variant): string
 export function xmlrpc_error_quark(): GLib.Quark
@@ -504,7 +504,7 @@ export function xmlrpc_fault_quark(): GLib.Quark
 export function xmlrpc_message_new(uri: string, method_name: string, params: GLib.Variant): Message
 export function xmlrpc_message_set_response(msg: Message, value: GLib.Variant): boolean
 export function xmlrpc_parse_method_call(method_call: string, length: number): [ /* returnType */ boolean, /* method_name */ string, /* params */ GObject.ValueArray ]
-export function xmlrpc_parse_method_response(method_response: string, length: number): [ /* returnType */ boolean, /* value */ GObject.Value ]
+export function xmlrpc_parse_method_response(method_response: string, length: number): [ /* returnType */ boolean, /* value */ any ]
 export function xmlrpc_parse_request(method_call: string, length: number): [ /* returnType */ string, /* params */ XMLRPCParams ]
 export function xmlrpc_parse_response(method_response: string, length: number, signature: string | null): GLib.Variant
 export function xmlrpc_variant_get_datetime(variant: GLib.Variant): Date

@@ -65,7 +65,7 @@ export interface PixbufDestroyNotify {
     (pixels: number[], data: object): void
 }
 export interface PixbufSaveFunc {
-    (buf: number[], count: number, data: object): boolean
+    (buf: number[], data: object): boolean
 }
 export interface Pixbuf_ConstructProps {
     /* Properties of GdkPixbuf.Pixbuf */
@@ -112,7 +112,7 @@ export interface Pixbuf {
     read_pixels(): number
     rotate_simple(angle: PixbufRotation): Pixbuf | null
     saturate_and_pixelate(dest: Pixbuf, saturation: number, pixelate: boolean): void
-    save_to_bufferv(type: string, option_keys: string[], option_values: string[]): [ /* returnType */ boolean, /* buffer */ number[], /* buffer_size */ number ]
+    save_to_bufferv(type: string, option_keys: string[], option_values: string[]): [ /* returnType */ boolean, /* buffer */ number[] ]
     save_to_callbackv(save_func: PixbufSaveFunc, user_data: object, type: string, option_keys: string[], option_values: string[]): boolean
     savev(filename: string, type: string, option_keys: string[], option_values: string[]): boolean
     scale(dest: Pixbuf, dest_x: number, dest_y: number, dest_width: number, dest_height: number, offset_x: number, offset_y: number, scale_x: number, scale_y: number, interp_type: InterpType): void
@@ -305,7 +305,7 @@ export interface PixbufLoader {
     get_format(): PixbufFormat | null
     get_pixbuf(): Pixbuf
     set_size(width: number, height: number): void
-    write(buf: number[], count: number): boolean
+    write(buf: number[]): boolean
     write_bytes(buffer: GLib.Bytes): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -519,7 +519,7 @@ export interface Pixdata {
     height:number
     pixel_data:number[]
     /* Methods of GdkPixbuf.Pixdata */
-    deserialize(stream_length: number, stream: number[]): boolean
+    deserialize(stream: number[]): boolean
     serialize(): [ /* returnType */ number[], /* stream_length_p */ number ]
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String
 }

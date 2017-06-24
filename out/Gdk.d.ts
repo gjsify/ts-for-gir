@@ -2793,8 +2793,8 @@ export function get_display_arg_name(): string | null
 export function get_program_class(): string
 export function get_show_events(): boolean
 export function gl_error_quark(): GLib.Quark
-export function init(argc: number, argv: string[]): void
-export function init_check(argc: number, argv: string[]): boolean
+export function init(argv: string[]): void
+export function init_check(argv: string[]): boolean
 export function keyboard_grab(window: Window, owner_events: boolean, time_: number): GrabStatus
 export function keyboard_ungrab(time_: number): void
 export function keyval_convert_case(symbol: number): [ /* lower */ number, /* upper */ number ]
@@ -2813,7 +2813,7 @@ export function offscreen_window_get_surface(window: Window): cairo.Surface | nu
 export function offscreen_window_set_embedder(window: Window, embedder: Window): void
 export function pango_context_get(): Pango.Context
 export function pango_context_get_for_screen(screen: Screen): Pango.Context
-export function parse_args(argc: number, argv: string[]): void
+export function parse_args(argv: string[]): void
 export function pixbuf_get_from_surface(surface: cairo.Surface, src_x: number, src_y: number, width: number, height: number): GdkPixbuf.Pixbuf | null
 export function pixbuf_get_from_window(window: Window, src_x: number, src_y: number, width: number, height: number): GdkPixbuf.Pixbuf | null
 export function pointer_grab(window: Window, owner_events: boolean, event_mask: EventMask, confine_to: Window | null, cursor: Cursor | null, time_: number): GrabStatus
@@ -2821,9 +2821,9 @@ export function pointer_is_grabbed(): boolean
 export function pointer_ungrab(time_: number): void
 export function pre_parse_libgtk_only(): void
 export function property_delete(window: Window, property: Atom): void
-export function property_get(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number): [ /* returnType */ boolean, /* actual_property_type */ Atom, /* actual_format */ number, /* actual_length */ number, /* data */ number[] ]
-export function query_depths(): [ /* depths */ number[], /* count */ number ]
-export function query_visual_types(): [ /* visual_types */ VisualType[], /* count */ number ]
+export function property_get(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number): [ /* returnType */ boolean, /* actual_property_type */ Atom, /* actual_format */ number, /* data */ number[] ]
+export function query_depths(): /* depths */ number[]
+export function query_visual_types(): /* visual_types */ VisualType[]
 export function selection_convert(requestor: Window, selection: Atom, target: Atom, time_: number): void
 export function selection_owner_get(selection: Atom): Window | null
 export function selection_owner_get_for_display(display: Display, selection: Atom): Window | null
@@ -2840,7 +2840,7 @@ export function synthesize_window_state(window: Window, unset_flags: WindowState
 export function test_render_sync(window: Window): void
 export function test_simulate_button(window: Window, x: number, y: number, button: number, modifiers: ModifierType, button_pressrelease: EventType): boolean
 export function test_simulate_key(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, key_pressrelease: EventType): boolean
-export function text_property_to_utf8_list_for_display(display: Display, encoding: Atom, format: number, text: number[], length: number): [ /* returnType */ number, /* list */ string[] ]
+export function text_property_to_utf8_list_for_display(display: Display, encoding: Atom, format: number, text: number[]): [ /* returnType */ number, /* list */ string[] ]
 export function threads_add_idle_full(priority: number, function_: GLib.SourceFunc, data: object, notify: GLib.DestroyNotify | null): number
 export function threads_add_timeout_full(priority: number, interval: number, function_: GLib.SourceFunc, data: object, notify: GLib.DestroyNotify | null): number
 export function threads_add_timeout_seconds_full(priority: number, interval: number, function_: GLib.SourceFunc, data: object, notify: GLib.DestroyNotify | null): number
@@ -3188,7 +3188,7 @@ export interface Display {
     request_selection_notification(selection: Atom): boolean
     set_double_click_distance(distance: number): void
     set_double_click_time(msec: number): void
-    store_clipboard(clipboard_window: Window, time_: number, targets: Atom[], n_targets: number): void
+    store_clipboard(clipboard_window: Window, time_: number, targets: Atom[]): void
     supports_clipboard_persistence(): boolean
     supports_composite(): boolean
     supports_cursor_alpha(): boolean
@@ -3505,8 +3505,8 @@ export interface Keymap {
     add_virtual_modifiers(state: ModifierType): void
     get_caps_lock_state(): boolean
     get_direction(): Pango.Direction
-    get_entries_for_keycode(hardware_keycode: number): [ /* returnType */ boolean, /* keys */ KeymapKey[], /* keyvals */ number[], /* n_entries */ number ]
-    get_entries_for_keyval(keyval: number): [ /* returnType */ boolean, /* keys */ KeymapKey[], /* n_keys */ number ]
+    get_entries_for_keycode(hardware_keycode: number): [ /* returnType */ boolean, /* keys */ KeymapKey[], /* keyvals */ number[] ]
+    get_entries_for_keyval(keyval: number): [ /* returnType */ boolean, /* keys */ KeymapKey[] ]
     get_modifier_mask(intent: ModifierIntent): ModifierType
     get_modifier_state(): number
     get_num_lock_state(): boolean

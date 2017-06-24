@@ -297,7 +297,7 @@ export interface Buffer {
     delete_mark(mark: Gtk.TextMark): void
     delete_mark_by_name(name: string): void
     delete_selection(interactive: boolean, default_editable: boolean): boolean
-    deserialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, iter: Gtk.TextIter, data: number[], length: number): boolean
+    deserialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, iter: Gtk.TextIter, data: number[]): boolean
     deserialize_get_can_create_tags(format: Gdk.Atom): boolean
     deserialize_set_can_create_tags(format: Gdk.Atom, can_create_tags: boolean): void
     end_user_action(): void
@@ -948,7 +948,7 @@ export interface CompletionInfo {
     drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList
     drag_dest_get_track_motion(): boolean
-    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
     drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
@@ -959,7 +959,7 @@ export interface CompletionInfo {
     drag_source_add_text_targets(): void
     drag_source_add_uri_targets(): void
     drag_source_get_target_list(): Gtk.TargetList
-    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_source_set_icon_gicon(icon: Gio.Icon): void
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
@@ -2822,7 +2822,7 @@ export interface Map {
     drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList
     drag_dest_get_track_motion(): boolean
-    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
     drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
@@ -2833,7 +2833,7 @@ export interface Map {
     drag_source_add_text_targets(): void
     drag_source_add_uri_targets(): void
     drag_source_get_target_list(): Gtk.TargetList
-    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_source_set_icon_gicon(icon: Gio.Icon): void
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
@@ -4175,7 +4175,7 @@ export interface StyleSchemeChooserButton {
     drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList
     drag_dest_get_track_motion(): boolean
-    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
     drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
@@ -4186,7 +4186,7 @@ export interface StyleSchemeChooserButton {
     drag_source_add_text_targets(): void
     drag_source_add_uri_targets(): void
     drag_source_get_target_list(): Gtk.TargetList
-    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_source_set_icon_gicon(icon: Gio.Icon): void
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
@@ -4835,7 +4835,7 @@ export interface StyleSchemeChooserWidget {
     drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList
     drag_dest_get_track_motion(): boolean
-    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
     drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
@@ -4846,7 +4846,7 @@ export interface StyleSchemeChooserWidget {
     drag_source_add_text_targets(): void
     drag_source_add_uri_targets(): void
     drag_source_get_target_list(): Gtk.TargetList
-    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_source_set_icon_gicon(icon: Gio.Icon): void
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
@@ -5718,7 +5718,7 @@ export interface View {
     drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList
     drag_dest_get_track_motion(): boolean
-    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
     drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
@@ -5729,7 +5729,7 @@ export interface View {
     drag_source_add_text_targets(): void
     drag_source_add_uri_targets(): void
     drag_source_get_target_list(): Gtk.TargetList
-    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, n_targets: number, actions: Gdk.DragAction): void
+    drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_source_set_icon_gicon(icon: Gio.Icon): void
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void

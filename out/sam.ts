@@ -6,7 +6,7 @@ import * as Soup from './Soup'
 import * as GtkSource from './GtkSource'
 import * as WebKit from './WebKit'
 
-Gtk.init(0, null)
+Gtk.init(null)
 
 var w = WebKit.WebView.new()
 w.vfunc_map()

@@ -249,7 +249,7 @@ export interface ClassInitFunc {
     (g_class: TypeClass, class_data: object): void
 }
 export interface ClosureMarshal {
-    (closure: Closure, return_value: Value | null, n_param_values: number, param_values: Value[], invocation_hint: object | null, marshal_data: object | null): void
+    (closure: Closure, return_value: Value | null, param_values: Value[], invocation_hint: object | null, marshal_data: object | null): void
 }
 export interface ClosureNotify {
     (data: object, closure: Closure): void
@@ -276,7 +276,7 @@ export interface SignalAccumulator {
     (ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, data: object): boolean
 }
 export interface SignalEmissionHook {
-    (ihint: SignalInvocationHint, n_param_values: number, param_values: Value[], data: object): boolean
+    (ihint: SignalInvocationHint, param_values: Value[], data: object): boolean
 }
 export interface ToggleNotify {
     (data: object, object: Object, is_last_ref: boolean): void
@@ -1453,7 +1453,7 @@ export interface Closure {
     notifiers:ClosureNotifyData
     /* Methods of GObject.Closure */
     invalidate(): void
-    invoke(return_value: Value | null, n_param_values: number, param_values: Value[], invocation_hint: object | null): void
+    invoke(return_value: Value | null, param_values: Value[], invocation_hint: object | null): void
     ref(): Closure
     sink(): void
     unref(): void
@@ -1553,7 +1553,7 @@ export interface ObjectClass {
     pdummy:object[]
     /* Methods of GObject.ObjectClass */
     find_property(property_name: string): ParamSpec
-    install_properties(n_pspecs: number, pspecs: ParamSpec[]): void
+    install_properties(pspecs: ParamSpec[]): void
     install_property(property_id: number, pspec: ParamSpec): void
     list_properties(): [ /* returnType */ ParamSpec[], /* n_properties */ number ]
     override_property(property_id: number, name: string): void

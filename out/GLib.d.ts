@@ -904,11 +904,11 @@ export function atomic_pointer_or(atomic: object, val: number): number
 export function atomic_pointer_set(atomic: object, newval: object): void
 export function atomic_pointer_xor(atomic: object, val: number): number
 export function base64_decode(text: string): [ /* returnType */ number[], /* out_len */ number ]
-export function base64_decode_inplace(text: number[], out_len: number): number
-export function base64_decode_step(in_: number[], len: number, state: number, save: number): [ /* returnType */ number, /* out */ number[] ]
-export function base64_encode(data: number[], len: number): string
+export function base64_decode_inplace(text: number[]): number
+export function base64_decode_step(in_: number[], state: number, save: number): [ /* returnType */ number, /* out */ number[] ]
+export function base64_encode(data: number[]): string
 export function base64_encode_close(break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ number[] ]
-export function base64_encode_step(in_: number[], len: number, break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ number[] ]
+export function base64_encode_step(in_: number[], break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ number[] ]
 export function basename(file_name: string): string
 export function bit_lock(address: number, lock_bit: number): void
 export function bit_nth_lsf(mask: number, nth_bit: number): number
@@ -922,7 +922,7 @@ export function build_pathv(separator: string, args: string[]): string
 export function byte_array_free(array: number[], free_segment: boolean): number
 export function byte_array_free_to_bytes(array: number[]): Bytes
 export function byte_array_new(): number[]
-export function byte_array_new_take(data: number[], len: number): number[]
+export function byte_array_new_take(data: number[]): number[]
 export function byte_array_unref(array: number[]): void
 export function chdir(path: string): number
 export function check_version(required_major: number, required_minor: number, required_micro: number): string
@@ -932,10 +932,10 @@ export function child_watch_source_new(pid: Pid): Source
 export function clear_error(): void
 export function close(fd: number): boolean
 export function compute_checksum_for_bytes(checksum_type: ChecksumType, data: Bytes): string
-export function compute_checksum_for_data(checksum_type: ChecksumType, data: number[], length: number): string
+export function compute_checksum_for_data(checksum_type: ChecksumType, data: number[]): string
 export function compute_checksum_for_string(checksum_type: ChecksumType, str: string, length: number): string
-export function compute_hmac_for_data(digest_type: ChecksumType, key: number[], key_len: number, data: number, length: number): string
-export function compute_hmac_for_string(digest_type: ChecksumType, key: number[], key_len: number, str: string, length: number): string
+export function compute_hmac_for_data(digest_type: ChecksumType, key: number[], data: number, length: number): string
+export function compute_hmac_for_string(digest_type: ChecksumType, key: number[], str: string, length: number): string
 export function convert(str: string, len: number, to_codeset: string, from_codeset: string): [ /* returnType */ string, /* bytes_read */ number, /* bytes_written */ number ]
 export function convert_error_quark(): Quark
 export function convert_with_fallback(str: string, len: number, to_codeset: string, from_codeset: string, fallback: string, bytes_read: number, bytes_written: number): string
@@ -978,10 +978,10 @@ export function environ_setenv(envp: string[] | null, variable: string, value: s
 export function environ_unsetenv(envp: string[] | null, variable: string): string[]
 export function file_error_from_errno(err_no: number): FileError
 export function file_error_quark(): Quark
-export function file_get_contents(filename: string): [ /* returnType */ boolean, /* contents */ number[], /* length */ number | null ]
+export function file_get_contents(filename: string): [ /* returnType */ boolean, /* contents */ number[] ]
 export function file_open_tmp(tmpl: string): [ /* returnType */ number, /* name_used */ any ]
 export function file_read_link(filename: string): string
-export function file_set_contents(filename: string, contents: number[], length: number): boolean
+export function file_set_contents(filename: string, contents: number[]): boolean
 export function file_test(filename: string, test: FileTest): boolean
 export function filename_display_basename(filename: string): string
 export function filename_display_name(filename: string): string
@@ -1087,7 +1087,7 @@ export function on_error_stack_trace(prg_name: string): void
 export function once_init_enter(location: object): boolean
 export function once_init_leave(location: object, result: number): void
 export function option_error_quark(): Quark
-export function parse_debug_string(string: string | null, keys: DebugKey[], nkeys: number): number
+export function parse_debug_string(string: string | null, keys: DebugKey[]): number
 export function path_get_basename(file_name: string): string
 export function path_get_dirname(file_name: string): string
 export function path_is_absolute(file_name: string): boolean
@@ -1112,7 +1112,7 @@ export function random_set_seed(seed: number): void
 export function regex_check_replacement(replacement: string): [ /* returnType */ boolean, /* has_references */ boolean | null ]
 export function regex_error_quark(): Quark
 export function regex_escape_nul(string: string, length: number): string
-export function regex_escape_string(string: string[], length: number): string
+export function regex_escape_string(string: string[]): string
 export function regex_match_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): boolean
 export function regex_split_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): string[]
 export function reload_user_special_dirs_cache(): void
@@ -1129,7 +1129,7 @@ export function set_error_literal(err: Error | null, domain: Quark, code: number
 export function set_prgname(prgname: string): void
 export function setenv(variable: string, value: string, overwrite: boolean): boolean
 export function shell_error_quark(): Quark
-export function shell_parse_argv(command_line: string): [ /* returnType */ boolean, /* argcp */ number | null, /* argvp */ string[] | null ]
+export function shell_parse_argv(command_line: string): [ /* returnType */ boolean, /* argvp */ string[] | null ]
 export function shell_quote(unquoted_string: string): string
 export function shell_unquote(quoted_string: string): string
 export function slice_free1(block_size: number, mem_block: object): void
@@ -1318,7 +1318,7 @@ export function utf8_substring(str: string, start_pos: number, end_pos: number):
 export function utf8_to_ucs4(str: string, len: number, items_read: number | null, items_written: number | null): number
 export function utf8_to_ucs4_fast(str: string, len: number, items_written: number | null): number
 export function utf8_to_utf16(str: string, len: number, items_read: number | null, items_written: number | null): number
-export function utf8_validate(str: number[], max_len: number): [ /* returnType */ boolean, /* end */ string | null ]
+export function utf8_validate(str: number[]): [ /* returnType */ boolean, /* end */ string | null ]
 export function variant_get_gtype(): number
 export function variant_is_object_path(string: string): boolean
 export function variant_is_signature(string: string): boolean

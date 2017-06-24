@@ -252,7 +252,7 @@ export interface ClassInitFunc {
     (g_class: TypeClass, class_data: object): void
 }
 export interface ClosureMarshal {
-    (closure: Closure, return_value: Value | null, n_param_values: number, param_values: Value[], invocation_hint: object | null, marshal_data: object | null): void
+    (closure: Closure, return_value: Value | null, param_values: Value[], invocation_hint: object | null, marshal_data: object | null): void
 }
 export interface ClosureNotify {
     (data: object, closure: Closure): void
@@ -279,7 +279,7 @@ export interface SignalAccumulator {
     (ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, data: object): boolean
 }
 export interface SignalEmissionHook {
-    (ihint: SignalInvocationHint, n_param_values: number, param_values: Value[], data: object): boolean
+    (ihint: SignalInvocationHint, param_values: Value[], data: object): boolean
 }
 export interface ToggleNotify {
     (data: object, object: Object, is_last_ref: boolean): void
@@ -303,7 +303,7 @@ export interface TypePluginUse {
     (plugin: TypePlugin): void
 }
 export interface VaClosureMarshal {
-    (closure: Closure, return_value: Value | null, instance: TypeInstance, args: any, marshal_data: object | null, n_params: number, param_types: number): void
+    (closure: Closure, return_value: Value | null, instance: TypeInstance, args: any, marshal_data: object | null, param_types: number): void
 }
 export interface ValueTransform {
     (src_value: Value, dest_value: Value): void

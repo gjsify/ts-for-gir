@@ -1825,11 +1825,11 @@ export interface StateSet_ConstructProps {
 export interface StateSet {
     /* Methods of StateSet */
     add_state(type: StateType): boolean
-    add_states(types: StateType[], n_types: number): void
+    add_states(types: StateType[]): void
     and_sets(compare_set: StateSet): StateSet
     clear_states(): void
     contains_state(type: StateType): boolean
-    contains_states(types: StateType[], n_types: number): boolean
+    contains_states(types: StateType[]): boolean
     is_empty(): boolean
     or_sets(compare_set: StateSet): StateSet | null
     remove_state(type: StateType): boolean

@@ -271,7 +271,7 @@ export function find_base_dir(text: string, length: number): Direction
 export function find_paragraph_boundary(text: string, length: number): [ /* paragraph_delimiter_index */ number, /* next_paragraph_start */ number ]
 export function font_description_from_string(str: string): FontDescription
 export function get_lib_subdirectory(): string
-export function get_log_attrs(text: string, length: number, level: number, language: Language, log_attrs: LogAttr[], attrs_len: number): void
+export function get_log_attrs(text: string, length: number, level: number, language: Language, log_attrs: LogAttr[]): void
 export function get_mirror_char(ch: number, mirrored_ch: number): boolean
 export function get_sysconf_subdirectory(): string
 export function gravity_get_for_matrix(matrix: Matrix | null): Gravity
@@ -284,7 +284,7 @@ export function itemize_with_base_dir(context: Context, base_dir: Direction, tex
 export function language_from_string(language: string | null): Language | null
 export function language_get_default(): Language
 export function log2vis_get_embedding_levels(text: string, length: number, pbase_dir: Direction): number
-export function lookup_aliases(fontname: string): [ /* families */ string[], /* n_families */ number ]
+export function lookup_aliases(fontname: string): /* families */ string[]
 export function markup_parser_finish(context: GLib.MarkupParseContext): [ /* returnType */ boolean, /* attr_list */ AttrList | null, /* text */ string | null, /* accel_char */ number | null ]
 export function markup_parser_new(accel_marker: number): GLib.MarkupParseContext
 export function module_register(module: IncludedModule): void
@@ -337,7 +337,7 @@ export interface Context {
     get_matrix(): Matrix | null
     get_metrics(desc: FontDescription | null, language: Language | null): FontMetrics
     get_serial(): number
-    list_families(): [ /* families */ FontFamily[], /* n_families */ number ]
+    list_families(): /* families */ FontFamily[]
     load_font(desc: FontDescription): Font | null
     load_fontset(desc: FontDescription, language: Language): Fontset | null
     set_base_dir(direction: Direction): void
@@ -574,7 +574,7 @@ export interface Font_Static {
     new (config: Font_ConstructProps): Font
 }
 export declare class Font_Static {
-    descriptions_free(descs: FontDescription[] | null, n_descs: number): void
+    descriptions_free(descs: FontDescription[] | null): void
 }
 export declare var Font: Font_Static
 export interface FontFace_ConstructProps {
@@ -584,7 +584,7 @@ export interface FontFace {
     describe(): FontDescription
     get_face_name(): string
     is_synthesized(): boolean
-    list_sizes(): [ /* sizes */ number[] | null, /* n_sizes */ number ]
+    list_sizes(): /* sizes */ number[] | null
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -613,7 +613,7 @@ export interface FontFace {
     vfunc_describe(): FontDescription
     vfunc_get_face_name(): string
     vfunc_is_synthesized(): boolean
-    vfunc_list_sizes(): [ /* sizes */ number[] | null, /* n_sizes */ number ]
+    vfunc_list_sizes(): /* sizes */ number[] | null
     /* Virtual methods of Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -635,7 +635,7 @@ export interface FontFamily {
     /* Methods of FontFamily */
     get_name(): string
     is_monospace(): boolean
-    list_faces(): [ /* faces */ FontFace[] | null, /* n_faces */ number ]
+    list_faces(): /* faces */ FontFace[] | null
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -663,7 +663,7 @@ export interface FontFamily {
     /* Virtual methods of FontFamily */
     vfunc_get_name(): string
     vfunc_is_monospace(): boolean
-    vfunc_list_faces(): [ /* faces */ FontFace[] | null, /* n_faces */ number ]
+    vfunc_list_faces(): /* faces */ FontFace[] | null
     /* Virtual methods of Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -687,7 +687,7 @@ export interface FontMap {
     create_context(): Context
     get_serial(): number
     get_shape_engine_type(): string
-    list_families(): [ /* families */ FontFamily[], /* n_families */ number ]
+    list_families(): /* families */ FontFamily[]
     load_font(context: Context, desc: FontDescription): Font | null
     load_fontset(context: Context, desc: FontDescription, language: Language): Fontset | null
     /* Methods of Object */
@@ -717,7 +717,7 @@ export interface FontMap {
     /* Virtual methods of FontMap */
     vfunc_changed(): void
     vfunc_get_serial(): number
-    vfunc_list_families(): [ /* families */ FontFamily[], /* n_families */ number ]
+    vfunc_list_families(): /* families */ FontFamily[]
     vfunc_load_font(context: Context, desc: FontDescription): Font | null
     vfunc_load_fontset(context: Context, desc: FontDescription, language: Language): Fontset | null
     /* Virtual methods of Object */
@@ -868,7 +868,7 @@ export interface Layout {
     get_line_readonly(line: number): LayoutLine | null
     get_lines(): GLib.SList
     get_lines_readonly(): GLib.SList
-    get_log_attrs(): [ /* attrs */ LogAttr[], /* n_attrs */ number ]
+    get_log_attrs(): /* attrs */ LogAttr[]
     get_log_attrs_readonly(): [ /* returnType */ LogAttr[], /* n_attrs */ number ]
     get_pixel_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_pixel_size(): [ /* width */ number | null, /* height */ number | null ]

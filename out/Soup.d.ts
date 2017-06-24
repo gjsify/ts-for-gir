@@ -498,7 +498,7 @@ export function websocket_client_verify_handshake(msg: Message): boolean
 export function websocket_error_get_quark(): GLib.Quark
 export function websocket_server_check_handshake(msg: Message, origin: string | null, protocols: string[] | null): boolean
 export function websocket_server_process_handshake(msg: Message, expected_origin: string | null, protocols: string[] | null): boolean
-export function xmlrpc_build_method_call(method_name: string, params: GObject.Value[], n_params: number): string | null
+export function xmlrpc_build_method_call(method_name: string, params: GObject.Value[]): string | null
 export function xmlrpc_build_method_response(value: GObject.Value): string | null
 export function xmlrpc_build_request(method_name: string, params: GLib.Variant): string
 export function xmlrpc_build_response(value: GLib.Variant): string
@@ -1724,8 +1724,8 @@ export interface Message {
     set_http_version(version: HTTPVersion): void
     set_priority(priority: MessagePriority): void
     set_redirect(status_code: number, redirect_uri: string): void
-    set_request(content_type: string | null, req_use: MemoryUse, req_body: number[] | null, req_length: number): void
-    set_response(content_type: string | null, resp_use: MemoryUse, resp_body: number[] | null, resp_length: number): void
+    set_request(content_type: string | null, req_use: MemoryUse, req_body: number[] | null): void
+    set_response(content_type: string | null, resp_use: MemoryUse, resp_body: number[] | null): void
     set_status(status_code: number): void
     set_status_full(status_code: number, reason_phrase: string): void
     set_uri(uri: URI): void
@@ -1832,11 +1832,11 @@ export interface MultipartInputStream {
     close_finish(result: Gio.AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(buffer: number[], count: number, cancellable: Gio.Cancellable | null): number
-    read_all(buffer: number[], count: number, cancellable: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_all_async(buffer: number[], count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
+    read(buffer: number[], cancellable: Gio.Cancellable | null): number
+    read_all(buffer: number[], cancellable: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
+    read_all_async(buffer: number[], io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     read_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(buffer: number[], count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
+    read_async(buffer: number[], io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     read_bytes(count: number, cancellable: Gio.Cancellable | null): GLib.Bytes
     read_bytes_async(count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     read_bytes_finish(result: Gio.AsyncResult): GLib.Bytes
@@ -1873,7 +1873,7 @@ export interface MultipartInputStream {
     vfunc_close_async(io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable: Gio.Cancellable | null): boolean
-    vfunc_read_async(buffer: number[], count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
+    vfunc_read_async(buffer: number[], io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     vfunc_read_finish(result: Gio.AsyncResult): number
     vfunc_read_fn(buffer: object, count: number, cancellable: Gio.Cancellable | null): number
     vfunc_skip(count: number, cancellable: Gio.Cancellable | null): number
@@ -2778,11 +2778,11 @@ export interface Socket {
     is_connected(): boolean
     is_ssl(): boolean
     listen(): boolean
-    read(buffer: number[], len: number, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
-    read_until(buffer: number[], len: number, boundary: object, boundary_len: number, got_boundary: boolean, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    read(buffer: number[], cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    read_until(buffer: number[], boundary: object, boundary_len: number, got_boundary: boolean, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
     start_proxy_ssl(ssl_host: string, cancellable: Gio.Cancellable | null): boolean
     start_ssl(cancellable: Gio.Cancellable | null): boolean
-    write(buffer: number[], len: number, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
+    write(buffer: number[], cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -2854,7 +2854,7 @@ export interface WebsocketConnection {
     get_protocol(): string | null
     get_state(): WebsocketState
     get_uri(): URI
-    send_binary(data: number[], length: number): void
+    send_binary(data: number[]): void
     send_text(text: string): void
     /* Methods of Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding

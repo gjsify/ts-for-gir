@@ -262,6 +262,9 @@ export class GirModule {
                 annotateVariables(c.property)
             }
 
+        if (this.ns.function)
+            annotateFunctions(this.ns.function)
+
         // if (this.ns.)
         // props
         
@@ -390,17 +393,50 @@ export class GirModule {
         return returnType
     }
 
+    private arrayLengthIndexLookup(param: GirVariable): number {
+        if (!param.array)
+            return -1
+        
+        let arr: GirArray = param.array[0]
+        if (!arr.$)
+            return -1
+
+        if (arr.$.length) {
+            return parseInt(arr.$.length)
+        }
+
+        return -1
+    }
+
     private getParameters(parameters): [ string, string[] ] {
         let def: string[] = []
         let outParams: string[] = []
 
         if (parameters && parameters.length > 0) {
             let parametersArray = parameters[0].parameter
-            if (parametersArray)
+            if (parametersArray) {
+                let skip = {}
+
+                for (let p of parametersArray) {
+                    let param: GirVariable = p
+                    let arrayNameIndex = this.arrayLengthIndexLookup(param)
+
+                    if (!param.array) continue
+
+                    if (arrayNameIndex < 0) continue
+                    if (arrayNameIndex >= parametersArray.length) continue
+
+                    skip[parametersArray[arrayNameIndex]._fullSymName] = 1
+                }
+
                 for (let p of parametersArray) {
                     let param: GirVariable = p
                     let paramName = this.fixVariableName(param.$.name || '-', false)
                     let paramType = this.typeLookup(param)
+
+                    if (skip[param._fullSymName || 'NOSYMNAME']) {
+                        continue
+                    }
 
                     let optDirection = param.$.direction
                     if (optDirection) {
@@ -413,6 +449,7 @@ export class GirModule {
                     let paramDesc = `${paramName}: ${paramType}`
                     def.push(paramDesc)
                 }
+            }
         }
 
         return [ def.join(", "), outParams ]

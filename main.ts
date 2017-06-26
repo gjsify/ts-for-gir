@@ -828,6 +828,10 @@ export class GirModule {
         return this.exportObjectInternal(e)
     }
 
+    exportJs(outStream: NodeJS.WritableStream) {
+        outStream.write(`module.exports = imports.gi.${this.name}`)
+    }
+
     export(outStream: NodeJS.WritableStream) {
         let out: string[] = []
 
@@ -991,6 +995,15 @@ function main() {
         console.log(` - ${k} ...`)
         girModules[k].patch = patch
         girModules[k].export(outf)
+
+        if (commander.outdir) {
+            let outdir: string = commander.outdir
+            let name: string = girModules[k].name || 'unknown'
+            let fileName: string = `${outdir}/${name}.js`
+            outf = fs.createWriteStream(fileName)
+        }
+
+        girModules[k].exportJs(outf)
     }
     console.log("Done.")
 }

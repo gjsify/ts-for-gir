@@ -4,13 +4,13 @@ import * as WebKit from '../../out/WebKit'
 Gtk.init(null)
 
 let wnd = new Gtk.Window({ title: 'Browser Test', default_width: 400, default_height: 300 })
-let box = new Gtk.Box({ valign: Gtk.Align.FILL, halign: Gtk.Align.FILL })
-let scroll = new Gtk.ScrolledWindow({ valign: Gtk.Align.FILL, halign: Gtk.Align.FILL })
-let webview = new WebKit.WebView({ valign: Gtk.Align.FILL, halign: Gtk.Align.FILL })
+let box = new Gtk.Box({ })
+let scroll = new Gtk.ScrolledWindow({ })
+let webview = new WebKit.WebView({  })
 
 webview.load_uri("http://www.google.com")
 scroll.add(webview)
-box.add(scroll)
+box.pack_start(scroll, true, true, 0)
 wnd.add(box)
 wnd.show_all()
 

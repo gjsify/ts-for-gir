@@ -2855,9 +2855,9 @@ export declare class VariantDict_Static {
 }
 export declare var VariantDict: VariantDict_Static
 export interface VariantIter {
-    /* Fields of undefined */
+    /* Fields of GLib.VariantIter */
     x:number[]
-    /* Methods of undefined */
+    /* Methods of GLib.VariantIter */
     free(): void
     n_children(): number
     next_value(): Variant

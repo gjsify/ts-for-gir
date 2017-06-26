@@ -8,9 +8,11 @@ import * as WebKit from './WebKit'
 
 Gtk.init(null)
 
-var w = WebKit.WebView.new()
+var w: WebKit.WebView = WebKit.WebView.new() as any
 w.vfunc_map()
 
 w.connect("notify::composite-child", (obj, pspec) => {
     
 })
+
+var s: Gtk.Widget = w

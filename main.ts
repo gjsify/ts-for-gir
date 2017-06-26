@@ -151,6 +151,7 @@ export class GirModule {
     repo: GirRepository
     ns: GirNamespace
     symTable: { [key:string]: any } = {}
+    patch: { [key:string]: string[] } = {}
 
     constructor(xml) {
         this.repo = xml.repository
@@ -201,39 +202,45 @@ export class GirModule {
         loadTypesInternal(this.ns.union)
         loadTypesInternal(this.ns.alias)
 
-        let annotateFunctionArguments = (f) => {
+        let annotateFunctionArguments = (f: GirFunction) => {
+            let funcName = f._fullSymName
             if (f.parameters)
                 for (let p of f.parameters)
                     if (p.parameter)
                         for (let x of p.parameter) {
                             x._module = this
-                            if (x.$ && x.$.name)
-                                x._fullSymName = `${this.name}.${x.$.name}`
+                            if (x.$ && x.$.name) {
+                                x._fullSymName = `${funcName}.${x.$.name}`
+                            }
                         }
         }
-        let annotateFunctionReturn = (f) => {
-            let retVal: GirVariable[] = f["return-value"]
+        let annotateFunctionReturn = (f: GirFunction) => {
+            let retVal: GirVariable[]|undefined = f["return-value"]
             if (retVal)
                 for (let x of retVal) {
                     x._module = this
-                    if (x.$ && x.$.name)
-                        x._fullSymName = `${this.name}.${x.$.name}`
+                    if (x.$ && x.$.name) {
+                        x._fullSymName = `${f._fullSymName}.${x.$.name}`
+                    }
                 }
-                
         }
-        let annotateFunctions = (funcs) => {
+        let annotateFunctions = (obj: GirClass|null, funcs: GirFunction[]) => {
             if (funcs)
                 for (let f of funcs) {
+                    let nsName = obj ? obj._fullSymName : this.name
+                    f._fullSymName = `${nsName}.${f.$.name}`
                     annotateFunctionArguments(f)
                     annotateFunctionReturn(f)
                 }
         }
-        let annotateVariables = (vars) => {
+        let annotateVariables = (obj: GirClass|null, vars) => {
             if (vars)
                 for (let x of vars) {
+                    let nsName = obj ? obj._fullSymName : this.name
                     x._module = this
-                    if (x.$ && x.$.name)
-                        x._fullSymName = `${this.name}.${x.$.name}`
+                    if (x.$ && x.$.name) {
+                        x._fullSymName = `${nsName}.${x.$.name}`
+                    }
                 }
         }
 
@@ -247,16 +254,21 @@ export class GirModule {
                     this.ns.interface ? this.ns.interface : [])
 
         for (let c of objs) {
-            annotateFunctions(c.function)
-            annotateFunctions(c.method)
-            annotateFunctions(c["virtual-method"])
-            annotateFunctions(c["glib:signal"])
-            annotateVariables(c.property)
-            annotateVariables(c.field)
+            c._module = this
+            c._fullSymName = `${this.name}.${c.$.name}`
+            annotateFunctions(c, c.function || [])
+            annotateFunctions(c, c.method || [])
+            annotateFunctions(c, c["virtual-method"] || [])
+            annotateFunctions(c, c["glib:signal"] || [])
+            annotateVariables(c, c.property)
+            annotateVariables(c, c.field)
         }
 
         if (this.ns.function)
-            annotateFunctions(this.ns.function)
+            annotateFunctions(null, this.ns.function)
+
+        if (this.ns.constant)
+            annotateVariables(null, this.ns.constant)
 
         // if (this.ns.)
         // props
@@ -538,6 +550,7 @@ export class GirModule {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true))
             return [[], null]
 
+        let patch = e._fullSymName ? this.patch[e._fullSymName] : []
         let name = e.$.name
         let [params, outParams] = this.getParameters(e.parameters)
         let retType = this.getReturnType(e)
@@ -545,6 +558,13 @@ export class GirModule {
         if (funcNamePrefix)
             name = funcNamePrefix + name
 
+        if (e._fullSymName == 'Gtk.Container.child_notify') {
+            debugger;
+        }
+
+        if (patch && patch.length > 0)
+            return [patch, null]    
+        
         let reservedWords = {
             'false': 1, 'true': 1, 'break': 1
         }
@@ -631,7 +651,7 @@ export class GirModule {
             this.traverseInheritanceTree(parent, callback)
     }
 
-    private isDerivedFromGObject(e: GirClass | GirClass): boolean {
+    private isDerivedFromGObject(e: GirClass): boolean {
         let ret = false
         this.traverseInheritanceTree(e, (cls) => {
             if (cls._fullSymName == "GObject.Object") {
@@ -651,7 +671,7 @@ export class GirModule {
                 return [[], false]
 
             if (!name) {
-                console.error(`No name for ${desc}`)
+                // console.error(`No name for ${desc}`)
                 return [[], false]
             }
 
@@ -949,6 +969,12 @@ function main() {
         k.transitiveDependencies = lodash.keys(ret)
     }
 
+    let patch = {
+        'Gtk.Container.child_notify': [
+            '/* child_notify clashes with Gtk.Widget.child_notify */'
+        ]
+    }
+
     console.log("Types loaded, generating .d.ts...")
     
     for (let k of lodash.keys(girModules)) {
@@ -960,6 +986,7 @@ function main() {
             outf = fs.createWriteStream(fileName)
         }
         console.log(` - ${k} ...`)
+        girModules[k].patch = patch
         girModules[k].export(outf)
     }
     console.log("Done.")

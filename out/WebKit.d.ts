@@ -34388,7 +34388,6 @@ export interface WebView {
     get_main_frame(): WebFrame
     get_paste_target_list(): Gtk.TargetList
     get_progress(): number
-    get_settings(): WebSettings
     get_snapshot(): cairo.Surface
     get_title(): string
     get_transparent(): boolean
@@ -34570,6 +34569,7 @@ export interface WebView {
     get_scale_factor(): number
     get_screen(): Gdk.Screen
     get_sensitive(): boolean
+    get_settings(): Gtk.Settings
     get_size_request(): [ /* width */ number | null, /* height */ number | null ]
     get_state(): Gtk.StateType
     get_state_flags(): Gtk.StateFlags

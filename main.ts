@@ -790,9 +790,37 @@ export class GirModule {
             let stc: string[] = []
             
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
-            if (constructor_)
-                for (let f of constructor_)
-                    stc = stc.concat(this.getFunction(f, "    ")[0])
+            if (constructor_) {
+                for (let f of constructor_) {
+                    let [desc, funcName] = this.getFunction(f, "    ")
+                    if (!funcName)
+                        continue
+
+                    let retType: string = this.getReturnType(f)
+                    if (retType.split(' ')[0] != name) {
+                        // console.warn(`Constructor returns ${retType} should return ${name}`)
+
+                        // Force constructors to return the type of the class they are actually
+                        // constructing. In a lot of cases the GI data says they return a base
+                        // class instead; I'm not sure why.
+                        f["return-value"] = [
+                            {
+                                '$': {
+                                    // nullable
+                                },
+                                'type': [ { '$': {
+                                            name: name
+                                        } } as GirType
+                                ]
+                            } as GirVariable
+                        ]
+
+                        desc = this.getFunction(f, "    ")[0]
+                    }
+                    
+                    stc = stc.concat(desc)
+                }
+            }
 
             if (e.function)
                 for (let f of e.function)

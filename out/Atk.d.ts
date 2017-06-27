@@ -1191,7 +1191,7 @@ export interface NoOpObject_Static {
     new (config: NoOpObject_ConstructProps): NoOpObject
 }
 export declare class NoOpObject_Static {
-    new(obj: GObject.Object): Object
+    new(obj: GObject.Object): NoOpObject
 }
 export declare var NoOpObject: NoOpObject_Static
 export interface NoOpObjectFactory_ConstructProps {
@@ -1249,7 +1249,7 @@ export interface NoOpObjectFactory_Static {
     new (config: NoOpObjectFactory_ConstructProps): NoOpObjectFactory
 }
 export declare class NoOpObjectFactory_Static {
-    new(): ObjectFactory
+    new(): NoOpObjectFactory
 }
 export declare var NoOpObjectFactory: NoOpObjectFactory_Static
 export interface Object_ConstructProps {
@@ -1617,7 +1617,7 @@ export interface Plug_Static {
     new (config: Plug_ConstructProps): Plug
 }
 export declare class Plug_Static {
-    new(): Object
+    new(): Plug
 }
 export declare var Plug: Plug_Static
 export interface Registry_ConstructProps {
@@ -1960,7 +1960,7 @@ export interface Socket_Static {
     new (config: Socket_ConstructProps): Socket
 }
 export declare class Socket_Static {
-    new(): Object
+    new(): Socket
 }
 export declare var Socket: Socket_Static
 export interface StateSet_ConstructProps {

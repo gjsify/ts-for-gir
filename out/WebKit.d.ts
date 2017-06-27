@@ -35065,7 +35065,7 @@ export interface WebView_Static {
     new (config: WebView_ConstructProps): WebView
 }
 export declare class WebView_Static {
-    new(): Gtk.Widget
+    new(): WebView
 }
 export declare var WebView: WebView_Static
 export interface WebWindowFeatures_ConstructProps {

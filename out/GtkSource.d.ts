@@ -2199,7 +2199,7 @@ export interface GutterRendererPixbuf_Static {
     new (config: GutterRendererPixbuf_ConstructProps): GutterRendererPixbuf
 }
 export declare class GutterRendererPixbuf_Static {
-    new(): GutterRenderer
+    new(): GutterRendererPixbuf
 }
 export declare var GutterRendererPixbuf: GutterRendererPixbuf_Static
 export interface GutterRendererText_ConstructProps {
@@ -2339,7 +2339,7 @@ export interface GutterRendererText_Static {
     new (config: GutterRendererText_ConstructProps): GutterRendererText
 }
 export declare class GutterRendererText_Static {
-    new(): GutterRenderer
+    new(): GutterRendererText
 }
 export declare var GutterRendererText: GutterRendererText_Static
 export interface Language_ConstructProps {
@@ -3385,7 +3385,7 @@ export interface Map_Static {
     new (config: Map_ConstructProps): Map
 }
 export declare class Map_Static {
-    new(): Gtk.Widget
+    new(): Map
 }
 export declare var Map: Map_Static
 export interface Mark_ConstructProps {
@@ -4677,7 +4677,7 @@ export interface StyleSchemeChooserButton_Static {
     new (config: StyleSchemeChooserButton_ConstructProps): StyleSchemeChooserButton
 }
 export declare class StyleSchemeChooserButton_Static {
-    new(): Gtk.Widget
+    new(): StyleSchemeChooserButton
 }
 export declare var StyleSchemeChooserButton: StyleSchemeChooserButton_Static
 export interface StyleSchemeChooserWidget_ConstructProps {
@@ -5313,7 +5313,7 @@ export interface StyleSchemeChooserWidget_Static {
     new (config: StyleSchemeChooserWidget_ConstructProps): StyleSchemeChooserWidget
 }
 export declare class StyleSchemeChooserWidget_Static {
-    new(): Gtk.Widget
+    new(): StyleSchemeChooserWidget
 }
 export declare var StyleSchemeChooserWidget: StyleSchemeChooserWidget_Static
 export interface StyleSchemeManager_ConstructProps {
@@ -6279,8 +6279,8 @@ export interface View_Static {
     new (config: View_ConstructProps): View
 }
 export declare class View_Static {
-    new(): Gtk.Widget
-    new_with_buffer(buffer: Buffer): Gtk.Widget
+    new(): View
+    new_with_buffer(buffer: Buffer): View
 }
 export declare var View: View_Static
 export interface BufferClass {

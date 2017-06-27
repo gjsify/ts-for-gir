@@ -1666,7 +1666,7 @@ export interface CookieJarDB_Static {
     new (config: CookieJarDB_ConstructProps): CookieJarDB
 }
 export declare class CookieJarDB_Static {
-    new(filename: string, read_only: boolean): CookieJar
+    new(filename: string, read_only: boolean): CookieJarDB
 }
 export declare var CookieJarDB: CookieJarDB_Static
 export interface CookieJarText_ConstructProps {
@@ -1746,7 +1746,7 @@ export interface CookieJarText_Static {
     new (config: CookieJarText_ConstructProps): CookieJarText
 }
 export declare class CookieJarText_Static {
-    new(filename: string, read_only: boolean): CookieJar
+    new(filename: string, read_only: boolean): CookieJarText
 }
 export declare var CookieJarText: CookieJarText_Static
 export interface Logger_ConstructProps {
@@ -2869,7 +2869,7 @@ export interface SessionAsync_Static {
     new (config: SessionAsync_ConstructProps): SessionAsync
 }
 export declare class SessionAsync_Static {
-    new(): Session
+    new(): SessionAsync
 }
 export declare var SessionAsync: SessionAsync_Static
 export interface SessionSync_ConstructProps {
@@ -3027,7 +3027,7 @@ export interface SessionSync_Static {
     new (config: SessionSync_ConstructProps): SessionSync
 }
 export declare class SessionSync_Static {
-    new(): Session
+    new(): SessionSync
 }
 export declare var SessionSync: SessionSync_Static
 export interface Socket_ConstructProps {

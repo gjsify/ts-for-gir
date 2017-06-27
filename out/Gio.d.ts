@@ -2222,8 +2222,8 @@ export interface BufferedInputStream_Static {
     new (config: BufferedInputStream_ConstructProps): BufferedInputStream
 }
 export declare class BufferedInputStream_Static {
-    new(base_stream: InputStream): InputStream
-    new_sized(base_stream: InputStream, size: number): InputStream
+    new(base_stream: InputStream): BufferedInputStream
+    new_sized(base_stream: InputStream, size: number): BufferedInputStream
 }
 export declare var BufferedInputStream: BufferedInputStream_Static
 export interface BufferedOutputStream_ConstructProps {
@@ -2336,8 +2336,8 @@ export interface BufferedOutputStream_Static {
     new (config: BufferedOutputStream_ConstructProps): BufferedOutputStream
 }
 export declare class BufferedOutputStream_Static {
-    new(base_stream: OutputStream): OutputStream
-    new_sized(base_stream: OutputStream, size: number): OutputStream
+    new(base_stream: OutputStream): BufferedOutputStream
+    new_sized(base_stream: OutputStream, size: number): BufferedOutputStream
 }
 export declare var BufferedOutputStream: BufferedOutputStream_Static
 export interface BytesIcon_ConstructProps {
@@ -2620,7 +2620,7 @@ export interface ConverterInputStream_Static {
     new (config: ConverterInputStream_ConstructProps): ConverterInputStream
 }
 export declare class ConverterInputStream_Static {
-    new(base_stream: InputStream, converter: Converter): InputStream
+    new(base_stream: InputStream, converter: Converter): ConverterInputStream
 }
 export declare var ConverterInputStream: ConverterInputStream_Static
 export interface ConverterOutputStream_ConstructProps {
@@ -2725,7 +2725,7 @@ export interface ConverterOutputStream_Static {
     new (config: ConverterOutputStream_ConstructProps): ConverterOutputStream
 }
 export declare class ConverterOutputStream_Static {
-    new(base_stream: OutputStream, converter: Converter): OutputStream
+    new(base_stream: OutputStream, converter: Converter): ConverterOutputStream
 }
 export declare var ConverterOutputStream: ConverterOutputStream_Static
 export interface Credentials_ConstructProps {
@@ -5412,8 +5412,8 @@ export interface InetSocketAddress_Static {
     new (config: InetSocketAddress_ConstructProps): InetSocketAddress
 }
 export declare class InetSocketAddress_Static {
-    new(address: InetAddress, port: number): SocketAddress
-    new_from_string(address: string, port: number): SocketAddress
+    new(address: InetAddress, port: number): InetSocketAddress
+    new_from_string(address: string, port: number): InetSocketAddress
 }
 export declare var InetSocketAddress: InetSocketAddress_Static
 export interface InputStream_ConstructProps {
@@ -5638,9 +5638,9 @@ export interface MemoryInputStream_Static {
     new (config: MemoryInputStream_ConstructProps): MemoryInputStream
 }
 export declare class MemoryInputStream_Static {
-    new(): InputStream
-    new_from_bytes(bytes: GLib.Bytes): InputStream
-    new_from_data(data: number[], len: number, destroy: GLib.DestroyNotify | null): InputStream
+    new(): MemoryInputStream
+    new_from_bytes(bytes: GLib.Bytes): MemoryInputStream
+    new_from_data(data: number[], len: number, destroy: GLib.DestroyNotify | null): MemoryInputStream
 }
 export declare var MemoryInputStream: MemoryInputStream_Static
 export interface MemoryOutputStream_ConstructProps {
@@ -5740,7 +5740,7 @@ export interface MemoryOutputStream_Static {
     new (config: MemoryOutputStream_ConstructProps): MemoryOutputStream
 }
 export declare class MemoryOutputStream_Static {
-    new_resizable(): OutputStream
+    new_resizable(): MemoryOutputStream
 }
 export declare var MemoryOutputStream: MemoryOutputStream_Static
 export interface Menu_ConstructProps {
@@ -6763,7 +6763,7 @@ export interface ProxyAddress_Static {
     new (config: ProxyAddress_ConstructProps): ProxyAddress
 }
 export declare class ProxyAddress_Static {
-    new(inetaddr: InetAddress, port: number, protocol: string, dest_hostname: string, dest_port: number, username: string | null, password: string | null): SocketAddress
+    new(inetaddr: InetAddress, port: number, protocol: string, dest_hostname: string, dest_port: number, username: string | null, password: string | null): ProxyAddress
 }
 export declare var ProxyAddress: ProxyAddress_Static
 export interface ProxyAddressEnumerator_ConstructProps {
@@ -7295,7 +7295,7 @@ export interface SimpleIOStream_Static {
     new (config: SimpleIOStream_ConstructProps): SimpleIOStream
 }
 export declare class SimpleIOStream_Static {
-    new(input_stream: InputStream, output_stream: OutputStream): IOStream
+    new(input_stream: InputStream, output_stream: OutputStream): SimpleIOStream
 }
 export declare var SimpleIOStream: SimpleIOStream_Static
 export interface SimplePermission_ConstructProps {
@@ -7373,7 +7373,7 @@ export interface SimplePermission_Static {
     new (config: SimplePermission_ConstructProps): SimplePermission
 }
 export declare class SimplePermission_Static {
-    new(allowed: boolean): Permission
+    new(allowed: boolean): SimplePermission
 }
 export declare var SimplePermission: SimplePermission_Static
 export interface SimpleProxyResolver_ConstructProps {
@@ -8553,7 +8553,7 @@ export interface TcpWrapperConnection_Static {
     new (config: TcpWrapperConnection_ConstructProps): TcpWrapperConnection
 }
 export declare class TcpWrapperConnection_Static {
-    new(base_io_stream: IOStream, socket: Socket): SocketConnection
+    new(base_io_stream: IOStream, socket: Socket): TcpWrapperConnection
 }
 export declare var TcpWrapperConnection: TcpWrapperConnection_Static
 export interface TestDBus_ConstructProps {
@@ -8770,7 +8770,7 @@ export interface ThreadedSocketService_Static {
     new (config: ThreadedSocketService_ConstructProps): ThreadedSocketService
 }
 export declare class ThreadedSocketService_Static {
-    new(max_threads: number): SocketService
+    new(max_threads: number): ThreadedSocketService
 }
 export declare var ThreadedSocketService: ThreadedSocketService_Static
 export interface TlsCertificate_ConstructProps {
@@ -9347,8 +9347,8 @@ export interface UnixCredentialsMessage_Static {
     new (config: UnixCredentialsMessage_ConstructProps): UnixCredentialsMessage
 }
 export declare class UnixCredentialsMessage_Static {
-    new(): SocketControlMessage
-    new_with_credentials(credentials: Credentials): SocketControlMessage
+    new(): UnixCredentialsMessage
+    new_with_credentials(credentials: Credentials): UnixCredentialsMessage
     is_supported(): boolean
 }
 export declare var UnixCredentialsMessage: UnixCredentialsMessage_Static
@@ -9478,8 +9478,8 @@ export interface UnixFDMessage_Static {
     new (config: UnixFDMessage_ConstructProps): UnixFDMessage
 }
 export declare class UnixFDMessage_Static {
-    new(): SocketControlMessage
-    new_with_fd_list(fd_list: UnixFDList): SocketControlMessage
+    new(): UnixFDMessage
+    new_with_fd_list(fd_list: UnixFDList): UnixFDMessage
 }
 export declare var UnixFDMessage: UnixFDMessage_Static
 export interface UnixInputStream_ConstructProps {
@@ -9572,7 +9572,7 @@ export interface UnixInputStream_Static {
     new (config: UnixInputStream_ConstructProps): UnixInputStream
 }
 export declare class UnixInputStream_Static {
-    new(fd: number, close_fd: boolean): InputStream
+    new(fd: number, close_fd: boolean): UnixInputStream
 }
 export declare var UnixInputStream: UnixInputStream_Static
 export interface UnixMountMonitor_ConstructProps {
@@ -9727,7 +9727,7 @@ export interface UnixOutputStream_Static {
     new (config: UnixOutputStream_ConstructProps): UnixOutputStream
 }
 export declare class UnixOutputStream_Static {
-    new(fd: number, close_fd: boolean): OutputStream
+    new(fd: number, close_fd: boolean): UnixOutputStream
 }
 export declare var UnixOutputStream: UnixOutputStream_Static
 export interface UnixSocketAddress_ConstructProps {
@@ -9803,9 +9803,9 @@ export interface UnixSocketAddress_Static {
     new (config: UnixSocketAddress_ConstructProps): UnixSocketAddress
 }
 export declare class UnixSocketAddress_Static {
-    new(path: string): SocketAddress
-    new_abstract(path: number[], path_len: number): SocketAddress
-    new_with_type(path: number[], path_len: number, type: UnixSocketAddressType): SocketAddress
+    new(path: string): UnixSocketAddress
+    new_abstract(path: number[], path_len: number): UnixSocketAddress
+    new_with_type(path: number[], path_len: number, type: UnixSocketAddressType): UnixSocketAddress
     abstract_names_supported(): boolean
 }
 export declare var UnixSocketAddress: UnixSocketAddress_Static

@@ -2,6 +2,7 @@
  * GLib-2.0
  */
 
+import * as Gjs from './Gjs'
 export enum BookmarkFileError {
     INVALID_URI,
     INVALID_VALUE,
@@ -903,12 +904,12 @@ export function atomic_pointer_compare_and_exchange(atomic: object, oldval: obje
 export function atomic_pointer_or(atomic: object, val: number): number
 export function atomic_pointer_set(atomic: object, newval: object): void
 export function atomic_pointer_xor(atomic: object, val: number): number
-export function base64_decode(text: string): [ /* returnType */ number[], /* out_len */ number ]
-export function base64_decode_inplace(text: number[]): number
-export function base64_decode_step(in_: number[], state: number, save: number): [ /* returnType */ number, /* out */ number[] ]
-export function base64_encode(data: number[]): string
-export function base64_encode_close(break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ number[] ]
-export function base64_encode_step(in_: number[], break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ number[] ]
+export function base64_decode(text: string): [ /* returnType */ Gjs.byteArray.ByteArray[], /* out_len */ number ]
+export function base64_decode_inplace(text: Gjs.byteArray.ByteArray[]): number
+export function base64_decode_step(in_: Gjs.byteArray.ByteArray[], state: number, save: number): [ /* returnType */ number, /* out */ Gjs.byteArray.ByteArray[] ]
+export function base64_encode(data: Gjs.byteArray.ByteArray[]): string
+export function base64_encode_close(break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ Gjs.byteArray.ByteArray[] ]
+export function base64_encode_step(in_: Gjs.byteArray.ByteArray[], break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ Gjs.byteArray.ByteArray[] ]
 export function basename(file_name: string): string
 export function bit_lock(address: number, lock_bit: number): void
 export function bit_nth_lsf(mask: number, nth_bit: number): number
@@ -919,11 +920,11 @@ export function bit_unlock(address: number, lock_bit: number): void
 export function bookmark_file_error_quark(): Quark
 export function build_filenamev(args: string[]): string
 export function build_pathv(separator: string, args: string[]): string
-export function byte_array_free(array: number[], free_segment: boolean): number
-export function byte_array_free_to_bytes(array: number[]): Bytes
-export function byte_array_new(): number[]
-export function byte_array_new_take(data: number[]): number[]
-export function byte_array_unref(array: number[]): void
+export function byte_array_free(array: Gjs.byteArray.ByteArray[], free_segment: boolean): number
+export function byte_array_free_to_bytes(array: Gjs.byteArray.ByteArray[]): Bytes
+export function byte_array_new(): Gjs.byteArray.ByteArray[]
+export function byte_array_new_take(data: Gjs.byteArray.ByteArray[]): Gjs.byteArray.ByteArray[]
+export function byte_array_unref(array: Gjs.byteArray.ByteArray[]): void
 export function chdir(path: string): number
 export function check_version(required_major: number, required_minor: number, required_micro: number): string
 export function checksum_type_get_length(checksum_type: ChecksumType): number
@@ -932,10 +933,10 @@ export function child_watch_source_new(pid: Pid): Source
 export function clear_error(): void
 export function close(fd: number): boolean
 export function compute_checksum_for_bytes(checksum_type: ChecksumType, data: Bytes): string
-export function compute_checksum_for_data(checksum_type: ChecksumType, data: number[]): string
+export function compute_checksum_for_data(checksum_type: ChecksumType, data: Gjs.byteArray.ByteArray[]): string
 export function compute_checksum_for_string(checksum_type: ChecksumType, str: string, length: number): string
-export function compute_hmac_for_data(digest_type: ChecksumType, key: number[], data: number, length: number): string
-export function compute_hmac_for_string(digest_type: ChecksumType, key: number[], str: string, length: number): string
+export function compute_hmac_for_data(digest_type: ChecksumType, key: Gjs.byteArray.ByteArray[], data: number, length: number): string
+export function compute_hmac_for_string(digest_type: ChecksumType, key: Gjs.byteArray.ByteArray[], str: string, length: number): string
 export function convert(str: string, len: number, to_codeset: string, from_codeset: string): [ /* returnType */ string, /* bytes_read */ number, /* bytes_written */ number ]
 export function convert_error_quark(): Quark
 export function convert_with_fallback(str: string, len: number, to_codeset: string, from_codeset: string, fallback: string, bytes_read: number, bytes_written: number): string
@@ -978,15 +979,15 @@ export function environ_setenv(envp: string[] | null, variable: string, value: s
 export function environ_unsetenv(envp: string[] | null, variable: string): string[]
 export function file_error_from_errno(err_no: number): FileError
 export function file_error_quark(): Quark
-export function file_get_contents(filename: string): [ /* returnType */ boolean, /* contents */ number[] ]
+export function file_get_contents(filename: string): [ /* returnType */ boolean, /* contents */ Gjs.byteArray.ByteArray[] ]
 export function file_open_tmp(tmpl: string): [ /* returnType */ number, /* name_used */ any ]
 export function file_read_link(filename: string): string
-export function file_set_contents(filename: string, contents: number[]): boolean
+export function file_set_contents(filename: string, contents: Gjs.byteArray.ByteArray[]): boolean
 export function file_test(filename: string, test: FileTest): boolean
 export function filename_display_basename(filename: string): string
 export function filename_display_name(filename: string): string
 export function filename_from_uri(uri: string): [ /* returnType */ string, /* hostname */ string | null ]
-export function filename_from_utf8(utf8string: string, len: number): [ /* returnType */ number[], /* bytes_read */ number | null, /* bytes_written */ number ]
+export function filename_from_utf8(utf8string: string, len: number): [ /* returnType */ Gjs.byteArray.ByteArray[], /* bytes_read */ number | null, /* bytes_written */ number ]
 export function filename_to_uri(filename: string, hostname: string | null): string
 export function filename_to_utf8(opsysstring: string, len: number, bytes_read: number, bytes_written: number): string
 export function find_program_in_path(program: string): string
@@ -1147,10 +1148,10 @@ export function spawn_async_with_pipes(working_directory: string | null, argv: s
 export function spawn_check_exit_status(exit_status: number): boolean
 export function spawn_close_pid(pid: Pid): void
 export function spawn_command_line_async(command_line: string): boolean
-export function spawn_command_line_sync(command_line: string): [ /* returnType */ boolean, /* standard_output */ number[] | null, /* standard_error */ number[] | null, /* exit_status */ number | null ]
+export function spawn_command_line_sync(command_line: string): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray[] | null, /* standard_error */ Gjs.byteArray.ByteArray[] | null, /* exit_status */ number | null ]
 export function spawn_error_quark(): Quark
 export function spawn_exit_error_quark(): Quark
-export function spawn_sync(working_directory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup: SpawnChildSetupFunc | null, user_data: object): [ /* returnType */ boolean, /* standard_output */ number[] | null, /* standard_error */ number[] | null, /* exit_status */ number | null ]
+export function spawn_sync(working_directory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup: SpawnChildSetupFunc | null, user_data: object): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray[] | null, /* standard_error */ Gjs.byteArray.ByteArray[] | null, /* exit_status */ number | null ]
 export function stpcpy(dest: string, src: string): string
 export function str_equal(v1: object, v2: object): boolean
 export function str_has_prefix(str: string, prefix: string): boolean
@@ -1318,7 +1319,7 @@ export function utf8_substring(str: string, start_pos: number, end_pos: number):
 export function utf8_to_ucs4(str: string, len: number, items_read: number | null, items_written: number | null): number
 export function utf8_to_ucs4_fast(str: string, len: number, items_written: number | null): number
 export function utf8_to_utf16(str: string, len: number, items_read: number | null, items_written: number | null): number
-export function utf8_validate(str: number[]): [ /* returnType */ boolean, /* end */ string | null ]
+export function utf8_validate(str: Gjs.byteArray.ByteArray[]): [ /* returnType */ boolean, /* end */ string | null ]
 export function variant_get_gtype(): number
 export function variant_is_object_path(string: string): boolean
 export function variant_is_signature(string: string): boolean
@@ -1535,31 +1536,31 @@ export interface ByteArray {
 export interface ByteArray_Static {
 }
 export declare class ByteArray_Static {
-    free(array: number[], free_segment: boolean): number
-    free_to_bytes(array: number[]): Bytes
-    new(): number[]
-    new_take(data: number[]): number[]
-    unref(array: number[]): void
+    free(array: Gjs.byteArray.ByteArray[], free_segment: boolean): number
+    free_to_bytes(array: Gjs.byteArray.ByteArray[]): Bytes
+    new(): Gjs.byteArray.ByteArray[]
+    new_take(data: Gjs.byteArray.ByteArray[]): Gjs.byteArray.ByteArray[]
+    unref(array: Gjs.byteArray.ByteArray[]): void
 }
 export declare var ByteArray: ByteArray_Static
 export interface Bytes {
     /* Methods of GLib.Bytes */
     compare(bytes2: Bytes): number
     equal(bytes2: Bytes): boolean
-    get_data(): [ /* returnType */ number[], /* size */ number | null ]
+    get_data(): [ /* returnType */ Gjs.byteArray.ByteArray[], /* size */ number | null ]
     get_size(): number
     hash(): number
     new_from_bytes(offset: number, length: number): Bytes
     ref(): Bytes
     unref(): void
-    unref_to_array(): number[]
+    unref_to_array(): Gjs.byteArray.ByteArray[]
     unref_to_data(size: number): object
 }
 export interface Bytes_Static {
 }
 export declare class Bytes_Static {
-    new(data: number[] | null, size: number): Bytes
-    new_take(data: number[] | null, size: number): Bytes
+    new(data: Gjs.byteArray.ByteArray[] | null, size: number): Bytes
+    new_take(data: Gjs.byteArray.ByteArray[] | null, size: number): Bytes
 }
 export declare var Bytes: Bytes_Static
 export interface Checksum {
@@ -1568,7 +1569,7 @@ export interface Checksum {
     free(): void
     get_string(): string
     reset(): void
-    update(data: number[]): void
+    update(data: Gjs.byteArray.ByteArray[]): void
 }
 export interface Checksum_Static {
 }
@@ -1793,7 +1794,7 @@ export interface Hmac {
     get_digest(buffer: number, digest_len: number): void
     get_string(): string
     unref(): void
-    update(data: number[]): void
+    update(data: Gjs.byteArray.ByteArray[]): void
 }
 export interface Hmac_Static {
 }
@@ -1881,10 +1882,10 @@ export interface IOChannel {
     get_line_term(length: number): string
     init(): void
     read(buf: string, count: number, bytes_read: number): IOError
-    read_chars(): [ /* returnType */ IOStatus, /* buf */ number[], /* bytes_read */ number | null ]
+    read_chars(): [ /* returnType */ IOStatus, /* buf */ Gjs.byteArray.ByteArray[], /* bytes_read */ number | null ]
     read_line(): [ /* returnType */ IOStatus, /* str_return */ string, /* length */ number | null, /* terminator_pos */ number | null ]
     read_line_string(buffer: String, terminator_pos: number | null): IOStatus
-    read_to_end(): [ /* returnType */ IOStatus, /* str_return */ number[] ]
+    read_to_end(): [ /* returnType */ IOStatus, /* str_return */ Gjs.byteArray.ByteArray[] ]
     read_unichar(): [ /* returnType */ IOStatus, /* thechar */ number ]
     ref(): IOChannel
     seek(offset: number, type: SeekType): IOError
@@ -1899,7 +1900,7 @@ export interface IOChannel {
     unix_get_fd(): number
     unref(): void
     write(buf: string, count: number, bytes_written: number): IOError
-    write_chars(buf: number[], count: number): [ /* returnType */ IOStatus, /* bytes_written */ number ]
+    write_chars(buf: Gjs.byteArray.ByteArray[], count: number): [ /* returnType */ IOStatus, /* bytes_written */ number ]
     write_unichar(thechar: number): IOStatus
 }
 export interface IOChannel_Static {
@@ -2738,7 +2739,7 @@ export interface Variant {
     check_format_string(format_string: string, copy_only: boolean): boolean
     classify(): VariantClass
     compare(two: Variant): number
-    dup_bytestring(): [ /* returnType */ number[], /* length */ number | null ]
+    dup_bytestring(): [ /* returnType */ Gjs.byteArray.ByteArray[], /* length */ number | null ]
     dup_bytestring_array(): [ /* returnType */ string[], /* length */ number | null ]
     dup_objv(): [ /* returnType */ string[], /* length */ number | null ]
     dup_string(): [ /* returnType */ string, /* length */ number ]
@@ -2746,7 +2747,7 @@ export interface Variant {
     equal(two: Variant): boolean
     get_boolean(): boolean
     get_byte(): number
-    get_bytestring(): number[]
+    get_bytestring(): Gjs.byteArray.ByteArray[]
     get_bytestring_array(): [ /* returnType */ string[], /* length */ number | null ]
     get_child_value(index_: number): Variant
     get_data(): object
@@ -2788,13 +2789,13 @@ export declare class Variant_Static {
     new_array(child_type: VariantType | null, children: Variant[] | null, n_children: number): Variant
     new_boolean(value: boolean): Variant
     new_byte(value: number): Variant
-    new_bytestring(string: number[]): Variant
+    new_bytestring(string: Gjs.byteArray.ByteArray[]): Variant
     new_bytestring_array(strv: string[], length: number): Variant
     new_dict_entry(key: Variant, value: Variant): Variant
     new_double(value: number): Variant
     new_fixed_array(element_type: VariantType, elements: object, n_elements: number, element_size: number): Variant
     new_from_bytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
-    new_from_data(type: VariantType, data: number[], size: number, trusted: boolean, notify: DestroyNotify, user_data: object): Variant
+    new_from_data(type: VariantType, data: Gjs.byteArray.ByteArray[], size: number, trusted: boolean, notify: DestroyNotify, user_data: object): Variant
     new_handle(value: number): Variant
     new_int16(value: number): Variant
     new_int32(value: number): Variant

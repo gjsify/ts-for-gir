@@ -2,6 +2,7 @@
  * Gdk-3.0
  */
 
+import * as Gjs from './Gjs'
 import * as cairo from './cairo'
 import * as Pango from './Pango'
 import * as GObject from './GObject'
@@ -2821,7 +2822,7 @@ export function pointer_is_grabbed(): boolean
 export function pointer_ungrab(time_: number): void
 export function pre_parse_libgtk_only(): void
 export function property_delete(window: Window, property: Atom): void
-export function property_get(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number): [ /* returnType */ boolean, /* actual_property_type */ Atom, /* actual_format */ number, /* data */ number[] ]
+export function property_get(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number): [ /* returnType */ boolean, /* actual_property_type */ Atom, /* actual_format */ number, /* data */ Gjs.byteArray.ByteArray[] ]
 export function query_depths(): /* depths */ number[]
 export function query_visual_types(): /* visual_types */ VisualType[]
 export function selection_convert(requestor: Window, selection: Atom, target: Atom, time_: number): void
@@ -2840,7 +2841,7 @@ export function synthesize_window_state(window: Window, unset_flags: WindowState
 export function test_render_sync(window: Window): void
 export function test_simulate_button(window: Window, x: number, y: number, button: number, modifiers: ModifierType, button_pressrelease: EventType): boolean
 export function test_simulate_key(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, key_pressrelease: EventType): boolean
-export function text_property_to_utf8_list_for_display(display: Display, encoding: Atom, format: number, text: number[]): [ /* returnType */ number, /* list */ string[] ]
+export function text_property_to_utf8_list_for_display(display: Display, encoding: Atom, format: number, text: Gjs.byteArray.ByteArray[]): [ /* returnType */ number, /* list */ string[] ]
 export function threads_add_idle_full(priority: number, function_: GLib.SourceFunc, data: object, notify: GLib.DestroyNotify | null): number
 export function threads_add_timeout_full(priority: number, interval: number, function_: GLib.SourceFunc, data: object, notify: GLib.DestroyNotify | null): number
 export function threads_add_timeout_seconds_full(priority: number, interval: number, function_: GLib.SourceFunc, data: object, notify: GLib.DestroyNotify | null): number

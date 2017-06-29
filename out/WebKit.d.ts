@@ -2,6 +2,7 @@
  * WebKit-3.0
  */
 
+import * as Gjs from './Gjs'
 import * as Soup from './Soup'
 import * as Gio from './Gio'
 import * as GObject from './GObject'

@@ -2,6 +2,7 @@
  * Soup-2.4
  */
 
+import * as Gjs from './Gjs'
 import * as Gio from './Gio'
 import * as GObject from './GObject'
 import * as GLib from './GLib'
@@ -1829,10 +1830,10 @@ export interface Message {
     priority:MessagePriority
     reason_phrase:string
     readonly request_body:MessageBody
-    readonly request_body_data:GLib.Bytes
+    readonly request_body_data:Gjs.byteArray.ByteArray
     readonly request_headers:MessageHeaders
     readonly response_body:MessageBody
-    readonly response_body_data:GLib.Bytes
+    readonly response_body_data:Gjs.byteArray.ByteArray
     readonly response_headers:MessageHeaders
     status_code:number
     tls_certificate:Gio.TlsCertificate
@@ -1868,8 +1869,8 @@ export interface Message {
     set_http_version(version: HTTPVersion): void
     set_priority(priority: MessagePriority): void
     set_redirect(status_code: number, redirect_uri: string): void
-    set_request(content_type: string | null, req_use: MemoryUse, req_body: number[] | null): void
-    set_response(content_type: string | null, resp_use: MemoryUse, resp_body: number[] | null): void
+    set_request(content_type: string | null, req_use: MemoryUse, req_body: Gjs.byteArray.ByteArray[] | null): void
+    set_response(content_type: string | null, resp_use: MemoryUse, resp_body: Gjs.byteArray.ByteArray[] | null): void
     set_status(status_code: number): void
     set_status_full(status_code: number, reason_phrase: string): void
     set_uri(uri: URI): void
@@ -2002,14 +2003,14 @@ export interface MultipartInputStream {
     close_finish(result: Gio.AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(buffer: number[], cancellable: Gio.Cancellable | null): number
-    read_all(buffer: number[], cancellable: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_all_async(buffer: number[], io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
+    read(buffer: Gjs.byteArray.ByteArray[], cancellable: Gio.Cancellable | null): number
+    read_all(buffer: Gjs.byteArray.ByteArray[], cancellable: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
+    read_all_async(buffer: Gjs.byteArray.ByteArray[], io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     read_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(buffer: number[], io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
-    read_bytes(count: number, cancellable: Gio.Cancellable | null): GLib.Bytes
+    read_async(buffer: Gjs.byteArray.ByteArray[], io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
+    read_bytes(count: number, cancellable: Gio.Cancellable | null): Gjs.byteArray.ByteArray
     read_bytes_async(count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
-    read_bytes_finish(result: Gio.AsyncResult): GLib.Bytes
+    read_bytes_finish(result: Gio.AsyncResult): Gjs.byteArray.ByteArray
     read_finish(result: Gio.AsyncResult): number
     set_pending(): boolean
     skip(count: number, cancellable: Gio.Cancellable | null): number
@@ -2043,7 +2044,7 @@ export interface MultipartInputStream {
     vfunc_close_async(io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable: Gio.Cancellable | null): boolean
-    vfunc_read_async(buffer: number[], io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
+    vfunc_read_async(buffer: Gjs.byteArray.ByteArray[], io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     vfunc_read_finish(result: Gio.AsyncResult): number
     vfunc_read_fn(buffer: object, count: number, cancellable: Gio.Cancellable | null): number
     vfunc_skip(count: number, cancellable: Gio.Cancellable | null): number
@@ -3072,11 +3073,11 @@ export interface Socket {
     is_connected(): boolean
     is_ssl(): boolean
     listen(): boolean
-    read(buffer: number[], cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
-    read_until(buffer: number[], boundary: object, boundary_len: number, got_boundary: boolean, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    read(buffer: Gjs.byteArray.ByteArray[], cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    read_until(buffer: Gjs.byteArray.ByteArray[], boundary: object, boundary_len: number, got_boundary: boolean, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
     start_proxy_ssl(ssl_host: string, cancellable: Gio.Cancellable | null): boolean
     start_ssl(cancellable: Gio.Cancellable | null): boolean
-    write(buffer: number[], cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
+    write(buffer: Gjs.byteArray.ByteArray[], cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -3163,7 +3164,7 @@ export interface WebsocketConnection {
     get_protocol(): string | null
     get_state(): WebsocketState
     get_uri(): URI
-    send_binary(data: number[]): void
+    send_binary(data: Gjs.byteArray.ByteArray[]): void
     send_text(text: string): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -3193,7 +3194,7 @@ export interface WebsocketConnection {
     vfunc_closed(): void
     vfunc_closing(): void
     vfunc_error(error: GLib.Error): void
-    vfunc_message(type: WebsocketDataType, message: GLib.Bytes): void
+    vfunc_message(type: WebsocketDataType, message: Gjs.byteArray.ByteArray): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3206,7 +3207,7 @@ export interface WebsocketConnection {
     connect(sigName: "closed", callback: ((obj: WebsocketConnection) => void))
     connect(sigName: "closing", callback: ((obj: WebsocketConnection) => void))
     connect(sigName: "error", callback: ((obj: WebsocketConnection, error: GLib.Error) => void))
-    connect(sigName: "message", callback: ((obj: WebsocketConnection, type: number, message: GLib.Bytes) => void))
+    connect(sigName: "message", callback: ((obj: WebsocketConnection, type: number, message: Gjs.byteArray.ByteArray) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::state", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void))
@@ -3284,17 +3285,17 @@ export interface Buffer {
     /* Methods of Soup.Buffer */
     copy(): Buffer
     free(): void
-    get_as_bytes(): GLib.Bytes
-    get_data(): /* data */ number[]
+    get_as_bytes(): Gjs.byteArray.ByteArray
+    get_data(): /* data */ Gjs.byteArray.ByteArray[]
     get_owner(): object
     new_subbuffer(offset: number, length: number): Buffer
 }
 export interface Buffer_Static {
 }
 export declare class Buffer_Static {
-    new(use: MemoryUse, data: number[], length: number): Buffer
-    new_take(data: number[], length: number): Buffer
-    new_with_owner(data: number[], length: number, owner: object, owner_dnotify: GLib.DestroyNotify | null): Buffer
+    new(use: MemoryUse, data: Gjs.byteArray.ByteArray[], length: number): Buffer
+    new_take(data: Gjs.byteArray.ByteArray[], length: number): Buffer
+    new_with_owner(data: Gjs.byteArray.ByteArray[], length: number, owner: object, owner_dnotify: GLib.DestroyNotify | null): Buffer
 }
 export declare var Buffer: Buffer_Static
 export interface CacheClass {
@@ -3467,9 +3468,9 @@ export interface MessageBody {
     data:string
     length:number
     /* Methods of Soup.MessageBody */
-    append(use: MemoryUse, data: number[]): void
+    append(use: MemoryUse, data: Gjs.byteArray.ByteArray[]): void
     append_buffer(buffer: Buffer): void
-    append_take(data: number[]): void
+    append_take(data: Gjs.byteArray.ByteArray[]): void
     complete(): void
     flatten(): Buffer
     free(): void

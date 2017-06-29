@@ -2,6 +2,7 @@
  * GObject-2.0
  */
 
+import * as Gjs from './Gjs'
 import * as GLib from './GLib'
 export enum BindingFlags {
     DEFAULT,

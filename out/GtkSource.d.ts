@@ -2,6 +2,7 @@
  * GtkSource-3.0
  */
 
+import * as Gjs from './Gjs'
 import * as Gtk from './Gtk'
 import * as xlib from './xlib'
 import * as Gdk from './Gdk'
@@ -297,7 +298,7 @@ export interface Buffer {
     delete_mark(mark: Gtk.TextMark): void
     delete_mark_by_name(name: string): void
     delete_selection(interactive: boolean, default_editable: boolean): boolean
-    deserialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, iter: Gtk.TextIter, data: number[]): boolean
+    deserialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, iter: Gtk.TextIter, data: Gjs.byteArray.ByteArray[]): boolean
     deserialize_get_can_create_tags(format: Gdk.Atom): boolean
     deserialize_set_can_create_tags(format: Gdk.Atom, can_create_tags: boolean): void
     end_user_action(): void
@@ -347,7 +348,7 @@ export interface Buffer {
     remove_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
     remove_tag_by_name(name: string, start: Gtk.TextIter, end: Gtk.TextIter): void
     select_range(ins: Gtk.TextIter, bound: Gtk.TextIter): void
-    serialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter): [ /* returnType */ number[], /* length */ number ]
+    serialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter): [ /* returnType */ Gjs.byteArray.ByteArray[], /* length */ number ]
     set_modified(setting: boolean): void
     set_text(text: string, len: number): void
     unregister_deserialize_format(format: Gdk.Atom): void

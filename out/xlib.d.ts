@@ -2,6 +2,7 @@
  * xlib-2.0
  */
 
+import * as Gjs from './Gjs'
 export function open_display(): void
 export interface Display {
 }

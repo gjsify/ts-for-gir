@@ -27,3 +27,4 @@ wnd.connect("delete-event", (obj, event) => { Gtk.main_quit(); return true })
 
 Gtk.main()
 
+print("hello world")

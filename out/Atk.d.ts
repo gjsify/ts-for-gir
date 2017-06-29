@@ -2,6 +2,7 @@
  * Atk-1.0
  */
 
+import * as Gjs from './Gjs'
 import * as GObject from './GObject'
 import * as GLib from './GLib'
 export enum CoordType {

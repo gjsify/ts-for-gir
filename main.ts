@@ -311,7 +311,8 @@ export class GirModule {
 
         if (arr) {
             let podTypeMapArray = {
-                // 'guint8': 'gjs.ByteArray', 'gint8': 'gjs.ByteArray',
+                'guint8': 'Gjs.byteArray.ByteArray',
+                'gint8': 'Gjs.byteArray.ByteArray',
                 'gunichar': 'string'
             }
             if (podTypeMapArray[type.$.name] != null)
@@ -328,9 +329,6 @@ export class GirModule {
             'gdouble': 'number', 'gssize': 'number', 'gsize': 'number', 'long': 'number',
             'object': 'any', 'va_list': 'any', 'gshort': 'number'
         }
-        // GLib.ByteArray, GLib.Bytes: gjs.ByteArray
-        // GObject.Value: any
-        // GObject.Closure: Function
 
         if (podTypeMap[type.$.name] != null)
             return podTypeMap[type.$.name] + suffix
@@ -358,7 +356,9 @@ export class GirModule {
 
         let fullTypeMap = {
             'GObject.Value': 'any',
-            'GObject.Closure': 'Function'
+            'GObject.Closure': 'Function',
+            'GLib.ByteArray': 'Gjs.byteArray.ByteArray',
+            'GLib.Bytes': 'Gjs.byteArray.ByteArray'
         }
 
         if (fullTypeMap[fullTypeName]) {
@@ -871,6 +871,7 @@ export class GirModule {
 
         let deps: string[] = this.transitiveDependencies
 
+        out.push("import * as Gjs from './Gjs'")
         for (let d of deps) {
             let base = d.split('-')[0]
             out.push(`import * as ${base} from './${base}'`)
@@ -918,6 +919,46 @@ export class GirModule {
 
         outStream.write(out.join("\n"))
     }
+}
+
+function exportGjs(outDir: string|null)
+{
+    if (!outDir)
+        return
+
+    fs.createWriteStream(`${outDir}/Gjs.d.ts`).write(
+`export namespace byteArray {
+    export class ByteArray {
+        constructor(len: number)
+        toString(): string
+        toGBytes(): any  // GLib.Bytes?
+        length: number
+    }
+    export function fromString(input: string): ByteArray
+    export function fromArray(input: number[]): ByteArray
+    export function fromGBytes(input: any): ByteArray
+}
+export namespace Lang {
+    function Class(props: any): any
+}
+`)
+
+    fs.createWriteStream(`${outDir}/Gjs.js`).write(
+`module.exports = {',
+    byteArray: imports.byteArray',
+    Lang: imports.Lang',
+}'`)
+
+    fs.createWriteStream(`${outDir}/index.d.ts`).write(
+`declare global {
+    function print(args: string): void
+    function printerr(...args: any[])
+    function log(message: any)
+    function logError(message: any)
+    const ARGV: string[]
+}
+
+export { }`)
 }
 
 function main() {
@@ -1036,6 +1077,10 @@ function main() {
 
         girModules[k].exportJs(outf)
     }
+
+    // GJS internal stuff
+    exportGjs(commander.outdir)
+
     console.log("Done.")
 }
 

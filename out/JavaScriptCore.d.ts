@@ -2,6 +2,7 @@
  * JavaScriptCore-3.0
  */
 
+import * as Gjs from './Gjs'
 export interface GlobalContext {
 }
 export interface GlobalContext_Static {

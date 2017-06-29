@@ -2,6 +2,7 @@
  * cairo-1.0
  */
 
+import * as Gjs from './Gjs'
 export enum Content {
     COLOR,
     ALPHA,

@@ -2,6 +2,7 @@
  * Pango-1.0
  */
 
+import * as Gjs from './Gjs'
 import * as cairo from './cairo'
 import * as GObject from './GObject'
 import * as GLib from './GLib'
@@ -1256,7 +1257,7 @@ export interface Coverage {
     get(index_: number): CoverageLevel
     max(other: Coverage): void
     set(index_: number, level: CoverageLevel): void
-    to_bytes(): /* bytes */ number[]
+    to_bytes(): /* bytes */ Gjs.byteArray.ByteArray[]
     unref(): void
 }
 export interface Coverage_Static {

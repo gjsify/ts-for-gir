@@ -25,6 +25,8 @@ wnd.show_all()
 
 wnd.connect("delete-event", (obj, event) => { Gtk.main_quit(); return true })
 
-Gtk.main()
+//print("hello world")
+//import { gettext } from '../../out/Gjs'
+//let locale = gettext.setlocale(gettext.LocaleCategory.ALL, null);
 
-print("hello world")
+Gtk.main()

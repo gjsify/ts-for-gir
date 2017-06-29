@@ -1,5 +1,7 @@
 module.exports = {
     byteArray: imports.byteArray,
     Lang: imports.lang,
-    gettext: imports.gettext
+    Format: imports.format,
+    Mainloop: imports.mainloop
+    gettext: imports.gettext,
 }

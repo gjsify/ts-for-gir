@@ -1,8 +1,8 @@
 declare global {
-    function print(args: string): void
-    function printerr(...args: any[])
-    function log(message: any)
-    function logError(message: any)
+    function print(...args: any[]): void
+    function printerr(...args: any[]): void
+    function log(exception: any, message?: string)
+    function logError(exception: any, message?: string)
     const ARGV: string[]
 }
 

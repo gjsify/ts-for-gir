@@ -2734,7 +2734,6 @@ export interface Map {
     get_top_margin(): number
     get_vadjustment(): Gtk.Adjustment
     get_visible_rect(): /* visible_rect */ Gdk.Rectangle
-    get_window(win: Gtk.TextWindowType): Gdk.Window
     get_window_type(window: Gdk.Window): Gtk.TextWindowType
     get_wrap_mode(): Gtk.WrapMode
     im_context_filter_keypress(event: Gdk.EventKey): boolean
@@ -2924,6 +2923,7 @@ export interface Map {
     get_vexpand_set(): boolean
     get_visible(): boolean
     get_visual(): Gdk.Visual
+    get_window(): Gdk.Window
     grab_add(): void
     grab_default(): void
     grab_focus(): void
@@ -5630,7 +5630,6 @@ export interface View {
     get_top_margin(): number
     get_vadjustment(): Gtk.Adjustment
     get_visible_rect(): /* visible_rect */ Gdk.Rectangle
-    get_window(win: Gtk.TextWindowType): Gdk.Window
     get_window_type(window: Gdk.Window): Gtk.TextWindowType
     get_wrap_mode(): Gtk.WrapMode
     im_context_filter_keypress(event: Gdk.EventKey): boolean
@@ -5820,6 +5819,7 @@ export interface View {
     get_vexpand_set(): boolean
     get_visible(): boolean
     get_visual(): Gdk.Visual
+    get_window(): Gdk.Window
     grab_add(): void
     grab_default(): void
     grab_focus(): void

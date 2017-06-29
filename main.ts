@@ -1005,6 +1005,9 @@ function main() {
         'Gtk.Container.child_notify': [
             '/* child_notify clashes with Gtk.Widget.child_notify */'
         ],
+        'Gtk.TextView.get_window': [
+            '/* get_window clashes with Gtk.Widget.get_window */'
+        ],
         'WebKit.WebView.get_settings': [
             '/* get_settings clashes with Gtk.Widget.get_settings */'
         ]

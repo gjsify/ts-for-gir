@@ -337,7 +337,6 @@ export interface Binding {
     unbind(): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
-    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
@@ -383,7 +382,6 @@ export interface InitiallyUnowned {
     /* Fields of GObject.Object */
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
-    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
@@ -428,7 +426,6 @@ export interface Object {
     g_type_instance:TypeInstance
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
-    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
@@ -1260,7 +1257,6 @@ export interface TypeModule {
     use(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
-    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
@@ -1676,7 +1672,6 @@ export interface ValueArray {
     insert(index_: number, value: Value | null): ValueArray
     prepend(value: Value | null): ValueArray
     remove(index_: number): ValueArray
-    sort(compare_func: GLib.CompareFunc): ValueArray
     sort_with_data(compare_func: GLib.CompareDataFunc, user_data: object): ValueArray
 }
 export interface ValueArray_Static {

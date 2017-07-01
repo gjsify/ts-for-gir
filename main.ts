@@ -62,6 +62,7 @@ interface GirFunction extends TsForGjsExtended {
         "c-identifier"?: string
         introspectable?: string
         "moved-to"?: string
+        "shadowed-by"?: string
     }
     doc?: GirDoc[]
     parameters?: GirParameter[]
@@ -570,7 +571,7 @@ export class GirModule {
     }
 
     private getFunction(e: GirFunction, prefix: string, funcNamePrefix: string | null = null): [string[], string | null] {
-        if (!e || !e.$ || !this.girBool(e.$.introspectable, true))
+        if (!e || !e.$ || !this.girBool(e.$.introspectable, true) || e.$["shadowed-by"])
             return [[], null]
 
         let patch = e._fullSymName ? this.patch[e._fullSymName] : []
@@ -690,7 +691,7 @@ export class GirModule {
         let isDerivedFromGObject = this.isDerivedFromGObject(e)
 
         if (e.$ && e.$["glib:is-gtype-struct-for"]) {
-            return []
+            return []   
         }
 
         let checkName = (desc: string[], name, localNames): [string[], boolean] => {

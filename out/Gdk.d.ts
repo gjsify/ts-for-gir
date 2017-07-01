@@ -4282,12 +4282,6 @@ export interface EventWindowState_Static {
     name: string
 }
 export declare var EventWindowState: EventWindowState_Static
-export interface FrameClockClass {
-}
-export interface FrameClockClass_Static {
-    name: string
-}
-export declare var FrameClockClass: FrameClockClass_Static
 export interface FrameClockPrivate {
 }
 export interface FrameClockPrivate_Static {
@@ -4408,17 +4402,6 @@ export interface WindowAttr_Static {
     name: string
 }
 export declare var WindowAttr: WindowAttr_Static
-export interface WindowClass {
-    /* Fields of Gdk.WindowClass */
-    parent_class:GObject.ObjectClass
-    to_embedder:any
-    from_embedder:any
-    create_surface:any
-}
-export interface WindowClass_Static {
-    name: string
-}
-export declare var WindowClass: WindowClass_Static
 export interface WindowRedirect {
 }
 export interface WindowRedirect_Static {

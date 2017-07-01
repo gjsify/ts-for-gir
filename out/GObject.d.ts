@@ -1407,21 +1407,6 @@ export interface FlagsValue_Static {
     name: string
 }
 export declare var FlagsValue: FlagsValue_Static
-export interface InitiallyUnownedClass {
-    /* Fields of GObject.InitiallyUnownedClass */
-    g_type_class:TypeClass
-    set_property:any
-    get_property:any
-    dispose:any
-    finalize:any
-    dispatch_properties_changed:any
-    notify:any
-    constructed:any
-}
-export interface InitiallyUnownedClass_Static {
-    name: string
-}
-export declare var InitiallyUnownedClass: InitiallyUnownedClass_Static
 export interface InterfaceInfo {
     /* Fields of GObject.InterfaceInfo */
     interface_init:InterfaceInitFunc
@@ -1432,27 +1417,6 @@ export interface InterfaceInfo_Static {
     name: string
 }
 export declare var InterfaceInfo: InterfaceInfo_Static
-export interface ObjectClass {
-    /* Fields of GObject.ObjectClass */
-    g_type_class:TypeClass
-    set_property:any
-    get_property:any
-    dispose:any
-    finalize:any
-    dispatch_properties_changed:any
-    notify:any
-    constructed:any
-    /* Methods of GObject.ObjectClass */
-    find_property(property_name: string): ParamSpec
-    install_properties(pspecs: ParamSpec[]): void
-    install_property(property_id: number, pspec: ParamSpec): void
-    list_properties(): [ /* returnType */ ParamSpec[], /* n_properties */ number ]
-    override_property(property_id: number, name: string): void
-}
-export interface ObjectClass_Static {
-    name: string
-}
-export declare var ObjectClass: ObjectClass_Static
 export interface ObjectConstructParam {
     /* Fields of GObject.ObjectConstructParam */
     pspec:ParamSpec
@@ -1462,19 +1426,6 @@ export interface ObjectConstructParam_Static {
     name: string
 }
 export declare var ObjectConstructParam: ObjectConstructParam_Static
-export interface ParamSpecClass {
-    /* Fields of GObject.ParamSpecClass */
-    g_type_class:TypeClass
-    value_type:number
-    finalize:any
-    value_set_default:any
-    value_validate:any
-    values_cmp:any
-}
-export interface ParamSpecClass_Static {
-    name: string
-}
-export declare var ParamSpecClass: ParamSpecClass_Static
 export interface ParamSpecPool {
     /* Methods of GObject.ParamSpecPool */
     insert(pspec: ParamSpec, owner_type: number): void
@@ -1603,20 +1554,6 @@ export declare class TypeInterface_Static {
     prerequisites(interface_type: number): [ /* returnType */ number, /* n_prerequisites */ number | null ]
 }
 export declare var TypeInterface: TypeInterface_Static
-export interface TypeModuleClass {
-    /* Fields of GObject.TypeModuleClass */
-    parent_class:ObjectClass
-    load:any
-    unload:any
-    reserved1:any
-    reserved2:any
-    reserved3:any
-    reserved4:any
-}
-export interface TypeModuleClass_Static {
-    name: string
-}
-export declare var TypeModuleClass: TypeModuleClass_Static
 export interface TypePluginClass {
     /* Fields of GObject.TypePluginClass */
     use_plugin:TypePluginUse

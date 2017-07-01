@@ -3083,66 +3083,6 @@ export declare class WebsocketConnection_Static {
     new(stream: Gio.IOStream, uri: URI, type: WebsocketConnectionType, origin: string | null, protocol: string | null): WebsocketConnection
 }
 export declare var WebsocketConnection: WebsocketConnection_Static
-export interface AddressClass {
-    /* Fields of Soup.AddressClass */
-    parent_class:GObject.ObjectClass
-}
-export interface AddressClass_Static {
-    name: string
-}
-export declare var AddressClass: AddressClass_Static
-export interface AuthClass {
-    /* Fields of Soup.AuthClass */
-    parent_class:GObject.ObjectClass
-    scheme_name:string
-    strength:number
-    update:any
-    get_protection_space:any
-    authenticate:any
-    is_authenticated:any
-    get_authorization:any
-    is_ready:any
-}
-export interface AuthClass_Static {
-    name: string
-}
-export declare var AuthClass: AuthClass_Static
-export interface AuthDomainBasicClass {
-    /* Fields of Soup.AuthDomainBasicClass */
-    parent_class:AuthDomainClass
-}
-export interface AuthDomainBasicClass_Static {
-    name: string
-}
-export declare var AuthDomainBasicClass: AuthDomainBasicClass_Static
-export interface AuthDomainClass {
-    /* Fields of Soup.AuthDomainClass */
-    parent_class:GObject.ObjectClass
-    accepts:any
-    challenge:any
-    check_password:any
-}
-export interface AuthDomainClass_Static {
-    name: string
-}
-export declare var AuthDomainClass: AuthDomainClass_Static
-export interface AuthDomainDigestClass {
-    /* Fields of Soup.AuthDomainDigestClass */
-    parent_class:AuthDomainClass
-}
-export interface AuthDomainDigestClass_Static {
-    name: string
-}
-export declare var AuthDomainDigestClass: AuthDomainDigestClass_Static
-export interface AuthManagerClass {
-    /* Fields of Soup.AuthManagerClass */
-    parent_class:GObject.ObjectClass
-    authenticate:any
-}
-export interface AuthManagerClass_Static {
-    name: string
-}
-export declare var AuthManagerClass: AuthManagerClass_Static
 export interface AuthManagerPrivate {
 }
 export interface AuthManagerPrivate_Static {
@@ -3170,15 +3110,6 @@ export declare class Buffer_Static {
     new_with_owner(data: Gjs.byteArray.ByteArray[], length: number, owner: object, owner_dnotify: GLib.DestroyNotify | null): Buffer
 }
 export declare var Buffer: Buffer_Static
-export interface CacheClass {
-    /* Fields of Soup.CacheClass */
-    parent_class:GObject.ObjectClass
-    get_cacheability:any
-}
-export interface CacheClass_Static {
-    name: string
-}
-export declare var CacheClass: CacheClass_Static
 export interface CachePrivate {
 }
 export interface CachePrivate_Static {
@@ -3207,30 +3138,12 @@ export interface Connection_Static {
     name: string
 }
 export declare var Connection: Connection_Static
-export interface ContentDecoderClass {
-    /* Fields of Soup.ContentDecoderClass */
-    parent_class:GObject.ObjectClass
-}
-export interface ContentDecoderClass_Static {
-    name: string
-}
-export declare var ContentDecoderClass: ContentDecoderClass_Static
 export interface ContentDecoderPrivate {
 }
 export interface ContentDecoderPrivate_Static {
     name: string
 }
 export declare var ContentDecoderPrivate: ContentDecoderPrivate_Static
-export interface ContentSnifferClass {
-    /* Fields of Soup.ContentSnifferClass */
-    parent_class:GObject.ObjectClass
-    sniff:any
-    get_buffer_size:any
-}
-export interface ContentSnifferClass_Static {
-    name: string
-}
-export declare var ContentSnifferClass: ContentSnifferClass_Static
 export interface ContentSnifferPrivate {
 }
 export interface ContentSnifferPrivate_Static {
@@ -3278,33 +3191,6 @@ export declare class Cookie_Static {
     parse(header: string, origin: URI): Cookie | null
 }
 export declare var Cookie: Cookie_Static
-export interface CookieJarClass {
-    /* Fields of Soup.CookieJarClass */
-    parent_class:GObject.ObjectClass
-    save:any
-    is_persistent:any
-    changed:any
-}
-export interface CookieJarClass_Static {
-    name: string
-}
-export declare var CookieJarClass: CookieJarClass_Static
-export interface CookieJarDBClass {
-    /* Fields of Soup.CookieJarDBClass */
-    parent_class:CookieJarClass
-}
-export interface CookieJarDBClass_Static {
-    name: string
-}
-export declare var CookieJarDBClass: CookieJarDBClass_Static
-export interface CookieJarTextClass {
-    /* Fields of Soup.CookieJarTextClass */
-    parent_class:CookieJarClass
-}
-export interface CookieJarTextClass_Static {
-    name: string
-}
-export declare var CookieJarTextClass: CookieJarTextClass_Static
 export interface Date {
     /* Fields of Soup.Date */
     year:number
@@ -3341,14 +3227,6 @@ export declare class Date_Static {
     new_from_time_t(when: number): Date
 }
 export declare var Date: Date_Static
-export interface LoggerClass {
-    /* Fields of Soup.LoggerClass */
-    parent_class:GObject.ObjectClass
-}
-export interface LoggerClass_Static {
-    name: string
-}
-export declare var LoggerClass: LoggerClass_Static
 export interface MessageBody {
     /* Fields of Soup.MessageBody */
     data:string
@@ -3374,25 +3252,6 @@ export declare class MessageBody_Static {
     new(): MessageBody
 }
 export declare var MessageBody: MessageBody_Static
-export interface MessageClass {
-    /* Fields of Soup.MessageClass */
-    parent_class:GObject.ObjectClass
-    wrote_informational:any
-    wrote_headers:any
-    wrote_chunk:any
-    wrote_body:any
-    got_informational:any
-    got_headers:any
-    got_chunk:any
-    got_body:any
-    restarted:any
-    finished:any
-    starting:any
-}
-export interface MessageClass_Static {
-    name: string
-}
-export declare var MessageClass: MessageClass_Static
 export interface MessageHeaders {
     /* Methods of Soup.MessageHeaders */
     append(name: string, value: string): void
@@ -3474,48 +3333,12 @@ export declare class Multipart_Static {
     new_from_message(headers: MessageHeaders, body: MessageBody): Multipart | null
 }
 export declare var Multipart: Multipart_Static
-export interface MultipartInputStreamClass {
-    /* Fields of Soup.MultipartInputStreamClass */
-    parent_class:Gio.FilterInputStreamClass
-}
-export interface MultipartInputStreamClass_Static {
-    name: string
-}
-export declare var MultipartInputStreamClass: MultipartInputStreamClass_Static
 export interface MultipartInputStreamPrivate {
 }
 export interface MultipartInputStreamPrivate_Static {
     name: string
 }
 export declare var MultipartInputStreamPrivate: MultipartInputStreamPrivate_Static
-export interface PasswordManagerInterface {
-    /* Fields of Soup.PasswordManagerInterface */
-    base:GObject.TypeInterface
-    get_passwords_async:any
-    get_passwords_sync:any
-}
-export interface PasswordManagerInterface_Static {
-    name: string
-}
-export declare var PasswordManagerInterface: PasswordManagerInterface_Static
-export interface ProxyResolverDefaultClass {
-    /* Fields of Soup.ProxyResolverDefaultClass */
-    parent_class:GObject.ObjectClass
-}
-export interface ProxyResolverDefaultClass_Static {
-    name: string
-}
-export declare var ProxyResolverDefaultClass: ProxyResolverDefaultClass_Static
-export interface ProxyURIResolverInterface {
-    /* Fields of Soup.ProxyURIResolverInterface */
-    base:GObject.TypeInterface
-    get_proxy_uri_async:any
-    get_proxy_uri_sync:any
-}
-export interface ProxyURIResolverInterface_Static {
-    name: string
-}
-export declare var ProxyURIResolverInterface: ProxyURIResolverInterface_Static
 export interface Range {
     /* Fields of Soup.Range */
     start:number
@@ -3525,57 +3348,18 @@ export interface Range_Static {
     name: string
 }
 export declare var Range: Range_Static
-export interface RequestClass {
-    /* Fields of Soup.RequestClass */
-    parent:GObject.ObjectClass
-    schemes:string
-    check_uri:any
-    send:any
-    send_async:any
-    send_finish:any
-    get_content_length:any
-    get_content_type:any
-}
-export interface RequestClass_Static {
-    name: string
-}
-export declare var RequestClass: RequestClass_Static
-export interface RequestDataClass {
-    /* Fields of Soup.RequestDataClass */
-    parent:RequestClass
-}
-export interface RequestDataClass_Static {
-    name: string
-}
-export declare var RequestDataClass: RequestDataClass_Static
 export interface RequestDataPrivate {
 }
 export interface RequestDataPrivate_Static {
     name: string
 }
 export declare var RequestDataPrivate: RequestDataPrivate_Static
-export interface RequestFileClass {
-    /* Fields of Soup.RequestFileClass */
-    parent:RequestClass
-}
-export interface RequestFileClass_Static {
-    name: string
-}
-export declare var RequestFileClass: RequestFileClass_Static
 export interface RequestFilePrivate {
 }
 export interface RequestFilePrivate_Static {
     name: string
 }
 export declare var RequestFilePrivate: RequestFilePrivate_Static
-export interface RequestHTTPClass {
-    /* Fields of Soup.RequestHTTPClass */
-    parent:RequestClass
-}
-export interface RequestHTTPClass_Static {
-    name: string
-}
-export declare var RequestHTTPClass: RequestHTTPClass_Static
 export interface RequestHTTPPrivate {
 }
 export interface RequestHTTPPrivate_Static {
@@ -3588,93 +3372,12 @@ export interface RequestPrivate_Static {
     name: string
 }
 export declare var RequestPrivate: RequestPrivate_Static
-export interface RequesterClass {
-    /* Fields of Soup.RequesterClass */
-    parent_class:GObject.ObjectClass
-}
-export interface RequesterClass_Static {
-    name: string
-}
-export declare var RequesterClass: RequesterClass_Static
 export interface RequesterPrivate {
 }
 export interface RequesterPrivate_Static {
     name: string
 }
 export declare var RequesterPrivate: RequesterPrivate_Static
-export interface ServerClass {
-    /* Fields of Soup.ServerClass */
-    parent_class:GObject.ObjectClass
-    request_started:any
-    request_read:any
-    request_finished:any
-    request_aborted:any
-}
-export interface ServerClass_Static {
-    name: string
-}
-export declare var ServerClass: ServerClass_Static
-export interface SessionAsyncClass {
-    /* Fields of Soup.SessionAsyncClass */
-    parent_class:SessionClass
-}
-export interface SessionAsyncClass_Static {
-    name: string
-}
-export declare var SessionAsyncClass: SessionAsyncClass_Static
-export interface SessionClass {
-    /* Fields of Soup.SessionClass */
-    parent_class:GObject.ObjectClass
-    request_started:any
-    authenticate:any
-    queue_message:any
-    requeue_message:any
-    send_message:any
-    cancel_message:any
-    auth_required:any
-    flush_queue:any
-    kick:any
-}
-export interface SessionClass_Static {
-    name: string
-}
-export declare var SessionClass: SessionClass_Static
-export interface SessionFeatureInterface {
-    /* Fields of Soup.SessionFeatureInterface */
-    parent:GObject.TypeInterface
-    attach:any
-    detach:any
-    request_queued:any
-    request_started:any
-    request_unqueued:any
-    add_feature:any
-    remove_feature:any
-    has_feature:any
-}
-export interface SessionFeatureInterface_Static {
-    name: string
-}
-export declare var SessionFeatureInterface: SessionFeatureInterface_Static
-export interface SessionSyncClass {
-    /* Fields of Soup.SessionSyncClass */
-    parent_class:SessionClass
-}
-export interface SessionSyncClass_Static {
-    name: string
-}
-export declare var SessionSyncClass: SessionSyncClass_Static
-export interface SocketClass {
-    /* Fields of Soup.SocketClass */
-    parent_class:GObject.ObjectClass
-    readable:any
-    writable:any
-    disconnected:any
-    new_connection:any
-}
-export interface SocketClass_Static {
-    name: string
-}
-export declare var SocketClass: SocketClass_Static
 export interface URI {
     /* Fields of Soup.URI */
     scheme:string
@@ -3723,18 +3426,6 @@ export declare class URI_Static {
     normalize(part: string, unescape_extra: string | null): string
 }
 export declare var URI: URI_Static
-export interface WebsocketConnectionClass {
-    /* Fields of Soup.WebsocketConnectionClass */
-    parent:GObject.ObjectClass
-    message:any
-    error:any
-    closing:any
-    closed:any
-}
-export interface WebsocketConnectionClass_Static {
-    name: string
-}
-export declare var WebsocketConnectionClass: WebsocketConnectionClass_Static
 export interface WebsocketConnectionPrivate {
 }
 export interface WebsocketConnectionPrivate_Static {

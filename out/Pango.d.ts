@@ -1243,12 +1243,6 @@ export interface Color_Static {
     name: string
 }
 export declare var Color: Color_Static
-export interface ContextClass {
-}
-export interface ContextClass_Static {
-    name: string
-}
-export declare var ContextClass: ContextClass_Static
 export interface Coverage {
     /* Methods of Pango.Coverage */
     get(index_: number): CoverageLevel
@@ -1261,13 +1255,6 @@ export interface Coverage_Static {
     name: string
 }
 export declare var Coverage: Coverage_Static
-export interface EngineClass {
-    /* Fields of Pango.EngineClass */
-}
-export interface EngineClass_Static {
-    name: string
-}
-export declare var EngineClass: EngineClass_Static
 export interface EngineInfo {
     /* Fields of Pango.EngineInfo */
     id:string
@@ -1280,14 +1267,6 @@ export interface EngineInfo_Static {
     name: string
 }
 export declare var EngineInfo: EngineInfo_Static
-export interface EngineLangClass {
-    /* Fields of Pango.EngineLangClass */
-    script_break:any
-}
-export interface EngineLangClass_Static {
-    name: string
-}
-export declare var EngineLangClass: EngineLangClass_Static
 export interface EngineScriptInfo {
     /* Fields of Pango.EngineScriptInfo */
     script:Script
@@ -1297,28 +1276,6 @@ export interface EngineScriptInfo_Static {
     name: string
 }
 export declare var EngineScriptInfo: EngineScriptInfo_Static
-export interface EngineShapeClass {
-    /* Fields of Pango.EngineShapeClass */
-    script_shape:any
-    covers:any
-}
-export interface EngineShapeClass_Static {
-    name: string
-}
-export declare var EngineShapeClass: EngineShapeClass_Static
-export interface FontClass {
-    /* Fields of Pango.FontClass */
-    parent_class:GObject.ObjectClass
-    describe:any
-    get_glyph_extents:any
-    get_metrics:any
-    get_font_map:any
-    describe_absolute:any
-}
-export interface FontClass_Static {
-    name: string
-}
-export declare var FontClass: FontClass_Static
 export interface FontDescription {
     /* Methods of Pango.FontDescription */
     better_match(old_match: FontDescription | null, new_match: FontDescription): boolean
@@ -1359,43 +1316,6 @@ export declare class FontDescription_Static {
     from_string(str: string): FontDescription
 }
 export declare var FontDescription: FontDescription_Static
-export interface FontFaceClass {
-    /* Fields of Pango.FontFaceClass */
-    parent_class:GObject.ObjectClass
-    get_face_name:any
-    describe:any
-    list_sizes:any
-    is_synthesized:any
-}
-export interface FontFaceClass_Static {
-    name: string
-}
-export declare var FontFaceClass: FontFaceClass_Static
-export interface FontFamilyClass {
-    /* Fields of Pango.FontFamilyClass */
-    parent_class:GObject.ObjectClass
-    list_faces:any
-    get_name:any
-    is_monospace:any
-}
-export interface FontFamilyClass_Static {
-    name: string
-}
-export declare var FontFamilyClass: FontFamilyClass_Static
-export interface FontMapClass {
-    /* Fields of Pango.FontMapClass */
-    parent_class:GObject.ObjectClass
-    load_font:any
-    list_families:any
-    load_fontset:any
-    shape_engine_type:string
-    get_serial:any
-    changed:any
-}
-export interface FontMapClass_Static {
-    name: string
-}
-export declare var FontMapClass: FontMapClass_Static
 export interface FontMetrics {
     /* Fields of Pango.FontMetrics */
     /* Methods of Pango.FontMetrics */
@@ -1417,24 +1337,6 @@ export declare class FontMetrics_Static {
     new(): FontMetrics
 }
 export declare var FontMetrics: FontMetrics_Static
-export interface FontsetClass {
-    /* Fields of Pango.FontsetClass */
-    parent_class:GObject.ObjectClass
-    get_font:any
-    get_metrics:any
-    get_language:any
-    foreach:any
-}
-export interface FontsetClass_Static {
-    name: string
-}
-export declare var FontsetClass: FontsetClass_Static
-export interface FontsetSimpleClass {
-}
-export interface FontsetSimpleClass_Static {
-    name: string
-}
-export declare var FontsetSimpleClass: FontsetSimpleClass_Static
 export interface GlyphGeometry {
     /* Fields of Pango.GlyphGeometry */
     width:GlyphUnit
@@ -1568,12 +1470,6 @@ export declare class Language_Static {
     get_default(): Language
 }
 export declare var Language: Language_Static
-export interface LayoutClass {
-}
-export interface LayoutClass_Static {
-    name: string
-}
-export declare var LayoutClass: LayoutClass_Static
 export interface LayoutIter {
     /* Methods of Pango.LayoutIter */
     at_last_line(): boolean
@@ -1692,24 +1588,6 @@ export interface Rectangle_Static {
     name: string
 }
 export declare var Rectangle: Rectangle_Static
-export interface RendererClass {
-    /* Fields of Pango.RendererClass */
-    draw_glyphs:any
-    draw_rectangle:any
-    draw_error_underline:any
-    draw_shape:any
-    draw_trapezoid:any
-    draw_glyph:any
-    part_changed:any
-    begin:any
-    end:any
-    prepare_run:any
-    draw_glyph_item:any
-}
-export interface RendererClass_Static {
-    name: string
-}
-export declare var RendererClass: RendererClass_Static
 export interface RendererPrivate {
 }
 export interface RendererPrivate_Static {

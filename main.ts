@@ -83,6 +83,7 @@ interface GirClass extends TsForGjsExtended {
         // Not sure what this means
         disguised?: string
         // c:symbol-prefix, c:type, glib:get-type, glib:type-name
+        "glib:is-gtype-struct-for"?: string
     }
     doc?: GirDoc[]
     function?: GirFunction[]
@@ -688,6 +689,10 @@ export class GirModule {
         let def: string[] = []
         let isDerivedFromGObject = this.isDerivedFromGObject(e)
 
+        if (e.$ && e.$["glib:is-gtype-struct-for"]) {
+            return []
+        }
+
         let checkName = (desc: string[], name, localNames): [string[], boolean] => {
             if (!desc || desc.length == 0)
                 return [[], false]
@@ -698,7 +703,7 @@ export class GirModule {
             }
 
             if (localNames[name]) {
-                // console.warn(`Name ${name} already defined (${desc})`)
+                console.warn(`Name ${name} already defined (${desc})`)
                 return [[], false]
             }
 

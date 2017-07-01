@@ -5902,76 +5902,24 @@ export declare class View_Static {
     new_with_buffer(buffer: Buffer): View
 }
 export declare var View: View_Static
-export interface BufferClass {
-    /* Fields of GtkSource.BufferClass */
-    parent_class:Gtk.TextBufferClass
-    undo:any
-    redo:any
-    bracket_matched:any
-}
-export interface BufferClass_Static {
-    name: string
-}
-export declare var BufferClass: BufferClass_Static
 export interface BufferPrivate {
 }
 export interface BufferPrivate_Static {
     name: string
 }
 export declare var BufferPrivate: BufferPrivate_Static
-export interface CompletionClass {
-    /* Fields of GtkSource.CompletionClass */
-    parent_class:GObject.ObjectClass
-    proposal_activated:any
-    show:any
-    hide:any
-    populate_context:any
-    move_cursor:any
-    move_page:any
-    activate_proposal:any
-}
-export interface CompletionClass_Static {
-    name: string
-}
-export declare var CompletionClass: CompletionClass_Static
-export interface CompletionContextClass {
-    /* Fields of GtkSource.CompletionContextClass */
-    parent_class:GObject.InitiallyUnownedClass
-    cancelled:any
-}
-export interface CompletionContextClass_Static {
-    name: string
-}
-export declare var CompletionContextClass: CompletionContextClass_Static
 export interface CompletionContextPrivate {
 }
 export interface CompletionContextPrivate_Static {
     name: string
 }
 export declare var CompletionContextPrivate: CompletionContextPrivate_Static
-export interface CompletionInfoClass {
-    /* Fields of GtkSource.CompletionInfoClass */
-    parent_class:Gtk.WindowClass
-    before_show:any
-}
-export interface CompletionInfoClass_Static {
-    name: string
-}
-export declare var CompletionInfoClass: CompletionInfoClass_Static
 export interface CompletionInfoPrivate {
 }
 export interface CompletionInfoPrivate_Static {
     name: string
 }
 export declare var CompletionInfoPrivate: CompletionInfoPrivate_Static
-export interface CompletionItemClass {
-    /* Fields of GtkSource.CompletionItemClass */
-    parent_class:GObject.ObjectClass
-}
-export interface CompletionItemClass_Static {
-    name: string
-}
-export declare var CompletionItemClass: CompletionItemClass_Static
 export interface CompletionItemPrivate {
 }
 export interface CompletionItemPrivate_Static {
@@ -5984,53 +5932,6 @@ export interface CompletionPrivate_Static {
     name: string
 }
 export declare var CompletionPrivate: CompletionPrivate_Static
-export interface CompletionProposalIface {
-    /* Fields of GtkSource.CompletionProposalIface */
-    parent:GObject.TypeInterface
-    get_label:any
-    get_markup:any
-    get_text:any
-    get_icon:any
-    get_icon_name:any
-    get_gicon:any
-    get_info:any
-    hash:any
-    equal:any
-    changed:any
-}
-export interface CompletionProposalIface_Static {
-    name: string
-}
-export declare var CompletionProposalIface: CompletionProposalIface_Static
-export interface CompletionProviderIface {
-    /* Fields of GtkSource.CompletionProviderIface */
-    g_iface:GObject.TypeInterface
-    get_name:any
-    get_icon:any
-    get_icon_name:any
-    get_gicon:any
-    populate:any
-    match:any
-    get_activation:any
-    get_info_widget:any
-    update_info:any
-    get_start_iter:any
-    activate_proposal:any
-    get_interactive_delay:any
-    get_priority:any
-}
-export interface CompletionProviderIface_Static {
-    name: string
-}
-export declare var CompletionProviderIface: CompletionProviderIface_Static
-export interface CompletionWordsClass {
-    /* Fields of GtkSource.CompletionWordsClass */
-    parent_class:GObject.ObjectClass
-}
-export interface CompletionWordsClass_Static {
-    name: string
-}
-export declare var CompletionWordsClass: CompletionWordsClass_Static
 export interface CompletionWordsPrivate {
 }
 export interface CompletionWordsPrivate_Static {
@@ -6056,24 +5957,6 @@ export declare class Encoding_Static {
     get_utf8(): Encoding
 }
 export declare var Encoding: Encoding_Static
-export interface FileClass {
-    /* Fields of GtkSource.FileClass */
-    parent_class:GObject.ObjectClass
-    padding:object[]
-}
-export interface FileClass_Static {
-    name: string
-}
-export declare var FileClass: FileClass_Static
-export interface FileLoaderClass {
-    /* Fields of GtkSource.FileLoaderClass */
-    parent_class:GObject.ObjectClass
-    padding:object[]
-}
-export interface FileLoaderClass_Static {
-    name: string
-}
-export declare var FileLoaderClass: FileLoaderClass_Static
 export interface FileLoaderPrivate {
 }
 export interface FileLoaderPrivate_Static {
@@ -6086,60 +5969,18 @@ export interface FilePrivate_Static {
     name: string
 }
 export declare var FilePrivate: FilePrivate_Static
-export interface FileSaverClass {
-    /* Fields of GtkSource.FileSaverClass */
-    parent_class:GObject.ObjectClass
-    padding:object[]
-}
-export interface FileSaverClass_Static {
-    name: string
-}
-export declare var FileSaverClass: FileSaverClass_Static
 export interface FileSaverPrivate {
 }
 export interface FileSaverPrivate_Static {
     name: string
 }
 export declare var FileSaverPrivate: FileSaverPrivate_Static
-export interface GutterClass {
-    /* Fields of GtkSource.GutterClass */
-    parent_class:GObject.ObjectClass
-}
-export interface GutterClass_Static {
-    name: string
-}
-export declare var GutterClass: GutterClass_Static
 export interface GutterPrivate {
 }
 export interface GutterPrivate_Static {
     name: string
 }
 export declare var GutterPrivate: GutterPrivate_Static
-export interface GutterRendererClass {
-    /* Fields of GtkSource.GutterRendererClass */
-    parent_class:GObject.InitiallyUnownedClass
-    begin:any
-    draw:any
-    end:any
-    change_view:any
-    change_buffer:any
-    query_activatable:any
-    activate:any
-    queue_draw:any
-    query_tooltip:any
-    query_data:any
-}
-export interface GutterRendererClass_Static {
-    name: string
-}
-export declare var GutterRendererClass: GutterRendererClass_Static
-export interface GutterRendererPixbufClass {
-    /* Fields of GtkSource.GutterRendererPixbufClass */
-}
-export interface GutterRendererPixbufClass_Static {
-    name: string
-}
-export declare var GutterRendererPixbufClass: GutterRendererPixbufClass_Static
 export interface GutterRendererPixbufPrivate {
 }
 export interface GutterRendererPixbufPrivate_Static {
@@ -6152,35 +5993,12 @@ export interface GutterRendererPrivate_Static {
     name: string
 }
 export declare var GutterRendererPrivate: GutterRendererPrivate_Static
-export interface GutterRendererTextClass {
-    /* Fields of GtkSource.GutterRendererTextClass */
-}
-export interface GutterRendererTextClass_Static {
-    name: string
-}
-export declare var GutterRendererTextClass: GutterRendererTextClass_Static
 export interface GutterRendererTextPrivate {
 }
 export interface GutterRendererTextPrivate_Static {
     name: string
 }
 export declare var GutterRendererTextPrivate: GutterRendererTextPrivate_Static
-export interface LanguageClass {
-    /* Fields of GtkSource.LanguageClass */
-    parent_class:GObject.ObjectClass
-}
-export interface LanguageClass_Static {
-    name: string
-}
-export declare var LanguageClass: LanguageClass_Static
-export interface LanguageManagerClass {
-    /* Fields of GtkSource.LanguageManagerClass */
-    parent_class:GObject.ObjectClass
-}
-export interface LanguageManagerClass_Static {
-    name: string
-}
-export declare var LanguageManagerClass: LanguageManagerClass_Static
 export interface LanguageManagerPrivate {
 }
 export interface LanguageManagerPrivate_Static {
@@ -6193,135 +6011,36 @@ export interface LanguagePrivate_Static {
     name: string
 }
 export declare var LanguagePrivate: LanguagePrivate_Static
-export interface MapClass {
-    /* Fields of GtkSource.MapClass */
-    parent_class:ViewClass
-    padding:object[]
-}
-export interface MapClass_Static {
-    name: string
-}
-export declare var MapClass: MapClass_Static
-export interface MarkAttributesClass {
-    /* Fields of GtkSource.MarkAttributesClass */
-}
-export interface MarkAttributesClass_Static {
-    name: string
-}
-export declare var MarkAttributesClass: MarkAttributesClass_Static
 export interface MarkAttributesPrivate {
 }
 export interface MarkAttributesPrivate_Static {
     name: string
 }
 export declare var MarkAttributesPrivate: MarkAttributesPrivate_Static
-export interface MarkClass {
-    /* Fields of GtkSource.MarkClass */
-    parent_class:Gtk.TextMarkClass
-}
-export interface MarkClass_Static {
-    name: string
-}
-export declare var MarkClass: MarkClass_Static
 export interface MarkPrivate {
 }
 export interface MarkPrivate_Static {
     name: string
 }
 export declare var MarkPrivate: MarkPrivate_Static
-export interface PrintCompositorClass {
-    /* Fields of GtkSource.PrintCompositorClass */
-    parent_class:GObject.ObjectClass
-}
-export interface PrintCompositorClass_Static {
-    name: string
-}
-export declare var PrintCompositorClass: PrintCompositorClass_Static
 export interface PrintCompositorPrivate {
 }
 export interface PrintCompositorPrivate_Static {
     name: string
 }
 export declare var PrintCompositorPrivate: PrintCompositorPrivate_Static
-export interface SearchContextClass {
-    /* Fields of GtkSource.SearchContextClass */
-    parent_class:GObject.ObjectClass
-    padding:object[]
-}
-export interface SearchContextClass_Static {
-    name: string
-}
-export declare var SearchContextClass: SearchContextClass_Static
 export interface SearchContextPrivate {
 }
 export interface SearchContextPrivate_Static {
     name: string
 }
 export declare var SearchContextPrivate: SearchContextPrivate_Static
-export interface SearchSettingsClass {
-    /* Fields of GtkSource.SearchSettingsClass */
-    parent_class:GObject.ObjectClass
-    padding:object[]
-}
-export interface SearchSettingsClass_Static {
-    name: string
-}
-export declare var SearchSettingsClass: SearchSettingsClass_Static
 export interface SearchSettingsPrivate {
 }
 export interface SearchSettingsPrivate_Static {
     name: string
 }
 export declare var SearchSettingsPrivate: SearchSettingsPrivate_Static
-export interface StyleClass {
-}
-export interface StyleClass_Static {
-    name: string
-}
-export declare var StyleClass: StyleClass_Static
-export interface StyleSchemeChooserButtonClass {
-    /* Fields of GtkSource.StyleSchemeChooserButtonClass */
-    parent:Gtk.ButtonClass
-}
-export interface StyleSchemeChooserButtonClass_Static {
-    name: string
-}
-export declare var StyleSchemeChooserButtonClass: StyleSchemeChooserButtonClass_Static
-export interface StyleSchemeChooserInterface {
-    /* Fields of GtkSource.StyleSchemeChooserInterface */
-    base_interface:GObject.TypeInterface
-    get_style_scheme:any
-    set_style_scheme:any
-    padding:object[]
-}
-export interface StyleSchemeChooserInterface_Static {
-    name: string
-}
-export declare var StyleSchemeChooserInterface: StyleSchemeChooserInterface_Static
-export interface StyleSchemeChooserWidgetClass {
-    /* Fields of GtkSource.StyleSchemeChooserWidgetClass */
-    parent:Gtk.BinClass
-}
-export interface StyleSchemeChooserWidgetClass_Static {
-    name: string
-}
-export declare var StyleSchemeChooserWidgetClass: StyleSchemeChooserWidgetClass_Static
-export interface StyleSchemeClass {
-    /* Fields of GtkSource.StyleSchemeClass */
-    base_class:GObject.ObjectClass
-}
-export interface StyleSchemeClass_Static {
-    name: string
-}
-export declare var StyleSchemeClass: StyleSchemeClass_Static
-export interface StyleSchemeManagerClass {
-    /* Fields of GtkSource.StyleSchemeManagerClass */
-    parent_class:GObject.ObjectClass
-}
-export interface StyleSchemeManagerClass_Static {
-    name: string
-}
-export declare var StyleSchemeManagerClass: StyleSchemeManagerClass_Static
 export interface StyleSchemeManagerPrivate {
 }
 export interface StyleSchemeManagerPrivate_Static {
@@ -6334,36 +6053,6 @@ export interface StyleSchemePrivate_Static {
     name: string
 }
 export declare var StyleSchemePrivate: StyleSchemePrivate_Static
-export interface UndoManagerIface {
-    /* Fields of GtkSource.UndoManagerIface */
-    parent:GObject.TypeInterface
-    can_undo:any
-    can_redo:any
-    undo:any
-    redo:any
-    begin_not_undoable_action:any
-    end_not_undoable_action:any
-    can_undo_changed:any
-    can_redo_changed:any
-}
-export interface UndoManagerIface_Static {
-    name: string
-}
-export declare var UndoManagerIface: UndoManagerIface_Static
-export interface ViewClass {
-    /* Fields of GtkSource.ViewClass */
-    parent_class:Gtk.TextViewClass
-    undo:any
-    redo:any
-    line_mark_activated:any
-    show_completion:any
-    move_lines:any
-    move_words:any
-}
-export interface ViewClass_Static {
-    name: string
-}
-export declare var ViewClass: ViewClass_Static
 export interface ViewPrivate {
 }
 export interface ViewPrivate_Static {

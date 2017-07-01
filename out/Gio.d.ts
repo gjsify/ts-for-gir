@@ -9851,135 +9851,12 @@ export interface ActionEntry_Static {
     name: string
 }
 export declare var ActionEntry: ActionEntry_Static
-export interface ActionGroupInterface {
-    /* Fields of Gio.ActionGroupInterface */
-    g_iface:GObject.TypeInterface
-    has_action:any
-    list_actions:any
-    get_action_enabled:any
-    get_action_parameter_type:any
-    get_action_state_type:any
-    get_action_state_hint:any
-    get_action_state:any
-    change_action_state:any
-    activate_action:any
-    action_added:any
-    action_removed:any
-    action_enabled_changed:any
-    action_state_changed:any
-    query_action:any
-}
-export interface ActionGroupInterface_Static {
-    name: string
-}
-export declare var ActionGroupInterface: ActionGroupInterface_Static
-export interface ActionInterface {
-    /* Fields of Gio.ActionInterface */
-    g_iface:GObject.TypeInterface
-    get_name:any
-    get_parameter_type:any
-    get_state_type:any
-    get_state_hint:any
-    get_enabled:any
-    get_state:any
-    change_state:any
-    activate:any
-}
-export interface ActionInterface_Static {
-    name: string
-}
-export declare var ActionInterface: ActionInterface_Static
-export interface ActionMapInterface {
-    /* Fields of Gio.ActionMapInterface */
-    g_iface:GObject.TypeInterface
-    lookup_action:any
-    add_action:any
-    remove_action:any
-}
-export interface ActionMapInterface_Static {
-    name: string
-}
-export declare var ActionMapInterface: ActionMapInterface_Static
-export interface AppInfoIface {
-    /* Fields of Gio.AppInfoIface */
-    g_iface:GObject.TypeInterface
-    dup:any
-    equal:any
-    get_id:any
-    get_name:any
-    get_description:any
-    get_executable:any
-    get_icon:any
-    launch:any
-    supports_uris:any
-    supports_files:any
-    launch_uris:any
-    should_show:any
-    set_as_default_for_type:any
-    set_as_default_for_extension:any
-    add_supports_type:any
-    can_remove_supports_type:any
-    remove_supports_type:any
-    can_delete:any
-    do_delete:any
-    get_commandline:any
-    get_display_name:any
-    set_as_last_used_for_type:any
-    get_supported_types:any
-}
-export interface AppInfoIface_Static {
-    name: string
-}
-export declare var AppInfoIface: AppInfoIface_Static
-export interface AppLaunchContextClass {
-    /* Fields of Gio.AppLaunchContextClass */
-    parent_class:GObject.ObjectClass
-    get_display:any
-    get_startup_notify_id:any
-    launch_failed:any
-    launched:any
-}
-export interface AppLaunchContextClass_Static {
-    name: string
-}
-export declare var AppLaunchContextClass: AppLaunchContextClass_Static
 export interface AppLaunchContextPrivate {
 }
 export interface AppLaunchContextPrivate_Static {
     name: string
 }
 export declare var AppLaunchContextPrivate: AppLaunchContextPrivate_Static
-export interface ApplicationClass {
-    /* Fields of Gio.ApplicationClass */
-    startup:any
-    activate:any
-    open:any
-    command_line:any
-    local_command_line:any
-    before_emit:any
-    after_emit:any
-    add_platform_data:any
-    quit_mainloop:any
-    run_mainloop:any
-    shutdown:any
-    dbus_register:any
-    dbus_unregister:any
-    handle_local_options:any
-}
-export interface ApplicationClass_Static {
-    name: string
-}
-export declare var ApplicationClass: ApplicationClass_Static
-export interface ApplicationCommandLineClass {
-    /* Fields of Gio.ApplicationCommandLineClass */
-    print_literal:any
-    printerr_literal:any
-    get_stdin:any
-}
-export interface ApplicationCommandLineClass_Static {
-    name: string
-}
-export declare var ApplicationCommandLineClass: ApplicationCommandLineClass_Static
 export interface ApplicationCommandLinePrivate {
 }
 export interface ApplicationCommandLinePrivate_Static {
@@ -9992,125 +9869,36 @@ export interface ApplicationPrivate_Static {
     name: string
 }
 export declare var ApplicationPrivate: ApplicationPrivate_Static
-export interface AsyncInitableIface {
-    /* Fields of Gio.AsyncInitableIface */
-    g_iface:GObject.TypeInterface
-    init_async:any
-    init_finish:any
-}
-export interface AsyncInitableIface_Static {
-    name: string
-}
-export declare var AsyncInitableIface: AsyncInitableIface_Static
-export interface AsyncResultIface {
-    /* Fields of Gio.AsyncResultIface */
-    g_iface:GObject.TypeInterface
-    get_user_data:any
-    get_source_object:any
-    is_tagged:any
-}
-export interface AsyncResultIface_Static {
-    name: string
-}
-export declare var AsyncResultIface: AsyncResultIface_Static
-export interface BufferedInputStreamClass {
-    /* Fields of Gio.BufferedInputStreamClass */
-    parent_class:FilterInputStreamClass
-    fill:any
-    fill_async:any
-    fill_finish:any
-}
-export interface BufferedInputStreamClass_Static {
-    name: string
-}
-export declare var BufferedInputStreamClass: BufferedInputStreamClass_Static
 export interface BufferedInputStreamPrivate {
 }
 export interface BufferedInputStreamPrivate_Static {
     name: string
 }
 export declare var BufferedInputStreamPrivate: BufferedInputStreamPrivate_Static
-export interface BufferedOutputStreamClass {
-    /* Fields of Gio.BufferedOutputStreamClass */
-    parent_class:FilterOutputStreamClass
-}
-export interface BufferedOutputStreamClass_Static {
-    name: string
-}
-export declare var BufferedOutputStreamClass: BufferedOutputStreamClass_Static
 export interface BufferedOutputStreamPrivate {
 }
 export interface BufferedOutputStreamPrivate_Static {
     name: string
 }
 export declare var BufferedOutputStreamPrivate: BufferedOutputStreamPrivate_Static
-export interface CancellableClass {
-    /* Fields of Gio.CancellableClass */
-    parent_class:GObject.ObjectClass
-    cancelled:any
-}
-export interface CancellableClass_Static {
-    name: string
-}
-export declare var CancellableClass: CancellableClass_Static
 export interface CancellablePrivate {
 }
 export interface CancellablePrivate_Static {
     name: string
 }
 export declare var CancellablePrivate: CancellablePrivate_Static
-export interface CharsetConverterClass {
-    /* Fields of Gio.CharsetConverterClass */
-    parent_class:GObject.ObjectClass
-}
-export interface CharsetConverterClass_Static {
-    name: string
-}
-export declare var CharsetConverterClass: CharsetConverterClass_Static
-export interface ConverterIface {
-    /* Fields of Gio.ConverterIface */
-    g_iface:GObject.TypeInterface
-    convert:any
-    reset:any
-}
-export interface ConverterIface_Static {
-    name: string
-}
-export declare var ConverterIface: ConverterIface_Static
-export interface ConverterInputStreamClass {
-    /* Fields of Gio.ConverterInputStreamClass */
-    parent_class:FilterInputStreamClass
-}
-export interface ConverterInputStreamClass_Static {
-    name: string
-}
-export declare var ConverterInputStreamClass: ConverterInputStreamClass_Static
 export interface ConverterInputStreamPrivate {
 }
 export interface ConverterInputStreamPrivate_Static {
     name: string
 }
 export declare var ConverterInputStreamPrivate: ConverterInputStreamPrivate_Static
-export interface ConverterOutputStreamClass {
-    /* Fields of Gio.ConverterOutputStreamClass */
-    parent_class:FilterOutputStreamClass
-}
-export interface ConverterOutputStreamClass_Static {
-    name: string
-}
-export declare var ConverterOutputStreamClass: ConverterOutputStreamClass_Static
 export interface ConverterOutputStreamPrivate {
 }
 export interface ConverterOutputStreamPrivate_Static {
     name: string
 }
 export declare var ConverterOutputStreamPrivate: ConverterOutputStreamPrivate_Static
-export interface CredentialsClass {
-}
-export interface CredentialsClass_Static {
-    name: string
-}
-export declare var CredentialsClass: CredentialsClass_Static
 export interface DBusAnnotationInfo {
     /* Fields of Gio.DBusAnnotationInfo */
     ref_count:number
@@ -10151,18 +9939,6 @@ export interface DBusErrorEntry_Static {
     name: string
 }
 export declare var DBusErrorEntry: DBusErrorEntry_Static
-export interface DBusInterfaceIface {
-    /* Fields of Gio.DBusInterfaceIface */
-    parent_iface:GObject.TypeInterface
-    get_info:any
-    get_object:any
-    set_object:any
-    dup_object:any
-}
-export interface DBusInterfaceIface_Static {
-    name: string
-}
-export declare var DBusInterfaceIface: DBusInterfaceIface_Static
 export interface DBusInterfaceInfo {
     /* Fields of Gio.DBusInterfaceInfo */
     ref_count:number
@@ -10185,18 +9961,6 @@ export interface DBusInterfaceInfo_Static {
     name: string
 }
 export declare var DBusInterfaceInfo: DBusInterfaceInfo_Static
-export interface DBusInterfaceSkeletonClass {
-    /* Fields of Gio.DBusInterfaceSkeletonClass */
-    parent_class:GObject.ObjectClass
-    get_info:any
-    get_properties:any
-    flush:any
-    g_authorize_method:any
-}
-export interface DBusInterfaceSkeletonClass_Static {
-    name: string
-}
-export declare var DBusInterfaceSkeletonClass: DBusInterfaceSkeletonClass_Static
 export interface DBusInterfaceSkeletonPrivate {
 }
 export interface DBusInterfaceSkeletonPrivate_Static {
@@ -10248,88 +10012,24 @@ export declare class DBusNodeInfo_Static {
     new_for_xml(xml_data: string): DBusNodeInfo
 }
 export declare var DBusNodeInfo: DBusNodeInfo_Static
-export interface DBusObjectIface {
-    /* Fields of Gio.DBusObjectIface */
-    parent_iface:GObject.TypeInterface
-    get_object_path:any
-    get_interfaces:any
-    get_interface:any
-    interface_added:any
-    interface_removed:any
-}
-export interface DBusObjectIface_Static {
-    name: string
-}
-export declare var DBusObjectIface: DBusObjectIface_Static
-export interface DBusObjectManagerClientClass {
-    /* Fields of Gio.DBusObjectManagerClientClass */
-    parent_class:GObject.ObjectClass
-    interface_proxy_signal:any
-    interface_proxy_properties_changed:any
-}
-export interface DBusObjectManagerClientClass_Static {
-    name: string
-}
-export declare var DBusObjectManagerClientClass: DBusObjectManagerClientClass_Static
 export interface DBusObjectManagerClientPrivate {
 }
 export interface DBusObjectManagerClientPrivate_Static {
     name: string
 }
 export declare var DBusObjectManagerClientPrivate: DBusObjectManagerClientPrivate_Static
-export interface DBusObjectManagerIface {
-    /* Fields of Gio.DBusObjectManagerIface */
-    parent_iface:GObject.TypeInterface
-    get_object_path:any
-    get_objects:any
-    get_object:any
-    get_interface:any
-    object_added:any
-    object_removed:any
-    interface_added:any
-    interface_removed:any
-}
-export interface DBusObjectManagerIface_Static {
-    name: string
-}
-export declare var DBusObjectManagerIface: DBusObjectManagerIface_Static
-export interface DBusObjectManagerServerClass {
-    /* Fields of Gio.DBusObjectManagerServerClass */
-    parent_class:GObject.ObjectClass
-}
-export interface DBusObjectManagerServerClass_Static {
-    name: string
-}
-export declare var DBusObjectManagerServerClass: DBusObjectManagerServerClass_Static
 export interface DBusObjectManagerServerPrivate {
 }
 export interface DBusObjectManagerServerPrivate_Static {
     name: string
 }
 export declare var DBusObjectManagerServerPrivate: DBusObjectManagerServerPrivate_Static
-export interface DBusObjectProxyClass {
-    /* Fields of Gio.DBusObjectProxyClass */
-    parent_class:GObject.ObjectClass
-}
-export interface DBusObjectProxyClass_Static {
-    name: string
-}
-export declare var DBusObjectProxyClass: DBusObjectProxyClass_Static
 export interface DBusObjectProxyPrivate {
 }
 export interface DBusObjectProxyPrivate_Static {
     name: string
 }
 export declare var DBusObjectProxyPrivate: DBusObjectProxyPrivate_Static
-export interface DBusObjectSkeletonClass {
-    /* Fields of Gio.DBusObjectSkeletonClass */
-    parent_class:GObject.ObjectClass
-    authorize_method:any
-}
-export interface DBusObjectSkeletonClass_Static {
-    name: string
-}
-export declare var DBusObjectSkeletonClass: DBusObjectSkeletonClass_Static
 export interface DBusObjectSkeletonPrivate {
 }
 export interface DBusObjectSkeletonPrivate_Static {
@@ -10351,15 +10051,6 @@ export interface DBusPropertyInfo_Static {
     name: string
 }
 export declare var DBusPropertyInfo: DBusPropertyInfo_Static
-export interface DBusProxyClass {
-    /* Fields of Gio.DBusProxyClass */
-    g_properties_changed:any
-    g_signal:any
-}
-export interface DBusProxyClass_Static {
-    name: string
-}
-export declare var DBusProxyClass: DBusProxyClass_Static
 export interface DBusProxyPrivate {
 }
 export interface DBusProxyPrivate_Static {
@@ -10389,117 +10080,18 @@ export interface DBusSubtreeVTable_Static {
     name: string
 }
 export declare var DBusSubtreeVTable: DBusSubtreeVTable_Static
-export interface DataInputStreamClass {
-    /* Fields of Gio.DataInputStreamClass */
-    parent_class:BufferedInputStreamClass
-}
-export interface DataInputStreamClass_Static {
-    name: string
-}
-export declare var DataInputStreamClass: DataInputStreamClass_Static
 export interface DataInputStreamPrivate {
 }
 export interface DataInputStreamPrivate_Static {
     name: string
 }
 export declare var DataInputStreamPrivate: DataInputStreamPrivate_Static
-export interface DataOutputStreamClass {
-    /* Fields of Gio.DataOutputStreamClass */
-    parent_class:FilterOutputStreamClass
-}
-export interface DataOutputStreamClass_Static {
-    name: string
-}
-export declare var DataOutputStreamClass: DataOutputStreamClass_Static
 export interface DataOutputStreamPrivate {
 }
 export interface DataOutputStreamPrivate_Static {
     name: string
 }
 export declare var DataOutputStreamPrivate: DataOutputStreamPrivate_Static
-export interface DatagramBasedInterface {
-    /* Fields of Gio.DatagramBasedInterface */
-    g_iface:GObject.TypeInterface
-    receive_messages:any
-    send_messages:any
-    create_source:any
-    condition_check:any
-    condition_wait:any
-}
-export interface DatagramBasedInterface_Static {
-    name: string
-}
-export declare var DatagramBasedInterface: DatagramBasedInterface_Static
-export interface DesktopAppInfoClass {
-    /* Fields of Gio.DesktopAppInfoClass */
-    parent_class:GObject.ObjectClass
-}
-export interface DesktopAppInfoClass_Static {
-    name: string
-}
-export declare var DesktopAppInfoClass: DesktopAppInfoClass_Static
-export interface DesktopAppInfoLookupIface {
-    /* Fields of Gio.DesktopAppInfoLookupIface */
-    g_iface:GObject.TypeInterface
-    get_default_for_uri_scheme:any
-}
-export interface DesktopAppInfoLookupIface_Static {
-    name: string
-}
-export declare var DesktopAppInfoLookupIface: DesktopAppInfoLookupIface_Static
-export interface DriveIface {
-    /* Fields of Gio.DriveIface */
-    g_iface:GObject.TypeInterface
-    changed:any
-    disconnected:any
-    eject_button:any
-    get_name:any
-    get_icon:any
-    has_volumes:any
-    get_volumes:any
-    is_media_removable:any
-    has_media:any
-    is_media_check_automatic:any
-    can_eject:any
-    can_poll_for_media:any
-    eject:any
-    eject_finish:any
-    poll_for_media:any
-    poll_for_media_finish:any
-    get_identifier:any
-    enumerate_identifiers:any
-    get_start_stop_type:any
-    can_start:any
-    can_start_degraded:any
-    start:any
-    start_finish:any
-    can_stop:any
-    stop:any
-    stop_finish:any
-    stop_button:any
-    eject_with_operation:any
-    eject_with_operation_finish:any
-    get_sort_key:any
-    get_symbolic_icon:any
-}
-export interface DriveIface_Static {
-    name: string
-}
-export declare var DriveIface: DriveIface_Static
-export interface EmblemClass {
-}
-export interface EmblemClass_Static {
-    name: string
-}
-export declare var EmblemClass: EmblemClass_Static
-export interface EmblemedIconClass {
-    /* Fields of Gio.EmblemedIconClass */
-    parent_class:GObject.ObjectClass
-}
-export interface EmblemedIconClass_Static {
-    name: string
-}
-export declare var EmblemedIconClass: EmblemedIconClass_Static
 export interface EmblemedIconPrivate {
 }
 export interface EmblemedIconPrivate_Static {
@@ -10552,254 +10144,36 @@ export declare class FileAttributeMatcher_Static {
     new(attributes: string): FileAttributeMatcher
 }
 export declare var FileAttributeMatcher: FileAttributeMatcher_Static
-export interface FileDescriptorBasedIface {
-    /* Fields of Gio.FileDescriptorBasedIface */
-    g_iface:GObject.TypeInterface
-    get_fd:any
-}
-export interface FileDescriptorBasedIface_Static {
-    name: string
-}
-export declare var FileDescriptorBasedIface: FileDescriptorBasedIface_Static
-export interface FileEnumeratorClass {
-    /* Fields of Gio.FileEnumeratorClass */
-    parent_class:GObject.ObjectClass
-    next_file:any
-    close_fn:any
-    next_files_async:any
-    next_files_finish:any
-    close_async:any
-    close_finish:any
-}
-export interface FileEnumeratorClass_Static {
-    name: string
-}
-export declare var FileEnumeratorClass: FileEnumeratorClass_Static
 export interface FileEnumeratorPrivate {
 }
 export interface FileEnumeratorPrivate_Static {
     name: string
 }
 export declare var FileEnumeratorPrivate: FileEnumeratorPrivate_Static
-export interface FileIOStreamClass {
-    /* Fields of Gio.FileIOStreamClass */
-    parent_class:IOStreamClass
-    tell:any
-    can_seek:any
-    seek:any
-    can_truncate:any
-    truncate_fn:any
-    query_info:any
-    query_info_async:any
-    query_info_finish:any
-    get_etag:any
-}
-export interface FileIOStreamClass_Static {
-    name: string
-}
-export declare var FileIOStreamClass: FileIOStreamClass_Static
 export interface FileIOStreamPrivate {
 }
 export interface FileIOStreamPrivate_Static {
     name: string
 }
 export declare var FileIOStreamPrivate: FileIOStreamPrivate_Static
-export interface FileIconClass {
-}
-export interface FileIconClass_Static {
-    name: string
-}
-export declare var FileIconClass: FileIconClass_Static
-export interface FileIface {
-    /* Fields of Gio.FileIface */
-    g_iface:GObject.TypeInterface
-    dup:any
-    hash:any
-    equal:any
-    is_native:any
-    has_uri_scheme:any
-    get_uri_scheme:any
-    get_basename:any
-    get_path:any
-    get_uri:any
-    get_parse_name:any
-    get_parent:any
-    prefix_matches:any
-    get_relative_path:any
-    resolve_relative_path:any
-    get_child_for_display_name:any
-    enumerate_children:any
-    enumerate_children_async:any
-    enumerate_children_finish:any
-    query_info:any
-    query_info_async:any
-    query_info_finish:any
-    query_filesystem_info:any
-    query_filesystem_info_async:any
-    query_filesystem_info_finish:any
-    find_enclosing_mount:any
-    find_enclosing_mount_async:any
-    find_enclosing_mount_finish:any
-    set_display_name:any
-    set_display_name_async:any
-    set_display_name_finish:any
-    query_settable_attributes:any
-    query_writable_namespaces:any
-    set_attribute:any
-    set_attributes_from_info:any
-    set_attributes_async:any
-    set_attributes_finish:any
-    read_fn:any
-    read_async:any
-    read_finish:any
-    append_to:any
-    append_to_async:any
-    append_to_finish:any
-    create:any
-    create_async:any
-    create_finish:any
-    replace:any
-    replace_async:any
-    replace_finish:any
-    delete_file:any
-    delete_file_async:any
-    delete_file_finish:any
-    trash:any
-    trash_async:any
-    trash_finish:any
-    make_directory:any
-    make_directory_async:any
-    make_directory_finish:any
-    make_symbolic_link:any
-    copy:any
-    copy_finish:any
-    move:any
-    mount_mountable:any
-    mount_mountable_finish:any
-    unmount_mountable:any
-    unmount_mountable_finish:any
-    eject_mountable:any
-    eject_mountable_finish:any
-    mount_enclosing_volume:any
-    mount_enclosing_volume_finish:any
-    monitor_dir:any
-    monitor_file:any
-    open_readwrite:any
-    open_readwrite_async:any
-    open_readwrite_finish:any
-    create_readwrite:any
-    create_readwrite_async:any
-    create_readwrite_finish:any
-    replace_readwrite:any
-    replace_readwrite_async:any
-    replace_readwrite_finish:any
-    start_mountable:any
-    start_mountable_finish:any
-    stop_mountable:any
-    stop_mountable_finish:any
-    supports_thread_contexts:boolean
-    unmount_mountable_with_operation:any
-    unmount_mountable_with_operation_finish:any
-    eject_mountable_with_operation:any
-    eject_mountable_with_operation_finish:any
-    poll_mountable:any
-    poll_mountable_finish:any
-    measure_disk_usage_finish:any
-}
-export interface FileIface_Static {
-    name: string
-}
-export declare var FileIface: FileIface_Static
-export interface FileInfoClass {
-}
-export interface FileInfoClass_Static {
-    name: string
-}
-export declare var FileInfoClass: FileInfoClass_Static
-export interface FileInputStreamClass {
-    /* Fields of Gio.FileInputStreamClass */
-    parent_class:InputStreamClass
-    tell:any
-    can_seek:any
-    seek:any
-    query_info:any
-    query_info_async:any
-    query_info_finish:any
-}
-export interface FileInputStreamClass_Static {
-    name: string
-}
-export declare var FileInputStreamClass: FileInputStreamClass_Static
 export interface FileInputStreamPrivate {
 }
 export interface FileInputStreamPrivate_Static {
     name: string
 }
 export declare var FileInputStreamPrivate: FileInputStreamPrivate_Static
-export interface FileMonitorClass {
-    /* Fields of Gio.FileMonitorClass */
-    parent_class:GObject.ObjectClass
-    changed:any
-    cancel:any
-}
-export interface FileMonitorClass_Static {
-    name: string
-}
-export declare var FileMonitorClass: FileMonitorClass_Static
 export interface FileMonitorPrivate {
 }
 export interface FileMonitorPrivate_Static {
     name: string
 }
 export declare var FileMonitorPrivate: FileMonitorPrivate_Static
-export interface FileOutputStreamClass {
-    /* Fields of Gio.FileOutputStreamClass */
-    parent_class:OutputStreamClass
-    tell:any
-    can_seek:any
-    seek:any
-    can_truncate:any
-    truncate_fn:any
-    query_info:any
-    query_info_async:any
-    query_info_finish:any
-    get_etag:any
-}
-export interface FileOutputStreamClass_Static {
-    name: string
-}
-export declare var FileOutputStreamClass: FileOutputStreamClass_Static
 export interface FileOutputStreamPrivate {
 }
 export interface FileOutputStreamPrivate_Static {
     name: string
 }
 export declare var FileOutputStreamPrivate: FileOutputStreamPrivate_Static
-export interface FilenameCompleterClass {
-    /* Fields of Gio.FilenameCompleterClass */
-    parent_class:GObject.ObjectClass
-    got_completion_data:any
-}
-export interface FilenameCompleterClass_Static {
-    name: string
-}
-export declare var FilenameCompleterClass: FilenameCompleterClass_Static
-export interface FilterInputStreamClass {
-    /* Fields of Gio.FilterInputStreamClass */
-    parent_class:InputStreamClass
-}
-export interface FilterInputStreamClass_Static {
-    name: string
-}
-export declare var FilterInputStreamClass: FilterInputStreamClass_Static
-export interface FilterOutputStreamClass {
-    /* Fields of Gio.FilterOutputStreamClass */
-    parent_class:OutputStreamClass
-}
-export interface FilterOutputStreamClass_Static {
-    name: string
-}
-export declare var FilterOutputStreamClass: FilterOutputStreamClass_Static
 export interface IOExtension {
     /* Methods of Gio.IOExtension */
     get_name(): string
@@ -10826,12 +10200,6 @@ export declare class IOExtensionPoint_Static {
     register(name: string): IOExtensionPoint
 }
 export declare var IOExtensionPoint: IOExtensionPoint_Static
-export interface IOModuleClass {
-}
-export interface IOModuleClass_Static {
-    name: string
-}
-export declare var IOModuleClass: IOModuleClass_Static
 export interface IOModuleScope {
     /* Methods of Gio.IOModuleScope */
     block(basename: string): void
@@ -10856,54 +10224,12 @@ export interface IOStreamAdapter_Static {
     name: string
 }
 export declare var IOStreamAdapter: IOStreamAdapter_Static
-export interface IOStreamClass {
-    /* Fields of Gio.IOStreamClass */
-    parent_class:GObject.ObjectClass
-    get_input_stream:any
-    get_output_stream:any
-    close_fn:any
-    close_async:any
-    close_finish:any
-}
-export interface IOStreamClass_Static {
-    name: string
-}
-export declare var IOStreamClass: IOStreamClass_Static
 export interface IOStreamPrivate {
 }
 export interface IOStreamPrivate_Static {
     name: string
 }
 export declare var IOStreamPrivate: IOStreamPrivate_Static
-export interface IconIface {
-    /* Fields of Gio.IconIface */
-    g_iface:GObject.TypeInterface
-    hash:any
-    equal:any
-    serialize:any
-}
-export interface IconIface_Static {
-    name: string
-}
-export declare var IconIface: IconIface_Static
-export interface InetAddressClass {
-    /* Fields of Gio.InetAddressClass */
-    parent_class:GObject.ObjectClass
-    to_string:any
-    to_bytes:any
-}
-export interface InetAddressClass_Static {
-    name: string
-}
-export declare var InetAddressClass: InetAddressClass_Static
-export interface InetAddressMaskClass {
-    /* Fields of Gio.InetAddressMaskClass */
-    parent_class:GObject.ObjectClass
-}
-export interface InetAddressMaskClass_Static {
-    name: string
-}
-export declare var InetAddressMaskClass: InetAddressMaskClass_Static
 export interface InetAddressMaskPrivate {
 }
 export interface InetAddressMaskPrivate_Static {
@@ -10916,29 +10242,12 @@ export interface InetAddressPrivate_Static {
     name: string
 }
 export declare var InetAddressPrivate: InetAddressPrivate_Static
-export interface InetSocketAddressClass {
-    /* Fields of Gio.InetSocketAddressClass */
-    parent_class:SocketAddressClass
-}
-export interface InetSocketAddressClass_Static {
-    name: string
-}
-export declare var InetSocketAddressClass: InetSocketAddressClass_Static
 export interface InetSocketAddressPrivate {
 }
 export interface InetSocketAddressPrivate_Static {
     name: string
 }
 export declare var InetSocketAddressPrivate: InetSocketAddressPrivate_Static
-export interface InitableIface {
-    /* Fields of Gio.InitableIface */
-    g_iface:GObject.TypeInterface
-    init:any
-}
-export interface InitableIface_Static {
-    name: string
-}
-export declare var InitableIface: InitableIface_Static
 export interface InputMessage {
     /* Fields of Gio.InputMessage */
     address:SocketAddress
@@ -10953,23 +10262,6 @@ export interface InputMessage_Static {
     name: string
 }
 export declare var InputMessage: InputMessage_Static
-export interface InputStreamClass {
-    /* Fields of Gio.InputStreamClass */
-    parent_class:GObject.ObjectClass
-    read_fn:any
-    skip:any
-    close_fn:any
-    read_async:any
-    read_finish:any
-    skip_async:any
-    skip_finish:any
-    close_async:any
-    close_finish:any
-}
-export interface InputStreamClass_Static {
-    name: string
-}
-export declare var InputStreamClass: InputStreamClass_Static
 export interface InputStreamPrivate {
 }
 export interface InputStreamPrivate_Static {
@@ -10985,163 +10277,36 @@ export interface InputVector_Static {
     name: string
 }
 export declare var InputVector: InputVector_Static
-export interface ListModelInterface {
-    /* Fields of Gio.ListModelInterface */
-    g_iface:GObject.TypeInterface
-    get_item_type:any
-    get_n_items:any
-}
-export interface ListModelInterface_Static {
-    name: string
-}
-export declare var ListModelInterface: ListModelInterface_Static
-export interface ListStoreClass {
-    /* Fields of Gio.ListStoreClass */
-    parent_class:GObject.ObjectClass
-}
-export interface ListStoreClass_Static {
-    name: string
-}
-export declare var ListStoreClass: ListStoreClass_Static
-export interface LoadableIconIface {
-    /* Fields of Gio.LoadableIconIface */
-    g_iface:GObject.TypeInterface
-    load:any
-    load_async:any
-    load_finish:any
-}
-export interface LoadableIconIface_Static {
-    name: string
-}
-export declare var LoadableIconIface: LoadableIconIface_Static
-export interface MemoryInputStreamClass {
-    /* Fields of Gio.MemoryInputStreamClass */
-    parent_class:InputStreamClass
-}
-export interface MemoryInputStreamClass_Static {
-    name: string
-}
-export declare var MemoryInputStreamClass: MemoryInputStreamClass_Static
 export interface MemoryInputStreamPrivate {
 }
 export interface MemoryInputStreamPrivate_Static {
     name: string
 }
 export declare var MemoryInputStreamPrivate: MemoryInputStreamPrivate_Static
-export interface MemoryOutputStreamClass {
-    /* Fields of Gio.MemoryOutputStreamClass */
-    parent_class:OutputStreamClass
-}
-export interface MemoryOutputStreamClass_Static {
-    name: string
-}
-export declare var MemoryOutputStreamClass: MemoryOutputStreamClass_Static
 export interface MemoryOutputStreamPrivate {
 }
 export interface MemoryOutputStreamPrivate_Static {
     name: string
 }
 export declare var MemoryOutputStreamPrivate: MemoryOutputStreamPrivate_Static
-export interface MenuAttributeIterClass {
-    /* Fields of Gio.MenuAttributeIterClass */
-    parent_class:GObject.ObjectClass
-    get_next:any
-}
-export interface MenuAttributeIterClass_Static {
-    name: string
-}
-export declare var MenuAttributeIterClass: MenuAttributeIterClass_Static
 export interface MenuAttributeIterPrivate {
 }
 export interface MenuAttributeIterPrivate_Static {
     name: string
 }
 export declare var MenuAttributeIterPrivate: MenuAttributeIterPrivate_Static
-export interface MenuLinkIterClass {
-    /* Fields of Gio.MenuLinkIterClass */
-    parent_class:GObject.ObjectClass
-    get_next:any
-}
-export interface MenuLinkIterClass_Static {
-    name: string
-}
-export declare var MenuLinkIterClass: MenuLinkIterClass_Static
 export interface MenuLinkIterPrivate {
 }
 export interface MenuLinkIterPrivate_Static {
     name: string
 }
 export declare var MenuLinkIterPrivate: MenuLinkIterPrivate_Static
-export interface MenuModelClass {
-    /* Fields of Gio.MenuModelClass */
-    parent_class:GObject.ObjectClass
-    is_mutable:any
-    get_n_items:any
-    get_item_attributes:any
-    iterate_item_attributes:any
-    get_item_attribute_value:any
-    get_item_links:any
-    iterate_item_links:any
-    get_item_link:any
-}
-export interface MenuModelClass_Static {
-    name: string
-}
-export declare var MenuModelClass: MenuModelClass_Static
 export interface MenuModelPrivate {
 }
 export interface MenuModelPrivate_Static {
     name: string
 }
 export declare var MenuModelPrivate: MenuModelPrivate_Static
-export interface MountIface {
-    /* Fields of Gio.MountIface */
-    g_iface:GObject.TypeInterface
-    changed:any
-    unmounted:any
-    get_root:any
-    get_name:any
-    get_icon:any
-    get_uuid:any
-    get_volume:any
-    get_drive:any
-    can_unmount:any
-    can_eject:any
-    unmount:any
-    unmount_finish:any
-    eject:any
-    eject_finish:any
-    remount:any
-    remount_finish:any
-    guess_content_type:any
-    guess_content_type_finish:any
-    guess_content_type_sync:any
-    pre_unmount:any
-    unmount_with_operation:any
-    unmount_with_operation_finish:any
-    eject_with_operation:any
-    eject_with_operation_finish:any
-    get_default_location:any
-    get_sort_key:any
-    get_symbolic_icon:any
-}
-export interface MountIface_Static {
-    name: string
-}
-export declare var MountIface: MountIface_Static
-export interface MountOperationClass {
-    /* Fields of Gio.MountOperationClass */
-    parent_class:GObject.ObjectClass
-    ask_password:any
-    ask_question:any
-    reply:any
-    aborted:any
-    show_unmount_progress:any
-}
-export interface MountOperationClass_Static {
-    name: string
-}
-export declare var MountOperationClass: MountOperationClass_Static
 export interface MountOperationPrivate {
 }
 export interface MountOperationPrivate_Static {
@@ -11154,48 +10319,12 @@ export interface NativeSocketAddress_Static {
     name: string
 }
 export declare var NativeSocketAddress: NativeSocketAddress_Static
-export interface NativeVolumeMonitorClass {
-    /* Fields of Gio.NativeVolumeMonitorClass */
-    parent_class:VolumeMonitorClass
-}
-export interface NativeVolumeMonitorClass_Static {
-    name: string
-}
-export declare var NativeVolumeMonitorClass: NativeVolumeMonitorClass_Static
-export interface NetworkAddressClass {
-    /* Fields of Gio.NetworkAddressClass */
-    parent_class:GObject.ObjectClass
-}
-export interface NetworkAddressClass_Static {
-    name: string
-}
-export declare var NetworkAddressClass: NetworkAddressClass_Static
 export interface NetworkAddressPrivate {
 }
 export interface NetworkAddressPrivate_Static {
     name: string
 }
 export declare var NetworkAddressPrivate: NetworkAddressPrivate_Static
-export interface NetworkMonitorInterface {
-    /* Fields of Gio.NetworkMonitorInterface */
-    g_iface:GObject.TypeInterface
-    network_changed:any
-    can_reach:any
-    can_reach_async:any
-    can_reach_finish:any
-}
-export interface NetworkMonitorInterface_Static {
-    name: string
-}
-export declare var NetworkMonitorInterface: NetworkMonitorInterface_Static
-export interface NetworkServiceClass {
-    /* Fields of Gio.NetworkServiceClass */
-    parent_class:GObject.ObjectClass
-}
-export interface NetworkServiceClass_Static {
-    name: string
-}
-export declare var NetworkServiceClass: NetworkServiceClass_Static
 export interface NetworkServicePrivate {
 }
 export interface NetworkServicePrivate_Static {
@@ -11215,26 +10344,6 @@ export interface OutputMessage_Static {
     name: string
 }
 export declare var OutputMessage: OutputMessage_Static
-export interface OutputStreamClass {
-    /* Fields of Gio.OutputStreamClass */
-    parent_class:GObject.ObjectClass
-    write_fn:any
-    splice:any
-    flush:any
-    close_fn:any
-    write_async:any
-    write_finish:any
-    splice_async:any
-    splice_finish:any
-    flush_async:any
-    flush_finish:any
-    close_async:any
-    close_finish:any
-}
-export interface OutputStreamClass_Static {
-    name: string
-}
-export declare var OutputStreamClass: OutputStreamClass_Static
 export interface OutputStreamPrivate {
 }
 export interface OutputStreamPrivate_Static {
@@ -11250,67 +10359,12 @@ export interface OutputVector_Static {
     name: string
 }
 export declare var OutputVector: OutputVector_Static
-export interface PermissionClass {
-    /* Fields of Gio.PermissionClass */
-    parent_class:GObject.ObjectClass
-    acquire:any
-    acquire_async:any
-    acquire_finish:any
-    release:any
-    release_async:any
-    release_finish:any
-    reserved:object[]
-}
-export interface PermissionClass_Static {
-    name: string
-}
-export declare var PermissionClass: PermissionClass_Static
 export interface PermissionPrivate {
 }
 export interface PermissionPrivate_Static {
     name: string
 }
 export declare var PermissionPrivate: PermissionPrivate_Static
-export interface PollableInputStreamInterface {
-    /* Fields of Gio.PollableInputStreamInterface */
-    g_iface:GObject.TypeInterface
-    can_poll:any
-    is_readable:any
-    create_source:any
-    read_nonblocking:any
-}
-export interface PollableInputStreamInterface_Static {
-    name: string
-}
-export declare var PollableInputStreamInterface: PollableInputStreamInterface_Static
-export interface PollableOutputStreamInterface {
-    /* Fields of Gio.PollableOutputStreamInterface */
-    g_iface:GObject.TypeInterface
-    can_poll:any
-    is_writable:any
-    create_source:any
-    write_nonblocking:any
-}
-export interface PollableOutputStreamInterface_Static {
-    name: string
-}
-export declare var PollableOutputStreamInterface: PollableOutputStreamInterface_Static
-export interface ProxyAddressClass {
-    /* Fields of Gio.ProxyAddressClass */
-    parent_class:InetSocketAddressClass
-}
-export interface ProxyAddressClass_Static {
-    name: string
-}
-export declare var ProxyAddressClass: ProxyAddressClass_Static
-export interface ProxyAddressEnumeratorClass {
-    /* Fields of Gio.ProxyAddressEnumeratorClass */
-    parent_class:SocketAddressEnumeratorClass
-}
-export interface ProxyAddressEnumeratorClass_Static {
-    name: string
-}
-export declare var ProxyAddressEnumeratorClass: ProxyAddressEnumeratorClass_Static
 export interface ProxyAddressEnumeratorPrivate {
 }
 export interface ProxyAddressEnumeratorPrivate_Static {
@@ -11323,60 +10377,6 @@ export interface ProxyAddressPrivate_Static {
     name: string
 }
 export declare var ProxyAddressPrivate: ProxyAddressPrivate_Static
-export interface ProxyInterface {
-    /* Fields of Gio.ProxyInterface */
-    g_iface:GObject.TypeInterface
-    connect:any
-    connect_async:any
-    connect_finish:any
-    supports_hostname:any
-}
-export interface ProxyInterface_Static {
-    name: string
-}
-export declare var ProxyInterface: ProxyInterface_Static
-export interface ProxyResolverInterface {
-    /* Fields of Gio.ProxyResolverInterface */
-    g_iface:GObject.TypeInterface
-    is_supported:any
-    lookup:any
-    lookup_async:any
-    lookup_finish:any
-}
-export interface ProxyResolverInterface_Static {
-    name: string
-}
-export declare var ProxyResolverInterface: ProxyResolverInterface_Static
-export interface RemoteActionGroupInterface {
-    /* Fields of Gio.RemoteActionGroupInterface */
-    g_iface:GObject.TypeInterface
-    activate_action_full:any
-    change_action_state_full:any
-}
-export interface RemoteActionGroupInterface_Static {
-    name: string
-}
-export declare var RemoteActionGroupInterface: RemoteActionGroupInterface_Static
-export interface ResolverClass {
-    /* Fields of Gio.ResolverClass */
-    parent_class:GObject.ObjectClass
-    reload:any
-    lookup_by_name:any
-    lookup_by_name_async:any
-    lookup_by_name_finish:any
-    lookup_by_address:any
-    lookup_by_address_async:any
-    lookup_by_address_finish:any
-    lookup_service_async:any
-    lookup_service_finish:any
-    lookup_records:any
-    lookup_records_async:any
-    lookup_records_finish:any
-}
-export interface ResolverClass_Static {
-    name: string
-}
-export declare var ResolverClass: ResolverClass_Static
 export interface ResolverPrivate {
 }
 export interface ResolverPrivate_Static {
@@ -11402,38 +10402,12 @@ export declare class Resource_Static {
     load(filename: string): Resource
 }
 export declare var Resource: Resource_Static
-export interface SeekableIface {
-    /* Fields of Gio.SeekableIface */
-    g_iface:GObject.TypeInterface
-    tell:any
-    can_seek:any
-    seek:any
-    can_truncate:any
-    truncate_fn:any
-}
-export interface SeekableIface_Static {
-    name: string
-}
-export declare var SeekableIface: SeekableIface_Static
 export interface SettingsBackend {
 }
 export interface SettingsBackend_Static {
     name: string
 }
 export declare var SettingsBackend: SettingsBackend_Static
-export interface SettingsClass {
-    /* Fields of Gio.SettingsClass */
-    parent_class:GObject.ObjectClass
-    writable_changed:any
-    changed:any
-    writable_change_event:any
-    change_event:any
-    padding:object[]
-}
-export interface SettingsClass_Static {
-    name: string
-}
-export declare var SettingsClass: SettingsClass_Static
 export interface SettingsPrivate {
 }
 export interface SettingsPrivate_Static {
@@ -11486,137 +10460,36 @@ export declare class SettingsSchemaSource_Static {
     get_default(): SettingsSchemaSource
 }
 export declare var SettingsSchemaSource: SettingsSchemaSource_Static
-export interface SimpleActionGroupClass {
-    /* Fields of Gio.SimpleActionGroupClass */
-}
-export interface SimpleActionGroupClass_Static {
-    name: string
-}
-export declare var SimpleActionGroupClass: SimpleActionGroupClass_Static
 export interface SimpleActionGroupPrivate {
 }
 export interface SimpleActionGroupPrivate_Static {
     name: string
 }
 export declare var SimpleActionGroupPrivate: SimpleActionGroupPrivate_Static
-export interface SimpleAsyncResultClass {
-}
-export interface SimpleAsyncResultClass_Static {
-    name: string
-}
-export declare var SimpleAsyncResultClass: SimpleAsyncResultClass_Static
-export interface SimpleProxyResolverClass {
-    /* Fields of Gio.SimpleProxyResolverClass */
-    parent_class:GObject.ObjectClass
-}
-export interface SimpleProxyResolverClass_Static {
-    name: string
-}
-export declare var SimpleProxyResolverClass: SimpleProxyResolverClass_Static
 export interface SimpleProxyResolverPrivate {
 }
 export interface SimpleProxyResolverPrivate_Static {
     name: string
 }
 export declare var SimpleProxyResolverPrivate: SimpleProxyResolverPrivate_Static
-export interface SocketAddressClass {
-    /* Fields of Gio.SocketAddressClass */
-    parent_class:GObject.ObjectClass
-    get_family:any
-    get_native_size:any
-    to_native:any
-}
-export interface SocketAddressClass_Static {
-    name: string
-}
-export declare var SocketAddressClass: SocketAddressClass_Static
-export interface SocketAddressEnumeratorClass {
-    /* Fields of Gio.SocketAddressEnumeratorClass */
-    parent_class:GObject.ObjectClass
-    next:any
-    next_async:any
-    next_finish:any
-}
-export interface SocketAddressEnumeratorClass_Static {
-    name: string
-}
-export declare var SocketAddressEnumeratorClass: SocketAddressEnumeratorClass_Static
-export interface SocketClass {
-    /* Fields of Gio.SocketClass */
-    parent_class:GObject.ObjectClass
-}
-export interface SocketClass_Static {
-    name: string
-}
-export declare var SocketClass: SocketClass_Static
-export interface SocketClientClass {
-    /* Fields of Gio.SocketClientClass */
-    parent_class:GObject.ObjectClass
-    event:any
-}
-export interface SocketClientClass_Static {
-    name: string
-}
-export declare var SocketClientClass: SocketClientClass_Static
 export interface SocketClientPrivate {
 }
 export interface SocketClientPrivate_Static {
     name: string
 }
 export declare var SocketClientPrivate: SocketClientPrivate_Static
-export interface SocketConnectableIface {
-    /* Fields of Gio.SocketConnectableIface */
-    g_iface:GObject.TypeInterface
-    enumerate:any
-    proxy_enumerate:any
-    to_string:any
-}
-export interface SocketConnectableIface_Static {
-    name: string
-}
-export declare var SocketConnectableIface: SocketConnectableIface_Static
-export interface SocketConnectionClass {
-    /* Fields of Gio.SocketConnectionClass */
-    parent_class:IOStreamClass
-}
-export interface SocketConnectionClass_Static {
-    name: string
-}
-export declare var SocketConnectionClass: SocketConnectionClass_Static
 export interface SocketConnectionPrivate {
 }
 export interface SocketConnectionPrivate_Static {
     name: string
 }
 export declare var SocketConnectionPrivate: SocketConnectionPrivate_Static
-export interface SocketControlMessageClass {
-    /* Fields of Gio.SocketControlMessageClass */
-    parent_class:GObject.ObjectClass
-    get_size:any
-    get_level:any
-    get_type:any
-    serialize:any
-}
-export interface SocketControlMessageClass_Static {
-    name: string
-}
-export declare var SocketControlMessageClass: SocketControlMessageClass_Static
 export interface SocketControlMessagePrivate {
 }
 export interface SocketControlMessagePrivate_Static {
     name: string
 }
 export declare var SocketControlMessagePrivate: SocketControlMessagePrivate_Static
-export interface SocketListenerClass {
-    /* Fields of Gio.SocketListenerClass */
-    parent_class:GObject.ObjectClass
-    changed:any
-    event:any
-}
-export interface SocketListenerClass_Static {
-    name: string
-}
-export declare var SocketListenerClass: SocketListenerClass_Static
 export interface SocketListenerPrivate {
 }
 export interface SocketListenerPrivate_Static {
@@ -11629,15 +10502,6 @@ export interface SocketPrivate_Static {
     name: string
 }
 export declare var SocketPrivate: SocketPrivate_Static
-export interface SocketServiceClass {
-    /* Fields of Gio.SocketServiceClass */
-    parent_class:SocketListenerClass
-    incoming:any
-}
-export interface SocketServiceClass_Static {
-    name: string
-}
-export declare var SocketServiceClass: SocketServiceClass_Static
 export interface SocketServicePrivate {
 }
 export interface SocketServicePrivate_Static {
@@ -11671,260 +10535,78 @@ export interface StaticResource_Static {
     name: string
 }
 export declare var StaticResource: StaticResource_Static
-export interface TaskClass {
-}
-export interface TaskClass_Static {
-    name: string
-}
-export declare var TaskClass: TaskClass_Static
-export interface TcpConnectionClass {
-    /* Fields of Gio.TcpConnectionClass */
-    parent_class:SocketConnectionClass
-}
-export interface TcpConnectionClass_Static {
-    name: string
-}
-export declare var TcpConnectionClass: TcpConnectionClass_Static
 export interface TcpConnectionPrivate {
 }
 export interface TcpConnectionPrivate_Static {
     name: string
 }
 export declare var TcpConnectionPrivate: TcpConnectionPrivate_Static
-export interface TcpWrapperConnectionClass {
-    /* Fields of Gio.TcpWrapperConnectionClass */
-    parent_class:TcpConnectionClass
-}
-export interface TcpWrapperConnectionClass_Static {
-    name: string
-}
-export declare var TcpWrapperConnectionClass: TcpWrapperConnectionClass_Static
 export interface TcpWrapperConnectionPrivate {
 }
 export interface TcpWrapperConnectionPrivate_Static {
     name: string
 }
 export declare var TcpWrapperConnectionPrivate: TcpWrapperConnectionPrivate_Static
-export interface ThemedIconClass {
-}
-export interface ThemedIconClass_Static {
-    name: string
-}
-export declare var ThemedIconClass: ThemedIconClass_Static
-export interface ThreadedSocketServiceClass {
-    /* Fields of Gio.ThreadedSocketServiceClass */
-    parent_class:SocketServiceClass
-    run:any
-}
-export interface ThreadedSocketServiceClass_Static {
-    name: string
-}
-export declare var ThreadedSocketServiceClass: ThreadedSocketServiceClass_Static
 export interface ThreadedSocketServicePrivate {
 }
 export interface ThreadedSocketServicePrivate_Static {
     name: string
 }
 export declare var ThreadedSocketServicePrivate: ThreadedSocketServicePrivate_Static
-export interface TlsBackendInterface {
-    /* Fields of Gio.TlsBackendInterface */
-    g_iface:GObject.TypeInterface
-    supports_tls:any
-    get_certificate_type:any
-    get_client_connection_type:any
-    get_server_connection_type:any
-    get_file_database_type:any
-    get_default_database:any
-}
-export interface TlsBackendInterface_Static {
-    name: string
-}
-export declare var TlsBackendInterface: TlsBackendInterface_Static
-export interface TlsCertificateClass {
-    /* Fields of Gio.TlsCertificateClass */
-    parent_class:GObject.ObjectClass
-    verify:any
-}
-export interface TlsCertificateClass_Static {
-    name: string
-}
-export declare var TlsCertificateClass: TlsCertificateClass_Static
 export interface TlsCertificatePrivate {
 }
 export interface TlsCertificatePrivate_Static {
     name: string
 }
 export declare var TlsCertificatePrivate: TlsCertificatePrivate_Static
-export interface TlsClientConnectionInterface {
-    /* Fields of Gio.TlsClientConnectionInterface */
-    g_iface:GObject.TypeInterface
-    copy_session_state:any
-}
-export interface TlsClientConnectionInterface_Static {
-    name: string
-}
-export declare var TlsClientConnectionInterface: TlsClientConnectionInterface_Static
-export interface TlsConnectionClass {
-    /* Fields of Gio.TlsConnectionClass */
-    parent_class:IOStreamClass
-    accept_certificate:any
-    handshake:any
-    handshake_async:any
-    handshake_finish:any
-}
-export interface TlsConnectionClass_Static {
-    name: string
-}
-export declare var TlsConnectionClass: TlsConnectionClass_Static
 export interface TlsConnectionPrivate {
 }
 export interface TlsConnectionPrivate_Static {
     name: string
 }
 export declare var TlsConnectionPrivate: TlsConnectionPrivate_Static
-export interface TlsDatabaseClass {
-    /* Fields of Gio.TlsDatabaseClass */
-    parent_class:GObject.ObjectClass
-    verify_chain:any
-    verify_chain_async:any
-    verify_chain_finish:any
-    create_certificate_handle:any
-    lookup_certificate_for_handle:any
-    lookup_certificate_for_handle_async:any
-    lookup_certificate_for_handle_finish:any
-    lookup_certificate_issuer:any
-    lookup_certificate_issuer_async:any
-    lookup_certificate_issuer_finish:any
-    lookup_certificates_issued_by:any
-    lookup_certificates_issued_by_async:any
-    lookup_certificates_issued_by_finish:any
-}
-export interface TlsDatabaseClass_Static {
-    name: string
-}
-export declare var TlsDatabaseClass: TlsDatabaseClass_Static
 export interface TlsDatabasePrivate {
 }
 export interface TlsDatabasePrivate_Static {
     name: string
 }
 export declare var TlsDatabasePrivate: TlsDatabasePrivate_Static
-export interface TlsFileDatabaseInterface {
-    /* Fields of Gio.TlsFileDatabaseInterface */
-    g_iface:GObject.TypeInterface
-}
-export interface TlsFileDatabaseInterface_Static {
-    name: string
-}
-export declare var TlsFileDatabaseInterface: TlsFileDatabaseInterface_Static
-export interface TlsInteractionClass {
-    /* Fields of Gio.TlsInteractionClass */
-    ask_password:any
-    ask_password_async:any
-    ask_password_finish:any
-    request_certificate:any
-    request_certificate_async:any
-    request_certificate_finish:any
-}
-export interface TlsInteractionClass_Static {
-    name: string
-}
-export declare var TlsInteractionClass: TlsInteractionClass_Static
 export interface TlsInteractionPrivate {
 }
 export interface TlsInteractionPrivate_Static {
     name: string
 }
 export declare var TlsInteractionPrivate: TlsInteractionPrivate_Static
-export interface TlsPasswordClass {
-    /* Fields of Gio.TlsPasswordClass */
-    parent_class:GObject.ObjectClass
-    get_value:any
-    set_value:any
-    get_default_warning:any
-}
-export interface TlsPasswordClass_Static {
-    name: string
-}
-export declare var TlsPasswordClass: TlsPasswordClass_Static
 export interface TlsPasswordPrivate {
 }
 export interface TlsPasswordPrivate_Static {
     name: string
 }
 export declare var TlsPasswordPrivate: TlsPasswordPrivate_Static
-export interface TlsServerConnectionInterface {
-    /* Fields of Gio.TlsServerConnectionInterface */
-    g_iface:GObject.TypeInterface
-}
-export interface TlsServerConnectionInterface_Static {
-    name: string
-}
-export declare var TlsServerConnectionInterface: TlsServerConnectionInterface_Static
-export interface UnixConnectionClass {
-    /* Fields of Gio.UnixConnectionClass */
-    parent_class:SocketConnectionClass
-}
-export interface UnixConnectionClass_Static {
-    name: string
-}
-export declare var UnixConnectionClass: UnixConnectionClass_Static
 export interface UnixConnectionPrivate {
 }
 export interface UnixConnectionPrivate_Static {
     name: string
 }
 export declare var UnixConnectionPrivate: UnixConnectionPrivate_Static
-export interface UnixCredentialsMessageClass {
-    /* Fields of Gio.UnixCredentialsMessageClass */
-    parent_class:SocketControlMessageClass
-}
-export interface UnixCredentialsMessageClass_Static {
-    name: string
-}
-export declare var UnixCredentialsMessageClass: UnixCredentialsMessageClass_Static
 export interface UnixCredentialsMessagePrivate {
 }
 export interface UnixCredentialsMessagePrivate_Static {
     name: string
 }
 export declare var UnixCredentialsMessagePrivate: UnixCredentialsMessagePrivate_Static
-export interface UnixFDListClass {
-    /* Fields of Gio.UnixFDListClass */
-    parent_class:GObject.ObjectClass
-}
-export interface UnixFDListClass_Static {
-    name: string
-}
-export declare var UnixFDListClass: UnixFDListClass_Static
 export interface UnixFDListPrivate {
 }
 export interface UnixFDListPrivate_Static {
     name: string
 }
 export declare var UnixFDListPrivate: UnixFDListPrivate_Static
-export interface UnixFDMessageClass {
-    /* Fields of Gio.UnixFDMessageClass */
-    parent_class:SocketControlMessageClass
-}
-export interface UnixFDMessageClass_Static {
-    name: string
-}
-export declare var UnixFDMessageClass: UnixFDMessageClass_Static
 export interface UnixFDMessagePrivate {
 }
 export interface UnixFDMessagePrivate_Static {
     name: string
 }
 export declare var UnixFDMessagePrivate: UnixFDMessagePrivate_Static
-export interface UnixInputStreamClass {
-    /* Fields of Gio.UnixInputStreamClass */
-    parent_class:InputStreamClass
-}
-export interface UnixInputStreamClass_Static {
-    name: string
-}
-export declare var UnixInputStreamClass: UnixInputStreamClass_Static
 export interface UnixInputStreamPrivate {
 }
 export interface UnixInputStreamPrivate_Static {
@@ -11937,12 +10619,6 @@ export interface UnixMountEntry_Static {
     name: string
 }
 export declare var UnixMountEntry: UnixMountEntry_Static
-export interface UnixMountMonitorClass {
-}
-export interface UnixMountMonitorClass_Static {
-    name: string
-}
-export declare var UnixMountMonitorClass: UnixMountMonitorClass_Static
 export interface UnixMountPoint {
     /* Methods of Gio.UnixMountPoint */
     compare(mount2: UnixMountPoint): number
@@ -11963,123 +10639,18 @@ export interface UnixMountPoint_Static {
     name: string
 }
 export declare var UnixMountPoint: UnixMountPoint_Static
-export interface UnixOutputStreamClass {
-    /* Fields of Gio.UnixOutputStreamClass */
-    parent_class:OutputStreamClass
-}
-export interface UnixOutputStreamClass_Static {
-    name: string
-}
-export declare var UnixOutputStreamClass: UnixOutputStreamClass_Static
 export interface UnixOutputStreamPrivate {
 }
 export interface UnixOutputStreamPrivate_Static {
     name: string
 }
 export declare var UnixOutputStreamPrivate: UnixOutputStreamPrivate_Static
-export interface UnixSocketAddressClass {
-    /* Fields of Gio.UnixSocketAddressClass */
-    parent_class:SocketAddressClass
-}
-export interface UnixSocketAddressClass_Static {
-    name: string
-}
-export declare var UnixSocketAddressClass: UnixSocketAddressClass_Static
 export interface UnixSocketAddressPrivate {
 }
 export interface UnixSocketAddressPrivate_Static {
     name: string
 }
 export declare var UnixSocketAddressPrivate: UnixSocketAddressPrivate_Static
-export interface VfsClass {
-    /* Fields of Gio.VfsClass */
-    parent_class:GObject.ObjectClass
-    is_active:any
-    get_file_for_path:any
-    get_file_for_uri:any
-    get_supported_uri_schemes:any
-    parse_name:any
-    local_file_add_info:any
-    add_writable_namespaces:any
-    local_file_set_attributes:any
-    local_file_removed:any
-    local_file_moved:any
-}
-export interface VfsClass_Static {
-    name: string
-}
-export declare var VfsClass: VfsClass_Static
-export interface VolumeIface {
-    /* Fields of Gio.VolumeIface */
-    g_iface:GObject.TypeInterface
-    changed:any
-    removed:any
-    get_name:any
-    get_icon:any
-    get_uuid:any
-    get_drive:any
-    get_mount:any
-    can_mount:any
-    can_eject:any
-    mount_fn:any
-    mount_finish:any
-    eject:any
-    eject_finish:any
-    get_identifier:any
-    enumerate_identifiers:any
-    should_automount:any
-    get_activation_root:any
-    eject_with_operation:any
-    eject_with_operation_finish:any
-    get_sort_key:any
-    get_symbolic_icon:any
-}
-export interface VolumeIface_Static {
-    name: string
-}
-export declare var VolumeIface: VolumeIface_Static
-export interface VolumeMonitorClass {
-    /* Fields of Gio.VolumeMonitorClass */
-    parent_class:GObject.ObjectClass
-    volume_added:any
-    volume_removed:any
-    volume_changed:any
-    mount_added:any
-    mount_removed:any
-    mount_pre_unmount:any
-    mount_changed:any
-    drive_connected:any
-    drive_disconnected:any
-    drive_changed:any
-    is_supported:any
-    get_connected_drives:any
-    get_volumes:any
-    get_mounts:any
-    get_volume_for_uuid:any
-    get_mount_for_uuid:any
-    drive_eject_button:any
-    drive_stop_button:any
-}
-export interface VolumeMonitorClass_Static {
-    name: string
-}
-export declare var VolumeMonitorClass: VolumeMonitorClass_Static
-export interface ZlibCompressorClass {
-    /* Fields of Gio.ZlibCompressorClass */
-    parent_class:GObject.ObjectClass
-}
-export interface ZlibCompressorClass_Static {
-    name: string
-}
-export declare var ZlibCompressorClass: ZlibCompressorClass_Static
-export interface ZlibDecompressorClass {
-    /* Fields of Gio.ZlibDecompressorClass */
-    parent_class:GObject.ObjectClass
-}
-export interface ZlibDecompressorClass_Static {
-    name: string
-}
-export declare var ZlibDecompressorClass: ZlibDecompressorClass_Static
 type ActionMap_autoptr = object
 type Action_autoptr = object
 type AppInfoMonitor_autoptr = object

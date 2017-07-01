@@ -486,24 +486,6 @@ export interface PixbufFormat_Static {
     name: string
 }
 export declare var PixbufFormat: PixbufFormat_Static
-export interface PixbufLoaderClass {
-    /* Fields of GdkPixbuf.PixbufLoaderClass */
-    parent_class:GObject.ObjectClass
-    size_prepared:any
-    area_prepared:any
-    area_updated:any
-    closed:any
-}
-export interface PixbufLoaderClass_Static {
-    name: string
-}
-export declare var PixbufLoaderClass: PixbufLoaderClass_Static
-export interface PixbufSimpleAnimClass {
-}
-export interface PixbufSimpleAnimClass_Static {
-    name: string
-}
-export declare var PixbufSimpleAnimClass: PixbufSimpleAnimClass_Static
 export interface Pixdata {
     /* Fields of GdkPixbuf.Pixdata */
     magic:number

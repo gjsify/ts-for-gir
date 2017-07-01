@@ -216,7 +216,6 @@ export interface UndoManager_Static {
 }
 export declare var UndoManager: UndoManager_Static
 export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
-    /* Properties of GtkSource.Buffer */
     highlight_matching_brackets?:boolean
     highlight_syntax?:boolean
     implicit_trailing_newline?:boolean
@@ -451,7 +450,6 @@ export declare class Buffer_Static {
 }
 export declare var Buffer: Buffer_Static
 export interface Completion_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.Completion */
     accelerators?:number
     auto_complete_delay?:number
     proposal_page_size?:number
@@ -555,7 +553,6 @@ export interface Completion_Static {
 }
 export declare var Completion: Completion_Static
 export interface CompletionContext_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
-    /* Properties of GtkSource.CompletionContext */
     activation?:CompletionActivation
     completion?:Completion
     iter?:Gtk.TextIter
@@ -1410,7 +1407,6 @@ export declare class CompletionInfo_Static {
 }
 export declare var CompletionInfo: CompletionInfo_Static
 export interface CompletionItem_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.CompletionItem */
     gicon?:Gio.Icon
     icon?:GdkPixbuf.Pixbuf
     icon_name?:string
@@ -1488,7 +1484,6 @@ export declare class CompletionItem_Static {
 }
 export declare var CompletionItem: CompletionItem_Static
 export interface CompletionWords_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.CompletionWords */
     activation?:CompletionActivation
     icon?:GdkPixbuf.Pixbuf
     interactive_delay?:number
@@ -1570,7 +1565,6 @@ export declare class CompletionWords_Static {
 }
 export declare var CompletionWords: CompletionWords_Static
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.File */
     location?:Gio.File
 }
 export interface File {
@@ -1647,7 +1641,6 @@ export declare class File_Static {
 }
 export declare var File: File_Static
 export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.FileLoader */
     buffer?:Buffer
     file?:File
     input_stream?:Gio.InputStream
@@ -1718,7 +1711,6 @@ export declare class FileLoader_Static {
 }
 export declare var FileLoader: FileLoader_Static
 export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.FileSaver */
     buffer?:Buffer
     compression_type?:CompressionType
     encoding?:Encoding
@@ -1803,7 +1795,6 @@ export declare class FileSaver_Static {
 }
 export declare var FileSaver: FileSaver_Static
 export interface Gutter_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.Gutter */
     view?:View
     window_type?:Gtk.TextWindowType
     xpad?:number
@@ -1872,7 +1863,6 @@ export interface Gutter_Static {
 }
 export declare var Gutter: Gutter_Static
 export interface GutterRenderer_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
-    /* Properties of GtkSource.GutterRenderer */
     alignment_mode?:GutterRendererAlignmentMode
     background_rgba?:Gdk.RGBA
     background_set?:boolean
@@ -1996,7 +1986,6 @@ export interface GutterRenderer_Static {
 }
 export declare var GutterRenderer: GutterRenderer_Static
 export interface GutterRendererPixbuf_ConstructProps extends GutterRenderer_ConstructProps {
-    /* Properties of GtkSource.GutterRendererPixbuf */
     gicon?:Gio.Icon
     icon_name?:string
     pixbuf?:GdkPixbuf.Pixbuf
@@ -2137,7 +2126,6 @@ export declare class GutterRendererPixbuf_Static {
 }
 export declare var GutterRendererPixbuf: GutterRendererPixbuf_Static
 export interface GutterRendererText_ConstructProps extends GutterRenderer_ConstructProps {
-    /* Properties of GtkSource.GutterRendererText */
     markup?:string
     text?:string
 }
@@ -2268,7 +2256,6 @@ export declare class GutterRendererText_Static {
 }
 export declare var GutterRendererText: GutterRendererText_Static
 export interface Language_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.Language */
 }
 export interface Language {
     /* Properties of GtkSource.Language */
@@ -2339,7 +2326,6 @@ export interface Language_Static {
 }
 export declare var Language: Language_Static
 export interface LanguageManager_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.LanguageManager */
     search_path?:string[]
 }
 export interface LanguageManager {
@@ -2406,7 +2392,6 @@ export declare class LanguageManager_Static {
 }
 export declare var LanguageManager: LanguageManager_Static
 export interface Map_ConstructProps extends View_ConstructProps {
-    /* Properties of GtkSource.Map */
     font_desc?:Pango.FontDescription
     view?:View
 }
@@ -3240,7 +3225,6 @@ export declare class Map_Static {
 }
 export declare var Map: Map_Static
 export interface Mark_ConstructProps extends Gtk.TextMark_ConstructProps {
-    /* Properties of GtkSource.Mark */
     category?:string
 }
 export interface Mark {
@@ -3310,7 +3294,6 @@ export declare class Mark_Static {
 }
 export declare var Mark: Mark_Static
 export interface MarkAttributes_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.MarkAttributes */
     background?:Gdk.RGBA
     gicon?:Gio.Icon
     icon_name?:string
@@ -3397,7 +3380,6 @@ export declare class MarkAttributes_Static {
 }
 export declare var MarkAttributes: MarkAttributes_Static
 export interface PrintCompositor_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.PrintCompositor */
     body_font_name?:string
     buffer?:Buffer
     footer_font_name?:string
@@ -3522,7 +3504,6 @@ export declare class PrintCompositor_Static {
 }
 export declare var PrintCompositor: PrintCompositor_Static
 export interface SearchContext_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.SearchContext */
     buffer?:Buffer
     highlight?:boolean
     match_style?:Style
@@ -3610,7 +3591,6 @@ export declare class SearchContext_Static {
 }
 export declare var SearchContext: SearchContext_Static
 export interface SearchSettings_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.SearchSettings */
     at_word_boundaries?:boolean
     case_sensitive?:boolean
     regex_enabled?:boolean
@@ -3691,7 +3671,6 @@ export declare class SearchSettings_Static {
 }
 export declare var SearchSettings: SearchSettings_Static
 export interface Style_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.Style */
     background?:string
     background_set?:boolean
     bold?:boolean
@@ -3761,7 +3740,6 @@ export interface Style_Static {
 }
 export declare var Style: Style_Static
 export interface StyleScheme_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.StyleScheme */
     id?:string
 }
 export interface StyleScheme {
@@ -5083,7 +5061,6 @@ export declare class StyleSchemeChooserWidget_Static {
 }
 export declare var StyleSchemeChooserWidget: StyleSchemeChooserWidget_Static
 export interface StyleSchemeManager_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GtkSource.StyleSchemeManager */
     search_path?:string[]
 }
 export interface StyleSchemeManager {
@@ -5152,7 +5129,6 @@ export declare class StyleSchemeManager_Static {
 }
 export declare var StyleSchemeManager: StyleSchemeManager_Static
 export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
-    /* Properties of GtkSource.View */
     auto_indent?:boolean
     background_pattern?:BackgroundPatternType
     draw_spaces?:DrawSpacesFlags

@@ -726,15 +726,10 @@ export class GirModule {
 
             def.push(`export interface ${name}_ConstructProps ${ext}{`)
             let constructPropNames = {}
-            if (true) {
-                let cls = e
-            
-                if (cls.property) {
-                    def.push(`    /* Properties of ${cls._fullSymName} */`)
-                    for (let p of cls.property) {
-                        let [desc, name] = this.getProperty(p, true)
-                        def = def.concat(checkName(desc, name, constructPropNames)[0])
-                    }
+            if (e.property) {
+                for (let p of e.property) {
+                    let [desc, name] = this.getProperty(p, true)
+                    def = def.concat(checkName(desc, name, constructPropNames)[0])
                 }
             }
             def.push("}")

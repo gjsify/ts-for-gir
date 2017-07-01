@@ -69,7 +69,6 @@ export interface PixbufSaveFunc {
     (buf: Gjs.byteArray.ByteArray[], data: object): boolean
 }
 export interface Pixbuf_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of GdkPixbuf.Pixbuf */
     bits_per_sample?:number
     colorspace?:Colorspace
     has_alpha?:boolean
@@ -367,7 +366,6 @@ export declare class PixbufLoader_Static {
 }
 export declare var PixbufLoader: PixbufLoader_Static
 export interface PixbufSimpleAnim_ConstructProps extends PixbufAnimation_ConstructProps {
-    /* Properties of GdkPixbuf.PixbufSimpleAnim */
     loop?:boolean
 }
 export interface PixbufSimpleAnim {

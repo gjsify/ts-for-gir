@@ -229,7 +229,6 @@ export interface SpellChecker_Static {
 }
 export declare var SpellChecker: SpellChecker_Static
 export interface DOMAttr_ConstructProps extends DOMNode_ConstructProps {
-    /* Properties of WebKit.DOMAttr */
     value?:string
 }
 export interface DOMAttr {
@@ -374,7 +373,6 @@ export interface DOMAttr_Static {
 }
 export declare var DOMAttr: DOMAttr_Static
 export interface DOMAudioTrack_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMAudioTrack */
     enabled?:boolean
 }
 export interface DOMAudioTrack {
@@ -447,7 +445,6 @@ export interface DOMAudioTrack_Static {
 }
 export declare var DOMAudioTrack: DOMAudioTrack_Static
 export interface DOMAudioTrackList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMAudioTrackList */
 }
 export interface DOMAudioTrackList {
     /* Properties of WebKit.DOMAudioTrackList */
@@ -509,7 +506,6 @@ export interface DOMAudioTrackList_Static {
 }
 export declare var DOMAudioTrackList: DOMAudioTrackList_Static
 export interface DOMBarInfo_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMBarInfo */
 }
 export interface DOMBarInfo {
     /* Properties of WebKit.DOMBarInfo */
@@ -567,7 +563,6 @@ export declare class DOMBarInfo_Static {
 }
 export declare var DOMBarInfo: DOMBarInfo_Static
 export interface DOMBarProp_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMBarProp */
 }
 export interface DOMBarProp {
     /* Properties of WebKit.DOMBarProp */
@@ -626,7 +621,6 @@ export interface DOMBarProp_Static {
 }
 export declare var DOMBarProp: DOMBarProp_Static
 export interface DOMBatteryManager_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMBatteryManager */
 }
 export interface DOMBatteryManager {
     /* Properties of WebKit.DOMBatteryManager */
@@ -695,7 +689,6 @@ export interface DOMBatteryManager_Static {
 }
 export declare var DOMBatteryManager: DOMBatteryManager_Static
 export interface DOMBlob_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMBlob */
 }
 export interface DOMBlob {
     /* Properties of WebKit.DOMBlob */
@@ -904,7 +897,6 @@ export interface DOMCDATASection_Static {
 }
 export declare var DOMCDATASection: DOMCDATASection_Static
 export interface DOMCSSRule_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMCSSRule */
     css_text?:string
 }
 export interface DOMCSSRule {
@@ -973,7 +965,6 @@ export interface DOMCSSRule_Static {
 }
 export declare var DOMCSSRule: DOMCSSRule_Static
 export interface DOMCSSRuleList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMCSSRuleList */
 }
 export interface DOMCSSRuleList {
     /* Properties of WebKit.DOMCSSRuleList */
@@ -1033,7 +1024,6 @@ export interface DOMCSSRuleList_Static {
 }
 export declare var DOMCSSRuleList: DOMCSSRuleList_Static
 export interface DOMCSSStyleDeclaration_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMCSSStyleDeclaration */
     css_text?:string
 }
 export interface DOMCSSStyleDeclaration {
@@ -1107,7 +1097,6 @@ export interface DOMCSSStyleDeclaration_Static {
 }
 export declare var DOMCSSStyleDeclaration: DOMCSSStyleDeclaration_Static
 export interface DOMCSSStyleSheet_ConstructProps extends DOMStyleSheet_ConstructProps {
-    /* Properties of WebKit.DOMCSSStyleSheet */
 }
 export interface DOMCSSStyleSheet {
     /* Properties of WebKit.DOMCSSStyleSheet */
@@ -1200,7 +1189,6 @@ export interface DOMCSSStyleSheet_Static {
 }
 export declare var DOMCSSStyleSheet: DOMCSSStyleSheet_Static
 export interface DOMCSSValue_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMCSSValue */
     css_text?:string
 }
 export interface DOMCSSValue {
@@ -1264,7 +1252,6 @@ export interface DOMCSSValue_Static {
 }
 export declare var DOMCSSValue: DOMCSSValue_Static
 export interface DOMCharacterData_ConstructProps extends DOMNode_ConstructProps {
-    /* Properties of WebKit.DOMCharacterData */
     data?:string
 }
 export interface DOMCharacterData {
@@ -1598,7 +1585,6 @@ export interface DOMConsole_Static {
 }
 export declare var DOMConsole: DOMConsole_Static
 export interface DOMDOMApplicationCache_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMApplicationCache */
 }
 export interface DOMDOMApplicationCache {
     /* Properties of WebKit.DOMDOMApplicationCache */
@@ -1720,7 +1706,6 @@ export interface DOMDOMImplementation_Static {
 }
 export declare var DOMDOMImplementation: DOMDOMImplementation_Static
 export interface DOMDOMMimeType_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMMimeType */
 }
 export interface DOMDOMMimeType {
     /* Properties of WebKit.DOMDOMMimeType */
@@ -1787,7 +1772,6 @@ export interface DOMDOMMimeType_Static {
 }
 export declare var DOMDOMMimeType: DOMDOMMimeType_Static
 export interface DOMDOMMimeTypeArray_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMMimeTypeArray */
 }
 export interface DOMDOMMimeTypeArray {
     /* Properties of WebKit.DOMDOMMimeTypeArray */
@@ -1848,7 +1832,6 @@ export interface DOMDOMMimeTypeArray_Static {
 }
 export declare var DOMDOMMimeTypeArray: DOMDOMMimeTypeArray_Static
 export interface DOMDOMNamedFlowCollection_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMNamedFlowCollection */
 }
 export interface DOMDOMNamedFlowCollection {
     /* Properties of WebKit.DOMDOMNamedFlowCollection */
@@ -1909,7 +1892,6 @@ export interface DOMDOMNamedFlowCollection_Static {
 }
 export declare var DOMDOMNamedFlowCollection: DOMDOMNamedFlowCollection_Static
 export interface DOMDOMPlugin_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMPlugin */
 }
 export interface DOMDOMPlugin {
     /* Properties of WebKit.DOMDOMPlugin */
@@ -1979,7 +1961,6 @@ export interface DOMDOMPlugin_Static {
 }
 export declare var DOMDOMPlugin: DOMDOMPlugin_Static
 export interface DOMDOMPluginArray_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMPluginArray */
 }
 export interface DOMDOMPluginArray {
     /* Properties of WebKit.DOMDOMPluginArray */
@@ -2041,7 +2022,6 @@ export interface DOMDOMPluginArray_Static {
 }
 export declare var DOMDOMPluginArray: DOMDOMPluginArray_Static
 export interface DOMDOMSecurityPolicy_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMSecurityPolicy */
 }
 export interface DOMDOMSecurityPolicy {
     /* Properties of WebKit.DOMDOMSecurityPolicy */
@@ -2122,7 +2102,6 @@ export interface DOMDOMSecurityPolicy_Static {
 }
 export declare var DOMDOMSecurityPolicy: DOMDOMSecurityPolicy_Static
 export interface DOMDOMSelection_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMSelection */
 }
 export interface DOMDOMSelection {
     /* Properties of WebKit.DOMDOMSelection */
@@ -2224,7 +2203,6 @@ export interface DOMDOMSelection_Static {
 }
 export declare var DOMDOMSelection: DOMDOMSelection_Static
 export interface DOMDOMSettableTokenList_ConstructProps extends DOMDOMTokenList_ConstructProps {
-    /* Properties of WebKit.DOMDOMSettableTokenList */
     value?:string
 }
 export interface DOMDOMSettableTokenList {
@@ -2296,7 +2274,6 @@ export interface DOMDOMSettableTokenList_Static {
 }
 export declare var DOMDOMSettableTokenList: DOMDOMSettableTokenList_Static
 export interface DOMDOMStringList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMStringList */
 }
 export interface DOMDOMStringList {
     /* Properties of WebKit.DOMDOMStringList */
@@ -2410,7 +2387,6 @@ export interface DOMDOMStringMap_Static {
 }
 export declare var DOMDOMStringMap: DOMDOMStringMap_Static
 export interface DOMDOMTokenList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMTokenList */
 }
 export interface DOMDOMTokenList {
     /* Properties of WebKit.DOMDOMTokenList */
@@ -2474,7 +2450,6 @@ export interface DOMDOMTokenList_Static {
 }
 export declare var DOMDOMTokenList: DOMDOMTokenList_Static
 export interface DOMDOMWindow_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDOMWindow */
     default_status?:string
     name?:string
     status?:string
@@ -2757,7 +2732,6 @@ export interface DOMDOMWindowCSS_Static {
 }
 export declare var DOMDOMWindowCSS: DOMDOMWindowCSS_Static
 export interface DOMDatabase_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMDatabase */
 }
 export interface DOMDatabase {
     /* Properties of WebKit.DOMDatabase */
@@ -2816,7 +2790,6 @@ export interface DOMDatabase_Static {
 }
 export declare var DOMDatabase: DOMDatabase_Static
 export interface DOMDocument_ConstructProps extends DOMNode_ConstructProps {
-    /* Properties of WebKit.DOMDocument */
     charset?:string
     cookie?:string
     document_uri?:string
@@ -3250,7 +3223,6 @@ export interface DOMDocumentFragment_Static {
 }
 export declare var DOMDocumentFragment: DOMDocumentFragment_Static
 export interface DOMDocumentType_ConstructProps extends DOMNode_ConstructProps {
-    /* Properties of WebKit.DOMDocumentType */
 }
 export interface DOMDocumentType {
     /* Properties of WebKit.DOMDocumentType */
@@ -3397,7 +3369,6 @@ export interface DOMDocumentType_Static {
 }
 export declare var DOMDocumentType: DOMDocumentType_Static
 export interface DOMElement_ConstructProps extends DOMNode_ConstructProps {
-    /* Properties of WebKit.DOMElement */
     class_name?:string
     id?:string
     scroll_left?:number
@@ -3762,7 +3733,6 @@ export interface DOMEntityReference_Static {
 }
 export declare var DOMEntityReference: DOMEntityReference_Static
 export interface DOMEvent_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMEvent */
     cancel_bubble?:boolean
     return_value?:boolean
 }
@@ -3858,7 +3828,6 @@ export interface DOMEvent_Static {
 }
 export declare var DOMEvent: DOMEvent_Static
 export interface DOMFile_ConstructProps extends DOMBlob_ConstructProps {
-    /* Properties of WebKit.DOMFile */
 }
 export interface DOMFile {
     /* Properties of WebKit.DOMFile */
@@ -3930,7 +3899,6 @@ export interface DOMFile_Static {
 }
 export declare var DOMFile: DOMFile_Static
 export interface DOMFileList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMFileList */
 }
 export interface DOMFileList {
     /* Properties of WebKit.DOMFileList */
@@ -3990,7 +3958,6 @@ export interface DOMFileList_Static {
 }
 export declare var DOMFileList: DOMFileList_Static
 export interface DOMGamepad_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMGamepad */
 }
 export interface DOMGamepad {
     /* Properties of WebKit.DOMGamepad */
@@ -4055,7 +4022,6 @@ export interface DOMGamepad_Static {
 }
 export declare var DOMGamepad: DOMGamepad_Static
 export interface DOMGamepadList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMGamepadList */
 }
 export interface DOMGamepadList {
     /* Properties of WebKit.DOMGamepadList */
@@ -4170,7 +4136,6 @@ export interface DOMGeolocation_Static {
 }
 export declare var DOMGeolocation: DOMGeolocation_Static
 export interface DOMHTMLAnchorElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLAnchorElement */
     charset?:string
     coords?:string
     download?:string
@@ -4588,7 +4553,6 @@ export interface DOMHTMLAnchorElement_Static {
 }
 export declare var DOMHTMLAnchorElement: DOMHTMLAnchorElement_Static
 export interface DOMHTMLAppletElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLAppletElement */
     align?:string
     alt?:string
     archive?:string
@@ -4962,7 +4926,6 @@ export interface DOMHTMLAppletElement_Static {
 }
 export declare var DOMHTMLAppletElement: DOMHTMLAppletElement_Static
 export interface DOMHTMLAreaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLAreaElement */
     alt?:string
     coords?:string
     href?:string
@@ -5778,7 +5741,6 @@ export interface DOMHTMLAudioElement_Static {
 }
 export declare var DOMHTMLAudioElement: DOMHTMLAudioElement_Static
 export interface DOMHTMLBRElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLBRElement */
     clear?:string
 }
 export interface DOMHTMLBRElement {
@@ -6102,7 +6064,6 @@ export interface DOMHTMLBRElement_Static {
 }
 export declare var DOMHTMLBRElement: DOMHTMLBRElement_Static
 export interface DOMHTMLBaseElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLBaseElement */
     href?:string
     target?:string
 }
@@ -6431,7 +6392,6 @@ export interface DOMHTMLBaseElement_Static {
 }
 export declare var DOMHTMLBaseElement: DOMHTMLBaseElement_Static
 export interface DOMHTMLBaseFontElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLBaseFontElement */
     color?:string
     face?:string
     size?:number
@@ -6765,7 +6725,6 @@ export interface DOMHTMLBaseFontElement_Static {
 }
 export declare var DOMHTMLBaseFontElement: DOMHTMLBaseFontElement_Static
 export interface DOMHTMLBodyElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLBodyElement */
     a_link?:string
     background?:string
     bg_color?:string
@@ -7114,7 +7073,6 @@ export interface DOMHTMLBodyElement_Static {
 }
 export declare var DOMHTMLBodyElement: DOMHTMLBodyElement_Static
 export interface DOMHTMLButtonElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLButtonElement */
     autofocus?:boolean
     disabled?:boolean
     form_action?:string
@@ -7498,7 +7456,6 @@ export interface DOMHTMLButtonElement_Static {
 }
 export declare var DOMHTMLButtonElement: DOMHTMLButtonElement_Static
 export interface DOMHTMLCanvasElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLCanvasElement */
     height?:number
     width?:number
 }
@@ -7827,7 +7784,6 @@ export interface DOMHTMLCanvasElement_Static {
 }
 export declare var DOMHTMLCanvasElement: DOMHTMLCanvasElement_Static
 export interface DOMHTMLCollection_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMHTMLCollection */
 }
 export interface DOMHTMLCollection {
     /* Properties of WebKit.DOMHTMLCollection */
@@ -7888,7 +7844,6 @@ export interface DOMHTMLCollection_Static {
 }
 export declare var DOMHTMLCollection: DOMHTMLCollection_Static
 export interface DOMHTMLDListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLDListElement */
     compact?:boolean
 }
 export interface DOMHTMLDListElement {
@@ -8212,7 +8167,6 @@ export interface DOMHTMLDListElement_Static {
 }
 export declare var DOMHTMLDListElement: DOMHTMLDListElement_Static
 export interface DOMHTMLDetailsElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLDetailsElement */
     open?:boolean
 }
 export interface DOMHTMLDetailsElement {
@@ -8536,7 +8490,6 @@ export interface DOMHTMLDetailsElement_Static {
 }
 export declare var DOMHTMLDetailsElement: DOMHTMLDetailsElement_Static
 export interface DOMHTMLDirectoryElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLDirectoryElement */
     compact?:boolean
 }
 export interface DOMHTMLDirectoryElement {
@@ -8860,7 +8813,6 @@ export interface DOMHTMLDirectoryElement_Static {
 }
 export declare var DOMHTMLDirectoryElement: DOMHTMLDirectoryElement_Static
 export interface DOMHTMLDivElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLDivElement */
     align?:string
 }
 export interface DOMHTMLDivElement {
@@ -9184,7 +9136,6 @@ export interface DOMHTMLDivElement_Static {
 }
 export declare var DOMHTMLDivElement: DOMHTMLDivElement_Static
 export interface DOMHTMLDocument_ConstructProps extends DOMDocument_ConstructProps {
-    /* Properties of WebKit.DOMHTMLDocument */
     alink_color?:string
     bg_color?:string
     design_mode?:string
@@ -9545,7 +9496,6 @@ export interface DOMHTMLDocument_Static {
 }
 export declare var DOMHTMLDocument: DOMHTMLDocument_Static
 export interface DOMHTMLElement_ConstructProps extends DOMElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLElement */
     access_key?:string
     content_editable?:string
     dir?:string
@@ -9876,7 +9826,6 @@ export interface DOMHTMLElement_Static {
 }
 export declare var DOMHTMLElement: DOMHTMLElement_Static
 export interface DOMHTMLEmbedElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLEmbedElement */
     align?:string
     height?:number
     name?:string
@@ -10223,7 +10172,6 @@ export interface DOMHTMLEmbedElement_Static {
 }
 export declare var DOMHTMLEmbedElement: DOMHTMLEmbedElement_Static
 export interface DOMHTMLFieldSetElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLFieldSetElement */
     disabled?:boolean
     name?:string
 }
@@ -10571,7 +10519,6 @@ export interface DOMHTMLFieldSetElement_Static {
 }
 export declare var DOMHTMLFieldSetElement: DOMHTMLFieldSetElement_Static
 export interface DOMHTMLFontElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLFontElement */
     color?:string
     face?:string
     size?:string
@@ -10905,7 +10852,6 @@ export interface DOMHTMLFontElement_Static {
 }
 export declare var DOMHTMLFontElement: DOMHTMLFontElement_Static
 export interface DOMHTMLFormElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLFormElement */
     accept_charset?:string
     action?:string
     autocapitalize?:string
@@ -11290,7 +11236,6 @@ export interface DOMHTMLFormElement_Static {
 }
 export declare var DOMHTMLFormElement: DOMHTMLFormElement_Static
 export interface DOMHTMLFrameElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLFrameElement */
     frame_border?:string
     long_desc?:string
     margin_height?:string
@@ -11661,7 +11606,6 @@ export interface DOMHTMLFrameElement_Static {
 }
 export declare var DOMHTMLFrameElement: DOMHTMLFrameElement_Static
 export interface DOMHTMLFrameSetElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLFrameSetElement */
     cols?:string
     rows?:string
 }
@@ -11990,7 +11934,6 @@ export interface DOMHTMLFrameSetElement_Static {
 }
 export declare var DOMHTMLFrameSetElement: DOMHTMLFrameSetElement_Static
 export interface DOMHTMLHRElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLHRElement */
     align?:string
     no_shade?:boolean
     size?:string
@@ -12329,7 +12272,6 @@ export interface DOMHTMLHRElement_Static {
 }
 export declare var DOMHTMLHRElement: DOMHTMLHRElement_Static
 export interface DOMHTMLHeadElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLHeadElement */
     profile?:string
 }
 export interface DOMHTMLHeadElement {
@@ -12653,7 +12595,6 @@ export interface DOMHTMLHeadElement_Static {
 }
 export declare var DOMHTMLHeadElement: DOMHTMLHeadElement_Static
 export interface DOMHTMLHeadingElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLHeadingElement */
     align?:string
 }
 export interface DOMHTMLHeadingElement {
@@ -12977,7 +12918,6 @@ export interface DOMHTMLHeadingElement_Static {
 }
 export declare var DOMHTMLHeadingElement: DOMHTMLHeadingElement_Static
 export interface DOMHTMLHtmlElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLHtmlElement */
     manifest?:string
     version?:string
 }
@@ -13306,7 +13246,6 @@ export interface DOMHTMLHtmlElement_Static {
 }
 export declare var DOMHTMLHtmlElement: DOMHTMLHtmlElement_Static
 export interface DOMHTMLIFrameElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLIFrameElement */
     align?:string
     frame_border?:string
     height?:string
@@ -13696,7 +13635,6 @@ export interface DOMHTMLIFrameElement_Static {
 }
 export declare var DOMHTMLIFrameElement: DOMHTMLIFrameElement_Static
 export interface DOMHTMLImageElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLImageElement */
     align?:string
     alt?:string
     border?:string
@@ -14105,7 +14043,6 @@ export interface DOMHTMLImageElement_Static {
 }
 export declare var DOMHTMLImageElement: DOMHTMLImageElement_Static
 export interface DOMHTMLInputElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLInputElement */
     accept?:string
     align?:string
     alt?:string
@@ -14657,7 +14594,6 @@ export interface DOMHTMLInputElement_Static {
 }
 export declare var DOMHTMLInputElement: DOMHTMLInputElement_Static
 export interface DOMHTMLKeygenElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLKeygenElement */
     autofocus?:boolean
     challenge?:string
     disabled?:boolean
@@ -15020,7 +14956,6 @@ export interface DOMHTMLKeygenElement_Static {
 }
 export declare var DOMHTMLKeygenElement: DOMHTMLKeygenElement_Static
 export interface DOMHTMLLIElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLLIElement */
     type?:string
     value?:number
 }
@@ -15347,7 +15282,6 @@ export interface DOMHTMLLIElement_Static {
 }
 export declare var DOMHTMLLIElement: DOMHTMLLIElement_Static
 export interface DOMHTMLLabelElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLLabelElement */
     html_for?:string
 }
 export interface DOMHTMLLabelElement {
@@ -15677,7 +15611,6 @@ export interface DOMHTMLLabelElement_Static {
 }
 export declare var DOMHTMLLabelElement: DOMHTMLLabelElement_Static
 export interface DOMHTMLLegendElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLLegendElement */
     align?:string
 }
 export interface DOMHTMLLegendElement {
@@ -16004,7 +15937,6 @@ export interface DOMHTMLLegendElement_Static {
 }
 export declare var DOMHTMLLegendElement: DOMHTMLLegendElement_Static
 export interface DOMHTMLLinkElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLLinkElement */
     charset?:string
     disabled?:boolean
     href?:string
@@ -16369,7 +16301,6 @@ export interface DOMHTMLLinkElement_Static {
 }
 export declare var DOMHTMLLinkElement: DOMHTMLLinkElement_Static
 export interface DOMHTMLMapElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLMapElement */
     name?:string
 }
 export interface DOMHTMLMapElement {
@@ -16696,7 +16627,6 @@ export interface DOMHTMLMapElement_Static {
 }
 export declare var DOMHTMLMapElement: DOMHTMLMapElement_Static
 export interface DOMHTMLMarqueeElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLMarqueeElement */
     behavior?:string
     bg_color?:string
     direction?:string
@@ -17072,7 +17002,6 @@ export interface DOMHTMLMarqueeElement_Static {
 }
 export declare var DOMHTMLMarqueeElement: DOMHTMLMarqueeElement_Static
 export interface DOMHTMLMediaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLMediaElement */
     autoplay?:boolean
     controls?:boolean
     current_time?:number
@@ -17527,7 +17456,6 @@ export interface DOMHTMLMediaElement_Static {
 }
 export declare var DOMHTMLMediaElement: DOMHTMLMediaElement_Static
 export interface DOMHTMLMenuElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLMenuElement */
     compact?:boolean
 }
 export interface DOMHTMLMenuElement {
@@ -17851,7 +17779,6 @@ export interface DOMHTMLMenuElement_Static {
 }
 export declare var DOMHTMLMenuElement: DOMHTMLMenuElement_Static
 export interface DOMHTMLMetaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLMetaElement */
     content?:string
     http_equiv?:string
     name?:string
@@ -18190,7 +18117,6 @@ export interface DOMHTMLMetaElement_Static {
 }
 export declare var DOMHTMLMetaElement: DOMHTMLMetaElement_Static
 export interface DOMHTMLModElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLModElement */
     cite?:string
     date_time?:string
 }
@@ -18519,7 +18445,6 @@ export interface DOMHTMLModElement_Static {
 }
 export declare var DOMHTMLModElement: DOMHTMLModElement_Static
 export interface DOMHTMLOListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLOListElement */
     compact?:boolean
     reversed?:boolean
     start?:number
@@ -18856,7 +18781,6 @@ export interface DOMHTMLOListElement_Static {
 }
 export declare var DOMHTMLOListElement: DOMHTMLOListElement_Static
 export interface DOMHTMLObjectElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLObjectElement */
     align?:string
     archive?:string
     border?:string
@@ -19268,7 +19192,6 @@ export interface DOMHTMLObjectElement_Static {
 }
 export declare var DOMHTMLObjectElement: DOMHTMLObjectElement_Static
 export interface DOMHTMLOptGroupElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLOptGroupElement */
     disabled?:boolean
     label?:string
 }
@@ -19597,7 +19520,6 @@ export interface DOMHTMLOptGroupElement_Static {
 }
 export declare var DOMHTMLOptGroupElement: DOMHTMLOptGroupElement_Static
 export interface DOMHTMLOptionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLOptionElement */
     default_selected?:boolean
     disabled?:boolean
     label?:string
@@ -19950,7 +19872,6 @@ export interface DOMHTMLOptionElement_Static {
 }
 export declare var DOMHTMLOptionElement: DOMHTMLOptionElement_Static
 export interface DOMHTMLOptionsCollection_ConstructProps extends DOMHTMLCollection_ConstructProps {
-    /* Properties of WebKit.DOMHTMLOptionsCollection */
     selected_index?:number
 }
 export interface DOMHTMLOptionsCollection {
@@ -20019,7 +19940,6 @@ export interface DOMHTMLOptionsCollection_Static {
 }
 export declare var DOMHTMLOptionsCollection: DOMHTMLOptionsCollection_Static
 export interface DOMHTMLParagraphElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLParagraphElement */
     align?:string
 }
 export interface DOMHTMLParagraphElement {
@@ -20343,7 +20263,6 @@ export interface DOMHTMLParagraphElement_Static {
 }
 export declare var DOMHTMLParagraphElement: DOMHTMLParagraphElement_Static
 export interface DOMHTMLParamElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLParamElement */
     name?:string
     type?:string
     value?:string
@@ -20680,7 +20599,6 @@ export interface DOMHTMLParamElement_Static {
 }
 export declare var DOMHTMLParamElement: DOMHTMLParamElement_Static
 export interface DOMHTMLPreElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLPreElement */
     width?:number
     wrap?:boolean
 }
@@ -21009,7 +20927,6 @@ export interface DOMHTMLPreElement_Static {
 }
 export declare var DOMHTMLPreElement: DOMHTMLPreElement_Static
 export interface DOMHTMLPropertiesCollection_ConstructProps extends DOMHTMLCollection_ConstructProps {
-    /* Properties of WebKit.DOMHTMLPropertiesCollection */
 }
 export interface DOMHTMLPropertiesCollection {
     /* Properties of WebKit.DOMHTMLPropertiesCollection */
@@ -21079,7 +20996,6 @@ export declare class DOMHTMLPropertiesCollection_Static {
 }
 export declare var DOMHTMLPropertiesCollection: DOMHTMLPropertiesCollection_Static
 export interface DOMHTMLQuoteElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLQuoteElement */
     cite?:string
 }
 export interface DOMHTMLQuoteElement {
@@ -21403,7 +21319,6 @@ export interface DOMHTMLQuoteElement_Static {
 }
 export declare var DOMHTMLQuoteElement: DOMHTMLQuoteElement_Static
 export interface DOMHTMLScriptElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLScriptElement */
     async?:boolean
     charset?:string
     cross_origin?:string
@@ -21770,7 +21685,6 @@ export interface DOMHTMLScriptElement_Static {
 }
 export declare var DOMHTMLScriptElement: DOMHTMLScriptElement_Static
 export interface DOMHTMLSelectElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLSelectElement */
     autofocus?:boolean
     disabled?:boolean
     length?:number
@@ -22162,7 +22076,6 @@ export interface DOMHTMLSelectElement_Static {
 }
 export declare var DOMHTMLSelectElement: DOMHTMLSelectElement_Static
 export interface DOMHTMLStyleElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLStyleElement */
     disabled?:boolean
     media?:string
     type?:string
@@ -22499,7 +22412,6 @@ export interface DOMHTMLStyleElement_Static {
 }
 export declare var DOMHTMLStyleElement: DOMHTMLStyleElement_Static
 export interface DOMHTMLTableCaptionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLTableCaptionElement */
     align?:string
 }
 export interface DOMHTMLTableCaptionElement {
@@ -22823,7 +22735,6 @@ export interface DOMHTMLTableCaptionElement_Static {
 }
 export declare var DOMHTMLTableCaptionElement: DOMHTMLTableCaptionElement_Static
 export interface DOMHTMLTableCellElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLTableCellElement */
     abbr?:string
     align?:string
     axis?:string
@@ -23215,7 +23126,6 @@ export interface DOMHTMLTableCellElement_Static {
 }
 export declare var DOMHTMLTableCellElement: DOMHTMLTableCellElement_Static
 export interface DOMHTMLTableColElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLTableColElement */
     align?:string
     ch?:string
     ch_off?:string
@@ -23564,7 +23474,6 @@ export interface DOMHTMLTableColElement_Static {
 }
 export declare var DOMHTMLTableColElement: DOMHTMLTableColElement_Static
 export interface DOMHTMLTableElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLTableElement */
     align?:string
     bg_color?:string
     border?:string
@@ -23955,7 +23864,6 @@ export interface DOMHTMLTableElement_Static {
 }
 export declare var DOMHTMLTableElement: DOMHTMLTableElement_Static
 export interface DOMHTMLTableRowElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLTableRowElement */
     align?:string
     bg_color?:string
     ch?:string
@@ -24310,7 +24218,6 @@ export interface DOMHTMLTableRowElement_Static {
 }
 export declare var DOMHTMLTableRowElement: DOMHTMLTableRowElement_Static
 export interface DOMHTMLTableSectionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLTableSectionElement */
     align?:string
     ch?:string
     ch_off?:string
@@ -24654,7 +24561,6 @@ export interface DOMHTMLTableSectionElement_Static {
 }
 export declare var DOMHTMLTableSectionElement: DOMHTMLTableSectionElement_Static
 export interface DOMHTMLTextAreaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLTextAreaElement */
     autocapitalize?:string
     autocorrect?:boolean
     autofocus?:boolean
@@ -25089,7 +24995,6 @@ export interface DOMHTMLTextAreaElement_Static {
 }
 export declare var DOMHTMLTextAreaElement: DOMHTMLTextAreaElement_Static
 export interface DOMHTMLTitleElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLTitleElement */
     text?:string
 }
 export interface DOMHTMLTitleElement {
@@ -25413,7 +25318,6 @@ export interface DOMHTMLTitleElement_Static {
 }
 export declare var DOMHTMLTitleElement: DOMHTMLTitleElement_Static
 export interface DOMHTMLUListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLUListElement */
     compact?:boolean
     type?:string
 }
@@ -25740,7 +25644,6 @@ export interface DOMHTMLUListElement_Static {
 }
 export declare var DOMHTMLUListElement: DOMHTMLUListElement_Static
 export interface DOMHTMLVideoElement_ConstructProps extends DOMHTMLMediaElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLVideoElement */
     height?:number
     poster?:string
     webkit_wireless_video_playback_disabled?:boolean
@@ -26226,7 +26129,6 @@ export interface DOMHTMLVideoElement_Static {
 }
 export declare var DOMHTMLVideoElement: DOMHTMLVideoElement_Static
 export interface DOMHistory_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMHistory */
 }
 export interface DOMHistory {
     /* Properties of WebKit.DOMHistory */
@@ -26288,7 +26190,6 @@ export interface DOMHistory_Static {
 }
 export declare var DOMHistory: DOMHistory_Static
 export interface DOMKeyboardEvent_ConstructProps extends DOMUIEvent_ConstructProps {
-    /* Properties of WebKit.DOMKeyboardEvent */
 }
 export interface DOMKeyboardEvent {
     /* Properties of WebKit.DOMKeyboardEvent */
@@ -26439,7 +26340,6 @@ export interface DOMKeyboardEvent_Static {
 }
 export declare var DOMKeyboardEvent: DOMKeyboardEvent_Static
 export interface DOMLocation_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMLocation */
 }
 export interface DOMLocation {
     /* Properties of WebKit.DOMLocation */
@@ -26525,7 +26425,6 @@ export interface DOMLocation_Static {
 }
 export declare var DOMLocation: DOMLocation_Static
 export interface DOMMediaController_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMMediaController */
     current_time?:number
     default_playback_rate?:number
     muted?:boolean
@@ -26627,7 +26526,6 @@ export interface DOMMediaController_Static {
 }
 export declare var DOMMediaController: DOMMediaController_Static
 export interface DOMMediaError_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMMediaError */
 }
 export interface DOMMediaError {
     /* Properties of WebKit.DOMMediaError */
@@ -26686,7 +26584,6 @@ export interface DOMMediaError_Static {
 }
 export declare var DOMMediaError: DOMMediaError_Static
 export interface DOMMediaList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMMediaList */
     media_text?:string
 }
 export interface DOMMediaList {
@@ -26753,7 +26650,6 @@ export interface DOMMediaList_Static {
 }
 export declare var DOMMediaList: DOMMediaList_Static
 export interface DOMMediaQueryList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMMediaQueryList */
 }
 export interface DOMMediaQueryList {
     /* Properties of WebKit.DOMMediaQueryList */
@@ -26815,7 +26711,6 @@ export interface DOMMediaQueryList_Static {
 }
 export declare var DOMMediaQueryList: DOMMediaQueryList_Static
 export interface DOMMemoryInfo_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMMemoryInfo */
 }
 export interface DOMMemoryInfo {
     /* Properties of WebKit.DOMMemoryInfo */
@@ -26983,7 +26878,6 @@ export interface DOMMicroDataItemValue_Static {
 }
 export declare var DOMMicroDataItemValue: DOMMicroDataItemValue_Static
 export interface DOMMouseEvent_ConstructProps extends DOMUIEvent_ConstructProps {
-    /* Properties of WebKit.DOMMouseEvent */
 }
 export interface DOMMouseEvent {
     /* Properties of WebKit.DOMMouseEvent */
@@ -27166,7 +27060,6 @@ export interface DOMMouseEvent_Static {
 }
 export declare var DOMMouseEvent: DOMMouseEvent_Static
 export interface DOMNamedNodeMap_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMNamedNodeMap */
 }
 export interface DOMNamedNodeMap {
     /* Properties of WebKit.DOMNamedNodeMap */
@@ -27232,7 +27125,6 @@ export interface DOMNamedNodeMap_Static {
 }
 export declare var DOMNamedNodeMap: DOMNamedNodeMap_Static
 export interface DOMNavigator_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMNavigator */
 }
 export interface DOMNavigator {
     /* Properties of WebKit.DOMNavigator */
@@ -27348,7 +27240,6 @@ export interface DOMNavigator_Static {
 }
 export declare var DOMNavigator: DOMNavigator_Static
 export interface DOMNode_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMNode */
     node_value?:string
     prefix?:string
     text_content?:string
@@ -27531,7 +27422,6 @@ export interface DOMNodeFilter_Static {
 }
 export declare var DOMNodeFilter: DOMNodeFilter_Static
 export interface DOMNodeIterator_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMNodeIterator */
 }
 export interface DOMNodeIterator {
     /* Properties of WebKit.DOMNodeIterator */
@@ -27608,7 +27498,6 @@ export interface DOMNodeIterator_Static {
 }
 export declare var DOMNodeIterator: DOMNodeIterator_Static
 export interface DOMNodeList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMNodeList */
 }
 export interface DOMNodeList {
     /* Properties of WebKit.DOMNodeList */
@@ -27668,7 +27557,6 @@ export interface DOMNodeList_Static {
 }
 export declare var DOMNodeList: DOMNodeList_Static
 export interface DOMObject_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.DOMObject */
     core_object?:object
 }
 export interface DOMObject {
@@ -27721,7 +27609,6 @@ export interface DOMObject_Static {
 }
 export declare var DOMObject: DOMObject_Static
 export interface DOMPerformance_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMPerformance */
 }
 export interface DOMPerformance {
     /* Properties of WebKit.DOMPerformance */
@@ -27785,7 +27672,6 @@ export interface DOMPerformance_Static {
 }
 export declare var DOMPerformance: DOMPerformance_Static
 export interface DOMPerformanceEntry_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMPerformanceEntry */
 }
 export interface DOMPerformanceEntry {
     /* Properties of WebKit.DOMPerformanceEntry */
@@ -27853,7 +27739,6 @@ export interface DOMPerformanceEntry_Static {
 }
 export declare var DOMPerformanceEntry: DOMPerformanceEntry_Static
 export interface DOMPerformanceEntryList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMPerformanceEntryList */
 }
 export interface DOMPerformanceEntryList {
     /* Properties of WebKit.DOMPerformanceEntryList */
@@ -27913,7 +27798,6 @@ export interface DOMPerformanceEntryList_Static {
 }
 export declare var DOMPerformanceEntryList: DOMPerformanceEntryList_Static
 export interface DOMPerformanceNavigation_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMPerformanceNavigation */
 }
 export interface DOMPerformanceNavigation {
     /* Properties of WebKit.DOMPerformanceNavigation */
@@ -27974,7 +27858,6 @@ export interface DOMPerformanceNavigation_Static {
 }
 export declare var DOMPerformanceNavigation: DOMPerformanceNavigation_Static
 export interface DOMPerformanceTiming_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMPerformanceTiming */
 }
 export interface DOMPerformanceTiming {
     /* Properties of WebKit.DOMPerformanceTiming */
@@ -28093,7 +27976,6 @@ export interface DOMPerformanceTiming_Static {
 }
 export declare var DOMPerformanceTiming: DOMPerformanceTiming_Static
 export interface DOMProcessingInstruction_ConstructProps extends DOMCharacterData_ConstructProps {
-    /* Properties of WebKit.DOMProcessingInstruction */
 }
 export interface DOMProcessingInstruction {
     /* Properties of WebKit.DOMProcessingInstruction */
@@ -28240,7 +28122,6 @@ export interface DOMProcessingInstruction_Static {
 }
 export declare var DOMProcessingInstruction: DOMProcessingInstruction_Static
 export interface DOMPropertyNodeList_ConstructProps extends DOMNodeList_ConstructProps {
-    /* Properties of WebKit.DOMPropertyNodeList */
 }
 export interface DOMPropertyNodeList {
     /* Properties of WebKit.DOMPropertyNodeList */
@@ -28305,7 +28186,6 @@ export declare class DOMPropertyNodeList_Static {
 }
 export declare var DOMPropertyNodeList: DOMPropertyNodeList_Static
 export interface DOMRange_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMRange */
 }
 export interface DOMRange {
     /* Properties of WebKit.DOMRange */
@@ -28406,7 +28286,6 @@ export interface DOMRange_Static {
 }
 export declare var DOMRange: DOMRange_Static
 export interface DOMScreen_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMScreen */
 }
 export interface DOMScreen {
     /* Properties of WebKit.DOMScreen */
@@ -28486,7 +28365,6 @@ export interface DOMScreen_Static {
 }
 export declare var DOMScreen: DOMScreen_Static
 export interface DOMShadowRoot_ConstructProps extends DOMDocumentFragment_ConstructProps {
-    /* Properties of WebKit.DOMShadowRoot */
     apply_author_styles?:boolean
     inner_html?:string
     reset_style_inheritance?:boolean
@@ -28642,7 +28520,6 @@ export interface DOMShadowRoot_Static {
 }
 export declare var DOMShadowRoot: DOMShadowRoot_Static
 export interface DOMStorage_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMStorage */
 }
 export interface DOMStorage {
     /* Properties of WebKit.DOMStorage */
@@ -28812,7 +28689,6 @@ export interface DOMStorageQuota_Static {
 }
 export declare var DOMStorageQuota: DOMStorageQuota_Static
 export interface DOMStyleMedia_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMStyleMedia */
 }
 export interface DOMStyleMedia {
     /* Properties of WebKit.DOMStyleMedia */
@@ -28871,7 +28747,6 @@ export interface DOMStyleMedia_Static {
 }
 export declare var DOMStyleMedia: DOMStyleMedia_Static
 export interface DOMStyleSheet_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMStyleSheet */
     disabled?:boolean
 }
 export interface DOMStyleSheet {
@@ -28949,7 +28824,6 @@ export interface DOMStyleSheet_Static {
 }
 export declare var DOMStyleSheet: DOMStyleSheet_Static
 export interface DOMStyleSheetList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMStyleSheetList */
 }
 export interface DOMStyleSheetList {
     /* Properties of WebKit.DOMStyleSheetList */
@@ -29009,7 +28883,6 @@ export interface DOMStyleSheetList_Static {
 }
 export declare var DOMStyleSheetList: DOMStyleSheetList_Static
 export interface DOMText_ConstructProps extends DOMCharacterData_ConstructProps {
-    /* Properties of WebKit.DOMText */
 }
 export interface DOMText {
     /* Properties of WebKit.DOMText */
@@ -29155,7 +29028,6 @@ export interface DOMText_Static {
 }
 export declare var DOMText: DOMText_Static
 export interface DOMTextTrack_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMTextTrack */
     mode?:string
 }
 export interface DOMTextTrack {
@@ -29237,7 +29109,6 @@ export interface DOMTextTrack_Static {
 }
 export declare var DOMTextTrack: DOMTextTrack_Static
 export interface DOMTextTrackCue_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMTextTrackCue */
     align?:string
     end_time?:number
     id?:string
@@ -29353,7 +29224,6 @@ export interface DOMTextTrackCue_Static {
 }
 export declare var DOMTextTrackCue: DOMTextTrackCue_Static
 export interface DOMTextTrackCueList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMTextTrackCueList */
 }
 export interface DOMTextTrackCueList {
     /* Properties of WebKit.DOMTextTrackCueList */
@@ -29414,7 +29284,6 @@ export interface DOMTextTrackCueList_Static {
 }
 export declare var DOMTextTrackCueList: DOMTextTrackCueList_Static
 export interface DOMTextTrackList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMTextTrackList */
 }
 export interface DOMTextTrackList {
     /* Properties of WebKit.DOMTextTrackList */
@@ -29476,7 +29345,6 @@ export interface DOMTextTrackList_Static {
 }
 export declare var DOMTextTrackList: DOMTextTrackList_Static
 export interface DOMTimeRanges_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMTimeRanges */
 }
 export interface DOMTimeRanges {
     /* Properties of WebKit.DOMTimeRanges */
@@ -29537,7 +29405,6 @@ export interface DOMTimeRanges_Static {
 }
 export declare var DOMTimeRanges: DOMTimeRanges_Static
 export interface DOMTouch_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMTouch */
 }
 export interface DOMTouch {
     /* Properties of WebKit.DOMTouch */
@@ -29723,7 +29590,6 @@ export interface DOMTrackEvent_Static {
 }
 export declare var DOMTrackEvent: DOMTrackEvent_Static
 export interface DOMTreeWalker_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMTreeWalker */
 }
 export interface DOMTreeWalker {
     /* Properties of WebKit.DOMTreeWalker */
@@ -29802,7 +29668,6 @@ export interface DOMTreeWalker_Static {
 }
 export declare var DOMTreeWalker: DOMTreeWalker_Static
 export interface DOMUIEvent_ConstructProps extends DOMEvent_ConstructProps {
-    /* Properties of WebKit.DOMUIEvent */
 }
 export interface DOMUIEvent {
     /* Properties of WebKit.DOMUIEvent */
@@ -29927,7 +29792,6 @@ export interface DOMUIEvent_Static {
 }
 export declare var DOMUIEvent: DOMUIEvent_Static
 export interface DOMValidityState_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMValidityState */
 }
 export interface DOMValidityState {
     /* Properties of WebKit.DOMValidityState */
@@ -30013,7 +29877,6 @@ export interface DOMValidityState_Static {
 }
 export declare var DOMValidityState: DOMValidityState_Static
 export interface DOMVideoPlaybackQuality_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMVideoPlaybackQuality */
 }
 export interface DOMVideoPlaybackQuality {
     /* Properties of WebKit.DOMVideoPlaybackQuality */
@@ -30084,7 +29947,6 @@ export interface DOMVideoPlaybackQuality_Static {
 }
 export declare var DOMVideoPlaybackQuality: DOMVideoPlaybackQuality_Static
 export interface DOMVideoTrack_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMVideoTrack */
     selected?:boolean
 }
 export interface DOMVideoTrack {
@@ -30157,7 +30019,6 @@ export interface DOMVideoTrack_Static {
 }
 export declare var DOMVideoTrack: DOMVideoTrack_Static
 export interface DOMVideoTrackList_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMVideoTrackList */
 }
 export interface DOMVideoTrackList {
     /* Properties of WebKit.DOMVideoTrackList */
@@ -30219,7 +30080,6 @@ export interface DOMVideoTrackList_Static {
 }
 export declare var DOMVideoTrackList: DOMVideoTrackList_Static
 export interface DOMWebKitNamedFlow_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMWebKitNamedFlow */
 }
 export interface DOMWebKitNamedFlow {
     /* Properties of WebKit.DOMWebKitNamedFlow */
@@ -30291,7 +30151,6 @@ export interface DOMWebKitNamedFlow_Static {
 }
 export declare var DOMWebKitNamedFlow: DOMWebKitNamedFlow_Static
 export interface DOMWebKitPoint_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMWebKitPoint */
     x?:number
     y?:number
 }
@@ -30357,7 +30216,6 @@ export interface DOMWebKitPoint_Static {
 }
 export declare var DOMWebKitPoint: DOMWebKitPoint_Static
 export interface DOMWheelEvent_ConstructProps extends DOMMouseEvent_ConstructProps {
-    /* Properties of WebKit.DOMWheelEvent */
 }
 export interface DOMWheelEvent {
     /* Properties of WebKit.DOMWheelEvent */
@@ -30678,7 +30536,6 @@ export interface DOMXPathNSResolver_Static {
 }
 export declare var DOMXPathNSResolver: DOMXPathNSResolver_Static
 export interface DOMXPathResult_ConstructProps extends DOMObject_ConstructProps {
-    /* Properties of WebKit.DOMXPathResult */
 }
 export interface DOMXPathResult {
     /* Properties of WebKit.DOMXPathResult */
@@ -30757,7 +30614,6 @@ export interface DOMXPathResult_Static {
 }
 export declare var DOMXPathResult: DOMXPathResult_Static
 export interface Download_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.Download */
     destination_uri?:string
     network_request?:NetworkRequest
     network_response?:NetworkResponse
@@ -30843,7 +30699,6 @@ export declare class Download_Static {
 }
 export declare var Download: Download_Static
 export interface FaviconDatabase_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.FaviconDatabase */
     path?:string
 }
 export interface FaviconDatabase {
@@ -30908,7 +30763,6 @@ export interface FaviconDatabase_Static {
 }
 export declare var FaviconDatabase: FaviconDatabase_Static
 export interface FileChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.FileChooserRequest */
 }
 export interface FileChooserRequest {
     /* Properties of WebKit.FileChooserRequest */
@@ -31024,7 +30878,6 @@ export interface GeolocationPolicyDecision_Static {
 }
 export declare var GeolocationPolicyDecision: GeolocationPolicyDecision_Static
 export interface HitTestResult_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.HitTestResult */
     context?:HitTestResultContext
     image_uri?:string
     inner_node?:DOMNode
@@ -31083,7 +30936,6 @@ export interface HitTestResult_Static {
 }
 export declare var HitTestResult: HitTestResult_Static
 export interface IconDatabase_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.IconDatabase */
     path?:string
 }
 export interface IconDatabase {
@@ -31146,7 +30998,6 @@ export interface IconDatabase_Static {
 }
 export declare var IconDatabase: IconDatabase_Static
 export interface NetworkRequest_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.NetworkRequest */
     message?:Soup.Message
     uri?:string
 }
@@ -31209,7 +31060,6 @@ export declare class NetworkRequest_Static {
 }
 export declare var NetworkRequest: NetworkRequest_Static
 export interface NetworkResponse_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.NetworkResponse */
     message?:Soup.Message
     uri?:string
 }
@@ -31275,7 +31125,6 @@ export declare class NetworkResponse_Static {
 }
 export declare var NetworkResponse: NetworkResponse_Static
 export interface SecurityOrigin_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.SecurityOrigin */
     web_database_quota?:number
 }
 export interface SecurityOrigin {
@@ -31398,7 +31247,6 @@ export interface SoupAuthDialog_Static {
 }
 export declare var SoupAuthDialog: SoupAuthDialog_Static
 export interface ViewportAttributes_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.ViewportAttributes */
     available_height?:number
     available_width?:number
     desktop_width?:number
@@ -31616,7 +31464,6 @@ export declare class WebDataSource_Static {
 }
 export declare var WebDataSource: WebDataSource_Static
 export interface WebDatabase_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.WebDatabase */
     name?:string
     security_origin?:SecurityOrigin
 }
@@ -31686,7 +31533,6 @@ export interface WebDatabase_Static {
 }
 export declare var WebDatabase: WebDatabase_Static
 export interface WebFrame_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.WebFrame */
 }
 export interface WebFrame {
     /* Properties of WebKit.WebFrame */
@@ -31791,7 +31637,6 @@ export declare class WebFrame_Static {
 }
 export declare var WebFrame: WebFrame_Static
 export interface WebHistoryItem_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.WebHistoryItem */
     alternate_title?:string
 }
 export interface WebHistoryItem {
@@ -31866,7 +31711,6 @@ export declare class WebHistoryItem_Static {
 }
 export declare var WebHistoryItem: WebHistoryItem_Static
 export interface WebInspector_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.WebInspector */
     javascript_profiling_enabled?:boolean
     timeline_profiling_enabled?:boolean
 }
@@ -31942,7 +31786,6 @@ export interface WebInspector_Static {
 }
 export declare var WebInspector: WebInspector_Static
 export interface WebNavigationAction_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.WebNavigationAction */
     button?:number
     modifier_state?:number
     original_uri?:string
@@ -32011,7 +31854,6 @@ export interface WebNavigationAction_Static {
 }
 export declare var WebNavigationAction: WebNavigationAction_Static
 export interface WebPlugin_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.WebPlugin */
     enabled?:boolean
 }
 export interface WebPlugin {
@@ -32183,7 +32025,6 @@ export interface WebPolicyDecision_Static {
 }
 export declare var WebPolicyDecision: WebPolicyDecision_Static
 export interface WebResource_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.WebResource */
     uri?:string
 }
 export interface WebResource {
@@ -32255,7 +32096,6 @@ export declare class WebResource_Static {
 }
 export declare var WebResource: WebResource_Static
 export interface WebSettings_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.WebSettings */
     auto_load_images?:boolean
     auto_resize_window?:boolean
     auto_shrink_images?:boolean
@@ -32490,7 +32330,6 @@ export declare class WebSettings_Static {
 }
 export declare var WebSettings: WebSettings_Static
 export interface WebView_ConstructProps extends Gtk.Container_ConstructProps {
-    /* Properties of WebKit.WebView */
     custom_encoding?:string
     editable?:boolean
     full_content_zoom?:boolean
@@ -33288,7 +33127,6 @@ export declare class WebView_Static {
 }
 export declare var WebView: WebView_Static
 export interface WebWindowFeatures_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of WebKit.WebWindowFeatures */
     fullscreen?:boolean
     height?:number
     locationbar_visible?:boolean

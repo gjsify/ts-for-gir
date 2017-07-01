@@ -906,7 +906,6 @@ export declare class GObjectAccessible_Static {
 }
 export declare var GObjectAccessible: GObjectAccessible_Static
 export interface Hyperlink_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Atk.Hyperlink */
 }
 export interface Hyperlink {
     /* Properties of Atk.Hyperlink */
@@ -1248,7 +1247,6 @@ export declare class NoOpObjectFactory_Static {
 }
 export declare var NoOpObjectFactory: NoOpObjectFactory_Static
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Atk.Object */
     accessible_description?:string
     accessible_name?:string
     accessible_parent?:Object
@@ -1661,7 +1659,6 @@ export interface Registry_Static {
 }
 export declare var Registry: Registry_Static
 export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Atk.Relation */
     relation_type?:RelationType
     target?:GObject.ValueArray
 }

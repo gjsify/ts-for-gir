@@ -337,7 +337,6 @@ test('class', t => {
     t.deepEqual(mod.exportClass(TestData.classApplicationCommandLine),
         [
             "export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {",
-            "    /* Properties of ApplicationCommandLine */",
             "    \"arguments\"?:GLib.Variant",
             "    options?:GLib.Variant",
             "    platform_data?:GLib.Variant",

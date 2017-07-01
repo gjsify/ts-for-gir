@@ -1945,7 +1945,6 @@ export declare class AppLaunchContext_Static {
 }
 export declare var AppLaunchContext: AppLaunchContext_Static
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.Application */
     action_group?:ActionGroup
     application_id?:string
     flags?:ApplicationFlags
@@ -2077,7 +2076,6 @@ export declare class Application_Static {
 }
 export declare var Application: Application_Static
 export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.ApplicationCommandLine */
     "arguments"?:GLib.Variant
     options?:GLib.Variant
     platform_data?:GLib.Variant
@@ -2150,7 +2148,6 @@ export interface ApplicationCommandLine_Static {
 }
 export declare var ApplicationCommandLine: ApplicationCommandLine_Static
 export interface BufferedInputStream_ConstructProps extends FilterInputStream_ConstructProps {
-    /* Properties of Gio.BufferedInputStream */
     buffer_size?:number
 }
 export interface BufferedInputStream {
@@ -2263,7 +2260,6 @@ export declare class BufferedInputStream_Static {
 }
 export declare var BufferedInputStream: BufferedInputStream_Static
 export interface BufferedOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
-    /* Properties of Gio.BufferedOutputStream */
     auto_grow?:boolean
     buffer_size?:number
 }
@@ -2375,7 +2371,6 @@ export declare class BufferedOutputStream_Static {
 }
 export declare var BufferedOutputStream: BufferedOutputStream_Static
 export interface BytesIcon_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.BytesIcon */
     bytes?:Gjs.byteArray.ByteArray
 }
 export interface BytesIcon {
@@ -2500,7 +2495,6 @@ export declare class Cancellable_Static {
 }
 export declare var Cancellable: Cancellable_Static
 export interface CharsetConverter_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.CharsetConverter */
     from_charset?:string
     to_charset?:string
     use_fallback?:boolean
@@ -2561,7 +2555,6 @@ export declare class CharsetConverter_Static {
 }
 export declare var CharsetConverter: CharsetConverter_Static
 export interface ConverterInputStream_ConstructProps extends FilterInputStream_ConstructProps {
-    /* Properties of Gio.ConverterInputStream */
     converter?:Converter
 }
 export interface ConverterInputStream {
@@ -2659,7 +2652,6 @@ export declare class ConverterInputStream_Static {
 }
 export declare var ConverterInputStream: ConverterInputStream_Static
 export interface ConverterOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
-    /* Properties of Gio.ConverterOutputStream */
     converter?:Converter
 }
 export interface ConverterOutputStream {
@@ -2925,7 +2917,6 @@ export declare class DBusAuthObserver_Static {
 }
 export declare var DBusAuthObserver: DBusAuthObserver_Static
 export interface DBusConnection_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DBusConnection */
     address?:string
     authentication_observer?:DBusAuthObserver
     exit_on_close?:boolean
@@ -3039,7 +3030,6 @@ export declare class DBusConnection_Static {
 }
 export declare var DBusConnection: DBusConnection_Static
 export interface DBusInterfaceSkeleton_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DBusInterfaceSkeleton */
     g_flags?:DBusInterfaceSkeletonFlags
 }
 export interface DBusInterfaceSkeleton {
@@ -3186,7 +3176,6 @@ export declare class DBusMenuModel_Static {
 }
 export declare var DBusMenuModel: DBusMenuModel_Static
 export interface DBusMessage_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DBusMessage */
 }
 export interface DBusMessage {
     /* Properties of Gio.DBusMessage */
@@ -3349,7 +3338,6 @@ export interface DBusMethodInvocation_Static {
 }
 export declare var DBusMethodInvocation: DBusMethodInvocation_Static
 export interface DBusObjectManagerClient_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DBusObjectManagerClient */
     bus_type?:BusType
     connection?:DBusConnection
     flags?:DBusObjectManagerClientFlags
@@ -3430,7 +3418,6 @@ export declare class DBusObjectManagerClient_Static {
 }
 export declare var DBusObjectManagerClient: DBusObjectManagerClient_Static
 export interface DBusObjectManagerServer_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DBusObjectManagerServer */
     connection?:DBusConnection
     object_path?:string
 }
@@ -3496,7 +3483,6 @@ export declare class DBusObjectManagerServer_Static {
 }
 export declare var DBusObjectManagerServer: DBusObjectManagerServer_Static
 export interface DBusObjectProxy_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DBusObjectProxy */
     g_connection?:DBusConnection
     g_object_path?:string
 }
@@ -3555,7 +3541,6 @@ export declare class DBusObjectProxy_Static {
 }
 export declare var DBusObjectProxy: DBusObjectProxy_Static
 export interface DBusObjectSkeleton_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DBusObjectSkeleton */
     g_object_path?:string
 }
 export interface DBusObjectSkeleton {
@@ -3623,7 +3608,6 @@ export declare class DBusObjectSkeleton_Static {
 }
 export declare var DBusObjectSkeleton: DBusObjectSkeleton_Static
 export interface DBusProxy_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DBusProxy */
     g_bus_type?:BusType
     g_connection?:DBusConnection
     g_default_timeout?:number
@@ -3723,7 +3707,6 @@ export declare class DBusProxy_Static {
 }
 export declare var DBusProxy: DBusProxy_Static
 export interface DBusServer_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DBusServer */
     address?:string
     authentication_observer?:DBusAuthObserver
     flags?:DBusServerFlags
@@ -3792,7 +3775,6 @@ export declare class DBusServer_Static {
 }
 export declare var DBusServer: DBusServer_Static
 export interface DataInputStream_ConstructProps extends BufferedInputStream_ConstructProps {
-    /* Properties of Gio.DataInputStream */
     byte_order?:DataStreamByteOrder
     newline_type?:DataStreamNewlineType
 }
@@ -3933,7 +3915,6 @@ export declare class DataInputStream_Static {
 }
 export declare var DataInputStream: DataInputStream_Static
 export interface DataOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
-    /* Properties of Gio.DataOutputStream */
     byte_order?:DataStreamByteOrder
 }
 export interface DataOutputStream {
@@ -4047,7 +4028,6 @@ export declare class DataOutputStream_Static {
 }
 export declare var DataOutputStream: DataOutputStream_Static
 export interface DesktopAppInfo_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.DesktopAppInfo */
     filename?:string
 }
 export interface DesktopAppInfo {
@@ -4121,7 +4101,6 @@ export declare class DesktopAppInfo_Static {
 }
 export declare var DesktopAppInfo: DesktopAppInfo_Static
 export interface Emblem_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.Emblem */
     icon?:GObject.Object
     origin?:EmblemOrigin
 }
@@ -4179,7 +4158,6 @@ export declare class Emblem_Static {
 }
 export declare var Emblem: Emblem_Static
 export interface EmblemedIcon_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.EmblemedIcon */
     gicon?:Icon
 }
 export interface EmblemedIcon {
@@ -4240,7 +4218,6 @@ export declare class EmblemedIcon_Static {
 }
 export declare var EmblemedIcon: EmblemedIcon_Static
 export interface FileEnumerator_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.FileEnumerator */
     container?:File
 }
 export interface FileEnumerator {
@@ -4403,7 +4380,6 @@ export interface FileIOStream_Static {
 }
 export declare var FileIOStream: FileIOStream_Static
 export interface FileIcon_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.FileIcon */
     file?:File
 }
 export interface FileIcon {
@@ -4663,7 +4639,6 @@ export interface FileInputStream_Static {
 }
 export declare var FileInputStream: FileInputStream_Static
 export interface FileMonitor_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.FileMonitor */
     rate_limit?:number
 }
 export interface FileMonitor {
@@ -4891,7 +4866,6 @@ export declare class FilenameCompleter_Static {
 }
 export declare var FilenameCompleter: FilenameCompleter_Static
 export interface FilterInputStream_ConstructProps extends InputStream_ConstructProps {
-    /* Properties of Gio.FilterInputStream */
     base_stream?:InputStream
     close_base_stream?:boolean
 }
@@ -4983,7 +4957,6 @@ export interface FilterInputStream_Static {
 }
 export declare var FilterInputStream: FilterInputStream_Static
 export interface FilterOutputStream_ConstructProps extends OutputStream_ConstructProps {
-    /* Properties of Gio.FilterOutputStream */
     base_stream?:OutputStream
     close_base_stream?:boolean
 }
@@ -5151,7 +5124,6 @@ export declare class IOModule_Static {
 }
 export declare var IOModule: IOModule_Static
 export interface IOStream_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.IOStream */
 }
 export interface IOStream {
     /* Properties of Gio.IOStream */
@@ -5229,7 +5201,6 @@ export declare class IOStream_Static {
 }
 export declare var IOStream: IOStream_Static
 export interface InetAddress_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.InetAddress */
     bytes?:object
     family?:SocketFamily
 }
@@ -5326,7 +5297,6 @@ export declare class InetAddress_Static {
 }
 export declare var InetAddress: InetAddress_Static
 export interface InetAddressMask_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.InetAddressMask */
     address?:InetAddress
     length?:number
 }
@@ -5397,7 +5367,6 @@ export declare class InetAddressMask_Static {
 }
 export declare var InetAddressMask: InetAddressMask_Static
 export interface InetSocketAddress_ConstructProps extends SocketAddress_ConstructProps {
-    /* Properties of Gio.InetSocketAddress */
     address?:InetAddress
     flowinfo?:number
     port?:number
@@ -5554,7 +5523,6 @@ export interface InputStream_Static {
 }
 export declare var InputStream: InputStream_Static
 export interface ListStore_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.ListStore */
     item_type?:number
 }
 export interface ListStore {
@@ -5704,7 +5672,6 @@ export declare class MemoryInputStream_Static {
 }
 export declare var MemoryInputStream: MemoryInputStream_Static
 export interface MemoryOutputStream_ConstructProps extends OutputStream_ConstructProps {
-    /* Properties of Gio.MemoryOutputStream */
     data?:object
     size?:number
 }
@@ -6140,7 +6107,6 @@ export interface MenuModel_Static {
 }
 export declare var MenuModel: MenuModel_Static
 export interface MountOperation_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.MountOperation */
     anonymous?:boolean
     choice?:number
     domain?:string
@@ -6328,7 +6294,6 @@ export interface NativeVolumeMonitor_Static {
 }
 export declare var NativeVolumeMonitor: NativeVolumeMonitor_Static
 export interface NetworkAddress_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.NetworkAddress */
     hostname?:string
     port?:number
     scheme?:string
@@ -6393,7 +6358,6 @@ export declare class NetworkAddress_Static {
 }
 export declare var NetworkAddress: NetworkAddress_Static
 export interface NetworkService_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.NetworkService */
     domain?:string
     protocol?:string
     scheme?:string
@@ -6607,7 +6571,6 @@ export interface OutputStream_Static {
 }
 export declare var OutputStream: OutputStream_Static
 export interface Permission_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.Permission */
 }
 export interface Permission {
     /* Properties of Gio.Permission */
@@ -6683,7 +6646,6 @@ export interface Permission_Static {
 }
 export declare var Permission: Permission_Static
 export interface PropertyAction_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.PropertyAction */
     invert_boolean?:boolean
     name?:string
     object?:GObject.Object
@@ -6747,7 +6709,6 @@ export declare class PropertyAction_Static {
 }
 export declare var PropertyAction: PropertyAction_Static
 export interface ProxyAddress_ConstructProps extends InetSocketAddress_ConstructProps {
-    /* Properties of Gio.ProxyAddress */
     destination_hostname?:string
     destination_port?:number
     destination_protocol?:string
@@ -6836,7 +6797,6 @@ export declare class ProxyAddress_Static {
 }
 export declare var ProxyAddress: ProxyAddress_Static
 export interface ProxyAddressEnumerator_ConstructProps extends SocketAddressEnumerator_ConstructProps {
-    /* Properties of Gio.ProxyAddressEnumerator */
     connectable?:SocketConnectable
     default_port?:number
     proxy_resolver?:ProxyResolver
@@ -6985,7 +6945,6 @@ export declare class Resolver_Static {
 }
 export declare var Resolver: Resolver_Static
 export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.Settings */
     path?:string
     schema?:string
     schema_id?:string
@@ -7102,7 +7061,6 @@ export declare class Settings_Static {
 }
 export declare var Settings: Settings_Static
 export interface SimpleAction_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.SimpleAction */
     enabled?:boolean
     name?:string
     parameter_type?:GLib.VariantType
@@ -7293,7 +7251,6 @@ export declare class SimpleAsyncResult_Static {
 }
 export declare var SimpleAsyncResult: SimpleAsyncResult_Static
 export interface SimpleIOStream_ConstructProps extends IOStream_ConstructProps {
-    /* Properties of Gio.SimpleIOStream */
     input_stream?:InputStream
     output_stream?:OutputStream
 }
@@ -7452,7 +7409,6 @@ export declare class SimplePermission_Static {
 }
 export declare var SimplePermission: SimplePermission_Static
 export interface SimpleProxyResolver_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.SimpleProxyResolver */
     default_proxy?:string
     ignore_hosts?:string[]
 }
@@ -7517,7 +7473,6 @@ export declare class SimpleProxyResolver_Static {
 }
 export declare var SimpleProxyResolver: SimpleProxyResolver_Static
 export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.Socket */
     blocking?:boolean
     broadcast?:boolean
     family?:SocketFamily
@@ -7658,7 +7613,6 @@ export declare class Socket_Static {
 }
 export declare var Socket: Socket_Static
 export interface SocketAddress_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.SocketAddress */
 }
 export interface SocketAddress {
     /* Properties of Gio.SocketAddress */
@@ -7779,7 +7733,6 @@ export interface SocketAddressEnumerator_Static {
 }
 export declare var SocketAddressEnumerator: SocketAddressEnumerator_Static
 export interface SocketClient_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.SocketClient */
     enable_proxy?:boolean
     family?:SocketFamily
     local_address?:SocketAddress
@@ -7897,7 +7850,6 @@ export declare class SocketClient_Static {
 }
 export declare var SocketClient: SocketClient_Static
 export interface SocketConnection_ConstructProps extends IOStream_ConstructProps {
-    /* Properties of Gio.SocketConnection */
     socket?:Socket
 }
 export interface SocketConnection {
@@ -8050,7 +8002,6 @@ export declare class SocketControlMessage_Static {
 }
 export declare var SocketControlMessage: SocketControlMessage_Static
 export interface SocketListener_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.SocketListener */
     listen_backlog?:number
 }
 export interface SocketListener {
@@ -8126,7 +8077,6 @@ export declare class SocketListener_Static {
 }
 export declare var SocketListener: SocketListener_Static
 export interface SocketService_ConstructProps extends SocketListener_ConstructProps {
-    /* Properties of Gio.SocketService */
     active?:boolean
 }
 export interface SocketService {
@@ -8214,7 +8164,6 @@ export declare class SocketService_Static {
 }
 export declare var SocketService: SocketService_Static
 export interface Subprocess_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.Subprocess */
     argv?:string[]
     flags?:SubprocessFlags
 }
@@ -8293,7 +8242,6 @@ export declare class Subprocess_Static {
 }
 export declare var Subprocess: Subprocess_Static
 export interface SubprocessLauncher_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.SubprocessLauncher */
     flags?:SubprocessFlags
 }
 export interface SubprocessLauncher {
@@ -8362,7 +8310,6 @@ export declare class SubprocessLauncher_Static {
 }
 export declare var SubprocessLauncher: SubprocessLauncher_Static
 export interface Task_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.Task */
 }
 export interface Task {
     /* Properties of Gio.Task */
@@ -8442,7 +8389,6 @@ export declare class Task_Static {
 }
 export declare var Task: Task_Static
 export interface TcpConnection_ConstructProps extends SocketConnection_ConstructProps {
-    /* Properties of Gio.TcpConnection */
     graceful_disconnect?:boolean
 }
 export interface TcpConnection {
@@ -8535,7 +8481,6 @@ export interface TcpConnection_Static {
 }
 export declare var TcpConnection: TcpConnection_Static
 export interface TcpWrapperConnection_ConstructProps extends TcpConnection_ConstructProps {
-    /* Properties of Gio.TcpWrapperConnection */
     base_io_stream?:IOStream
 }
 export interface TcpWrapperConnection {
@@ -8635,7 +8580,6 @@ export declare class TcpWrapperConnection_Static {
 }
 export declare var TcpWrapperConnection: TcpWrapperConnection_Static
 export interface TestDBus_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.TestDBus */
     flags?:TestDBusFlags
 }
 export interface TestDBus {
@@ -8696,7 +8640,6 @@ export declare class TestDBus_Static {
 }
 export declare var TestDBus: TestDBus_Static
 export interface ThemedIcon_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.ThemedIcon */
     name?:string
     names?:string[]
     use_default_fallbacks?:boolean
@@ -8757,7 +8700,6 @@ export declare class ThemedIcon_Static {
 }
 export declare var ThemedIcon: ThemedIcon_Static
 export interface ThreadedSocketService_ConstructProps extends SocketService_ConstructProps {
-    /* Properties of Gio.ThreadedSocketService */
     max_threads?:number
 }
 export interface ThreadedSocketService {
@@ -8851,7 +8793,6 @@ export declare class ThreadedSocketService_Static {
 }
 export declare var ThreadedSocketService: ThreadedSocketService_Static
 export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.TlsCertificate */
     certificate?:object[]
     certificate_pem?:string
     issuer?:TlsCertificate
@@ -8920,7 +8861,6 @@ export declare class TlsCertificate_Static {
 }
 export declare var TlsCertificate: TlsCertificate_Static
 export interface TlsConnection_ConstructProps extends IOStream_ConstructProps {
-    /* Properties of Gio.TlsConnection */
     base_io_stream?:IOStream
     certificate?:TlsCertificate
     database?:TlsDatabase
@@ -9190,7 +9130,6 @@ export interface TlsInteraction_Static {
 }
 export declare var TlsInteraction: TlsInteraction_Static
 export interface TlsPassword_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.TlsPassword */
     description?:string
     flags?:TlsPasswordFlags
     warning?:string
@@ -9362,7 +9301,6 @@ export interface UnixConnection_Static {
 }
 export declare var UnixConnection: UnixConnection_Static
 export interface UnixCredentialsMessage_ConstructProps extends SocketControlMessage_ConstructProps {
-    /* Properties of Gio.UnixCredentialsMessage */
     credentials?:Credentials
 }
 export interface UnixCredentialsMessage {
@@ -9493,7 +9431,6 @@ export declare class UnixFDList_Static {
 }
 export declare var UnixFDList: UnixFDList_Static
 export interface UnixFDMessage_ConstructProps extends SocketControlMessage_ConstructProps {
-    /* Properties of Gio.UnixFDMessage */
     fd_list?:UnixFDList
 }
 export interface UnixFDMessage {
@@ -9565,7 +9502,6 @@ export declare class UnixFDMessage_Static {
 }
 export declare var UnixFDMessage: UnixFDMessage_Static
 export interface UnixInputStream_ConstructProps extends InputStream_ConstructProps {
-    /* Properties of Gio.UnixInputStream */
     close_fd?:boolean
     fd?:number
 }
@@ -9715,7 +9651,6 @@ export declare class UnixMountMonitor_Static {
 }
 export declare var UnixMountMonitor: UnixMountMonitor_Static
 export interface UnixOutputStream_ConstructProps extends OutputStream_ConstructProps {
-    /* Properties of Gio.UnixOutputStream */
     close_fd?:boolean
     fd?:number
 }
@@ -9816,7 +9751,6 @@ export declare class UnixOutputStream_Static {
 }
 export declare var UnixOutputStream: UnixOutputStream_Static
 export interface UnixSocketAddress_ConstructProps extends SocketAddress_ConstructProps {
-    /* Properties of Gio.UnixSocketAddress */
     abstract?:boolean
     address_type?:UnixSocketAddressType
     path?:string
@@ -10056,7 +9990,6 @@ export declare class VolumeMonitor_Static {
 }
 export declare var VolumeMonitor: VolumeMonitor_Static
 export interface ZlibCompressor_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.ZlibCompressor */
     file_info?:FileInfo
     format?:ZlibCompressorFormat
     level?:number
@@ -10116,7 +10049,6 @@ export declare class ZlibCompressor_Static {
 }
 export declare var ZlibCompressor: ZlibCompressor_Static
 export interface ZlibDecompressor_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gio.ZlibDecompressor */
     format?:ZlibCompressorFormat
 }
 export interface ZlibDecompressor {

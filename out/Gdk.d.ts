@@ -2863,7 +2863,6 @@ export interface WindowInvalidateHandlerFunc {
     (window: Window, region: cairo.Region): void
 }
 export interface AppLaunchContext_ConstructProps extends Gio.AppLaunchContext_ConstructProps {
-    /* Properties of Gdk.AppLaunchContext */
     display?:Display
 }
 export interface AppLaunchContext {
@@ -2941,7 +2940,6 @@ export declare class AppLaunchContext_Static {
 }
 export declare var AppLaunchContext: AppLaunchContext_Static
 export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gdk.Cursor */
     cursor_type?:CursorType
     display?:Display
 }
@@ -3004,7 +3002,6 @@ export declare class Cursor_Static {
 }
 export declare var Cursor: Cursor_Static
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gdk.Device */
     device_manager?:DeviceManager
     display?:Display
     has_cursor?:boolean
@@ -3100,7 +3097,6 @@ export declare class Device_Static {
 }
 export declare var Device: Device_Static
 export interface DeviceManager_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gdk.DeviceManager */
     display?:Display
 }
 export interface DeviceManager {
@@ -3252,7 +3248,6 @@ export declare class Display_Static {
 }
 export declare var Display: Display_Static
 export interface DisplayManager_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gdk.DisplayManager */
     default_display?:Display
 }
 export interface DisplayManager {
@@ -3436,7 +3431,6 @@ export interface FrameClock_Static {
 }
 export declare var FrameClock: FrameClock_Static
 export interface GLContext_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gdk.GLContext */
     display?:Display
     shared_context?:GLContext
     window?:Window
@@ -3574,7 +3568,6 @@ export declare class Keymap_Static {
 }
 export declare var Keymap: Keymap_Static
 export interface Screen_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gdk.Screen */
     font_options?:object
     resolution?:number
 }
@@ -3737,7 +3730,6 @@ export declare class Visual_Static {
 }
 export declare var Visual: Visual_Static
 export interface Window_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Gdk.Window */
     cursor?:Cursor
 }
 export interface Window {

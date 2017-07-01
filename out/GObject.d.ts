@@ -318,7 +318,6 @@ export interface TypePlugin_Static {
 }
 export declare var TypePlugin: TypePlugin_Static
 export interface Binding_ConstructProps extends Object_ConstructProps {
-    /* Properties of GObject.Binding */
     flags?:BindingFlags
     source?:Object
     source_property?:string

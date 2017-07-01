@@ -601,7 +601,6 @@ export interface SessionFeature_Static {
 }
 export declare var SessionFeature: SessionFeature_Static
 export interface Address_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.Address */
     family?:AddressFamily
     name?:string
     port?:number
@@ -677,7 +676,6 @@ export declare class Address_Static {
 }
 export declare var Address: Address_Static
 export interface Auth_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.Auth */
     host?:string
     is_for_proxy?:boolean
     realm?:string
@@ -927,7 +925,6 @@ export interface AuthDigest_Static {
 }
 export declare var AuthDigest: AuthDigest_Static
 export interface AuthDomain_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.AuthDomain */
     add_path?:string
     filter?:object
     filter_data?:object
@@ -1013,7 +1010,6 @@ export interface AuthDomain_Static {
 }
 export declare var AuthDomain: AuthDomain_Static
 export interface AuthDomainBasic_ConstructProps extends AuthDomain_ConstructProps {
-    /* Properties of Soup.AuthDomainBasic */
     auth_callback?:object
     auth_data?:object
 }
@@ -1099,7 +1095,6 @@ export interface AuthDomainBasic_Static {
 }
 export declare var AuthDomainBasic: AuthDomainBasic_Static
 export interface AuthDomainDigest_ConstructProps extends AuthDomain_ConstructProps {
-    /* Properties of Soup.AuthDomainDigest */
     auth_callback?:object
     auth_data?:object
 }
@@ -1325,7 +1320,6 @@ export interface AuthNTLM_Static {
 }
 export declare var AuthNTLM: AuthNTLM_Static
 export interface Cache_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.Cache */
     cache_dir?:string
     cache_type?:CacheType
 }
@@ -1500,7 +1494,6 @@ export declare class ContentSniffer_Static {
 }
 export declare var ContentSniffer: ContentSniffer_Static
 export interface CookieJar_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.CookieJar */
     accept_policy?:CookieJarAcceptPolicy
     read_only?:boolean
 }
@@ -1577,7 +1570,6 @@ export declare class CookieJar_Static {
 }
 export declare var CookieJar: CookieJar_Static
 export interface CookieJarDB_ConstructProps extends CookieJar_ConstructProps {
-    /* Properties of Soup.CookieJarDB */
     filename?:string
 }
 export interface CookieJarDB {
@@ -1655,7 +1647,6 @@ export declare class CookieJarDB_Static {
 }
 export declare var CookieJarDB: CookieJarDB_Static
 export interface CookieJarText_ConstructProps extends CookieJar_ConstructProps {
-    /* Properties of Soup.CookieJarText */
     filename?:string
 }
 export interface CookieJarText {
@@ -1791,7 +1782,6 @@ export declare class Logger_Static {
 }
 export declare var Logger: Logger_Static
 export interface Message_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.Message */
     first_party?:URI
     flags?:MessageFlags
     http_version?:HTTPVersion
@@ -1951,7 +1941,6 @@ export declare class Message_Static {
 }
 export declare var Message: Message_Static
 export interface MultipartInputStream_ConstructProps extends Gio.FilterInputStream_ConstructProps {
-    /* Properties of Soup.MultipartInputStream */
     message?:Message
 }
 export interface MultipartInputStream {
@@ -2052,7 +2041,6 @@ export declare class MultipartInputStream_Static {
 }
 export declare var MultipartInputStream: MultipartInputStream_Static
 export interface ProxyResolverDefault_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.ProxyResolverDefault */
     gproxy_resolver?:Gio.ProxyResolver
 }
 export interface ProxyResolverDefault {
@@ -2106,7 +2094,6 @@ export interface ProxyResolverDefault_Static {
 }
 export declare var ProxyResolverDefault: ProxyResolverDefault_Static
 export interface Request_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.Request */
     session?:Session
     uri?:URI
 }
@@ -2436,7 +2423,6 @@ export declare class Requester_Static {
 }
 export declare var Requester: Requester_Static
 export interface Server_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.Server */
     async_context?:object
     http_aliases?:string[]
     https_aliases?:string[]
@@ -2539,7 +2525,6 @@ export interface Server_Static {
 }
 export declare var Server: Server_Static
 export interface Session_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.Session */
     accept_language?:string
     accept_language_auto?:boolean
     async_context?:object
@@ -2973,7 +2958,6 @@ export declare class SessionSync_Static {
 }
 export declare var SessionSync: SessionSync_Static
 export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.Socket */
     async_context?:object
     fd?:number
     gsocket?:Gio.Socket
@@ -3079,7 +3063,6 @@ export interface Socket_Static {
 }
 export declare var Socket: Socket_Static
 export interface WebsocketConnection_ConstructProps extends GObject.Object_ConstructProps {
-    /* Properties of Soup.WebsocketConnection */
     connection_type?:WebsocketConnectionType
     io_stream?:Gio.IOStream
     origin?:string

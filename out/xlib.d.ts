@@ -7,51 +7,61 @@ export function open_display(): void
 export interface Display {
 }
 export interface Display_Static {
+    name: string
 }
 export declare var Display: Display_Static
 export interface Screen {
 }
 export interface Screen_Static {
+    name: string
 }
 export declare var Screen: Screen_Static
 export interface Visual {
 }
 export interface Visual_Static {
+    name: string
 }
 export declare var Visual: Visual_Static
 export interface XConfigureEvent {
 }
 export interface XConfigureEvent_Static {
+    name: string
 }
 export declare var XConfigureEvent: XConfigureEvent_Static
 export interface XImage {
 }
 export interface XImage_Static {
+    name: string
 }
 export declare var XImage: XImage_Static
 export interface XFontStruct {
 }
 export interface XFontStruct_Static {
+    name: string
 }
 export declare var XFontStruct: XFontStruct_Static
 export interface XTrapezoid {
 }
 export interface XTrapezoid_Static {
+    name: string
 }
 export declare var XTrapezoid: XTrapezoid_Static
 export interface XVisualInfo {
 }
 export interface XVisualInfo_Static {
+    name: string
 }
 export declare var XVisualInfo: XVisualInfo_Static
 export interface XWindowAttributes {
 }
 export interface XWindowAttributes_Static {
+    name: string
 }
 export declare var XWindowAttributes: XWindowAttributes_Static
 export interface XEvent {
 }
 export interface XEvent_Static {
+    name: string
 }
 export declare var XEvent: XEvent_Static
 type Atom = number

@@ -564,6 +564,7 @@ export interface PasswordManager {
     vfunc_get_passwords_sync(msg: Message, auth: Auth, cancellable: Gio.Cancellable | null): void
 }
 export interface PasswordManager_Static {
+    name: string
 }
 export declare var PasswordManager: PasswordManager_Static
 export interface ProxyURIResolver {
@@ -575,6 +576,7 @@ export interface ProxyURIResolver {
     vfunc_get_proxy_uri_sync(uri: URI, cancellable: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
 }
 export interface ProxyURIResolver_Static {
+    name: string
 }
 export declare var ProxyURIResolver: ProxyURIResolver_Static
 export interface SessionFeature {
@@ -595,6 +597,7 @@ export interface SessionFeature {
     vfunc_request_unqueued(session: Session, msg: Message): void
 }
 export interface SessionFeature_Static {
+    name: string
 }
 export declare var SessionFeature: SessionFeature_Static
 export interface Address_ConstructProps {
@@ -664,6 +667,7 @@ export interface Address {
     connect(sigName: "notify::physical", callback: ((obj: Address, pspec: GObject.ParamSpec) => void))
 }
 export interface Address_Static {
+    name: string
     new (config: Address_ConstructProps): Address
 }
 export declare class Address_Static {
@@ -753,6 +757,7 @@ export interface Auth {
     connect(sigName: "notify::scheme-name", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void))
 }
 export interface Auth_Static {
+    name: string
     new (config: Auth_ConstructProps): Auth
 }
 export declare class Auth_Static {
@@ -840,6 +845,7 @@ export interface AuthBasic {
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthBasic_Static {
+    name: string
     new (config: AuthBasic_ConstructProps): AuthBasic
 }
 export declare var AuthBasic: AuthBasic_Static
@@ -924,6 +930,7 @@ export interface AuthDigest {
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthDigest_Static {
+    name: string
     new (config: AuthDigest_ConstructProps): AuthDigest
 }
 export declare var AuthDigest: AuthDigest_Static
@@ -1009,6 +1016,7 @@ export interface AuthDomain {
     connect(sigName: "notify::remove-path", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthDomain_Static {
+    name: string
     new (config: AuthDomain_ConstructProps): AuthDomain
 }
 export declare var AuthDomain: AuthDomain_Static
@@ -1103,6 +1111,7 @@ export interface AuthDomainBasic {
     connect(sigName: "notify::remove-path", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthDomainBasic_Static {
+    name: string
     new (config: AuthDomainBasic_ConstructProps): AuthDomainBasic
 }
 export declare var AuthDomainBasic: AuthDomainBasic_Static
@@ -1197,6 +1206,7 @@ export interface AuthDomainDigest {
     connect(sigName: "notify::remove-path", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthDomainDigest_Static {
+    name: string
     new (config: AuthDomainDigest_ConstructProps): AuthDomainDigest
 }
 export declare class AuthDomainDigest_Static {
@@ -1255,6 +1265,7 @@ export interface AuthManager {
     connect(sigName: "notify", callback: ((obj: AuthManager, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthManager_Static {
+    name: string
     new (config: AuthManager_ConstructProps): AuthManager
 }
 export declare var AuthManager: AuthManager_Static
@@ -1339,6 +1350,7 @@ export interface AuthNTLM {
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void))
 }
 export interface AuthNTLM_Static {
+    name: string
     new (config: AuthNTLM_ConstructProps): AuthNTLM
 }
 export declare var AuthNTLM: AuthNTLM_Static
@@ -1401,6 +1413,7 @@ export interface Cache {
     connect(sigName: "notify", callback: ((obj: Cache, pspec: GObject.ParamSpec) => void))
 }
 export interface Cache_Static {
+    name: string
     new (config: Cache_ConstructProps): Cache
 }
 export declare class Cache_Static {
@@ -1453,6 +1466,7 @@ export interface ContentDecoder {
     connect(sigName: "notify", callback: ((obj: ContentDecoder, pspec: GObject.ParamSpec) => void))
 }
 export interface ContentDecoder_Static {
+    name: string
     new (config: ContentDecoder_ConstructProps): ContentDecoder
 }
 export declare var ContentDecoder: ContentDecoder_Static
@@ -1508,6 +1522,7 @@ export interface ContentSniffer {
     connect(sigName: "notify", callback: ((obj: ContentSniffer, pspec: GObject.ParamSpec) => void))
 }
 export interface ContentSniffer_Static {
+    name: string
     new (config: ContentSniffer_ConstructProps): ContentSniffer
 }
 export declare class ContentSniffer_Static {
@@ -1584,6 +1599,7 @@ export interface CookieJar {
     connect(sigName: "notify::accept-policy", callback: ((obj: CookieJar, pspec: GObject.ParamSpec) => void))
 }
 export interface CookieJar_Static {
+    name: string
     new (config: CookieJar_ConstructProps): CookieJar
 }
 export declare class CookieJar_Static {
@@ -1664,6 +1680,7 @@ export interface CookieJarDB {
     connect(sigName: "notify::accept-policy", callback: ((obj: CookieJarDB, pspec: GObject.ParamSpec) => void))
 }
 export interface CookieJarDB_Static {
+    name: string
     new (config: CookieJarDB_ConstructProps): CookieJarDB
 }
 export declare class CookieJarDB_Static {
@@ -1744,6 +1761,7 @@ export interface CookieJarText {
     connect(sigName: "notify::accept-policy", callback: ((obj: CookieJarText, pspec: GObject.ParamSpec) => void))
 }
 export interface CookieJarText_Static {
+    name: string
     new (config: CookieJarText_ConstructProps): CookieJarText
 }
 export declare class CookieJarText_Static {
@@ -1801,6 +1819,7 @@ export interface Logger {
     connect(sigName: "notify", callback: ((obj: Logger, pspec: GObject.ParamSpec) => void))
 }
 export interface Logger_Static {
+    name: string
     new (config: Logger_ConstructProps): Logger
 }
 export declare class Logger_Static {
@@ -1959,6 +1978,7 @@ export interface Message {
     connect(sigName: "notify::uri", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
 }
 export interface Message_Static {
+    name: string
     new (config: Message_ConstructProps): Message
 }
 export declare class Message_Static {
@@ -2063,6 +2083,7 @@ export interface MultipartInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: MultipartInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface MultipartInputStream_Static {
+    name: string
     new (config: MultipartInputStream_ConstructProps): MultipartInputStream
 }
 export declare class MultipartInputStream_Static {
@@ -2119,6 +2140,7 @@ export interface ProxyResolverDefault {
     connect(sigName: "notify::gproxy-resolver", callback: ((obj: ProxyResolverDefault, pspec: GObject.ParamSpec) => void))
 }
 export interface ProxyResolverDefault_Static {
+    name: string
     new (config: ProxyResolverDefault_ConstructProps): ProxyResolverDefault
 }
 export declare var ProxyResolverDefault: ProxyResolverDefault_Static
@@ -2187,6 +2209,7 @@ export interface Request {
     connect(sigName: "notify", callback: ((obj: Request, pspec: GObject.ParamSpec) => void))
 }
 export interface Request_Static {
+    name: string
     new (config: Request_ConstructProps): Request
 }
 export declare var Request: Request_Static
@@ -2256,6 +2279,7 @@ export interface RequestData {
     connect(sigName: "notify", callback: ((obj: RequestData, pspec: GObject.ParamSpec) => void))
 }
 export interface RequestData_Static {
+    name: string
     new (config: RequestData_ConstructProps): RequestData
 }
 export declare var RequestData: RequestData_Static
@@ -2327,6 +2351,7 @@ export interface RequestFile {
     connect(sigName: "notify", callback: ((obj: RequestFile, pspec: GObject.ParamSpec) => void))
 }
 export interface RequestFile_Static {
+    name: string
     new (config: RequestFile_ConstructProps): RequestFile
 }
 export declare var RequestFile: RequestFile_Static
@@ -2398,6 +2423,7 @@ export interface RequestHTTP {
     connect(sigName: "notify", callback: ((obj: RequestHTTP, pspec: GObject.ParamSpec) => void))
 }
 export interface RequestHTTP_Static {
+    name: string
     new (config: RequestHTTP_ConstructProps): RequestHTTP
 }
 export declare var RequestHTTP: RequestHTTP_Static
@@ -2450,6 +2476,7 @@ export interface Requester {
     connect(sigName: "notify", callback: ((obj: Requester, pspec: GObject.ParamSpec) => void))
 }
 export interface Requester_Static {
+    name: string
     new (config: Requester_ConstructProps): Requester
 }
 export declare class Requester_Static {
@@ -2555,6 +2582,7 @@ export interface Server {
     connect(sigName: "notify::server-header", callback: ((obj: Server, pspec: GObject.ParamSpec) => void))
 }
 export interface Server_Static {
+    name: string
     new (config: Server_ConstructProps): Server
 }
 export declare var Server: Server_Static
@@ -2709,6 +2737,7 @@ export interface Session {
     connect(sigName: "notify::user-agent", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
 }
 export interface Session_Static {
+    name: string
     new (config: Session_ConstructProps): Session
 }
 export declare class Session_Static {
@@ -2867,6 +2896,7 @@ export interface SessionAsync {
     connect(sigName: "notify::user-agent", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
 }
 export interface SessionAsync_Static {
+    name: string
     new (config: SessionAsync_ConstructProps): SessionAsync
 }
 export declare class SessionAsync_Static {
@@ -3025,6 +3055,7 @@ export interface SessionSync {
     connect(sigName: "notify::user-agent", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
 }
 export interface SessionSync_Static {
+    name: string
     new (config: SessionSync_ConstructProps): SessionSync
 }
 export declare class SessionSync_Static {
@@ -3133,6 +3164,7 @@ export interface Socket {
     connect(sigName: "notify::trusted-certificate", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
 }
 export interface Socket_Static {
+    name: string
     new (config: Socket_ConstructProps): Socket
 }
 export declare var Socket: Socket_Static
@@ -3213,6 +3245,7 @@ export interface WebsocketConnection {
     connect(sigName: "notify::state", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface WebsocketConnection_Static {
+    name: string
     new (config: WebsocketConnection_ConstructProps): WebsocketConnection
 }
 export declare class WebsocketConnection_Static {
@@ -3224,6 +3257,7 @@ export interface AddressClass {
     parent_class:GObject.ObjectClass
 }
 export interface AddressClass_Static {
+    name: string
 }
 export declare var AddressClass: AddressClass_Static
 export interface AuthClass {
@@ -3239,6 +3273,7 @@ export interface AuthClass {
     is_ready:any
 }
 export interface AuthClass_Static {
+    name: string
 }
 export declare var AuthClass: AuthClass_Static
 export interface AuthDomainBasicClass {
@@ -3246,6 +3281,7 @@ export interface AuthDomainBasicClass {
     parent_class:AuthDomainClass
 }
 export interface AuthDomainBasicClass_Static {
+    name: string
 }
 export declare var AuthDomainBasicClass: AuthDomainBasicClass_Static
 export interface AuthDomainClass {
@@ -3256,6 +3292,7 @@ export interface AuthDomainClass {
     check_password:any
 }
 export interface AuthDomainClass_Static {
+    name: string
 }
 export declare var AuthDomainClass: AuthDomainClass_Static
 export interface AuthDomainDigestClass {
@@ -3263,6 +3300,7 @@ export interface AuthDomainDigestClass {
     parent_class:AuthDomainClass
 }
 export interface AuthDomainDigestClass_Static {
+    name: string
 }
 export declare var AuthDomainDigestClass: AuthDomainDigestClass_Static
 export interface AuthManagerClass {
@@ -3271,11 +3309,13 @@ export interface AuthManagerClass {
     authenticate:any
 }
 export interface AuthManagerClass_Static {
+    name: string
 }
 export declare var AuthManagerClass: AuthManagerClass_Static
 export interface AuthManagerPrivate {
 }
 export interface AuthManagerPrivate_Static {
+    name: string
 }
 export declare var AuthManagerPrivate: AuthManagerPrivate_Static
 export interface Buffer {
@@ -3291,6 +3331,7 @@ export interface Buffer {
     new_subbuffer(offset: number, length: number): Buffer
 }
 export interface Buffer_Static {
+    name: string
 }
 export declare class Buffer_Static {
     new(use: MemoryUse, data: Gjs.byteArray.ByteArray[], length: number): Buffer
@@ -3304,11 +3345,13 @@ export interface CacheClass {
     get_cacheability:any
 }
 export interface CacheClass_Static {
+    name: string
 }
 export declare var CacheClass: CacheClass_Static
 export interface CachePrivate {
 }
 export interface CachePrivate_Static {
+    name: string
 }
 export declare var CachePrivate: CachePrivate_Static
 export interface ClientContext {
@@ -3324,11 +3367,13 @@ export interface ClientContext {
     steal_connection(): Gio.IOStream
 }
 export interface ClientContext_Static {
+    name: string
 }
 export declare var ClientContext: ClientContext_Static
 export interface Connection {
 }
 export interface Connection_Static {
+    name: string
 }
 export declare var Connection: Connection_Static
 export interface ContentDecoderClass {
@@ -3336,11 +3381,13 @@ export interface ContentDecoderClass {
     parent_class:GObject.ObjectClass
 }
 export interface ContentDecoderClass_Static {
+    name: string
 }
 export declare var ContentDecoderClass: ContentDecoderClass_Static
 export interface ContentDecoderPrivate {
 }
 export interface ContentDecoderPrivate_Static {
+    name: string
 }
 export declare var ContentDecoderPrivate: ContentDecoderPrivate_Static
 export interface ContentSnifferClass {
@@ -3350,11 +3397,13 @@ export interface ContentSnifferClass {
     get_buffer_size:any
 }
 export interface ContentSnifferClass_Static {
+    name: string
 }
 export declare var ContentSnifferClass: ContentSnifferClass_Static
 export interface ContentSnifferPrivate {
 }
 export interface ContentSnifferPrivate_Static {
+    name: string
 }
 export declare var ContentSnifferPrivate: ContentSnifferPrivate_Static
 export interface Cookie {
@@ -3391,6 +3440,7 @@ export interface Cookie {
     to_set_cookie_header(): string
 }
 export interface Cookie_Static {
+    name: string
 }
 export declare class Cookie_Static {
     new(name: string, value: string, domain: string, path: string, max_age: number): Cookie
@@ -3405,6 +3455,7 @@ export interface CookieJarClass {
     changed:any
 }
 export interface CookieJarClass_Static {
+    name: string
 }
 export declare var CookieJarClass: CookieJarClass_Static
 export interface CookieJarDBClass {
@@ -3412,6 +3463,7 @@ export interface CookieJarDBClass {
     parent_class:CookieJarClass
 }
 export interface CookieJarDBClass_Static {
+    name: string
 }
 export declare var CookieJarDBClass: CookieJarDBClass_Static
 export interface CookieJarTextClass {
@@ -3419,6 +3471,7 @@ export interface CookieJarTextClass {
     parent_class:CookieJarClass
 }
 export interface CookieJarTextClass_Static {
+    name: string
 }
 export declare var CookieJarTextClass: CookieJarTextClass_Static
 export interface Date {
@@ -3448,6 +3501,7 @@ export interface Date {
     to_timeval(): /* time */ GLib.TimeVal
 }
 export interface Date_Static {
+    name: string
 }
 export declare class Date_Static {
     new(year: number, month: number, day: number, hour: number, minute: number, second: number): Date
@@ -3461,6 +3515,7 @@ export interface LoggerClass {
     parent_class:GObject.ObjectClass
 }
 export interface LoggerClass_Static {
+    name: string
 }
 export declare var LoggerClass: LoggerClass_Static
 export interface MessageBody {
@@ -3482,6 +3537,7 @@ export interface MessageBody {
     wrote_chunk(chunk: Buffer): void
 }
 export interface MessageBody_Static {
+    name: string
 }
 export declare class MessageBody_Static {
     new(): MessageBody
@@ -3503,6 +3559,7 @@ export interface MessageClass {
     starting:any
 }
 export interface MessageClass_Static {
+    name: string
 }
 export declare var MessageClass: MessageClass_Static
 export interface MessageHeaders {
@@ -3538,6 +3595,7 @@ export interface MessageHeaders {
     set_ranges(ranges: Range, length: number): void
 }
 export interface MessageHeaders_Static {
+    name: string
 }
 export declare class MessageHeaders_Static {
     new(type: MessageHeadersType): MessageHeaders
@@ -3550,6 +3608,7 @@ export interface MessageHeadersIter {
     next(): [ /* returnType */ boolean, /* name */ string, /* value */ string ]
 }
 export interface MessageHeadersIter_Static {
+    name: string
 }
 export declare class MessageHeadersIter_Static {
     init(hdrs: MessageHeaders): /* iter */ MessageHeadersIter
@@ -3558,11 +3617,13 @@ export declare var MessageHeadersIter: MessageHeadersIter_Static
 export interface MessageQueue {
 }
 export interface MessageQueue_Static {
+    name: string
 }
 export declare var MessageQueue: MessageQueue_Static
 export interface MessageQueueItem {
 }
 export interface MessageQueueItem_Static {
+    name: string
 }
 export declare var MessageQueueItem: MessageQueueItem_Static
 export interface Multipart {
@@ -3576,6 +3637,7 @@ export interface Multipart {
     to_message(dest_headers: MessageHeaders, dest_body: MessageBody): void
 }
 export interface Multipart_Static {
+    name: string
 }
 export declare class Multipart_Static {
     new(mime_type: string): Multipart
@@ -3587,11 +3649,13 @@ export interface MultipartInputStreamClass {
     parent_class:Gio.FilterInputStreamClass
 }
 export interface MultipartInputStreamClass_Static {
+    name: string
 }
 export declare var MultipartInputStreamClass: MultipartInputStreamClass_Static
 export interface MultipartInputStreamPrivate {
 }
 export interface MultipartInputStreamPrivate_Static {
+    name: string
 }
 export declare var MultipartInputStreamPrivate: MultipartInputStreamPrivate_Static
 export interface PasswordManagerInterface {
@@ -3601,6 +3665,7 @@ export interface PasswordManagerInterface {
     get_passwords_sync:any
 }
 export interface PasswordManagerInterface_Static {
+    name: string
 }
 export declare var PasswordManagerInterface: PasswordManagerInterface_Static
 export interface ProxyResolverDefaultClass {
@@ -3608,6 +3673,7 @@ export interface ProxyResolverDefaultClass {
     parent_class:GObject.ObjectClass
 }
 export interface ProxyResolverDefaultClass_Static {
+    name: string
 }
 export declare var ProxyResolverDefaultClass: ProxyResolverDefaultClass_Static
 export interface ProxyURIResolverInterface {
@@ -3617,6 +3683,7 @@ export interface ProxyURIResolverInterface {
     get_proxy_uri_sync:any
 }
 export interface ProxyURIResolverInterface_Static {
+    name: string
 }
 export declare var ProxyURIResolverInterface: ProxyURIResolverInterface_Static
 export interface Range {
@@ -3625,6 +3692,7 @@ export interface Range {
     end:number
 }
 export interface Range_Static {
+    name: string
 }
 export declare var Range: Range_Static
 export interface RequestClass {
@@ -3639,6 +3707,7 @@ export interface RequestClass {
     get_content_type:any
 }
 export interface RequestClass_Static {
+    name: string
 }
 export declare var RequestClass: RequestClass_Static
 export interface RequestDataClass {
@@ -3646,11 +3715,13 @@ export interface RequestDataClass {
     parent:RequestClass
 }
 export interface RequestDataClass_Static {
+    name: string
 }
 export declare var RequestDataClass: RequestDataClass_Static
 export interface RequestDataPrivate {
 }
 export interface RequestDataPrivate_Static {
+    name: string
 }
 export declare var RequestDataPrivate: RequestDataPrivate_Static
 export interface RequestFileClass {
@@ -3658,11 +3729,13 @@ export interface RequestFileClass {
     parent:RequestClass
 }
 export interface RequestFileClass_Static {
+    name: string
 }
 export declare var RequestFileClass: RequestFileClass_Static
 export interface RequestFilePrivate {
 }
 export interface RequestFilePrivate_Static {
+    name: string
 }
 export declare var RequestFilePrivate: RequestFilePrivate_Static
 export interface RequestHTTPClass {
@@ -3670,16 +3743,19 @@ export interface RequestHTTPClass {
     parent:RequestClass
 }
 export interface RequestHTTPClass_Static {
+    name: string
 }
 export declare var RequestHTTPClass: RequestHTTPClass_Static
 export interface RequestHTTPPrivate {
 }
 export interface RequestHTTPPrivate_Static {
+    name: string
 }
 export declare var RequestHTTPPrivate: RequestHTTPPrivate_Static
 export interface RequestPrivate {
 }
 export interface RequestPrivate_Static {
+    name: string
 }
 export declare var RequestPrivate: RequestPrivate_Static
 export interface RequesterClass {
@@ -3687,11 +3763,13 @@ export interface RequesterClass {
     parent_class:GObject.ObjectClass
 }
 export interface RequesterClass_Static {
+    name: string
 }
 export declare var RequesterClass: RequesterClass_Static
 export interface RequesterPrivate {
 }
 export interface RequesterPrivate_Static {
+    name: string
 }
 export declare var RequesterPrivate: RequesterPrivate_Static
 export interface ServerClass {
@@ -3703,6 +3781,7 @@ export interface ServerClass {
     request_aborted:any
 }
 export interface ServerClass_Static {
+    name: string
 }
 export declare var ServerClass: ServerClass_Static
 export interface SessionAsyncClass {
@@ -3710,6 +3789,7 @@ export interface SessionAsyncClass {
     parent_class:SessionClass
 }
 export interface SessionAsyncClass_Static {
+    name: string
 }
 export declare var SessionAsyncClass: SessionAsyncClass_Static
 export interface SessionClass {
@@ -3726,6 +3806,7 @@ export interface SessionClass {
     kick:any
 }
 export interface SessionClass_Static {
+    name: string
 }
 export declare var SessionClass: SessionClass_Static
 export interface SessionFeatureInterface {
@@ -3741,6 +3822,7 @@ export interface SessionFeatureInterface {
     has_feature:any
 }
 export interface SessionFeatureInterface_Static {
+    name: string
 }
 export declare var SessionFeatureInterface: SessionFeatureInterface_Static
 export interface SessionSyncClass {
@@ -3748,6 +3830,7 @@ export interface SessionSyncClass {
     parent_class:SessionClass
 }
 export interface SessionSyncClass_Static {
+    name: string
 }
 export declare var SessionSyncClass: SessionSyncClass_Static
 export interface SocketClass {
@@ -3759,6 +3842,7 @@ export interface SocketClass {
     new_connection:any
 }
 export interface SocketClass_Static {
+    name: string
 }
 export declare var SocketClass: SocketClass_Static
 export interface URI {
@@ -3800,6 +3884,7 @@ export interface URI {
     uses_default_port(): boolean
 }
 export interface URI_Static {
+    name: string
 }
 export declare class URI_Static {
     new(uri_string: string | null): URI | null
@@ -3817,11 +3902,13 @@ export interface WebsocketConnectionClass {
     closed:any
 }
 export interface WebsocketConnectionClass_Static {
+    name: string
 }
 export declare var WebsocketConnectionClass: WebsocketConnectionClass_Static
 export interface WebsocketConnectionPrivate {
 }
 export interface WebsocketConnectionPrivate_Static {
+    name: string
 }
 export declare var WebsocketConnectionPrivate: WebsocketConnectionPrivate_Static
 export interface XMLRPCParams {
@@ -3830,5 +3917,6 @@ export interface XMLRPCParams {
     parse(signature: string | null): GLib.Variant
 }
 export interface XMLRPCParams_Static {
+    name: string
 }
 export declare var XMLRPCParams: XMLRPCParams_Static

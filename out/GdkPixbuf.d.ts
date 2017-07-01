@@ -154,6 +154,7 @@ export interface Pixbuf {
     connect(sigName: "notify", callback: ((obj: Pixbuf, pspec: GObject.ParamSpec) => void))
 }
 export interface Pixbuf_Static {
+    name: string
     new (config: Pixbuf_ConstructProps): Pixbuf
 }
 export declare class Pixbuf_Static {
@@ -229,6 +230,7 @@ export interface PixbufAnimation {
     connect(sigName: "notify", callback: ((obj: PixbufAnimation, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufAnimation_Static {
+    name: string
     new (config: PixbufAnimation_ConstructProps): PixbufAnimation
 }
 export declare class PixbufAnimation_Static {
@@ -287,6 +289,7 @@ export interface PixbufAnimationIter {
     connect(sigName: "notify", callback: ((obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufAnimationIter_Static {
+    name: string
     new (config: PixbufAnimationIter_ConstructProps): PixbufAnimationIter
 }
 export declare var PixbufAnimationIter: PixbufAnimationIter_Static
@@ -354,6 +357,7 @@ export interface PixbufLoader {
     connect(sigName: "notify", callback: ((obj: PixbufLoader, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufLoader_Static {
+    name: string
     new (config: PixbufLoader_ConstructProps): PixbufLoader
 }
 export declare class PixbufLoader_Static {
@@ -420,6 +424,7 @@ export interface PixbufSimpleAnim {
     connect(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufSimpleAnim_Static {
+    name: string
     new (config: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
 }
 export declare class PixbufSimpleAnim_Static {
@@ -474,6 +479,7 @@ export interface PixbufSimpleAnimIter {
     connect(sigName: "notify", callback: ((obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void))
 }
 export interface PixbufSimpleAnimIter_Static {
+    name: string
     new (config: PixbufSimpleAnimIter_ConstructProps): PixbufSimpleAnimIter
 }
 export declare var PixbufSimpleAnimIter: PixbufSimpleAnimIter_Static
@@ -492,6 +498,7 @@ export interface PixbufFormat {
     set_disabled(disabled: boolean): void
 }
 export interface PixbufFormat_Static {
+    name: string
 }
 export declare var PixbufFormat: PixbufFormat_Static
 export interface PixbufLoaderClass {
@@ -503,11 +510,13 @@ export interface PixbufLoaderClass {
     closed:any
 }
 export interface PixbufLoaderClass_Static {
+    name: string
 }
 export declare var PixbufLoaderClass: PixbufLoaderClass_Static
 export interface PixbufSimpleAnimClass {
 }
 export interface PixbufSimpleAnimClass_Static {
+    name: string
 }
 export declare var PixbufSimpleAnimClass: PixbufSimpleAnimClass_Static
 export interface Pixdata {
@@ -525,6 +534,7 @@ export interface Pixdata {
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String
 }
 export interface Pixdata_Static {
+    name: string
 }
 export declare var Pixdata: Pixdata_Static
 type PixbufAnimationIter_autoptr = object

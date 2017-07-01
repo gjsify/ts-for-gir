@@ -137,6 +137,7 @@ export interface CompletionProposal {
     connect(sigName: "changed", callback: ((obj: CompletionProposal) => void))
 }
 export interface CompletionProposal_Static {
+    name: string
 }
 export declare var CompletionProposal: CompletionProposal_Static
 export interface CompletionProvider {
@@ -170,6 +171,7 @@ export interface CompletionProvider {
     vfunc_update_info(proposal: CompletionProposal, info: CompletionInfo): void
 }
 export interface CompletionProvider_Static {
+    name: string
 }
 export declare var CompletionProvider: CompletionProvider_Static
 export interface StyleSchemeChooser {
@@ -183,6 +185,7 @@ export interface StyleSchemeChooser {
     vfunc_set_style_scheme(scheme: StyleScheme): void
 }
 export interface StyleSchemeChooser_Static {
+    name: string
 }
 export declare var StyleSchemeChooser: StyleSchemeChooser_Static
 export interface UndoManager {
@@ -209,6 +212,7 @@ export interface UndoManager {
     connect(sigName: "can-undo-changed", callback: ((obj: UndoManager) => void))
 }
 export interface UndoManager_Static {
+    name: string
 }
 export declare var UndoManager: UndoManager_Static
 export interface Buffer_ConstructProps {
@@ -441,6 +445,7 @@ export interface Buffer {
     connect(sigName: "notify::text", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
 }
 export interface Buffer_Static {
+    name: string
     new (config: Buffer_ConstructProps): Buffer
 }
 export declare class Buffer_Static {
@@ -548,6 +553,7 @@ export interface Completion {
     connect(sigName: "notify::show-icons", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
 }
 export interface Completion_Static {
+    name: string
     new (config: Completion_ConstructProps): Completion
 }
 export declare var Completion: Completion_Static
@@ -615,6 +621,7 @@ export interface CompletionContext {
     connect(sigName: "notify::iter", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void))
 }
 export interface CompletionContext_Static {
+    name: string
     new (config: CompletionContext_ConstructProps): CompletionContext
 }
 export declare var CompletionContext: CompletionContext_Static
@@ -1468,6 +1475,7 @@ export interface CompletionInfo {
     connect(sigName: "notify::window", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
 }
 export interface CompletionInfo_Static {
+    name: string
     new (config: CompletionInfo_ConstructProps): CompletionInfo
 }
 export declare class CompletionInfo_Static {
@@ -1543,6 +1551,7 @@ export interface CompletionItem {
     connect(sigName: "notify::text", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
 }
 export interface CompletionItem_Static {
+    name: string
     new (config: CompletionItem_ConstructProps): CompletionItem
 }
 export declare class CompletionItem_Static {
@@ -1626,6 +1635,7 @@ export interface CompletionWords {
     connect(sigName: "notify::scan-batch-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
 }
 export interface CompletionWords_Static {
+    name: string
     new (config: CompletionWords_ConstructProps): CompletionWords
 }
 export declare class CompletionWords_Static {
@@ -1702,6 +1712,7 @@ export interface File {
     connect(sigName: "notify::read-only", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
 }
 export interface File_Static {
+    name: string
     new (config: File_ConstructProps): File
 }
 export declare class File_Static {
@@ -1771,6 +1782,7 @@ export interface FileLoader {
     connect(sigName: "notify", callback: ((obj: FileLoader, pspec: GObject.ParamSpec) => void))
 }
 export interface FileLoader_Static {
+    name: string
     new (config: FileLoader_ConstructProps): FileLoader
 }
 export declare class FileLoader_Static {
@@ -1855,6 +1867,7 @@ export interface FileSaver {
     connect(sigName: "notify::newline-type", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
 }
 export interface FileSaver_Static {
+    name: string
     new (config: FileSaver_ConstructProps): FileSaver
 }
 export declare class FileSaver_Static {
@@ -1927,6 +1940,7 @@ export interface Gutter {
     connect(sigName: "notify::ypad", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
 }
 export interface Gutter_Static {
+    name: string
     new (config: Gutter_ConstructProps): Gutter
 }
 export declare var Gutter: Gutter_Static
@@ -2050,6 +2064,7 @@ export interface GutterRenderer {
     connect(sigName: "notify::ypad", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
 }
 export interface GutterRenderer_Static {
+    name: string
     new (config: GutterRenderer_ConstructProps): GutterRenderer
 }
 export declare var GutterRenderer: GutterRenderer_Static
@@ -2197,6 +2212,7 @@ export interface GutterRendererPixbuf {
     connect(sigName: "notify::ypad", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
 }
 export interface GutterRendererPixbuf_Static {
+    name: string
     new (config: GutterRendererPixbuf_ConstructProps): GutterRendererPixbuf
 }
 export declare class GutterRendererPixbuf_Static {
@@ -2337,6 +2353,7 @@ export interface GutterRendererText {
     connect(sigName: "notify::ypad", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
 }
 export interface GutterRendererText_Static {
+    name: string
     new (config: GutterRendererText_ConstructProps): GutterRendererText
 }
 export declare class GutterRendererText_Static {
@@ -2410,6 +2427,7 @@ export interface Language {
     connect(sigName: "notify::section", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
 }
 export interface Language_Static {
+    name: string
     new (config: Language_ConstructProps): Language
 }
 export declare var Language: Language_Static
@@ -2472,6 +2490,7 @@ export interface LanguageManager {
     connect(sigName: "notify::search-path", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
 }
 export interface LanguageManager_Static {
+    name: string
     new (config: LanguageManager_ConstructProps): LanguageManager
 }
 export declare class LanguageManager_Static {
@@ -3383,6 +3402,7 @@ export interface Map {
     connect(sigName: "notify::window", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
 }
 export interface Map_Static {
+    name: string
     new (config: Map_ConstructProps): Map
 }
 export declare class Map_Static {
@@ -3455,6 +3475,7 @@ export interface Mark {
     connect(sigName: "notify", callback: ((obj: Mark, pspec: GObject.ParamSpec) => void))
 }
 export interface Mark_Static {
+    name: string
     new (config: Mark_ConstructProps): Mark
 }
 export declare class Mark_Static {
@@ -3541,6 +3562,7 @@ export interface MarkAttributes {
     connect(sigName: "notify::stock-id", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
 }
 export interface MarkAttributes_Static {
+    name: string
     new (config: MarkAttributes_ConstructProps): MarkAttributes
 }
 export declare class MarkAttributes_Static {
@@ -3664,6 +3686,7 @@ export interface PrintCompositor {
     connect(sigName: "notify::wrap-mode", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
 }
 export interface PrintCompositor_Static {
+    name: string
     new (config: PrintCompositor_ConstructProps): PrintCompositor
 }
 export declare class PrintCompositor_Static {
@@ -3752,6 +3775,7 @@ export interface SearchContext {
     connect(sigName: "notify::settings", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
 }
 export interface SearchContext_Static {
+    name: string
     new (config: SearchContext_ConstructProps): SearchContext
 }
 export declare class SearchContext_Static {
@@ -3832,6 +3856,7 @@ export interface SearchSettings {
     connect(sigName: "notify::wrap-around", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
 }
 export interface SearchSettings_Static {
+    name: string
     new (config: SearchSettings_ConstructProps): SearchSettings
 }
 export declare class SearchSettings_Static {
@@ -3904,6 +3929,7 @@ export interface Style {
     connect(sigName: "notify", callback: ((obj: Style, pspec: GObject.ParamSpec) => void))
 }
 export interface Style_Static {
+    name: string
     new (config: Style_ConstructProps): Style
 }
 export declare var Style: Style_Static
@@ -3969,6 +3995,7 @@ export interface StyleScheme {
     connect(sigName: "notify::name", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
 }
 export interface StyleScheme_Static {
+    name: string
     new (config: StyleScheme_ConstructProps): StyleScheme
 }
 export declare var StyleScheme: StyleScheme_Static
@@ -4675,6 +4702,7 @@ export interface StyleSchemeChooserButton {
     connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
 }
 export interface StyleSchemeChooserButton_Static {
+    name: string
     new (config: StyleSchemeChooserButton_ConstructProps): StyleSchemeChooserButton
 }
 export declare class StyleSchemeChooserButton_Static {
@@ -5311,6 +5339,7 @@ export interface StyleSchemeChooserWidget {
     connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
 }
 export interface StyleSchemeChooserWidget_Static {
+    name: string
     new (config: StyleSchemeChooserWidget_ConstructProps): StyleSchemeChooserWidget
 }
 export declare class StyleSchemeChooserWidget_Static {
@@ -5378,6 +5407,7 @@ export interface StyleSchemeManager {
     connect(sigName: "notify::search-path", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
 }
 export interface StyleSchemeManager_Static {
+    name: string
     new (config: StyleSchemeManager_ConstructProps): StyleSchemeManager
 }
 export declare class StyleSchemeManager_Static {
@@ -6277,6 +6307,7 @@ export interface View {
     connect(sigName: "notify::window", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
 }
 export interface View_Static {
+    name: string
     new (config: View_ConstructProps): View
 }
 export declare class View_Static {
@@ -6292,11 +6323,13 @@ export interface BufferClass {
     bracket_matched:any
 }
 export interface BufferClass_Static {
+    name: string
 }
 export declare var BufferClass: BufferClass_Static
 export interface BufferPrivate {
 }
 export interface BufferPrivate_Static {
+    name: string
 }
 export declare var BufferPrivate: BufferPrivate_Static
 export interface CompletionClass {
@@ -6311,6 +6344,7 @@ export interface CompletionClass {
     activate_proposal:any
 }
 export interface CompletionClass_Static {
+    name: string
 }
 export declare var CompletionClass: CompletionClass_Static
 export interface CompletionContextClass {
@@ -6319,11 +6353,13 @@ export interface CompletionContextClass {
     cancelled:any
 }
 export interface CompletionContextClass_Static {
+    name: string
 }
 export declare var CompletionContextClass: CompletionContextClass_Static
 export interface CompletionContextPrivate {
 }
 export interface CompletionContextPrivate_Static {
+    name: string
 }
 export declare var CompletionContextPrivate: CompletionContextPrivate_Static
 export interface CompletionInfoClass {
@@ -6332,11 +6368,13 @@ export interface CompletionInfoClass {
     before_show:any
 }
 export interface CompletionInfoClass_Static {
+    name: string
 }
 export declare var CompletionInfoClass: CompletionInfoClass_Static
 export interface CompletionInfoPrivate {
 }
 export interface CompletionInfoPrivate_Static {
+    name: string
 }
 export declare var CompletionInfoPrivate: CompletionInfoPrivate_Static
 export interface CompletionItemClass {
@@ -6344,16 +6382,19 @@ export interface CompletionItemClass {
     parent_class:GObject.ObjectClass
 }
 export interface CompletionItemClass_Static {
+    name: string
 }
 export declare var CompletionItemClass: CompletionItemClass_Static
 export interface CompletionItemPrivate {
 }
 export interface CompletionItemPrivate_Static {
+    name: string
 }
 export declare var CompletionItemPrivate: CompletionItemPrivate_Static
 export interface CompletionPrivate {
 }
 export interface CompletionPrivate_Static {
+    name: string
 }
 export declare var CompletionPrivate: CompletionPrivate_Static
 export interface CompletionProposalIface {
@@ -6371,6 +6412,7 @@ export interface CompletionProposalIface {
     changed:any
 }
 export interface CompletionProposalIface_Static {
+    name: string
 }
 export declare var CompletionProposalIface: CompletionProposalIface_Static
 export interface CompletionProviderIface {
@@ -6391,6 +6433,7 @@ export interface CompletionProviderIface {
     get_priority:any
 }
 export interface CompletionProviderIface_Static {
+    name: string
 }
 export declare var CompletionProviderIface: CompletionProviderIface_Static
 export interface CompletionWordsClass {
@@ -6398,11 +6441,13 @@ export interface CompletionWordsClass {
     parent_class:GObject.ObjectClass
 }
 export interface CompletionWordsClass_Static {
+    name: string
 }
 export declare var CompletionWordsClass: CompletionWordsClass_Static
 export interface CompletionWordsPrivate {
 }
 export interface CompletionWordsPrivate_Static {
+    name: string
 }
 export declare var CompletionWordsPrivate: CompletionWordsPrivate_Static
 export interface Encoding {
@@ -6414,6 +6459,7 @@ export interface Encoding {
     to_string(): string
 }
 export interface Encoding_Static {
+    name: string
 }
 export declare class Encoding_Static {
     get_all(): GLib.SList
@@ -6429,6 +6475,7 @@ export interface FileClass {
     padding:object[]
 }
 export interface FileClass_Static {
+    name: string
 }
 export declare var FileClass: FileClass_Static
 export interface FileLoaderClass {
@@ -6437,16 +6484,19 @@ export interface FileLoaderClass {
     padding:object[]
 }
 export interface FileLoaderClass_Static {
+    name: string
 }
 export declare var FileLoaderClass: FileLoaderClass_Static
 export interface FileLoaderPrivate {
 }
 export interface FileLoaderPrivate_Static {
+    name: string
 }
 export declare var FileLoaderPrivate: FileLoaderPrivate_Static
 export interface FilePrivate {
 }
 export interface FilePrivate_Static {
+    name: string
 }
 export declare var FilePrivate: FilePrivate_Static
 export interface FileSaverClass {
@@ -6455,11 +6505,13 @@ export interface FileSaverClass {
     padding:object[]
 }
 export interface FileSaverClass_Static {
+    name: string
 }
 export declare var FileSaverClass: FileSaverClass_Static
 export interface FileSaverPrivate {
 }
 export interface FileSaverPrivate_Static {
+    name: string
 }
 export declare var FileSaverPrivate: FileSaverPrivate_Static
 export interface GutterClass {
@@ -6467,11 +6519,13 @@ export interface GutterClass {
     parent_class:GObject.ObjectClass
 }
 export interface GutterClass_Static {
+    name: string
 }
 export declare var GutterClass: GutterClass_Static
 export interface GutterPrivate {
 }
 export interface GutterPrivate_Static {
+    name: string
 }
 export declare var GutterPrivate: GutterPrivate_Static
 export interface GutterRendererClass {
@@ -6489,6 +6543,7 @@ export interface GutterRendererClass {
     query_data:any
 }
 export interface GutterRendererClass_Static {
+    name: string
 }
 export declare var GutterRendererClass: GutterRendererClass_Static
 export interface GutterRendererPixbufClass {
@@ -6496,16 +6551,19 @@ export interface GutterRendererPixbufClass {
     parent_class:GutterRendererClass
 }
 export interface GutterRendererPixbufClass_Static {
+    name: string
 }
 export declare var GutterRendererPixbufClass: GutterRendererPixbufClass_Static
 export interface GutterRendererPixbufPrivate {
 }
 export interface GutterRendererPixbufPrivate_Static {
+    name: string
 }
 export declare var GutterRendererPixbufPrivate: GutterRendererPixbufPrivate_Static
 export interface GutterRendererPrivate {
 }
 export interface GutterRendererPrivate_Static {
+    name: string
 }
 export declare var GutterRendererPrivate: GutterRendererPrivate_Static
 export interface GutterRendererTextClass {
@@ -6513,11 +6571,13 @@ export interface GutterRendererTextClass {
     parent_class:GutterRendererClass
 }
 export interface GutterRendererTextClass_Static {
+    name: string
 }
 export declare var GutterRendererTextClass: GutterRendererTextClass_Static
 export interface GutterRendererTextPrivate {
 }
 export interface GutterRendererTextPrivate_Static {
+    name: string
 }
 export declare var GutterRendererTextPrivate: GutterRendererTextPrivate_Static
 export interface LanguageClass {
@@ -6525,6 +6585,7 @@ export interface LanguageClass {
     parent_class:GObject.ObjectClass
 }
 export interface LanguageClass_Static {
+    name: string
 }
 export declare var LanguageClass: LanguageClass_Static
 export interface LanguageManagerClass {
@@ -6532,16 +6593,19 @@ export interface LanguageManagerClass {
     parent_class:GObject.ObjectClass
 }
 export interface LanguageManagerClass_Static {
+    name: string
 }
 export declare var LanguageManagerClass: LanguageManagerClass_Static
 export interface LanguageManagerPrivate {
 }
 export interface LanguageManagerPrivate_Static {
+    name: string
 }
 export declare var LanguageManagerPrivate: LanguageManagerPrivate_Static
 export interface LanguagePrivate {
 }
 export interface LanguagePrivate_Static {
+    name: string
 }
 export declare var LanguagePrivate: LanguagePrivate_Static
 export interface MapClass {
@@ -6550,6 +6614,7 @@ export interface MapClass {
     padding:object[]
 }
 export interface MapClass_Static {
+    name: string
 }
 export declare var MapClass: MapClass_Static
 export interface MarkAttributesClass {
@@ -6557,11 +6622,13 @@ export interface MarkAttributesClass {
     parent_class:GObject.ObjectClass
 }
 export interface MarkAttributesClass_Static {
+    name: string
 }
 export declare var MarkAttributesClass: MarkAttributesClass_Static
 export interface MarkAttributesPrivate {
 }
 export interface MarkAttributesPrivate_Static {
+    name: string
 }
 export declare var MarkAttributesPrivate: MarkAttributesPrivate_Static
 export interface MarkClass {
@@ -6569,11 +6636,13 @@ export interface MarkClass {
     parent_class:Gtk.TextMarkClass
 }
 export interface MarkClass_Static {
+    name: string
 }
 export declare var MarkClass: MarkClass_Static
 export interface MarkPrivate {
 }
 export interface MarkPrivate_Static {
+    name: string
 }
 export declare var MarkPrivate: MarkPrivate_Static
 export interface PrintCompositorClass {
@@ -6581,11 +6650,13 @@ export interface PrintCompositorClass {
     parent_class:GObject.ObjectClass
 }
 export interface PrintCompositorClass_Static {
+    name: string
 }
 export declare var PrintCompositorClass: PrintCompositorClass_Static
 export interface PrintCompositorPrivate {
 }
 export interface PrintCompositorPrivate_Static {
+    name: string
 }
 export declare var PrintCompositorPrivate: PrintCompositorPrivate_Static
 export interface SearchContextClass {
@@ -6594,11 +6665,13 @@ export interface SearchContextClass {
     padding:object[]
 }
 export interface SearchContextClass_Static {
+    name: string
 }
 export declare var SearchContextClass: SearchContextClass_Static
 export interface SearchContextPrivate {
 }
 export interface SearchContextPrivate_Static {
+    name: string
 }
 export declare var SearchContextPrivate: SearchContextPrivate_Static
 export interface SearchSettingsClass {
@@ -6607,16 +6680,19 @@ export interface SearchSettingsClass {
     padding:object[]
 }
 export interface SearchSettingsClass_Static {
+    name: string
 }
 export declare var SearchSettingsClass: SearchSettingsClass_Static
 export interface SearchSettingsPrivate {
 }
 export interface SearchSettingsPrivate_Static {
+    name: string
 }
 export declare var SearchSettingsPrivate: SearchSettingsPrivate_Static
 export interface StyleClass {
 }
 export interface StyleClass_Static {
+    name: string
 }
 export declare var StyleClass: StyleClass_Static
 export interface StyleSchemeChooserButtonClass {
@@ -6624,6 +6700,7 @@ export interface StyleSchemeChooserButtonClass {
     parent:Gtk.ButtonClass
 }
 export interface StyleSchemeChooserButtonClass_Static {
+    name: string
 }
 export declare var StyleSchemeChooserButtonClass: StyleSchemeChooserButtonClass_Static
 export interface StyleSchemeChooserInterface {
@@ -6634,6 +6711,7 @@ export interface StyleSchemeChooserInterface {
     padding:object[]
 }
 export interface StyleSchemeChooserInterface_Static {
+    name: string
 }
 export declare var StyleSchemeChooserInterface: StyleSchemeChooserInterface_Static
 export interface StyleSchemeChooserWidgetClass {
@@ -6641,6 +6719,7 @@ export interface StyleSchemeChooserWidgetClass {
     parent:Gtk.BinClass
 }
 export interface StyleSchemeChooserWidgetClass_Static {
+    name: string
 }
 export declare var StyleSchemeChooserWidgetClass: StyleSchemeChooserWidgetClass_Static
 export interface StyleSchemeClass {
@@ -6648,6 +6727,7 @@ export interface StyleSchemeClass {
     base_class:GObject.ObjectClass
 }
 export interface StyleSchemeClass_Static {
+    name: string
 }
 export declare var StyleSchemeClass: StyleSchemeClass_Static
 export interface StyleSchemeManagerClass {
@@ -6655,16 +6735,19 @@ export interface StyleSchemeManagerClass {
     parent_class:GObject.ObjectClass
 }
 export interface StyleSchemeManagerClass_Static {
+    name: string
 }
 export declare var StyleSchemeManagerClass: StyleSchemeManagerClass_Static
 export interface StyleSchemeManagerPrivate {
 }
 export interface StyleSchemeManagerPrivate_Static {
+    name: string
 }
 export declare var StyleSchemeManagerPrivate: StyleSchemeManagerPrivate_Static
 export interface StyleSchemePrivate {
 }
 export interface StyleSchemePrivate_Static {
+    name: string
 }
 export declare var StyleSchemePrivate: StyleSchemePrivate_Static
 export interface UndoManagerIface {
@@ -6680,6 +6763,7 @@ export interface UndoManagerIface {
     can_redo_changed:any
 }
 export interface UndoManagerIface_Static {
+    name: string
 }
 export declare var UndoManagerIface: UndoManagerIface_Static
 export interface ViewClass {
@@ -6693,10 +6777,12 @@ export interface ViewClass {
     move_words:any
 }
 export interface ViewClass_Static {
+    name: string
 }
 export declare var ViewClass: ViewClass_Static
 export interface ViewPrivate {
 }
 export interface ViewPrivate_Static {
+    name: string
 }
 export declare var ViewPrivate: ViewPrivate_Static

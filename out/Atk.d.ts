@@ -365,6 +365,7 @@ export interface Action {
     vfunc_set_description(i: number, desc: string): boolean
 }
 export interface Action_Static {
+    name: string
 }
 export declare var Action: Action_Static
 export interface Component {
@@ -401,6 +402,7 @@ export interface Component {
     connect(sigName: "bounds-changed", callback: ((obj: Component, arg1: Rectangle) => void))
 }
 export interface Component_Static {
+    name: string
 }
 export declare var Component: Component_Static
 export interface Document {
@@ -428,6 +430,7 @@ export interface Document {
     connect(sigName: "reload", callback: ((obj: Document) => void))
 }
 export interface Document_Static {
+    name: string
 }
 export declare var Document: Document_Static
 export interface EditableText {
@@ -449,6 +452,7 @@ export interface EditableText {
     vfunc_set_text_contents(string: string): void
 }
 export interface EditableText_Static {
+    name: string
 }
 export declare var EditableText: EditableText_Static
 export interface HyperlinkImpl {
@@ -458,6 +462,7 @@ export interface HyperlinkImpl {
     vfunc_get_hyperlink(): Hyperlink
 }
 export interface HyperlinkImpl_Static {
+    name: string
 }
 export declare var HyperlinkImpl: HyperlinkImpl_Static
 export interface Hypertext {
@@ -474,6 +479,7 @@ export interface Hypertext {
     connect(sigName: "link-selected", callback: ((obj: Hypertext, arg1: number) => void))
 }
 export interface Hypertext_Static {
+    name: string
 }
 export declare var Hypertext: Hypertext_Static
 export interface Image {
@@ -491,11 +497,13 @@ export interface Image {
     vfunc_set_image_description(description: string): boolean
 }
 export interface Image_Static {
+    name: string
 }
 export declare var Image: Image_Static
 export interface ImplementorIface {
 }
 export interface ImplementorIface_Static {
+    name: string
 }
 export declare var ImplementorIface: ImplementorIface_Static
 export interface Selection {
@@ -520,6 +528,7 @@ export interface Selection {
     connect(sigName: "selection-changed", callback: ((obj: Selection) => void))
 }
 export interface Selection_Static {
+    name: string
 }
 export declare var Selection: Selection_Static
 export interface StreamableContent {
@@ -535,6 +544,7 @@ export interface StreamableContent {
     vfunc_get_uri(mime_type: string): string | null
 }
 export interface StreamableContent_Static {
+    name: string
 }
 export declare var StreamableContent: StreamableContent_Static
 export interface Table {
@@ -615,6 +625,7 @@ export interface Table {
     connect(sigName: "row-reordered", callback: ((obj: Table) => void))
 }
 export interface Table_Static {
+    name: string
 }
 export declare var Table: Table_Static
 export interface TableCell {
@@ -636,6 +647,7 @@ export interface TableCell {
     vfunc_get_table(): Object
 }
 export interface TableCell_Static {
+    name: string
 }
 export declare var TableCell: TableCell_Static
 export interface Text {
@@ -694,6 +706,7 @@ export interface Text {
     connect(sigName: "text-selection-changed", callback: ((obj: Text) => void))
 }
 export interface Text_Static {
+    name: string
 }
 export declare class Text_Static {
     free_ranges(ranges: TextRange[]): void
@@ -726,6 +739,7 @@ export interface Value {
     connect(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void))
 }
 export interface Value_Static {
+    name: string
 }
 export declare var Value: Value_Static
 export interface Window {
@@ -741,6 +755,7 @@ export interface Window {
     connect(sigName: "restore", callback: ((obj: Window) => void))
 }
 export interface Window_Static {
+    name: string
 }
 export declare var Window: Window_Static
 export interface GObjectAccessible_ConstructProps {
@@ -896,6 +911,7 @@ export interface GObjectAccessible {
     connect(sigName: "notify::accessible-value", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
 }
 export interface GObjectAccessible_Static {
+    name: string
     new (config: GObjectAccessible_ConstructProps): GObjectAccessible
 }
 export declare class GObjectAccessible_Static {
@@ -978,6 +994,7 @@ export interface Hyperlink {
     connect(sigName: "notify::start-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
 }
 export interface Hyperlink_Static {
+    name: string
     new (config: Hyperlink_ConstructProps): Hyperlink
 }
 export declare var Hyperlink: Hyperlink_Static
@@ -1032,6 +1049,7 @@ export interface Misc {
     connect(sigName: "notify", callback: ((obj: Misc, pspec: GObject.ParamSpec) => void))
 }
 export interface Misc_Static {
+    name: string
     new (config: Misc_ConstructProps): Misc
 }
 export declare class Misc_Static {
@@ -1189,6 +1207,7 @@ export interface NoOpObject {
     connect(sigName: "notify::accessible-value", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
 }
 export interface NoOpObject_Static {
+    name: string
     new (config: NoOpObject_ConstructProps): NoOpObject
 }
 export declare class NoOpObject_Static {
@@ -1247,6 +1266,7 @@ export interface NoOpObjectFactory {
     connect(sigName: "notify", callback: ((obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void))
 }
 export interface NoOpObjectFactory_Static {
+    name: string
     new (config: NoOpObjectFactory_ConstructProps): NoOpObjectFactory
 }
 export declare class NoOpObjectFactory_Static {
@@ -1403,6 +1423,7 @@ export interface Object {
     connect(sigName: "notify::accessible-value", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
 }
 export interface Object_Static {
+    name: string
     new (config: Object_ConstructProps): Object
 }
 export declare var Object: Object_Static
@@ -1457,6 +1478,7 @@ export interface ObjectFactory {
     connect(sigName: "notify", callback: ((obj: ObjectFactory, pspec: GObject.ParamSpec) => void))
 }
 export interface ObjectFactory_Static {
+    name: string
     new (config: ObjectFactory_ConstructProps): ObjectFactory
 }
 export declare var ObjectFactory: ObjectFactory_Static
@@ -1615,6 +1637,7 @@ export interface Plug {
     connect(sigName: "notify::accessible-value", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
 }
 export interface Plug_Static {
+    name: string
     new (config: Plug_ConstructProps): Plug
 }
 export declare class Plug_Static {
@@ -1672,6 +1695,7 @@ export interface Registry {
     connect(sigName: "notify", callback: ((obj: Registry, pspec: GObject.ParamSpec) => void))
 }
 export interface Registry_Static {
+    name: string
     new (config: Registry_ConstructProps): Registry
 }
 export declare var Registry: Registry_Static
@@ -1734,6 +1758,7 @@ export interface Relation {
     connect(sigName: "notify::target", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
 }
 export interface Relation_Static {
+    name: string
     new (config: Relation_ConstructProps): Relation
 }
 export declare class Relation_Static {
@@ -1795,6 +1820,7 @@ export interface RelationSet {
     connect(sigName: "notify", callback: ((obj: RelationSet, pspec: GObject.ParamSpec) => void))
 }
 export interface RelationSet_Static {
+    name: string
     new (config: RelationSet_ConstructProps): RelationSet
 }
 export declare class RelationSet_Static {
@@ -1958,6 +1984,7 @@ export interface Socket {
     connect(sigName: "notify::accessible-value", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
 }
 export interface Socket_Static {
+    name: string
     new (config: Socket_ConstructProps): Socket
 }
 export declare class Socket_Static {
@@ -2020,6 +2047,7 @@ export interface StateSet {
     connect(sigName: "notify", callback: ((obj: StateSet, pspec: GObject.ParamSpec) => void))
 }
 export interface StateSet_Static {
+    name: string
     new (config: StateSet_ConstructProps): StateSet
 }
 export declare class StateSet_Static {
@@ -2071,6 +2099,7 @@ export interface Util {
     connect(sigName: "notify", callback: ((obj: Util, pspec: GObject.ParamSpec) => void))
 }
 export interface Util_Static {
+    name: string
     new (config: Util_ConstructProps): Util
 }
 export declare var Util: Util_Static
@@ -2086,6 +2115,7 @@ export interface ActionIface {
     get_localized_name:any
 }
 export interface ActionIface_Static {
+    name: string
 }
 export declare var ActionIface: ActionIface_Static
 export interface Attribute {
@@ -2094,6 +2124,7 @@ export interface Attribute {
     value:string
 }
 export interface Attribute_Static {
+    name: string
 }
 export declare class Attribute_Static {
     set_free(attrib_set: AttributeSet): void
@@ -2118,6 +2149,7 @@ export interface ComponentIface {
     get_alpha:any
 }
 export interface ComponentIface_Static {
+    name: string
 }
 export declare var ComponentIface: ComponentIface_Static
 export interface DocumentIface {
@@ -2132,6 +2164,7 @@ export interface DocumentIface {
     get_page_count:any
 }
 export interface DocumentIface_Static {
+    name: string
 }
 export declare var DocumentIface: DocumentIface_Static
 export interface EditableTextIface {
@@ -2146,6 +2179,7 @@ export interface EditableTextIface {
     paste_text:any
 }
 export interface EditableTextIface_Static {
+    name: string
 }
 export declare var EditableTextIface: EditableTextIface_Static
 export interface GObjectAccessibleClass {
@@ -2155,6 +2189,7 @@ export interface GObjectAccessibleClass {
     pad2:Function
 }
 export interface GObjectAccessibleClass_Static {
+    name: string
 }
 export declare var GObjectAccessibleClass: GObjectAccessibleClass_Static
 export interface HyperlinkClass {
@@ -2172,6 +2207,7 @@ export interface HyperlinkClass {
     pad1:Function
 }
 export interface HyperlinkClass_Static {
+    name: string
 }
 export declare var HyperlinkClass: HyperlinkClass_Static
 export interface HyperlinkImplIface {
@@ -2180,6 +2216,7 @@ export interface HyperlinkImplIface {
     get_hyperlink:any
 }
 export interface HyperlinkImplIface_Static {
+    name: string
 }
 export declare var HyperlinkImplIface: HyperlinkImplIface_Static
 export interface HypertextIface {
@@ -2191,6 +2228,7 @@ export interface HypertextIface {
     link_selected:any
 }
 export interface HypertextIface_Static {
+    name: string
 }
 export declare var HypertextIface: HypertextIface_Static
 export interface ImageIface {
@@ -2203,6 +2241,7 @@ export interface ImageIface {
     get_image_locale:any
 }
 export interface ImageIface_Static {
+    name: string
 }
 export declare var ImageIface: ImageIface_Static
 export interface Implementor {
@@ -2210,6 +2249,7 @@ export interface Implementor {
     ref_accessible(): Object
 }
 export interface Implementor_Static {
+    name: string
 }
 export declare var Implementor: Implementor_Static
 export interface KeyEventStruct {
@@ -2223,6 +2263,7 @@ export interface KeyEventStruct {
     timestamp:number
 }
 export interface KeyEventStruct_Static {
+    name: string
 }
 export declare var KeyEventStruct: KeyEventStruct_Static
 export interface MiscClass {
@@ -2233,6 +2274,7 @@ export interface MiscClass {
     vfuncs:object[]
 }
 export interface MiscClass_Static {
+    name: string
 }
 export declare var MiscClass: MiscClass_Static
 export interface NoOpObjectClass {
@@ -2240,6 +2282,7 @@ export interface NoOpObjectClass {
     parent_class:ObjectClass
 }
 export interface NoOpObjectClass_Static {
+    name: string
 }
 export declare var NoOpObjectClass: NoOpObjectClass_Static
 export interface NoOpObjectFactoryClass {
@@ -2247,6 +2290,7 @@ export interface NoOpObjectFactoryClass {
     parent_class:ObjectFactoryClass
 }
 export interface NoOpObjectFactoryClass_Static {
+    name: string
 }
 export declare var NoOpObjectFactoryClass: NoOpObjectFactoryClass_Static
 export interface ObjectClass {
@@ -2279,6 +2323,7 @@ export interface ObjectClass {
     pad1:Function
 }
 export interface ObjectClass_Static {
+    name: string
 }
 export declare var ObjectClass: ObjectClass_Static
 export interface ObjectFactoryClass {
@@ -2290,6 +2335,7 @@ export interface ObjectFactoryClass {
     pad2:Function
 }
 export interface ObjectFactoryClass_Static {
+    name: string
 }
 export declare var ObjectFactoryClass: ObjectFactoryClass_Static
 export interface PlugClass {
@@ -2298,6 +2344,7 @@ export interface PlugClass {
     get_object_id:any
 }
 export interface PlugClass_Static {
+    name: string
 }
 export declare var PlugClass: PlugClass_Static
 export interface PropertyValues {
@@ -2307,6 +2354,7 @@ export interface PropertyValues {
     new_value:any
 }
 export interface PropertyValues_Static {
+    name: string
 }
 export declare var PropertyValues: PropertyValues_Static
 export interface Range {
@@ -2318,6 +2366,7 @@ export interface Range {
     get_upper_limit(): number
 }
 export interface Range_Static {
+    name: string
 }
 export declare class Range_Static {
     new(lower_limit: number, upper_limit: number, description: string): Range
@@ -2331,6 +2380,7 @@ export interface Rectangle {
     height:number
 }
 export interface Rectangle_Static {
+    name: string
 }
 export declare var Rectangle: Rectangle_Static
 export interface RegistryClass {
@@ -2338,6 +2388,7 @@ export interface RegistryClass {
     parent_class:GObject.ObjectClass
 }
 export interface RegistryClass_Static {
+    name: string
 }
 export declare var RegistryClass: RegistryClass_Static
 export interface RelationClass {
@@ -2345,6 +2396,7 @@ export interface RelationClass {
     parent:GObject.ObjectClass
 }
 export interface RelationClass_Static {
+    name: string
 }
 export declare var RelationClass: RelationClass_Static
 export interface RelationSetClass {
@@ -2354,6 +2406,7 @@ export interface RelationSetClass {
     pad2:Function
 }
 export interface RelationSetClass_Static {
+    name: string
 }
 export declare var RelationSetClass: RelationSetClass_Static
 export interface SelectionIface {
@@ -2369,6 +2422,7 @@ export interface SelectionIface {
     selection_changed:any
 }
 export interface SelectionIface_Static {
+    name: string
 }
 export declare var SelectionIface: SelectionIface_Static
 export interface SocketClass {
@@ -2377,6 +2431,7 @@ export interface SocketClass {
     embed:any
 }
 export interface SocketClass_Static {
+    name: string
 }
 export declare var SocketClass: SocketClass_Static
 export interface StateSetClass {
@@ -2384,6 +2439,7 @@ export interface StateSetClass {
     parent:GObject.ObjectClass
 }
 export interface StateSetClass_Static {
+    name: string
 }
 export declare var StateSetClass: StateSetClass_Static
 export interface StreamableContentIface {
@@ -2398,6 +2454,7 @@ export interface StreamableContentIface {
     pad3:Function
 }
 export interface StreamableContentIface_Static {
+    name: string
 }
 export declare var StreamableContentIface: StreamableContentIface_Static
 export interface TableCellIface {
@@ -2412,6 +2469,7 @@ export interface TableCellIface {
     get_table:any
 }
 export interface TableCellIface_Static {
+    name: string
 }
 export declare var TableCellIface: TableCellIface_Static
 export interface TableIface {
@@ -2455,6 +2513,7 @@ export interface TableIface {
     model_changed:any
 }
 export interface TableIface_Static {
+    name: string
 }
 export declare var TableIface: TableIface_Static
 export interface TextIface {
@@ -2486,6 +2545,7 @@ export interface TextIface {
     get_string_at_offset:any
 }
 export interface TextIface_Static {
+    name: string
 }
 export declare var TextIface: TextIface_Static
 export interface TextRange {
@@ -2496,6 +2556,7 @@ export interface TextRange {
     content:string
 }
 export interface TextRange_Static {
+    name: string
 }
 export declare var TextRange: TextRange_Static
 export interface TextRectangle {
@@ -2506,6 +2567,7 @@ export interface TextRectangle {
     height:number
 }
 export interface TextRectangle_Static {
+    name: string
 }
 export declare var TextRectangle: TextRectangle_Static
 export interface UtilClass {
@@ -2517,6 +2579,7 @@ export interface UtilClass {
     get_toolkit_version:any
 }
 export interface UtilClass_Static {
+    name: string
 }
 export declare var UtilClass: UtilClass_Static
 export interface ValueIface {
@@ -2534,6 +2597,7 @@ export interface ValueIface {
     set_value:any
 }
 export interface ValueIface_Static {
+    name: string
 }
 export declare var ValueIface: ValueIface_Static
 export interface WindowIface {
@@ -2541,6 +2605,7 @@ export interface WindowIface {
     parent:GObject.TypeInterface
 }
 export interface WindowIface_Static {
+    name: string
 }
 export declare var WindowIface: WindowIface_Static
 type AttributeSet = GLib.SList

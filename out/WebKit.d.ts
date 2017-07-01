@@ -205,6 +205,7 @@ export interface DOMEventTarget {
     vfunc_remove_event_listener(event_name: string, handler: Function, use_capture: boolean): boolean
 }
 export interface DOMEventTarget_Static {
+    name: string
 }
 export declare var DOMEventTarget: DOMEventTarget_Static
 export interface SpellChecker {
@@ -224,6 +225,7 @@ export interface SpellChecker {
     vfunc_update_spell_checking_languages(languages: string | null): void
 }
 export interface SpellChecker_Static {
+    name: string
 }
 export declare var SpellChecker: SpellChecker_Static
 export interface DOMAttr_ConstructProps {
@@ -373,6 +375,7 @@ export interface DOMAttr {
     connect(sigName: "notify::text-content", callback: ((obj: DOMAttr, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMAttr_Static {
+    name: string
     new (config: DOMAttr_ConstructProps): DOMAttr
 }
 export declare var DOMAttr: DOMAttr_Static
@@ -447,6 +450,7 @@ export interface DOMAudioTrack {
     connect(sigName: "notify::language", callback: ((obj: DOMAudioTrack, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMAudioTrack_Static {
+    name: string
     new (config: DOMAudioTrack_ConstructProps): DOMAudioTrack
 }
 export declare var DOMAudioTrack: DOMAudioTrack_Static
@@ -510,6 +514,7 @@ export interface DOMAudioTrackList {
     connect(sigName: "notify::length", callback: ((obj: DOMAudioTrackList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMAudioTrackList_Static {
+    name: string
     new (config: DOMAudioTrackList_ConstructProps): DOMAudioTrackList
 }
 export declare var DOMAudioTrackList: DOMAudioTrackList_Static
@@ -566,6 +571,7 @@ export interface DOMBarInfo {
     connect(sigName: "notify::visible", callback: ((obj: DOMBarInfo, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMBarInfo_Static {
+    name: string
     new (config: DOMBarInfo_ConstructProps): DOMBarInfo
 }
 export declare class DOMBarInfo_Static {
@@ -629,6 +635,7 @@ export interface DOMBarProp {
     connect(sigName: "notify::visible", callback: ((obj: DOMBarProp, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMBarProp_Static {
+    name: string
     new (config: DOMBarProp_ConstructProps): DOMBarProp
 }
 export declare var DOMBarProp: DOMBarProp_Static
@@ -699,6 +706,7 @@ export interface DOMBatteryManager {
     connect(sigName: "notify::level", callback: ((obj: DOMBatteryManager, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMBatteryManager_Static {
+    name: string
     new (config: DOMBatteryManager_ConstructProps): DOMBatteryManager
 }
 export declare var DOMBatteryManager: DOMBatteryManager_Static
@@ -763,6 +771,7 @@ export interface DOMBlob {
     connect(sigName: "notify::type", callback: ((obj: DOMBlob, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMBlob_Static {
+    name: string
     new (config: DOMBlob_ConstructProps): DOMBlob
 }
 export declare var DOMBlob: DOMBlob_Static
@@ -917,6 +926,7 @@ export interface DOMCDATASection {
     connect(sigName: "notify::text-content", callback: ((obj: DOMCDATASection, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMCDATASection_Static {
+    name: string
     new (config: DOMCDATASection_ConstructProps): DOMCDATASection
 }
 export declare var DOMCDATASection: DOMCDATASection_Static
@@ -987,6 +997,7 @@ export interface DOMCSSRule {
     connect(sigName: "notify::type", callback: ((obj: DOMCSSRule, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMCSSRule_Static {
+    name: string
     new (config: DOMCSSRule_ConstructProps): DOMCSSRule
 }
 export declare var DOMCSSRule: DOMCSSRule_Static
@@ -1048,6 +1059,7 @@ export interface DOMCSSRuleList {
     connect(sigName: "notify::length", callback: ((obj: DOMCSSRuleList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMCSSRuleList_Static {
+    name: string
     new (config: DOMCSSRuleList_ConstructProps): DOMCSSRuleList
 }
 export declare var DOMCSSRuleList: DOMCSSRuleList_Static
@@ -1123,6 +1135,7 @@ export interface DOMCSSStyleDeclaration {
     connect(sigName: "notify::parent-rule", callback: ((obj: DOMCSSStyleDeclaration, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMCSSStyleDeclaration_Static {
+    name: string
     new (config: DOMCSSStyleDeclaration_ConstructProps): DOMCSSStyleDeclaration
 }
 export declare var DOMCSSStyleDeclaration: DOMCSSStyleDeclaration_Static
@@ -1219,6 +1232,7 @@ export interface DOMCSSStyleSheet {
     connect(sigName: "notify::type", callback: ((obj: DOMCSSStyleSheet, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMCSSStyleSheet_Static {
+    name: string
     new (config: DOMCSSStyleSheet_ConstructProps): DOMCSSStyleSheet
 }
 export declare var DOMCSSStyleSheet: DOMCSSStyleSheet_Static
@@ -1284,6 +1298,7 @@ export interface DOMCSSValue {
     connect(sigName: "notify::css-value-type", callback: ((obj: DOMCSSValue, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMCSSValue_Static {
+    name: string
     new (config: DOMCSSValue_ConstructProps): DOMCSSValue
 }
 export declare var DOMCSSValue: DOMCSSValue_Static
@@ -1428,6 +1443,7 @@ export interface DOMCharacterData {
     connect(sigName: "notify::text-content", callback: ((obj: DOMCharacterData, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMCharacterData_Static {
+    name: string
     new (config: DOMCharacterData_ConstructProps): DOMCharacterData
 }
 export declare var DOMCharacterData: DOMCharacterData_Static
@@ -1573,6 +1589,7 @@ export interface DOMComment {
     connect(sigName: "notify::text-content", callback: ((obj: DOMComment, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMComment_Static {
+    name: string
     new (config: DOMComment_ConstructProps): DOMComment
 }
 export declare var DOMComment: DOMComment_Static
@@ -1631,6 +1648,7 @@ export interface DOMConsole {
     connect(sigName: "notify", callback: ((obj: DOMConsole, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMConsole_Static {
+    name: string
     new (config: DOMConsole_ConstructProps): DOMConsole
 }
 export declare var DOMConsole: DOMConsole_Static
@@ -1695,6 +1713,7 @@ export interface DOMDOMApplicationCache {
     connect(sigName: "notify::status", callback: ((obj: DOMDOMApplicationCache, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMApplicationCache_Static {
+    name: string
     new (config: DOMDOMApplicationCache_ConstructProps): DOMDOMApplicationCache
 }
 export declare var DOMDOMApplicationCache: DOMDOMApplicationCache_Static
@@ -1755,6 +1774,7 @@ export interface DOMDOMImplementation {
     connect(sigName: "notify", callback: ((obj: DOMDOMImplementation, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMImplementation_Static {
+    name: string
     new (config: DOMDOMImplementation_ConstructProps): DOMDOMImplementation
 }
 export declare var DOMDOMImplementation: DOMDOMImplementation_Static
@@ -1823,6 +1843,7 @@ export interface DOMDOMMimeType {
     connect(sigName: "notify::type", callback: ((obj: DOMDOMMimeType, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMMimeType_Static {
+    name: string
     new (config: DOMDOMMimeType_ConstructProps): DOMDOMMimeType
 }
 export declare var DOMDOMMimeType: DOMDOMMimeType_Static
@@ -1885,6 +1906,7 @@ export interface DOMDOMMimeTypeArray {
     connect(sigName: "notify::length", callback: ((obj: DOMDOMMimeTypeArray, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMMimeTypeArray_Static {
+    name: string
     new (config: DOMDOMMimeTypeArray_ConstructProps): DOMDOMMimeTypeArray
 }
 export declare var DOMDOMMimeTypeArray: DOMDOMMimeTypeArray_Static
@@ -1947,6 +1969,7 @@ export interface DOMDOMNamedFlowCollection {
     connect(sigName: "notify::length", callback: ((obj: DOMDOMNamedFlowCollection, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMNamedFlowCollection_Static {
+    name: string
     new (config: DOMDOMNamedFlowCollection_ConstructProps): DOMDOMNamedFlowCollection
 }
 export declare var DOMDOMNamedFlowCollection: DOMDOMNamedFlowCollection_Static
@@ -2018,6 +2041,7 @@ export interface DOMDOMPlugin {
     connect(sigName: "notify::name", callback: ((obj: DOMDOMPlugin, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMPlugin_Static {
+    name: string
     new (config: DOMDOMPlugin_ConstructProps): DOMDOMPlugin
 }
 export declare var DOMDOMPlugin: DOMDOMPlugin_Static
@@ -2081,6 +2105,7 @@ export interface DOMDOMPluginArray {
     connect(sigName: "notify::length", callback: ((obj: DOMDOMPluginArray, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMPluginArray_Static {
+    name: string
     new (config: DOMDOMPluginArray_ConstructProps): DOMDOMPluginArray
 }
 export declare var DOMDOMPluginArray: DOMDOMPluginArray_Static
@@ -2163,6 +2188,7 @@ export interface DOMDOMSecurityPolicy {
     connect(sigName: "notify::report-ur-is", callback: ((obj: DOMDOMSecurityPolicy, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMSecurityPolicy_Static {
+    name: string
     new (config: DOMDOMSecurityPolicy_ConstructProps): DOMDOMSecurityPolicy
 }
 export declare var DOMDOMSecurityPolicy: DOMDOMSecurityPolicy_Static
@@ -2266,6 +2292,7 @@ export interface DOMDOMSelection {
     connect(sigName: "notify::type", callback: ((obj: DOMDOMSelection, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMSelection_Static {
+    name: string
     new (config: DOMDOMSelection_ConstructProps): DOMDOMSelection
 }
 export declare var DOMDOMSelection: DOMDOMSelection_Static
@@ -2340,6 +2367,7 @@ export interface DOMDOMSettableTokenList {
     connect(sigName: "notify::length", callback: ((obj: DOMDOMSettableTokenList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMSettableTokenList_Static {
+    name: string
     new (config: DOMDOMSettableTokenList_ConstructProps): DOMDOMSettableTokenList
 }
 export declare var DOMDOMSettableTokenList: DOMDOMSettableTokenList_Static
@@ -2402,6 +2430,7 @@ export interface DOMDOMStringList {
     connect(sigName: "notify::length", callback: ((obj: DOMDOMStringList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMStringList_Static {
+    name: string
     new (config: DOMDOMStringList_ConstructProps): DOMDOMStringList
 }
 export declare var DOMDOMStringList: DOMDOMStringList_Static
@@ -2456,6 +2485,7 @@ export interface DOMDOMStringMap {
     connect(sigName: "notify", callback: ((obj: DOMDOMStringMap, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMStringMap_Static {
+    name: string
     new (config: DOMDOMStringMap_ConstructProps): DOMDOMStringMap
 }
 export declare var DOMDOMStringMap: DOMDOMStringMap_Static
@@ -2521,6 +2551,7 @@ export interface DOMDOMTokenList {
     connect(sigName: "notify::length", callback: ((obj: DOMDOMTokenList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMTokenList_Static {
+    name: string
     new (config: DOMDOMTokenList_ConstructProps): DOMDOMTokenList
 }
 export declare var DOMDOMTokenList: DOMDOMTokenList_Static
@@ -2750,6 +2781,7 @@ export interface DOMDOMWindow {
     connect(sigName: "notify::window", callback: ((obj: DOMDOMWindow, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMWindow_Static {
+    name: string
     new (config: DOMDOMWindow_ConstructProps): DOMDOMWindow
 }
 export declare var DOMDOMWindow: DOMDOMWindow_Static
@@ -2806,6 +2838,7 @@ export interface DOMDOMWindowCSS {
     connect(sigName: "notify", callback: ((obj: DOMDOMWindowCSS, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDOMWindowCSS_Static {
+    name: string
     new (config: DOMDOMWindowCSS_ConstructProps): DOMDOMWindowCSS
 }
 export declare var DOMDOMWindowCSS: DOMDOMWindowCSS_Static
@@ -2866,6 +2899,7 @@ export interface DOMDatabase {
     connect(sigName: "notify::version", callback: ((obj: DOMDatabase, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDatabase_Static {
+    name: string
     new (config: DOMDatabase_ConstructProps): DOMDatabase
 }
 export declare var DOMDatabase: DOMDatabase_Static
@@ -3177,6 +3211,7 @@ export interface DOMDocument {
     connect(sigName: "notify::text-content", callback: ((obj: DOMDocument, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDocument_Static {
+    name: string
     new (config: DOMDocument_ConstructProps): DOMDocument
 }
 export declare var DOMDocument: DOMDocument_Static
@@ -3310,6 +3345,7 @@ export interface DOMDocumentFragment {
     connect(sigName: "notify::text-content", callback: ((obj: DOMDocumentFragment, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDocumentFragment_Static {
+    name: string
     new (config: DOMDocumentFragment_ConstructProps): DOMDocumentFragment
 }
 export declare var DOMDocumentFragment: DOMDocumentFragment_Static
@@ -3462,6 +3498,7 @@ export interface DOMDocumentType {
     connect(sigName: "notify::text-content", callback: ((obj: DOMDocumentType, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMDocumentType_Static {
+    name: string
     new (config: DOMDocumentType_ConstructProps): DOMDocumentType
 }
 export declare var DOMDocumentType: DOMDocumentType_Static
@@ -3707,6 +3744,7 @@ export interface DOMElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMElement_Static {
+    name: string
     new (config: DOMElement_ConstructProps): DOMElement
 }
 export declare var DOMElement: DOMElement_Static
@@ -3837,6 +3875,7 @@ export interface DOMEntityReference {
     connect(sigName: "notify::text-content", callback: ((obj: DOMEntityReference, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMEntityReference_Static {
+    name: string
     new (config: DOMEntityReference_ConstructProps): DOMEntityReference
 }
 export declare var DOMEntityReference: DOMEntityReference_Static
@@ -3934,6 +3973,7 @@ export interface DOMEvent {
     connect(sigName: "notify::type", callback: ((obj: DOMEvent, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMEvent_Static {
+    name: string
     new (config: DOMEvent_ConstructProps): DOMEvent
 }
 export declare var DOMEvent: DOMEvent_Static
@@ -4008,6 +4048,7 @@ export interface DOMFile {
     connect(sigName: "notify::type", callback: ((obj: DOMFile, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMFile_Static {
+    name: string
     new (config: DOMFile_ConstructProps): DOMFile
 }
 export declare var DOMFile: DOMFile_Static
@@ -4069,6 +4110,7 @@ export interface DOMFileList {
     connect(sigName: "notify::length", callback: ((obj: DOMFileList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMFileList_Static {
+    name: string
     new (config: DOMFileList_ConstructProps): DOMFileList
 }
 export declare var DOMFileList: DOMFileList_Static
@@ -4135,6 +4177,7 @@ export interface DOMGamepad {
     connect(sigName: "notify::timestamp", callback: ((obj: DOMGamepad, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMGamepad_Static {
+    name: string
     new (config: DOMGamepad_ConstructProps): DOMGamepad
 }
 export declare var DOMGamepad: DOMGamepad_Static
@@ -4196,6 +4239,7 @@ export interface DOMGamepadList {
     connect(sigName: "notify::length", callback: ((obj: DOMGamepadList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMGamepadList_Static {
+    name: string
     new (config: DOMGamepadList_ConstructProps): DOMGamepadList
 }
 export declare var DOMGamepadList: DOMGamepadList_Static
@@ -4252,6 +4296,7 @@ export interface DOMGeolocation {
     connect(sigName: "notify", callback: ((obj: DOMGeolocation, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMGeolocation_Static {
+    name: string
     new (config: DOMGeolocation_ConstructProps): DOMGeolocation
 }
 export declare var DOMGeolocation: DOMGeolocation_Static
@@ -4696,6 +4741,7 @@ export interface DOMHTMLAnchorElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLAnchorElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLAnchorElement_Static {
+    name: string
     new (config: DOMHTMLAnchorElement_ConstructProps): DOMHTMLAnchorElement
 }
 export declare var DOMHTMLAnchorElement: DOMHTMLAnchorElement_Static
@@ -5096,6 +5142,7 @@ export interface DOMHTMLAppletElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLAppletElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLAppletElement_Static {
+    name: string
     new (config: DOMHTMLAppletElement_ConstructProps): DOMHTMLAppletElement
 }
 export declare var DOMHTMLAppletElement: DOMHTMLAppletElement_Static
@@ -5497,6 +5544,7 @@ export interface DOMHTMLAreaElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLAreaElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLAreaElement_Static {
+    name: string
     new (config: DOMHTMLAreaElement_ConstructProps): DOMHTMLAreaElement
 }
 export declare var DOMHTMLAreaElement: DOMHTMLAreaElement_Static
@@ -5979,6 +6027,7 @@ export interface DOMHTMLAudioElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLAudioElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLAudioElement_Static {
+    name: string
     new (config: DOMHTMLAudioElement_ConstructProps): DOMHTMLAudioElement
 }
 export declare var DOMHTMLAudioElement: DOMHTMLAudioElement_Static
@@ -6329,6 +6378,7 @@ export interface DOMHTMLBRElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLBRElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLBRElement_Static {
+    name: string
     new (config: DOMHTMLBRElement_ConstructProps): DOMHTMLBRElement
 }
 export declare var DOMHTMLBRElement: DOMHTMLBRElement_Static
@@ -6684,6 +6734,7 @@ export interface DOMHTMLBaseElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLBaseElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLBaseElement_Static {
+    name: string
     new (config: DOMHTMLBaseElement_ConstructProps): DOMHTMLBaseElement
 }
 export declare var DOMHTMLBaseElement: DOMHTMLBaseElement_Static
@@ -7044,6 +7095,7 @@ export interface DOMHTMLBaseFontElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLBaseFontElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLBaseFontElement_Static {
+    name: string
     new (config: DOMHTMLBaseFontElement_ConstructProps): DOMHTMLBaseFontElement
 }
 export declare var DOMHTMLBaseFontElement: DOMHTMLBaseFontElement_Static
@@ -7419,6 +7471,7 @@ export interface DOMHTMLBodyElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLBodyElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLBodyElement_Static {
+    name: string
     new (config: DOMHTMLBodyElement_ConstructProps): DOMHTMLBodyElement
 }
 export declare var DOMHTMLBodyElement: DOMHTMLBodyElement_Static
@@ -7829,6 +7882,7 @@ export interface DOMHTMLButtonElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLButtonElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLButtonElement_Static {
+    name: string
     new (config: DOMHTMLButtonElement_ConstructProps): DOMHTMLButtonElement
 }
 export declare var DOMHTMLButtonElement: DOMHTMLButtonElement_Static
@@ -8184,6 +8238,7 @@ export interface DOMHTMLCanvasElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLCanvasElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLCanvasElement_Static {
+    name: string
     new (config: DOMHTMLCanvasElement_ConstructProps): DOMHTMLCanvasElement
 }
 export declare var DOMHTMLCanvasElement: DOMHTMLCanvasElement_Static
@@ -8246,6 +8301,7 @@ export interface DOMHTMLCollection {
     connect(sigName: "notify::length", callback: ((obj: DOMHTMLCollection, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLCollection_Static {
+    name: string
     new (config: DOMHTMLCollection_ConstructProps): DOMHTMLCollection
 }
 export declare var DOMHTMLCollection: DOMHTMLCollection_Static
@@ -8596,6 +8652,7 @@ export interface DOMHTMLDListElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLDListElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLDListElement_Static {
+    name: string
     new (config: DOMHTMLDListElement_ConstructProps): DOMHTMLDListElement
 }
 export declare var DOMHTMLDListElement: DOMHTMLDListElement_Static
@@ -8946,6 +9003,7 @@ export interface DOMHTMLDetailsElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLDetailsElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLDetailsElement_Static {
+    name: string
     new (config: DOMHTMLDetailsElement_ConstructProps): DOMHTMLDetailsElement
 }
 export declare var DOMHTMLDetailsElement: DOMHTMLDetailsElement_Static
@@ -9296,6 +9354,7 @@ export interface DOMHTMLDirectoryElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLDirectoryElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLDirectoryElement_Static {
+    name: string
     new (config: DOMHTMLDirectoryElement_ConstructProps): DOMHTMLDirectoryElement
 }
 export declare var DOMHTMLDirectoryElement: DOMHTMLDirectoryElement_Static
@@ -9646,6 +9705,7 @@ export interface DOMHTMLDivElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLDivElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLDivElement_Static {
+    name: string
     new (config: DOMHTMLDivElement_ConstructProps): DOMHTMLDivElement
 }
 export declare var DOMHTMLDivElement: DOMHTMLDivElement_Static
@@ -10020,6 +10080,7 @@ export interface DOMHTMLDocument {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLDocument, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLDocument_Static {
+    name: string
     new (config: DOMHTMLDocument_ConstructProps): DOMHTMLDocument
 }
 export declare var DOMHTMLDocument: DOMHTMLDocument_Static
@@ -10361,6 +10422,7 @@ export interface DOMHTMLElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLElement_Static {
+    name: string
     new (config: DOMHTMLElement_ConstructProps): DOMHTMLElement
 }
 export declare var DOMHTMLElement: DOMHTMLElement_Static
@@ -10734,6 +10796,7 @@ export interface DOMHTMLEmbedElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLEmbedElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLEmbedElement_Static {
+    name: string
     new (config: DOMHTMLEmbedElement_ConstructProps): DOMHTMLEmbedElement
 }
 export declare var DOMHTMLEmbedElement: DOMHTMLEmbedElement_Static
@@ -11108,6 +11171,7 @@ export interface DOMHTMLFieldSetElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLFieldSetElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLFieldSetElement_Static {
+    name: string
     new (config: DOMHTMLFieldSetElement_ConstructProps): DOMHTMLFieldSetElement
 }
 export declare var DOMHTMLFieldSetElement: DOMHTMLFieldSetElement_Static
@@ -11468,6 +11532,7 @@ export interface DOMHTMLFontElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLFontElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLFontElement_Static {
+    name: string
     new (config: DOMHTMLFontElement_ConstructProps): DOMHTMLFontElement
 }
 export declare var DOMHTMLFontElement: DOMHTMLFontElement_Static
@@ -11879,6 +11944,7 @@ export interface DOMHTMLFormElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLFormElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLFormElement_Static {
+    name: string
     new (config: DOMHTMLFormElement_ConstructProps): DOMHTMLFormElement
 }
 export declare var DOMHTMLFormElement: DOMHTMLFormElement_Static
@@ -12276,6 +12342,7 @@ export interface DOMHTMLFrameElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLFrameElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLFrameElement_Static {
+    name: string
     new (config: DOMHTMLFrameElement_ConstructProps): DOMHTMLFrameElement
 }
 export declare var DOMHTMLFrameElement: DOMHTMLFrameElement_Static
@@ -12631,6 +12698,7 @@ export interface DOMHTMLFrameSetElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLFrameSetElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLFrameSetElement_Static {
+    name: string
     new (config: DOMHTMLFrameSetElement_ConstructProps): DOMHTMLFrameSetElement
 }
 export declare var DOMHTMLFrameSetElement: DOMHTMLFrameSetElement_Static
@@ -12996,6 +13064,7 @@ export interface DOMHTMLHRElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLHRElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLHRElement_Static {
+    name: string
     new (config: DOMHTMLHRElement_ConstructProps): DOMHTMLHRElement
 }
 export declare var DOMHTMLHRElement: DOMHTMLHRElement_Static
@@ -13346,6 +13415,7 @@ export interface DOMHTMLHeadElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLHeadElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLHeadElement_Static {
+    name: string
     new (config: DOMHTMLHeadElement_ConstructProps): DOMHTMLHeadElement
 }
 export declare var DOMHTMLHeadElement: DOMHTMLHeadElement_Static
@@ -13696,6 +13766,7 @@ export interface DOMHTMLHeadingElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLHeadingElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLHeadingElement_Static {
+    name: string
     new (config: DOMHTMLHeadingElement_ConstructProps): DOMHTMLHeadingElement
 }
 export declare var DOMHTMLHeadingElement: DOMHTMLHeadingElement_Static
@@ -14051,6 +14122,7 @@ export interface DOMHTMLHtmlElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLHtmlElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLHtmlElement_Static {
+    name: string
     new (config: DOMHTMLHtmlElement_ConstructProps): DOMHTMLHtmlElement
 }
 export declare var DOMHTMLHtmlElement: DOMHTMLHtmlElement_Static
@@ -14467,6 +14539,7 @@ export interface DOMHTMLIFrameElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLIFrameElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLIFrameElement_Static {
+    name: string
     new (config: DOMHTMLIFrameElement_ConstructProps): DOMHTMLIFrameElement
 }
 export declare var DOMHTMLIFrameElement: DOMHTMLIFrameElement_Static
@@ -14902,6 +14975,7 @@ export interface DOMHTMLImageElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLImageElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLImageElement_Static {
+    name: string
     new (config: DOMHTMLImageElement_ConstructProps): DOMHTMLImageElement
 }
 export declare var DOMHTMLImageElement: DOMHTMLImageElement_Static
@@ -15480,6 +15554,7 @@ export interface DOMHTMLInputElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLInputElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLInputElement_Static {
+    name: string
     new (config: DOMHTMLInputElement_ConstructProps): DOMHTMLInputElement
 }
 export declare var DOMHTMLInputElement: DOMHTMLInputElement_Static
@@ -15869,6 +15944,7 @@ export interface DOMHTMLKeygenElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLKeygenElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLKeygenElement_Static {
+    name: string
     new (config: DOMHTMLKeygenElement_ConstructProps): DOMHTMLKeygenElement
 }
 export declare var DOMHTMLKeygenElement: DOMHTMLKeygenElement_Static
@@ -16222,6 +16298,7 @@ export interface DOMHTMLLIElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLLIElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLLIElement_Static {
+    name: string
     new (config: DOMHTMLLIElement_ConstructProps): DOMHTMLLIElement
 }
 export declare var DOMHTMLLIElement: DOMHTMLLIElement_Static
@@ -16578,6 +16655,7 @@ export interface DOMHTMLLabelElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLLabelElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLLabelElement_Static {
+    name: string
     new (config: DOMHTMLLabelElement_ConstructProps): DOMHTMLLabelElement
 }
 export declare var DOMHTMLLabelElement: DOMHTMLLabelElement_Static
@@ -16931,6 +17009,7 @@ export interface DOMHTMLLegendElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLLegendElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLLegendElement_Static {
+    name: string
     new (config: DOMHTMLLegendElement_ConstructProps): DOMHTMLLegendElement
 }
 export declare var DOMHTMLLegendElement: DOMHTMLLegendElement_Static
@@ -17322,6 +17401,7 @@ export interface DOMHTMLLinkElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLLinkElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLLinkElement_Static {
+    name: string
     new (config: DOMHTMLLinkElement_ConstructProps): DOMHTMLLinkElement
 }
 export declare var DOMHTMLLinkElement: DOMHTMLLinkElement_Static
@@ -17675,6 +17755,7 @@ export interface DOMHTMLMapElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLMapElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLMapElement_Static {
+    name: string
     new (config: DOMHTMLMapElement_ConstructProps): DOMHTMLMapElement
 }
 export declare var DOMHTMLMapElement: DOMHTMLMapElement_Static
@@ -18077,6 +18158,7 @@ export interface DOMHTMLMarqueeElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLMarqueeElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLMarqueeElement_Static {
+    name: string
     new (config: DOMHTMLMarqueeElement_ConstructProps): DOMHTMLMarqueeElement
 }
 export declare var DOMHTMLMarqueeElement: DOMHTMLMarqueeElement_Static
@@ -18558,6 +18640,7 @@ export interface DOMHTMLMediaElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLMediaElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLMediaElement_Static {
+    name: string
     new (config: DOMHTMLMediaElement_ConstructProps): DOMHTMLMediaElement
 }
 export declare var DOMHTMLMediaElement: DOMHTMLMediaElement_Static
@@ -18908,6 +18991,7 @@ export interface DOMHTMLMenuElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLMenuElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLMenuElement_Static {
+    name: string
     new (config: DOMHTMLMenuElement_ConstructProps): DOMHTMLMenuElement
 }
 export declare var DOMHTMLMenuElement: DOMHTMLMenuElement_Static
@@ -19273,6 +19357,7 @@ export interface DOMHTMLMetaElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLMetaElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLMetaElement_Static {
+    name: string
     new (config: DOMHTMLMetaElement_ConstructProps): DOMHTMLMetaElement
 }
 export declare var DOMHTMLMetaElement: DOMHTMLMetaElement_Static
@@ -19628,6 +19713,7 @@ export interface DOMHTMLModElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLModElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLModElement_Static {
+    name: string
     new (config: DOMHTMLModElement_ConstructProps): DOMHTMLModElement
 }
 export declare var DOMHTMLModElement: DOMHTMLModElement_Static
@@ -19991,6 +20077,7 @@ export interface DOMHTMLOListElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLOListElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLOListElement_Static {
+    name: string
     new (config: DOMHTMLOListElement_ConstructProps): DOMHTMLOListElement
 }
 export declare var DOMHTMLOListElement: DOMHTMLOListElement_Static
@@ -20429,6 +20516,7 @@ export interface DOMHTMLObjectElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLObjectElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLObjectElement_Static {
+    name: string
     new (config: DOMHTMLObjectElement_ConstructProps): DOMHTMLObjectElement
 }
 export declare var DOMHTMLObjectElement: DOMHTMLObjectElement_Static
@@ -20784,6 +20872,7 @@ export interface DOMHTMLOptGroupElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLOptGroupElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLOptGroupElement_Static {
+    name: string
     new (config: DOMHTMLOptGroupElement_ConstructProps): DOMHTMLOptGroupElement
 }
 export declare var DOMHTMLOptGroupElement: DOMHTMLOptGroupElement_Static
@@ -21163,6 +21252,7 @@ export interface DOMHTMLOptionElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLOptionElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLOptionElement_Static {
+    name: string
     new (config: DOMHTMLOptionElement_ConstructProps): DOMHTMLOptionElement
 }
 export declare var DOMHTMLOptionElement: DOMHTMLOptionElement_Static
@@ -21234,6 +21324,7 @@ export interface DOMHTMLOptionsCollection {
     connect(sigName: "notify::selected-index", callback: ((obj: DOMHTMLOptionsCollection, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLOptionsCollection_Static {
+    name: string
     new (config: DOMHTMLOptionsCollection_ConstructProps): DOMHTMLOptionsCollection
 }
 export declare var DOMHTMLOptionsCollection: DOMHTMLOptionsCollection_Static
@@ -21584,6 +21675,7 @@ export interface DOMHTMLParagraphElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLParagraphElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLParagraphElement_Static {
+    name: string
     new (config: DOMHTMLParagraphElement_ConstructProps): DOMHTMLParagraphElement
 }
 export declare var DOMHTMLParagraphElement: DOMHTMLParagraphElement_Static
@@ -21947,6 +22039,7 @@ export interface DOMHTMLParamElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLParamElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLParamElement_Static {
+    name: string
     new (config: DOMHTMLParamElement_ConstructProps): DOMHTMLParamElement
 }
 export declare var DOMHTMLParamElement: DOMHTMLParamElement_Static
@@ -22302,6 +22395,7 @@ export interface DOMHTMLPreElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLPreElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLPreElement_Static {
+    name: string
     new (config: DOMHTMLPreElement_ConstructProps): DOMHTMLPreElement
 }
 export declare var DOMHTMLPreElement: DOMHTMLPreElement_Static
@@ -22368,6 +22462,7 @@ export interface DOMHTMLPropertiesCollection {
     connect(sigName: "notify::names", callback: ((obj: DOMHTMLPropertiesCollection, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLPropertiesCollection_Static {
+    name: string
     new (config: DOMHTMLPropertiesCollection_ConstructProps): DOMHTMLPropertiesCollection
 }
 export declare class DOMHTMLPropertiesCollection_Static {
@@ -22724,6 +22819,7 @@ export interface DOMHTMLQuoteElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLQuoteElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLQuoteElement_Static {
+    name: string
     new (config: DOMHTMLQuoteElement_ConstructProps): DOMHTMLQuoteElement
 }
 export declare var DOMHTMLQuoteElement: DOMHTMLQuoteElement_Static
@@ -23117,6 +23213,7 @@ export interface DOMHTMLScriptElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLScriptElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLScriptElement_Static {
+    name: string
     new (config: DOMHTMLScriptElement_ConstructProps): DOMHTMLScriptElement
 }
 export declare var DOMHTMLScriptElement: DOMHTMLScriptElement_Static
@@ -23535,6 +23632,7 @@ export interface DOMHTMLSelectElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLSelectElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLSelectElement_Static {
+    name: string
     new (config: DOMHTMLSelectElement_ConstructProps): DOMHTMLSelectElement
 }
 export declare var DOMHTMLSelectElement: DOMHTMLSelectElement_Static
@@ -23898,6 +23996,7 @@ export interface DOMHTMLStyleElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLStyleElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLStyleElement_Static {
+    name: string
     new (config: DOMHTMLStyleElement_ConstructProps): DOMHTMLStyleElement
 }
 export declare var DOMHTMLStyleElement: DOMHTMLStyleElement_Static
@@ -24248,6 +24347,7 @@ export interface DOMHTMLTableCaptionElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLTableCaptionElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLTableCaptionElement_Static {
+    name: string
     new (config: DOMHTMLTableCaptionElement_ConstructProps): DOMHTMLTableCaptionElement
 }
 export declare var DOMHTMLTableCaptionElement: DOMHTMLTableCaptionElement_Static
@@ -24666,6 +24766,7 @@ export interface DOMHTMLTableCellElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLTableCellElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLTableCellElement_Static {
+    name: string
     new (config: DOMHTMLTableCellElement_ConstructProps): DOMHTMLTableCellElement
 }
 export declare var DOMHTMLTableCellElement: DOMHTMLTableCellElement_Static
@@ -25041,6 +25142,7 @@ export interface DOMHTMLTableColElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLTableColElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLTableColElement_Static {
+    name: string
     new (config: DOMHTMLTableColElement_ConstructProps): DOMHTMLTableColElement
 }
 export declare var DOMHTMLTableColElement: DOMHTMLTableColElement_Static
@@ -25458,6 +25560,7 @@ export interface DOMHTMLTableElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLTableElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLTableElement_Static {
+    name: string
     new (config: DOMHTMLTableElement_ConstructProps): DOMHTMLTableElement
 }
 export declare var DOMHTMLTableElement: DOMHTMLTableElement_Static
@@ -25839,6 +25942,7 @@ export interface DOMHTMLTableRowElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLTableRowElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLTableRowElement_Static {
+    name: string
     new (config: DOMHTMLTableRowElement_ConstructProps): DOMHTMLTableRowElement
 }
 export declare var DOMHTMLTableRowElement: DOMHTMLTableRowElement_Static
@@ -26209,6 +26313,7 @@ export interface DOMHTMLTableSectionElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLTableSectionElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLTableSectionElement_Static {
+    name: string
     new (config: DOMHTMLTableSectionElement_ConstructProps): DOMHTMLTableSectionElement
 }
 export declare var DOMHTMLTableSectionElement: DOMHTMLTableSectionElement_Static
@@ -26670,6 +26775,7 @@ export interface DOMHTMLTextAreaElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLTextAreaElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLTextAreaElement_Static {
+    name: string
     new (config: DOMHTMLTextAreaElement_ConstructProps): DOMHTMLTextAreaElement
 }
 export declare var DOMHTMLTextAreaElement: DOMHTMLTextAreaElement_Static
@@ -27020,6 +27126,7 @@ export interface DOMHTMLTitleElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLTitleElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLTitleElement_Static {
+    name: string
     new (config: DOMHTMLTitleElement_ConstructProps): DOMHTMLTitleElement
 }
 export declare var DOMHTMLTitleElement: DOMHTMLTitleElement_Static
@@ -27373,6 +27480,7 @@ export interface DOMHTMLUListElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLUListElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLUListElement_Static {
+    name: string
     new (config: DOMHTMLUListElement_ConstructProps): DOMHTMLUListElement
 }
 export declare var DOMHTMLUListElement: DOMHTMLUListElement_Static
@@ -27900,6 +28008,7 @@ export interface DOMHTMLVideoElement {
     connect(sigName: "notify::text-content", callback: ((obj: DOMHTMLVideoElement, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHTMLVideoElement_Static {
+    name: string
     new (config: DOMHTMLVideoElement_ConstructProps): DOMHTMLVideoElement
 }
 export declare var DOMHTMLVideoElement: DOMHTMLVideoElement_Static
@@ -27963,6 +28072,7 @@ export interface DOMHistory {
     connect(sigName: "notify::length", callback: ((obj: DOMHistory, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMHistory_Static {
+    name: string
     new (config: DOMHistory_ConstructProps): DOMHistory
 }
 export declare var DOMHistory: DOMHistory_Static
@@ -28119,6 +28229,7 @@ export interface DOMKeyboardEvent {
     connect(sigName: "notify::type", callback: ((obj: DOMKeyboardEvent, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMKeyboardEvent_Static {
+    name: string
     new (config: DOMKeyboardEvent_ConstructProps): DOMKeyboardEvent
 }
 export declare var DOMKeyboardEvent: DOMKeyboardEvent_Static
@@ -28206,6 +28317,7 @@ export interface DOMLocation {
     connect(sigName: "notify::search", callback: ((obj: DOMLocation, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMLocation_Static {
+    name: string
     new (config: DOMLocation_ConstructProps): DOMLocation
 }
 export declare var DOMLocation: DOMLocation_Static
@@ -28309,6 +28421,7 @@ export interface DOMMediaController {
     connect(sigName: "notify::volume", callback: ((obj: DOMMediaController, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMMediaController_Static {
+    name: string
     new (config: DOMMediaController_ConstructProps): DOMMediaController
 }
 export declare var DOMMediaController: DOMMediaController_Static
@@ -28369,6 +28482,7 @@ export interface DOMMediaError {
     connect(sigName: "notify::code", callback: ((obj: DOMMediaError, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMMediaError_Static {
+    name: string
     new (config: DOMMediaError_ConstructProps): DOMMediaError
 }
 export declare var DOMMediaError: DOMMediaError_Static
@@ -28437,6 +28551,7 @@ export interface DOMMediaList {
     connect(sigName: "notify::media-text", callback: ((obj: DOMMediaList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMMediaList_Static {
+    name: string
     new (config: DOMMediaList_ConstructProps): DOMMediaList
 }
 export declare var DOMMediaList: DOMMediaList_Static
@@ -28500,6 +28615,7 @@ export interface DOMMediaQueryList {
     connect(sigName: "notify::media", callback: ((obj: DOMMediaQueryList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMMediaQueryList_Static {
+    name: string
     new (config: DOMMediaQueryList_ConstructProps): DOMMediaQueryList
 }
 export declare var DOMMediaQueryList: DOMMediaQueryList_Static
@@ -28560,6 +28676,7 @@ export interface DOMMemoryInfo {
     connect(sigName: "notify::used-js-heap-size", callback: ((obj: DOMMemoryInfo, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMMemoryInfo_Static {
+    name: string
     new (config: DOMMemoryInfo_ConstructProps): DOMMemoryInfo
 }
 export declare class DOMMemoryInfo_Static {
@@ -28619,6 +28736,7 @@ export interface DOMMessagePort {
     connect(sigName: "notify", callback: ((obj: DOMMessagePort, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMMessagePort_Static {
+    name: string
     new (config: DOMMessagePort_ConstructProps): DOMMessagePort
 }
 export declare var DOMMessagePort: DOMMessagePort_Static
@@ -28671,6 +28789,7 @@ export interface DOMMicroDataItemValue {
     connect(sigName: "notify", callback: ((obj: DOMMicroDataItemValue, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMMicroDataItemValue_Static {
+    name: string
     new (config: DOMMicroDataItemValue_ConstructProps): DOMMicroDataItemValue
 }
 export declare var DOMMicroDataItemValue: DOMMicroDataItemValue_Static
@@ -28859,6 +28978,7 @@ export interface DOMMouseEvent {
     connect(sigName: "notify::type", callback: ((obj: DOMMouseEvent, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMMouseEvent_Static {
+    name: string
     new (config: DOMMouseEvent_ConstructProps): DOMMouseEvent
 }
 export declare var DOMMouseEvent: DOMMouseEvent_Static
@@ -28926,6 +29046,7 @@ export interface DOMNamedNodeMap {
     connect(sigName: "notify::length", callback: ((obj: DOMNamedNodeMap, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMNamedNodeMap_Static {
+    name: string
     new (config: DOMNamedNodeMap_ConstructProps): DOMNamedNodeMap
 }
 export declare var DOMNamedNodeMap: DOMNamedNodeMap_Static
@@ -29043,6 +29164,7 @@ export interface DOMNavigator {
     connect(sigName: "notify::webkit-temporary-storage", callback: ((obj: DOMNavigator, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMNavigator_Static {
+    name: string
     new (config: DOMNavigator_ConstructProps): DOMNavigator
 }
 export declare var DOMNavigator: DOMNavigator_Static
@@ -29172,6 +29294,7 @@ export interface DOMNode {
     connect(sigName: "notify::text-content", callback: ((obj: DOMNode, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMNode_Static {
+    name: string
     new (config: DOMNode_ConstructProps): DOMNode
 }
 export declare var DOMNode: DOMNode_Static
@@ -29228,6 +29351,7 @@ export interface DOMNodeFilter {
     connect(sigName: "notify", callback: ((obj: DOMNodeFilter, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMNodeFilter_Static {
+    name: string
     new (config: DOMNodeFilter_ConstructProps): DOMNodeFilter
 }
 export declare var DOMNodeFilter: DOMNodeFilter_Static
@@ -29306,6 +29430,7 @@ export interface DOMNodeIterator {
     connect(sigName: "notify::what-to-show", callback: ((obj: DOMNodeIterator, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMNodeIterator_Static {
+    name: string
     new (config: DOMNodeIterator_ConstructProps): DOMNodeIterator
 }
 export declare var DOMNodeIterator: DOMNodeIterator_Static
@@ -29367,6 +29492,7 @@ export interface DOMNodeList {
     connect(sigName: "notify::length", callback: ((obj: DOMNodeList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMNodeList_Static {
+    name: string
     new (config: DOMNodeList_ConstructProps): DOMNodeList
 }
 export declare var DOMNodeList: DOMNodeList_Static
@@ -29419,6 +29545,7 @@ export interface DOMObject {
     connect(sigName: "notify", callback: ((obj: DOMObject, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMObject_Static {
+    name: string
     new (config: DOMObject_ConstructProps): DOMObject
 }
 export declare var DOMObject: DOMObject_Static
@@ -29484,6 +29611,7 @@ export interface DOMPerformance {
     connect(sigName: "notify::timing", callback: ((obj: DOMPerformance, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMPerformance_Static {
+    name: string
     new (config: DOMPerformance_ConstructProps): DOMPerformance
 }
 export declare var DOMPerformance: DOMPerformance_Static
@@ -29553,6 +29681,7 @@ export interface DOMPerformanceEntry {
     connect(sigName: "notify::start-time", callback: ((obj: DOMPerformanceEntry, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMPerformanceEntry_Static {
+    name: string
     new (config: DOMPerformanceEntry_ConstructProps): DOMPerformanceEntry
 }
 export declare var DOMPerformanceEntry: DOMPerformanceEntry_Static
@@ -29614,6 +29743,7 @@ export interface DOMPerformanceEntryList {
     connect(sigName: "notify::length", callback: ((obj: DOMPerformanceEntryList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMPerformanceEntryList_Static {
+    name: string
     new (config: DOMPerformanceEntryList_ConstructProps): DOMPerformanceEntryList
 }
 export declare var DOMPerformanceEntryList: DOMPerformanceEntryList_Static
@@ -29676,6 +29806,7 @@ export interface DOMPerformanceNavigation {
     connect(sigName: "notify::type", callback: ((obj: DOMPerformanceNavigation, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMPerformanceNavigation_Static {
+    name: string
     new (config: DOMPerformanceNavigation_ConstructProps): DOMPerformanceNavigation
 }
 export declare var DOMPerformanceNavigation: DOMPerformanceNavigation_Static
@@ -29796,6 +29927,7 @@ export interface DOMPerformanceTiming {
     connect(sigName: "notify::unload-event-start", callback: ((obj: DOMPerformanceTiming, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMPerformanceTiming_Static {
+    name: string
     new (config: DOMPerformanceTiming_ConstructProps): DOMPerformanceTiming
 }
 export declare var DOMPerformanceTiming: DOMPerformanceTiming_Static
@@ -29950,6 +30082,7 @@ export interface DOMProcessingInstruction {
     connect(sigName: "notify::text-content", callback: ((obj: DOMProcessingInstruction, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMProcessingInstruction_Static {
+    name: string
     new (config: DOMProcessingInstruction_ConstructProps): DOMProcessingInstruction
 }
 export declare var DOMProcessingInstruction: DOMProcessingInstruction_Static
@@ -30013,6 +30146,7 @@ export interface DOMPropertyNodeList {
     connect(sigName: "notify::length", callback: ((obj: DOMPropertyNodeList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMPropertyNodeList_Static {
+    name: string
     new (config: DOMPropertyNodeList_ConstructProps): DOMPropertyNodeList
 }
 export declare class DOMPropertyNodeList_Static {
@@ -30119,6 +30253,7 @@ export interface DOMRange {
     connect(sigName: "notify::text", callback: ((obj: DOMRange, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMRange_Static {
+    name: string
     new (config: DOMRange_ConstructProps): DOMRange
 }
 export declare var DOMRange: DOMRange_Static
@@ -30200,6 +30335,7 @@ export interface DOMScreen {
     connect(sigName: "notify::width", callback: ((obj: DOMScreen, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMScreen_Static {
+    name: string
     new (config: DOMScreen_ConstructProps): DOMScreen
 }
 export declare var DOMScreen: DOMScreen_Static
@@ -30361,6 +30497,7 @@ export interface DOMShadowRoot {
     connect(sigName: "notify::text-content", callback: ((obj: DOMShadowRoot, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMShadowRoot_Static {
+    name: string
     new (config: DOMShadowRoot_ConstructProps): DOMShadowRoot
 }
 export declare var DOMShadowRoot: DOMShadowRoot_Static
@@ -30426,6 +30563,7 @@ export interface DOMStorage {
     connect(sigName: "notify::length", callback: ((obj: DOMStorage, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMStorage_Static {
+    name: string
     new (config: DOMStorage_ConstructProps): DOMStorage
 }
 export declare var DOMStorage: DOMStorage_Static
@@ -30480,6 +30618,7 @@ export interface DOMStorageInfo {
     connect(sigName: "notify", callback: ((obj: DOMStorageInfo, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMStorageInfo_Static {
+    name: string
     new (config: DOMStorageInfo_ConstructProps): DOMStorageInfo
 }
 export declare var DOMStorageInfo: DOMStorageInfo_Static
@@ -30534,6 +30673,7 @@ export interface DOMStorageQuota {
     connect(sigName: "notify", callback: ((obj: DOMStorageQuota, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMStorageQuota_Static {
+    name: string
     new (config: DOMStorageQuota_ConstructProps): DOMStorageQuota
 }
 export declare var DOMStorageQuota: DOMStorageQuota_Static
@@ -30594,6 +30734,7 @@ export interface DOMStyleMedia {
     connect(sigName: "notify::type", callback: ((obj: DOMStyleMedia, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMStyleMedia_Static {
+    name: string
     new (config: DOMStyleMedia_ConstructProps): DOMStyleMedia
 }
 export declare var DOMStyleMedia: DOMStyleMedia_Static
@@ -30673,6 +30814,7 @@ export interface DOMStyleSheet {
     connect(sigName: "notify::type", callback: ((obj: DOMStyleSheet, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMStyleSheet_Static {
+    name: string
     new (config: DOMStyleSheet_ConstructProps): DOMStyleSheet
 }
 export declare var DOMStyleSheet: DOMStyleSheet_Static
@@ -30734,6 +30876,7 @@ export interface DOMStyleSheetList {
     connect(sigName: "notify::length", callback: ((obj: DOMStyleSheetList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMStyleSheetList_Static {
+    name: string
     new (config: DOMStyleSheetList_ConstructProps): DOMStyleSheetList
 }
 export declare var DOMStyleSheetList: DOMStyleSheetList_Static
@@ -30887,6 +31030,7 @@ export interface DOMText {
     connect(sigName: "notify::text-content", callback: ((obj: DOMText, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMText_Static {
+    name: string
     new (config: DOMText_ConstructProps): DOMText
 }
 export declare var DOMText: DOMText_Static
@@ -30970,6 +31114,7 @@ export interface DOMTextTrack {
     connect(sigName: "notify::mode", callback: ((obj: DOMTextTrack, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMTextTrack_Static {
+    name: string
     new (config: DOMTextTrack_ConstructProps): DOMTextTrack
 }
 export declare var DOMTextTrack: DOMTextTrack_Static
@@ -31087,6 +31232,7 @@ export interface DOMTextTrackCue {
     connect(sigName: "notify::vertical", callback: ((obj: DOMTextTrackCue, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMTextTrackCue_Static {
+    name: string
     new (config: DOMTextTrackCue_ConstructProps): DOMTextTrackCue
 }
 export declare var DOMTextTrackCue: DOMTextTrackCue_Static
@@ -31149,6 +31295,7 @@ export interface DOMTextTrackCueList {
     connect(sigName: "notify::length", callback: ((obj: DOMTextTrackCueList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMTextTrackCueList_Static {
+    name: string
     new (config: DOMTextTrackCueList_ConstructProps): DOMTextTrackCueList
 }
 export declare var DOMTextTrackCueList: DOMTextTrackCueList_Static
@@ -31212,6 +31359,7 @@ export interface DOMTextTrackList {
     connect(sigName: "notify::length", callback: ((obj: DOMTextTrackList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMTextTrackList_Static {
+    name: string
     new (config: DOMTextTrackList_ConstructProps): DOMTextTrackList
 }
 export declare var DOMTextTrackList: DOMTextTrackList_Static
@@ -31274,6 +31422,7 @@ export interface DOMTimeRanges {
     connect(sigName: "notify::length", callback: ((obj: DOMTimeRanges, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMTimeRanges_Static {
+    name: string
     new (config: DOMTimeRanges_ConstructProps): DOMTimeRanges
 }
 export declare var DOMTimeRanges: DOMTimeRanges_Static
@@ -31367,6 +31516,7 @@ export interface DOMTouch {
     connect(sigName: "notify::webkit-rotation-angle", callback: ((obj: DOMTouch, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMTouch_Static {
+    name: string
     new (config: DOMTouch_ConstructProps): DOMTouch
 }
 export declare var DOMTouch: DOMTouch_Static
@@ -31465,6 +31615,7 @@ export interface DOMTrackEvent {
     connect(sigName: "notify::type", callback: ((obj: DOMTrackEvent, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMTrackEvent_Static {
+    name: string
     new (config: DOMTrackEvent_ConstructProps): DOMTrackEvent
 }
 export declare var DOMTrackEvent: DOMTrackEvent_Static
@@ -31545,6 +31696,7 @@ export interface DOMTreeWalker {
     connect(sigName: "notify::what-to-show", callback: ((obj: DOMTreeWalker, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMTreeWalker_Static {
+    name: string
     new (config: DOMTreeWalker_ConstructProps): DOMTreeWalker
 }
 export declare var DOMTreeWalker: DOMTreeWalker_Static
@@ -31674,6 +31826,7 @@ export interface DOMUIEvent {
     connect(sigName: "notify::type", callback: ((obj: DOMUIEvent, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMUIEvent_Static {
+    name: string
     new (config: DOMUIEvent_ConstructProps): DOMUIEvent
 }
 export declare var DOMUIEvent: DOMUIEvent_Static
@@ -31761,6 +31914,7 @@ export interface DOMValidityState {
     connect(sigName: "notify::value-missing", callback: ((obj: DOMValidityState, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMValidityState_Static {
+    name: string
     new (config: DOMValidityState_ConstructProps): DOMValidityState
 }
 export declare var DOMValidityState: DOMValidityState_Static
@@ -31833,6 +31987,7 @@ export interface DOMVideoPlaybackQuality {
     connect(sigName: "notify::total-video-frames", callback: ((obj: DOMVideoPlaybackQuality, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMVideoPlaybackQuality_Static {
+    name: string
     new (config: DOMVideoPlaybackQuality_ConstructProps): DOMVideoPlaybackQuality
 }
 export declare var DOMVideoPlaybackQuality: DOMVideoPlaybackQuality_Static
@@ -31907,6 +32062,7 @@ export interface DOMVideoTrack {
     connect(sigName: "notify::selected", callback: ((obj: DOMVideoTrack, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMVideoTrack_Static {
+    name: string
     new (config: DOMVideoTrack_ConstructProps): DOMVideoTrack
 }
 export declare var DOMVideoTrack: DOMVideoTrack_Static
@@ -31970,6 +32126,7 @@ export interface DOMVideoTrackList {
     connect(sigName: "notify::length", callback: ((obj: DOMVideoTrackList, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMVideoTrackList_Static {
+    name: string
     new (config: DOMVideoTrackList_ConstructProps): DOMVideoTrackList
 }
 export declare var DOMVideoTrackList: DOMVideoTrackList_Static
@@ -32043,6 +32200,7 @@ export interface DOMWebKitNamedFlow {
     connect(sigName: "notify::overset", callback: ((obj: DOMWebKitNamedFlow, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMWebKitNamedFlow_Static {
+    name: string
     new (config: DOMWebKitNamedFlow_ConstructProps): DOMWebKitNamedFlow
 }
 export declare var DOMWebKitNamedFlow: DOMWebKitNamedFlow_Static
@@ -32110,6 +32268,7 @@ export interface DOMWebKitPoint {
     connect(sigName: "notify::y", callback: ((obj: DOMWebKitPoint, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMWebKitPoint_Static {
+    name: string
     new (config: DOMWebKitPoint_ConstructProps): DOMWebKitPoint
 }
 export declare var DOMWebKitPoint: DOMWebKitPoint_Static
@@ -32327,6 +32486,7 @@ export interface DOMWheelEvent {
     connect(sigName: "notify::type", callback: ((obj: DOMWheelEvent, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMWheelEvent_Static {
+    name: string
     new (config: DOMWheelEvent_ConstructProps): DOMWheelEvent
 }
 export declare var DOMWheelEvent: DOMWheelEvent_Static
@@ -32383,6 +32543,7 @@ export interface DOMXPathExpression {
     connect(sigName: "notify", callback: ((obj: DOMXPathExpression, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMXPathExpression_Static {
+    name: string
     new (config: DOMXPathExpression_ConstructProps): DOMXPathExpression
 }
 export declare var DOMXPathExpression: DOMXPathExpression_Static
@@ -32439,6 +32600,7 @@ export interface DOMXPathNSResolver {
     connect(sigName: "notify", callback: ((obj: DOMXPathNSResolver, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMXPathNSResolver_Static {
+    name: string
     new (config: DOMXPathNSResolver_ConstructProps): DOMXPathNSResolver
 }
 export declare var DOMXPathNSResolver: DOMXPathNSResolver_Static
@@ -32519,6 +32681,7 @@ export interface DOMXPathResult {
     connect(sigName: "notify::string-value", callback: ((obj: DOMXPathResult, pspec: GObject.ParamSpec) => void))
 }
 export interface DOMXPathResult_Static {
+    name: string
     new (config: DOMXPathResult_ConstructProps): DOMXPathResult
 }
 export declare var DOMXPathResult: DOMXPathResult_Static
@@ -32601,6 +32764,7 @@ export interface Download {
     connect(sigName: "notify::total-size", callback: ((obj: Download, pspec: GObject.ParamSpec) => void))
 }
 export interface Download_Static {
+    name: string
     new (config: Download_ConstructProps): Download
 }
 export declare class Download_Static {
@@ -32668,6 +32832,7 @@ export interface FaviconDatabase {
     connect(sigName: "notify::path", callback: ((obj: FaviconDatabase, pspec: GObject.ParamSpec) => void))
 }
 export interface FaviconDatabase_Static {
+    name: string
     new (config: FaviconDatabase_ConstructProps): FaviconDatabase
 }
 export declare var FaviconDatabase: FaviconDatabase_Static
@@ -32733,6 +32898,7 @@ export interface FileChooserRequest {
     connect(sigName: "notify::selected-files", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void))
 }
 export interface FileChooserRequest_Static {
+    name: string
     new (config: FileChooserRequest_ConstructProps): FileChooserRequest
 }
 export declare var FileChooserRequest: FileChooserRequest_Static
@@ -32782,6 +32948,7 @@ export interface GeolocationPolicyDecision {
     connect(sigName: "notify", callback: ((obj: GeolocationPolicyDecision, pspec: GObject.ParamSpec) => void))
 }
 export interface GeolocationPolicyDecision_Static {
+    name: string
     new (config: GeolocationPolicyDecision_ConstructProps): GeolocationPolicyDecision
 }
 export declare var GeolocationPolicyDecision: GeolocationPolicyDecision_Static
@@ -32840,6 +33007,7 @@ export interface HitTestResult {
     connect(sigName: "notify", callback: ((obj: HitTestResult, pspec: GObject.ParamSpec) => void))
 }
 export interface HitTestResult_Static {
+    name: string
     new (config: HitTestResult_ConstructProps): HitTestResult
 }
 export declare var HitTestResult: HitTestResult_Static
@@ -32902,6 +33070,7 @@ export interface IconDatabase {
     connect(sigName: "notify::path", callback: ((obj: IconDatabase, pspec: GObject.ParamSpec) => void))
 }
 export interface IconDatabase_Static {
+    name: string
     new (config: IconDatabase_ConstructProps): IconDatabase
 }
 export declare var IconDatabase: IconDatabase_Static
@@ -32961,6 +33130,7 @@ export interface NetworkRequest {
     connect(sigName: "notify::uri", callback: ((obj: NetworkRequest, pspec: GObject.ParamSpec) => void))
 }
 export interface NetworkRequest_Static {
+    name: string
     new (config: NetworkRequest_ConstructProps): NetworkRequest
 }
 export declare class NetworkRequest_Static {
@@ -33026,6 +33196,7 @@ export interface NetworkResponse {
     connect(sigName: "notify::uri", callback: ((obj: NetworkResponse, pspec: GObject.ParamSpec) => void))
 }
 export interface NetworkResponse_Static {
+    name: string
     new (config: NetworkResponse_ConstructProps): NetworkResponse
 }
 export declare class NetworkResponse_Static {
@@ -33099,6 +33270,7 @@ export interface SecurityOrigin {
     connect(sigName: "notify::web-database-usage", callback: ((obj: SecurityOrigin, pspec: GObject.ParamSpec) => void))
 }
 export interface SecurityOrigin_Static {
+    name: string
     new (config: SecurityOrigin_ConstructProps): SecurityOrigin
 }
 export declare var SecurityOrigin: SecurityOrigin_Static
@@ -33150,6 +33322,7 @@ export interface SoupAuthDialog {
     connect(sigName: "notify", callback: ((obj: SoupAuthDialog, pspec: GObject.ParamSpec) => void))
 }
 export interface SoupAuthDialog_Static {
+    name: string
     new (config: SoupAuthDialog_ConstructProps): SoupAuthDialog
 }
 export declare var SoupAuthDialog: SoupAuthDialog_Static
@@ -33237,6 +33410,7 @@ export interface ViewportAttributes {
     connect(sigName: "notify::width", callback: ((obj: ViewportAttributes, pspec: GObject.ParamSpec) => void))
 }
 export interface ViewportAttributes_Static {
+    name: string
     new (config: ViewportAttributes_ConstructProps): ViewportAttributes
 }
 export declare var ViewportAttributes: ViewportAttributes_Static
@@ -33303,6 +33477,7 @@ export interface WebBackForwardList {
     connect(sigName: "notify", callback: ((obj: WebBackForwardList, pspec: GObject.ParamSpec) => void))
 }
 export interface WebBackForwardList_Static {
+    name: string
     new (config: WebBackForwardList_ConstructProps): WebBackForwardList
 }
 export declare var WebBackForwardList: WebBackForwardList_Static
@@ -33361,6 +33536,7 @@ export interface WebDataSource {
     connect(sigName: "notify", callback: ((obj: WebDataSource, pspec: GObject.ParamSpec) => void))
 }
 export interface WebDataSource_Static {
+    name: string
     new (config: WebDataSource_ConstructProps): WebDataSource
 }
 export declare class WebDataSource_Static {
@@ -33434,6 +33610,7 @@ export interface WebDatabase {
     connect(sigName: "notify::size", callback: ((obj: WebDatabase, pspec: GObject.ParamSpec) => void))
 }
 export interface WebDatabase_Static {
+    name: string
     new (config: WebDatabase_ConstructProps): WebDatabase
 }
 export declare var WebDatabase: WebDatabase_Static
@@ -33535,6 +33712,7 @@ export interface WebFrame {
     connect(sigName: "notify::vertical-scrollbar-policy", callback: ((obj: WebFrame, pspec: GObject.ParamSpec) => void))
 }
 export interface WebFrame_Static {
+    name: string
     new (config: WebFrame_ConstructProps): WebFrame
 }
 export declare class WebFrame_Static {
@@ -33608,6 +33786,7 @@ export interface WebHistoryItem {
     connect(sigName: "notify::uri", callback: ((obj: WebHistoryItem, pspec: GObject.ParamSpec) => void))
 }
 export interface WebHistoryItem_Static {
+    name: string
     new (config: WebHistoryItem_ConstructProps): WebHistoryItem
 }
 export declare class WebHistoryItem_Static {
@@ -33687,6 +33866,7 @@ export interface WebInspector {
     connect(sigName: "notify::web-view", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void))
 }
 export interface WebInspector_Static {
+    name: string
     new (config: WebInspector_ConstructProps): WebInspector
 }
 export declare var WebInspector: WebInspector_Static
@@ -33755,6 +33935,7 @@ export interface WebNavigationAction {
     connect(sigName: "notify::reason", callback: ((obj: WebNavigationAction, pspec: GObject.ParamSpec) => void))
 }
 export interface WebNavigationAction_Static {
+    name: string
     new (config: WebNavigationAction_ConstructProps): WebNavigationAction
 }
 export declare var WebNavigationAction: WebNavigationAction_Static
@@ -33815,6 +33996,7 @@ export interface WebPlugin {
     connect(sigName: "notify::enabled", callback: ((obj: WebPlugin, pspec: GObject.ParamSpec) => void))
 }
 export interface WebPlugin_Static {
+    name: string
     new (config: WebPlugin_ConstructProps): WebPlugin
 }
 export declare var WebPlugin: WebPlugin_Static
@@ -33868,6 +34050,7 @@ export interface WebPluginDatabase {
     connect(sigName: "notify", callback: ((obj: WebPluginDatabase, pspec: GObject.ParamSpec) => void))
 }
 export interface WebPluginDatabase_Static {
+    name: string
     new (config: WebPluginDatabase_ConstructProps): WebPluginDatabase
 }
 export declare class WebPluginDatabase_Static {
@@ -33924,6 +34107,7 @@ export interface WebPolicyDecision {
     connect(sigName: "notify", callback: ((obj: WebPolicyDecision, pspec: GObject.ParamSpec) => void))
 }
 export interface WebPolicyDecision_Static {
+    name: string
     new (config: WebPolicyDecision_ConstructProps): WebPolicyDecision
 }
 export declare var WebPolicyDecision: WebPolicyDecision_Static
@@ -33992,6 +34176,7 @@ export interface WebResource {
     connect(sigName: "notify::mime-type", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void))
 }
 export interface WebResource_Static {
+    name: string
     new (config: WebResource_ConstructProps): WebResource
 }
 export declare class WebResource_Static {
@@ -34226,6 +34411,7 @@ export interface WebSettings {
     connect(sigName: "notify::zoom-step", callback: ((obj: WebSettings, pspec: GObject.ParamSpec) => void))
 }
 export interface WebSettings_Static {
+    name: string
     new (config: WebSettings_ConstructProps): WebSettings
 }
 export declare class WebSettings_Static {
@@ -35063,6 +35249,7 @@ export interface WebView {
     connect(sigName: "notify::window", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
 }
 export interface WebView_Static {
+    name: string
     new (config: WebView_ConstructProps): WebView
 }
 export declare class WebView_Static {
@@ -35149,6 +35336,7 @@ export interface WebWindowFeatures {
     connect(sigName: "notify::y", callback: ((obj: WebWindowFeatures, pspec: GObject.ParamSpec) => void))
 }
 export interface WebWindowFeatures_Static {
+    name: string
     new (config: WebWindowFeatures_ConstructProps): WebWindowFeatures
 }
 export declare class WebWindowFeatures_Static {
@@ -35160,6 +35348,7 @@ export interface DOMAttrClass {
     parent_class:DOMNodeClass
 }
 export interface DOMAttrClass_Static {
+    name: string
 }
 export declare var DOMAttrClass: DOMAttrClass_Static
 export interface DOMAudioTrackClass {
@@ -35167,6 +35356,7 @@ export interface DOMAudioTrackClass {
     parent_class:DOMObjectClass
 }
 export interface DOMAudioTrackClass_Static {
+    name: string
 }
 export declare var DOMAudioTrackClass: DOMAudioTrackClass_Static
 export interface DOMAudioTrackListClass {
@@ -35174,6 +35364,7 @@ export interface DOMAudioTrackListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMAudioTrackListClass_Static {
+    name: string
 }
 export declare var DOMAudioTrackListClass: DOMAudioTrackListClass_Static
 export interface DOMBarPropClass {
@@ -35181,6 +35372,7 @@ export interface DOMBarPropClass {
     parent_class:DOMObjectClass
 }
 export interface DOMBarPropClass_Static {
+    name: string
 }
 export declare var DOMBarPropClass: DOMBarPropClass_Static
 export interface DOMBatteryManagerClass {
@@ -35188,6 +35380,7 @@ export interface DOMBatteryManagerClass {
     parent_class:DOMObjectClass
 }
 export interface DOMBatteryManagerClass_Static {
+    name: string
 }
 export declare var DOMBatteryManagerClass: DOMBatteryManagerClass_Static
 export interface DOMBlobClass {
@@ -35195,6 +35388,7 @@ export interface DOMBlobClass {
     parent_class:DOMObjectClass
 }
 export interface DOMBlobClass_Static {
+    name: string
 }
 export declare var DOMBlobClass: DOMBlobClass_Static
 export interface DOMCDATASectionClass {
@@ -35202,6 +35396,7 @@ export interface DOMCDATASectionClass {
     parent_class:DOMTextClass
 }
 export interface DOMCDATASectionClass_Static {
+    name: string
 }
 export declare var DOMCDATASectionClass: DOMCDATASectionClass_Static
 export interface DOMCSSRuleClass {
@@ -35209,6 +35404,7 @@ export interface DOMCSSRuleClass {
     parent_class:DOMObjectClass
 }
 export interface DOMCSSRuleClass_Static {
+    name: string
 }
 export declare var DOMCSSRuleClass: DOMCSSRuleClass_Static
 export interface DOMCSSRuleListClass {
@@ -35216,6 +35412,7 @@ export interface DOMCSSRuleListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMCSSRuleListClass_Static {
+    name: string
 }
 export declare var DOMCSSRuleListClass: DOMCSSRuleListClass_Static
 export interface DOMCSSStyleDeclarationClass {
@@ -35223,6 +35420,7 @@ export interface DOMCSSStyleDeclarationClass {
     parent_class:DOMObjectClass
 }
 export interface DOMCSSStyleDeclarationClass_Static {
+    name: string
 }
 export declare var DOMCSSStyleDeclarationClass: DOMCSSStyleDeclarationClass_Static
 export interface DOMCSSStyleSheetClass {
@@ -35230,6 +35428,7 @@ export interface DOMCSSStyleSheetClass {
     parent_class:DOMStyleSheetClass
 }
 export interface DOMCSSStyleSheetClass_Static {
+    name: string
 }
 export declare var DOMCSSStyleSheetClass: DOMCSSStyleSheetClass_Static
 export interface DOMCSSValueClass {
@@ -35237,6 +35436,7 @@ export interface DOMCSSValueClass {
     parent_class:DOMObjectClass
 }
 export interface DOMCSSValueClass_Static {
+    name: string
 }
 export declare var DOMCSSValueClass: DOMCSSValueClass_Static
 export interface DOMCharacterDataClass {
@@ -35244,6 +35444,7 @@ export interface DOMCharacterDataClass {
     parent_class:DOMNodeClass
 }
 export interface DOMCharacterDataClass_Static {
+    name: string
 }
 export declare var DOMCharacterDataClass: DOMCharacterDataClass_Static
 export interface DOMCommentClass {
@@ -35251,6 +35452,7 @@ export interface DOMCommentClass {
     parent_class:DOMCharacterDataClass
 }
 export interface DOMCommentClass_Static {
+    name: string
 }
 export declare var DOMCommentClass: DOMCommentClass_Static
 export interface DOMConsoleClass {
@@ -35258,6 +35460,7 @@ export interface DOMConsoleClass {
     parent_class:DOMObjectClass
 }
 export interface DOMConsoleClass_Static {
+    name: string
 }
 export declare var DOMConsoleClass: DOMConsoleClass_Static
 export interface DOMDOMApplicationCacheClass {
@@ -35265,6 +35468,7 @@ export interface DOMDOMApplicationCacheClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMApplicationCacheClass_Static {
+    name: string
 }
 export declare var DOMDOMApplicationCacheClass: DOMDOMApplicationCacheClass_Static
 export interface DOMDOMImplementationClass {
@@ -35272,6 +35476,7 @@ export interface DOMDOMImplementationClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMImplementationClass_Static {
+    name: string
 }
 export declare var DOMDOMImplementationClass: DOMDOMImplementationClass_Static
 export interface DOMDOMMimeTypeArrayClass {
@@ -35279,6 +35484,7 @@ export interface DOMDOMMimeTypeArrayClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMMimeTypeArrayClass_Static {
+    name: string
 }
 export declare var DOMDOMMimeTypeArrayClass: DOMDOMMimeTypeArrayClass_Static
 export interface DOMDOMMimeTypeClass {
@@ -35286,6 +35492,7 @@ export interface DOMDOMMimeTypeClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMMimeTypeClass_Static {
+    name: string
 }
 export declare var DOMDOMMimeTypeClass: DOMDOMMimeTypeClass_Static
 export interface DOMDOMNamedFlowCollectionClass {
@@ -35293,6 +35500,7 @@ export interface DOMDOMNamedFlowCollectionClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMNamedFlowCollectionClass_Static {
+    name: string
 }
 export declare var DOMDOMNamedFlowCollectionClass: DOMDOMNamedFlowCollectionClass_Static
 export interface DOMDOMPluginArrayClass {
@@ -35300,6 +35508,7 @@ export interface DOMDOMPluginArrayClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMPluginArrayClass_Static {
+    name: string
 }
 export declare var DOMDOMPluginArrayClass: DOMDOMPluginArrayClass_Static
 export interface DOMDOMPluginClass {
@@ -35307,6 +35516,7 @@ export interface DOMDOMPluginClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMPluginClass_Static {
+    name: string
 }
 export declare var DOMDOMPluginClass: DOMDOMPluginClass_Static
 export interface DOMDOMSecurityPolicyClass {
@@ -35314,6 +35524,7 @@ export interface DOMDOMSecurityPolicyClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMSecurityPolicyClass_Static {
+    name: string
 }
 export declare var DOMDOMSecurityPolicyClass: DOMDOMSecurityPolicyClass_Static
 export interface DOMDOMSelectionClass {
@@ -35321,6 +35532,7 @@ export interface DOMDOMSelectionClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMSelectionClass_Static {
+    name: string
 }
 export declare var DOMDOMSelectionClass: DOMDOMSelectionClass_Static
 export interface DOMDOMSettableTokenListClass {
@@ -35328,6 +35540,7 @@ export interface DOMDOMSettableTokenListClass {
     parent_class:DOMDOMTokenListClass
 }
 export interface DOMDOMSettableTokenListClass_Static {
+    name: string
 }
 export declare var DOMDOMSettableTokenListClass: DOMDOMSettableTokenListClass_Static
 export interface DOMDOMStringListClass {
@@ -35335,6 +35548,7 @@ export interface DOMDOMStringListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMStringListClass_Static {
+    name: string
 }
 export declare var DOMDOMStringListClass: DOMDOMStringListClass_Static
 export interface DOMDOMStringMapClass {
@@ -35342,6 +35556,7 @@ export interface DOMDOMStringMapClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMStringMapClass_Static {
+    name: string
 }
 export declare var DOMDOMStringMapClass: DOMDOMStringMapClass_Static
 export interface DOMDOMTokenListClass {
@@ -35349,6 +35564,7 @@ export interface DOMDOMTokenListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMTokenListClass_Static {
+    name: string
 }
 export declare var DOMDOMTokenListClass: DOMDOMTokenListClass_Static
 export interface DOMDOMWindowCSSClass {
@@ -35356,6 +35572,7 @@ export interface DOMDOMWindowCSSClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMWindowCSSClass_Static {
+    name: string
 }
 export declare var DOMDOMWindowCSSClass: DOMDOMWindowCSSClass_Static
 export interface DOMDOMWindowClass {
@@ -35363,6 +35580,7 @@ export interface DOMDOMWindowClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDOMWindowClass_Static {
+    name: string
 }
 export declare var DOMDOMWindowClass: DOMDOMWindowClass_Static
 export interface DOMDatabaseClass {
@@ -35370,6 +35588,7 @@ export interface DOMDatabaseClass {
     parent_class:DOMObjectClass
 }
 export interface DOMDatabaseClass_Static {
+    name: string
 }
 export declare var DOMDatabaseClass: DOMDatabaseClass_Static
 export interface DOMDocumentClass {
@@ -35377,6 +35596,7 @@ export interface DOMDocumentClass {
     parent_class:DOMNodeClass
 }
 export interface DOMDocumentClass_Static {
+    name: string
 }
 export declare var DOMDocumentClass: DOMDocumentClass_Static
 export interface DOMDocumentFragmentClass {
@@ -35384,6 +35604,7 @@ export interface DOMDocumentFragmentClass {
     parent_class:DOMNodeClass
 }
 export interface DOMDocumentFragmentClass_Static {
+    name: string
 }
 export declare var DOMDocumentFragmentClass: DOMDocumentFragmentClass_Static
 export interface DOMDocumentTypeClass {
@@ -35391,6 +35612,7 @@ export interface DOMDocumentTypeClass {
     parent_class:DOMNodeClass
 }
 export interface DOMDocumentTypeClass_Static {
+    name: string
 }
 export declare var DOMDocumentTypeClass: DOMDocumentTypeClass_Static
 export interface DOMElementClass {
@@ -35398,6 +35620,7 @@ export interface DOMElementClass {
     parent_class:DOMNodeClass
 }
 export interface DOMElementClass_Static {
+    name: string
 }
 export declare var DOMElementClass: DOMElementClass_Static
 export interface DOMEntityReferenceClass {
@@ -35405,6 +35628,7 @@ export interface DOMEntityReferenceClass {
     parent_class:DOMNodeClass
 }
 export interface DOMEntityReferenceClass_Static {
+    name: string
 }
 export declare var DOMEntityReferenceClass: DOMEntityReferenceClass_Static
 export interface DOMEventClass {
@@ -35412,11 +35636,13 @@ export interface DOMEventClass {
     parent_class:DOMObjectClass
 }
 export interface DOMEventClass_Static {
+    name: string
 }
 export declare var DOMEventClass: DOMEventClass_Static
 export interface DOMEventTargetClass {
 }
 export interface DOMEventTargetClass_Static {
+    name: string
 }
 export declare var DOMEventTargetClass: DOMEventTargetClass_Static
 export interface DOMEventTargetIface {
@@ -35427,6 +35653,7 @@ export interface DOMEventTargetIface {
     remove_event_listener:any
 }
 export interface DOMEventTargetIface_Static {
+    name: string
 }
 export declare var DOMEventTargetIface: DOMEventTargetIface_Static
 export interface DOMFileClass {
@@ -35434,6 +35661,7 @@ export interface DOMFileClass {
     parent_class:DOMBlobClass
 }
 export interface DOMFileClass_Static {
+    name: string
 }
 export declare var DOMFileClass: DOMFileClass_Static
 export interface DOMFileListClass {
@@ -35441,6 +35669,7 @@ export interface DOMFileListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMFileListClass_Static {
+    name: string
 }
 export declare var DOMFileListClass: DOMFileListClass_Static
 export interface DOMGamepadClass {
@@ -35448,6 +35677,7 @@ export interface DOMGamepadClass {
     parent_class:DOMObjectClass
 }
 export interface DOMGamepadClass_Static {
+    name: string
 }
 export declare var DOMGamepadClass: DOMGamepadClass_Static
 export interface DOMGamepadListClass {
@@ -35455,6 +35685,7 @@ export interface DOMGamepadListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMGamepadListClass_Static {
+    name: string
 }
 export declare var DOMGamepadListClass: DOMGamepadListClass_Static
 export interface DOMGeolocationClass {
@@ -35462,6 +35693,7 @@ export interface DOMGeolocationClass {
     parent_class:DOMObjectClass
 }
 export interface DOMGeolocationClass_Static {
+    name: string
 }
 export declare var DOMGeolocationClass: DOMGeolocationClass_Static
 export interface DOMHTMLAnchorElementClass {
@@ -35469,6 +35701,7 @@ export interface DOMHTMLAnchorElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLAnchorElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLAnchorElementClass: DOMHTMLAnchorElementClass_Static
 export interface DOMHTMLAppletElementClass {
@@ -35476,6 +35709,7 @@ export interface DOMHTMLAppletElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLAppletElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLAppletElementClass: DOMHTMLAppletElementClass_Static
 export interface DOMHTMLAreaElementClass {
@@ -35483,6 +35717,7 @@ export interface DOMHTMLAreaElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLAreaElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLAreaElementClass: DOMHTMLAreaElementClass_Static
 export interface DOMHTMLAudioElementClass {
@@ -35490,6 +35725,7 @@ export interface DOMHTMLAudioElementClass {
     parent_class:DOMHTMLMediaElementClass
 }
 export interface DOMHTMLAudioElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLAudioElementClass: DOMHTMLAudioElementClass_Static
 export interface DOMHTMLBRElementClass {
@@ -35497,6 +35733,7 @@ export interface DOMHTMLBRElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLBRElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLBRElementClass: DOMHTMLBRElementClass_Static
 export interface DOMHTMLBaseElementClass {
@@ -35504,6 +35741,7 @@ export interface DOMHTMLBaseElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLBaseElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLBaseElementClass: DOMHTMLBaseElementClass_Static
 export interface DOMHTMLBaseFontElementClass {
@@ -35511,6 +35749,7 @@ export interface DOMHTMLBaseFontElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLBaseFontElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLBaseFontElementClass: DOMHTMLBaseFontElementClass_Static
 export interface DOMHTMLBodyElementClass {
@@ -35518,6 +35757,7 @@ export interface DOMHTMLBodyElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLBodyElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLBodyElementClass: DOMHTMLBodyElementClass_Static
 export interface DOMHTMLButtonElementClass {
@@ -35525,6 +35765,7 @@ export interface DOMHTMLButtonElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLButtonElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLButtonElementClass: DOMHTMLButtonElementClass_Static
 export interface DOMHTMLCanvasElementClass {
@@ -35532,6 +35773,7 @@ export interface DOMHTMLCanvasElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLCanvasElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLCanvasElementClass: DOMHTMLCanvasElementClass_Static
 export interface DOMHTMLCollectionClass {
@@ -35539,6 +35781,7 @@ export interface DOMHTMLCollectionClass {
     parent_class:DOMObjectClass
 }
 export interface DOMHTMLCollectionClass_Static {
+    name: string
 }
 export declare var DOMHTMLCollectionClass: DOMHTMLCollectionClass_Static
 export interface DOMHTMLDListElementClass {
@@ -35546,6 +35789,7 @@ export interface DOMHTMLDListElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLDListElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLDListElementClass: DOMHTMLDListElementClass_Static
 export interface DOMHTMLDetailsElementClass {
@@ -35553,6 +35797,7 @@ export interface DOMHTMLDetailsElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLDetailsElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLDetailsElementClass: DOMHTMLDetailsElementClass_Static
 export interface DOMHTMLDirectoryElementClass {
@@ -35560,6 +35805,7 @@ export interface DOMHTMLDirectoryElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLDirectoryElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLDirectoryElementClass: DOMHTMLDirectoryElementClass_Static
 export interface DOMHTMLDivElementClass {
@@ -35567,6 +35813,7 @@ export interface DOMHTMLDivElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLDivElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLDivElementClass: DOMHTMLDivElementClass_Static
 export interface DOMHTMLDocumentClass {
@@ -35574,6 +35821,7 @@ export interface DOMHTMLDocumentClass {
     parent_class:DOMDocumentClass
 }
 export interface DOMHTMLDocumentClass_Static {
+    name: string
 }
 export declare var DOMHTMLDocumentClass: DOMHTMLDocumentClass_Static
 export interface DOMHTMLElementClass {
@@ -35581,6 +35829,7 @@ export interface DOMHTMLElementClass {
     parent_class:DOMElementClass
 }
 export interface DOMHTMLElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLElementClass: DOMHTMLElementClass_Static
 export interface DOMHTMLEmbedElementClass {
@@ -35588,6 +35837,7 @@ export interface DOMHTMLEmbedElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLEmbedElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLEmbedElementClass: DOMHTMLEmbedElementClass_Static
 export interface DOMHTMLFieldSetElementClass {
@@ -35595,6 +35845,7 @@ export interface DOMHTMLFieldSetElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFieldSetElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLFieldSetElementClass: DOMHTMLFieldSetElementClass_Static
 export interface DOMHTMLFontElementClass {
@@ -35602,6 +35853,7 @@ export interface DOMHTMLFontElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFontElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLFontElementClass: DOMHTMLFontElementClass_Static
 export interface DOMHTMLFormElementClass {
@@ -35609,6 +35861,7 @@ export interface DOMHTMLFormElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFormElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLFormElementClass: DOMHTMLFormElementClass_Static
 export interface DOMHTMLFrameElementClass {
@@ -35616,6 +35869,7 @@ export interface DOMHTMLFrameElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFrameElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLFrameElementClass: DOMHTMLFrameElementClass_Static
 export interface DOMHTMLFrameSetElementClass {
@@ -35623,6 +35877,7 @@ export interface DOMHTMLFrameSetElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLFrameSetElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLFrameSetElementClass: DOMHTMLFrameSetElementClass_Static
 export interface DOMHTMLHRElementClass {
@@ -35630,6 +35885,7 @@ export interface DOMHTMLHRElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLHRElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLHRElementClass: DOMHTMLHRElementClass_Static
 export interface DOMHTMLHeadElementClass {
@@ -35637,6 +35893,7 @@ export interface DOMHTMLHeadElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLHeadElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLHeadElementClass: DOMHTMLHeadElementClass_Static
 export interface DOMHTMLHeadingElementClass {
@@ -35644,6 +35901,7 @@ export interface DOMHTMLHeadingElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLHeadingElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLHeadingElementClass: DOMHTMLHeadingElementClass_Static
 export interface DOMHTMLHtmlElementClass {
@@ -35651,6 +35909,7 @@ export interface DOMHTMLHtmlElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLHtmlElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLHtmlElementClass: DOMHTMLHtmlElementClass_Static
 export interface DOMHTMLIFrameElementClass {
@@ -35658,6 +35917,7 @@ export interface DOMHTMLIFrameElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLIFrameElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLIFrameElementClass: DOMHTMLIFrameElementClass_Static
 export interface DOMHTMLImageElementClass {
@@ -35665,6 +35925,7 @@ export interface DOMHTMLImageElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLImageElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLImageElementClass: DOMHTMLImageElementClass_Static
 export interface DOMHTMLInputElementClass {
@@ -35672,6 +35933,7 @@ export interface DOMHTMLInputElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLInputElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLInputElementClass: DOMHTMLInputElementClass_Static
 export interface DOMHTMLKeygenElementClass {
@@ -35679,6 +35941,7 @@ export interface DOMHTMLKeygenElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLKeygenElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLKeygenElementClass: DOMHTMLKeygenElementClass_Static
 export interface DOMHTMLLIElementClass {
@@ -35686,6 +35949,7 @@ export interface DOMHTMLLIElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLLIElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLLIElementClass: DOMHTMLLIElementClass_Static
 export interface DOMHTMLLabelElementClass {
@@ -35693,6 +35957,7 @@ export interface DOMHTMLLabelElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLLabelElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLLabelElementClass: DOMHTMLLabelElementClass_Static
 export interface DOMHTMLLegendElementClass {
@@ -35700,6 +35965,7 @@ export interface DOMHTMLLegendElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLLegendElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLLegendElementClass: DOMHTMLLegendElementClass_Static
 export interface DOMHTMLLinkElementClass {
@@ -35707,6 +35973,7 @@ export interface DOMHTMLLinkElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLLinkElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLLinkElementClass: DOMHTMLLinkElementClass_Static
 export interface DOMHTMLMapElementClass {
@@ -35714,6 +35981,7 @@ export interface DOMHTMLMapElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMapElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLMapElementClass: DOMHTMLMapElementClass_Static
 export interface DOMHTMLMarqueeElementClass {
@@ -35721,6 +35989,7 @@ export interface DOMHTMLMarqueeElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMarqueeElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLMarqueeElementClass: DOMHTMLMarqueeElementClass_Static
 export interface DOMHTMLMediaElementClass {
@@ -35728,6 +35997,7 @@ export interface DOMHTMLMediaElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMediaElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLMediaElementClass: DOMHTMLMediaElementClass_Static
 export interface DOMHTMLMenuElementClass {
@@ -35735,6 +36005,7 @@ export interface DOMHTMLMenuElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMenuElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLMenuElementClass: DOMHTMLMenuElementClass_Static
 export interface DOMHTMLMetaElementClass {
@@ -35742,6 +36013,7 @@ export interface DOMHTMLMetaElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLMetaElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLMetaElementClass: DOMHTMLMetaElementClass_Static
 export interface DOMHTMLModElementClass {
@@ -35749,6 +36021,7 @@ export interface DOMHTMLModElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLModElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLModElementClass: DOMHTMLModElementClass_Static
 export interface DOMHTMLOListElementClass {
@@ -35756,6 +36029,7 @@ export interface DOMHTMLOListElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLOListElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLOListElementClass: DOMHTMLOListElementClass_Static
 export interface DOMHTMLObjectElementClass {
@@ -35763,6 +36037,7 @@ export interface DOMHTMLObjectElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLObjectElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLObjectElementClass: DOMHTMLObjectElementClass_Static
 export interface DOMHTMLOptGroupElementClass {
@@ -35770,6 +36045,7 @@ export interface DOMHTMLOptGroupElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLOptGroupElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLOptGroupElementClass: DOMHTMLOptGroupElementClass_Static
 export interface DOMHTMLOptionElementClass {
@@ -35777,6 +36053,7 @@ export interface DOMHTMLOptionElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLOptionElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLOptionElementClass: DOMHTMLOptionElementClass_Static
 export interface DOMHTMLOptionsCollectionClass {
@@ -35784,6 +36061,7 @@ export interface DOMHTMLOptionsCollectionClass {
     parent_class:DOMHTMLCollectionClass
 }
 export interface DOMHTMLOptionsCollectionClass_Static {
+    name: string
 }
 export declare var DOMHTMLOptionsCollectionClass: DOMHTMLOptionsCollectionClass_Static
 export interface DOMHTMLParagraphElementClass {
@@ -35791,6 +36069,7 @@ export interface DOMHTMLParagraphElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLParagraphElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLParagraphElementClass: DOMHTMLParagraphElementClass_Static
 export interface DOMHTMLParamElementClass {
@@ -35798,6 +36077,7 @@ export interface DOMHTMLParamElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLParamElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLParamElementClass: DOMHTMLParamElementClass_Static
 export interface DOMHTMLPreElementClass {
@@ -35805,6 +36085,7 @@ export interface DOMHTMLPreElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLPreElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLPreElementClass: DOMHTMLPreElementClass_Static
 export interface DOMHTMLQuoteElementClass {
@@ -35812,6 +36093,7 @@ export interface DOMHTMLQuoteElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLQuoteElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLQuoteElementClass: DOMHTMLQuoteElementClass_Static
 export interface DOMHTMLScriptElementClass {
@@ -35819,6 +36101,7 @@ export interface DOMHTMLScriptElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLScriptElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLScriptElementClass: DOMHTMLScriptElementClass_Static
 export interface DOMHTMLSelectElementClass {
@@ -35826,6 +36109,7 @@ export interface DOMHTMLSelectElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLSelectElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLSelectElementClass: DOMHTMLSelectElementClass_Static
 export interface DOMHTMLStyleElementClass {
@@ -35833,6 +36117,7 @@ export interface DOMHTMLStyleElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLStyleElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLStyleElementClass: DOMHTMLStyleElementClass_Static
 export interface DOMHTMLTableCaptionElementClass {
@@ -35840,6 +36125,7 @@ export interface DOMHTMLTableCaptionElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableCaptionElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLTableCaptionElementClass: DOMHTMLTableCaptionElementClass_Static
 export interface DOMHTMLTableCellElementClass {
@@ -35847,6 +36133,7 @@ export interface DOMHTMLTableCellElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableCellElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLTableCellElementClass: DOMHTMLTableCellElementClass_Static
 export interface DOMHTMLTableColElementClass {
@@ -35854,6 +36141,7 @@ export interface DOMHTMLTableColElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableColElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLTableColElementClass: DOMHTMLTableColElementClass_Static
 export interface DOMHTMLTableElementClass {
@@ -35861,6 +36149,7 @@ export interface DOMHTMLTableElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLTableElementClass: DOMHTMLTableElementClass_Static
 export interface DOMHTMLTableRowElementClass {
@@ -35868,6 +36157,7 @@ export interface DOMHTMLTableRowElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableRowElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLTableRowElementClass: DOMHTMLTableRowElementClass_Static
 export interface DOMHTMLTableSectionElementClass {
@@ -35875,6 +36165,7 @@ export interface DOMHTMLTableSectionElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTableSectionElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLTableSectionElementClass: DOMHTMLTableSectionElementClass_Static
 export interface DOMHTMLTextAreaElementClass {
@@ -35882,6 +36173,7 @@ export interface DOMHTMLTextAreaElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTextAreaElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLTextAreaElementClass: DOMHTMLTextAreaElementClass_Static
 export interface DOMHTMLTitleElementClass {
@@ -35889,6 +36181,7 @@ export interface DOMHTMLTitleElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLTitleElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLTitleElementClass: DOMHTMLTitleElementClass_Static
 export interface DOMHTMLUListElementClass {
@@ -35896,6 +36189,7 @@ export interface DOMHTMLUListElementClass {
     parent_class:DOMHTMLElementClass
 }
 export interface DOMHTMLUListElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLUListElementClass: DOMHTMLUListElementClass_Static
 export interface DOMHTMLVideoElementClass {
@@ -35903,6 +36197,7 @@ export interface DOMHTMLVideoElementClass {
     parent_class:DOMHTMLMediaElementClass
 }
 export interface DOMHTMLVideoElementClass_Static {
+    name: string
 }
 export declare var DOMHTMLVideoElementClass: DOMHTMLVideoElementClass_Static
 export interface DOMHistoryClass {
@@ -35910,6 +36205,7 @@ export interface DOMHistoryClass {
     parent_class:DOMObjectClass
 }
 export interface DOMHistoryClass_Static {
+    name: string
 }
 export declare var DOMHistoryClass: DOMHistoryClass_Static
 export interface DOMKeyboardEventClass {
@@ -35917,6 +36213,7 @@ export interface DOMKeyboardEventClass {
     parent_class:DOMUIEventClass
 }
 export interface DOMKeyboardEventClass_Static {
+    name: string
 }
 export declare var DOMKeyboardEventClass: DOMKeyboardEventClass_Static
 export interface DOMLocationClass {
@@ -35924,6 +36221,7 @@ export interface DOMLocationClass {
     parent_class:DOMObjectClass
 }
 export interface DOMLocationClass_Static {
+    name: string
 }
 export declare var DOMLocationClass: DOMLocationClass_Static
 export interface DOMMediaControllerClass {
@@ -35931,6 +36229,7 @@ export interface DOMMediaControllerClass {
     parent_class:DOMObjectClass
 }
 export interface DOMMediaControllerClass_Static {
+    name: string
 }
 export declare var DOMMediaControllerClass: DOMMediaControllerClass_Static
 export interface DOMMediaErrorClass {
@@ -35938,6 +36237,7 @@ export interface DOMMediaErrorClass {
     parent_class:DOMObjectClass
 }
 export interface DOMMediaErrorClass_Static {
+    name: string
 }
 export declare var DOMMediaErrorClass: DOMMediaErrorClass_Static
 export interface DOMMediaListClass {
@@ -35945,6 +36245,7 @@ export interface DOMMediaListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMMediaListClass_Static {
+    name: string
 }
 export declare var DOMMediaListClass: DOMMediaListClass_Static
 export interface DOMMediaQueryListClass {
@@ -35952,6 +36253,7 @@ export interface DOMMediaQueryListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMMediaQueryListClass_Static {
+    name: string
 }
 export declare var DOMMediaQueryListClass: DOMMediaQueryListClass_Static
 export interface DOMMessagePortClass {
@@ -35959,6 +36261,7 @@ export interface DOMMessagePortClass {
     parent_class:DOMObjectClass
 }
 export interface DOMMessagePortClass_Static {
+    name: string
 }
 export declare var DOMMessagePortClass: DOMMessagePortClass_Static
 export interface DOMMouseEventClass {
@@ -35966,6 +36269,7 @@ export interface DOMMouseEventClass {
     parent_class:DOMUIEventClass
 }
 export interface DOMMouseEventClass_Static {
+    name: string
 }
 export declare var DOMMouseEventClass: DOMMouseEventClass_Static
 export interface DOMNamedNodeMapClass {
@@ -35973,6 +36277,7 @@ export interface DOMNamedNodeMapClass {
     parent_class:DOMObjectClass
 }
 export interface DOMNamedNodeMapClass_Static {
+    name: string
 }
 export declare var DOMNamedNodeMapClass: DOMNamedNodeMapClass_Static
 export interface DOMNavigatorClass {
@@ -35980,6 +36285,7 @@ export interface DOMNavigatorClass {
     parent_class:DOMObjectClass
 }
 export interface DOMNavigatorClass_Static {
+    name: string
 }
 export declare var DOMNavigatorClass: DOMNavigatorClass_Static
 export interface DOMNodeClass {
@@ -35987,6 +36293,7 @@ export interface DOMNodeClass {
     parent_class:DOMObjectClass
 }
 export interface DOMNodeClass_Static {
+    name: string
 }
 export declare var DOMNodeClass: DOMNodeClass_Static
 export interface DOMNodeFilterClass {
@@ -35994,6 +36301,7 @@ export interface DOMNodeFilterClass {
     parent_class:DOMObjectClass
 }
 export interface DOMNodeFilterClass_Static {
+    name: string
 }
 export declare var DOMNodeFilterClass: DOMNodeFilterClass_Static
 export interface DOMNodeIteratorClass {
@@ -36001,6 +36309,7 @@ export interface DOMNodeIteratorClass {
     parent_class:DOMObjectClass
 }
 export interface DOMNodeIteratorClass_Static {
+    name: string
 }
 export declare var DOMNodeIteratorClass: DOMNodeIteratorClass_Static
 export interface DOMNodeListClass {
@@ -36008,6 +36317,7 @@ export interface DOMNodeListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMNodeListClass_Static {
+    name: string
 }
 export declare var DOMNodeListClass: DOMNodeListClass_Static
 export interface DOMObjectClass {
@@ -36015,11 +36325,13 @@ export interface DOMObjectClass {
     parentClass:GObject.ObjectClass
 }
 export interface DOMObjectClass_Static {
+    name: string
 }
 export declare var DOMObjectClass: DOMObjectClass_Static
 export interface DOMObjectPrivate {
 }
 export interface DOMObjectPrivate_Static {
+    name: string
 }
 export declare var DOMObjectPrivate: DOMObjectPrivate_Static
 export interface DOMPerformanceClass {
@@ -36027,6 +36339,7 @@ export interface DOMPerformanceClass {
     parent_class:DOMObjectClass
 }
 export interface DOMPerformanceClass_Static {
+    name: string
 }
 export declare var DOMPerformanceClass: DOMPerformanceClass_Static
 export interface DOMPerformanceEntryClass {
@@ -36034,6 +36347,7 @@ export interface DOMPerformanceEntryClass {
     parent_class:DOMObjectClass
 }
 export interface DOMPerformanceEntryClass_Static {
+    name: string
 }
 export declare var DOMPerformanceEntryClass: DOMPerformanceEntryClass_Static
 export interface DOMPerformanceEntryListClass {
@@ -36041,6 +36355,7 @@ export interface DOMPerformanceEntryListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMPerformanceEntryListClass_Static {
+    name: string
 }
 export declare var DOMPerformanceEntryListClass: DOMPerformanceEntryListClass_Static
 export interface DOMPerformanceNavigationClass {
@@ -36048,6 +36363,7 @@ export interface DOMPerformanceNavigationClass {
     parent_class:DOMObjectClass
 }
 export interface DOMPerformanceNavigationClass_Static {
+    name: string
 }
 export declare var DOMPerformanceNavigationClass: DOMPerformanceNavigationClass_Static
 export interface DOMPerformanceTimingClass {
@@ -36055,6 +36371,7 @@ export interface DOMPerformanceTimingClass {
     parent_class:DOMObjectClass
 }
 export interface DOMPerformanceTimingClass_Static {
+    name: string
 }
 export declare var DOMPerformanceTimingClass: DOMPerformanceTimingClass_Static
 export interface DOMProcessingInstructionClass {
@@ -36062,6 +36379,7 @@ export interface DOMProcessingInstructionClass {
     parent_class:DOMCharacterDataClass
 }
 export interface DOMProcessingInstructionClass_Static {
+    name: string
 }
 export declare var DOMProcessingInstructionClass: DOMProcessingInstructionClass_Static
 export interface DOMRangeClass {
@@ -36069,6 +36387,7 @@ export interface DOMRangeClass {
     parent_class:DOMObjectClass
 }
 export interface DOMRangeClass_Static {
+    name: string
 }
 export declare var DOMRangeClass: DOMRangeClass_Static
 export interface DOMScreenClass {
@@ -36076,6 +36395,7 @@ export interface DOMScreenClass {
     parent_class:DOMObjectClass
 }
 export interface DOMScreenClass_Static {
+    name: string
 }
 export declare var DOMScreenClass: DOMScreenClass_Static
 export interface DOMShadowRootClass {
@@ -36083,6 +36403,7 @@ export interface DOMShadowRootClass {
     parent_class:DOMDocumentFragmentClass
 }
 export interface DOMShadowRootClass_Static {
+    name: string
 }
 export declare var DOMShadowRootClass: DOMShadowRootClass_Static
 export interface DOMStorageClass {
@@ -36090,6 +36411,7 @@ export interface DOMStorageClass {
     parent_class:DOMObjectClass
 }
 export interface DOMStorageClass_Static {
+    name: string
 }
 export declare var DOMStorageClass: DOMStorageClass_Static
 export interface DOMStorageInfoClass {
@@ -36097,6 +36419,7 @@ export interface DOMStorageInfoClass {
     parent_class:DOMObjectClass
 }
 export interface DOMStorageInfoClass_Static {
+    name: string
 }
 export declare var DOMStorageInfoClass: DOMStorageInfoClass_Static
 export interface DOMStorageQuotaClass {
@@ -36104,6 +36427,7 @@ export interface DOMStorageQuotaClass {
     parent_class:DOMObjectClass
 }
 export interface DOMStorageQuotaClass_Static {
+    name: string
 }
 export declare var DOMStorageQuotaClass: DOMStorageQuotaClass_Static
 export interface DOMStyleMediaClass {
@@ -36111,6 +36435,7 @@ export interface DOMStyleMediaClass {
     parent_class:DOMObjectClass
 }
 export interface DOMStyleMediaClass_Static {
+    name: string
 }
 export declare var DOMStyleMediaClass: DOMStyleMediaClass_Static
 export interface DOMStyleSheetClass {
@@ -36118,6 +36443,7 @@ export interface DOMStyleSheetClass {
     parent_class:DOMObjectClass
 }
 export interface DOMStyleSheetClass_Static {
+    name: string
 }
 export declare var DOMStyleSheetClass: DOMStyleSheetClass_Static
 export interface DOMStyleSheetListClass {
@@ -36125,6 +36451,7 @@ export interface DOMStyleSheetListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMStyleSheetListClass_Static {
+    name: string
 }
 export declare var DOMStyleSheetListClass: DOMStyleSheetListClass_Static
 export interface DOMTextClass {
@@ -36132,6 +36459,7 @@ export interface DOMTextClass {
     parent_class:DOMCharacterDataClass
 }
 export interface DOMTextClass_Static {
+    name: string
 }
 export declare var DOMTextClass: DOMTextClass_Static
 export interface DOMTextTrackClass {
@@ -36139,6 +36467,7 @@ export interface DOMTextTrackClass {
     parent_class:DOMObjectClass
 }
 export interface DOMTextTrackClass_Static {
+    name: string
 }
 export declare var DOMTextTrackClass: DOMTextTrackClass_Static
 export interface DOMTextTrackCueClass {
@@ -36146,6 +36475,7 @@ export interface DOMTextTrackCueClass {
     parent_class:DOMObjectClass
 }
 export interface DOMTextTrackCueClass_Static {
+    name: string
 }
 export declare var DOMTextTrackCueClass: DOMTextTrackCueClass_Static
 export interface DOMTextTrackCueListClass {
@@ -36153,6 +36483,7 @@ export interface DOMTextTrackCueListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMTextTrackCueListClass_Static {
+    name: string
 }
 export declare var DOMTextTrackCueListClass: DOMTextTrackCueListClass_Static
 export interface DOMTextTrackListClass {
@@ -36160,6 +36491,7 @@ export interface DOMTextTrackListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMTextTrackListClass_Static {
+    name: string
 }
 export declare var DOMTextTrackListClass: DOMTextTrackListClass_Static
 export interface DOMTimeRangesClass {
@@ -36167,6 +36499,7 @@ export interface DOMTimeRangesClass {
     parent_class:DOMObjectClass
 }
 export interface DOMTimeRangesClass_Static {
+    name: string
 }
 export declare var DOMTimeRangesClass: DOMTimeRangesClass_Static
 export interface DOMTouchClass {
@@ -36174,6 +36507,7 @@ export interface DOMTouchClass {
     parent_class:DOMObjectClass
 }
 export interface DOMTouchClass_Static {
+    name: string
 }
 export declare var DOMTouchClass: DOMTouchClass_Static
 export interface DOMTrackEventClass {
@@ -36181,6 +36515,7 @@ export interface DOMTrackEventClass {
     parent_class:DOMEventClass
 }
 export interface DOMTrackEventClass_Static {
+    name: string
 }
 export declare var DOMTrackEventClass: DOMTrackEventClass_Static
 export interface DOMTreeWalkerClass {
@@ -36188,6 +36523,7 @@ export interface DOMTreeWalkerClass {
     parent_class:DOMObjectClass
 }
 export interface DOMTreeWalkerClass_Static {
+    name: string
 }
 export declare var DOMTreeWalkerClass: DOMTreeWalkerClass_Static
 export interface DOMUIEventClass {
@@ -36195,6 +36531,7 @@ export interface DOMUIEventClass {
     parent_class:DOMEventClass
 }
 export interface DOMUIEventClass_Static {
+    name: string
 }
 export declare var DOMUIEventClass: DOMUIEventClass_Static
 export interface DOMValidityStateClass {
@@ -36202,6 +36539,7 @@ export interface DOMValidityStateClass {
     parent_class:DOMObjectClass
 }
 export interface DOMValidityStateClass_Static {
+    name: string
 }
 export declare var DOMValidityStateClass: DOMValidityStateClass_Static
 export interface DOMVideoPlaybackQualityClass {
@@ -36209,6 +36547,7 @@ export interface DOMVideoPlaybackQualityClass {
     parent_class:DOMObjectClass
 }
 export interface DOMVideoPlaybackQualityClass_Static {
+    name: string
 }
 export declare var DOMVideoPlaybackQualityClass: DOMVideoPlaybackQualityClass_Static
 export interface DOMVideoTrackClass {
@@ -36216,6 +36555,7 @@ export interface DOMVideoTrackClass {
     parent_class:DOMObjectClass
 }
 export interface DOMVideoTrackClass_Static {
+    name: string
 }
 export declare var DOMVideoTrackClass: DOMVideoTrackClass_Static
 export interface DOMVideoTrackListClass {
@@ -36223,6 +36563,7 @@ export interface DOMVideoTrackListClass {
     parent_class:DOMObjectClass
 }
 export interface DOMVideoTrackListClass_Static {
+    name: string
 }
 export declare var DOMVideoTrackListClass: DOMVideoTrackListClass_Static
 export interface DOMWebKitNamedFlowClass {
@@ -36230,6 +36571,7 @@ export interface DOMWebKitNamedFlowClass {
     parent_class:DOMObjectClass
 }
 export interface DOMWebKitNamedFlowClass_Static {
+    name: string
 }
 export declare var DOMWebKitNamedFlowClass: DOMWebKitNamedFlowClass_Static
 export interface DOMWebKitPointClass {
@@ -36237,6 +36579,7 @@ export interface DOMWebKitPointClass {
     parent_class:DOMObjectClass
 }
 export interface DOMWebKitPointClass_Static {
+    name: string
 }
 export declare var DOMWebKitPointClass: DOMWebKitPointClass_Static
 export interface DOMWheelEventClass {
@@ -36244,6 +36587,7 @@ export interface DOMWheelEventClass {
     parent_class:DOMMouseEventClass
 }
 export interface DOMWheelEventClass_Static {
+    name: string
 }
 export declare var DOMWheelEventClass: DOMWheelEventClass_Static
 export interface DOMXPathExpressionClass {
@@ -36251,6 +36595,7 @@ export interface DOMXPathExpressionClass {
     parent_class:DOMObjectClass
 }
 export interface DOMXPathExpressionClass_Static {
+    name: string
 }
 export declare var DOMXPathExpressionClass: DOMXPathExpressionClass_Static
 export interface DOMXPathNSResolverClass {
@@ -36258,6 +36603,7 @@ export interface DOMXPathNSResolverClass {
     parent_class:DOMObjectClass
 }
 export interface DOMXPathNSResolverClass_Static {
+    name: string
 }
 export declare var DOMXPathNSResolverClass: DOMXPathNSResolverClass_Static
 export interface DOMXPathResultClass {
@@ -36265,6 +36611,7 @@ export interface DOMXPathResultClass {
     parent_class:DOMObjectClass
 }
 export interface DOMXPathResultClass_Static {
+    name: string
 }
 export declare var DOMXPathResultClass: DOMXPathResultClass_Static
 export interface DownloadClass {
@@ -36272,11 +36619,13 @@ export interface DownloadClass {
     parent_class:GObject.ObjectClass
 }
 export interface DownloadClass_Static {
+    name: string
 }
 export declare var DownloadClass: DownloadClass_Static
 export interface DownloadPrivate {
 }
 export interface DownloadPrivate_Static {
+    name: string
 }
 export declare var DownloadPrivate: DownloadPrivate_Static
 export interface FaviconDatabaseClass {
@@ -36284,11 +36633,13 @@ export interface FaviconDatabaseClass {
     parent_class:GObject.ObjectClass
 }
 export interface FaviconDatabaseClass_Static {
+    name: string
 }
 export declare var FaviconDatabaseClass: FaviconDatabaseClass_Static
 export interface FaviconDatabasePrivate {
 }
 export interface FaviconDatabasePrivate_Static {
+    name: string
 }
 export declare var FaviconDatabasePrivate: FaviconDatabasePrivate_Static
 export interface FileChooserRequestClass {
@@ -36296,11 +36647,13 @@ export interface FileChooserRequestClass {
     parent_class:GObject.ObjectClass
 }
 export interface FileChooserRequestClass_Static {
+    name: string
 }
 export declare var FileChooserRequestClass: FileChooserRequestClass_Static
 export interface FileChooserRequestPrivate {
 }
 export interface FileChooserRequestPrivate_Static {
+    name: string
 }
 export declare var FileChooserRequestPrivate: FileChooserRequestPrivate_Static
 export interface GeolocationPolicyDecisionClass {
@@ -36308,11 +36661,13 @@ export interface GeolocationPolicyDecisionClass {
     parent_class:GObject.ObjectClass
 }
 export interface GeolocationPolicyDecisionClass_Static {
+    name: string
 }
 export declare var GeolocationPolicyDecisionClass: GeolocationPolicyDecisionClass_Static
 export interface GeolocationPolicyDecisionPrivate {
 }
 export interface GeolocationPolicyDecisionPrivate_Static {
+    name: string
 }
 export declare var GeolocationPolicyDecisionPrivate: GeolocationPolicyDecisionPrivate_Static
 export interface HitTestResultClass {
@@ -36320,11 +36675,13 @@ export interface HitTestResultClass {
     parent_class:GObject.ObjectClass
 }
 export interface HitTestResultClass_Static {
+    name: string
 }
 export declare var HitTestResultClass: HitTestResultClass_Static
 export interface HitTestResultPrivate {
 }
 export interface HitTestResultPrivate_Static {
+    name: string
 }
 export declare var HitTestResultPrivate: HitTestResultPrivate_Static
 export interface IconDatabaseClass {
@@ -36332,11 +36689,13 @@ export interface IconDatabaseClass {
     parent_class:GObject.ObjectClass
 }
 export interface IconDatabaseClass_Static {
+    name: string
 }
 export declare var IconDatabaseClass: IconDatabaseClass_Static
 export interface IconDatabasePrivate {
 }
 export interface IconDatabasePrivate_Static {
+    name: string
 }
 export declare var IconDatabasePrivate: IconDatabasePrivate_Static
 export interface NetworkRequestClass {
@@ -36344,11 +36703,13 @@ export interface NetworkRequestClass {
     parent_class:GObject.ObjectClass
 }
 export interface NetworkRequestClass_Static {
+    name: string
 }
 export declare var NetworkRequestClass: NetworkRequestClass_Static
 export interface NetworkRequestPrivate {
 }
 export interface NetworkRequestPrivate_Static {
+    name: string
 }
 export declare var NetworkRequestPrivate: NetworkRequestPrivate_Static
 export interface NetworkResponseClass {
@@ -36356,11 +36717,13 @@ export interface NetworkResponseClass {
     parent_class:GObject.ObjectClass
 }
 export interface NetworkResponseClass_Static {
+    name: string
 }
 export declare var NetworkResponseClass: NetworkResponseClass_Static
 export interface NetworkResponsePrivate {
 }
 export interface NetworkResponsePrivate_Static {
+    name: string
 }
 export declare var NetworkResponsePrivate: NetworkResponsePrivate_Static
 export interface SecurityOriginClass {
@@ -36368,11 +36731,13 @@ export interface SecurityOriginClass {
     parent_class:GObject.ObjectClass
 }
 export interface SecurityOriginClass_Static {
+    name: string
 }
 export declare var SecurityOriginClass: SecurityOriginClass_Static
 export interface SecurityOriginPrivate {
 }
 export interface SecurityOriginPrivate_Static {
+    name: string
 }
 export declare var SecurityOriginPrivate: SecurityOriginPrivate_Static
 export interface SoupAuthDialogClass {
@@ -36380,6 +36745,7 @@ export interface SoupAuthDialogClass {
     parent_class:GObject.ObjectClass
 }
 export interface SoupAuthDialogClass_Static {
+    name: string
 }
 export declare var SoupAuthDialogClass: SoupAuthDialogClass_Static
 export interface SpellCheckerInterface {
@@ -36393,6 +36759,7 @@ export interface SpellCheckerInterface {
     ignore_word:any
 }
 export interface SpellCheckerInterface_Static {
+    name: string
 }
 export declare var SpellCheckerInterface: SpellCheckerInterface_Static
 export interface ViewportAttributesClass {
@@ -36400,11 +36767,13 @@ export interface ViewportAttributesClass {
     parent_class:GObject.ObjectClass
 }
 export interface ViewportAttributesClass_Static {
+    name: string
 }
 export declare var ViewportAttributesClass: ViewportAttributesClass_Static
 export interface ViewportAttributesPrivate {
 }
 export interface ViewportAttributesPrivate_Static {
+    name: string
 }
 export declare var ViewportAttributesPrivate: ViewportAttributesPrivate_Static
 export interface WebBackForwardListClass {
@@ -36412,11 +36781,13 @@ export interface WebBackForwardListClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebBackForwardListClass_Static {
+    name: string
 }
 export declare var WebBackForwardListClass: WebBackForwardListClass_Static
 export interface WebBackForwardListPrivate {
 }
 export interface WebBackForwardListPrivate_Static {
+    name: string
 }
 export declare var WebBackForwardListPrivate: WebBackForwardListPrivate_Static
 export interface WebDataSourceClass {
@@ -36424,11 +36795,13 @@ export interface WebDataSourceClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebDataSourceClass_Static {
+    name: string
 }
 export declare var WebDataSourceClass: WebDataSourceClass_Static
 export interface WebDataSourcePrivate {
 }
 export interface WebDataSourcePrivate_Static {
+    name: string
 }
 export declare var WebDataSourcePrivate: WebDataSourcePrivate_Static
 export interface WebDatabaseClass {
@@ -36436,11 +36809,13 @@ export interface WebDatabaseClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebDatabaseClass_Static {
+    name: string
 }
 export declare var WebDatabaseClass: WebDatabaseClass_Static
 export interface WebDatabasePrivate {
 }
 export interface WebDatabasePrivate_Static {
+    name: string
 }
 export declare var WebDatabasePrivate: WebDatabasePrivate_Static
 export interface WebFrameClass {
@@ -36448,11 +36823,13 @@ export interface WebFrameClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebFrameClass_Static {
+    name: string
 }
 export declare var WebFrameClass: WebFrameClass_Static
 export interface WebFramePrivate {
 }
 export interface WebFramePrivate_Static {
+    name: string
 }
 export declare var WebFramePrivate: WebFramePrivate_Static
 export interface WebHistoryItemClass {
@@ -36460,11 +36837,13 @@ export interface WebHistoryItemClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebHistoryItemClass_Static {
+    name: string
 }
 export declare var WebHistoryItemClass: WebHistoryItemClass_Static
 export interface WebHistoryItemPrivate {
 }
 export interface WebHistoryItemPrivate_Static {
+    name: string
 }
 export declare var WebHistoryItemPrivate: WebHistoryItemPrivate_Static
 export interface WebInspectorClass {
@@ -36472,11 +36851,13 @@ export interface WebInspectorClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebInspectorClass_Static {
+    name: string
 }
 export declare var WebInspectorClass: WebInspectorClass_Static
 export interface WebInspectorPrivate {
 }
 export interface WebInspectorPrivate_Static {
+    name: string
 }
 export declare var WebInspectorPrivate: WebInspectorPrivate_Static
 export interface WebNavigationActionClass {
@@ -36484,11 +36865,13 @@ export interface WebNavigationActionClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebNavigationActionClass_Static {
+    name: string
 }
 export declare var WebNavigationActionClass: WebNavigationActionClass_Static
 export interface WebNavigationActionPrivate {
 }
 export interface WebNavigationActionPrivate_Static {
+    name: string
 }
 export declare var WebNavigationActionPrivate: WebNavigationActionPrivate_Static
 export interface WebPluginClass {
@@ -36496,6 +36879,7 @@ export interface WebPluginClass {
     parentClass:GObject.ObjectClass
 }
 export interface WebPluginClass_Static {
+    name: string
 }
 export declare var WebPluginClass: WebPluginClass_Static
 export interface WebPluginDatabaseClass {
@@ -36503,11 +36887,13 @@ export interface WebPluginDatabaseClass {
     parentClass:GObject.ObjectClass
 }
 export interface WebPluginDatabaseClass_Static {
+    name: string
 }
 export declare var WebPluginDatabaseClass: WebPluginDatabaseClass_Static
 export interface WebPluginDatabasePrivate {
 }
 export interface WebPluginDatabasePrivate_Static {
+    name: string
 }
 export declare var WebPluginDatabasePrivate: WebPluginDatabasePrivate_Static
 export interface WebPluginMIMEType {
@@ -36517,11 +36903,13 @@ export interface WebPluginMIMEType {
     extensions:string
 }
 export interface WebPluginMIMEType_Static {
+    name: string
 }
 export declare var WebPluginMIMEType: WebPluginMIMEType_Static
 export interface WebPluginPrivate {
 }
 export interface WebPluginPrivate_Static {
+    name: string
 }
 export declare var WebPluginPrivate: WebPluginPrivate_Static
 export interface WebPolicyDecisionClass {
@@ -36529,11 +36917,13 @@ export interface WebPolicyDecisionClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebPolicyDecisionClass_Static {
+    name: string
 }
 export declare var WebPolicyDecisionClass: WebPolicyDecisionClass_Static
 export interface WebPolicyDecisionPrivate {
 }
 export interface WebPolicyDecisionPrivate_Static {
+    name: string
 }
 export declare var WebPolicyDecisionPrivate: WebPolicyDecisionPrivate_Static
 export interface WebResourceClass {
@@ -36541,11 +36931,13 @@ export interface WebResourceClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebResourceClass_Static {
+    name: string
 }
 export declare var WebResourceClass: WebResourceClass_Static
 export interface WebResourcePrivate {
 }
 export interface WebResourcePrivate_Static {
+    name: string
 }
 export declare var WebResourcePrivate: WebResourcePrivate_Static
 export interface WebSettingsClass {
@@ -36553,11 +36945,13 @@ export interface WebSettingsClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebSettingsClass_Static {
+    name: string
 }
 export declare var WebSettingsClass: WebSettingsClass_Static
 export interface WebSettingsPrivate {
 }
 export interface WebSettingsPrivate_Static {
+    name: string
 }
 export declare var WebSettingsPrivate: WebSettingsPrivate_Static
 export interface WebViewClass {
@@ -36585,11 +36979,13 @@ export interface WebViewClass {
     run_file_chooser:any
 }
 export interface WebViewClass_Static {
+    name: string
 }
 export declare var WebViewClass: WebViewClass_Static
 export interface WebViewPrivate {
 }
 export interface WebViewPrivate_Static {
+    name: string
 }
 export declare var WebViewPrivate: WebViewPrivate_Static
 export interface WebWindowFeaturesClass {
@@ -36597,10 +36993,12 @@ export interface WebWindowFeaturesClass {
     parent_class:GObject.ObjectClass
 }
 export interface WebWindowFeaturesClass_Static {
+    name: string
 }
 export declare var WebWindowFeaturesClass: WebWindowFeaturesClass_Static
 export interface WebWindowFeaturesPrivate {
 }
 export interface WebWindowFeaturesPrivate_Static {
+    name: string
 }
 export declare var WebWindowFeaturesPrivate: WebWindowFeaturesPrivate_Static

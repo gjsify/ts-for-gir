@@ -385,6 +385,7 @@ export interface Context {
     connect(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void))
 }
 export interface Context_Static {
+    name: string
     new (config: Context_ConstructProps): Context
 }
 export declare class Context_Static {
@@ -436,6 +437,7 @@ export interface Engine {
     connect(sigName: "notify", callback: ((obj: Engine, pspec: GObject.ParamSpec) => void))
 }
 export interface Engine_Static {
+    name: string
     new (config: Engine_ConstructProps): Engine
 }
 export declare var Engine: Engine_Static
@@ -487,6 +489,7 @@ export interface EngineLang {
     connect(sigName: "notify", callback: ((obj: EngineLang, pspec: GObject.ParamSpec) => void))
 }
 export interface EngineLang_Static {
+    name: string
     new (config: EngineLang_ConstructProps): EngineLang
 }
 export declare var EngineLang: EngineLang_Static
@@ -539,6 +542,7 @@ export interface EngineShape {
     connect(sigName: "notify", callback: ((obj: EngineShape, pspec: GObject.ParamSpec) => void))
 }
 export interface EngineShape_Static {
+    name: string
     new (config: EngineShape_ConstructProps): EngineShape
 }
 export declare var EngineShape: EngineShape_Static
@@ -599,6 +603,7 @@ export interface Font {
     connect(sigName: "notify", callback: ((obj: Font, pspec: GObject.ParamSpec) => void))
 }
 export interface Font_Static {
+    name: string
     new (config: Font_ConstructProps): Font
 }
 export declare class Font_Static {
@@ -660,6 +665,7 @@ export interface FontFace {
     connect(sigName: "notify", callback: ((obj: FontFace, pspec: GObject.ParamSpec) => void))
 }
 export interface FontFace_Static {
+    name: string
     new (config: FontFace_ConstructProps): FontFace
 }
 export declare var FontFace: FontFace_Static
@@ -716,6 +722,7 @@ export interface FontFamily {
     connect(sigName: "notify", callback: ((obj: FontFamily, pspec: GObject.ParamSpec) => void))
 }
 export interface FontFamily_Static {
+    name: string
     new (config: FontFamily_ConstructProps): FontFamily
 }
 export declare var FontFamily: FontFamily_Static
@@ -778,6 +785,7 @@ export interface FontMap {
     connect(sigName: "notify", callback: ((obj: FontMap, pspec: GObject.ParamSpec) => void))
 }
 export interface FontMap_Static {
+    name: string
     new (config: FontMap_ConstructProps): FontMap
 }
 export declare var FontMap: FontMap_Static
@@ -835,6 +843,7 @@ export interface Fontset {
     connect(sigName: "notify", callback: ((obj: Fontset, pspec: GObject.ParamSpec) => void))
 }
 export interface Fontset_Static {
+    name: string
     new (config: Fontset_ConstructProps): Fontset
 }
 export declare var Fontset: Fontset_Static
@@ -895,6 +904,7 @@ export interface FontsetSimple {
     connect(sigName: "notify", callback: ((obj: FontsetSimple, pspec: GObject.ParamSpec) => void))
 }
 export interface FontsetSimple_Static {
+    name: string
     new (config: FontsetSimple_ConstructProps): FontsetSimple
 }
 export declare class FontsetSimple_Static {
@@ -1001,6 +1011,7 @@ export interface Layout {
     connect(sigName: "notify", callback: ((obj: Layout, pspec: GObject.ParamSpec) => void))
 }
 export interface Layout_Static {
+    name: string
     new (config: Layout_ConstructProps): Layout
 }
 export declare class Layout_Static {
@@ -1089,6 +1100,7 @@ export interface Renderer {
     connect(sigName: "notify", callback: ((obj: Renderer, pspec: GObject.ParamSpec) => void))
 }
 export interface Renderer_Static {
+    name: string
     new (config: Renderer_ConstructProps): Renderer
 }
 export declare var Renderer: Renderer_Static
@@ -1105,6 +1117,7 @@ export interface Analysis {
     extra_attrs:GLib.SList
 }
 export interface Analysis_Static {
+    name: string
 }
 export declare var Analysis: Analysis_Static
 export interface AttrClass {
@@ -1114,6 +1127,7 @@ export interface AttrClass {
     equal:any
 }
 export interface AttrClass_Static {
+    name: string
 }
 export declare var AttrClass: AttrClass_Static
 export interface AttrColor {
@@ -1122,6 +1136,7 @@ export interface AttrColor {
     color:Color
 }
 export interface AttrColor_Static {
+    name: string
 }
 export declare var AttrColor: AttrColor_Static
 export interface AttrFloat {
@@ -1130,6 +1145,7 @@ export interface AttrFloat {
     value:number
 }
 export interface AttrFloat_Static {
+    name: string
 }
 export declare var AttrFloat: AttrFloat_Static
 export interface AttrFontDesc {
@@ -1138,6 +1154,7 @@ export interface AttrFontDesc {
     desc:FontDescription
 }
 export interface AttrFontDesc_Static {
+    name: string
 }
 export declare var AttrFontDesc: AttrFontDesc_Static
 export interface AttrFontFeatures {
@@ -1146,6 +1163,7 @@ export interface AttrFontFeatures {
     features:string
 }
 export interface AttrFontFeatures_Static {
+    name: string
 }
 export declare var AttrFontFeatures: AttrFontFeatures_Static
 export interface AttrInt {
@@ -1154,6 +1172,7 @@ export interface AttrInt {
     value:number
 }
 export interface AttrInt_Static {
+    name: string
 }
 export declare var AttrInt: AttrInt_Static
 export interface AttrIterator {
@@ -1165,6 +1184,7 @@ export interface AttrIterator {
     range(): [ /* start */ number, /* end */ number ]
 }
 export interface AttrIterator_Static {
+    name: string
 }
 export declare var AttrIterator: AttrIterator_Static
 export interface AttrLanguage {
@@ -1173,6 +1193,7 @@ export interface AttrLanguage {
     value:Language
 }
 export interface AttrLanguage_Static {
+    name: string
 }
 export declare var AttrLanguage: AttrLanguage_Static
 export interface AttrList {
@@ -1187,6 +1208,7 @@ export interface AttrList {
     unref(): void
 }
 export interface AttrList_Static {
+    name: string
 }
 export declare class AttrList_Static {
     new(): AttrList
@@ -1201,6 +1223,7 @@ export interface AttrShape {
     destroy_func:GLib.DestroyNotify
 }
 export interface AttrShape_Static {
+    name: string
 }
 export declare var AttrShape: AttrShape_Static
 export interface AttrSize {
@@ -1210,6 +1233,7 @@ export interface AttrSize {
     absolute:number
 }
 export interface AttrSize_Static {
+    name: string
 }
 export declare var AttrSize: AttrSize_Static
 export interface AttrString {
@@ -1218,6 +1242,7 @@ export interface AttrString {
     value:string
 }
 export interface AttrString_Static {
+    name: string
 }
 export declare var AttrString: AttrString_Static
 export interface Attribute {
@@ -1231,6 +1256,7 @@ export interface Attribute {
     init(klass: AttrClass): void
 }
 export interface Attribute_Static {
+    name: string
 }
 export declare var Attribute: Attribute_Static
 export interface Color {
@@ -1245,11 +1271,13 @@ export interface Color {
     to_string(): string
 }
 export interface Color_Static {
+    name: string
 }
 export declare var Color: Color_Static
 export interface ContextClass {
 }
 export interface ContextClass_Static {
+    name: string
 }
 export declare var ContextClass: ContextClass_Static
 export interface Coverage {
@@ -1261,6 +1289,7 @@ export interface Coverage {
     unref(): void
 }
 export interface Coverage_Static {
+    name: string
 }
 export declare var Coverage: Coverage_Static
 export interface EngineClass {
@@ -1268,6 +1297,7 @@ export interface EngineClass {
     parent_class:GObject.ObjectClass
 }
 export interface EngineClass_Static {
+    name: string
 }
 export declare var EngineClass: EngineClass_Static
 export interface EngineInfo {
@@ -1279,6 +1309,7 @@ export interface EngineInfo {
     n_scripts:number
 }
 export interface EngineInfo_Static {
+    name: string
 }
 export declare var EngineInfo: EngineInfo_Static
 export interface EngineLangClass {
@@ -1287,6 +1318,7 @@ export interface EngineLangClass {
     script_break:any
 }
 export interface EngineLangClass_Static {
+    name: string
 }
 export declare var EngineLangClass: EngineLangClass_Static
 export interface EngineScriptInfo {
@@ -1295,6 +1327,7 @@ export interface EngineScriptInfo {
     langs:string
 }
 export interface EngineScriptInfo_Static {
+    name: string
 }
 export declare var EngineScriptInfo: EngineScriptInfo_Static
 export interface EngineShapeClass {
@@ -1304,6 +1337,7 @@ export interface EngineShapeClass {
     covers:any
 }
 export interface EngineShapeClass_Static {
+    name: string
 }
 export declare var EngineShapeClass: EngineShapeClass_Static
 export interface FontClass {
@@ -1316,6 +1350,7 @@ export interface FontClass {
     describe_absolute:any
 }
 export interface FontClass_Static {
+    name: string
 }
 export declare var FontClass: FontClass_Static
 export interface FontDescription {
@@ -1351,6 +1386,7 @@ export interface FontDescription {
     unset_fields(to_unset: FontMask): void
 }
 export interface FontDescription_Static {
+    name: string
 }
 export declare class FontDescription_Static {
     new(): FontDescription
@@ -1366,6 +1402,7 @@ export interface FontFaceClass {
     is_synthesized:any
 }
 export interface FontFaceClass_Static {
+    name: string
 }
 export declare var FontFaceClass: FontFaceClass_Static
 export interface FontFamilyClass {
@@ -1376,6 +1413,7 @@ export interface FontFamilyClass {
     is_monospace:any
 }
 export interface FontFamilyClass_Static {
+    name: string
 }
 export declare var FontFamilyClass: FontFamilyClass_Static
 export interface FontMapClass {
@@ -1389,6 +1427,7 @@ export interface FontMapClass {
     changed:any
 }
 export interface FontMapClass_Static {
+    name: string
 }
 export declare var FontMapClass: FontMapClass_Static
 export interface FontMetrics {
@@ -1415,6 +1454,7 @@ export interface FontMetrics {
     unref(): void
 }
 export interface FontMetrics_Static {
+    name: string
 }
 export declare class FontMetrics_Static {
     new(): FontMetrics
@@ -1429,11 +1469,13 @@ export interface FontsetClass {
     foreach:any
 }
 export interface FontsetClass_Static {
+    name: string
 }
 export declare var FontsetClass: FontsetClass_Static
 export interface FontsetSimpleClass {
 }
 export interface FontsetSimpleClass_Static {
+    name: string
 }
 export declare var FontsetSimpleClass: FontsetSimpleClass_Static
 export interface GlyphGeometry {
@@ -1443,6 +1485,7 @@ export interface GlyphGeometry {
     y_offset:GlyphUnit
 }
 export interface GlyphGeometry_Static {
+    name: string
 }
 export declare var GlyphGeometry: GlyphGeometry_Static
 export interface GlyphInfo {
@@ -1452,6 +1495,7 @@ export interface GlyphInfo {
     attr:GlyphVisAttr
 }
 export interface GlyphInfo_Static {
+    name: string
 }
 export declare var GlyphInfo: GlyphInfo_Static
 export interface GlyphItem {
@@ -1467,6 +1511,7 @@ export interface GlyphItem {
     split(text: string, split_index: number): GlyphItem
 }
 export interface GlyphItem_Static {
+    name: string
 }
 export declare var GlyphItem: GlyphItem_Static
 export interface GlyphItemIter {
@@ -1488,6 +1533,7 @@ export interface GlyphItemIter {
     prev_cluster(): boolean
 }
 export interface GlyphItemIter_Static {
+    name: string
 }
 export declare var GlyphItemIter: GlyphItemIter_Static
 export interface GlyphString {
@@ -1508,6 +1554,7 @@ export interface GlyphString {
     x_to_index(text: string, length: number, analysis: Analysis, x_pos: number): [ /* index_ */ number, /* trailing */ number ]
 }
 export interface GlyphString_Static {
+    name: string
 }
 export declare class GlyphString_Static {
     new(): GlyphString
@@ -1518,6 +1565,7 @@ export interface GlyphVisAttr {
     is_cluster_start:number
 }
 export interface GlyphVisAttr_Static {
+    name: string
 }
 export declare var GlyphVisAttr: GlyphVisAttr_Static
 export interface IncludedModule {
@@ -1527,6 +1575,7 @@ export interface IncludedModule {
     exit:any
 }
 export interface IncludedModule_Static {
+    name: string
 }
 export declare var IncludedModule: IncludedModule_Static
 export interface Item {
@@ -1541,6 +1590,7 @@ export interface Item {
     split(split_index: number, split_offset: number): Item
 }
 export interface Item_Static {
+    name: string
 }
 export declare class Item_Static {
     new(): Item
@@ -1555,6 +1605,7 @@ export interface Language {
     to_string(): string
 }
 export interface Language_Static {
+    name: string
 }
 export declare class Language_Static {
     from_string(language: string | null): Language | null
@@ -1564,6 +1615,7 @@ export declare var Language: Language_Static
 export interface LayoutClass {
 }
 export interface LayoutClass_Static {
+    name: string
 }
 export declare var LayoutClass: LayoutClass_Static
 export interface LayoutIter {
@@ -1590,6 +1642,7 @@ export interface LayoutIter {
     next_run(): boolean
 }
 export interface LayoutIter_Static {
+    name: string
 }
 export declare var LayoutIter: LayoutIter_Static
 export interface LayoutLine {
@@ -1610,6 +1663,7 @@ export interface LayoutLine {
     x_to_index(x_pos: number): [ /* returnType */ boolean, /* index_ */ number, /* trailing */ number ]
 }
 export interface LayoutLine_Static {
+    name: string
 }
 export declare var LayoutLine: LayoutLine_Static
 export interface LogAttr {
@@ -1629,17 +1683,20 @@ export interface LogAttr {
     is_word_boundary:number
 }
 export interface LogAttr_Static {
+    name: string
 }
 export declare var LogAttr: LogAttr_Static
 export interface Map {
     /* Methods of Pango.Map */
 }
 export interface Map_Static {
+    name: string
 }
 export declare var Map: Map_Static
 export interface MapEntry {
 }
 export interface MapEntry_Static {
+    name: string
 }
 export declare var MapEntry: MapEntry_Static
 export interface Matrix {
@@ -1665,6 +1722,7 @@ export interface Matrix {
     translate(tx: number, ty: number): void
 }
 export interface Matrix_Static {
+    name: string
 }
 export declare var Matrix: Matrix_Static
 export interface Rectangle {
@@ -1675,6 +1733,7 @@ export interface Rectangle {
     height:number
 }
 export interface Rectangle_Static {
+    name: string
 }
 export declare var Rectangle: Rectangle_Static
 export interface RendererClass {
@@ -1693,11 +1752,13 @@ export interface RendererClass {
     draw_glyph_item:any
 }
 export interface RendererClass_Static {
+    name: string
 }
 export declare var RendererClass: RendererClass_Static
 export interface RendererPrivate {
 }
 export interface RendererPrivate_Static {
+    name: string
 }
 export declare var RendererPrivate: RendererPrivate_Static
 export interface ScriptForLang {
@@ -1706,6 +1767,7 @@ export interface ScriptForLang {
     scripts:Script[]
 }
 export interface ScriptForLang_Static {
+    name: string
 }
 export declare var ScriptForLang: ScriptForLang_Static
 export interface ScriptIter {
@@ -1715,6 +1777,7 @@ export interface ScriptIter {
     next(): boolean
 }
 export interface ScriptIter_Static {
+    name: string
 }
 export declare var ScriptIter: ScriptIter_Static
 export interface TabArray {
@@ -1729,6 +1792,7 @@ export interface TabArray {
     set_tab(tab_index: number, alignment: TabAlign, location: number): void
 }
 export interface TabArray_Static {
+    name: string
 }
 export declare class TabArray_Static {
     new(initial_size: number, positions_in_pixels: boolean): TabArray

@@ -314,6 +314,7 @@ export interface TypePlugin {
     use(): void
 }
 export interface TypePlugin_Static {
+    name: string
 }
 export declare var TypePlugin: TypePlugin_Static
 export interface Binding_ConstructProps {
@@ -373,6 +374,7 @@ export interface Binding {
     connect(sigName: "notify", callback: ((obj: Binding, pspec: ParamSpec) => void))
 }
 export interface Binding_Static {
+    name: string
     new (config: Binding_ConstructProps): Binding
 }
 export declare var Binding: Binding_Static
@@ -420,6 +422,7 @@ export interface InitiallyUnowned {
     connect(sigName: "notify", callback: ((obj: InitiallyUnowned, pspec: ParamSpec) => void))
 }
 export interface InitiallyUnowned_Static {
+    name: string
     new (config: InitiallyUnowned_ConstructProps): InitiallyUnowned
 }
 export declare var InitiallyUnowned: InitiallyUnowned_Static
@@ -466,6 +469,7 @@ export interface Object {
     connect(sigName: "notify", callback: ((obj: Object, pspec: ParamSpec) => void))
 }
 export interface Object_Static {
+    name: string
     new (config: Object_ConstructProps): Object
 }
 export declare class Object_Static {
@@ -506,6 +510,7 @@ export interface ParamSpec {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpec_Static {
+    name: string
 }
 export declare var ParamSpec: ParamSpec_Static
 export interface ParamSpecBoolean {
@@ -541,6 +546,7 @@ export interface ParamSpecBoolean {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecBoolean_Static {
+    name: string
 }
 export declare var ParamSpecBoolean: ParamSpecBoolean_Static
 export interface ParamSpecBoxed {
@@ -575,6 +581,7 @@ export interface ParamSpecBoxed {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecBoxed_Static {
+    name: string
 }
 export declare var ParamSpecBoxed: ParamSpecBoxed_Static
 export interface ParamSpecChar {
@@ -612,6 +619,7 @@ export interface ParamSpecChar {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecChar_Static {
+    name: string
 }
 export declare var ParamSpecChar: ParamSpecChar_Static
 export interface ParamSpecDouble {
@@ -650,6 +658,7 @@ export interface ParamSpecDouble {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecDouble_Static {
+    name: string
 }
 export declare var ParamSpecDouble: ParamSpecDouble_Static
 export interface ParamSpecEnum {
@@ -686,6 +695,7 @@ export interface ParamSpecEnum {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecEnum_Static {
+    name: string
 }
 export declare var ParamSpecEnum: ParamSpecEnum_Static
 export interface ParamSpecFlags {
@@ -722,6 +732,7 @@ export interface ParamSpecFlags {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecFlags_Static {
+    name: string
 }
 export declare var ParamSpecFlags: ParamSpecFlags_Static
 export interface ParamSpecFloat {
@@ -760,6 +771,7 @@ export interface ParamSpecFloat {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecFloat_Static {
+    name: string
 }
 export declare var ParamSpecFloat: ParamSpecFloat_Static
 export interface ParamSpecGType {
@@ -795,6 +807,7 @@ export interface ParamSpecGType {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecGType_Static {
+    name: string
 }
 export declare var ParamSpecGType: ParamSpecGType_Static
 export interface ParamSpecInt {
@@ -832,6 +845,7 @@ export interface ParamSpecInt {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecInt_Static {
+    name: string
 }
 export declare var ParamSpecInt: ParamSpecInt_Static
 export interface ParamSpecInt64 {
@@ -869,6 +883,7 @@ export interface ParamSpecInt64 {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecInt64_Static {
+    name: string
 }
 export declare var ParamSpecInt64: ParamSpecInt64_Static
 export interface ParamSpecLong {
@@ -906,6 +921,7 @@ export interface ParamSpecLong {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecLong_Static {
+    name: string
 }
 export declare var ParamSpecLong: ParamSpecLong_Static
 export interface ParamSpecObject {
@@ -940,6 +956,7 @@ export interface ParamSpecObject {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecObject_Static {
+    name: string
 }
 export declare var ParamSpecObject: ParamSpecObject_Static
 export interface ParamSpecOverride {
@@ -975,6 +992,7 @@ export interface ParamSpecOverride {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecOverride_Static {
+    name: string
 }
 export declare var ParamSpecOverride: ParamSpecOverride_Static
 export interface ParamSpecParam {
@@ -1009,6 +1027,7 @@ export interface ParamSpecParam {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecParam_Static {
+    name: string
 }
 export declare var ParamSpecParam: ParamSpecParam_Static
 export interface ParamSpecPointer {
@@ -1043,6 +1062,7 @@ export interface ParamSpecPointer {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecPointer_Static {
+    name: string
 }
 export declare var ParamSpecPointer: ParamSpecPointer_Static
 export interface ParamSpecString {
@@ -1083,6 +1103,7 @@ export interface ParamSpecString {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecString_Static {
+    name: string
 }
 export declare var ParamSpecString: ParamSpecString_Static
 export interface ParamSpecUChar {
@@ -1120,6 +1141,7 @@ export interface ParamSpecUChar {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecUChar_Static {
+    name: string
 }
 export declare var ParamSpecUChar: ParamSpecUChar_Static
 export interface ParamSpecUInt {
@@ -1157,6 +1179,7 @@ export interface ParamSpecUInt {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecUInt_Static {
+    name: string
 }
 export declare var ParamSpecUInt: ParamSpecUInt_Static
 export interface ParamSpecUInt64 {
@@ -1194,6 +1217,7 @@ export interface ParamSpecUInt64 {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecUInt64_Static {
+    name: string
 }
 export declare var ParamSpecUInt64: ParamSpecUInt64_Static
 export interface ParamSpecULong {
@@ -1231,6 +1255,7 @@ export interface ParamSpecULong {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecULong_Static {
+    name: string
 }
 export declare var ParamSpecULong: ParamSpecULong_Static
 export interface ParamSpecUnichar {
@@ -1266,6 +1291,7 @@ export interface ParamSpecUnichar {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecUnichar_Static {
+    name: string
 }
 export declare var ParamSpecUnichar: ParamSpecUnichar_Static
 export interface ParamSpecValueArray {
@@ -1302,6 +1328,7 @@ export interface ParamSpecValueArray {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecValueArray_Static {
+    name: string
 }
 export declare var ParamSpecValueArray: ParamSpecValueArray_Static
 export interface ParamSpecVariant {
@@ -1339,6 +1366,7 @@ export interface ParamSpecVariant {
     vfunc_values_cmp(value1: Value, value2: Value): number
 }
 export interface ParamSpecVariant_Static {
+    name: string
 }
 export declare var ParamSpecVariant: ParamSpecVariant_Static
 export interface TypeModule_ConstructProps {
@@ -1401,6 +1429,7 @@ export interface TypeModule {
     connect(sigName: "notify", callback: ((obj: TypeModule, pspec: ParamSpec) => void))
 }
 export interface TypeModule_Static {
+    name: string
     new (config: TypeModule_ConstructProps): TypeModule
 }
 export declare var TypeModule: TypeModule_Static
@@ -1410,6 +1439,7 @@ export interface CClosure {
     callback:object
 }
 export interface CClosure_Static {
+    name: string
 }
 export declare class CClosure_Static {
     marshal_BOOLEAN__BOXED_BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
@@ -1460,6 +1490,7 @@ export interface Closure {
     unref(): void
 }
 export interface Closure_Static {
+    name: string
 }
 export declare class Closure_Static {
     new_object(sizeof_closure: number, object: Object): Closure
@@ -1472,6 +1503,7 @@ export interface ClosureNotifyData {
     notify:ClosureNotify
 }
 export interface ClosureNotifyData_Static {
+    name: string
 }
 export declare var ClosureNotifyData: ClosureNotifyData_Static
 export interface EnumClass {
@@ -1483,6 +1515,7 @@ export interface EnumClass {
     values:EnumValue
 }
 export interface EnumClass_Static {
+    name: string
 }
 export declare var EnumClass: EnumClass_Static
 export interface EnumValue {
@@ -1492,6 +1525,7 @@ export interface EnumValue {
     value_nick:string
 }
 export interface EnumValue_Static {
+    name: string
 }
 export declare var EnumValue: EnumValue_Static
 export interface FlagsClass {
@@ -1502,6 +1536,7 @@ export interface FlagsClass {
     values:FlagsValue
 }
 export interface FlagsClass_Static {
+    name: string
 }
 export declare var FlagsClass: FlagsClass_Static
 export interface FlagsValue {
@@ -1511,6 +1546,7 @@ export interface FlagsValue {
     value_nick:string
 }
 export interface FlagsValue_Static {
+    name: string
 }
 export declare var FlagsValue: FlagsValue_Static
 export interface InitiallyUnownedClass {
@@ -1528,6 +1564,7 @@ export interface InitiallyUnownedClass {
     pdummy:object[]
 }
 export interface InitiallyUnownedClass_Static {
+    name: string
 }
 export declare var InitiallyUnownedClass: InitiallyUnownedClass_Static
 export interface InterfaceInfo {
@@ -1537,6 +1574,7 @@ export interface InterfaceInfo {
     interface_data:object
 }
 export interface InterfaceInfo_Static {
+    name: string
 }
 export declare var InterfaceInfo: InterfaceInfo_Static
 export interface ObjectClass {
@@ -1560,6 +1598,7 @@ export interface ObjectClass {
     override_property(property_id: number, name: string): void
 }
 export interface ObjectClass_Static {
+    name: string
 }
 export declare var ObjectClass: ObjectClass_Static
 export interface ObjectConstructParam {
@@ -1568,6 +1607,7 @@ export interface ObjectConstructParam {
     value:Value
 }
 export interface ObjectConstructParam_Static {
+    name: string
 }
 export declare var ObjectConstructParam: ObjectConstructParam_Static
 export interface ParamSpecClass {
@@ -1581,6 +1621,7 @@ export interface ParamSpecClass {
     dummy:object[]
 }
 export interface ParamSpecClass_Static {
+    name: string
 }
 export declare var ParamSpecClass: ParamSpecClass_Static
 export interface ParamSpecPool {
@@ -1592,6 +1633,7 @@ export interface ParamSpecPool {
     remove(pspec: ParamSpec): void
 }
 export interface ParamSpecPool_Static {
+    name: string
 }
 export declare class ParamSpecPool_Static {
     new(type_prefixing: boolean): ParamSpecPool
@@ -1609,6 +1651,7 @@ export interface ParamSpecTypeInfo {
     values_cmp:any
 }
 export interface ParamSpecTypeInfo_Static {
+    name: string
 }
 export declare var ParamSpecTypeInfo: ParamSpecTypeInfo_Static
 export interface Parameter {
@@ -1617,6 +1660,7 @@ export interface Parameter {
     value:Value
 }
 export interface Parameter_Static {
+    name: string
 }
 export declare var Parameter: Parameter_Static
 export interface SignalInvocationHint {
@@ -1626,6 +1670,7 @@ export interface SignalInvocationHint {
     run_type:SignalFlags
 }
 export interface SignalInvocationHint_Static {
+    name: string
 }
 export declare var SignalInvocationHint: SignalInvocationHint_Static
 export interface SignalQuery {
@@ -1639,6 +1684,7 @@ export interface SignalQuery {
     param_types:number
 }
 export interface SignalQuery_Static {
+    name: string
 }
 export declare var SignalQuery: SignalQuery_Static
 export interface TypeClass {
@@ -1649,6 +1695,7 @@ export interface TypeClass {
     unref(): void
 }
 export interface TypeClass_Static {
+    name: string
 }
 export declare class TypeClass_Static {
     add_private(g_class: object, private_size: number): void
@@ -1663,6 +1710,7 @@ export interface TypeFundamentalInfo {
     type_flags:TypeFundamentalFlags
 }
 export interface TypeFundamentalInfo_Static {
+    name: string
 }
 export declare var TypeFundamentalInfo: TypeFundamentalInfo_Static
 export interface TypeInfo {
@@ -1679,6 +1727,7 @@ export interface TypeInfo {
     value_table:TypeValueTable
 }
 export interface TypeInfo_Static {
+    name: string
 }
 export declare var TypeInfo: TypeInfo_Static
 export interface TypeInstance {
@@ -1687,6 +1736,7 @@ export interface TypeInstance {
     /* Methods of GObject.TypeInstance */
 }
 export interface TypeInstance_Static {
+    name: string
 }
 export declare var TypeInstance: TypeInstance_Static
 export interface TypeInterface {
@@ -1697,6 +1747,7 @@ export interface TypeInterface {
     peek_parent(): TypeInterface
 }
 export interface TypeInterface_Static {
+    name: string
 }
 export declare class TypeInterface_Static {
     add_prerequisite(interface_type: number, prerequisite_type: number): void
@@ -1716,6 +1767,7 @@ export interface TypeModuleClass {
     reserved4:any
 }
 export interface TypeModuleClass_Static {
+    name: string
 }
 export declare var TypeModuleClass: TypeModuleClass_Static
 export interface TypePluginClass {
@@ -1727,6 +1779,7 @@ export interface TypePluginClass {
     complete_interface_info:TypePluginCompleteInterfaceInfo
 }
 export interface TypePluginClass_Static {
+    name: string
 }
 export declare var TypePluginClass: TypePluginClass_Static
 export interface TypeQuery {
@@ -1737,6 +1790,7 @@ export interface TypeQuery {
     instance_size:number
 }
 export interface TypeQuery_Static {
+    name: string
 }
 export declare var TypeQuery: TypeQuery_Static
 export interface TypeValueTable {
@@ -1750,6 +1804,7 @@ export interface TypeValueTable {
     lcopy_value:any
 }
 export interface TypeValueTable_Static {
+    name: string
 }
 export declare var TypeValueTable: TypeValueTable_Static
 export interface Value {
@@ -1820,6 +1875,7 @@ export interface Value {
     unset(): void
 }
 export interface Value_Static {
+    name: string
 }
 export declare class Value_Static {
     type_compatible(src_type: number, dest_type: number): boolean
@@ -1843,6 +1899,7 @@ export interface ValueArray {
     sort_with_data(compare_func: GLib.CompareDataFunc, user_data: object): ValueArray
 }
 export interface ValueArray_Static {
+    name: string
 }
 export declare class ValueArray_Static {
     new(n_prealloced: number): ValueArray
@@ -1852,6 +1909,7 @@ export interface WeakRef {
     /* Methods of GObject.WeakRef */
 }
 export interface WeakRef_Static {
+    name: string
 }
 export declare var WeakRef: WeakRef_Static
 export interface TypeCValue {
@@ -1863,6 +1921,7 @@ export interface TypeCValue {
     v_pointer:object
 }
 export interface TypeCValue_Static {
+    name: string
 }
 export declare var TypeCValue: TypeCValue_Static
 export interface _Value__data__union {
@@ -1878,6 +1937,7 @@ export interface _Value__data__union {
     v_pointer:object
 }
 export interface _Value__data__union_Static {
+    name: string
 }
 export declare var _Value__data__union: _Value__data__union_Static
 type InitiallyUnowned_autoptr = object

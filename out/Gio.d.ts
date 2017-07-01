@@ -878,6 +878,7 @@ export interface Action {
     vfunc_get_state_type(): GLib.VariantType
 }
 export interface Action_Static {
+    name: string
 }
 export declare class Action_Static {
     name_is_valid(action_name: string): boolean
@@ -923,6 +924,7 @@ export interface ActionGroup {
     connect(sigName: "action-state-changed", callback: ((obj: ActionGroup, action_name: string, value: GLib.Variant) => void))
 }
 export interface ActionGroup_Static {
+    name: string
 }
 export declare var ActionGroup: ActionGroup_Static
 export interface ActionMap {
@@ -937,6 +939,7 @@ export interface ActionMap {
     vfunc_remove_action(action_name: string): void
 }
 export interface ActionMap_Static {
+    name: string
 }
 export declare var ActionMap: ActionMap_Static
 export interface AppInfo {
@@ -990,6 +993,7 @@ export interface AppInfo {
     vfunc_supports_uris(): boolean
 }
 export interface AppInfo_Static {
+    name: string
 }
 export declare class AppInfo_Static {
     create_from_commandline(commandline: string, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
@@ -1013,6 +1017,7 @@ export interface AsyncInitable {
     vfunc_init_finish(res: AsyncResult): boolean
 }
 export interface AsyncInitable_Static {
+    name: string
 }
 export declare class AsyncInitable_Static {
     newv_async(object_type: number, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -1030,6 +1035,7 @@ export interface AsyncResult {
     vfunc_is_tagged(source_tag: object): boolean
 }
 export interface AsyncResult_Static {
+    name: string
 }
 export declare var AsyncResult: AsyncResult_Static
 export interface Converter {
@@ -1041,6 +1047,7 @@ export interface Converter {
     vfunc_reset(): void
 }
 export interface Converter_Static {
+    name: string
 }
 export declare var Converter: Converter_Static
 export interface DBusInterface {
@@ -1054,6 +1061,7 @@ export interface DBusInterface {
     vfunc_set_object(object: DBusObject | null): void
 }
 export interface DBusInterface_Static {
+    name: string
 }
 export declare var DBusInterface: DBusInterface_Static
 export interface DBusObject {
@@ -1072,6 +1080,7 @@ export interface DBusObject {
     connect(sigName: "interface-removed", callback: ((obj: DBusObject, interface: DBusInterface) => void))
 }
 export interface DBusObject_Static {
+    name: string
 }
 export declare var DBusObject: DBusObject_Static
 export interface DBusObjectManager {
@@ -1096,6 +1105,7 @@ export interface DBusObjectManager {
     connect(sigName: "object-removed", callback: ((obj: DBusObjectManager, object: DBusObject) => void))
 }
 export interface DBusObjectManager_Static {
+    name: string
 }
 export declare var DBusObjectManager: DBusObjectManager_Static
 export interface DatagramBased {
@@ -1113,6 +1123,7 @@ export interface DatagramBased {
     vfunc_send_messages(messages: OutputMessage, num_messages: number, flags: number, timeout: number, cancellable: Cancellable | null): number
 }
 export interface DatagramBased_Static {
+    name: string
 }
 export declare var DatagramBased: DatagramBased_Static
 export interface DesktopAppInfoLookup {
@@ -1122,6 +1133,7 @@ export interface DesktopAppInfoLookup {
     vfunc_get_default_for_uri_scheme(uri_scheme: string): AppInfo
 }
 export interface DesktopAppInfoLookup_Static {
+    name: string
 }
 export declare var DesktopAppInfoLookup: DesktopAppInfoLookup_Static
 export interface Drive {
@@ -1192,6 +1204,7 @@ export interface Drive {
     connect(sigName: "stop-button", callback: ((obj: Drive) => void))
 }
 export interface Drive_Static {
+    name: string
 }
 export declare var Drive: Drive_Static
 export interface File {
@@ -1404,6 +1417,7 @@ export interface File {
     vfunc_unmount_mountable_with_operation_finish(result: AsyncResult): boolean
 }
 export interface File_Static {
+    name: string
 }
 export declare class File_Static {
     new_for_commandline_arg(arg: string): File
@@ -1421,6 +1435,7 @@ export interface FileDescriptorBased {
     vfunc_get_fd(): number
 }
 export interface FileDescriptorBased_Static {
+    name: string
 }
 export declare var FileDescriptorBased: FileDescriptorBased_Static
 export interface Icon {
@@ -1434,6 +1449,7 @@ export interface Icon {
     vfunc_serialize(): GLib.Variant
 }
 export interface Icon_Static {
+    name: string
 }
 export declare class Icon_Static {
     deserialize(value: GLib.Variant): Icon
@@ -1448,6 +1464,7 @@ export interface Initable {
     vfunc_init(cancellable: Cancellable | null): boolean
 }
 export interface Initable_Static {
+    name: string
 }
 export declare class Initable_Static {
     newv(object_type: number, parameters: GObject.Parameter[], cancellable: Cancellable | null): GObject.Object
@@ -1466,6 +1483,7 @@ export interface ListModel {
     connect(sigName: "items-changed", callback: ((obj: ListModel, position: number, removed: number, added: number) => void))
 }
 export interface ListModel_Static {
+    name: string
 }
 export declare var ListModel: ListModel_Static
 export interface LoadableIcon {
@@ -1479,6 +1497,7 @@ export interface LoadableIcon {
     vfunc_load_finish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
 }
 export interface LoadableIcon_Static {
+    name: string
 }
 export declare var LoadableIcon: LoadableIcon_Static
 export interface Mount {
@@ -1544,6 +1563,7 @@ export interface Mount {
     connect(sigName: "unmounted", callback: ((obj: Mount) => void))
 }
 export interface Mount_Static {
+    name: string
 }
 export declare var Mount: Mount_Static
 export interface NetworkMonitor {
@@ -1567,6 +1587,7 @@ export interface NetworkMonitor {
     connect(sigName: "network-changed", callback: ((obj: NetworkMonitor, available: boolean) => void))
 }
 export interface NetworkMonitor_Static {
+    name: string
 }
 export declare class NetworkMonitor_Static {
     get_default(): NetworkMonitor
@@ -1585,6 +1606,7 @@ export interface PollableInputStream {
     vfunc_read_nonblocking(buffer: Gjs.byteArray.ByteArray[]): number
 }
 export interface PollableInputStream_Static {
+    name: string
 }
 export declare var PollableInputStream: PollableInputStream_Static
 export interface PollableOutputStream {
@@ -1600,6 +1622,7 @@ export interface PollableOutputStream {
     vfunc_write_nonblocking(buffer: Gjs.byteArray.ByteArray[]): number
 }
 export interface PollableOutputStream_Static {
+    name: string
 }
 export declare var PollableOutputStream: PollableOutputStream_Static
 export interface Proxy {
@@ -1615,6 +1638,7 @@ export interface Proxy {
     vfunc_supports_hostname(): boolean
 }
 export interface Proxy_Static {
+    name: string
 }
 export declare class Proxy_Static {
     get_default_for_protocol(protocol: string): Proxy
@@ -1633,6 +1657,7 @@ export interface ProxyResolver {
     vfunc_lookup_finish(result: AsyncResult): string[]
 }
 export interface ProxyResolver_Static {
+    name: string
 }
 export declare class ProxyResolver_Static {
     get_default(): ProxyResolver
@@ -1647,6 +1672,7 @@ export interface RemoteActionGroup {
     vfunc_change_action_state_full(action_name: string, value: GLib.Variant, platform_data: GLib.Variant): void
 }
 export interface RemoteActionGroup_Static {
+    name: string
 }
 export declare var RemoteActionGroup: RemoteActionGroup_Static
 export interface Seekable {
@@ -1664,6 +1690,7 @@ export interface Seekable {
     vfunc_truncate_fn(offset: number, cancellable: Cancellable | null): boolean
 }
 export interface Seekable_Static {
+    name: string
 }
 export declare var Seekable: Seekable_Static
 export interface SocketConnectable {
@@ -1677,6 +1704,7 @@ export interface SocketConnectable {
     vfunc_to_string(): string
 }
 export interface SocketConnectable_Static {
+    name: string
 }
 export declare var SocketConnectable: SocketConnectable_Static
 export interface TlsBackend {
@@ -1692,6 +1720,7 @@ export interface TlsBackend {
     vfunc_supports_tls(): boolean
 }
 export interface TlsBackend_Static {
+    name: string
 }
 export declare class TlsBackend_Static {
     get_default(): TlsBackend
@@ -1716,6 +1745,7 @@ export interface TlsClientConnection {
     vfunc_copy_session_state(source: TlsClientConnection): void
 }
 export interface TlsClientConnection_Static {
+    name: string
 }
 export declare class TlsClientConnection_Static {
     new(base_io_stream: IOStream, server_identity: SocketConnectable | null): TlsClientConnection
@@ -1726,6 +1756,7 @@ export interface TlsFileDatabase {
     anchors:string
 }
 export interface TlsFileDatabase_Static {
+    name: string
 }
 export declare class TlsFileDatabase_Static {
     new(anchors: string): TlsFileDatabase
@@ -1736,6 +1767,7 @@ export interface TlsServerConnection {
     authentication_mode:TlsAuthenticationMode
 }
 export interface TlsServerConnection_Static {
+    name: string
 }
 export declare class TlsServerConnection_Static {
     new(base_io_stream: IOStream, certificate: TlsCertificate | null): TlsServerConnection
@@ -1789,6 +1821,7 @@ export interface Volume {
     connect(sigName: "removed", callback: ((obj: Volume) => void))
 }
 export interface Volume_Static {
+    name: string
 }
 export declare var Volume: Volume_Static
 export interface AppInfoMonitor_ConstructProps {
@@ -1836,6 +1869,7 @@ export interface AppInfoMonitor {
     connect(sigName: "notify", callback: ((obj: AppInfoMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface AppInfoMonitor_Static {
+    name: string
     new (config: AppInfoMonitor_ConstructProps): AppInfoMonitor
 }
 export declare class AppInfoMonitor_Static {
@@ -1903,6 +1937,7 @@ export interface AppLaunchContext {
     connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void))
 }
 export interface AppLaunchContext_Static {
+    name: string
     new (config: AppLaunchContext_ConstructProps): AppLaunchContext
 }
 export declare class AppLaunchContext_Static {
@@ -2032,6 +2067,7 @@ export interface Application {
     connect(sigName: "notify::resource-base-path", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
 }
 export interface Application_Static {
+    name: string
     new (config: Application_ConstructProps): Application
 }
 export declare class Application_Static {
@@ -2109,6 +2145,7 @@ export interface ApplicationCommandLine {
     connect(sigName: "notify::is-remote", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void))
 }
 export interface ApplicationCommandLine_Static {
+    name: string
     new (config: ApplicationCommandLine_ConstructProps): ApplicationCommandLine
 }
 export declare var ApplicationCommandLine: ApplicationCommandLine_Static
@@ -2220,6 +2257,7 @@ export interface BufferedInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface BufferedInputStream_Static {
+    name: string
     new (config: BufferedInputStream_ConstructProps): BufferedInputStream
 }
 export declare class BufferedInputStream_Static {
@@ -2334,6 +2372,7 @@ export interface BufferedOutputStream {
     connect(sigName: "notify::buffer-size", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface BufferedOutputStream_Static {
+    name: string
     new (config: BufferedOutputStream_ConstructProps): BufferedOutputStream
 }
 export declare class BufferedOutputStream_Static {
@@ -2389,6 +2428,7 @@ export interface BytesIcon {
     connect(sigName: "notify", callback: ((obj: BytesIcon, pspec: GObject.ParamSpec) => void))
 }
 export interface BytesIcon_Static {
+    name: string
     new (config: BytesIcon_ConstructProps): BytesIcon
 }
 export declare class BytesIcon_Static {
@@ -2457,6 +2497,7 @@ export interface Cancellable {
     connect(sigName: "notify", callback: ((obj: Cancellable, pspec: GObject.ParamSpec) => void))
 }
 export interface Cancellable_Static {
+    name: string
     new (config: Cancellable_ConstructProps): Cancellable
 }
 export declare class Cancellable_Static {
@@ -2518,6 +2559,7 @@ export interface CharsetConverter {
     connect(sigName: "notify::use-fallback", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void))
 }
 export interface CharsetConverter_Static {
+    name: string
     new (config: CharsetConverter_ConstructProps): CharsetConverter
 }
 export declare class CharsetConverter_Static {
@@ -2618,6 +2660,7 @@ export interface ConverterInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface ConverterInputStream_Static {
+    name: string
     new (config: ConverterInputStream_ConstructProps): ConverterInputStream
 }
 export declare class ConverterInputStream_Static {
@@ -2723,6 +2766,7 @@ export interface ConverterOutputStream {
     connect(sigName: "notify", callback: ((obj: ConverterOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface ConverterOutputStream_Static {
+    name: string
     new (config: ConverterOutputStream_ConstructProps): ConverterOutputStream
 }
 export declare class ConverterOutputStream_Static {
@@ -2779,6 +2823,7 @@ export interface Credentials {
     connect(sigName: "notify", callback: ((obj: Credentials, pspec: GObject.ParamSpec) => void))
 }
 export interface Credentials_Static {
+    name: string
     new (config: Credentials_ConstructProps): Credentials
 }
 export declare class Credentials_Static {
@@ -2828,6 +2873,7 @@ export interface DBusActionGroup {
     connect(sigName: "notify", callback: ((obj: DBusActionGroup, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusActionGroup_Static {
+    name: string
     new (config: DBusActionGroup_ConstructProps): DBusActionGroup
 }
 export declare class DBusActionGroup_Static {
@@ -2883,6 +2929,7 @@ export interface DBusAuthObserver {
     connect(sigName: "notify", callback: ((obj: DBusAuthObserver, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusAuthObserver_Static {
+    name: string
     new (config: DBusAuthObserver_ConstructProps): DBusAuthObserver
 }
 export declare class DBusAuthObserver_Static {
@@ -2991,6 +3038,7 @@ export interface DBusConnection {
     connect(sigName: "notify::unique-name", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusConnection_Static {
+    name: string
     new (config: DBusConnection_ConstructProps): DBusConnection
 }
 export declare class DBusConnection_Static {
@@ -3073,6 +3121,7 @@ export interface DBusInterfaceSkeleton {
     connect(sigName: "notify::g-flags", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusInterfaceSkeleton_Static {
+    name: string
     new (config: DBusInterfaceSkeleton_ConstructProps): DBusInterfaceSkeleton
 }
 export declare var DBusInterfaceSkeleton: DBusInterfaceSkeleton_Static
@@ -3141,6 +3190,7 @@ export interface DBusMenuModel {
     connect(sigName: "notify", callback: ((obj: DBusMenuModel, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusMenuModel_Static {
+    name: string
     new (config: DBusMenuModel_ConstructProps): DBusMenuModel
 }
 export declare class DBusMenuModel_Static {
@@ -3237,6 +3287,7 @@ export interface DBusMessage {
     connect(sigName: "notify::locked", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusMessage_Static {
+    name: string
     new (config: DBusMessage_ConstructProps): DBusMessage
 }
 export declare class DBusMessage_Static {
@@ -3305,6 +3356,7 @@ export interface DBusMethodInvocation {
     connect(sigName: "notify", callback: ((obj: DBusMethodInvocation, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusMethodInvocation_Static {
+    name: string
     new (config: DBusMethodInvocation_ConstructProps): DBusMethodInvocation
 }
 export declare var DBusMethodInvocation: DBusMethodInvocation_Static
@@ -3377,6 +3429,7 @@ export interface DBusObjectManagerClient {
     connect(sigName: "notify::name-owner", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusObjectManagerClient_Static {
+    name: string
     new (config: DBusObjectManagerClient_ConstructProps): DBusObjectManagerClient
 }
 export declare class DBusObjectManagerClient_Static {
@@ -3447,6 +3500,7 @@ export interface DBusObjectManagerServer {
     connect(sigName: "notify::connection", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusObjectManagerServer_Static {
+    name: string
     new (config: DBusObjectManagerServer_ConstructProps): DBusObjectManagerServer
 }
 export declare class DBusObjectManagerServer_Static {
@@ -3505,6 +3559,7 @@ export interface DBusObjectProxy {
     connect(sigName: "notify", callback: ((obj: DBusObjectProxy, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusObjectProxy_Static {
+    name: string
     new (config: DBusObjectProxy_ConstructProps): DBusObjectProxy
 }
 export declare class DBusObjectProxy_Static {
@@ -3572,6 +3627,7 @@ export interface DBusObjectSkeleton {
     connect(sigName: "notify::g-object-path", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusObjectSkeleton_Static {
+    name: string
     new (config: DBusObjectSkeleton_ConstructProps): DBusObjectSkeleton
 }
 export declare class DBusObjectSkeleton_Static {
@@ -3666,6 +3722,7 @@ export interface DBusProxy {
     connect(sigName: "notify::g-name-owner", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusProxy_Static {
+    name: string
     new (config: DBusProxy_ConstructProps): DBusProxy
 }
 export declare class DBusProxy_Static {
@@ -3739,6 +3796,7 @@ export interface DBusServer {
     connect(sigName: "notify::client-address", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void))
 }
 export interface DBusServer_Static {
+    name: string
     new (config: DBusServer_ConstructProps): DBusServer
 }
 export declare class DBusServer_Static {
@@ -3884,6 +3942,7 @@ export interface DataInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface DataInputStream_Static {
+    name: string
     new (config: DataInputStream_ConstructProps): DataInputStream
 }
 export declare class DataInputStream_Static {
@@ -4000,6 +4059,7 @@ export interface DataOutputStream {
     connect(sigName: "notify::byte-order", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface DataOutputStream_Static {
+    name: string
     new (config: DataOutputStream_ConstructProps): DataOutputStream
 }
 export declare class DataOutputStream_Static {
@@ -4068,6 +4128,7 @@ export interface DesktopAppInfo {
     connect(sigName: "notify", callback: ((obj: DesktopAppInfo, pspec: GObject.ParamSpec) => void))
 }
 export interface DesktopAppInfo_Static {
+    name: string
     new (config: DesktopAppInfo_ConstructProps): DesktopAppInfo
 }
 export declare class DesktopAppInfo_Static {
@@ -4129,6 +4190,7 @@ export interface Emblem {
     connect(sigName: "notify", callback: ((obj: Emblem, pspec: GObject.ParamSpec) => void))
 }
 export interface Emblem_Static {
+    name: string
     new (config: Emblem_ConstructProps): Emblem
 }
 export declare class Emblem_Static {
@@ -4190,6 +4252,7 @@ export interface EmblemedIcon {
     connect(sigName: "notify", callback: ((obj: EmblemedIcon, pspec: GObject.ParamSpec) => void))
 }
 export interface EmblemedIcon_Static {
+    name: string
     new (config: EmblemedIcon_ConstructProps): EmblemedIcon
 }
 export declare class EmblemedIcon_Static {
@@ -4265,6 +4328,7 @@ export interface FileEnumerator {
     connect(sigName: "notify", callback: ((obj: FileEnumerator, pspec: GObject.ParamSpec) => void))
 }
 export interface FileEnumerator_Static {
+    name: string
     new (config: FileEnumerator_ConstructProps): FileEnumerator
 }
 export declare var FileEnumerator: FileEnumerator_Static
@@ -4355,6 +4419,7 @@ export interface FileIOStream {
     connect(sigName: "notify::output-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FileIOStream_Static {
+    name: string
     new (config: FileIOStream_ConstructProps): FileIOStream
 }
 export declare var FileIOStream: FileIOStream_Static
@@ -4406,6 +4471,7 @@ export interface FileIcon {
     connect(sigName: "notify", callback: ((obj: FileIcon, pspec: GObject.ParamSpec) => void))
 }
 export interface FileIcon_Static {
+    name: string
     new (config: FileIcon_ConstructProps): FileIcon
 }
 export declare class FileIcon_Static {
@@ -4518,6 +4584,7 @@ export interface FileInfo {
     connect(sigName: "notify", callback: ((obj: FileInfo, pspec: GObject.ParamSpec) => void))
 }
 export interface FileInfo_Static {
+    name: string
     new (config: FileInfo_ConstructProps): FileInfo
 }
 export declare class FileInfo_Static {
@@ -4612,6 +4679,7 @@ export interface FileInputStream {
     connect(sigName: "notify", callback: ((obj: FileInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FileInputStream_Static {
+    name: string
     new (config: FileInputStream_ConstructProps): FileInputStream
 }
 export declare var FileInputStream: FileInputStream_Static
@@ -4678,6 +4746,7 @@ export interface FileMonitor {
     connect(sigName: "notify::rate-limit", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface FileMonitor_Static {
+    name: string
     new (config: FileMonitor_ConstructProps): FileMonitor
 }
 export declare var FileMonitor: FileMonitor_Static
@@ -4780,6 +4849,7 @@ export interface FileOutputStream {
     connect(sigName: "notify", callback: ((obj: FileOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FileOutputStream_Static {
+    name: string
     new (config: FileOutputStream_ConstructProps): FileOutputStream
 }
 export declare var FileOutputStream: FileOutputStream_Static
@@ -4834,6 +4904,7 @@ export interface FilenameCompleter {
     connect(sigName: "notify", callback: ((obj: FilenameCompleter, pspec: GObject.ParamSpec) => void))
 }
 export interface FilenameCompleter_Static {
+    name: string
     new (config: FilenameCompleter_ConstructProps): FilenameCompleter
 }
 export declare class FilenameCompleter_Static {
@@ -4928,6 +4999,7 @@ export interface FilterInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FilterInputStream_Static {
+    name: string
     new (config: FilterInputStream_ConstructProps): FilterInputStream
 }
 export declare var FilterInputStream: FilterInputStream_Static
@@ -5024,6 +5096,7 @@ export interface FilterOutputStream {
     connect(sigName: "notify", callback: ((obj: FilterOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface FilterOutputStream_Static {
+    name: string
     new (config: FilterOutputStream_ConstructProps): FilterOutputStream
 }
 export declare var FilterOutputStream: FilterOutputStream_Static
@@ -5090,6 +5163,7 @@ export interface IOModule {
     connect(sigName: "notify", callback: ((obj: IOModule, pspec: GObject.ParamSpec) => void))
 }
 export interface IOModule_Static {
+    name: string
     new (config: IOModule_ConstructProps): IOModule
 }
 export declare class IOModule_Static {
@@ -5168,6 +5242,7 @@ export interface IOStream {
     connect(sigName: "notify::output-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void))
 }
 export interface IOStream_Static {
+    name: string
     new (config: IOStream_ConstructProps): IOStream
 }
 export declare class IOStream_Static {
@@ -5261,6 +5336,7 @@ export interface InetAddress {
     connect(sigName: "notify::is-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface InetAddress_Static {
+    name: string
     new (config: InetAddress_ConstructProps): InetAddress
 }
 export declare class InetAddress_Static {
@@ -5333,6 +5409,7 @@ export interface InetAddressMask {
     connect(sigName: "notify::length", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void))
 }
 export interface InetAddressMask_Static {
+    name: string
     new (config: InetAddressMask_ConstructProps): InetAddressMask
 }
 export declare class InetAddressMask_Static {
@@ -5410,6 +5487,7 @@ export interface InetSocketAddress {
     connect(sigName: "notify::family", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface InetSocketAddress_Static {
+    name: string
     new (config: InetSocketAddress_ConstructProps): InetSocketAddress
 }
 export declare class InetSocketAddress_Static {
@@ -5493,6 +5571,7 @@ export interface InputStream {
     connect(sigName: "notify", callback: ((obj: InputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface InputStream_Static {
+    name: string
     new (config: InputStream_ConstructProps): InputStream
 }
 export declare var InputStream: InputStream_Static
@@ -5550,6 +5629,7 @@ export interface ListStore {
     connect(sigName: "notify", callback: ((obj: ListStore, pspec: GObject.ParamSpec) => void))
 }
 export interface ListStore_Static {
+    name: string
     new (config: ListStore_ConstructProps): ListStore
 }
 export declare class ListStore_Static {
@@ -5636,6 +5716,7 @@ export interface MemoryInputStream {
     connect(sigName: "notify", callback: ((obj: MemoryInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface MemoryInputStream_Static {
+    name: string
     new (config: MemoryInputStream_ConstructProps): MemoryInputStream
 }
 export declare class MemoryInputStream_Static {
@@ -5738,6 +5819,7 @@ export interface MemoryOutputStream {
     connect(sigName: "notify::data-size", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface MemoryOutputStream_Static {
+    name: string
     new (config: MemoryOutputStream_ConstructProps): MemoryOutputStream
 }
 export declare class MemoryOutputStream_Static {
@@ -5825,6 +5907,7 @@ export interface Menu {
     connect(sigName: "notify", callback: ((obj: Menu, pspec: GObject.ParamSpec) => void))
 }
 export interface Menu_Static {
+    name: string
     new (config: Menu_ConstructProps): Menu
 }
 export declare class Menu_Static {
@@ -5884,6 +5967,7 @@ export interface MenuAttributeIter {
     connect(sigName: "notify", callback: ((obj: MenuAttributeIter, pspec: GObject.ParamSpec) => void))
 }
 export interface MenuAttributeIter_Static {
+    name: string
     new (config: MenuAttributeIter_ConstructProps): MenuAttributeIter
 }
 export declare var MenuAttributeIter: MenuAttributeIter_Static
@@ -5941,6 +6025,7 @@ export interface MenuItem {
     connect(sigName: "notify", callback: ((obj: MenuItem, pspec: GObject.ParamSpec) => void))
 }
 export interface MenuItem_Static {
+    name: string
     new (config: MenuItem_ConstructProps): MenuItem
 }
 export declare class MenuItem_Static {
@@ -6003,6 +6088,7 @@ export interface MenuLinkIter {
     connect(sigName: "notify", callback: ((obj: MenuLinkIter, pspec: GObject.ParamSpec) => void))
 }
 export interface MenuLinkIter_Static {
+    name: string
     new (config: MenuLinkIter_ConstructProps): MenuLinkIter
 }
 export declare var MenuLinkIter: MenuLinkIter_Static
@@ -6071,6 +6157,7 @@ export interface MenuModel {
     connect(sigName: "notify", callback: ((obj: MenuModel, pspec: GObject.ParamSpec) => void))
 }
 export interface MenuModel_Static {
+    name: string
     new (config: MenuModel_ConstructProps): MenuModel
 }
 export declare var MenuModel: MenuModel_Static
@@ -6167,6 +6254,7 @@ export interface MountOperation {
     connect(sigName: "notify::username", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
 }
 export interface MountOperation_Static {
+    name: string
     new (config: MountOperation_ConstructProps): MountOperation
 }
 export declare class MountOperation_Static {
@@ -6257,6 +6345,7 @@ export interface NativeVolumeMonitor {
     connect(sigName: "notify", callback: ((obj: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface NativeVolumeMonitor_Static {
+    name: string
     new (config: NativeVolumeMonitor_ConstructProps): NativeVolumeMonitor
 }
 export declare var NativeVolumeMonitor: NativeVolumeMonitor_Static
@@ -6315,6 +6404,7 @@ export interface NetworkAddress {
     connect(sigName: "notify", callback: ((obj: NetworkAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface NetworkAddress_Static {
+    name: string
     new (config: NetworkAddress_ConstructProps): NetworkAddress
 }
 export declare class NetworkAddress_Static {
@@ -6384,6 +6474,7 @@ export interface NetworkService {
     connect(sigName: "notify::scheme", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void))
 }
 export interface NetworkService_Static {
+    name: string
     new (config: NetworkService_ConstructProps): NetworkService
 }
 export declare class NetworkService_Static {
@@ -6443,6 +6534,7 @@ export interface Notification {
     connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
 }
 export interface Notification_Static {
+    name: string
     new (config: Notification_ConstructProps): Notification
 }
 export declare class Notification_Static {
@@ -6532,6 +6624,7 @@ export interface OutputStream {
     connect(sigName: "notify", callback: ((obj: OutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface OutputStream_Static {
+    name: string
     new (config: OutputStream_ConstructProps): OutputStream
 }
 export declare var OutputStream: OutputStream_Static
@@ -6607,6 +6700,7 @@ export interface Permission {
     connect(sigName: "notify::can-release", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void))
 }
 export interface Permission_Static {
+    name: string
     new (config: Permission_ConstructProps): Permission
 }
 export declare var Permission: Permission_Static
@@ -6667,6 +6761,7 @@ export interface PropertyAction {
     connect(sigName: "notify::state-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
 }
 export interface PropertyAction_Static {
+    name: string
     new (config: PropertyAction_ConstructProps): PropertyAction
 }
 export declare class PropertyAction_Static {
@@ -6761,6 +6856,7 @@ export interface ProxyAddress {
     connect(sigName: "notify::family", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface ProxyAddress_Static {
+    name: string
     new (config: ProxyAddress_ConstructProps): ProxyAddress
 }
 export declare class ProxyAddress_Static {
@@ -6830,6 +6926,7 @@ export interface ProxyAddressEnumerator {
     connect(sigName: "notify::proxy-resolver", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void))
 }
 export interface ProxyAddressEnumerator_Static {
+    name: string
     new (config: ProxyAddressEnumerator_ConstructProps): ProxyAddressEnumerator
 }
 export declare var ProxyAddressEnumerator: ProxyAddressEnumerator_Static
@@ -6908,6 +7005,7 @@ export interface Resolver {
     connect(sigName: "notify", callback: ((obj: Resolver, pspec: GObject.ParamSpec) => void))
 }
 export interface Resolver_Static {
+    name: string
     new (config: Resolver_ConstructProps): Resolver
 }
 export declare class Resolver_Static {
@@ -7016,6 +7114,7 @@ export interface Settings {
     connect(sigName: "notify::has-unapplied", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
 }
 export interface Settings_Static {
+    name: string
     new (config: Settings_ConstructProps): Settings
 }
 export declare class Settings_Static {
@@ -7092,6 +7191,7 @@ export interface SimpleAction {
     connect(sigName: "notify::state-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleAction_Static {
+    name: string
     new (config: SimpleAction_ConstructProps): SimpleAction
 }
 export declare class SimpleAction_Static {
@@ -7150,6 +7250,7 @@ export interface SimpleActionGroup {
     connect(sigName: "notify", callback: ((obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleActionGroup_Static {
+    name: string
     new (config: SimpleActionGroup_ConstructProps): SimpleActionGroup
 }
 export declare class SimpleActionGroup_Static {
@@ -7210,6 +7311,7 @@ export interface SimpleAsyncResult {
     connect(sigName: "notify", callback: ((obj: SimpleAsyncResult, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleAsyncResult_Static {
+    name: string
     new (config: SimpleAsyncResult_ConstructProps): SimpleAsyncResult
 }
 export declare class SimpleAsyncResult_Static {
@@ -7293,6 +7395,7 @@ export interface SimpleIOStream {
     connect(sigName: "notify::output-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleIOStream_Static {
+    name: string
     new (config: SimpleIOStream_ConstructProps): SimpleIOStream
 }
 export declare class SimpleIOStream_Static {
@@ -7371,6 +7474,7 @@ export interface SimplePermission {
     connect(sigName: "notify::can-release", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void))
 }
 export interface SimplePermission_Static {
+    name: string
     new (config: SimplePermission_ConstructProps): SimplePermission
 }
 export declare class SimplePermission_Static {
@@ -7435,6 +7539,7 @@ export interface SimpleProxyResolver {
     connect(sigName: "notify::ignore-hosts", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void))
 }
 export interface SimpleProxyResolver_Static {
+    name: string
     new (config: SimpleProxyResolver_ConstructProps): SimpleProxyResolver
 }
 export declare class SimpleProxyResolver_Static {
@@ -7574,6 +7679,7 @@ export interface Socket {
     connect(sigName: "notify::ttl", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
 }
 export interface Socket_Static {
+    name: string
     new (config: Socket_ConstructProps): Socket
 }
 export declare class Socket_Static {
@@ -7638,6 +7744,7 @@ export interface SocketAddress {
     connect(sigName: "notify::family", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketAddress_Static {
+    name: string
     new (config: SocketAddress_ConstructProps): SocketAddress
 }
 export declare class SocketAddress_Static {
@@ -7697,6 +7804,7 @@ export interface SocketAddressEnumerator {
     connect(sigName: "notify", callback: ((obj: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketAddressEnumerator_Static {
+    name: string
     new (config: SocketAddressEnumerator_ConstructProps): SocketAddressEnumerator
 }
 export declare var SocketAddressEnumerator: SocketAddressEnumerator_Static
@@ -7811,6 +7919,7 @@ export interface SocketClient {
     connect(sigName: "notify::type", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketClient_Static {
+    name: string
     new (config: SocketClient_ConstructProps): SocketClient
 }
 export declare class SocketClient_Static {
@@ -7900,6 +8009,7 @@ export interface SocketConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketConnection_Static {
+    name: string
     new (config: SocketConnection_ConstructProps): SocketConnection
 }
 export declare class SocketConnection_Static {
@@ -7963,6 +8073,7 @@ export interface SocketControlMessage {
     connect(sigName: "notify", callback: ((obj: SocketControlMessage, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketControlMessage_Static {
+    name: string
     new (config: SocketControlMessage_ConstructProps): SocketControlMessage
 }
 export declare class SocketControlMessage_Static {
@@ -8038,6 +8149,7 @@ export interface SocketListener {
     connect(sigName: "notify::listen-backlog", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketListener_Static {
+    name: string
     new (config: SocketListener_ConstructProps): SocketListener
 }
 export declare class SocketListener_Static {
@@ -8127,6 +8239,7 @@ export interface SocketService {
     connect(sigName: "notify::listen-backlog", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void))
 }
 export interface SocketService_Static {
+    name: string
     new (config: SocketService_ConstructProps): SocketService
 }
 export declare class SocketService_Static {
@@ -8205,6 +8318,7 @@ export interface Subprocess {
     connect(sigName: "notify", callback: ((obj: Subprocess, pspec: GObject.ParamSpec) => void))
 }
 export interface Subprocess_Static {
+    name: string
     new (config: Subprocess_ConstructProps): Subprocess
 }
 export declare class Subprocess_Static {
@@ -8273,6 +8387,7 @@ export interface SubprocessLauncher {
     connect(sigName: "notify", callback: ((obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void))
 }
 export interface SubprocessLauncher_Static {
+    name: string
     new (config: SubprocessLauncher_ConstructProps): SubprocessLauncher
 }
 export declare class SubprocessLauncher_Static {
@@ -8350,6 +8465,7 @@ export interface Task {
     connect(sigName: "notify::completed", callback: ((obj: Task, pspec: GObject.ParamSpec) => void))
 }
 export interface Task_Static {
+    name: string
     new (config: Task_ConstructProps): Task
 }
 export declare class Task_Static {
@@ -8450,6 +8566,7 @@ export interface TcpConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface TcpConnection_Static {
+    name: string
     new (config: TcpConnection_ConstructProps): TcpConnection
 }
 export declare var TcpConnection: TcpConnection_Static
@@ -8551,6 +8668,7 @@ export interface TcpWrapperConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface TcpWrapperConnection_Static {
+    name: string
     new (config: TcpWrapperConnection_ConstructProps): TcpWrapperConnection
 }
 export declare class TcpWrapperConnection_Static {
@@ -8610,6 +8728,7 @@ export interface TestDBus {
     connect(sigName: "notify", callback: ((obj: TestDBus, pspec: GObject.ParamSpec) => void))
 }
 export interface TestDBus_Static {
+    name: string
     new (config: TestDBus_ConstructProps): TestDBus
 }
 export declare class TestDBus_Static {
@@ -8669,6 +8788,7 @@ export interface ThemedIcon {
     connect(sigName: "notify", callback: ((obj: ThemedIcon, pspec: GObject.ParamSpec) => void))
 }
 export interface ThemedIcon_Static {
+    name: string
     new (config: ThemedIcon_ConstructProps): ThemedIcon
 }
 export declare class ThemedIcon_Static {
@@ -8768,6 +8888,7 @@ export interface ThreadedSocketService {
     connect(sigName: "notify::listen-backlog", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void))
 }
 export interface ThreadedSocketService_Static {
+    name: string
     new (config: ThreadedSocketService_ConstructProps): ThreadedSocketService
 }
 export declare class ThreadedSocketService_Static {
@@ -8833,6 +8954,7 @@ export interface TlsCertificate {
     connect(sigName: "notify", callback: ((obj: TlsCertificate, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsCertificate_Static {
+    name: string
     new (config: TlsCertificate_ConstructProps): TlsCertificate
 }
 export declare class TlsCertificate_Static {
@@ -8965,6 +9087,7 @@ export interface TlsConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsConnection_Static {
+    name: string
     new (config: TlsConnection_ConstructProps): TlsConnection
 }
 export declare var TlsConnection: TlsConnection_Static
@@ -9042,6 +9165,7 @@ export interface TlsDatabase {
     connect(sigName: "notify", callback: ((obj: TlsDatabase, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsDatabase_Static {
+    name: string
     new (config: TlsDatabase_ConstructProps): TlsDatabase
 }
 export declare var TlsDatabase: TlsDatabase_Static
@@ -9107,6 +9231,7 @@ export interface TlsInteraction {
     connect(sigName: "notify", callback: ((obj: TlsInteraction, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsInteraction_Static {
+    name: string
     new (config: TlsInteraction_ConstructProps): TlsInteraction
 }
 export declare var TlsInteraction: TlsInteraction_Static
@@ -9181,6 +9306,7 @@ export interface TlsPassword {
     connect(sigName: "notify::warning", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void))
 }
 export interface TlsPassword_Static {
+    name: string
     new (config: TlsPassword_ConstructProps): TlsPassword
 }
 export declare class TlsPassword_Static {
@@ -9280,6 +9406,7 @@ export interface UnixConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixConnection_Static {
+    name: string
     new (config: UnixConnection_ConstructProps): UnixConnection
 }
 export declare var UnixConnection: UnixConnection_Static
@@ -9345,6 +9472,7 @@ export interface UnixCredentialsMessage {
     connect(sigName: "notify", callback: ((obj: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixCredentialsMessage_Static {
+    name: string
     new (config: UnixCredentialsMessage_ConstructProps): UnixCredentialsMessage
 }
 export declare class UnixCredentialsMessage_Static {
@@ -9405,6 +9533,7 @@ export interface UnixFDList {
     connect(sigName: "notify", callback: ((obj: UnixFDList, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixFDList_Static {
+    name: string
     new (config: UnixFDList_ConstructProps): UnixFDList
 }
 export declare class UnixFDList_Static {
@@ -9476,6 +9605,7 @@ export interface UnixFDMessage {
     connect(sigName: "notify", callback: ((obj: UnixFDMessage, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixFDMessage_Static {
+    name: string
     new (config: UnixFDMessage_ConstructProps): UnixFDMessage
 }
 export declare class UnixFDMessage_Static {
@@ -9570,6 +9700,7 @@ export interface UnixInputStream {
     connect(sigName: "notify::close-fd", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixInputStream_Static {
+    name: string
     new (config: UnixInputStream_ConstructProps): UnixInputStream
 }
 export declare class UnixInputStream_Static {
@@ -9624,6 +9755,7 @@ export interface UnixMountMonitor {
     connect(sigName: "notify", callback: ((obj: UnixMountMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixMountMonitor_Static {
+    name: string
     new (config: UnixMountMonitor_ConstructProps): UnixMountMonitor
 }
 export declare class UnixMountMonitor_Static {
@@ -9725,6 +9857,7 @@ export interface UnixOutputStream {
     connect(sigName: "notify::close-fd", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixOutputStream_Static {
+    name: string
     new (config: UnixOutputStream_ConstructProps): UnixOutputStream
 }
 export declare class UnixOutputStream_Static {
@@ -9801,6 +9934,7 @@ export interface UnixSocketAddress {
     connect(sigName: "notify::family", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void))
 }
 export interface UnixSocketAddress_Static {
+    name: string
     new (config: UnixSocketAddress_ConstructProps): UnixSocketAddress
 }
 export declare class UnixSocketAddress_Static {
@@ -9872,6 +10006,7 @@ export interface Vfs {
     connect(sigName: "notify", callback: ((obj: Vfs, pspec: GObject.ParamSpec) => void))
 }
 export interface Vfs_Static {
+    name: string
     new (config: Vfs_ConstructProps): Vfs
 }
 export declare class Vfs_Static {
@@ -9962,6 +10097,7 @@ export interface VolumeMonitor {
     connect(sigName: "notify", callback: ((obj: VolumeMonitor, pspec: GObject.ParamSpec) => void))
 }
 export interface VolumeMonitor_Static {
+    name: string
     new (config: VolumeMonitor_ConstructProps): VolumeMonitor
 }
 export declare class VolumeMonitor_Static {
@@ -10022,6 +10158,7 @@ export interface ZlibCompressor {
     connect(sigName: "notify::file-info", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void))
 }
 export interface ZlibCompressor_Static {
+    name: string
     new (config: ZlibCompressor_ConstructProps): ZlibCompressor
 }
 export declare class ZlibCompressor_Static {
@@ -10078,6 +10215,7 @@ export interface ZlibDecompressor {
     connect(sigName: "notify::file-info", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void))
 }
 export interface ZlibDecompressor_Static {
+    name: string
     new (config: ZlibDecompressor_ConstructProps): ZlibDecompressor
 }
 export declare class ZlibDecompressor_Static {
@@ -10094,6 +10232,7 @@ export interface ActionEntry {
     padding:number[]
 }
 export interface ActionEntry_Static {
+    name: string
 }
 export declare var ActionEntry: ActionEntry_Static
 export interface ActionGroupInterface {
@@ -10115,6 +10254,7 @@ export interface ActionGroupInterface {
     query_action:any
 }
 export interface ActionGroupInterface_Static {
+    name: string
 }
 export declare var ActionGroupInterface: ActionGroupInterface_Static
 export interface ActionInterface {
@@ -10130,6 +10270,7 @@ export interface ActionInterface {
     activate:any
 }
 export interface ActionInterface_Static {
+    name: string
 }
 export declare var ActionInterface: ActionInterface_Static
 export interface ActionMapInterface {
@@ -10140,6 +10281,7 @@ export interface ActionMapInterface {
     remove_action:any
 }
 export interface ActionMapInterface_Static {
+    name: string
 }
 export declare var ActionMapInterface: ActionMapInterface_Static
 export interface AppInfoIface {
@@ -10170,6 +10312,7 @@ export interface AppInfoIface {
     get_supported_types:any
 }
 export interface AppInfoIface_Static {
+    name: string
 }
 export declare var AppInfoIface: AppInfoIface_Static
 export interface AppLaunchContextClass {
@@ -10181,11 +10324,13 @@ export interface AppLaunchContextClass {
     launched:any
 }
 export interface AppLaunchContextClass_Static {
+    name: string
 }
 export declare var AppLaunchContextClass: AppLaunchContextClass_Static
 export interface AppLaunchContextPrivate {
 }
 export interface AppLaunchContextPrivate_Static {
+    name: string
 }
 export declare var AppLaunchContextPrivate: AppLaunchContextPrivate_Static
 export interface ApplicationClass {
@@ -10208,6 +10353,7 @@ export interface ApplicationClass {
     padding:object[]
 }
 export interface ApplicationClass_Static {
+    name: string
 }
 export declare var ApplicationClass: ApplicationClass_Static
 export interface ApplicationCommandLineClass {
@@ -10219,16 +10365,19 @@ export interface ApplicationCommandLineClass {
     padding:object[]
 }
 export interface ApplicationCommandLineClass_Static {
+    name: string
 }
 export declare var ApplicationCommandLineClass: ApplicationCommandLineClass_Static
 export interface ApplicationCommandLinePrivate {
 }
 export interface ApplicationCommandLinePrivate_Static {
+    name: string
 }
 export declare var ApplicationCommandLinePrivate: ApplicationCommandLinePrivate_Static
 export interface ApplicationPrivate {
 }
 export interface ApplicationPrivate_Static {
+    name: string
 }
 export declare var ApplicationPrivate: ApplicationPrivate_Static
 export interface AsyncInitableIface {
@@ -10238,6 +10387,7 @@ export interface AsyncInitableIface {
     init_finish:any
 }
 export interface AsyncInitableIface_Static {
+    name: string
 }
 export declare var AsyncInitableIface: AsyncInitableIface_Static
 export interface AsyncResultIface {
@@ -10248,6 +10398,7 @@ export interface AsyncResultIface {
     is_tagged:any
 }
 export interface AsyncResultIface_Static {
+    name: string
 }
 export declare var AsyncResultIface: AsyncResultIface_Static
 export interface BufferedInputStreamClass {
@@ -10258,11 +10409,13 @@ export interface BufferedInputStreamClass {
     fill_finish:any
 }
 export interface BufferedInputStreamClass_Static {
+    name: string
 }
 export declare var BufferedInputStreamClass: BufferedInputStreamClass_Static
 export interface BufferedInputStreamPrivate {
 }
 export interface BufferedInputStreamPrivate_Static {
+    name: string
 }
 export declare var BufferedInputStreamPrivate: BufferedInputStreamPrivate_Static
 export interface BufferedOutputStreamClass {
@@ -10270,11 +10423,13 @@ export interface BufferedOutputStreamClass {
     parent_class:FilterOutputStreamClass
 }
 export interface BufferedOutputStreamClass_Static {
+    name: string
 }
 export declare var BufferedOutputStreamClass: BufferedOutputStreamClass_Static
 export interface BufferedOutputStreamPrivate {
 }
 export interface BufferedOutputStreamPrivate_Static {
+    name: string
 }
 export declare var BufferedOutputStreamPrivate: BufferedOutputStreamPrivate_Static
 export interface CancellableClass {
@@ -10283,11 +10438,13 @@ export interface CancellableClass {
     cancelled:any
 }
 export interface CancellableClass_Static {
+    name: string
 }
 export declare var CancellableClass: CancellableClass_Static
 export interface CancellablePrivate {
 }
 export interface CancellablePrivate_Static {
+    name: string
 }
 export declare var CancellablePrivate: CancellablePrivate_Static
 export interface CharsetConverterClass {
@@ -10295,6 +10452,7 @@ export interface CharsetConverterClass {
     parent_class:GObject.ObjectClass
 }
 export interface CharsetConverterClass_Static {
+    name: string
 }
 export declare var CharsetConverterClass: CharsetConverterClass_Static
 export interface ConverterIface {
@@ -10304,6 +10462,7 @@ export interface ConverterIface {
     reset:any
 }
 export interface ConverterIface_Static {
+    name: string
 }
 export declare var ConverterIface: ConverterIface_Static
 export interface ConverterInputStreamClass {
@@ -10311,11 +10470,13 @@ export interface ConverterInputStreamClass {
     parent_class:FilterInputStreamClass
 }
 export interface ConverterInputStreamClass_Static {
+    name: string
 }
 export declare var ConverterInputStreamClass: ConverterInputStreamClass_Static
 export interface ConverterInputStreamPrivate {
 }
 export interface ConverterInputStreamPrivate_Static {
+    name: string
 }
 export declare var ConverterInputStreamPrivate: ConverterInputStreamPrivate_Static
 export interface ConverterOutputStreamClass {
@@ -10323,16 +10484,19 @@ export interface ConverterOutputStreamClass {
     parent_class:FilterOutputStreamClass
 }
 export interface ConverterOutputStreamClass_Static {
+    name: string
 }
 export declare var ConverterOutputStreamClass: ConverterOutputStreamClass_Static
 export interface ConverterOutputStreamPrivate {
 }
 export interface ConverterOutputStreamPrivate_Static {
+    name: string
 }
 export declare var ConverterOutputStreamPrivate: ConverterOutputStreamPrivate_Static
 export interface CredentialsClass {
 }
 export interface CredentialsClass_Static {
+    name: string
 }
 export declare var CredentialsClass: CredentialsClass_Static
 export interface DBusAnnotationInfo {
@@ -10346,6 +10510,7 @@ export interface DBusAnnotationInfo {
     unref(): void
 }
 export interface DBusAnnotationInfo_Static {
+    name: string
 }
 export declare class DBusAnnotationInfo_Static {
     lookup(annotations: DBusAnnotationInfo[] | null, name: string): string
@@ -10362,6 +10527,7 @@ export interface DBusArgInfo {
     unref(): void
 }
 export interface DBusArgInfo_Static {
+    name: string
 }
 export declare var DBusArgInfo: DBusArgInfo_Static
 export interface DBusErrorEntry {
@@ -10370,6 +10536,7 @@ export interface DBusErrorEntry {
     dbus_error_name:string
 }
 export interface DBusErrorEntry_Static {
+    name: string
 }
 export declare var DBusErrorEntry: DBusErrorEntry_Static
 export interface DBusInterfaceIface {
@@ -10381,6 +10548,7 @@ export interface DBusInterfaceIface {
     dup_object:any
 }
 export interface DBusInterfaceIface_Static {
+    name: string
 }
 export declare var DBusInterfaceIface: DBusInterfaceIface_Static
 export interface DBusInterfaceInfo {
@@ -10402,6 +10570,7 @@ export interface DBusInterfaceInfo {
     unref(): void
 }
 export interface DBusInterfaceInfo_Static {
+    name: string
 }
 export declare var DBusInterfaceInfo: DBusInterfaceInfo_Static
 export interface DBusInterfaceSkeletonClass {
@@ -10415,11 +10584,13 @@ export interface DBusInterfaceSkeletonClass {
     signal_padding:object[]
 }
 export interface DBusInterfaceSkeletonClass_Static {
+    name: string
 }
 export declare var DBusInterfaceSkeletonClass: DBusInterfaceSkeletonClass_Static
 export interface DBusInterfaceSkeletonPrivate {
 }
 export interface DBusInterfaceSkeletonPrivate_Static {
+    name: string
 }
 export declare var DBusInterfaceSkeletonPrivate: DBusInterfaceSkeletonPrivate_Static
 export interface DBusInterfaceVTable {
@@ -10430,6 +10601,7 @@ export interface DBusInterfaceVTable {
     padding:object[]
 }
 export interface DBusInterfaceVTable_Static {
+    name: string
 }
 export declare var DBusInterfaceVTable: DBusInterfaceVTable_Static
 export interface DBusMethodInfo {
@@ -10444,6 +10616,7 @@ export interface DBusMethodInfo {
     unref(): void
 }
 export interface DBusMethodInfo_Static {
+    name: string
 }
 export declare var DBusMethodInfo: DBusMethodInfo_Static
 export interface DBusNodeInfo {
@@ -10460,6 +10633,7 @@ export interface DBusNodeInfo {
     unref(): void
 }
 export interface DBusNodeInfo_Static {
+    name: string
 }
 export declare class DBusNodeInfo_Static {
     new_for_xml(xml_data: string): DBusNodeInfo
@@ -10475,6 +10649,7 @@ export interface DBusObjectIface {
     interface_removed:any
 }
 export interface DBusObjectIface_Static {
+    name: string
 }
 export declare var DBusObjectIface: DBusObjectIface_Static
 export interface DBusObjectManagerClientClass {
@@ -10485,11 +10660,13 @@ export interface DBusObjectManagerClientClass {
     padding:object[]
 }
 export interface DBusObjectManagerClientClass_Static {
+    name: string
 }
 export declare var DBusObjectManagerClientClass: DBusObjectManagerClientClass_Static
 export interface DBusObjectManagerClientPrivate {
 }
 export interface DBusObjectManagerClientPrivate_Static {
+    name: string
 }
 export declare var DBusObjectManagerClientPrivate: DBusObjectManagerClientPrivate_Static
 export interface DBusObjectManagerIface {
@@ -10505,6 +10682,7 @@ export interface DBusObjectManagerIface {
     interface_removed:any
 }
 export interface DBusObjectManagerIface_Static {
+    name: string
 }
 export declare var DBusObjectManagerIface: DBusObjectManagerIface_Static
 export interface DBusObjectManagerServerClass {
@@ -10513,11 +10691,13 @@ export interface DBusObjectManagerServerClass {
     padding:object[]
 }
 export interface DBusObjectManagerServerClass_Static {
+    name: string
 }
 export declare var DBusObjectManagerServerClass: DBusObjectManagerServerClass_Static
 export interface DBusObjectManagerServerPrivate {
 }
 export interface DBusObjectManagerServerPrivate_Static {
+    name: string
 }
 export declare var DBusObjectManagerServerPrivate: DBusObjectManagerServerPrivate_Static
 export interface DBusObjectProxyClass {
@@ -10526,11 +10706,13 @@ export interface DBusObjectProxyClass {
     padding:object[]
 }
 export interface DBusObjectProxyClass_Static {
+    name: string
 }
 export declare var DBusObjectProxyClass: DBusObjectProxyClass_Static
 export interface DBusObjectProxyPrivate {
 }
 export interface DBusObjectProxyPrivate_Static {
+    name: string
 }
 export declare var DBusObjectProxyPrivate: DBusObjectProxyPrivate_Static
 export interface DBusObjectSkeletonClass {
@@ -10540,11 +10722,13 @@ export interface DBusObjectSkeletonClass {
     padding:object[]
 }
 export interface DBusObjectSkeletonClass_Static {
+    name: string
 }
 export declare var DBusObjectSkeletonClass: DBusObjectSkeletonClass_Static
 export interface DBusObjectSkeletonPrivate {
 }
 export interface DBusObjectSkeletonPrivate_Static {
+    name: string
 }
 export declare var DBusObjectSkeletonPrivate: DBusObjectSkeletonPrivate_Static
 export interface DBusPropertyInfo {
@@ -10559,6 +10743,7 @@ export interface DBusPropertyInfo {
     unref(): void
 }
 export interface DBusPropertyInfo_Static {
+    name: string
 }
 export declare var DBusPropertyInfo: DBusPropertyInfo_Static
 export interface DBusProxyClass {
@@ -10569,11 +10754,13 @@ export interface DBusProxyClass {
     padding:object[]
 }
 export interface DBusProxyClass_Static {
+    name: string
 }
 export declare var DBusProxyClass: DBusProxyClass_Static
 export interface DBusProxyPrivate {
 }
 export interface DBusProxyPrivate_Static {
+    name: string
 }
 export declare var DBusProxyPrivate: DBusProxyPrivate_Static
 export interface DBusSignalInfo {
@@ -10587,6 +10774,7 @@ export interface DBusSignalInfo {
     unref(): void
 }
 export interface DBusSignalInfo_Static {
+    name: string
 }
 export declare var DBusSignalInfo: DBusSignalInfo_Static
 export interface DBusSubtreeVTable {
@@ -10596,6 +10784,7 @@ export interface DBusSubtreeVTable {
     padding:object[]
 }
 export interface DBusSubtreeVTable_Static {
+    name: string
 }
 export declare var DBusSubtreeVTable: DBusSubtreeVTable_Static
 export interface DataInputStreamClass {
@@ -10603,11 +10792,13 @@ export interface DataInputStreamClass {
     parent_class:BufferedInputStreamClass
 }
 export interface DataInputStreamClass_Static {
+    name: string
 }
 export declare var DataInputStreamClass: DataInputStreamClass_Static
 export interface DataInputStreamPrivate {
 }
 export interface DataInputStreamPrivate_Static {
+    name: string
 }
 export declare var DataInputStreamPrivate: DataInputStreamPrivate_Static
 export interface DataOutputStreamClass {
@@ -10615,11 +10806,13 @@ export interface DataOutputStreamClass {
     parent_class:FilterOutputStreamClass
 }
 export interface DataOutputStreamClass_Static {
+    name: string
 }
 export declare var DataOutputStreamClass: DataOutputStreamClass_Static
 export interface DataOutputStreamPrivate {
 }
 export interface DataOutputStreamPrivate_Static {
+    name: string
 }
 export declare var DataOutputStreamPrivate: DataOutputStreamPrivate_Static
 export interface DatagramBasedInterface {
@@ -10632,6 +10825,7 @@ export interface DatagramBasedInterface {
     condition_wait:any
 }
 export interface DatagramBasedInterface_Static {
+    name: string
 }
 export declare var DatagramBasedInterface: DatagramBasedInterface_Static
 export interface DesktopAppInfoClass {
@@ -10639,6 +10833,7 @@ export interface DesktopAppInfoClass {
     parent_class:GObject.ObjectClass
 }
 export interface DesktopAppInfoClass_Static {
+    name: string
 }
 export declare var DesktopAppInfoClass: DesktopAppInfoClass_Static
 export interface DesktopAppInfoLookupIface {
@@ -10647,6 +10842,7 @@ export interface DesktopAppInfoLookupIface {
     get_default_for_uri_scheme:any
 }
 export interface DesktopAppInfoLookupIface_Static {
+    name: string
 }
 export declare var DesktopAppInfoLookupIface: DesktopAppInfoLookupIface_Static
 export interface DriveIface {
@@ -10685,11 +10881,13 @@ export interface DriveIface {
     get_symbolic_icon:any
 }
 export interface DriveIface_Static {
+    name: string
 }
 export declare var DriveIface: DriveIface_Static
 export interface EmblemClass {
 }
 export interface EmblemClass_Static {
+    name: string
 }
 export declare var EmblemClass: EmblemClass_Static
 export interface EmblemedIconClass {
@@ -10697,11 +10895,13 @@ export interface EmblemedIconClass {
     parent_class:GObject.ObjectClass
 }
 export interface EmblemedIconClass_Static {
+    name: string
 }
 export declare var EmblemedIconClass: EmblemedIconClass_Static
 export interface EmblemedIconPrivate {
 }
 export interface EmblemedIconPrivate_Static {
+    name: string
 }
 export declare var EmblemedIconPrivate: EmblemedIconPrivate_Static
 export interface FileAttributeInfo {
@@ -10711,6 +10911,7 @@ export interface FileAttributeInfo {
     flags:FileAttributeInfoFlags
 }
 export interface FileAttributeInfo_Static {
+    name: string
 }
 export declare var FileAttributeInfo: FileAttributeInfo_Static
 export interface FileAttributeInfoList {
@@ -10725,6 +10926,7 @@ export interface FileAttributeInfoList {
     unref(): void
 }
 export interface FileAttributeInfoList_Static {
+    name: string
 }
 export declare class FileAttributeInfoList_Static {
     new(): FileAttributeInfoList
@@ -10742,6 +10944,7 @@ export interface FileAttributeMatcher {
     unref(): void
 }
 export interface FileAttributeMatcher_Static {
+    name: string
 }
 export declare class FileAttributeMatcher_Static {
     new(attributes: string): FileAttributeMatcher
@@ -10753,6 +10956,7 @@ export interface FileDescriptorBasedIface {
     get_fd:any
 }
 export interface FileDescriptorBasedIface_Static {
+    name: string
 }
 export declare var FileDescriptorBasedIface: FileDescriptorBasedIface_Static
 export interface FileEnumeratorClass {
@@ -10766,11 +10970,13 @@ export interface FileEnumeratorClass {
     close_finish:any
 }
 export interface FileEnumeratorClass_Static {
+    name: string
 }
 export declare var FileEnumeratorClass: FileEnumeratorClass_Static
 export interface FileEnumeratorPrivate {
 }
 export interface FileEnumeratorPrivate_Static {
+    name: string
 }
 export declare var FileEnumeratorPrivate: FileEnumeratorPrivate_Static
 export interface FileIOStreamClass {
@@ -10787,16 +10993,19 @@ export interface FileIOStreamClass {
     get_etag:any
 }
 export interface FileIOStreamClass_Static {
+    name: string
 }
 export declare var FileIOStreamClass: FileIOStreamClass_Static
 export interface FileIOStreamPrivate {
 }
 export interface FileIOStreamPrivate_Static {
+    name: string
 }
 export declare var FileIOStreamPrivate: FileIOStreamPrivate_Static
 export interface FileIconClass {
 }
 export interface FileIconClass_Static {
+    name: string
 }
 export declare var FileIconClass: FileIconClass_Static
 export interface FileIface {
@@ -10896,11 +11105,13 @@ export interface FileIface {
     measure_disk_usage_finish:any
 }
 export interface FileIface_Static {
+    name: string
 }
 export declare var FileIface: FileIface_Static
 export interface FileInfoClass {
 }
 export interface FileInfoClass_Static {
+    name: string
 }
 export declare var FileInfoClass: FileInfoClass_Static
 export interface FileInputStreamClass {
@@ -10914,11 +11125,13 @@ export interface FileInputStreamClass {
     query_info_finish:any
 }
 export interface FileInputStreamClass_Static {
+    name: string
 }
 export declare var FileInputStreamClass: FileInputStreamClass_Static
 export interface FileInputStreamPrivate {
 }
 export interface FileInputStreamPrivate_Static {
+    name: string
 }
 export declare var FileInputStreamPrivate: FileInputStreamPrivate_Static
 export interface FileMonitorClass {
@@ -10928,11 +11141,13 @@ export interface FileMonitorClass {
     cancel:any
 }
 export interface FileMonitorClass_Static {
+    name: string
 }
 export declare var FileMonitorClass: FileMonitorClass_Static
 export interface FileMonitorPrivate {
 }
 export interface FileMonitorPrivate_Static {
+    name: string
 }
 export declare var FileMonitorPrivate: FileMonitorPrivate_Static
 export interface FileOutputStreamClass {
@@ -10949,11 +11164,13 @@ export interface FileOutputStreamClass {
     get_etag:any
 }
 export interface FileOutputStreamClass_Static {
+    name: string
 }
 export declare var FileOutputStreamClass: FileOutputStreamClass_Static
 export interface FileOutputStreamPrivate {
 }
 export interface FileOutputStreamPrivate_Static {
+    name: string
 }
 export declare var FileOutputStreamPrivate: FileOutputStreamPrivate_Static
 export interface FilenameCompleterClass {
@@ -10962,6 +11179,7 @@ export interface FilenameCompleterClass {
     got_completion_data:any
 }
 export interface FilenameCompleterClass_Static {
+    name: string
 }
 export declare var FilenameCompleterClass: FilenameCompleterClass_Static
 export interface FilterInputStreamClass {
@@ -10969,6 +11187,7 @@ export interface FilterInputStreamClass {
     parent_class:InputStreamClass
 }
 export interface FilterInputStreamClass_Static {
+    name: string
 }
 export declare var FilterInputStreamClass: FilterInputStreamClass_Static
 export interface FilterOutputStreamClass {
@@ -10976,6 +11195,7 @@ export interface FilterOutputStreamClass {
     parent_class:OutputStreamClass
 }
 export interface FilterOutputStreamClass_Static {
+    name: string
 }
 export declare var FilterOutputStreamClass: FilterOutputStreamClass_Static
 export interface IOExtension {
@@ -10985,6 +11205,7 @@ export interface IOExtension {
     get_type(): number
 }
 export interface IOExtension_Static {
+    name: string
 }
 export declare var IOExtension: IOExtension_Static
 export interface IOExtensionPoint {
@@ -10995,6 +11216,7 @@ export interface IOExtensionPoint {
     set_required_type(type: number): void
 }
 export interface IOExtensionPoint_Static {
+    name: string
 }
 export declare class IOExtensionPoint_Static {
     implement(extension_point_name: string, type: number, extension_name: string, priority: number): IOExtension
@@ -11005,6 +11227,7 @@ export declare var IOExtensionPoint: IOExtensionPoint_Static
 export interface IOModuleClass {
 }
 export interface IOModuleClass_Static {
+    name: string
 }
 export declare var IOModuleClass: IOModuleClass_Static
 export interface IOModuleScope {
@@ -11013,6 +11236,7 @@ export interface IOModuleScope {
     free(): void
 }
 export interface IOModuleScope_Static {
+    name: string
 }
 export declare var IOModuleScope: IOModuleScope_Static
 export interface IOSchedulerJob {
@@ -11021,11 +11245,13 @@ export interface IOSchedulerJob {
     send_to_mainloop_async(func: GLib.SourceFunc, user_data: object, notify: GLib.DestroyNotify | null): void
 }
 export interface IOSchedulerJob_Static {
+    name: string
 }
 export declare var IOSchedulerJob: IOSchedulerJob_Static
 export interface IOStreamAdapter {
 }
 export interface IOStreamAdapter_Static {
+    name: string
 }
 export declare var IOStreamAdapter: IOStreamAdapter_Static
 export interface IOStreamClass {
@@ -11038,11 +11264,13 @@ export interface IOStreamClass {
     close_finish:any
 }
 export interface IOStreamClass_Static {
+    name: string
 }
 export declare var IOStreamClass: IOStreamClass_Static
 export interface IOStreamPrivate {
 }
 export interface IOStreamPrivate_Static {
+    name: string
 }
 export declare var IOStreamPrivate: IOStreamPrivate_Static
 export interface IconIface {
@@ -11053,6 +11281,7 @@ export interface IconIface {
     serialize:any
 }
 export interface IconIface_Static {
+    name: string
 }
 export declare var IconIface: IconIface_Static
 export interface InetAddressClass {
@@ -11062,6 +11291,7 @@ export interface InetAddressClass {
     to_bytes:any
 }
 export interface InetAddressClass_Static {
+    name: string
 }
 export declare var InetAddressClass: InetAddressClass_Static
 export interface InetAddressMaskClass {
@@ -11069,16 +11299,19 @@ export interface InetAddressMaskClass {
     parent_class:GObject.ObjectClass
 }
 export interface InetAddressMaskClass_Static {
+    name: string
 }
 export declare var InetAddressMaskClass: InetAddressMaskClass_Static
 export interface InetAddressMaskPrivate {
 }
 export interface InetAddressMaskPrivate_Static {
+    name: string
 }
 export declare var InetAddressMaskPrivate: InetAddressMaskPrivate_Static
 export interface InetAddressPrivate {
 }
 export interface InetAddressPrivate_Static {
+    name: string
 }
 export declare var InetAddressPrivate: InetAddressPrivate_Static
 export interface InetSocketAddressClass {
@@ -11086,11 +11319,13 @@ export interface InetSocketAddressClass {
     parent_class:SocketAddressClass
 }
 export interface InetSocketAddressClass_Static {
+    name: string
 }
 export declare var InetSocketAddressClass: InetSocketAddressClass_Static
 export interface InetSocketAddressPrivate {
 }
 export interface InetSocketAddressPrivate_Static {
+    name: string
 }
 export declare var InetSocketAddressPrivate: InetSocketAddressPrivate_Static
 export interface InitableIface {
@@ -11099,6 +11334,7 @@ export interface InitableIface {
     init:any
 }
 export interface InitableIface_Static {
+    name: string
 }
 export declare var InitableIface: InitableIface_Static
 export interface InputMessage {
@@ -11112,6 +11348,7 @@ export interface InputMessage {
     num_control_messages:number
 }
 export interface InputMessage_Static {
+    name: string
 }
 export declare var InputMessage: InputMessage_Static
 export interface InputStreamClass {
@@ -11128,11 +11365,13 @@ export interface InputStreamClass {
     close_finish:any
 }
 export interface InputStreamClass_Static {
+    name: string
 }
 export declare var InputStreamClass: InputStreamClass_Static
 export interface InputStreamPrivate {
 }
 export interface InputStreamPrivate_Static {
+    name: string
 }
 export declare var InputStreamPrivate: InputStreamPrivate_Static
 export interface InputVector {
@@ -11141,6 +11380,7 @@ export interface InputVector {
     size:number
 }
 export interface InputVector_Static {
+    name: string
 }
 export declare var InputVector: InputVector_Static
 export interface ListModelInterface {
@@ -11150,6 +11390,7 @@ export interface ListModelInterface {
     get_n_items:any
 }
 export interface ListModelInterface_Static {
+    name: string
 }
 export declare var ListModelInterface: ListModelInterface_Static
 export interface ListStoreClass {
@@ -11157,6 +11398,7 @@ export interface ListStoreClass {
     parent_class:GObject.ObjectClass
 }
 export interface ListStoreClass_Static {
+    name: string
 }
 export declare var ListStoreClass: ListStoreClass_Static
 export interface LoadableIconIface {
@@ -11167,6 +11409,7 @@ export interface LoadableIconIface {
     load_finish:any
 }
 export interface LoadableIconIface_Static {
+    name: string
 }
 export declare var LoadableIconIface: LoadableIconIface_Static
 export interface MemoryInputStreamClass {
@@ -11174,11 +11417,13 @@ export interface MemoryInputStreamClass {
     parent_class:InputStreamClass
 }
 export interface MemoryInputStreamClass_Static {
+    name: string
 }
 export declare var MemoryInputStreamClass: MemoryInputStreamClass_Static
 export interface MemoryInputStreamPrivate {
 }
 export interface MemoryInputStreamPrivate_Static {
+    name: string
 }
 export declare var MemoryInputStreamPrivate: MemoryInputStreamPrivate_Static
 export interface MemoryOutputStreamClass {
@@ -11186,11 +11431,13 @@ export interface MemoryOutputStreamClass {
     parent_class:OutputStreamClass
 }
 export interface MemoryOutputStreamClass_Static {
+    name: string
 }
 export declare var MemoryOutputStreamClass: MemoryOutputStreamClass_Static
 export interface MemoryOutputStreamPrivate {
 }
 export interface MemoryOutputStreamPrivate_Static {
+    name: string
 }
 export declare var MemoryOutputStreamPrivate: MemoryOutputStreamPrivate_Static
 export interface MenuAttributeIterClass {
@@ -11199,11 +11446,13 @@ export interface MenuAttributeIterClass {
     get_next:any
 }
 export interface MenuAttributeIterClass_Static {
+    name: string
 }
 export declare var MenuAttributeIterClass: MenuAttributeIterClass_Static
 export interface MenuAttributeIterPrivate {
 }
 export interface MenuAttributeIterPrivate_Static {
+    name: string
 }
 export declare var MenuAttributeIterPrivate: MenuAttributeIterPrivate_Static
 export interface MenuLinkIterClass {
@@ -11212,11 +11461,13 @@ export interface MenuLinkIterClass {
     get_next:any
 }
 export interface MenuLinkIterClass_Static {
+    name: string
 }
 export declare var MenuLinkIterClass: MenuLinkIterClass_Static
 export interface MenuLinkIterPrivate {
 }
 export interface MenuLinkIterPrivate_Static {
+    name: string
 }
 export declare var MenuLinkIterPrivate: MenuLinkIterPrivate_Static
 export interface MenuModelClass {
@@ -11232,11 +11483,13 @@ export interface MenuModelClass {
     get_item_link:any
 }
 export interface MenuModelClass_Static {
+    name: string
 }
 export declare var MenuModelClass: MenuModelClass_Static
 export interface MenuModelPrivate {
 }
 export interface MenuModelPrivate_Static {
+    name: string
 }
 export declare var MenuModelPrivate: MenuModelPrivate_Static
 export interface MountIface {
@@ -11271,6 +11524,7 @@ export interface MountIface {
     get_symbolic_icon:any
 }
 export interface MountIface_Static {
+    name: string
 }
 export declare var MountIface: MountIface_Static
 export interface MountOperationClass {
@@ -11283,16 +11537,19 @@ export interface MountOperationClass {
     show_unmount_progress:any
 }
 export interface MountOperationClass_Static {
+    name: string
 }
 export declare var MountOperationClass: MountOperationClass_Static
 export interface MountOperationPrivate {
 }
 export interface MountOperationPrivate_Static {
+    name: string
 }
 export declare var MountOperationPrivate: MountOperationPrivate_Static
 export interface NativeSocketAddress {
 }
 export interface NativeSocketAddress_Static {
+    name: string
 }
 export declare var NativeSocketAddress: NativeSocketAddress_Static
 export interface NativeVolumeMonitorClass {
@@ -11300,6 +11557,7 @@ export interface NativeVolumeMonitorClass {
     parent_class:VolumeMonitorClass
 }
 export interface NativeVolumeMonitorClass_Static {
+    name: string
 }
 export declare var NativeVolumeMonitorClass: NativeVolumeMonitorClass_Static
 export interface NetworkAddressClass {
@@ -11307,11 +11565,13 @@ export interface NetworkAddressClass {
     parent_class:GObject.ObjectClass
 }
 export interface NetworkAddressClass_Static {
+    name: string
 }
 export declare var NetworkAddressClass: NetworkAddressClass_Static
 export interface NetworkAddressPrivate {
 }
 export interface NetworkAddressPrivate_Static {
+    name: string
 }
 export declare var NetworkAddressPrivate: NetworkAddressPrivate_Static
 export interface NetworkMonitorInterface {
@@ -11323,6 +11583,7 @@ export interface NetworkMonitorInterface {
     can_reach_finish:any
 }
 export interface NetworkMonitorInterface_Static {
+    name: string
 }
 export declare var NetworkMonitorInterface: NetworkMonitorInterface_Static
 export interface NetworkServiceClass {
@@ -11330,11 +11591,13 @@ export interface NetworkServiceClass {
     parent_class:GObject.ObjectClass
 }
 export interface NetworkServiceClass_Static {
+    name: string
 }
 export declare var NetworkServiceClass: NetworkServiceClass_Static
 export interface NetworkServicePrivate {
 }
 export interface NetworkServicePrivate_Static {
+    name: string
 }
 export declare var NetworkServicePrivate: NetworkServicePrivate_Static
 export interface OutputMessage {
@@ -11347,6 +11610,7 @@ export interface OutputMessage {
     num_control_messages:number
 }
 export interface OutputMessage_Static {
+    name: string
 }
 export declare var OutputMessage: OutputMessage_Static
 export interface OutputStreamClass {
@@ -11366,11 +11630,13 @@ export interface OutputStreamClass {
     close_finish:any
 }
 export interface OutputStreamClass_Static {
+    name: string
 }
 export declare var OutputStreamClass: OutputStreamClass_Static
 export interface OutputStreamPrivate {
 }
 export interface OutputStreamPrivate_Static {
+    name: string
 }
 export declare var OutputStreamPrivate: OutputStreamPrivate_Static
 export interface OutputVector {
@@ -11379,6 +11645,7 @@ export interface OutputVector {
     size:number
 }
 export interface OutputVector_Static {
+    name: string
 }
 export declare var OutputVector: OutputVector_Static
 export interface PermissionClass {
@@ -11393,11 +11660,13 @@ export interface PermissionClass {
     reserved:object[]
 }
 export interface PermissionClass_Static {
+    name: string
 }
 export declare var PermissionClass: PermissionClass_Static
 export interface PermissionPrivate {
 }
 export interface PermissionPrivate_Static {
+    name: string
 }
 export declare var PermissionPrivate: PermissionPrivate_Static
 export interface PollableInputStreamInterface {
@@ -11409,6 +11678,7 @@ export interface PollableInputStreamInterface {
     read_nonblocking:any
 }
 export interface PollableInputStreamInterface_Static {
+    name: string
 }
 export declare var PollableInputStreamInterface: PollableInputStreamInterface_Static
 export interface PollableOutputStreamInterface {
@@ -11420,6 +11690,7 @@ export interface PollableOutputStreamInterface {
     write_nonblocking:any
 }
 export interface PollableOutputStreamInterface_Static {
+    name: string
 }
 export declare var PollableOutputStreamInterface: PollableOutputStreamInterface_Static
 export interface ProxyAddressClass {
@@ -11427,6 +11698,7 @@ export interface ProxyAddressClass {
     parent_class:InetSocketAddressClass
 }
 export interface ProxyAddressClass_Static {
+    name: string
 }
 export declare var ProxyAddressClass: ProxyAddressClass_Static
 export interface ProxyAddressEnumeratorClass {
@@ -11434,16 +11706,19 @@ export interface ProxyAddressEnumeratorClass {
     parent_class:SocketAddressEnumeratorClass
 }
 export interface ProxyAddressEnumeratorClass_Static {
+    name: string
 }
 export declare var ProxyAddressEnumeratorClass: ProxyAddressEnumeratorClass_Static
 export interface ProxyAddressEnumeratorPrivate {
 }
 export interface ProxyAddressEnumeratorPrivate_Static {
+    name: string
 }
 export declare var ProxyAddressEnumeratorPrivate: ProxyAddressEnumeratorPrivate_Static
 export interface ProxyAddressPrivate {
 }
 export interface ProxyAddressPrivate_Static {
+    name: string
 }
 export declare var ProxyAddressPrivate: ProxyAddressPrivate_Static
 export interface ProxyInterface {
@@ -11455,6 +11730,7 @@ export interface ProxyInterface {
     supports_hostname:any
 }
 export interface ProxyInterface_Static {
+    name: string
 }
 export declare var ProxyInterface: ProxyInterface_Static
 export interface ProxyResolverInterface {
@@ -11466,6 +11742,7 @@ export interface ProxyResolverInterface {
     lookup_finish:any
 }
 export interface ProxyResolverInterface_Static {
+    name: string
 }
 export declare var ProxyResolverInterface: ProxyResolverInterface_Static
 export interface RemoteActionGroupInterface {
@@ -11475,6 +11752,7 @@ export interface RemoteActionGroupInterface {
     change_action_state_full:any
 }
 export interface RemoteActionGroupInterface_Static {
+    name: string
 }
 export declare var RemoteActionGroupInterface: RemoteActionGroupInterface_Static
 export interface ResolverClass {
@@ -11494,11 +11772,13 @@ export interface ResolverClass {
     lookup_records_finish:any
 }
 export interface ResolverClass_Static {
+    name: string
 }
 export declare var ResolverClass: ResolverClass_Static
 export interface ResolverPrivate {
 }
 export interface ResolverPrivate_Static {
+    name: string
 }
 export declare var ResolverPrivate: ResolverPrivate_Static
 export interface Resource {
@@ -11513,6 +11793,7 @@ export interface Resource {
     unref(): void
 }
 export interface Resource_Static {
+    name: string
 }
 export declare class Resource_Static {
     new_from_data(data: Gjs.byteArray.ByteArray): Resource
@@ -11529,11 +11810,13 @@ export interface SeekableIface {
     truncate_fn:any
 }
 export interface SeekableIface_Static {
+    name: string
 }
 export declare var SeekableIface: SeekableIface_Static
 export interface SettingsBackend {
 }
 export interface SettingsBackend_Static {
+    name: string
 }
 export declare var SettingsBackend: SettingsBackend_Static
 export interface SettingsClass {
@@ -11546,11 +11829,13 @@ export interface SettingsClass {
     padding:object[]
 }
 export interface SettingsClass_Static {
+    name: string
 }
 export declare var SettingsClass: SettingsClass_Static
 export interface SettingsPrivate {
 }
 export interface SettingsPrivate_Static {
+    name: string
 }
 export declare var SettingsPrivate: SettingsPrivate_Static
 export interface SettingsSchema {
@@ -11565,6 +11850,7 @@ export interface SettingsSchema {
     unref(): void
 }
 export interface SettingsSchema_Static {
+    name: string
 }
 export declare var SettingsSchema: SettingsSchema_Static
 export interface SettingsSchemaKey {
@@ -11580,6 +11866,7 @@ export interface SettingsSchemaKey {
     unref(): void
 }
 export interface SettingsSchemaKey_Static {
+    name: string
 }
 export declare var SettingsSchemaKey: SettingsSchemaKey_Static
 export interface SettingsSchemaSource {
@@ -11590,6 +11877,7 @@ export interface SettingsSchemaSource {
     unref(): void
 }
 export interface SettingsSchemaSource_Static {
+    name: string
 }
 export declare class SettingsSchemaSource_Static {
     new_from_directory(directory: string, parent: SettingsSchemaSource | null, trusted: boolean): SettingsSchemaSource
@@ -11602,16 +11890,19 @@ export interface SimpleActionGroupClass {
     padding:object[]
 }
 export interface SimpleActionGroupClass_Static {
+    name: string
 }
 export declare var SimpleActionGroupClass: SimpleActionGroupClass_Static
 export interface SimpleActionGroupPrivate {
 }
 export interface SimpleActionGroupPrivate_Static {
+    name: string
 }
 export declare var SimpleActionGroupPrivate: SimpleActionGroupPrivate_Static
 export interface SimpleAsyncResultClass {
 }
 export interface SimpleAsyncResultClass_Static {
+    name: string
 }
 export declare var SimpleAsyncResultClass: SimpleAsyncResultClass_Static
 export interface SimpleProxyResolverClass {
@@ -11619,11 +11910,13 @@ export interface SimpleProxyResolverClass {
     parent_class:GObject.ObjectClass
 }
 export interface SimpleProxyResolverClass_Static {
+    name: string
 }
 export declare var SimpleProxyResolverClass: SimpleProxyResolverClass_Static
 export interface SimpleProxyResolverPrivate {
 }
 export interface SimpleProxyResolverPrivate_Static {
+    name: string
 }
 export declare var SimpleProxyResolverPrivate: SimpleProxyResolverPrivate_Static
 export interface SocketAddressClass {
@@ -11634,6 +11927,7 @@ export interface SocketAddressClass {
     to_native:any
 }
 export interface SocketAddressClass_Static {
+    name: string
 }
 export declare var SocketAddressClass: SocketAddressClass_Static
 export interface SocketAddressEnumeratorClass {
@@ -11644,6 +11938,7 @@ export interface SocketAddressEnumeratorClass {
     next_finish:any
 }
 export interface SocketAddressEnumeratorClass_Static {
+    name: string
 }
 export declare var SocketAddressEnumeratorClass: SocketAddressEnumeratorClass_Static
 export interface SocketClass {
@@ -11651,6 +11946,7 @@ export interface SocketClass {
     parent_class:GObject.ObjectClass
 }
 export interface SocketClass_Static {
+    name: string
 }
 export declare var SocketClass: SocketClass_Static
 export interface SocketClientClass {
@@ -11659,11 +11955,13 @@ export interface SocketClientClass {
     event:any
 }
 export interface SocketClientClass_Static {
+    name: string
 }
 export declare var SocketClientClass: SocketClientClass_Static
 export interface SocketClientPrivate {
 }
 export interface SocketClientPrivate_Static {
+    name: string
 }
 export declare var SocketClientPrivate: SocketClientPrivate_Static
 export interface SocketConnectableIface {
@@ -11674,6 +11972,7 @@ export interface SocketConnectableIface {
     to_string:any
 }
 export interface SocketConnectableIface_Static {
+    name: string
 }
 export declare var SocketConnectableIface: SocketConnectableIface_Static
 export interface SocketConnectionClass {
@@ -11681,11 +11980,13 @@ export interface SocketConnectionClass {
     parent_class:IOStreamClass
 }
 export interface SocketConnectionClass_Static {
+    name: string
 }
 export declare var SocketConnectionClass: SocketConnectionClass_Static
 export interface SocketConnectionPrivate {
 }
 export interface SocketConnectionPrivate_Static {
+    name: string
 }
 export declare var SocketConnectionPrivate: SocketConnectionPrivate_Static
 export interface SocketControlMessageClass {
@@ -11697,11 +11998,13 @@ export interface SocketControlMessageClass {
     serialize:any
 }
 export interface SocketControlMessageClass_Static {
+    name: string
 }
 export declare var SocketControlMessageClass: SocketControlMessageClass_Static
 export interface SocketControlMessagePrivate {
 }
 export interface SocketControlMessagePrivate_Static {
+    name: string
 }
 export declare var SocketControlMessagePrivate: SocketControlMessagePrivate_Static
 export interface SocketListenerClass {
@@ -11711,16 +12014,19 @@ export interface SocketListenerClass {
     event:any
 }
 export interface SocketListenerClass_Static {
+    name: string
 }
 export declare var SocketListenerClass: SocketListenerClass_Static
 export interface SocketListenerPrivate {
 }
 export interface SocketListenerPrivate_Static {
+    name: string
 }
 export declare var SocketListenerPrivate: SocketListenerPrivate_Static
 export interface SocketPrivate {
 }
 export interface SocketPrivate_Static {
+    name: string
 }
 export declare var SocketPrivate: SocketPrivate_Static
 export interface SocketServiceClass {
@@ -11729,11 +12035,13 @@ export interface SocketServiceClass {
     incoming:any
 }
 export interface SocketServiceClass_Static {
+    name: string
 }
 export declare var SocketServiceClass: SocketServiceClass_Static
 export interface SocketServicePrivate {
 }
 export interface SocketServicePrivate_Static {
+    name: string
 }
 export declare var SocketServicePrivate: SocketServicePrivate_Static
 export interface SrvTarget {
@@ -11746,6 +12054,7 @@ export interface SrvTarget {
     get_weight(): number
 }
 export interface SrvTarget_Static {
+    name: string
 }
 export declare class SrvTarget_Static {
     new(hostname: string, port: number, priority: number, weight: number): SrvTarget
@@ -11764,11 +12073,13 @@ export interface StaticResource {
     init(): void
 }
 export interface StaticResource_Static {
+    name: string
 }
 export declare var StaticResource: StaticResource_Static
 export interface TaskClass {
 }
 export interface TaskClass_Static {
+    name: string
 }
 export declare var TaskClass: TaskClass_Static
 export interface TcpConnectionClass {
@@ -11776,11 +12087,13 @@ export interface TcpConnectionClass {
     parent_class:SocketConnectionClass
 }
 export interface TcpConnectionClass_Static {
+    name: string
 }
 export declare var TcpConnectionClass: TcpConnectionClass_Static
 export interface TcpConnectionPrivate {
 }
 export interface TcpConnectionPrivate_Static {
+    name: string
 }
 export declare var TcpConnectionPrivate: TcpConnectionPrivate_Static
 export interface TcpWrapperConnectionClass {
@@ -11788,16 +12101,19 @@ export interface TcpWrapperConnectionClass {
     parent_class:TcpConnectionClass
 }
 export interface TcpWrapperConnectionClass_Static {
+    name: string
 }
 export declare var TcpWrapperConnectionClass: TcpWrapperConnectionClass_Static
 export interface TcpWrapperConnectionPrivate {
 }
 export interface TcpWrapperConnectionPrivate_Static {
+    name: string
 }
 export declare var TcpWrapperConnectionPrivate: TcpWrapperConnectionPrivate_Static
 export interface ThemedIconClass {
 }
 export interface ThemedIconClass_Static {
+    name: string
 }
 export declare var ThemedIconClass: ThemedIconClass_Static
 export interface ThreadedSocketServiceClass {
@@ -11806,11 +12122,13 @@ export interface ThreadedSocketServiceClass {
     run:any
 }
 export interface ThreadedSocketServiceClass_Static {
+    name: string
 }
 export declare var ThreadedSocketServiceClass: ThreadedSocketServiceClass_Static
 export interface ThreadedSocketServicePrivate {
 }
 export interface ThreadedSocketServicePrivate_Static {
+    name: string
 }
 export declare var ThreadedSocketServicePrivate: ThreadedSocketServicePrivate_Static
 export interface TlsBackendInterface {
@@ -11824,6 +12142,7 @@ export interface TlsBackendInterface {
     get_default_database:any
 }
 export interface TlsBackendInterface_Static {
+    name: string
 }
 export declare var TlsBackendInterface: TlsBackendInterface_Static
 export interface TlsCertificateClass {
@@ -11833,11 +12152,13 @@ export interface TlsCertificateClass {
     padding:object[]
 }
 export interface TlsCertificateClass_Static {
+    name: string
 }
 export declare var TlsCertificateClass: TlsCertificateClass_Static
 export interface TlsCertificatePrivate {
 }
 export interface TlsCertificatePrivate_Static {
+    name: string
 }
 export declare var TlsCertificatePrivate: TlsCertificatePrivate_Static
 export interface TlsClientConnectionInterface {
@@ -11846,6 +12167,7 @@ export interface TlsClientConnectionInterface {
     copy_session_state:any
 }
 export interface TlsClientConnectionInterface_Static {
+    name: string
 }
 export declare var TlsClientConnectionInterface: TlsClientConnectionInterface_Static
 export interface TlsConnectionClass {
@@ -11858,11 +12180,13 @@ export interface TlsConnectionClass {
     padding:object[]
 }
 export interface TlsConnectionClass_Static {
+    name: string
 }
 export declare var TlsConnectionClass: TlsConnectionClass_Static
 export interface TlsConnectionPrivate {
 }
 export interface TlsConnectionPrivate_Static {
+    name: string
 }
 export declare var TlsConnectionPrivate: TlsConnectionPrivate_Static
 export interface TlsDatabaseClass {
@@ -11884,11 +12208,13 @@ export interface TlsDatabaseClass {
     padding:object[]
 }
 export interface TlsDatabaseClass_Static {
+    name: string
 }
 export declare var TlsDatabaseClass: TlsDatabaseClass_Static
 export interface TlsDatabasePrivate {
 }
 export interface TlsDatabasePrivate_Static {
+    name: string
 }
 export declare var TlsDatabasePrivate: TlsDatabasePrivate_Static
 export interface TlsFileDatabaseInterface {
@@ -11897,6 +12223,7 @@ export interface TlsFileDatabaseInterface {
     padding:object[]
 }
 export interface TlsFileDatabaseInterface_Static {
+    name: string
 }
 export declare var TlsFileDatabaseInterface: TlsFileDatabaseInterface_Static
 export interface TlsInteractionClass {
@@ -11911,11 +12238,13 @@ export interface TlsInteractionClass {
     padding:object[]
 }
 export interface TlsInteractionClass_Static {
+    name: string
 }
 export declare var TlsInteractionClass: TlsInteractionClass_Static
 export interface TlsInteractionPrivate {
 }
 export interface TlsInteractionPrivate_Static {
+    name: string
 }
 export declare var TlsInteractionPrivate: TlsInteractionPrivate_Static
 export interface TlsPasswordClass {
@@ -11927,11 +12256,13 @@ export interface TlsPasswordClass {
     padding:object[]
 }
 export interface TlsPasswordClass_Static {
+    name: string
 }
 export declare var TlsPasswordClass: TlsPasswordClass_Static
 export interface TlsPasswordPrivate {
 }
 export interface TlsPasswordPrivate_Static {
+    name: string
 }
 export declare var TlsPasswordPrivate: TlsPasswordPrivate_Static
 export interface TlsServerConnectionInterface {
@@ -11939,6 +12270,7 @@ export interface TlsServerConnectionInterface {
     g_iface:GObject.TypeInterface
 }
 export interface TlsServerConnectionInterface_Static {
+    name: string
 }
 export declare var TlsServerConnectionInterface: TlsServerConnectionInterface_Static
 export interface UnixConnectionClass {
@@ -11946,11 +12278,13 @@ export interface UnixConnectionClass {
     parent_class:SocketConnectionClass
 }
 export interface UnixConnectionClass_Static {
+    name: string
 }
 export declare var UnixConnectionClass: UnixConnectionClass_Static
 export interface UnixConnectionPrivate {
 }
 export interface UnixConnectionPrivate_Static {
+    name: string
 }
 export declare var UnixConnectionPrivate: UnixConnectionPrivate_Static
 export interface UnixCredentialsMessageClass {
@@ -11958,11 +12292,13 @@ export interface UnixCredentialsMessageClass {
     parent_class:SocketControlMessageClass
 }
 export interface UnixCredentialsMessageClass_Static {
+    name: string
 }
 export declare var UnixCredentialsMessageClass: UnixCredentialsMessageClass_Static
 export interface UnixCredentialsMessagePrivate {
 }
 export interface UnixCredentialsMessagePrivate_Static {
+    name: string
 }
 export declare var UnixCredentialsMessagePrivate: UnixCredentialsMessagePrivate_Static
 export interface UnixFDListClass {
@@ -11970,11 +12306,13 @@ export interface UnixFDListClass {
     parent_class:GObject.ObjectClass
 }
 export interface UnixFDListClass_Static {
+    name: string
 }
 export declare var UnixFDListClass: UnixFDListClass_Static
 export interface UnixFDListPrivate {
 }
 export interface UnixFDListPrivate_Static {
+    name: string
 }
 export declare var UnixFDListPrivate: UnixFDListPrivate_Static
 export interface UnixFDMessageClass {
@@ -11982,11 +12320,13 @@ export interface UnixFDMessageClass {
     parent_class:SocketControlMessageClass
 }
 export interface UnixFDMessageClass_Static {
+    name: string
 }
 export declare var UnixFDMessageClass: UnixFDMessageClass_Static
 export interface UnixFDMessagePrivate {
 }
 export interface UnixFDMessagePrivate_Static {
+    name: string
 }
 export declare var UnixFDMessagePrivate: UnixFDMessagePrivate_Static
 export interface UnixInputStreamClass {
@@ -11994,21 +12334,25 @@ export interface UnixInputStreamClass {
     parent_class:InputStreamClass
 }
 export interface UnixInputStreamClass_Static {
+    name: string
 }
 export declare var UnixInputStreamClass: UnixInputStreamClass_Static
 export interface UnixInputStreamPrivate {
 }
 export interface UnixInputStreamPrivate_Static {
+    name: string
 }
 export declare var UnixInputStreamPrivate: UnixInputStreamPrivate_Static
 export interface UnixMountEntry {
 }
 export interface UnixMountEntry_Static {
+    name: string
 }
 export declare var UnixMountEntry: UnixMountEntry_Static
 export interface UnixMountMonitorClass {
 }
 export interface UnixMountMonitorClass_Static {
+    name: string
 }
 export declare var UnixMountMonitorClass: UnixMountMonitorClass_Static
 export interface UnixMountPoint {
@@ -12028,6 +12372,7 @@ export interface UnixMountPoint {
     is_user_mountable(): boolean
 }
 export interface UnixMountPoint_Static {
+    name: string
 }
 export declare var UnixMountPoint: UnixMountPoint_Static
 export interface UnixOutputStreamClass {
@@ -12035,11 +12380,13 @@ export interface UnixOutputStreamClass {
     parent_class:OutputStreamClass
 }
 export interface UnixOutputStreamClass_Static {
+    name: string
 }
 export declare var UnixOutputStreamClass: UnixOutputStreamClass_Static
 export interface UnixOutputStreamPrivate {
 }
 export interface UnixOutputStreamPrivate_Static {
+    name: string
 }
 export declare var UnixOutputStreamPrivate: UnixOutputStreamPrivate_Static
 export interface UnixSocketAddressClass {
@@ -12047,11 +12394,13 @@ export interface UnixSocketAddressClass {
     parent_class:SocketAddressClass
 }
 export interface UnixSocketAddressClass_Static {
+    name: string
 }
 export declare var UnixSocketAddressClass: UnixSocketAddressClass_Static
 export interface UnixSocketAddressPrivate {
 }
 export interface UnixSocketAddressPrivate_Static {
+    name: string
 }
 export declare var UnixSocketAddressPrivate: UnixSocketAddressPrivate_Static
 export interface VfsClass {
@@ -12069,6 +12418,7 @@ export interface VfsClass {
     local_file_moved:any
 }
 export interface VfsClass_Static {
+    name: string
 }
 export declare var VfsClass: VfsClass_Static
 export interface VolumeIface {
@@ -12097,6 +12447,7 @@ export interface VolumeIface {
     get_symbolic_icon:any
 }
 export interface VolumeIface_Static {
+    name: string
 }
 export declare var VolumeIface: VolumeIface_Static
 export interface VolumeMonitorClass {
@@ -12122,6 +12473,7 @@ export interface VolumeMonitorClass {
     drive_stop_button:any
 }
 export interface VolumeMonitorClass_Static {
+    name: string
 }
 export declare var VolumeMonitorClass: VolumeMonitorClass_Static
 export interface ZlibCompressorClass {
@@ -12129,6 +12481,7 @@ export interface ZlibCompressorClass {
     parent_class:GObject.ObjectClass
 }
 export interface ZlibCompressorClass_Static {
+    name: string
 }
 export declare var ZlibCompressorClass: ZlibCompressorClass_Static
 export interface ZlibDecompressorClass {
@@ -12136,6 +12489,7 @@ export interface ZlibDecompressorClass {
     parent_class:GObject.ObjectClass
 }
 export interface ZlibDecompressorClass_Static {
+    name: string
 }
 export declare var ZlibDecompressorClass: ZlibDecompressorClass_Static
 type ActionMap_autoptr = object

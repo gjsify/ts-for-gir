@@ -272,8 +272,26 @@ export class GirModule {
 
         // if (this.ns.)
         // props
-        
+
         this.symTable = dict
+    }
+
+    loadInheritance(inheritanceTable) {
+        for (let cls of (this.ns.class ? this.ns.class : [])) {
+            let parent
+            if (cls.$ && cls.$.parent) parent = cls.$.parent
+            if (!parent) continue
+            if (!cls._fullSymName) continue
+
+            if (parent.indexOf(".") < 0) {
+                parent = this.name + "." + parent
+            }
+            let clsName = cls._fullSymName
+
+            let arr: string[] = inheritanceTable[clsName] || []
+            arr.push(parent)
+            inheritanceTable[clsName] = arr
+        }
     }
 
     private typeLookup(e: GirVariable) {
@@ -780,6 +798,7 @@ export class GirModule {
 
         // Static side: default constructor
         def.push(`export interface ${name}_Static {`)
+        def.push(`    name: string`)
         if (isDerivedFromGObject) {
             def.push(`    new (config: ${name}_ConstructProps): ${name}`)
         }
@@ -1007,6 +1026,74 @@ export namespace Mainloop {
 export { }`)
 }
 
+function exportExtra(outDir: string|null, inheritanceTable)
+{
+    if (!outDir)
+        return
+
+    let def: string[] = []
+    def.push("import * as GObject from './GObject'")
+    def.push("")
+    def.push("let inheritanceTable = {")
+    for (let k of lodash.keys(inheritanceTable)) {
+        let arr: string = "'" + inheritanceTable[k].join("', '") + "'"
+        def.push(`    '${k}': [ ${arr} ],`)
+    }
+    def.push("}")
+    def.push("")
+
+    def.push(`
+interface StaticNamed {
+    name: string
+}
+
+/** Casts between derived classes, performing a run-time type-check
+ * and raising an exception if the cast fails.
+ * 
+ * Does not take into account interfaces at all.
+ */
+export function giCast<T extends GObject.Object>(from_: GObject.Object, to_: StaticNamed): T {
+    let desc: string = from_.toString()
+    let clsName: string|null = null
+    for (let k of desc.split(" ")) {
+        if (k.startsWith("GIName:")) {
+            clsName = k.substring(7)
+            break
+        }
+    }
+    let toName = to_.name.replace("_", ".")
+
+    if (toName === clsName)
+        return ((from_ as any) as T)
+
+    if (clsName) {
+        let parents = inheritanceTable[clsName]
+        if (parents) {
+            if (parents.indexOf(toName) >= 0)
+                return ((from_ as any) as T)
+        }
+    }
+
+    throw Error("Invalid cast of " + desc + " to " + toName)
+}    
+`)
+
+    fs.createWriteStream(`${outDir}/cast.ts`).write(def.join("\n"))
+}
+
+function finaliseInheritance(inheritanceTable) {
+    for (let clsName of lodash.keys(inheritanceTable)) {
+        let p = inheritanceTable[clsName][0]
+        while (p) {
+            p = inheritanceTable[p]
+            if (p) {
+                p = p[0]
+                inheritanceTable[clsName].push(p)
+            }
+        }
+    }
+}
+
 function main() {
     commander
         .option("-g --gir-directory [directory]", "GIR directory",
@@ -1061,7 +1148,12 @@ function main() {
     for (let k of lodash.values(girModules))
         k.loadTypes(symTable)
 
-    // console.dir(symTable)
+    let inheritanceTable: { [name: string]: string[] } = {}
+    for (let k of lodash.values(girModules))
+        k.loadInheritance(inheritanceTable)
+    finaliseInheritance(inheritanceTable)
+    
+    //console.dir(inheritanceTable)
 
     // Figure out transitive module dependencies
     let modDependencyMap: { [name:string]: string[] } = {}
@@ -1126,6 +1218,7 @@ function main() {
 
     // GJS internal stuff
     exportGjs(commander.outdir)
+    exportExtra(commander.outdir, inheritanceTable)
 
     console.log("Done.")
 }

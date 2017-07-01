@@ -1,5 +1,6 @@
 import * as Gtk from '../../out/Gtk';
 import * as GtkSource from '../../out/GtkSource'
+import { giCast } from '../../out/cast'
 
 Gtk.init(null)
 
@@ -12,8 +13,9 @@ srcView.auto_indent = true
 srcView.show_line_numbers = true
 srcView.monospace = true
 
-// Downcasting requires the "as any" below, meaning we lose all type safety :(
-let buf: GtkSource.Buffer = srcView.buffer as any
+// Unfortunately the "buffer" property is not GtkSource.Buffer so we need to downcast
+// it. giCast gives us a type-check at runtime.
+let buf: GtkSource.Buffer = giCast<GtkSource.Buffer>(srcView.buffer, GtkSource.Buffer)
 let lang = GtkSource.LanguageManager.get_default().get_language("js")
 buf.set_language(lang)
 

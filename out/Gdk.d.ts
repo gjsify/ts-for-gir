@@ -2933,6 +2933,7 @@ export interface AppLaunchContext {
     connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void))
 }
 export interface AppLaunchContext_Static {
+    name: string
     new (config: AppLaunchContext_ConstructProps): AppLaunchContext
 }
 export declare class AppLaunchContext_Static {
@@ -2991,6 +2992,7 @@ export interface Cursor {
     connect(sigName: "notify", callback: ((obj: Cursor, pspec: GObject.ParamSpec) => void))
 }
 export interface Cursor_Static {
+    name: string
     new (config: Cursor_ConstructProps): Cursor
 }
 export declare class Cursor_Static {
@@ -3090,6 +3092,7 @@ export interface Device {
     connect(sigName: "notify::n-axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
 }
 export interface Device_Static {
+    name: string
     new (config: Device_ConstructProps): Device
 }
 export declare class Device_Static {
@@ -3150,6 +3153,7 @@ export interface DeviceManager {
     connect(sigName: "notify", callback: ((obj: DeviceManager, pspec: GObject.ParamSpec) => void))
 }
 export interface DeviceManager_Static {
+    name: string
     new (config: DeviceManager_ConstructProps): DeviceManager
 }
 export declare var DeviceManager: DeviceManager_Static
@@ -3238,6 +3242,7 @@ export interface Display {
     connect(sigName: "notify", callback: ((obj: Display, pspec: GObject.ParamSpec) => void))
 }
 export interface Display_Static {
+    name: string
     new (config: Display_ConstructProps): Display
 }
 export declare class Display_Static {
@@ -3301,6 +3306,7 @@ export interface DisplayManager {
     connect(sigName: "notify::default-display", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void))
 }
 export interface DisplayManager_Static {
+    name: string
     new (config: DisplayManager_ConstructProps): DisplayManager
 }
 export declare class DisplayManager_Static {
@@ -3360,6 +3366,7 @@ export interface DragContext {
     connect(sigName: "notify", callback: ((obj: DragContext, pspec: GObject.ParamSpec) => void))
 }
 export interface DragContext_Static {
+    name: string
     new (config: DragContext_ConstructProps): DragContext
 }
 export declare var DragContext: DragContext_Static
@@ -3424,6 +3431,7 @@ export interface FrameClock {
     connect(sigName: "notify", callback: ((obj: FrameClock, pspec: GObject.ParamSpec) => void))
 }
 export interface FrameClock_Static {
+    name: string
     new (config: FrameClock_ConstructProps): FrameClock
 }
 export declare var FrameClock: FrameClock_Static
@@ -3488,6 +3496,7 @@ export interface GLContext {
     connect(sigName: "notify", callback: ((obj: GLContext, pspec: GObject.ParamSpec) => void))
 }
 export interface GLContext_Static {
+    name: string
     new (config: GLContext_ConstructProps): GLContext
 }
 export declare class GLContext_Static {
@@ -3556,6 +3565,7 @@ export interface Keymap {
     connect(sigName: "notify", callback: ((obj: Keymap, pspec: GObject.ParamSpec) => void))
 }
 export interface Keymap_Static {
+    name: string
     new (config: Keymap_ConstructProps): Keymap
 }
 export declare class Keymap_Static {
@@ -3649,6 +3659,7 @@ export interface Screen {
     connect(sigName: "notify::resolution", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
 }
 export interface Screen_Static {
+    name: string
     new (config: Screen_ConstructProps): Screen
 }
 export declare class Screen_Static {
@@ -3712,6 +3723,7 @@ export interface Visual {
     connect(sigName: "notify", callback: ((obj: Visual, pspec: GObject.ParamSpec) => void))
 }
 export interface Visual_Static {
+    name: string
     new (config: Visual_ConstructProps): Visual
 }
 export declare class Visual_Static {
@@ -3933,6 +3945,7 @@ export interface Window {
     connect(sigName: "notify::cursor", callback: ((obj: Window, pspec: GObject.ParamSpec) => void))
 }
 export interface Window_Static {
+    name: string
     new (config: Window_ConstructProps): Window
 }
 export declare class Window_Static {
@@ -3948,6 +3961,7 @@ export interface Atom {
     name(): string
 }
 export interface Atom_Static {
+    name: string
 }
 export declare class Atom_Static {
     intern(atom_name: string, only_if_exists: boolean): Atom
@@ -3968,6 +3982,7 @@ export interface Color {
     to_string(): string
 }
 export interface Color_Static {
+    name: string
 }
 export declare class Color_Static {
     parse(spec: string): [ /* returnType */ boolean, /* color */ Color ]
@@ -3980,6 +3995,7 @@ export interface EventAny {
     send_event:number
 }
 export interface EventAny_Static {
+    name: string
 }
 export declare var EventAny: EventAny_Static
 export interface EventButton {
@@ -3998,6 +4014,7 @@ export interface EventButton {
     y_root:number
 }
 export interface EventButton_Static {
+    name: string
 }
 export declare var EventButton: EventButton_Static
 export interface EventConfigure {
@@ -4011,6 +4028,7 @@ export interface EventConfigure {
     height:number
 }
 export interface EventConfigure_Static {
+    name: string
 }
 export declare var EventConfigure: EventConfigure_Static
 export interface EventCrossing {
@@ -4030,6 +4048,7 @@ export interface EventCrossing {
     state:ModifierType
 }
 export interface EventCrossing_Static {
+    name: string
 }
 export declare var EventCrossing: EventCrossing_Static
 export interface EventDND {
@@ -4043,6 +4062,7 @@ export interface EventDND {
     y_root:number
 }
 export interface EventDND_Static {
+    name: string
 }
 export declare var EventDND: EventDND_Static
 export interface EventExpose {
@@ -4055,6 +4075,7 @@ export interface EventExpose {
     count:number
 }
 export interface EventExpose_Static {
+    name: string
 }
 export declare var EventExpose: EventExpose_Static
 export interface EventFocus {
@@ -4065,6 +4086,7 @@ export interface EventFocus {
     in_:number
 }
 export interface EventFocus_Static {
+    name: string
 }
 export declare var EventFocus: EventFocus_Static
 export interface EventGrabBroken {
@@ -4077,6 +4099,7 @@ export interface EventGrabBroken {
     grab_window:Window
 }
 export interface EventGrabBroken_Static {
+    name: string
 }
 export declare var EventGrabBroken: EventGrabBroken_Static
 export interface EventKey {
@@ -4094,6 +4117,7 @@ export interface EventKey {
     is_modifier:number
 }
 export interface EventKey_Static {
+    name: string
 }
 export declare var EventKey: EventKey_Static
 export interface EventMotion {
@@ -4112,6 +4136,7 @@ export interface EventMotion {
     y_root:number
 }
 export interface EventMotion_Static {
+    name: string
 }
 export declare var EventMotion: EventMotion_Static
 export interface EventOwnerChange {
@@ -4126,6 +4151,7 @@ export interface EventOwnerChange {
     selection_time:number
 }
 export interface EventOwnerChange_Static {
+    name: string
 }
 export declare var EventOwnerChange: EventOwnerChange_Static
 export interface EventProperty {
@@ -4138,6 +4164,7 @@ export interface EventProperty {
     state:PropertyState
 }
 export interface EventProperty_Static {
+    name: string
 }
 export declare var EventProperty: EventProperty_Static
 export interface EventProximity {
@@ -4149,6 +4176,7 @@ export interface EventProximity {
     device:Device
 }
 export interface EventProximity_Static {
+    name: string
 }
 export declare var EventProximity: EventProximity_Static
 export interface EventScroll {
@@ -4168,6 +4196,7 @@ export interface EventScroll {
     delta_y:number
 }
 export interface EventScroll_Static {
+    name: string
 }
 export declare var EventScroll: EventScroll_Static
 export interface EventSelection {
@@ -4182,11 +4211,13 @@ export interface EventSelection {
     requestor:Window
 }
 export interface EventSelection_Static {
+    name: string
 }
 export declare var EventSelection: EventSelection_Static
 export interface EventSequence {
 }
 export interface EventSequence_Static {
+    name: string
 }
 export declare var EventSequence: EventSequence_Static
 export interface EventSetting {
@@ -4198,6 +4229,7 @@ export interface EventSetting {
     name:string
 }
 export interface EventSetting_Static {
+    name: string
 }
 export declare var EventSetting: EventSetting_Static
 export interface EventTouch {
@@ -4217,6 +4249,7 @@ export interface EventTouch {
     y_root:number
 }
 export interface EventTouch_Static {
+    name: string
 }
 export declare var EventTouch: EventTouch_Static
 export interface EventTouchpadPinch {
@@ -4238,6 +4271,7 @@ export interface EventTouchpadPinch {
     state:ModifierType
 }
 export interface EventTouchpadPinch_Static {
+    name: string
 }
 export declare var EventTouchpadPinch: EventTouchpadPinch_Static
 export interface EventTouchpadSwipe {
@@ -4257,6 +4291,7 @@ export interface EventTouchpadSwipe {
     state:ModifierType
 }
 export interface EventTouchpadSwipe_Static {
+    name: string
 }
 export declare var EventTouchpadSwipe: EventTouchpadSwipe_Static
 export interface EventVisibility {
@@ -4267,6 +4302,7 @@ export interface EventVisibility {
     state:VisibilityState
 }
 export interface EventVisibility_Static {
+    name: string
 }
 export declare var EventVisibility: EventVisibility_Static
 export interface EventWindowState {
@@ -4278,16 +4314,19 @@ export interface EventWindowState {
     new_window_state:WindowState
 }
 export interface EventWindowState_Static {
+    name: string
 }
 export declare var EventWindowState: EventWindowState_Static
 export interface FrameClockClass {
 }
 export interface FrameClockClass_Static {
+    name: string
 }
 export declare var FrameClockClass: FrameClockClass_Static
 export interface FrameClockPrivate {
 }
 export interface FrameClockPrivate_Static {
+    name: string
 }
 export declare var FrameClockPrivate: FrameClockPrivate_Static
 export interface FrameTimings {
@@ -4302,6 +4341,7 @@ export interface FrameTimings {
     unref(): void
 }
 export interface FrameTimings_Static {
+    name: string
 }
 export declare var FrameTimings: FrameTimings_Static
 export interface Geometry {
@@ -4319,6 +4359,7 @@ export interface Geometry {
     win_gravity:Gravity
 }
 export interface Geometry_Static {
+    name: string
 }
 export declare var Geometry: Geometry_Static
 export interface KeymapKey {
@@ -4328,6 +4369,7 @@ export interface KeymapKey {
     level:number
 }
 export interface KeymapKey_Static {
+    name: string
 }
 export declare var KeymapKey: KeymapKey_Static
 export interface Point {
@@ -4336,6 +4378,7 @@ export interface Point {
     y:number
 }
 export interface Point_Static {
+    name: string
 }
 export declare var Point: Point_Static
 export interface RGBA {
@@ -4353,6 +4396,7 @@ export interface RGBA {
     to_string(): string
 }
 export interface RGBA_Static {
+    name: string
 }
 export declare var RGBA: RGBA_Static
 export interface Rectangle {
@@ -4366,6 +4410,7 @@ export interface Rectangle {
     union(src2: Rectangle): /* dest */ Rectangle
 }
 export interface Rectangle_Static {
+    name: string
 }
 export declare var Rectangle: Rectangle_Static
 export interface TimeCoord {
@@ -4374,6 +4419,7 @@ export interface TimeCoord {
     axes:number[]
 }
 export interface TimeCoord_Static {
+    name: string
 }
 export declare var TimeCoord: TimeCoord_Static
 export interface WindowAttr {
@@ -4394,6 +4440,7 @@ export interface WindowAttr {
     type_hint:WindowTypeHint
 }
 export interface WindowAttr_Static {
+    name: string
 }
 export declare var WindowAttr: WindowAttr_Static
 export interface WindowClass {
@@ -4404,11 +4451,13 @@ export interface WindowClass {
     create_surface:any
 }
 export interface WindowClass_Static {
+    name: string
 }
 export declare var WindowClass: WindowClass_Static
 export interface WindowRedirect {
 }
 export interface WindowRedirect_Static {
+    name: string
 }
 export declare var WindowRedirect: WindowRedirect_Static
 export interface Event {
@@ -4465,6 +4514,7 @@ export interface Event {
     triggers_context_menu(): boolean
 }
 export interface Event_Static {
+    name: string
 }
 export declare class Event_Static {
     new(type: EventType): Event

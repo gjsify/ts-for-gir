@@ -1460,6 +1460,7 @@ export interface Array {
     len:number
 }
 export interface Array_Static {
+    name: string
 }
 export declare var Array: Array_Static
 export interface AsyncQueue {
@@ -1479,6 +1480,7 @@ export interface AsyncQueue {
     unref_and_unlock(): void
 }
 export interface AsyncQueue_Static {
+    name: string
 }
 export declare var AsyncQueue: AsyncQueue_Static
 export interface BookmarkFile {
@@ -1523,6 +1525,7 @@ export interface BookmarkFile {
     to_file(filename: string): boolean
 }
 export interface BookmarkFile_Static {
+    name: string
 }
 export declare class BookmarkFile_Static {
     error_quark(): Quark
@@ -1534,6 +1537,7 @@ export interface ByteArray {
     len:number
 }
 export interface ByteArray_Static {
+    name: string
 }
 export declare class ByteArray_Static {
     free(array: Gjs.byteArray.ByteArray[], free_segment: boolean): number
@@ -1557,6 +1561,7 @@ export interface Bytes {
     unref_to_data(size: number): object
 }
 export interface Bytes_Static {
+    name: string
 }
 export declare class Bytes_Static {
     new(data: Gjs.byteArray.ByteArray[] | null, size: number): Bytes
@@ -1572,6 +1577,7 @@ export interface Checksum {
     update(data: Gjs.byteArray.ByteArray[]): void
 }
 export interface Checksum_Static {
+    name: string
 }
 export declare class Checksum_Static {
     new(checksum_type: ChecksumType): Checksum
@@ -1591,11 +1597,13 @@ export interface Cond {
     wait_until(mutex: Mutex, end_time: number): boolean
 }
 export interface Cond_Static {
+    name: string
 }
 export declare var Cond: Cond_Static
 export interface Data {
 }
 export interface Data_Static {
+    name: string
 }
 export declare var Data: Data_Static
 export interface Date {
@@ -1643,6 +1651,7 @@ export interface Date {
     valid(): boolean
 }
 export interface Date_Static {
+    name: string
 }
 export declare class Date_Static {
     new(): Date
@@ -1699,6 +1708,7 @@ export interface DateTime {
     unref(): void
 }
 export interface DateTime_Static {
+    name: string
 }
 export declare class DateTime_Static {
     new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
@@ -1722,6 +1732,7 @@ export interface DebugKey {
     value:number
 }
 export interface DebugKey_Static {
+    name: string
 }
 export declare var DebugKey: DebugKey_Static
 export interface Dir {
@@ -1731,6 +1742,7 @@ export interface Dir {
     rewind(): void
 }
 export interface Dir_Static {
+    name: string
 }
 export declare class Dir_Static {
     make_tmp(tmpl: string): string
@@ -1747,6 +1759,7 @@ export interface Error {
     matches(domain: Quark, code: number): boolean
 }
 export interface Error_Static {
+    name: string
 }
 export declare class Error_Static {
     new_literal(domain: Quark, code: number, message: string): Error
@@ -1755,6 +1768,7 @@ export declare var Error: Error_Static
 export interface HashTable {
 }
 export interface HashTable_Static {
+    name: string
 }
 export declare class HashTable_Static {
     add(hash_table: HashTable, key: object): boolean
@@ -1787,6 +1801,7 @@ export interface HashTableIter {
     steal(): void
 }
 export interface HashTableIter_Static {
+    name: string
 }
 export declare var HashTableIter: HashTableIter_Static
 export interface Hmac {
@@ -1797,6 +1812,7 @@ export interface Hmac {
     update(data: Gjs.byteArray.ByteArray[]): void
 }
 export interface Hmac_Static {
+    name: string
 }
 export declare var Hmac: Hmac_Static
 export interface Hook {
@@ -1813,6 +1829,7 @@ export interface Hook {
     compare_ids(sibling: Hook): number
 }
 export interface Hook_Static {
+    name: string
 }
 export declare class Hook_Static {
     destroy(hook_list: HookList, hook_id: number): boolean
@@ -1839,6 +1856,7 @@ export interface HookList {
     invoke_check(may_recurse: boolean): void
 }
 export interface HookList_Static {
+    name: string
 }
 export declare var HookList: HookList_Static
 export interface IConv {
@@ -1846,6 +1864,7 @@ export interface IConv {
     close(): number
 }
 export interface IConv_Static {
+    name: string
 }
 export declare var IConv: IConv_Static
 export interface IOChannel {
@@ -1904,6 +1923,7 @@ export interface IOChannel {
     write_unichar(thechar: number): IOStatus
 }
 export interface IOChannel_Static {
+    name: string
 }
 export declare class IOChannel_Static {
     new_file(filename: string, mode: string): IOChannel
@@ -1924,6 +1944,7 @@ export interface IOFuncs {
     io_get_flags:any
 }
 export interface IOFuncs_Static {
+    name: string
 }
 export declare var IOFuncs: IOFuncs_Static
 export interface KeyFile {
@@ -1973,6 +1994,7 @@ export interface KeyFile {
     unref(): void
 }
 export interface KeyFile_Static {
+    name: string
 }
 export declare class KeyFile_Static {
     new(): KeyFile
@@ -1986,6 +2008,7 @@ export interface List {
     prev:List
 }
 export interface List_Static {
+    name: string
 }
 export declare var List: List_Static
 export interface MainContext {
@@ -2013,6 +2036,7 @@ export interface MainContext {
     wakeup(): void
 }
 export interface MainContext_Static {
+    name: string
 }
 export declare class MainContext_Static {
     new(): MainContext
@@ -2031,6 +2055,7 @@ export interface MainLoop {
     unref(): void
 }
 export interface MainLoop_Static {
+    name: string
 }
 export declare class MainLoop_Static {
     new(context: MainContext | null, is_running: boolean): MainLoop
@@ -2046,6 +2071,7 @@ export interface MappedFile {
     unref(): void
 }
 export interface MappedFile_Static {
+    name: string
 }
 export declare class MappedFile_Static {
     new(filename: string, writable: boolean): MappedFile
@@ -2064,6 +2090,7 @@ export interface MarkupParseContext {
     unref(): void
 }
 export interface MarkupParseContext_Static {
+    name: string
 }
 export declare class MarkupParseContext_Static {
     new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object, user_data_dnotify: DestroyNotify): MarkupParseContext
@@ -2078,6 +2105,7 @@ export interface MarkupParser {
     error:any
 }
 export interface MarkupParser_Static {
+    name: string
 }
 export declare var MarkupParser: MarkupParser_Static
 export interface MatchInfo {
@@ -2099,6 +2127,7 @@ export interface MatchInfo {
     unref(): void
 }
 export interface MatchInfo_Static {
+    name: string
 }
 export declare var MatchInfo: MatchInfo_Static
 export interface MemVTable {
@@ -2106,6 +2135,7 @@ export interface MemVTable {
     free:any
 }
 export interface MemVTable_Static {
+    name: string
 }
 export declare var MemVTable: MemVTable_Static
 export interface Node {
@@ -2128,6 +2158,7 @@ export interface Node {
     unlink(): void
 }
 export interface Node_Static {
+    name: string
 }
 export declare var Node: Node_Static
 export interface Once {
@@ -2137,6 +2168,7 @@ export interface Once {
     /* Methods of GLib.Once */
 }
 export interface Once_Static {
+    name: string
 }
 export declare class Once_Static {
     init_enter(location: object): boolean
@@ -2167,6 +2199,7 @@ export interface OptionContext {
     set_translation_domain(domain: string): void
 }
 export interface OptionContext_Static {
+    name: string
 }
 export declare var OptionContext: OptionContext_Static
 export interface OptionEntry {
@@ -2180,6 +2213,7 @@ export interface OptionEntry {
     arg_description:string
 }
 export interface OptionEntry_Static {
+    name: string
 }
 export declare var OptionEntry: OptionEntry_Static
 export interface OptionGroup {
@@ -2192,6 +2226,7 @@ export interface OptionGroup {
     unref(): void
 }
 export interface OptionGroup_Static {
+    name: string
 }
 export declare class OptionGroup_Static {
     new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
@@ -2203,6 +2238,7 @@ export interface PatternSpec {
     free(): void
 }
 export interface PatternSpec_Static {
+    name: string
 }
 export declare var PatternSpec: PatternSpec_Static
 export interface PollFD {
@@ -2212,6 +2248,7 @@ export interface PollFD {
     revents:number
 }
 export interface PollFD_Static {
+    name: string
 }
 export declare var PollFD: PollFD_Static
 export interface Private {
@@ -2224,6 +2261,7 @@ export interface Private {
     set(value: object): void
 }
 export interface Private_Static {
+    name: string
 }
 export declare var Private: Private_Static
 export interface PtrArray {
@@ -2232,6 +2270,7 @@ export interface PtrArray {
     len:number
 }
 export interface PtrArray_Static {
+    name: string
 }
 export declare var PtrArray: PtrArray_Static
 export interface Queue {
@@ -2255,6 +2294,7 @@ export interface Queue {
     reverse(): void
 }
 export interface Queue_Static {
+    name: string
 }
 export declare var Queue: Queue_Static
 export interface RWLock {
@@ -2272,6 +2312,7 @@ export interface RWLock {
     writer_unlock(): void
 }
 export interface RWLock_Static {
+    name: string
 }
 export declare var RWLock: RWLock_Static
 export interface Rand {
@@ -2285,6 +2326,7 @@ export interface Rand {
     set_seed_array(seed: number, seed_length: number): void
 }
 export interface Rand_Static {
+    name: string
 }
 export declare var Rand: Rand_Static
 export interface RecMutex {
@@ -2299,6 +2341,7 @@ export interface RecMutex {
     unlock(): void
 }
 export interface RecMutex_Static {
+    name: string
 }
 export declare var RecMutex: RecMutex_Static
 export interface Regex {
@@ -2323,6 +2366,7 @@ export interface Regex {
     unref(): void
 }
 export interface Regex_Static {
+    name: string
 }
 export declare class Regex_Static {
     new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex
@@ -2340,6 +2384,7 @@ export interface SList {
     next:SList
 }
 export interface SList_Static {
+    name: string
 }
 export declare var SList: SList_Static
 export interface Scanner {
@@ -2382,6 +2427,7 @@ export interface Scanner {
     unexp_token(expected_token: TokenType, identifier_spec: string, symbol_spec: string, symbol_name: string, message: string, is_error: number): void
 }
 export interface Scanner_Static {
+    name: string
 }
 export declare var Scanner: Scanner_Static
 export interface ScannerConfig {
@@ -2415,6 +2461,7 @@ export interface ScannerConfig {
     padding_dummy:number
 }
 export interface ScannerConfig_Static {
+    name: string
 }
 export declare var ScannerConfig: ScannerConfig_Static
 export interface Sequence {
@@ -2424,6 +2471,7 @@ export interface Sequence {
     is_empty(): boolean
 }
 export interface Sequence_Static {
+    name: string
 }
 export declare class Sequence_Static {
     move(src: SequenceIter, dest: SequenceIter): void
@@ -2442,6 +2490,7 @@ export interface SequenceIter {
     is_end(): boolean
 }
 export interface SequenceIter_Static {
+    name: string
 }
 export declare var SequenceIter: SequenceIter_Static
 export interface Source {
@@ -2489,6 +2538,7 @@ export interface Source {
     unref(): void
 }
 export interface Source_Static {
+    name: string
 }
 export declare class Source_Static {
     new(source_funcs: SourceFuncs, struct_size: number): Source
@@ -2504,6 +2554,7 @@ export interface SourceCallbackFuncs {
     unref:any
 }
 export interface SourceCallbackFuncs_Static {
+    name: string
 }
 export declare var SourceCallbackFuncs: SourceCallbackFuncs_Static
 export interface SourceFuncs {
@@ -2515,16 +2566,19 @@ export interface SourceFuncs {
     closure_marshal:SourceDummyMarshal
 }
 export interface SourceFuncs_Static {
+    name: string
 }
 export declare var SourceFuncs: SourceFuncs_Static
 export interface SourcePrivate {
 }
 export interface SourcePrivate_Static {
+    name: string
 }
 export declare var SourcePrivate: SourcePrivate_Static
 export interface StatBuf {
 }
 export interface StatBuf_Static {
+    name: string
 }
 export declare var StatBuf: StatBuf_Static
 export interface String {
@@ -2562,6 +2616,7 @@ export interface String {
     up(): String
 }
 export interface String_Static {
+    name: string
 }
 export declare var String: String_Static
 export interface StringChunk {
@@ -2573,11 +2628,13 @@ export interface StringChunk {
     insert_len(string: string, len: number): string
 }
 export interface StringChunk_Static {
+    name: string
 }
 export declare var StringChunk: StringChunk_Static
 export interface TestCase {
 }
 export interface TestCase_Static {
+    name: string
 }
 export declare var TestCase: TestCase_Static
 export interface TestConfig {
@@ -2590,6 +2647,7 @@ export interface TestConfig {
     test_undefined:boolean
 }
 export interface TestConfig_Static {
+    name: string
 }
 export declare var TestConfig: TestConfig_Static
 export interface TestLogBuffer {
@@ -2601,6 +2659,7 @@ export interface TestLogBuffer {
     push(n_bytes: number, bytes: number): void
 }
 export interface TestLogBuffer_Static {
+    name: string
 }
 export declare var TestLogBuffer: TestLogBuffer_Static
 export interface TestLogMsg {
@@ -2614,6 +2673,7 @@ export interface TestLogMsg {
     free(): void
 }
 export interface TestLogMsg_Static {
+    name: string
 }
 export declare var TestLogMsg: TestLogMsg_Static
 export interface TestSuite {
@@ -2622,6 +2682,7 @@ export interface TestSuite {
     add_suite(nestedsuite: TestSuite): void
 }
 export interface TestSuite_Static {
+    name: string
 }
 export declare var TestSuite: TestSuite_Static
 export interface Thread {
@@ -2630,6 +2691,7 @@ export interface Thread {
     unref(): void
 }
 export interface Thread_Static {
+    name: string
 }
 export declare class Thread_Static {
     error_quark(): Quark
@@ -2653,6 +2715,7 @@ export interface ThreadPool {
     unprocessed(): number
 }
 export interface ThreadPool_Static {
+    name: string
 }
 export declare class ThreadPool_Static {
     get_max_idle_time(): number
@@ -2672,6 +2735,7 @@ export interface TimeVal {
     to_iso8601(): string
 }
 export interface TimeVal_Static {
+    name: string
 }
 export declare class TimeVal_Static {
     from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
@@ -2688,6 +2752,7 @@ export interface TimeZone {
     unref(): void
 }
 export interface TimeZone_Static {
+    name: string
 }
 export declare class TimeZone_Static {
     new(identifier: string | null): TimeZone
@@ -2705,6 +2770,7 @@ export interface Timer {
     stop(): void
 }
 export interface Timer_Static {
+    name: string
 }
 export declare var Timer: Timer_Static
 export interface TrashStack {
@@ -2712,6 +2778,7 @@ export interface TrashStack {
     next:TrashStack
 }
 export interface TrashStack_Static {
+    name: string
 }
 export declare class TrashStack_Static {
     height(stack_p: TrashStack): number
@@ -2731,6 +2798,7 @@ export interface Tree {
     unref(): void
 }
 export interface Tree_Static {
+    name: string
 }
 export declare var Tree: Tree_Static
 export interface Variant {
@@ -2784,6 +2852,7 @@ export interface Variant {
     unref(): void
 }
 export interface Variant_Static {
+    name: string
 }
 export declare class Variant_Static {
     new_array(child_type: VariantType | null, children: Variant[] | null, n_children: number): Variant
@@ -2831,6 +2900,7 @@ export interface VariantBuilder {
     unref(): void
 }
 export interface VariantBuilder_Static {
+    name: string
 }
 export declare class VariantBuilder_Static {
     new(type: VariantType): VariantBuilder
@@ -2850,6 +2920,7 @@ export interface VariantDict {
     unref(): void
 }
 export interface VariantDict_Static {
+    name: string
 }
 export declare class VariantDict_Static {
     new(from_asv: Variant | null): VariantDict
@@ -2864,6 +2935,7 @@ export interface VariantIter {
     next_value(): Variant
 }
 export interface VariantIter_Static {
+    name: string
 }
 export declare var VariantIter: VariantIter_Static
 export interface VariantType {
@@ -2891,6 +2963,7 @@ export interface VariantType {
     value(): VariantType
 }
 export interface VariantType_Static {
+    name: string
 }
 export declare class VariantType_Static {
     new(type_string: string): VariantType
@@ -2908,6 +2981,7 @@ export interface DoubleIEEE754 {
     v_double:number
 }
 export interface DoubleIEEE754_Static {
+    name: string
 }
 export declare var DoubleIEEE754: DoubleIEEE754_Static
 export interface FloatIEEE754 {
@@ -2915,6 +2989,7 @@ export interface FloatIEEE754 {
     v_float:number
 }
 export interface FloatIEEE754_Static {
+    name: string
 }
 export declare var FloatIEEE754: FloatIEEE754_Static
 export interface Mutex {
@@ -2929,6 +3004,7 @@ export interface Mutex {
     unlock(): void
 }
 export interface Mutex_Static {
+    name: string
 }
 export declare var Mutex: Mutex_Static
 export interface TokenValue {
@@ -2947,6 +3023,7 @@ export interface TokenValue {
     v_error:number
 }
 export interface TokenValue_Static {
+    name: string
 }
 export declare var TokenValue: TokenValue_Static
 type Array_autoptr = object

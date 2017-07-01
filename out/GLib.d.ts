@@ -1586,8 +1586,6 @@ export declare class Checksum_Static {
 export declare var Checksum: Checksum_Static
 export interface Cond {
     /* Fields of GLib.Cond */
-    p:object
-    i:number[]
     /* Methods of GLib.Cond */
     broadcast(): void
     clear(): void
@@ -1787,12 +1785,6 @@ export declare class HashTable_Static {
 export declare var HashTable: HashTable_Static
 export interface HashTableIter {
     /* Fields of GLib.HashTableIter */
-    dummy1:object
-    dummy2:object
-    dummy3:object
-    dummy4:number
-    dummy5:boolean
-    dummy6:object
     /* Methods of GLib.HashTableIter */
     init(hash_table: HashTable): void
     next(key: object | null, value: object | null): boolean
@@ -1869,26 +1861,6 @@ export interface IConv_Static {
 export declare var IConv: IConv_Static
 export interface IOChannel {
     /* Fields of GLib.IOChannel */
-    ref_count:number
-    funcs:IOFuncs
-    encoding:string
-    read_cd:IConv
-    write_cd:IConv
-    line_term:string
-    line_term_len:number
-    buf_size:number
-    read_buf:String
-    encoded_read_buf:String
-    write_buf:String
-    partial_write_buf:number[]
-    use_buffer:number
-    do_encode:number
-    close_on_unref:number
-    is_readable:number
-    is_writeable:number
-    is_seekable:number
-    reserved1:object
-    reserved2:object
     /* Methods of GLib.IOChannel */
     close(): void
     flush(): IOStatus
@@ -2253,9 +2225,6 @@ export interface PollFD_Static {
 export declare var PollFD: PollFD_Static
 export interface Private {
     /* Fields of GLib.Private */
-    p:object
-    notify:DestroyNotify
-    future:object[]
     /* Methods of GLib.Private */
     replace(value: object): void
     set(value: object): void
@@ -2299,8 +2268,6 @@ export interface Queue_Static {
 export declare var Queue: Queue_Static
 export interface RWLock {
     /* Fields of GLib.RWLock */
-    p:object
-    i:number[]
     /* Methods of GLib.RWLock */
     clear(): void
     init(): void
@@ -2331,8 +2298,6 @@ export interface Rand_Static {
 export declare var Rand: Rand_Static
 export interface RecMutex {
     /* Fields of GLib.RecMutex */
-    p:object
-    i:number[]
     /* Methods of GLib.RecMutex */
     clear(): void
     init(): void
@@ -2403,12 +2368,6 @@ export interface Scanner {
     next_value:TokenValue
     next_line:number
     next_position:number
-    symbol_table:HashTable
-    input_fd:number
-    text:string
-    text_end:string
-    buffer:string
-    scope_id:number
     msg_handler:ScannerMsgFunc
     /* Methods of GLib.Scanner */
     cur_line(): number
@@ -2458,7 +2417,6 @@ export interface ScannerConfig {
     symbol_2_token:number
     scope_0_fallback:number
     store_int64:number
-    padding_dummy:number
 }
 export interface ScannerConfig_Static {
     name: string
@@ -2495,19 +2453,6 @@ export interface SequenceIter_Static {
 export declare var SequenceIter: SequenceIter_Static
 export interface Source {
     /* Fields of GLib.Source */
-    callback_data:object
-    callback_funcs:SourceCallbackFuncs
-    source_funcs:SourceFuncs
-    ref_count:number
-    context:MainContext
-    priority:number
-    flags:number
-    source_id:number
-    poll_fds:SList
-    prev:Source
-    next:Source
-    name:string
-    priv:SourcePrivate
     /* Methods of GLib.Source */
     add_child_source(child_source: Source): void
     add_poll(fd: PollFD): void
@@ -2562,8 +2507,6 @@ export interface SourceFuncs {
     prepare:any
     check:any
     finalize:any
-    closure_callback:SourceFunc
-    closure_marshal:SourceDummyMarshal
 }
 export interface SourceFuncs_Static {
     name: string
@@ -2652,8 +2595,6 @@ export interface TestConfig_Static {
 export declare var TestConfig: TestConfig_Static
 export interface TestLogBuffer {
     /* Fields of GLib.TestLogBuffer */
-    data:String
-    msgs:SList
     /* Methods of GLib.TestLogBuffer */
     free(): void
     push(n_bytes: number, bytes: number): void
@@ -2890,7 +2831,6 @@ export declare class Variant_Static {
 export declare var Variant: Variant_Static
 export interface VariantBuilder {
     /* Fields of GLib.VariantBuilder */
-    x:number[]
     /* Methods of GLib.VariantBuilder */
     add_value(value: Variant): void
     close(): void
@@ -2908,7 +2848,6 @@ export declare class VariantBuilder_Static {
 export declare var VariantBuilder: VariantBuilder_Static
 export interface VariantDict {
     /* Fields of GLib.VariantDict */
-    x:number[]
     /* Methods of GLib.VariantDict */
     clear(): void
     contains(key: string): boolean
@@ -2928,7 +2867,6 @@ export declare class VariantDict_Static {
 export declare var VariantDict: VariantDict_Static
 export interface VariantIter {
     /* Fields of GLib.VariantIter */
-    x:number[]
     /* Methods of GLib.VariantIter */
     free(): void
     n_children(): number
@@ -2994,8 +2932,6 @@ export interface FloatIEEE754_Static {
 export declare var FloatIEEE754: FloatIEEE754_Static
 export interface Mutex {
     /* Fields of GLib.Mutex */
-    p:object
-    i:number[]
     /* Methods of GLib.Mutex */
     clear(): void
     init(): void

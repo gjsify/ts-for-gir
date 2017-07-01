@@ -1829,8 +1829,6 @@ export interface AppInfoMonitor_ConstructProps extends GObject.Object_ConstructP
 export interface AppInfoMonitor {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -1881,11 +1879,8 @@ export interface AppLaunchContext_ConstructProps extends GObject.Object_Construc
 export interface AppLaunchContext {
     /* Fields of Gio.AppLaunchContext */
     parent_instance:GObject.Object
-    priv:AppLaunchContextPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.AppLaunchContext */
     get_display(info: AppInfo, files: GLib.List): string
     get_environment(): string[]
@@ -1962,12 +1957,8 @@ export interface Application {
     readonly is_remote:boolean
     resource_base_path:string
     /* Fields of Gio.Application */
-    parent_instance:GObject.Object
-    priv:ApplicationPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Application */
     activate(): void
     add_main_option(long_name: string, short_name: number, flags: GLib.OptionFlags, arg: GLib.OptionArg, description: string, arg_description: string | null): void
@@ -2084,12 +2075,8 @@ export interface ApplicationCommandLine {
     /* Properties of Gio.ApplicationCommandLine */
     readonly is_remote:boolean
     /* Fields of Gio.ApplicationCommandLine */
-    parent_instance:GObject.Object
-    priv:ApplicationCommandLinePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.ApplicationCommandLine */
     create_file_for_arg(arg: string): File
     get_arguments(): [ /* returnType */ string[], /* argc */ number | null ]
@@ -2157,14 +2144,11 @@ export interface BufferedInputStream {
     close_base_stream:boolean
     /* Fields of Gio.BufferedInputStream */
     parent_instance:FilterInputStream
-    priv:BufferedInputStreamPrivate
     /* Fields of Gio.FilterInputStream */
     base_stream:InputStream
     /* Fields of Gio.InputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.BufferedInputStream */
     fill(count: number, cancellable: Cancellable | null): number
     fill_async(count: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -2276,8 +2260,6 @@ export interface BufferedOutputStream {
     /* Fields of Gio.OutputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.BufferedOutputStream */
     get_auto_grow(): boolean
     get_buffer_size(): number
@@ -2377,8 +2359,6 @@ export interface BytesIcon {
     /* Properties of Gio.BytesIcon */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.BytesIcon */
     get_bytes(): Gjs.byteArray.ByteArray
     /* Methods of GObject.Object */
@@ -2429,11 +2409,8 @@ export interface Cancellable_ConstructProps extends GObject.Object_ConstructProp
 export interface Cancellable {
     /* Fields of Gio.Cancellable */
     parent_instance:GObject.Object
-    priv:CancellablePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Cancellable */
     cancel(): void
     connect(callback: GObject.Callback, data: object, data_destroy_func: GLib.DestroyNotify | null): number
@@ -2504,8 +2481,6 @@ export interface CharsetConverter {
     use_fallback:boolean
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.CharsetConverter */
     get_num_fallbacks(): number
     get_use_fallback(): boolean
@@ -2563,14 +2538,11 @@ export interface ConverterInputStream {
     close_base_stream:boolean
     /* Fields of Gio.ConverterInputStream */
     parent_instance:FilterInputStream
-    priv:ConverterInputStreamPrivate
     /* Fields of Gio.FilterInputStream */
     base_stream:InputStream
     /* Fields of Gio.InputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.ConverterInputStream */
     get_converter(): Converter
     /* Methods of Gio.FilterInputStream */
@@ -2659,14 +2631,11 @@ export interface ConverterOutputStream {
     /* Properties of Gio.FilterOutputStream */
     /* Fields of Gio.ConverterOutputStream */
     parent_instance:FilterOutputStream
-    priv:ConverterOutputStreamPrivate
     /* Fields of Gio.FilterOutputStream */
     base_stream:OutputStream
     /* Fields of Gio.OutputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.ConverterOutputStream */
     get_converter(): Converter
     /* Methods of Gio.FilterOutputStream */
@@ -2758,8 +2727,6 @@ export interface Credentials_ConstructProps extends GObject.Object_ConstructProp
 export interface Credentials {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Credentials */
     get_unix_pid(): number
     get_unix_user(): number
@@ -2815,8 +2782,6 @@ export interface DBusActionGroup_ConstructProps extends GObject.Object_Construct
 export interface DBusActionGroup {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -2865,8 +2830,6 @@ export interface DBusAuthObserver_ConstructProps extends GObject.Object_Construc
 export interface DBusAuthObserver {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusAuthObserver */
     allow_mechanism(mechanism: string): boolean
     authorize_authenticated_peer(stream: IOStream, credentials: Credentials | null): boolean
@@ -2932,8 +2895,6 @@ export interface DBusConnection {
     readonly unique_name:string
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusConnection */
     add_filter(filter_function: DBusMessageFilterFunction, user_data: object, user_data_free_func: GLib.DestroyNotify): number
     call(bus_name: string | null, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant | null, reply_type: GLib.VariantType | null, flags: DBusCallFlags, timeout_msec: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -3036,12 +2997,8 @@ export interface DBusInterfaceSkeleton {
     /* Properties of Gio.DBusInterfaceSkeleton */
     g_flags:DBusInterfaceSkeletonFlags
     /* Fields of Gio.DBusInterfaceSkeleton */
-    parent_instance:GObject.Object
-    priv:DBusInterfaceSkeletonPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusInterfaceSkeleton */
     export(connection: DBusConnection, object_path: string): boolean
     flush(): void
@@ -3111,8 +3068,6 @@ export interface DBusMenuModel {
     priv:MenuModelPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.MenuModel */
     get_item_attribute_value(item_index: number, attribute: string, expected_type: GLib.VariantType | null): GLib.Variant
     get_item_link(item_index: number, link: string): MenuModel
@@ -3182,8 +3137,6 @@ export interface DBusMessage {
     readonly locked:boolean
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusMessage */
     copy(): DBusMessage
     get_arg0(): string
@@ -3280,8 +3233,6 @@ export interface DBusMethodInvocation_ConstructProps extends GObject.Object_Cons
 export interface DBusMethodInvocation {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusMethodInvocation */
     get_connection(): DBusConnection
     get_interface_name(): string
@@ -3351,12 +3302,8 @@ export interface DBusObjectManagerClient {
     /* Properties of Gio.DBusObjectManagerClient */
     readonly name_owner:string
     /* Fields of Gio.DBusObjectManagerClient */
-    parent_instance:GObject.Object
-    priv:DBusObjectManagerClientPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusObjectManagerClient */
     get_connection(): DBusConnection
     get_flags(): DBusObjectManagerClientFlags
@@ -3425,12 +3372,8 @@ export interface DBusObjectManagerServer {
     /* Properties of Gio.DBusObjectManagerServer */
     connection:DBusConnection
     /* Fields of Gio.DBusObjectManagerServer */
-    parent_instance:GObject.Object
-    priv:DBusObjectManagerServerPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusObjectManagerServer */
     export(object: DBusObjectSkeleton): void
     export_uniquely(object: DBusObjectSkeleton): void
@@ -3489,12 +3432,8 @@ export interface DBusObjectProxy_ConstructProps extends GObject.Object_Construct
 export interface DBusObjectProxy {
     /* Properties of Gio.DBusObjectProxy */
     /* Fields of Gio.DBusObjectProxy */
-    parent_instance:GObject.Object
-    priv:DBusObjectProxyPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusObjectProxy */
     get_connection(): DBusConnection
     /* Methods of GObject.Object */
@@ -3547,12 +3486,8 @@ export interface DBusObjectSkeleton {
     /* Properties of Gio.DBusObjectSkeleton */
     g_object_path:string
     /* Fields of Gio.DBusObjectSkeleton */
-    parent_instance:GObject.Object
-    priv:DBusObjectSkeletonPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusObjectSkeleton */
     add_interface(interface_: DBusInterfaceSkeleton): void
     flush(): void
@@ -3623,12 +3558,8 @@ export interface DBusProxy {
     g_interface_info:DBusInterfaceInfo
     readonly g_name_owner:string
     /* Fields of Gio.DBusProxy */
-    parent_instance:GObject.Object
-    priv:DBusProxyPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusProxy */
     call(method_name: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeout_msec: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
     call_finish(res: AsyncResult): GLib.Variant
@@ -3718,8 +3649,6 @@ export interface DBusServer {
     readonly client_address:string
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DBusServer */
     get_client_address(): string
     get_flags(): DBusServerFlags
@@ -3788,15 +3717,12 @@ export interface DataInputStream {
     close_base_stream:boolean
     /* Fields of Gio.DataInputStream */
     parent_instance:BufferedInputStream
-    priv:DataInputStreamPrivate
     /* Fields of Gio.BufferedInputStream */
     /* Fields of Gio.FilterInputStream */
     base_stream:InputStream
     /* Fields of Gio.InputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DataInputStream */
     get_byte_order(): DataStreamByteOrder
     get_newline_type(): DataStreamNewlineType
@@ -3923,14 +3849,11 @@ export interface DataOutputStream {
     /* Properties of Gio.FilterOutputStream */
     /* Fields of Gio.DataOutputStream */
     parent_instance:FilterOutputStream
-    priv:DataOutputStreamPrivate
     /* Fields of Gio.FilterOutputStream */
     base_stream:OutputStream
     /* Fields of Gio.OutputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DataOutputStream */
     get_byte_order(): DataStreamByteOrder
     put_byte(data: number, cancellable: Cancellable | null): boolean
@@ -4034,8 +3957,6 @@ export interface DesktopAppInfo {
     /* Properties of Gio.DesktopAppInfo */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.DesktopAppInfo */
     get_action_name(action_name: string): string
     get_boolean(key: string): boolean
@@ -4108,8 +4029,6 @@ export interface Emblem {
     /* Properties of Gio.Emblem */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Emblem */
     get_icon(): Icon
     get_origin(): EmblemOrigin
@@ -4164,11 +4083,8 @@ export interface EmblemedIcon {
     /* Properties of Gio.EmblemedIcon */
     /* Fields of Gio.EmblemedIcon */
     parent_instance:GObject.Object
-    priv:EmblemedIconPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.EmblemedIcon */
     add_emblem(emblem: Emblem): void
     clear_emblems(): void
@@ -4224,11 +4140,8 @@ export interface FileEnumerator {
     /* Properties of Gio.FileEnumerator */
     /* Fields of Gio.FileEnumerator */
     parent_instance:GObject.Object
-    priv:FileEnumeratorPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FileEnumerator */
     close(cancellable: Cancellable | null): boolean
     close_async(io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -4298,12 +4211,9 @@ export interface FileIOStream {
     readonly output_stream:OutputStream
     /* Fields of Gio.FileIOStream */
     parent_instance:IOStream
-    priv:FileIOStreamPrivate
     /* Fields of Gio.IOStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FileIOStream */
     get_etag(): string
     query_info(attributes: string, cancellable: Cancellable | null): FileInfo
@@ -4386,8 +4296,6 @@ export interface FileIcon {
     /* Properties of Gio.FileIcon */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FileIcon */
     get_file(): File
     /* Methods of GObject.Object */
@@ -4438,8 +4346,6 @@ export interface FileInfo_ConstructProps extends GObject.Object_ConstructProps {
 export interface FileInfo {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FileInfo */
     clear_status(): void
     copy_into(dest_info: FileInfo): void
@@ -4551,12 +4457,9 @@ export interface FileInputStream_ConstructProps extends InputStream_ConstructPro
 export interface FileInputStream {
     /* Fields of Gio.FileInputStream */
     parent_instance:InputStream
-    priv:FileInputStreamPrivate
     /* Fields of Gio.InputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FileInputStream */
     query_info(attributes: string, cancellable: Cancellable | null): FileInfo
     query_info_async(attributes: string, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -4647,11 +4550,8 @@ export interface FileMonitor {
     rate_limit:number
     /* Fields of Gio.FileMonitor */
     parent_instance:GObject.Object
-    priv:FileMonitorPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FileMonitor */
     cancel(): boolean
     emit_event(child: File, other_file: File, event_type: FileMonitorEvent): void
@@ -4709,12 +4609,9 @@ export interface FileOutputStream_ConstructProps extends OutputStream_ConstructP
 export interface FileOutputStream {
     /* Fields of Gio.FileOutputStream */
     parent_instance:OutputStream
-    priv:FileOutputStreamPrivate
     /* Fields of Gio.OutputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FileOutputStream */
     get_etag(): string
     query_info(attributes: string, cancellable: Cancellable | null): FileInfo
@@ -4812,8 +4709,6 @@ export interface FilenameCompleter_ConstructProps extends GObject.Object_Constru
 export interface FilenameCompleter {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FilenameCompleter */
     get_completion_suffix(initial_text: string): string
     get_completions(initial_text: string): string[]
@@ -4876,11 +4771,8 @@ export interface FilterInputStream {
     parent_instance:InputStream
     base_stream:InputStream
     /* Fields of Gio.InputStream */
-    priv:InputStreamPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FilterInputStream */
     get_base_stream(): InputStream
     get_close_base_stream(): boolean
@@ -4966,11 +4858,8 @@ export interface FilterOutputStream {
     parent_instance:OutputStream
     base_stream:OutputStream
     /* Fields of Gio.OutputStream */
-    priv:OutputStreamPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.FilterOutputStream */
     get_base_stream(): OutputStream
     get_close_base_stream(): boolean
@@ -5063,8 +4952,6 @@ export interface IOModule {
     name:string
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.IOModule */
     load(): void
     unload(): void
@@ -5132,11 +5019,8 @@ export interface IOStream {
     readonly output_stream:OutputStream
     /* Fields of Gio.IOStream */
     parent_instance:GObject.Object
-    priv:IOStreamPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.IOStream */
     clear_pending(): void
     close(cancellable: Cancellable | null): boolean
@@ -5218,11 +5102,8 @@ export interface InetAddress {
     readonly is_site_local:boolean
     /* Fields of Gio.InetAddress */
     parent_instance:GObject.Object
-    priv:InetAddressPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.InetAddress */
     equal(other_address: InetAddress): boolean
     get_family(): SocketFamily
@@ -5307,11 +5188,8 @@ export interface InetAddressMask {
     length:number
     /* Fields of Gio.InetAddressMask */
     parent_instance:GObject.Object
-    priv:InetAddressMaskPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.InetAddressMask */
     equal(mask2: InetAddressMask): boolean
     get_address(): InetAddress
@@ -5378,12 +5256,9 @@ export interface InetSocketAddress {
     readonly family:SocketFamily
     /* Fields of Gio.InetSocketAddress */
     parent_instance:SocketAddress
-    priv:InetSocketAddressPrivate
     /* Fields of Gio.SocketAddress */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.InetSocketAddress */
     get_address(): InetAddress
     get_flowinfo(): number
@@ -5447,11 +5322,8 @@ export interface InputStream_ConstructProps extends GObject.Object_ConstructProp
 export interface InputStream {
     /* Fields of Gio.InputStream */
     parent_instance:GObject.Object
-    priv:InputStreamPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.InputStream */
     clear_pending(): void
     close(cancellable: Cancellable | null): boolean
@@ -5529,8 +5401,6 @@ export interface ListStore {
     /* Properties of Gio.ListStore */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.ListStore */
     append(item: GObject.Object): void
     insert(position: number, item: GObject.Object): void
@@ -5587,12 +5457,9 @@ export interface MemoryInputStream_ConstructProps extends InputStream_ConstructP
 export interface MemoryInputStream {
     /* Fields of Gio.MemoryInputStream */
     parent_instance:InputStream
-    priv:MemoryInputStreamPrivate
     /* Fields of Gio.InputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.MemoryInputStream */
     add_bytes(bytes: Gjs.byteArray.ByteArray): void
     add_data(data: Gjs.byteArray.ByteArray[], destroy: GLib.DestroyNotify | null): void
@@ -5680,12 +5547,9 @@ export interface MemoryOutputStream {
     readonly data_size:number
     /* Fields of Gio.MemoryOutputStream */
     parent_instance:OutputStream
-    priv:MemoryOutputStreamPrivate
     /* Fields of Gio.OutputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.MemoryOutputStream */
     get_data(): object
     get_data_size(): number
@@ -5779,8 +5643,6 @@ export interface Menu {
     priv:MenuModelPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Menu */
     append(label: string | null, detailed_action: string | null): void
     append_item(item: MenuItem): void
@@ -5867,8 +5729,6 @@ export interface MenuAttributeIter {
     priv:MenuAttributeIterPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.MenuAttributeIter */
     get_name(): string
     get_next(): [ /* returnType */ boolean, /* out_name */ string | null, /* value */ GLib.Variant | null ]
@@ -5921,8 +5781,6 @@ export interface MenuItem_ConstructProps extends GObject.Object_ConstructProps {
 export interface MenuItem {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.MenuItem */
     get_attribute_value(attribute: string, expected_type: GLib.VariantType | null): GLib.Variant
     get_link(link: string): MenuModel
@@ -5988,8 +5846,6 @@ export interface MenuLinkIter {
     priv:MenuLinkIterPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.MenuLinkIter */
     get_name(): string
     get_next(): [ /* returnType */ boolean, /* out_link */ string | null, /* value */ MenuModel | null ]
@@ -6045,8 +5901,6 @@ export interface MenuModel {
     priv:MenuModelPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.MenuModel */
     get_item_attribute_value(item_index: number, attribute: string, expected_type: GLib.VariantType | null): GLib.Variant
     get_item_link(item_index: number, link: string): MenuModel
@@ -6127,8 +5981,6 @@ export interface MountOperation {
     priv:MountOperationPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.MountOperation */
     get_anonymous(): boolean
     get_choice(): number
@@ -6211,11 +6063,8 @@ export interface NativeVolumeMonitor {
     /* Fields of Gio.NativeVolumeMonitor */
     parent_instance:VolumeMonitor
     /* Fields of Gio.VolumeMonitor */
-    priv:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.VolumeMonitor */
     get_connected_drives(): GLib.List
     get_mount_for_uuid(uuid: string): Mount
@@ -6302,11 +6151,8 @@ export interface NetworkAddress {
     /* Properties of Gio.NetworkAddress */
     /* Fields of Gio.NetworkAddress */
     parent_instance:GObject.Object
-    priv:NetworkAddressPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.NetworkAddress */
     get_hostname(): string
     get_port(): number
@@ -6368,11 +6214,8 @@ export interface NetworkService {
     scheme:string
     /* Fields of Gio.NetworkService */
     parent_instance:GObject.Object
-    priv:NetworkServicePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.NetworkService */
     get_domain(): string
     get_protocol(): string
@@ -6428,8 +6271,6 @@ export interface Notification_ConstructProps extends GObject.Object_ConstructPro
 export interface Notification {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Notification */
     add_button(label: string, detailed_action: string): void
     add_button_with_target_value(label: string, action: string, target: GLib.Variant | null): void
@@ -6488,11 +6329,8 @@ export interface OutputStream_ConstructProps extends GObject.Object_ConstructPro
 export interface OutputStream {
     /* Fields of Gio.OutputStream */
     parent_instance:GObject.Object
-    priv:OutputStreamPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.OutputStream */
     clear_pending(): void
     close(cancellable: Cancellable | null): boolean
@@ -6579,11 +6417,8 @@ export interface Permission {
     readonly can_release:boolean
     /* Fields of Gio.Permission */
     parent_instance:GObject.Object
-    priv:PermissionPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Permission */
     acquire(cancellable: Cancellable | null): boolean
     acquire_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -6659,8 +6494,6 @@ export interface PropertyAction {
     readonly state_type:GLib.VariantType
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -6724,13 +6557,10 @@ export interface ProxyAddress {
     readonly family:SocketFamily
     /* Fields of Gio.ProxyAddress */
     parent_instance:InetSocketAddress
-    priv:ProxyAddressPrivate
     /* Fields of Gio.InetSocketAddress */
     /* Fields of Gio.SocketAddress */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.ProxyAddress */
     get_destination_hostname(): string
     get_destination_port(): number
@@ -6811,8 +6641,6 @@ export interface ProxyAddressEnumerator {
     /* Fields of Gio.SocketAddressEnumerator */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SocketAddressEnumerator */
     next(cancellable: Cancellable | null): SocketAddress
     next_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -6870,8 +6698,6 @@ export interface Resolver {
     priv:ResolverPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Resolver */
     lookup_by_address(address: InetAddress, cancellable: Cancellable | null): string
     lookup_by_address_async(address: InetAddress, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -6959,8 +6785,6 @@ export interface Settings {
     priv:SettingsPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Settings */
     apply(): void
     bind(key: string, object: GObject.Object, property: string, flags: SettingsBindFlags): void
@@ -7073,8 +6897,6 @@ export interface SimpleAction {
     readonly state_type:GLib.VariantType
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SimpleAction */
     set_enabled(enabled: boolean): void
     set_state(value: GLib.Variant): void
@@ -7133,12 +6955,8 @@ export interface SimpleActionGroup_ConstructProps extends GObject.Object_Constru
 }
 export interface SimpleActionGroup {
     /* Fields of Gio.SimpleActionGroup */
-    parent_instance:GObject.Object
-    priv:SimpleActionGroupPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SimpleActionGroup */
     add_entries(entries: ActionEntry[], user_data: object): void
     insert(action: Action): void
@@ -7192,8 +7010,6 @@ export interface SimpleAsyncResult_ConstructProps extends GObject.Object_Constru
 export interface SimpleAsyncResult {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SimpleAsyncResult */
     complete(): void
     complete_in_idle(): void
@@ -7262,11 +7078,8 @@ export interface SimpleIOStream {
     readonly output_stream:OutputStream
     /* Fields of Gio.IOStream */
     parent_instance:GObject.Object
-    priv:IOStreamPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.IOStream */
     clear_pending(): void
     close(cancellable: Cancellable | null): boolean
@@ -7339,11 +7152,8 @@ export interface SimplePermission {
     readonly can_release:boolean
     /* Fields of Gio.Permission */
     parent_instance:GObject.Object
-    priv:PermissionPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Permission */
     acquire(cancellable: Cancellable | null): boolean
     acquire_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -7418,11 +7228,8 @@ export interface SimpleProxyResolver {
     ignore_hosts:string[]
     /* Fields of Gio.SimpleProxyResolver */
     parent_instance:GObject.Object
-    priv:SimpleProxyResolverPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SimpleProxyResolver */
     set_default_proxy(default_proxy: string): void
     set_ignore_hosts(ignore_hosts: string): void
@@ -7503,8 +7310,6 @@ export interface Socket {
     priv:SocketPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Socket */
     accept(cancellable: Cancellable | null): Socket
     bind(address: SocketAddress, allow_reuse: boolean): boolean
@@ -7621,8 +7426,6 @@ export interface SocketAddress {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SocketAddress */
     get_family(): SocketFamily
     get_native_size(): number
@@ -7682,8 +7485,6 @@ export interface SocketAddressEnumerator {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SocketAddressEnumerator */
     next(cancellable: Cancellable | null): SocketAddress
     next_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -7759,8 +7560,6 @@ export interface SocketClient {
     priv:SocketClientPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SocketClient */
     add_application_proxy(protocol: string): void
     connect(connectable: SocketConnectable, cancellable: Cancellable | null): SocketConnection
@@ -7864,8 +7663,6 @@ export interface SocketConnection {
     /* Fields of Gio.IOStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SocketConnection */
     connect(address: SocketAddress, cancellable: Cancellable | null): boolean
     connect_async(address: SocketAddress, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -7946,8 +7743,6 @@ export interface SocketControlMessage {
     priv:SocketControlMessagePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SocketControlMessage */
     get_level(): number
     get_msg_type(): number
@@ -8012,8 +7807,6 @@ export interface SocketListener {
     priv:SocketListenerPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SocketListener */
     accept(cancellable: Cancellable | null): [ /* returnType */ SocketConnection, /* source_object */ GObject.Object | null ]
     accept_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -8090,8 +7883,6 @@ export interface SocketService {
     /* Fields of Gio.SocketListener */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SocketService */
     is_active(): boolean
     start(): void
@@ -8171,8 +7962,6 @@ export interface Subprocess {
     /* Properties of Gio.Subprocess */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Subprocess */
     communicate(stdin_buf: Gjs.byteArray.ByteArray, cancellable: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ Gjs.byteArray.ByteArray, /* stderr_buf */ Gjs.byteArray.ByteArray ]
     communicate_async(stdin_buf: Gjs.byteArray.ByteArray, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -8248,8 +8037,6 @@ export interface SubprocessLauncher {
     /* Properties of Gio.SubprocessLauncher */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SubprocessLauncher */
     getenv(variable: string): string
     set_child_setup(child_setup: GLib.SpawnChildSetupFunc, user_data: object, destroy_notify: GLib.DestroyNotify): void
@@ -8316,8 +8103,6 @@ export interface Task {
     readonly completed:boolean
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Task */
     get_cancellable(): Cancellable
     get_check_cancellable(): boolean
@@ -8406,8 +8191,6 @@ export interface TcpConnection {
     /* Fields of Gio.IOStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.TcpConnection */
     get_graceful_disconnect(): boolean
     set_graceful_disconnect(graceful_disconnect: boolean): void
@@ -8500,8 +8283,6 @@ export interface TcpWrapperConnection {
     /* Fields of Gio.IOStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.TcpWrapperConnection */
     get_base_io_stream(): IOStream
     /* Methods of Gio.TcpConnection */
@@ -8586,8 +8367,6 @@ export interface TestDBus {
     /* Properties of Gio.TestDBus */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.TestDBus */
     add_service_dir(path: string): void
     down(): void
@@ -8648,8 +8427,6 @@ export interface ThemedIcon {
     /* Properties of Gio.ThemedIcon */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.ThemedIcon */
     append_name(iconname: string): void
     get_names(): string[]
@@ -8715,8 +8492,6 @@ export interface ThreadedSocketService {
     /* Fields of Gio.SocketListener */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.SocketService */
     is_active(): boolean
     start(): void
@@ -8806,8 +8581,6 @@ export interface TlsCertificate {
     priv:TlsCertificatePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.TlsCertificate */
     get_issuer(): TlsCertificate
     is_same(cert_two: TlsCertificate): boolean
@@ -8889,8 +8662,6 @@ export interface TlsConnection {
     /* Fields of Gio.IOStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.TlsConnection */
     emit_accept_certificate(peer_cert: TlsCertificate, errors: TlsCertificateFlags): boolean
     get_certificate(): TlsCertificate
@@ -8993,8 +8764,6 @@ export interface TlsDatabase {
     priv:TlsDatabasePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.TlsDatabase */
     create_certificate_handle(certificate: TlsCertificate): string | null
     lookup_certificate_for_handle(handle: string, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null): TlsCertificate
@@ -9067,12 +8836,8 @@ export interface TlsInteraction_ConstructProps extends GObject.Object_ConstructP
 }
 export interface TlsInteraction {
     /* Fields of Gio.TlsInteraction */
-    parent_instance:GObject.Object
-    priv:TlsInteractionPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.TlsInteraction */
     ask_password(password: TlsPassword, cancellable: Cancellable | null): TlsInteractionResult
     ask_password_async(password: TlsPassword, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
@@ -9144,8 +8909,6 @@ export interface TlsPassword {
     priv:TlsPasswordPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.TlsPassword */
     get_description(): string
     get_flags(): TlsPasswordFlags
@@ -9221,8 +8984,6 @@ export interface UnixConnection {
     /* Fields of Gio.IOStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.UnixConnection */
     receive_credentials(cancellable: Cancellable | null): Credentials
     receive_credentials_async(cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object): void
@@ -9311,8 +9072,6 @@ export interface UnixCredentialsMessage {
     /* Fields of Gio.SocketControlMessage */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.UnixCredentialsMessage */
     get_credentials(): Credentials
     /* Methods of Gio.SocketControlMessage */
@@ -9378,8 +9137,6 @@ export interface UnixFDList {
     priv:UnixFDListPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.UnixFDList */
     append(fd: number): number
     get(index_: number): number
@@ -9441,8 +9198,6 @@ export interface UnixFDMessage {
     /* Fields of Gio.SocketControlMessage */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.UnixFDMessage */
     append_fd(fd: number): boolean
     get_fd_list(): UnixFDList
@@ -9510,12 +9265,9 @@ export interface UnixInputStream {
     close_fd:boolean
     /* Fields of Gio.UnixInputStream */
     parent_instance:InputStream
-    priv:UnixInputStreamPrivate
     /* Fields of Gio.InputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.UnixInputStream */
     get_close_fd(): boolean
     get_fd(): number
@@ -9599,8 +9351,6 @@ export interface UnixMountMonitor_ConstructProps extends GObject.Object_Construc
 export interface UnixMountMonitor {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.UnixMountMonitor */
     set_rate_limit(limit_msec: number): void
     /* Methods of GObject.Object */
@@ -9659,12 +9409,9 @@ export interface UnixOutputStream {
     close_fd:boolean
     /* Fields of Gio.UnixOutputStream */
     parent_instance:OutputStream
-    priv:UnixOutputStreamPrivate
     /* Fields of Gio.OutputStream */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.UnixOutputStream */
     get_close_fd(): boolean
     get_fd(): number
@@ -9762,12 +9509,9 @@ export interface UnixSocketAddress {
     readonly family:SocketFamily
     /* Fields of Gio.UnixSocketAddress */
     parent_instance:SocketAddress
-    priv:UnixSocketAddressPrivate
     /* Fields of Gio.SocketAddress */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.UnixSocketAddress */
     get_address_type(): UnixSocketAddressType
     get_is_abstract(): boolean
@@ -9835,8 +9579,6 @@ export interface Vfs {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.Vfs */
     get_file_for_path(path: string): File
     get_file_for_uri(uri: string): File
@@ -9903,11 +9645,8 @@ export interface VolumeMonitor_ConstructProps extends GObject.Object_ConstructPr
 export interface VolumeMonitor {
     /* Fields of Gio.VolumeMonitor */
     parent_instance:GObject.Object
-    priv:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.VolumeMonitor */
     get_connected_drives(): GLib.List
     get_mount_for_uuid(uuid: string): Mount
@@ -9999,8 +9738,6 @@ export interface ZlibCompressor {
     file_info:FileInfo
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.ZlibCompressor */
     get_file_info(): FileInfo
     set_file_info(file_info: FileInfo | null): void
@@ -10056,8 +9793,6 @@ export interface ZlibDecompressor {
     readonly file_info:FileInfo
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gio.ZlibDecompressor */
     get_file_info(): FileInfo
     /* Methods of GObject.Object */
@@ -10111,7 +9846,6 @@ export interface ActionEntry {
     parameter_type:string
     state:string
     change_state:any
-    padding:number[]
 }
 export interface ActionEntry_Static {
     name: string
@@ -10217,7 +9951,6 @@ export interface AppLaunchContextPrivate_Static {
 export declare var AppLaunchContextPrivate: AppLaunchContextPrivate_Static
 export interface ApplicationClass {
     /* Fields of Gio.ApplicationClass */
-    parent_class:GObject.ObjectClass
     startup:any
     activate:any
     open:any
@@ -10232,7 +9965,6 @@ export interface ApplicationClass {
     dbus_register:any
     dbus_unregister:any
     handle_local_options:any
-    padding:object[]
 }
 export interface ApplicationClass_Static {
     name: string
@@ -10240,11 +9972,9 @@ export interface ApplicationClass_Static {
 export declare var ApplicationClass: ApplicationClass_Static
 export interface ApplicationCommandLineClass {
     /* Fields of Gio.ApplicationCommandLineClass */
-    parent_class:GObject.ObjectClass
     print_literal:any
     printerr_literal:any
     get_stdin:any
-    padding:object[]
 }
 export interface ApplicationCommandLineClass_Static {
     name: string
@@ -10461,9 +10191,7 @@ export interface DBusInterfaceSkeletonClass {
     get_info:any
     get_properties:any
     flush:any
-    vfunc_padding:object[]
     g_authorize_method:any
-    signal_padding:object[]
 }
 export interface DBusInterfaceSkeletonClass_Static {
     name: string
@@ -10480,7 +10208,6 @@ export interface DBusInterfaceVTable {
     method_call:DBusInterfaceMethodCallFunc
     get_property:DBusInterfaceGetPropertyFunc
     set_property:DBusInterfaceSetPropertyFunc
-    padding:object[]
 }
 export interface DBusInterfaceVTable_Static {
     name: string
@@ -10539,7 +10266,6 @@ export interface DBusObjectManagerClientClass {
     parent_class:GObject.ObjectClass
     interface_proxy_signal:any
     interface_proxy_properties_changed:any
-    padding:object[]
 }
 export interface DBusObjectManagerClientClass_Static {
     name: string
@@ -10570,7 +10296,6 @@ export declare var DBusObjectManagerIface: DBusObjectManagerIface_Static
 export interface DBusObjectManagerServerClass {
     /* Fields of Gio.DBusObjectManagerServerClass */
     parent_class:GObject.ObjectClass
-    padding:object[]
 }
 export interface DBusObjectManagerServerClass_Static {
     name: string
@@ -10585,7 +10310,6 @@ export declare var DBusObjectManagerServerPrivate: DBusObjectManagerServerPrivat
 export interface DBusObjectProxyClass {
     /* Fields of Gio.DBusObjectProxyClass */
     parent_class:GObject.ObjectClass
-    padding:object[]
 }
 export interface DBusObjectProxyClass_Static {
     name: string
@@ -10601,7 +10325,6 @@ export interface DBusObjectSkeletonClass {
     /* Fields of Gio.DBusObjectSkeletonClass */
     parent_class:GObject.ObjectClass
     authorize_method:any
-    padding:object[]
 }
 export interface DBusObjectSkeletonClass_Static {
     name: string
@@ -10630,10 +10353,8 @@ export interface DBusPropertyInfo_Static {
 export declare var DBusPropertyInfo: DBusPropertyInfo_Static
 export interface DBusProxyClass {
     /* Fields of Gio.DBusProxyClass */
-    parent_class:GObject.ObjectClass
     g_properties_changed:any
     g_signal:any
-    padding:object[]
 }
 export interface DBusProxyClass_Static {
     name: string
@@ -10663,7 +10384,6 @@ export interface DBusSubtreeVTable {
     /* Fields of Gio.DBusSubtreeVTable */
     introspect:DBusSubtreeIntrospectFunc
     dispatch:DBusSubtreeDispatchFunc
-    padding:object[]
 }
 export interface DBusSubtreeVTable_Static {
     name: string
@@ -11768,8 +11488,6 @@ export declare class SettingsSchemaSource_Static {
 export declare var SettingsSchemaSource: SettingsSchemaSource_Static
 export interface SimpleActionGroupClass {
     /* Fields of Gio.SimpleActionGroupClass */
-    parent_class:GObject.ObjectClass
-    padding:object[]
 }
 export interface SimpleActionGroupClass_Static {
     name: string
@@ -11944,11 +11662,6 @@ export declare class SrvTarget_Static {
 export declare var SrvTarget: SrvTarget_Static
 export interface StaticResource {
     /* Fields of Gio.StaticResource */
-    data:number
-    data_len:number
-    resource:Resource
-    next:StaticResource
-    padding:object
     /* Methods of Gio.StaticResource */
     fini(): void
     get_resource(): Resource
@@ -12031,7 +11744,6 @@ export interface TlsCertificateClass {
     /* Fields of Gio.TlsCertificateClass */
     parent_class:GObject.ObjectClass
     verify:any
-    padding:object[]
 }
 export interface TlsCertificateClass_Static {
     name: string
@@ -12059,7 +11771,6 @@ export interface TlsConnectionClass {
     handshake:any
     handshake_async:any
     handshake_finish:any
-    padding:object[]
 }
 export interface TlsConnectionClass_Static {
     name: string
@@ -12087,7 +11798,6 @@ export interface TlsDatabaseClass {
     lookup_certificates_issued_by:any
     lookup_certificates_issued_by_async:any
     lookup_certificates_issued_by_finish:any
-    padding:object[]
 }
 export interface TlsDatabaseClass_Static {
     name: string
@@ -12102,7 +11812,6 @@ export declare var TlsDatabasePrivate: TlsDatabasePrivate_Static
 export interface TlsFileDatabaseInterface {
     /* Fields of Gio.TlsFileDatabaseInterface */
     g_iface:GObject.TypeInterface
-    padding:object[]
 }
 export interface TlsFileDatabaseInterface_Static {
     name: string
@@ -12110,14 +11819,12 @@ export interface TlsFileDatabaseInterface_Static {
 export declare var TlsFileDatabaseInterface: TlsFileDatabaseInterface_Static
 export interface TlsInteractionClass {
     /* Fields of Gio.TlsInteractionClass */
-    parent_class:GObject.ObjectClass
     ask_password:any
     ask_password_async:any
     ask_password_finish:any
     request_certificate:any
     request_certificate_async:any
     request_certificate_finish:any
-    padding:object[]
 }
 export interface TlsInteractionClass_Static {
     name: string
@@ -12135,7 +11842,6 @@ export interface TlsPasswordClass {
     get_value:any
     set_value:any
     get_default_warning:any
-    padding:object[]
 }
 export interface TlsPasswordClass_Static {
     name: string

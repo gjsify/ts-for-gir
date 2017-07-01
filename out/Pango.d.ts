@@ -325,8 +325,6 @@ export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 export interface Context {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Pango.Context */
     changed(): void
     get_base_dir(): Direction
@@ -396,11 +394,8 @@ export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Engine {
     /* Fields of Pango.Engine */
-    parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -445,12 +440,9 @@ export interface EngineLang_ConstructProps extends Engine_ConstructProps {
 }
 export interface EngineLang {
     /* Fields of Pango.EngineLang */
-    parent_instance:Engine
     /* Fields of Pango.Engine */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -501,8 +493,6 @@ export interface EngineShape {
     /* Fields of Pango.Engine */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -553,8 +543,6 @@ export interface Font {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Pango.Font */
     describe(): FontDescription
     describe_with_absolute_size(): FontDescription
@@ -617,8 +605,6 @@ export interface FontFace {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Pango.FontFace */
     describe(): FontDescription
     get_face_name(): string
@@ -676,8 +662,6 @@ export interface FontFamily {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Pango.FontFamily */
     get_name(): string
     is_monospace(): boolean
@@ -733,8 +717,6 @@ export interface FontMap {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Pango.FontMap */
     changed(): void
     create_context(): Context
@@ -796,8 +778,6 @@ export interface Fontset {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Pango.Fontset */
     foreach(func: FontsetForeachFunc, data: object): void
     get_font(wc: number): Font
@@ -854,8 +834,6 @@ export interface FontsetSimple {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Pango.FontsetSimple */
     append(font: Font): void
     size(): number
@@ -916,8 +894,6 @@ export interface Layout_ConstructProps extends GObject.Object_ConstructProps {
 export interface Layout {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Pango.Layout */
     context_changed(): void
     copy(): Layout
@@ -1022,16 +998,9 @@ export interface Renderer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Renderer {
     /* Fields of Pango.Renderer */
-    parent_instance:GObject.Object
-    underline:Underline
-    strikethrough:boolean
-    active_count:number
     matrix:Matrix
-    priv:RendererPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Pango.Renderer */
     activate(): void
     deactivate(): void
@@ -1294,7 +1263,6 @@ export interface Coverage_Static {
 export declare var Coverage: Coverage_Static
 export interface EngineClass {
     /* Fields of Pango.EngineClass */
-    parent_class:GObject.ObjectClass
 }
 export interface EngineClass_Static {
     name: string
@@ -1314,7 +1282,6 @@ export interface EngineInfo_Static {
 export declare var EngineInfo: EngineInfo_Static
 export interface EngineLangClass {
     /* Fields of Pango.EngineLangClass */
-    parent_class:EngineClass
     script_break:any
 }
 export interface EngineLangClass_Static {
@@ -1332,7 +1299,6 @@ export interface EngineScriptInfo_Static {
 export declare var EngineScriptInfo: EngineScriptInfo_Static
 export interface EngineShapeClass {
     /* Fields of Pango.EngineShapeClass */
-    parent_class:EngineClass
     script_shape:any
     covers:any
 }
@@ -1432,15 +1398,6 @@ export interface FontMapClass_Static {
 export declare var FontMapClass: FontMapClass_Static
 export interface FontMetrics {
     /* Fields of Pango.FontMetrics */
-    ref_count:number
-    ascent:number
-    descent:number
-    approximate_char_width:number
-    approximate_digit_width:number
-    underline_position:number
-    underline_thickness:number
-    strikethrough_position:number
-    strikethrough_thickness:number
     /* Methods of Pango.FontMetrics */
     get_approximate_char_width(): number
     get_approximate_digit_width(): number
@@ -1541,7 +1498,6 @@ export interface GlyphString {
     num_glyphs:number
     glyphs:GlyphInfo[]
     log_clusters:number
-    space:number
     /* Methods of Pango.GlyphString */
     copy(): GlyphString | null
     extents(font: Font): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
@@ -1738,7 +1694,6 @@ export interface Rectangle_Static {
 export declare var Rectangle: Rectangle_Static
 export interface RendererClass {
     /* Fields of Pango.RendererClass */
-    parent_class:GObject.ObjectClass
     draw_glyphs:any
     draw_rectangle:any
     draw_error_underline:any

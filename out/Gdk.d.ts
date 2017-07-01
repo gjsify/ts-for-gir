@@ -2869,11 +2869,8 @@ export interface AppLaunchContext {
     /* Properties of Gdk.AppLaunchContext */
     /* Fields of Gio.AppLaunchContext */
     parent_instance:GObject.Object
-    priv:Gio.AppLaunchContextPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.AppLaunchContext */
     set_desktop(desktop: number): void
     set_display(display: Display): void
@@ -2947,8 +2944,6 @@ export interface Cursor {
     /* Properties of Gdk.Cursor */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.Cursor */
     get_cursor_type(): CursorType
     get_display(): Display
@@ -3019,8 +3014,6 @@ export interface Device {
     readonly n_axes:number
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.Device */
     get_associated_device(): Device | null
     get_axis_use(index_: number): AxisUse
@@ -3103,8 +3096,6 @@ export interface DeviceManager {
     /* Properties of Gdk.DeviceManager */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.DeviceManager */
     get_client_pointer(): Device
     get_display(): Display | null
@@ -3158,8 +3149,6 @@ export interface Display_ConstructProps extends GObject.Object_ConstructProps {
 export interface Display {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.Display */
     beep(): void
     close(): void
@@ -3255,8 +3244,6 @@ export interface DisplayManager {
     default_display:Display
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.DisplayManager */
     get_default_display(): Display | null
     list_displays(): GLib.SList
@@ -3313,8 +3300,6 @@ export interface DragContext_ConstructProps extends GObject.Object_ConstructProp
 export interface DragContext {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.DragContext */
     get_actions(): DragAction
     get_dest_window(): Window
@@ -3370,8 +3355,6 @@ export interface FrameClock_ConstructProps extends GObject.Object_ConstructProps
 export interface FrameClock {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.FrameClock */
     begin_updating(): void
     end_updating(): void
@@ -3439,8 +3422,6 @@ export interface GLContext {
     /* Properties of Gdk.GLContext */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.GLContext */
     get_debug_enabled(): boolean
     get_display(): Display
@@ -3503,8 +3484,6 @@ export interface Keymap_ConstructProps extends GObject.Object_ConstructProps {
 export interface Keymap {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.Keymap */
     add_virtual_modifiers(state: ModifierType): void
     get_caps_lock_state(): boolean
@@ -3577,8 +3556,6 @@ export interface Screen {
     resolution:number
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.Screen */
     get_active_window(): Window | null
     get_display(): Display
@@ -3668,8 +3645,6 @@ export interface Visual_ConstructProps extends GObject.Object_ConstructProps {
 export interface Visual {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.Visual */
     get_bits_per_rgb(): number
     get_blue_pixel_details(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
@@ -3737,8 +3712,6 @@ export interface Window {
     cursor:Cursor
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Gdk.Window */
     beep(): void
     begin_move_drag(button: number, root_x: number, root_y: number, timestamp: number): void

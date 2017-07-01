@@ -264,8 +264,6 @@ export interface DOMAttr {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMAttr */
     get_is_id(): boolean
     get_name(): string
@@ -390,8 +388,6 @@ export interface DOMAudioTrack {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMAudioTrack */
     get_enabled(): boolean
     get_id(): string
@@ -457,8 +453,6 @@ export interface DOMAudioTrackList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMAudioTrackList */
     dispatch_event(evt: DOMEvent): boolean
     get_length(): number
@@ -516,8 +510,6 @@ export interface DOMBarInfo {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -575,8 +567,6 @@ export interface DOMBarProp {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMBarProp */
     get_visible(): boolean
     /* Methods of GObject.Object */
@@ -636,8 +626,6 @@ export interface DOMBatteryManager {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMBatteryManager */
     dispatch_event(event: DOMEvent): boolean
     get_charging(): boolean
@@ -702,8 +690,6 @@ export interface DOMBlob {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMBlob */
     get_size(): number
     slice(start: number, end: number, contentType: string): DOMBlob
@@ -786,8 +772,6 @@ export interface DOMCDATASection {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMText */
     get_whole_text(): string
     replace_whole_text(content: string): DOMText
@@ -913,8 +897,6 @@ export interface DOMCSSRule {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSRule */
     get_css_text(): string
     get_parent_rule(): DOMCSSRule
@@ -977,8 +959,6 @@ export interface DOMCSSRuleList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSRuleList */
     get_length(): number
     item(index: number): DOMCSSRule
@@ -1039,8 +1019,6 @@ export interface DOMCSSStyleDeclaration {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSStyleDeclaration */
     get_css_text(): string
     get_length(): number
@@ -1120,8 +1098,6 @@ export interface DOMCSSStyleSheet {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSStyleSheet */
     add_rule(selector: string, style: string, index: number): number
     delete_rule(index: number): void
@@ -1203,8 +1179,6 @@ export interface DOMCSSValue {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMCSSValue */
     get_css_text(): string
     get_css_value_type(): number
@@ -1284,8 +1258,6 @@ export interface DOMCharacterData {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMCharacterData */
     append_data(data: string): void
     delete_data(offset: number, length: number): void
@@ -1422,8 +1394,6 @@ export interface DOMComment {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMCharacterData */
     append_data(data: string): void
     delete_data(offset: number, length: number): void
@@ -1538,8 +1508,6 @@ export interface DOMConsole {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMConsole */
     get_memory(): object
     group_end(): void
@@ -1597,8 +1565,6 @@ export interface DOMDOMApplicationCache {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMApplicationCache */
     abort(): void
     dispatch_event(evt: DOMEvent): boolean
@@ -1657,8 +1623,6 @@ export interface DOMDOMImplementation {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMImplementation */
     create_css_style_sheet(title: string, media: string): DOMCSSStyleSheet
     create_document(namespaceURI: string | null, qualifiedName: string, doctype: DOMDocumentType | null): DOMDocument
@@ -1721,8 +1685,6 @@ export interface DOMDOMMimeType {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMMimeType */
     get_description(): string
     get_enabled_plugin(): DOMDOMPlugin
@@ -1784,8 +1746,6 @@ export interface DOMDOMMimeTypeArray {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMMimeTypeArray */
     get_length(): number
     item(index: number): DOMDOMMimeType
@@ -1844,8 +1804,6 @@ export interface DOMDOMNamedFlowCollection {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMNamedFlowCollection */
     get_length(): number
     item(index: number): DOMWebKitNamedFlow
@@ -1907,8 +1865,6 @@ export interface DOMDOMPlugin {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMPlugin */
     get_description(): string
     get_filename(): string
@@ -1973,8 +1929,6 @@ export interface DOMDOMPluginArray {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMPluginArray */
     get_length(): number
     item(index: number): DOMDOMPlugin
@@ -2038,8 +1992,6 @@ export interface DOMDOMSecurityPolicy {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMSecurityPolicy */
     allows_connection_to(url: string): boolean
     allows_font_from(url: string): boolean
@@ -2124,8 +2076,6 @@ export interface DOMDOMSelection {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMSelection */
     add_range(range: DOMRange): void
     collapse(node: DOMNode, index: number): void
@@ -2219,8 +2169,6 @@ export interface DOMDOMSettableTokenList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMSettableTokenList */
     get_value(): string
     set_value(value: string): void
@@ -2286,8 +2234,6 @@ export interface DOMDOMStringList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMStringList */
     contains(string: string): boolean
     get_length(): number
@@ -2344,8 +2290,6 @@ export interface DOMDOMStringMap {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -2399,8 +2343,6 @@ export interface DOMDOMTokenList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMTokenList */
     add(tokens: string): void
     contains(token: string): boolean
@@ -2509,8 +2451,6 @@ export interface DOMDOMWindow {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMWindow */
     alert(message: string): void
     atob(string: string): string
@@ -2687,8 +2627,6 @@ export interface DOMDOMWindowCSS {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDOMWindowCSS */
     supports(property: string, value: string): boolean
     /* Methods of GObject.Object */
@@ -2744,8 +2682,6 @@ export interface DOMDatabase {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDatabase */
     get_version(): string
     /* Methods of GObject.Object */
@@ -2866,8 +2802,6 @@ export interface DOMDocument {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDocument */
     adopt_node(source: DOMNode): DOMNode
     caret_range_from_point(x: number, y: number): DOMRange
@@ -3123,8 +3057,6 @@ export interface DOMDocumentFragment {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDocumentFragment */
     query_selector(selectors: string): DOMElement
     query_selector_all(selectors: string): DOMNodeList
@@ -3258,8 +3190,6 @@ export interface DOMDocumentType {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMDocumentType */
     get_entities(): DOMNamedNodeMap
     get_internal_subset(): string
@@ -3427,8 +3357,6 @@ export interface DOMElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMElement */
     blur(): void
     focus(): void
@@ -3636,8 +3564,6 @@ export interface DOMEntityReference {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMNode */
     append_child(newChild: DOMNode): DOMNode
     clone_node(deep: boolean): DOMNode
@@ -3757,8 +3683,6 @@ export interface DOMEvent {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMEvent */
     get_bubbles(): boolean
     get_cancel_bubble(): boolean
@@ -3845,8 +3769,6 @@ export interface DOMFile {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMFile */
     get_name(): string
     get_webkit_relative_path(): string
@@ -3911,8 +3833,6 @@ export interface DOMFileList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMFileList */
     get_length(): number
     item(index: number): DOMFile
@@ -3972,8 +3892,6 @@ export interface DOMGamepad {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMGamepad */
     get_id(): string
     get_index(): number
@@ -4034,8 +3952,6 @@ export interface DOMGamepadList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMGamepadList */
     get_length(): number
     item(index: number): DOMGamepad
@@ -4091,8 +4007,6 @@ export interface DOMGeolocation {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMGeolocation */
     clear_watch(watchID: number): void
     /* Methods of GObject.Object */
@@ -4251,8 +4165,6 @@ export interface DOMHTMLAnchorElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLAnchorElement */
     get_charset(): string
     get_coords(): string
@@ -4650,8 +4562,6 @@ export interface DOMHTMLAppletElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLAppletElement */
     get_align(): string
     get_alt(): string
@@ -5022,8 +4932,6 @@ export interface DOMHTMLAreaElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLAreaElement */
     get_alt(): string
     get_coords(): string
@@ -5409,8 +5317,6 @@ export interface DOMHTMLAudioElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMediaElement */
     add_text_track(kind: string, label: string, language: string): DOMTextTrack
     can_play_type(type: string): string
@@ -5818,8 +5724,6 @@ export interface DOMHTMLBRElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLBRElement */
     get_clear(): string
     set_clear(value: string): void
@@ -6143,8 +6047,6 @@ export interface DOMHTMLBaseElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLBaseElement */
     get_href(): string
     get_target(): string
@@ -6473,8 +6375,6 @@ export interface DOMHTMLBaseFontElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLBaseFontElement */
     get_color(): string
     get_face(): string
@@ -6812,8 +6712,6 @@ export interface DOMHTMLBodyElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLBodyElement */
     get_a_link(): string
     get_background(): string
@@ -7173,8 +7071,6 @@ export interface DOMHTMLButtonElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLButtonElement */
     check_validity(): boolean
     get_autofocus(): boolean
@@ -7535,8 +7431,6 @@ export interface DOMHTMLCanvasElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLCanvasElement */
     get_height(): number
     get_width(): number
@@ -7796,8 +7690,6 @@ export interface DOMHTMLCollection {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLCollection */
     get_length(): number
     item(index: number): DOMNode
@@ -7921,8 +7813,6 @@ export interface DOMHTMLDListElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDListElement */
     get_compact(): boolean
     set_compact(value: boolean): void
@@ -8244,8 +8134,6 @@ export interface DOMHTMLDetailsElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDetailsElement */
     get_open(): boolean
     set_open(value: boolean): void
@@ -8567,8 +8455,6 @@ export interface DOMHTMLDirectoryElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDirectoryElement */
     get_compact(): boolean
     set_compact(value: boolean): void
@@ -8890,8 +8776,6 @@ export interface DOMHTMLDivElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDivElement */
     get_align(): string
     set_align(value: string): void
@@ -9227,8 +9111,6 @@ export interface DOMHTMLDocument {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLDocument */
     capture_events(): void
     clear(): void
@@ -9584,8 +9466,6 @@ export interface DOMHTMLElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLElement */
     click(): void
     get_access_key(): string
@@ -9913,8 +9793,6 @@ export interface DOMHTMLEmbedElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLEmbedElement */
     get_align(): string
     get_height(): number
@@ -10257,8 +10135,6 @@ export interface DOMHTMLFieldSetElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFieldSetElement */
     check_validity(): boolean
     get_disabled(): boolean
@@ -10600,8 +10476,6 @@ export interface DOMHTMLFontElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFontElement */
     get_color(): string
     get_face(): string
@@ -10951,8 +10825,6 @@ export interface DOMHTMLFormElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFormElement */
     check_validity(): boolean
     dispatch_form_change(): void
@@ -11331,8 +11203,6 @@ export interface DOMHTMLFrameElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFrameElement */
     get_content_document(): DOMDocument
     get_content_window(): DOMDOMWindow
@@ -11685,8 +11555,6 @@ export interface DOMHTMLFrameSetElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLFrameSetElement */
     get_cols(): string
     get_rows(): string
@@ -12017,8 +11885,6 @@ export interface DOMHTMLHRElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLHRElement */
     get_align(): string
     get_no_shade(): boolean
@@ -12349,8 +12215,6 @@ export interface DOMHTMLHeadElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLHeadElement */
     get_profile(): string
     set_profile(value: string): void
@@ -12672,8 +12536,6 @@ export interface DOMHTMLHeadingElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLHeadingElement */
     get_align(): string
     set_align(value: string): void
@@ -12997,8 +12859,6 @@ export interface DOMHTMLHtmlElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLHtmlElement */
     get_manifest(): string
     get_version(): string
@@ -13349,8 +13209,6 @@ export interface DOMHTMLIFrameElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLIFrameElement */
     get_align(): string
     get_content_document(): DOMDocument
@@ -13745,8 +13603,6 @@ export interface DOMHTMLImageElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLImageElement */
     get_align(): string
     get_alt(): string
@@ -14207,8 +14063,6 @@ export interface DOMHTMLInputElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLInputElement */
     check_validity(): boolean
     get_accept(): string
@@ -14685,8 +14539,6 @@ export interface DOMHTMLKeygenElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLKeygenElement */
     check_validity(): boolean
     get_autofocus(): boolean
@@ -15035,8 +14887,6 @@ export interface DOMHTMLLIElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLLIElement */
     get_value(): number
     set_value(value: number): void
@@ -15361,8 +15211,6 @@ export interface DOMHTMLLabelElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLLabelElement */
     get_control(): DOMHTMLElement
     get_form(): DOMHTMLFormElement
@@ -15689,8 +15537,6 @@ export interface DOMHTMLLegendElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLLegendElement */
     get_align(): string
     get_form(): DOMHTMLFormElement
@@ -16031,8 +15877,6 @@ export interface DOMHTMLLinkElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLLinkElement */
     get_charset(): string
     get_disabled(): boolean
@@ -16379,8 +16223,6 @@ export interface DOMHTMLMapElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMapElement */
     get_areas(): DOMHTMLCollection
     get_name(): string
@@ -16724,8 +16566,6 @@ export interface DOMHTMLMarqueeElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMarqueeElement */
     get_behavior(): string
     get_bg_color(): string
@@ -17124,8 +16964,6 @@ export interface DOMHTMLMediaElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMediaElement */
     add_text_track(kind: string, label: string, language: string): DOMTextTrack
     can_play_type(type: string): string
@@ -17533,8 +17371,6 @@ export interface DOMHTMLMenuElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMenuElement */
     get_compact(): boolean
     set_compact(value: boolean): void
@@ -17862,8 +17698,6 @@ export interface DOMHTMLMetaElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLMetaElement */
     get_content(): string
     get_http_equiv(): string
@@ -18196,8 +18030,6 @@ export interface DOMHTMLModElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLModElement */
     get_cite(): string
     get_date_time(): string
@@ -18528,8 +18360,6 @@ export interface DOMHTMLOListElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLOListElement */
     get_compact(): boolean
     get_reversed(): boolean
@@ -18893,8 +18723,6 @@ export interface DOMHTMLObjectElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLObjectElement */
     check_validity(): boolean
     get_align(): string
@@ -19271,8 +19099,6 @@ export interface DOMHTMLOptGroupElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLOptGroupElement */
     get_disabled(): boolean
     get_label(): string
@@ -19608,8 +19434,6 @@ export interface DOMHTMLOptionElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLOptionElement */
     get_default_selected(): boolean
     get_disabled(): boolean
@@ -19888,8 +19712,6 @@ export interface DOMHTMLOptionsCollection {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLOptionsCollection */
     get_length(): number
     get_selected_index(): number
@@ -20017,8 +19839,6 @@ export interface DOMHTMLParagraphElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLParagraphElement */
     get_align(): string
     set_align(value: string): void
@@ -20346,8 +20166,6 @@ export interface DOMHTMLParamElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLParamElement */
     get_name(): string
     get_value(): string
@@ -20678,8 +20496,6 @@ export interface DOMHTMLPreElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLPreElement */
     get_width(): number
     get_wrap(): boolean
@@ -20941,8 +20757,6 @@ export interface DOMHTMLPropertiesCollection {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLCollection */
     get_length(): number
     item(index: number): DOMNode
@@ -21073,8 +20887,6 @@ export interface DOMHTMLQuoteElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLQuoteElement */
     get_cite(): string
     set_cite(value: string): void
@@ -21414,8 +21226,6 @@ export interface DOMHTMLScriptElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLScriptElement */
     get_async(): boolean
     get_charset(): string
@@ -21786,8 +21596,6 @@ export interface DOMHTMLSelectElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLSelectElement */
     add(element: DOMHTMLElement, before: DOMHTMLElement): void
     check_validity(): boolean
@@ -22158,8 +21966,6 @@ export interface DOMHTMLStyleElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLStyleElement */
     get_disabled(): boolean
     get_media(): string
@@ -22489,8 +22295,6 @@ export interface DOMHTMLTableCaptionElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableCaptionElement */
     get_align(): string
     set_align(value: string): void
@@ -22839,8 +22643,6 @@ export interface DOMHTMLTableCellElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableCellElement */
     get_abbr(): string
     get_align(): string
@@ -23213,8 +23015,6 @@ export interface DOMHTMLTableColElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableColElement */
     get_align(): string
     get_ch(): string
@@ -23572,8 +23372,6 @@ export interface DOMHTMLTableElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableElement */
     create_caption(): DOMHTMLElement
     create_t_body(): DOMHTMLElement
@@ -23952,8 +23750,6 @@ export interface DOMHTMLTableRowElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableRowElement */
     delete_cell(index: number): void
     get_align(): string
@@ -24302,8 +24098,6 @@ export interface DOMHTMLTableSectionElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTableSectionElement */
     delete_row(index: number): void
     get_align(): string
@@ -24679,8 +24473,6 @@ export interface DOMHTMLTextAreaElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTextAreaElement */
     check_validity(): boolean
     get_autocapitalize(): string
@@ -25072,8 +24864,6 @@ export interface DOMHTMLTitleElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLTitleElement */
     get_text(): string
     set_text(value: string): void
@@ -25397,8 +25187,6 @@ export interface DOMHTMLUListElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLUListElement */
     get_compact(): boolean
     set_compact(value: boolean): void
@@ -25768,8 +25556,6 @@ export interface DOMHTMLVideoElement {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHTMLVideoElement */
     get_height(): number
     get_poster(): string
@@ -26141,8 +25927,6 @@ export interface DOMHistory {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMHistory */
     back(): void
     forward(): void
@@ -26232,8 +26016,6 @@ export interface DOMKeyboardEvent {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMKeyboardEvent */
     get_alt_graph_key(): boolean
     get_alt_key(): boolean
@@ -26361,8 +26143,6 @@ export interface DOMLocation {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMLocation */
     get_ancestor_origins(): DOMDOMStringList
     get_hash(): string
@@ -26452,8 +26232,6 @@ export interface DOMMediaController {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMMediaController */
     get_buffered(): DOMTimeRanges
     get_current_time(): number
@@ -26538,8 +26316,6 @@ export interface DOMMediaError {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMMediaError */
     get_code(): number
     /* Methods of GObject.Object */
@@ -26598,8 +26374,6 @@ export interface DOMMediaList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMMediaList */
     append_medium(newMedium: string): void
     delete_medium(oldMedium: string): void
@@ -26663,8 +26437,6 @@ export interface DOMMediaQueryList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMMediaQueryList */
     get_matches(): boolean
     get_media(): string
@@ -26723,8 +26495,6 @@ export interface DOMMemoryInfo {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -26784,8 +26554,6 @@ export interface DOMMessagePort {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -26835,8 +26603,6 @@ export interface DOMMicroDataItemValue {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -26931,8 +26697,6 @@ export interface DOMMouseEvent {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMMouseEvent */
     get_alt_key(): boolean
     get_button(): number
@@ -27072,8 +26836,6 @@ export interface DOMNamedNodeMap {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMNamedNodeMap */
     get_length(): number
     get_named_item(name: string): DOMNode
@@ -27154,8 +26916,6 @@ export interface DOMNavigator {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMNavigator */
     get_app_code_name(): string
     get_app_name(): string
@@ -27270,8 +27030,6 @@ export interface DOMNode {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMNode */
     append_child(newChild: DOMNode): DOMNode
     clone_node(deep: boolean): DOMNode
@@ -27377,8 +27135,6 @@ export interface DOMNodeFilter {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMNodeFilter */
     accept_node(n: DOMNode): number
     /* Methods of GObject.Object */
@@ -27439,8 +27195,6 @@ export interface DOMNodeIterator {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMNodeIterator */
     detach(): void
     get_expand_entity_references(): boolean
@@ -27510,8 +27264,6 @@ export interface DOMNodeList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMNodeList */
     get_length(): number
     item(index: number): DOMNode
@@ -27566,8 +27318,6 @@ export interface DOMObject {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -27622,8 +27372,6 @@ export interface DOMPerformance {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformance */
     get_memory(): object
     get_navigation(): DOMPerformanceNavigation
@@ -27687,8 +27435,6 @@ export interface DOMPerformanceEntry {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformanceEntry */
     get_duration(): number
     get_entry_type(): string
@@ -27751,8 +27497,6 @@ export interface DOMPerformanceEntryList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformanceEntryList */
     get_length(): number
     item(index: number): DOMPerformanceEntry
@@ -27811,8 +27555,6 @@ export interface DOMPerformanceNavigation {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformanceNavigation */
     get_redirect_count(): number
     /* Methods of GObject.Object */
@@ -27890,8 +27632,6 @@ export interface DOMPerformanceTiming {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMPerformanceTiming */
     get_connect_end(): number
     get_connect_start(): number
@@ -28011,8 +27751,6 @@ export interface DOMProcessingInstruction {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMProcessingInstruction */
     get_data(): string
     get_sheet(): DOMStyleSheet
@@ -28135,8 +27873,6 @@ export interface DOMPropertyNodeList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMNodeList */
     get_length(): number
     item(index: number): DOMNode
@@ -28204,8 +27940,6 @@ export interface DOMRange {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMRange */
     clone_contents(): DOMDocumentFragment
     clone_range(): DOMRange
@@ -28305,8 +28039,6 @@ export interface DOMScreen {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMScreen */
     get_avail_height(): number
     get_avail_left(): number
@@ -28402,8 +28134,6 @@ export interface DOMShadowRoot {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMShadowRoot */
     element_from_point(x: number, y: number): DOMElement
     get_active_element(): DOMElement
@@ -28532,8 +28262,6 @@ export interface DOMStorage {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMStorage */
     clear(): void
     get_item(key: string): string
@@ -28593,8 +28321,6 @@ export interface DOMStorageInfo {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -28646,8 +28372,6 @@ export interface DOMStorageQuota {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -28701,8 +28425,6 @@ export interface DOMStyleMedia {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMStyleMedia */
     match_medium(mediaquery: string): boolean
     /* Methods of GObject.Object */
@@ -28766,8 +28488,6 @@ export interface DOMStyleSheet {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMStyleSheet */
     get_disabled(): boolean
     get_href(): string
@@ -28836,8 +28556,6 @@ export interface DOMStyleSheetList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMStyleSheetList */
     get_length(): number
     item(index: number): DOMStyleSheet
@@ -28917,8 +28635,6 @@ export interface DOMText {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMText */
     get_whole_text(): string
     replace_whole_text(content: string): DOMText
@@ -29047,8 +28763,6 @@ export interface DOMTextTrack {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMTextTrack */
     add_cue(cue: DOMTextTrackCue): void
     dispatch_event(evt: DOMEvent): boolean
@@ -29143,8 +28857,6 @@ export interface DOMTextTrackCue {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMTextTrackCue */
     dispatch_event(evt: DOMEvent): boolean
     get_align(): string
@@ -29236,8 +28948,6 @@ export interface DOMTextTrackCueList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMTextTrackCueList */
     get_cue_by_id(id: string): DOMTextTrackCue
     get_length(): number
@@ -29296,8 +29006,6 @@ export interface DOMTextTrackList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMTextTrackList */
     dispatch_event(evt: DOMEvent): boolean
     get_length(): number
@@ -29357,8 +29065,6 @@ export interface DOMTimeRanges {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMTimeRanges */
     end(index: number): number
     get_length(): number
@@ -29428,8 +29134,6 @@ export interface DOMTouch {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMTouch */
     get_client_x(): number
     get_client_y(): number
@@ -29519,8 +29223,6 @@ export interface DOMTrackEvent {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMEvent */
     get_bubbles(): boolean
     get_cancel_bubble(): boolean
@@ -29606,8 +29308,6 @@ export interface DOMTreeWalker {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMTreeWalker */
     first_child(): DOMNode
     get_current_node(): DOMNode
@@ -29701,8 +29401,6 @@ export interface DOMUIEvent {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMUIEvent */
     get_char_code(): number
     get_detail(): number
@@ -29813,8 +29511,6 @@ export interface DOMValidityState {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMValidityState */
     get_bad_input(): boolean
     get_custom_error(): boolean
@@ -29893,8 +29589,6 @@ export interface DOMVideoPlaybackQuality {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMVideoPlaybackQuality */
     get_corrupted_video_frames(): number
     get_creation_time(): number
@@ -29964,8 +29658,6 @@ export interface DOMVideoTrack {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMVideoTrack */
     get_id(): string
     get_kind(): string
@@ -30031,8 +29723,6 @@ export interface DOMVideoTrackList {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMVideoTrackList */
     dispatch_event(evt: DOMEvent): boolean
     get_length(): number
@@ -30094,8 +29784,6 @@ export interface DOMWebKitNamedFlow {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMWebKitNamedFlow */
     dispatch_event(event: DOMEvent): boolean
     get_content(): DOMNodeList
@@ -30166,8 +29854,6 @@ export interface DOMWebKitPoint {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMWebKitPoint */
     get_x(): number
     get_y(): number
@@ -30279,8 +29965,6 @@ export interface DOMWheelEvent {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMWheelEvent */
     get_delta_mode(): number
     get_delta_x(): number
@@ -30436,8 +30120,6 @@ export interface DOMXPathExpression {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMXPathExpression */
     evaluate(contextNode: DOMNode, type: number, inResult: DOMXPathResult): DOMXPathResult
     /* Methods of GObject.Object */
@@ -30491,8 +30173,6 @@ export interface DOMXPathNSResolver {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMXPathNSResolver */
     lookup_namespace_uri(prefix: string): string
     /* Methods of GObject.Object */
@@ -30554,8 +30234,6 @@ export interface DOMXPathResult {
     coreObject:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.DOMXPathResult */
     get_boolean_value(): boolean
     get_invalid_iterator_state(): boolean
@@ -30631,8 +30309,6 @@ export interface Download {
     priv:DownloadPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.Download */
     cancel(): void
     get_current_size(): number
@@ -30706,11 +30382,8 @@ export interface FaviconDatabase {
     path:string
     /* Fields of WebKit.FaviconDatabase */
     parent_instance:GObject.Object
-    priv:FaviconDatabasePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.FaviconDatabase */
     clear(): void
     get_favicon_pixbuf(page_uri: string, width: number, height: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
@@ -30772,11 +30445,8 @@ export interface FileChooserRequest {
     readonly selected_files:string[]
     /* Fields of WebKit.FileChooserRequest */
     parent:GObject.Object
-    priv:FileChooserRequestPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.FileChooserRequest */
     get_mime_types(): string[]
     get_mime_types_filter(): Gtk.FileFilter
@@ -30832,11 +30502,8 @@ export interface GeolocationPolicyDecision_ConstructProps extends GObject.Object
 export interface GeolocationPolicyDecision {
     /* Fields of WebKit.GeolocationPolicyDecision */
     parent_instance:GObject.Object
-    priv:GeolocationPolicyDecisionPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -30890,11 +30557,8 @@ export interface HitTestResult {
     /* Properties of WebKit.HitTestResult */
     /* Fields of WebKit.HitTestResult */
     parent_instance:GObject.Object
-    priv:HitTestResultPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -30943,11 +30607,8 @@ export interface IconDatabase {
     path:string
     /* Fields of WebKit.IconDatabase */
     parent_instance:GObject.Object
-    priv:IconDatabasePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.IconDatabase */
     clear(): void
     get_icon_pixbuf(page_uri: string): GdkPixbuf.Pixbuf
@@ -31006,11 +30667,8 @@ export interface NetworkRequest {
     uri:string
     /* Fields of WebKit.NetworkRequest */
     parent_instance:GObject.Object
-    priv:NetworkRequestPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.NetworkRequest */
     get_message(): Soup.Message
     get_uri(): string
@@ -31069,11 +30727,8 @@ export interface NetworkResponse {
     uri:string
     /* Fields of WebKit.NetworkResponse */
     parent_instance:GObject.Object
-    priv:NetworkResponsePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.NetworkResponse */
     get_message(): Soup.Message
     get_suggested_filename(): string
@@ -31136,11 +30791,8 @@ export interface SecurityOrigin {
     readonly web_database_usage:number
     /* Fields of WebKit.SecurityOrigin */
     parent_instance:GObject.Object
-    priv:SecurityOriginPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.SecurityOrigin */
     get_all_web_databases(): GLib.List
     get_host(): string
@@ -31201,8 +30853,6 @@ export interface SoupAuthDialog {
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -31272,11 +30922,8 @@ export interface ViewportAttributes {
     readonly width:number
     /* Fields of WebKit.ViewportAttributes */
     parent_instance:GObject.Object
-    priv:ViewportAttributesPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.ViewportAttributes */
     recompute(): void
     /* Methods of GObject.Object */
@@ -31338,11 +30985,8 @@ export interface WebBackForwardList_ConstructProps extends GObject.Object_Constr
 export interface WebBackForwardList {
     /* Fields of WebKit.WebBackForwardList */
     parent_instance:GObject.Object
-    priv:WebBackForwardListPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebBackForwardList */
     add_item(history_item: WebHistoryItem): void
     clear(): void
@@ -31405,11 +31049,8 @@ export interface WebDataSource_ConstructProps extends GObject.Object_ConstructPr
 export interface WebDataSource {
     /* Fields of WebKit.WebDataSource */
     parent_instance:GObject.Object
-    priv:WebDataSourcePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebDataSource */
     get_data(): GLib.String
     get_encoding(): string
@@ -31475,11 +31116,8 @@ export interface WebDatabase {
     readonly size:number
     /* Fields of WebKit.WebDatabase */
     parent_instance:GObject.Object
-    priv:WebDatabasePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebDatabase */
     get_display_name(): string
     get_expected_size(): number
@@ -31544,11 +31182,8 @@ export interface WebFrame {
     readonly vertical_scrollbar_policy:Gtk.PolicyType
     /* Fields of WebKit.WebFrame */
     parent_instance:GObject.Object
-    priv:WebFramePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebFrame */
     find_frame(name: string): WebFrame
     get_data_source(): WebDataSource
@@ -31648,11 +31283,8 @@ export interface WebHistoryItem {
     readonly uri:string
     /* Fields of WebKit.WebHistoryItem */
     parent_instance:GObject.Object
-    priv:WebHistoryItemPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebHistoryItem */
     copy(): WebHistoryItem
     get_alternate_title(): string
@@ -31725,8 +31357,6 @@ export interface WebInspector {
     priv:WebInspectorPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebInspector */
     close(): void
     get_inspected_uri(): string
@@ -31798,11 +31428,8 @@ export interface WebNavigationAction {
     reason:WebNavigationReason
     /* Fields of WebKit.WebNavigationAction */
     parent_instance:GObject.Object
-    priv:WebNavigationActionPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebNavigationAction */
     get_button(): number
     get_modifier_state(): number
@@ -31864,8 +31491,6 @@ export interface WebPlugin {
     priv:WebPluginPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebPlugin */
     get_description(): string
     get_enabled(): boolean
@@ -31921,8 +31546,6 @@ export interface WebPluginDatabase {
     priv:WebPluginDatabasePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebPluginDatabase */
     get_plugin_for_mimetype(mime_type: string): WebPlugin
     get_plugins(): GLib.SList
@@ -31975,11 +31598,8 @@ export interface WebPolicyDecision_ConstructProps extends GObject.Object_Constru
 export interface WebPolicyDecision {
     /* Fields of WebKit.WebPolicyDecision */
     parent_instance:GObject.Object
-    priv:WebPolicyDecisionPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebPolicyDecision */
     download(): void
     ignore(): void
@@ -32034,11 +31654,8 @@ export interface WebResource {
     readonly mime_type:string
     /* Fields of WebKit.WebResource */
     parent_instance:GObject.Object
-    priv:WebResourcePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebResource */
     get_data(): GLib.String
     get_encoding(): string
@@ -32219,11 +31836,8 @@ export interface WebSettings {
     zoom_step:number
     /* Fields of WebKit.WebSettings */
     parent_instance:GObject.Object
-    priv:WebSettingsPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebSettings */
     copy(): WebSettings
     get_user_agent(): string
@@ -32406,14 +32020,11 @@ export interface WebView {
     readonly window:Gdk.Window
     /* Fields of WebKit.WebView */
     parent_instance:Gtk.Container
-    priv:WebViewPrivate
     /* Fields of Gtk.Container */
     widget:Gtk.Widget
     /* Fields of Gtk.Widget */
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of WebKit.WebView */
     can_copy_clipboard(): boolean
@@ -33152,11 +32763,8 @@ export interface WebWindowFeatures {
     y:number
     /* Fields of WebKit.WebWindowFeatures */
     parent_instance:GObject.Object
-    priv:WebWindowFeaturesPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of WebKit.WebWindowFeatures */
     equal(features2: WebWindowFeatures): boolean
     /* Methods of GObject.Object */

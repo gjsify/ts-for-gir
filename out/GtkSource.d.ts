@@ -247,8 +247,6 @@ export interface Buffer {
     /* Fields of Gtk.TextBuffer */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.Buffer */
     backward_iter_to_source_mark(iter: Gtk.TextIter, category: string | null): boolean
     begin_not_undoable_action(): void
@@ -475,8 +473,6 @@ export interface Completion {
     priv:CompletionPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.Completion */
     add_provider(provider: CompletionProvider): boolean
     block_interactive(): void
@@ -566,8 +562,6 @@ export interface CompletionContext {
     priv:CompletionContextPrivate
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of GtkSource.CompletionContext */
     add_proposals(provider: CompletionProvider, proposals: GLib.List | null, finished: boolean): void
@@ -710,8 +704,6 @@ export interface CompletionInfo {
     parent_instance:GObject.InitiallyUnowned
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of GtkSource.CompletionInfo */
     get_widget(): Gtk.Widget
@@ -1429,8 +1421,6 @@ export interface CompletionItem {
     priv:CompletionItemPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding
@@ -1508,8 +1498,6 @@ export interface CompletionWords {
     priv:CompletionWordsPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.CompletionWords */
     register(buffer: Gtk.TextBuffer): void
     unregister(buffer: Gtk.TextBuffer): void
@@ -1579,8 +1567,6 @@ export interface File {
     priv:FilePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.File */
     check_file_on_disk(): void
     get_compression_type(): CompressionType
@@ -1653,8 +1639,6 @@ export interface FileLoader {
     priv:FileLoaderPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.FileLoader */
     get_buffer(): Buffer
     get_compression_type(): CompressionType
@@ -1730,8 +1714,6 @@ export interface FileSaver {
     priv:FileSaverPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.FileSaver */
     get_buffer(): Buffer
     get_compression_type(): CompressionType
@@ -1809,8 +1791,6 @@ export interface Gutter {
     priv:GutterPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.Gutter */
     get_padding(xpad: number, ypad: number): void
     get_renderer_at_pos(x: number, y: number): GutterRenderer | null
@@ -1888,11 +1868,8 @@ export interface GutterRenderer {
     ypad:number
     /* Fields of GtkSource.GutterRenderer */
     parent:GObject.InitiallyUnowned
-    priv:GutterRendererPrivate
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of GtkSource.GutterRenderer */
     activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
@@ -2010,13 +1987,10 @@ export interface GutterRendererPixbuf {
     yalign:number
     ypad:number
     /* Fields of GtkSource.GutterRendererPixbuf */
-    parent:GutterRenderer
-    priv:GutterRendererPixbufPrivate
     /* Fields of GtkSource.GutterRenderer */
+    parent:GObject.InitiallyUnowned
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of GtkSource.GutterRendererPixbuf */
     get_gicon(): Gio.Icon
@@ -2146,13 +2120,10 @@ export interface GutterRendererText {
     yalign:number
     ypad:number
     /* Fields of GtkSource.GutterRendererText */
-    parent:GutterRenderer
-    priv:GutterRendererTextPrivate
     /* Fields of GtkSource.GutterRenderer */
+    parent:GObject.InitiallyUnowned
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of GtkSource.GutterRendererText */
     measure(text: string): [ /* width */ number, /* height */ number ]
@@ -2268,8 +2239,6 @@ export interface Language {
     priv:LanguagePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.Language */
     get_globs(): string[] | null
     get_hidden(): boolean
@@ -2337,8 +2306,6 @@ export interface LanguageManager {
     priv:LanguageManagerPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.LanguageManager */
     get_language(id: string): Language | null
     get_language_ids(): string[] | null
@@ -2490,8 +2457,6 @@ export interface Map {
     /* Fields of Gtk.Widget */
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of GtkSource.Map */
     get_view(): View | null
@@ -3234,11 +3199,8 @@ export interface Mark {
     parent_instance:Gtk.TextMark
     priv:MarkPrivate
     /* Fields of Gtk.TextMark */
-    segment:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.Mark */
     get_category(): string
     next(category: string | null): Mark | null
@@ -3308,12 +3270,8 @@ export interface MarkAttributes {
     pixbuf:GdkPixbuf.Pixbuf
     stock_id:string
     /* Fields of GtkSource.MarkAttributes */
-    parent:GObject.Object
-    priv:MarkAttributesPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.MarkAttributes */
     get_background(): [ /* returnType */ boolean, /* background */ Gdk.RGBA ]
     get_gicon(): Gio.Icon
@@ -3410,8 +3368,6 @@ export interface PrintCompositor {
     priv:PrintCompositorPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.PrintCompositor */
     draw_page(context: Gtk.PrintContext, page_nr: number): void
     get_body_font_name(): string
@@ -3521,8 +3477,6 @@ export interface SearchContext {
     priv:SearchContextPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.SearchContext */
     backward(iter: Gtk.TextIter): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
     backward_async(iter: Gtk.TextIter, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
@@ -3609,8 +3563,6 @@ export interface SearchSettings {
     priv:SearchSettingsPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.SearchSettings */
     get_at_word_boundaries(): boolean
     get_case_sensitive(): boolean
@@ -3695,8 +3647,6 @@ export interface Style {
     /* Properties of GtkSource.Style */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.Style */
     copy(): Style
     /* Methods of GObject.Object */
@@ -3752,8 +3702,6 @@ export interface StyleScheme {
     priv:StyleSchemePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.StyleScheme */
     get_authors(): string[] | null
     get_description(): string | null
@@ -3863,8 +3811,6 @@ export interface StyleSchemeChooserButton {
     readonly window:Gdk.Window
     /* Fields of GtkSource.StyleSchemeChooserButton */
     /* Fields of Gtk.Button */
-    bin:Gtk.Bin
-    priv:Gtk.ButtonPrivate
     /* Fields of Gtk.Bin */
     container:Gtk.Container
     /* Fields of Gtk.Container */
@@ -3873,8 +3819,6 @@ export interface StyleSchemeChooserButton {
     parent_instance:GObject.InitiallyUnowned
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of Gtk.Button */
     clicked(): void
@@ -4512,15 +4456,12 @@ export interface StyleSchemeChooserWidget {
     /* Fields of GtkSource.StyleSchemeChooserWidget */
     /* Fields of Gtk.Bin */
     container:Gtk.Container
-    priv:Gtk.BinPrivate
     /* Fields of Gtk.Container */
     widget:Gtk.Widget
     /* Fields of Gtk.Widget */
     parent_instance:GObject.InitiallyUnowned
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of Gtk.Bin */
     get_child(): Gtk.Widget
@@ -5072,8 +5013,6 @@ export interface StyleSchemeManager {
     priv:StyleSchemeManagerPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GtkSource.StyleSchemeManager */
     append_search_path(path: string): void
     force_rescan(): void
@@ -5235,8 +5174,6 @@ export interface View {
     /* Fields of Gtk.Widget */
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Fields of GObject.Object */
     /* Methods of GtkSource.View */
     get_auto_indent(): boolean
@@ -6198,7 +6135,6 @@ export interface GutterRendererClass_Static {
 export declare var GutterRendererClass: GutterRendererClass_Static
 export interface GutterRendererPixbufClass {
     /* Fields of GtkSource.GutterRendererPixbufClass */
-    parent_class:GutterRendererClass
 }
 export interface GutterRendererPixbufClass_Static {
     name: string
@@ -6218,7 +6154,6 @@ export interface GutterRendererPrivate_Static {
 export declare var GutterRendererPrivate: GutterRendererPrivate_Static
 export interface GutterRendererTextClass {
     /* Fields of GtkSource.GutterRendererTextClass */
-    parent_class:GutterRendererClass
 }
 export interface GutterRendererTextClass_Static {
     name: string
@@ -6269,7 +6204,6 @@ export interface MapClass_Static {
 export declare var MapClass: MapClass_Static
 export interface MarkAttributesClass {
     /* Fields of GtkSource.MarkAttributesClass */
-    parent_class:GObject.ObjectClass
 }
 export interface MarkAttributesClass_Static {
     name: string

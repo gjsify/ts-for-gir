@@ -787,8 +787,6 @@ export interface GObjectAccessible {
     layer:Layer
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.GObjectAccessible */
     get_object(): GObject.Object
     /* Methods of Atk.Object */
@@ -917,8 +915,6 @@ export interface Hyperlink {
     parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.Hyperlink */
     get_end_index(): number
     get_n_anchors(): number
@@ -991,8 +987,6 @@ export interface Misc {
     parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.Misc */
     threads_enter(): void
     threads_leave(): void
@@ -1071,8 +1065,6 @@ export interface NoOpObject {
     layer:Layer
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_attributes(): AttributeSet
@@ -1195,8 +1187,6 @@ export interface NoOpObjectFactory {
     /* Fields of Atk.ObjectFactory */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.ObjectFactory */
     create_accessible(obj: GObject.Object): Object
     get_accessible_type(): number
@@ -1286,8 +1276,6 @@ export interface Object {
     layer:Layer
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_attributes(): AttributeSet
@@ -1406,8 +1394,6 @@ export interface ObjectFactory {
     parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.ObjectFactory */
     create_accessible(obj: GObject.Object): Object
     get_accessible_type(): number
@@ -1483,8 +1469,6 @@ export interface Plug {
     layer:Layer
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.Plug */
     get_id(): string
     /* Methods of Atk.Object */
@@ -1612,8 +1596,6 @@ export interface Registry {
     factory_singleton_cache:GLib.HashTable
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.Registry */
     get_factory(type: number): ObjectFactory
     get_factory_type(type: number): number
@@ -1671,8 +1653,6 @@ export interface Relation {
     relationship:RelationType
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.Relation */
     add_target(target: Object): void
     get_relation_type(): RelationType
@@ -1731,8 +1711,6 @@ export interface RelationSet {
     relations:object[]
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.RelationSet */
     add(relation: Relation): void
     add_relation_by_type(relationship: RelationType, target: Object): void
@@ -1806,7 +1784,6 @@ export interface Socket {
     accessible_value:number
     /* Fields of Atk.Socket */
     parent:Object
-    embedded_plug_id:string
     /* Fields of Atk.Object */
     description:string
     name:string
@@ -1815,8 +1792,6 @@ export interface Socket {
     layer:Layer
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.Socket */
     embed(plug_id: string): void
     is_occupied(): boolean
@@ -1943,8 +1918,6 @@ export interface StateSet {
     parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of Atk.StateSet */
     add_state(type: StateType): boolean
     add_states(types: StateType[]): void
@@ -2006,8 +1979,6 @@ export interface Util {
     parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.BindingTransformFunc | null, transform_from: GObject.BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): GObject.Binding

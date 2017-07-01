@@ -42,6 +42,7 @@ interface GirVariable extends TsForGjsExtended {
         "allow-none"?: string
         writable?: string
         readable?: string
+        private?: string
         "construct-only"?: string
         direction?: string
         introspectable?: string
@@ -512,7 +513,8 @@ export class GirModule {
                         allowQuotes: boolean = false): [string[], string|null] {
         if (!v.$.name)
             return [[], null]
-        if (!v || !v.$ || !this.girBool(v.$.introspectable, true))
+        if (!v || !v.$ || !this.girBool(v.$.introspectable, true) ||
+            this.girBool(v.$.private))
             return [[], null] 
 
         let name = this.fixVariableName(v.$.name, allowQuotes)
@@ -526,6 +528,8 @@ export class GirModule {
         if (this.girBool(v.$["construct-only"]) && !construct)
             return [[], null, null]
         if (!this.girBool(v.$.writable) && construct)
+            return [[], null, null]
+        if (this.girBool(v.$.private))
             return [[], null, null]
 
         let propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '

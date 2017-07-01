@@ -83,8 +83,6 @@ export interface Pixbuf {
     /* Properties of GdkPixbuf.Pixbuf */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GdkPixbuf.Pixbuf */
     add_alpha(substitute_color: boolean, r: number, g: number, b: number): Pixbuf
     apply_embedded_orientation(): Pixbuf
@@ -185,8 +183,6 @@ export interface PixbufAnimation_ConstructProps extends GObject.Object_Construct
 export interface PixbufAnimation {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GdkPixbuf.PixbufAnimation */
     get_height(): number
     get_iter(start_time: GLib.TimeVal | null): PixbufAnimationIter
@@ -245,8 +241,6 @@ export interface PixbufAnimationIter_ConstructProps extends GObject.Object_Const
 export interface PixbufAnimationIter {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GdkPixbuf.PixbufAnimationIter */
     advance(current_time: GLib.TimeVal | null): boolean
     get_delay_time(): number
@@ -297,11 +291,8 @@ export interface PixbufLoader_ConstructProps extends GObject.Object_ConstructPro
 export interface PixbufLoader {
     /* Fields of GdkPixbuf.PixbufLoader */
     parent_instance:GObject.Object
-    priv:object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GdkPixbuf.PixbufLoader */
     close(): boolean
     get_animation(): PixbufAnimation
@@ -373,8 +364,6 @@ export interface PixbufSimpleAnim {
     loop:boolean
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GdkPixbuf.PixbufSimpleAnim */
     add_frame(pixbuf: Pixbuf): void
     get_loop(): boolean
@@ -434,8 +423,6 @@ export interface PixbufSimpleAnimIter_ConstructProps extends PixbufAnimationIter
 export interface PixbufSimpleAnimIter {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
-    ref_count:number
-    qdata:GLib.Data
     /* Methods of GdkPixbuf.PixbufAnimationIter */
     advance(current_time: GLib.TimeVal | null): boolean
     get_delay_time(): number

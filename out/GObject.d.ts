@@ -317,7 +317,7 @@ export interface TypePlugin_Static {
     name: string
 }
 export declare var TypePlugin: TypePlugin_Static
-export interface Binding_ConstructProps {
+export interface Binding_ConstructProps extends Object_ConstructProps {
     /* Properties of GObject.Binding */
     flags?:BindingFlags
     source?:Object
@@ -378,7 +378,7 @@ export interface Binding_Static {
     new (config: Binding_ConstructProps): Binding
 }
 export declare var Binding: Binding_Static
-export interface InitiallyUnowned_ConstructProps {
+export interface InitiallyUnowned_ConstructProps extends Object_ConstructProps {
 }
 export interface InitiallyUnowned {
     /* Fields of GObject.InitiallyUnowned */
@@ -426,7 +426,7 @@ export interface InitiallyUnowned_Static {
     new (config: InitiallyUnowned_ConstructProps): InitiallyUnowned
 }
 export declare var InitiallyUnowned: InitiallyUnowned_Static
-export interface Object_ConstructProps {
+export interface Object_ConstructProps  {
 }
 export interface Object {
     /* Fields of GObject.Object */
@@ -1369,7 +1369,7 @@ export interface ParamSpecVariant_Static {
     name: string
 }
 export declare var ParamSpecVariant: ParamSpecVariant_Static
-export interface TypeModule_ConstructProps {
+export interface TypeModule_ConstructProps extends Object_ConstructProps {
 }
 export interface TypeModule {
     /* Fields of GObject.TypeModule */

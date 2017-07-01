@@ -758,20 +758,7 @@ export interface Window_Static {
     name: string
 }
 export declare var Window: Window_Static
-export interface GObjectAccessible_ConstructProps {
-    /* Properties of Atk.Object */
-    accessible_description?:string
-    accessible_name?:string
-    accessible_parent?:Object
-    accessible_role?:number
-    accessible_table_caption?:string
-    accessible_table_caption_object?:Object
-    accessible_table_column_description?:string
-    accessible_table_column_header?:Object
-    accessible_table_row_description?:string
-    accessible_table_row_header?:Object
-    accessible_table_summary?:Object
-    accessible_value?:number
+export interface GObjectAccessible_ConstructProps extends Object_ConstructProps {
 }
 export interface GObjectAccessible {
     /* Properties of Atk.Object */
@@ -918,7 +905,7 @@ export declare class GObjectAccessible_Static {
     for_object(obj: GObject.Object): Object
 }
 export declare var GObjectAccessible: GObjectAccessible_Static
-export interface Hyperlink_ConstructProps {
+export interface Hyperlink_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Atk.Hyperlink */
 }
 export interface Hyperlink {
@@ -998,7 +985,7 @@ export interface Hyperlink_Static {
     new (config: Hyperlink_ConstructProps): Hyperlink
 }
 export declare var Hyperlink: Hyperlink_Static
-export interface Misc_ConstructProps {
+export interface Misc_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Misc {
     /* Fields of Atk.Misc */
@@ -1056,20 +1043,7 @@ export declare class Misc_Static {
     get_instance(): Misc
 }
 export declare var Misc: Misc_Static
-export interface NoOpObject_ConstructProps {
-    /* Properties of Atk.Object */
-    accessible_description?:string
-    accessible_name?:string
-    accessible_parent?:Object
-    accessible_role?:number
-    accessible_table_caption?:string
-    accessible_table_caption_object?:Object
-    accessible_table_column_description?:string
-    accessible_table_column_header?:Object
-    accessible_table_row_description?:string
-    accessible_table_row_header?:Object
-    accessible_table_summary?:Object
-    accessible_value?:number
+export interface NoOpObject_ConstructProps extends Object_ConstructProps {
 }
 export interface NoOpObject {
     /* Properties of Atk.Object */
@@ -1214,7 +1188,7 @@ export declare class NoOpObject_Static {
     new(obj: GObject.Object): NoOpObject
 }
 export declare var NoOpObject: NoOpObject_Static
-export interface NoOpObjectFactory_ConstructProps {
+export interface NoOpObjectFactory_ConstructProps extends ObjectFactory_ConstructProps {
 }
 export interface NoOpObjectFactory {
     /* Fields of Atk.NoOpObjectFactory */
@@ -1273,7 +1247,7 @@ export declare class NoOpObjectFactory_Static {
     new(): NoOpObjectFactory
 }
 export declare var NoOpObjectFactory: NoOpObjectFactory_Static
-export interface Object_ConstructProps {
+export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Atk.Object */
     accessible_description?:string
     accessible_name?:string
@@ -1427,7 +1401,7 @@ export interface Object_Static {
     new (config: Object_ConstructProps): Object
 }
 export declare var Object: Object_Static
-export interface ObjectFactory_ConstructProps {
+export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface ObjectFactory {
     /* Fields of Atk.ObjectFactory */
@@ -1482,20 +1456,7 @@ export interface ObjectFactory_Static {
     new (config: ObjectFactory_ConstructProps): ObjectFactory
 }
 export declare var ObjectFactory: ObjectFactory_Static
-export interface Plug_ConstructProps {
-    /* Properties of Atk.Object */
-    accessible_description?:string
-    accessible_name?:string
-    accessible_parent?:Object
-    accessible_role?:number
-    accessible_table_caption?:string
-    accessible_table_caption_object?:Object
-    accessible_table_column_description?:string
-    accessible_table_column_header?:Object
-    accessible_table_row_description?:string
-    accessible_table_row_header?:Object
-    accessible_table_summary?:Object
-    accessible_value?:number
+export interface Plug_ConstructProps extends Object_ConstructProps {
 }
 export interface Plug {
     /* Properties of Atk.Object */
@@ -1644,7 +1605,7 @@ export declare class Plug_Static {
     new(): Plug
 }
 export declare var Plug: Plug_Static
-export interface Registry_ConstructProps {
+export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Registry {
     /* Fields of Atk.Registry */
@@ -1699,7 +1660,7 @@ export interface Registry_Static {
     new (config: Registry_ConstructProps): Registry
 }
 export declare var Registry: Registry_Static
-export interface Relation_ConstructProps {
+export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Atk.Relation */
     relation_type?:RelationType
     target?:GObject.ValueArray
@@ -1765,7 +1726,7 @@ export declare class Relation_Static {
     new(targets: Object[], n_targets: number, relationship: RelationType): Relation
 }
 export declare var Relation: Relation_Static
-export interface RelationSet_ConstructProps {
+export interface RelationSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface RelationSet {
     /* Fields of Atk.RelationSet */
@@ -1827,20 +1788,7 @@ export declare class RelationSet_Static {
     new(): RelationSet
 }
 export declare var RelationSet: RelationSet_Static
-export interface Socket_ConstructProps {
-    /* Properties of Atk.Object */
-    accessible_description?:string
-    accessible_name?:string
-    accessible_parent?:Object
-    accessible_role?:number
-    accessible_table_caption?:string
-    accessible_table_caption_object?:Object
-    accessible_table_column_description?:string
-    accessible_table_column_header?:Object
-    accessible_table_row_description?:string
-    accessible_table_row_header?:Object
-    accessible_table_summary?:Object
-    accessible_value?:number
+export interface Socket_ConstructProps extends Object_ConstructProps {
 }
 export interface Socket {
     /* Properties of Atk.Object */
@@ -1991,7 +1939,7 @@ export declare class Socket_Static {
     new(): Socket
 }
 export declare var Socket: Socket_Static
-export interface StateSet_ConstructProps {
+export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface StateSet {
     /* Fields of Atk.StateSet */
@@ -2054,7 +2002,7 @@ export declare class StateSet_Static {
     new(): StateSet
 }
 export declare var StateSet: StateSet_Static
-export interface Util_ConstructProps {
+export interface Util_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Util {
     /* Fields of Atk.Util */

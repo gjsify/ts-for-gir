@@ -320,7 +320,7 @@ export interface AttrFilterFunc {
 export interface FontsetForeachFunc {
     (fontset: Fontset, font: Font, user_data: object): boolean
 }
-export interface Context_ConstructProps {
+export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Context {
     /* Fields of GObject.Object */
@@ -392,7 +392,7 @@ export declare class Context_Static {
     new(): Context
 }
 export declare var Context: Context_Static
-export interface Engine_ConstructProps {
+export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Engine {
     /* Fields of Pango.Engine */
@@ -441,7 +441,7 @@ export interface Engine_Static {
     new (config: Engine_ConstructProps): Engine
 }
 export declare var Engine: Engine_Static
-export interface EngineLang_ConstructProps {
+export interface EngineLang_ConstructProps extends Engine_ConstructProps {
 }
 export interface EngineLang {
     /* Fields of Pango.EngineLang */
@@ -493,7 +493,7 @@ export interface EngineLang_Static {
     new (config: EngineLang_ConstructProps): EngineLang
 }
 export declare var EngineLang: EngineLang_Static
-export interface EngineShape_ConstructProps {
+export interface EngineShape_ConstructProps extends Engine_ConstructProps {
 }
 export interface EngineShape {
     /* Fields of Pango.EngineShape */
@@ -546,7 +546,7 @@ export interface EngineShape_Static {
     new (config: EngineShape_ConstructProps): EngineShape
 }
 export declare var EngineShape: EngineShape_Static
-export interface Font_ConstructProps {
+export interface Font_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Font {
     /* Fields of Pango.Font */
@@ -610,7 +610,7 @@ export declare class Font_Static {
     descriptions_free(descs: FontDescription[] | null): void
 }
 export declare var Font: Font_Static
-export interface FontFace_ConstructProps {
+export interface FontFace_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface FontFace {
     /* Fields of Pango.FontFace */
@@ -669,7 +669,7 @@ export interface FontFace_Static {
     new (config: FontFace_ConstructProps): FontFace
 }
 export declare var FontFace: FontFace_Static
-export interface FontFamily_ConstructProps {
+export interface FontFamily_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface FontFamily {
     /* Fields of Pango.FontFamily */
@@ -726,7 +726,7 @@ export interface FontFamily_Static {
     new (config: FontFamily_ConstructProps): FontFamily
 }
 export declare var FontFamily: FontFamily_Static
-export interface FontMap_ConstructProps {
+export interface FontMap_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface FontMap {
     /* Fields of Pango.FontMap */
@@ -789,7 +789,7 @@ export interface FontMap_Static {
     new (config: FontMap_ConstructProps): FontMap
 }
 export declare var FontMap: FontMap_Static
-export interface Fontset_ConstructProps {
+export interface Fontset_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Fontset {
     /* Fields of Pango.Fontset */
@@ -847,7 +847,7 @@ export interface Fontset_Static {
     new (config: Fontset_ConstructProps): Fontset
 }
 export declare var Fontset: Fontset_Static
-export interface FontsetSimple_ConstructProps {
+export interface FontsetSimple_ConstructProps extends Fontset_ConstructProps {
 }
 export interface FontsetSimple {
     /* Fields of Pango.Fontset */
@@ -911,7 +911,7 @@ export declare class FontsetSimple_Static {
     new(language: Language): FontsetSimple
 }
 export declare var FontsetSimple: FontsetSimple_Static
-export interface Layout_ConstructProps {
+export interface Layout_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Layout {
     /* Fields of GObject.Object */
@@ -1018,7 +1018,7 @@ export declare class Layout_Static {
     new(context: Context): Layout
 }
 export declare var Layout: Layout_Static
-export interface Renderer_ConstructProps {
+export interface Renderer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Renderer {
     /* Fields of Pango.Renderer */

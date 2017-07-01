@@ -702,11 +702,33 @@ export class GirModule {
             return [desc, true]
         }
 
+        let parentName: string|null = null
+        let counter: number = 0
+        this.traverseInheritanceTree(e, (cls) => {
+            if (counter++ != 1)
+                return
+            parentName = cls._fullSymName || null
+        })
+
+        let parentNameShort: string = parentName || ''
+        if (parentNameShort && this.name) {
+            let s = parentNameShort.split(".", 2)
+            if (s[0] === this.name) {
+                parentNameShort = s[1]
+            }
+        }
+
         // Properties for construction
         if (isDerivedFromGObject) {
-            def.push(`export interface ${name}_ConstructProps {`)
+            let ext: string = ' '
+            if (parentName)
+                ext = `extends ${parentNameShort}_ConstructProps `
+
+            def.push(`export interface ${name}_ConstructProps ${ext}{`)
             let constructPropNames = {}
-            this.traverseInheritanceTree(e, (cls) => {
+            if (true) {
+                let cls = e
+            
                 if (cls.property) {
                     def.push(`    /* Properties of ${cls._fullSymName} */`)
                     for (let p of cls.property) {
@@ -714,7 +736,7 @@ export class GirModule {
                         def = def.concat(checkName(desc, name, constructPropNames)[0])
                     }
                 }
-            })
+            }
             def.push("}")
         }
 

@@ -215,7 +215,7 @@ export interface UndoManager_Static {
     name: string
 }
 export declare var UndoManager: UndoManager_Static
-export interface Buffer_ConstructProps {
+export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
     /* Properties of GtkSource.Buffer */
     highlight_matching_brackets?:boolean
     highlight_syntax?:boolean
@@ -224,9 +224,6 @@ export interface Buffer_ConstructProps {
     max_undo_levels?:number
     style_scheme?:StyleScheme
     undo_manager?:UndoManager
-    /* Properties of Gtk.TextBuffer */
-    tag_table?:Gtk.TextTagTable
-    text?:string
 }
 export interface Buffer {
     /* Properties of GtkSource.Buffer */
@@ -453,7 +450,7 @@ export declare class Buffer_Static {
     new_with_language(language: Language): Buffer
 }
 export declare var Buffer: Buffer_Static
-export interface Completion_ConstructProps {
+export interface Completion_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.Completion */
     accelerators?:number
     auto_complete_delay?:number
@@ -557,7 +554,7 @@ export interface Completion_Static {
     new (config: Completion_ConstructProps): Completion
 }
 export declare var Completion: Completion_Static
-export interface CompletionContext_ConstructProps {
+export interface CompletionContext_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     /* Properties of GtkSource.CompletionContext */
     activation?:CompletionActivation
     completion?:Completion
@@ -625,77 +622,7 @@ export interface CompletionContext_Static {
     new (config: CompletionContext_ConstructProps): CompletionContext
 }
 export declare var CompletionContext: CompletionContext_Static
-export interface CompletionInfo_ConstructProps {
-    /* Properties of Gtk.Window */
-    accept_focus?:boolean
-    application?:Gtk.Application
-    attached_to?:Gtk.Widget
-    decorated?:boolean
-    default_height?:number
-    default_width?:number
-    deletable?:boolean
-    destroy_with_parent?:boolean
-    focus_on_map?:boolean
-    focus_visible?:boolean
-    gravity?:Gdk.Gravity
-    has_resize_grip?:boolean
-    hide_titlebar_when_maximized?:boolean
-    icon?:GdkPixbuf.Pixbuf
-    icon_name?:string
-    mnemonics_visible?:boolean
-    modal?:boolean
-    resizable?:boolean
-    role?:string
-    screen?:Gdk.Screen
-    skip_pager_hint?:boolean
-    skip_taskbar_hint?:boolean
-    startup_id?:string
-    title?:string
-    transient_for?:Gtk.Window
-    type?:Gtk.WindowType
-    type_hint?:Gdk.WindowTypeHint
-    urgency_hint?:boolean
-    window_position?:Gtk.WindowPosition
-    /* Properties of Gtk.Container */
-    border_width?:number
-    child?:Gtk.Widget
-    resize_mode?:Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
-    app_paintable?:boolean
-    can_default?:boolean
-    can_focus?:boolean
-    double_buffered?:boolean
-    events?:Gdk.EventMask
-    expand?:boolean
-    halign?:Gtk.Align
-    has_default?:boolean
-    has_focus?:boolean
-    has_tooltip?:boolean
-    height_request?:number
-    hexpand?:boolean
-    hexpand_set?:boolean
-    is_focus?:boolean
-    margin?:number
-    margin_bottom?:number
-    margin_end?:number
-    margin_left?:number
-    margin_right?:number
-    margin_start?:number
-    margin_top?:number
-    name?:string
-    no_show_all?:boolean
-    opacity?:number
-    parent?:Gtk.Container
-    receives_default?:boolean
-    sensitive?:boolean
-    style?:Gtk.Style
-    tooltip_markup?:string
-    tooltip_text?:string
-    valign?:Gtk.Align
-    vexpand?:boolean
-    vexpand_set?:boolean
-    visible?:boolean
-    width_request?:number
+export interface CompletionInfo_ConstructProps extends Gtk.Window_ConstructProps {
 }
 export interface CompletionInfo {
     /* Properties of Gtk.Window */
@@ -1482,7 +1409,7 @@ export declare class CompletionInfo_Static {
     new(): CompletionInfo
 }
 export declare var CompletionInfo: CompletionInfo_Static
-export interface CompletionItem_ConstructProps {
+export interface CompletionItem_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.CompletionItem */
     gicon?:Gio.Icon
     icon?:GdkPixbuf.Pixbuf
@@ -1560,7 +1487,7 @@ export declare class CompletionItem_Static {
     new_with_markup(markup: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
 }
 export declare var CompletionItem: CompletionItem_Static
-export interface CompletionWords_ConstructProps {
+export interface CompletionWords_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.CompletionWords */
     activation?:CompletionActivation
     icon?:GdkPixbuf.Pixbuf
@@ -1642,7 +1569,7 @@ export declare class CompletionWords_Static {
     new(name: string | null, icon: GdkPixbuf.Pixbuf | null): CompletionWords
 }
 export declare var CompletionWords: CompletionWords_Static
-export interface File_ConstructProps {
+export interface File_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.File */
     location?:Gio.File
 }
@@ -1719,7 +1646,7 @@ export declare class File_Static {
     new(): File
 }
 export declare var File: File_Static
-export interface FileLoader_ConstructProps {
+export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.FileLoader */
     buffer?:Buffer
     file?:File
@@ -1790,7 +1717,7 @@ export declare class FileLoader_Static {
     new_from_stream(buffer: Buffer, file: File, stream: Gio.InputStream): FileLoader
 }
 export declare var FileLoader: FileLoader_Static
-export interface FileSaver_ConstructProps {
+export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.FileSaver */
     buffer?:Buffer
     compression_type?:CompressionType
@@ -1875,7 +1802,7 @@ export declare class FileSaver_Static {
     new_with_target(buffer: Buffer, file: File, target_location: Gio.File): FileSaver
 }
 export declare var FileSaver: FileSaver_Static
-export interface Gutter_ConstructProps {
+export interface Gutter_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.Gutter */
     view?:View
     window_type?:Gtk.TextWindowType
@@ -1944,7 +1871,7 @@ export interface Gutter_Static {
     new (config: Gutter_ConstructProps): Gutter
 }
 export declare var Gutter: Gutter_Static
-export interface GutterRenderer_ConstructProps {
+export interface GutterRenderer_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     /* Properties of GtkSource.GutterRenderer */
     alignment_mode?:GutterRendererAlignmentMode
     background_rgba?:Gdk.RGBA
@@ -2068,22 +1995,12 @@ export interface GutterRenderer_Static {
     new (config: GutterRenderer_ConstructProps): GutterRenderer
 }
 export declare var GutterRenderer: GutterRenderer_Static
-export interface GutterRendererPixbuf_ConstructProps {
+export interface GutterRendererPixbuf_ConstructProps extends GutterRenderer_ConstructProps {
     /* Properties of GtkSource.GutterRendererPixbuf */
     gicon?:Gio.Icon
     icon_name?:string
     pixbuf?:GdkPixbuf.Pixbuf
     stock_id?:string
-    /* Properties of GtkSource.GutterRenderer */
-    alignment_mode?:GutterRendererAlignmentMode
-    background_rgba?:Gdk.RGBA
-    background_set?:boolean
-    size?:number
-    visible?:boolean
-    xalign?:number
-    xpad?:number
-    yalign?:number
-    ypad?:number
 }
 export interface GutterRendererPixbuf {
     /* Properties of GtkSource.GutterRendererPixbuf */
@@ -2219,20 +2136,10 @@ export declare class GutterRendererPixbuf_Static {
     new(): GutterRendererPixbuf
 }
 export declare var GutterRendererPixbuf: GutterRendererPixbuf_Static
-export interface GutterRendererText_ConstructProps {
+export interface GutterRendererText_ConstructProps extends GutterRenderer_ConstructProps {
     /* Properties of GtkSource.GutterRendererText */
     markup?:string
     text?:string
-    /* Properties of GtkSource.GutterRenderer */
-    alignment_mode?:GutterRendererAlignmentMode
-    background_rgba?:Gdk.RGBA
-    background_set?:boolean
-    size?:number
-    visible?:boolean
-    xalign?:number
-    xpad?:number
-    yalign?:number
-    ypad?:number
 }
 export interface GutterRendererText {
     /* Properties of GtkSource.GutterRendererText */
@@ -2360,7 +2267,7 @@ export declare class GutterRendererText_Static {
     new(): GutterRendererText
 }
 export declare var GutterRendererText: GutterRendererText_Static
-export interface Language_ConstructProps {
+export interface Language_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.Language */
 }
 export interface Language {
@@ -2431,7 +2338,7 @@ export interface Language_Static {
     new (config: Language_ConstructProps): Language
 }
 export declare var Language: Language_Static
-export interface LanguageManager_ConstructProps {
+export interface LanguageManager_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.LanguageManager */
     search_path?:string[]
 }
@@ -2498,87 +2405,10 @@ export declare class LanguageManager_Static {
     get_default(): LanguageManager
 }
 export declare var LanguageManager: LanguageManager_Static
-export interface Map_ConstructProps {
+export interface Map_ConstructProps extends View_ConstructProps {
     /* Properties of GtkSource.Map */
     font_desc?:Pango.FontDescription
     view?:View
-    /* Properties of GtkSource.View */
-    auto_indent?:boolean
-    background_pattern?:BackgroundPatternType
-    draw_spaces?:DrawSpacesFlags
-    highlight_current_line?:boolean
-    indent_on_tab?:boolean
-    indent_width?:number
-    insert_spaces_instead_of_tabs?:boolean
-    right_margin_position?:number
-    show_line_marks?:boolean
-    show_line_numbers?:boolean
-    show_right_margin?:boolean
-    smart_backspace?:boolean
-    smart_home_end?:SmartHomeEndType
-    tab_width?:number
-    /* Properties of Gtk.TextView */
-    accepts_tab?:boolean
-    bottom_margin?:number
-    buffer?:Gtk.TextBuffer
-    cursor_visible?:boolean
-    editable?:boolean
-    im_module?:string
-    indent?:number
-    input_hints?:Gtk.InputHints
-    input_purpose?:Gtk.InputPurpose
-    justification?:Gtk.Justification
-    left_margin?:number
-    monospace?:boolean
-    overwrite?:boolean
-    pixels_above_lines?:number
-    pixels_below_lines?:number
-    pixels_inside_wrap?:number
-    populate_all?:boolean
-    right_margin?:number
-    tabs?:Pango.TabArray
-    top_margin?:number
-    wrap_mode?:Gtk.WrapMode
-    /* Properties of Gtk.Container */
-    border_width?:number
-    child?:Gtk.Widget
-    resize_mode?:Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
-    app_paintable?:boolean
-    can_default?:boolean
-    can_focus?:boolean
-    double_buffered?:boolean
-    events?:Gdk.EventMask
-    expand?:boolean
-    halign?:Gtk.Align
-    has_default?:boolean
-    has_focus?:boolean
-    has_tooltip?:boolean
-    height_request?:number
-    hexpand?:boolean
-    hexpand_set?:boolean
-    is_focus?:boolean
-    margin?:number
-    margin_bottom?:number
-    margin_end?:number
-    margin_left?:number
-    margin_right?:number
-    margin_start?:number
-    margin_top?:number
-    name?:string
-    no_show_all?:boolean
-    opacity?:number
-    parent?:Gtk.Container
-    receives_default?:boolean
-    sensitive?:boolean
-    style?:Gtk.Style
-    tooltip_markup?:string
-    tooltip_text?:string
-    valign?:Gtk.Align
-    vexpand?:boolean
-    vexpand_set?:boolean
-    visible?:boolean
-    width_request?:number
 }
 export interface Map {
     /* Properties of GtkSource.Map */
@@ -3409,12 +3239,9 @@ export declare class Map_Static {
     new(): Map
 }
 export declare var Map: Map_Static
-export interface Mark_ConstructProps {
+export interface Mark_ConstructProps extends Gtk.TextMark_ConstructProps {
     /* Properties of GtkSource.Mark */
     category?:string
-    /* Properties of Gtk.TextMark */
-    left_gravity?:boolean
-    name?:string
 }
 export interface Mark {
     /* Properties of GtkSource.Mark */
@@ -3482,7 +3309,7 @@ export declare class Mark_Static {
     new(name: string, category: string): Mark
 }
 export declare var Mark: Mark_Static
-export interface MarkAttributes_ConstructProps {
+export interface MarkAttributes_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.MarkAttributes */
     background?:Gdk.RGBA
     gicon?:Gio.Icon
@@ -3569,7 +3396,7 @@ export declare class MarkAttributes_Static {
     new(): MarkAttributes
 }
 export declare var MarkAttributes: MarkAttributes_Static
-export interface PrintCompositor_ConstructProps {
+export interface PrintCompositor_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.PrintCompositor */
     body_font_name?:string
     buffer?:Buffer
@@ -3694,7 +3521,7 @@ export declare class PrintCompositor_Static {
     new_from_view(view: View): PrintCompositor
 }
 export declare var PrintCompositor: PrintCompositor_Static
-export interface SearchContext_ConstructProps {
+export interface SearchContext_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.SearchContext */
     buffer?:Buffer
     highlight?:boolean
@@ -3782,7 +3609,7 @@ export declare class SearchContext_Static {
     new(buffer: Buffer, settings: SearchSettings | null): SearchContext
 }
 export declare var SearchContext: SearchContext_Static
-export interface SearchSettings_ConstructProps {
+export interface SearchSettings_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.SearchSettings */
     at_word_boundaries?:boolean
     case_sensitive?:boolean
@@ -3863,7 +3690,7 @@ export declare class SearchSettings_Static {
     new(): SearchSettings
 }
 export declare var SearchSettings: SearchSettings_Static
-export interface Style_ConstructProps {
+export interface Style_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.Style */
     background?:string
     background_set?:boolean
@@ -3933,7 +3760,7 @@ export interface Style_Static {
     new (config: Style_ConstructProps): Style
 }
 export declare var Style: Style_Static
-export interface StyleScheme_ConstructProps {
+export interface StyleScheme_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.StyleScheme */
     id?:string
 }
@@ -3999,58 +3826,7 @@ export interface StyleScheme_Static {
     new (config: StyleScheme_ConstructProps): StyleScheme
 }
 export declare var StyleScheme: StyleScheme_Static
-export interface StyleSchemeChooserButton_ConstructProps {
-    /* Properties of Gtk.Button */
-    always_show_image?:boolean
-    focus_on_click?:boolean
-    image?:Gtk.Widget
-    image_position?:Gtk.PositionType
-    label?:string
-    relief?:Gtk.ReliefStyle
-    use_stock?:boolean
-    use_underline?:boolean
-    xalign?:number
-    yalign?:number
-    /* Properties of Gtk.Container */
-    border_width?:number
-    child?:Gtk.Widget
-    resize_mode?:Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
-    app_paintable?:boolean
-    can_default?:boolean
-    can_focus?:boolean
-    double_buffered?:boolean
-    events?:Gdk.EventMask
-    expand?:boolean
-    halign?:Gtk.Align
-    has_default?:boolean
-    has_focus?:boolean
-    has_tooltip?:boolean
-    height_request?:number
-    hexpand?:boolean
-    hexpand_set?:boolean
-    is_focus?:boolean
-    margin?:number
-    margin_bottom?:number
-    margin_end?:number
-    margin_left?:number
-    margin_right?:number
-    margin_start?:number
-    margin_top?:number
-    name?:string
-    no_show_all?:boolean
-    opacity?:number
-    parent?:Gtk.Container
-    receives_default?:boolean
-    sensitive?:boolean
-    style?:Gtk.Style
-    tooltip_markup?:string
-    tooltip_text?:string
-    valign?:Gtk.Align
-    vexpand?:boolean
-    vexpand_set?:boolean
-    visible?:boolean
-    width_request?:number
+export interface StyleSchemeChooserButton_ConstructProps extends Gtk.Button_ConstructProps {
 }
 export interface StyleSchemeChooserButton {
     /* Properties of Gtk.Button */
@@ -4709,47 +4485,7 @@ export declare class StyleSchemeChooserButton_Static {
     new(): StyleSchemeChooserButton
 }
 export declare var StyleSchemeChooserButton: StyleSchemeChooserButton_Static
-export interface StyleSchemeChooserWidget_ConstructProps {
-    /* Properties of Gtk.Container */
-    border_width?:number
-    child?:Gtk.Widget
-    resize_mode?:Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
-    app_paintable?:boolean
-    can_default?:boolean
-    can_focus?:boolean
-    double_buffered?:boolean
-    events?:Gdk.EventMask
-    expand?:boolean
-    halign?:Gtk.Align
-    has_default?:boolean
-    has_focus?:boolean
-    has_tooltip?:boolean
-    height_request?:number
-    hexpand?:boolean
-    hexpand_set?:boolean
-    is_focus?:boolean
-    margin?:number
-    margin_bottom?:number
-    margin_end?:number
-    margin_left?:number
-    margin_right?:number
-    margin_start?:number
-    margin_top?:number
-    name?:string
-    no_show_all?:boolean
-    opacity?:number
-    parent?:Gtk.Container
-    receives_default?:boolean
-    sensitive?:boolean
-    style?:Gtk.Style
-    tooltip_markup?:string
-    tooltip_text?:string
-    valign?:Gtk.Align
-    vexpand?:boolean
-    vexpand_set?:boolean
-    visible?:boolean
-    width_request?:number
+export interface StyleSchemeChooserWidget_ConstructProps extends Gtk.Bin_ConstructProps {
 }
 export interface StyleSchemeChooserWidget {
     /* Properties of Gtk.Container */
@@ -5346,7 +5082,7 @@ export declare class StyleSchemeChooserWidget_Static {
     new(): StyleSchemeChooserWidget
 }
 export declare var StyleSchemeChooserWidget: StyleSchemeChooserWidget_Static
-export interface StyleSchemeManager_ConstructProps {
+export interface StyleSchemeManager_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GtkSource.StyleSchemeManager */
     search_path?:string[]
 }
@@ -5415,7 +5151,7 @@ export declare class StyleSchemeManager_Static {
     get_default(): StyleSchemeManager
 }
 export declare var StyleSchemeManager: StyleSchemeManager_Static
-export interface View_ConstructProps {
+export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
     /* Properties of GtkSource.View */
     auto_indent?:boolean
     background_pattern?:BackgroundPatternType
@@ -5431,68 +5167,6 @@ export interface View_ConstructProps {
     smart_backspace?:boolean
     smart_home_end?:SmartHomeEndType
     tab_width?:number
-    /* Properties of Gtk.TextView */
-    accepts_tab?:boolean
-    bottom_margin?:number
-    buffer?:Gtk.TextBuffer
-    cursor_visible?:boolean
-    editable?:boolean
-    im_module?:string
-    indent?:number
-    input_hints?:Gtk.InputHints
-    input_purpose?:Gtk.InputPurpose
-    justification?:Gtk.Justification
-    left_margin?:number
-    monospace?:boolean
-    overwrite?:boolean
-    pixels_above_lines?:number
-    pixels_below_lines?:number
-    pixels_inside_wrap?:number
-    populate_all?:boolean
-    right_margin?:number
-    tabs?:Pango.TabArray
-    top_margin?:number
-    wrap_mode?:Gtk.WrapMode
-    /* Properties of Gtk.Container */
-    border_width?:number
-    child?:Gtk.Widget
-    resize_mode?:Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
-    app_paintable?:boolean
-    can_default?:boolean
-    can_focus?:boolean
-    double_buffered?:boolean
-    events?:Gdk.EventMask
-    expand?:boolean
-    halign?:Gtk.Align
-    has_default?:boolean
-    has_focus?:boolean
-    has_tooltip?:boolean
-    height_request?:number
-    hexpand?:boolean
-    hexpand_set?:boolean
-    is_focus?:boolean
-    margin?:number
-    margin_bottom?:number
-    margin_end?:number
-    margin_left?:number
-    margin_right?:number
-    margin_start?:number
-    margin_top?:number
-    name?:string
-    no_show_all?:boolean
-    opacity?:number
-    parent?:Gtk.Container
-    receives_default?:boolean
-    sensitive?:boolean
-    style?:Gtk.Style
-    tooltip_markup?:string
-    tooltip_text?:string
-    valign?:Gtk.Align
-    vexpand?:boolean
-    vexpand_set?:boolean
-    visible?:boolean
-    width_request?:number
 }
 export interface View {
     /* Properties of GtkSource.View */

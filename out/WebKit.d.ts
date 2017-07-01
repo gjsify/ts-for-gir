@@ -228,15 +228,9 @@ export interface SpellChecker_Static {
     name: string
 }
 export declare var SpellChecker: SpellChecker_Static
-export interface DOMAttr_ConstructProps {
+export interface DOMAttr_ConstructProps extends DOMNode_ConstructProps {
     /* Properties of WebKit.DOMAttr */
     value?:string
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMAttr {
     /* Properties of WebKit.DOMAttr */
@@ -379,11 +373,9 @@ export interface DOMAttr_Static {
     new (config: DOMAttr_ConstructProps): DOMAttr
 }
 export declare var DOMAttr: DOMAttr_Static
-export interface DOMAudioTrack_ConstructProps {
+export interface DOMAudioTrack_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMAudioTrack */
     enabled?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMAudioTrack {
     /* Properties of WebKit.DOMAudioTrack */
@@ -454,10 +446,8 @@ export interface DOMAudioTrack_Static {
     new (config: DOMAudioTrack_ConstructProps): DOMAudioTrack
 }
 export declare var DOMAudioTrack: DOMAudioTrack_Static
-export interface DOMAudioTrackList_ConstructProps {
+export interface DOMAudioTrackList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMAudioTrackList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMAudioTrackList {
     /* Properties of WebKit.DOMAudioTrackList */
@@ -518,10 +508,8 @@ export interface DOMAudioTrackList_Static {
     new (config: DOMAudioTrackList_ConstructProps): DOMAudioTrackList
 }
 export declare var DOMAudioTrackList: DOMAudioTrackList_Static
-export interface DOMBarInfo_ConstructProps {
+export interface DOMBarInfo_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMBarInfo */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMBarInfo {
     /* Properties of WebKit.DOMBarInfo */
@@ -578,10 +566,8 @@ export declare class DOMBarInfo_Static {
     get_visible(self: object): boolean
 }
 export declare var DOMBarInfo: DOMBarInfo_Static
-export interface DOMBarProp_ConstructProps {
+export interface DOMBarProp_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMBarProp */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMBarProp {
     /* Properties of WebKit.DOMBarProp */
@@ -639,10 +625,8 @@ export interface DOMBarProp_Static {
     new (config: DOMBarProp_ConstructProps): DOMBarProp
 }
 export declare var DOMBarProp: DOMBarProp_Static
-export interface DOMBatteryManager_ConstructProps {
+export interface DOMBatteryManager_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMBatteryManager */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMBatteryManager {
     /* Properties of WebKit.DOMBatteryManager */
@@ -710,10 +694,8 @@ export interface DOMBatteryManager_Static {
     new (config: DOMBatteryManager_ConstructProps): DOMBatteryManager
 }
 export declare var DOMBatteryManager: DOMBatteryManager_Static
-export interface DOMBlob_ConstructProps {
+export interface DOMBlob_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMBlob */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMBlob {
     /* Properties of WebKit.DOMBlob */
@@ -775,16 +757,7 @@ export interface DOMBlob_Static {
     new (config: DOMBlob_ConstructProps): DOMBlob
 }
 export declare var DOMBlob: DOMBlob_Static
-export interface DOMCDATASection_ConstructProps {
-    /* Properties of WebKit.DOMText */
-    /* Properties of WebKit.DOMCharacterData */
-    data?:string
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMCDATASection_ConstructProps extends DOMText_ConstructProps {
 }
 export interface DOMCDATASection {
     /* Properties of WebKit.DOMText */
@@ -930,11 +903,9 @@ export interface DOMCDATASection_Static {
     new (config: DOMCDATASection_ConstructProps): DOMCDATASection
 }
 export declare var DOMCDATASection: DOMCDATASection_Static
-export interface DOMCSSRule_ConstructProps {
+export interface DOMCSSRule_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMCSSRule */
     css_text?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMCSSRule {
     /* Properties of WebKit.DOMCSSRule */
@@ -1001,10 +972,8 @@ export interface DOMCSSRule_Static {
     new (config: DOMCSSRule_ConstructProps): DOMCSSRule
 }
 export declare var DOMCSSRule: DOMCSSRule_Static
-export interface DOMCSSRuleList_ConstructProps {
+export interface DOMCSSRuleList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMCSSRuleList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMCSSRuleList {
     /* Properties of WebKit.DOMCSSRuleList */
@@ -1063,11 +1032,9 @@ export interface DOMCSSRuleList_Static {
     new (config: DOMCSSRuleList_ConstructProps): DOMCSSRuleList
 }
 export declare var DOMCSSRuleList: DOMCSSRuleList_Static
-export interface DOMCSSStyleDeclaration_ConstructProps {
+export interface DOMCSSStyleDeclaration_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMCSSStyleDeclaration */
     css_text?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMCSSStyleDeclaration {
     /* Properties of WebKit.DOMCSSStyleDeclaration */
@@ -1139,12 +1106,8 @@ export interface DOMCSSStyleDeclaration_Static {
     new (config: DOMCSSStyleDeclaration_ConstructProps): DOMCSSStyleDeclaration
 }
 export declare var DOMCSSStyleDeclaration: DOMCSSStyleDeclaration_Static
-export interface DOMCSSStyleSheet_ConstructProps {
+export interface DOMCSSStyleSheet_ConstructProps extends DOMStyleSheet_ConstructProps {
     /* Properties of WebKit.DOMCSSStyleSheet */
-    /* Properties of WebKit.DOMStyleSheet */
-    disabled?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMCSSStyleSheet {
     /* Properties of WebKit.DOMCSSStyleSheet */
@@ -1236,11 +1199,9 @@ export interface DOMCSSStyleSheet_Static {
     new (config: DOMCSSStyleSheet_ConstructProps): DOMCSSStyleSheet
 }
 export declare var DOMCSSStyleSheet: DOMCSSStyleSheet_Static
-export interface DOMCSSValue_ConstructProps {
+export interface DOMCSSValue_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMCSSValue */
     css_text?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMCSSValue {
     /* Properties of WebKit.DOMCSSValue */
@@ -1302,15 +1263,9 @@ export interface DOMCSSValue_Static {
     new (config: DOMCSSValue_ConstructProps): DOMCSSValue
 }
 export declare var DOMCSSValue: DOMCSSValue_Static
-export interface DOMCharacterData_ConstructProps {
+export interface DOMCharacterData_ConstructProps extends DOMNode_ConstructProps {
     /* Properties of WebKit.DOMCharacterData */
     data?:string
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMCharacterData {
     /* Properties of WebKit.DOMCharacterData */
@@ -1447,15 +1402,7 @@ export interface DOMCharacterData_Static {
     new (config: DOMCharacterData_ConstructProps): DOMCharacterData
 }
 export declare var DOMCharacterData: DOMCharacterData_Static
-export interface DOMComment_ConstructProps {
-    /* Properties of WebKit.DOMCharacterData */
-    data?:string
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMComment_ConstructProps extends DOMCharacterData_ConstructProps {
 }
 export interface DOMComment {
     /* Properties of WebKit.DOMCharacterData */
@@ -1593,9 +1540,7 @@ export interface DOMComment_Static {
     new (config: DOMComment_ConstructProps): DOMComment
 }
 export declare var DOMComment: DOMComment_Static
-export interface DOMConsole_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMConsole_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMConsole {
     /* Properties of WebKit.DOMObject */
@@ -1652,10 +1597,8 @@ export interface DOMConsole_Static {
     new (config: DOMConsole_ConstructProps): DOMConsole
 }
 export declare var DOMConsole: DOMConsole_Static
-export interface DOMDOMApplicationCache_ConstructProps {
+export interface DOMDOMApplicationCache_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMApplicationCache */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMApplicationCache {
     /* Properties of WebKit.DOMDOMApplicationCache */
@@ -1717,9 +1660,7 @@ export interface DOMDOMApplicationCache_Static {
     new (config: DOMDOMApplicationCache_ConstructProps): DOMDOMApplicationCache
 }
 export declare var DOMDOMApplicationCache: DOMDOMApplicationCache_Static
-export interface DOMDOMImplementation_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMDOMImplementation_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMDOMImplementation {
     /* Properties of WebKit.DOMObject */
@@ -1778,10 +1719,8 @@ export interface DOMDOMImplementation_Static {
     new (config: DOMDOMImplementation_ConstructProps): DOMDOMImplementation
 }
 export declare var DOMDOMImplementation: DOMDOMImplementation_Static
-export interface DOMDOMMimeType_ConstructProps {
+export interface DOMDOMMimeType_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMMimeType */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMMimeType {
     /* Properties of WebKit.DOMDOMMimeType */
@@ -1847,10 +1786,8 @@ export interface DOMDOMMimeType_Static {
     new (config: DOMDOMMimeType_ConstructProps): DOMDOMMimeType
 }
 export declare var DOMDOMMimeType: DOMDOMMimeType_Static
-export interface DOMDOMMimeTypeArray_ConstructProps {
+export interface DOMDOMMimeTypeArray_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMMimeTypeArray */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMMimeTypeArray {
     /* Properties of WebKit.DOMDOMMimeTypeArray */
@@ -1910,10 +1847,8 @@ export interface DOMDOMMimeTypeArray_Static {
     new (config: DOMDOMMimeTypeArray_ConstructProps): DOMDOMMimeTypeArray
 }
 export declare var DOMDOMMimeTypeArray: DOMDOMMimeTypeArray_Static
-export interface DOMDOMNamedFlowCollection_ConstructProps {
+export interface DOMDOMNamedFlowCollection_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMNamedFlowCollection */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMNamedFlowCollection {
     /* Properties of WebKit.DOMDOMNamedFlowCollection */
@@ -1973,10 +1908,8 @@ export interface DOMDOMNamedFlowCollection_Static {
     new (config: DOMDOMNamedFlowCollection_ConstructProps): DOMDOMNamedFlowCollection
 }
 export declare var DOMDOMNamedFlowCollection: DOMDOMNamedFlowCollection_Static
-export interface DOMDOMPlugin_ConstructProps {
+export interface DOMDOMPlugin_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMPlugin */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMPlugin {
     /* Properties of WebKit.DOMDOMPlugin */
@@ -2045,10 +1978,8 @@ export interface DOMDOMPlugin_Static {
     new (config: DOMDOMPlugin_ConstructProps): DOMDOMPlugin
 }
 export declare var DOMDOMPlugin: DOMDOMPlugin_Static
-export interface DOMDOMPluginArray_ConstructProps {
+export interface DOMDOMPluginArray_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMPluginArray */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMPluginArray {
     /* Properties of WebKit.DOMDOMPluginArray */
@@ -2109,10 +2040,8 @@ export interface DOMDOMPluginArray_Static {
     new (config: DOMDOMPluginArray_ConstructProps): DOMDOMPluginArray
 }
 export declare var DOMDOMPluginArray: DOMDOMPluginArray_Static
-export interface DOMDOMSecurityPolicy_ConstructProps {
+export interface DOMDOMSecurityPolicy_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMSecurityPolicy */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMSecurityPolicy {
     /* Properties of WebKit.DOMDOMSecurityPolicy */
@@ -2192,10 +2121,8 @@ export interface DOMDOMSecurityPolicy_Static {
     new (config: DOMDOMSecurityPolicy_ConstructProps): DOMDOMSecurityPolicy
 }
 export declare var DOMDOMSecurityPolicy: DOMDOMSecurityPolicy_Static
-export interface DOMDOMSelection_ConstructProps {
+export interface DOMDOMSelection_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMSelection */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMSelection {
     /* Properties of WebKit.DOMDOMSelection */
@@ -2296,12 +2223,9 @@ export interface DOMDOMSelection_Static {
     new (config: DOMDOMSelection_ConstructProps): DOMDOMSelection
 }
 export declare var DOMDOMSelection: DOMDOMSelection_Static
-export interface DOMDOMSettableTokenList_ConstructProps {
+export interface DOMDOMSettableTokenList_ConstructProps extends DOMDOMTokenList_ConstructProps {
     /* Properties of WebKit.DOMDOMSettableTokenList */
     value?:string
-    /* Properties of WebKit.DOMDOMTokenList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMSettableTokenList {
     /* Properties of WebKit.DOMDOMSettableTokenList */
@@ -2371,10 +2295,8 @@ export interface DOMDOMSettableTokenList_Static {
     new (config: DOMDOMSettableTokenList_ConstructProps): DOMDOMSettableTokenList
 }
 export declare var DOMDOMSettableTokenList: DOMDOMSettableTokenList_Static
-export interface DOMDOMStringList_ConstructProps {
+export interface DOMDOMStringList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMStringList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMStringList {
     /* Properties of WebKit.DOMDOMStringList */
@@ -2434,9 +2356,7 @@ export interface DOMDOMStringList_Static {
     new (config: DOMDOMStringList_ConstructProps): DOMDOMStringList
 }
 export declare var DOMDOMStringList: DOMDOMStringList_Static
-export interface DOMDOMStringMap_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMDOMStringMap_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMDOMStringMap {
     /* Properties of WebKit.DOMObject */
@@ -2489,10 +2409,8 @@ export interface DOMDOMStringMap_Static {
     new (config: DOMDOMStringMap_ConstructProps): DOMDOMStringMap
 }
 export declare var DOMDOMStringMap: DOMDOMStringMap_Static
-export interface DOMDOMTokenList_ConstructProps {
+export interface DOMDOMTokenList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMTokenList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMTokenList {
     /* Properties of WebKit.DOMDOMTokenList */
@@ -2555,13 +2473,11 @@ export interface DOMDOMTokenList_Static {
     new (config: DOMDOMTokenList_ConstructProps): DOMDOMTokenList
 }
 export declare var DOMDOMTokenList: DOMDOMTokenList_Static
-export interface DOMDOMWindow_ConstructProps {
+export interface DOMDOMWindow_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDOMWindow */
     default_status?:string
     name?:string
     status?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDOMWindow {
     /* Properties of WebKit.DOMDOMWindow */
@@ -2785,9 +2701,7 @@ export interface DOMDOMWindow_Static {
     new (config: DOMDOMWindow_ConstructProps): DOMDOMWindow
 }
 export declare var DOMDOMWindow: DOMDOMWindow_Static
-export interface DOMDOMWindowCSS_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMDOMWindowCSS_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMDOMWindowCSS {
     /* Properties of WebKit.DOMObject */
@@ -2842,10 +2756,8 @@ export interface DOMDOMWindowCSS_Static {
     new (config: DOMDOMWindowCSS_ConstructProps): DOMDOMWindowCSS
 }
 export declare var DOMDOMWindowCSS: DOMDOMWindowCSS_Static
-export interface DOMDatabase_ConstructProps {
+export interface DOMDatabase_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMDatabase */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDatabase {
     /* Properties of WebKit.DOMDatabase */
@@ -2903,7 +2815,7 @@ export interface DOMDatabase_Static {
     new (config: DOMDatabase_ConstructProps): DOMDatabase
 }
 export declare var DOMDatabase: DOMDatabase_Static
-export interface DOMDocument_ConstructProps {
+export interface DOMDocument_ConstructProps extends DOMNode_ConstructProps {
     /* Properties of WebKit.DOMDocument */
     charset?:string
     cookie?:string
@@ -2912,12 +2824,6 @@ export interface DOMDocument_ConstructProps {
     title?:string
     xml_standalone?:boolean
     xml_version?:string
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDocument {
     /* Properties of WebKit.DOMDocument */
@@ -3215,13 +3121,7 @@ export interface DOMDocument_Static {
     new (config: DOMDocument_ConstructProps): DOMDocument
 }
 export declare var DOMDocument: DOMDocument_Static
-export interface DOMDocumentFragment_ConstructProps {
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMDocumentFragment_ConstructProps extends DOMNode_ConstructProps {
 }
 export interface DOMDocumentFragment {
     /* Properties of WebKit.DOMNode */
@@ -3349,14 +3249,8 @@ export interface DOMDocumentFragment_Static {
     new (config: DOMDocumentFragment_ConstructProps): DOMDocumentFragment
 }
 export declare var DOMDocumentFragment: DOMDocumentFragment_Static
-export interface DOMDocumentType_ConstructProps {
+export interface DOMDocumentType_ConstructProps extends DOMNode_ConstructProps {
     /* Properties of WebKit.DOMDocumentType */
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMDocumentType {
     /* Properties of WebKit.DOMDocumentType */
@@ -3502,18 +3396,12 @@ export interface DOMDocumentType_Static {
     new (config: DOMDocumentType_ConstructProps): DOMDocumentType
 }
 export declare var DOMDocumentType: DOMDocumentType_Static
-export interface DOMElement_ConstructProps {
+export interface DOMElement_ConstructProps extends DOMNode_ConstructProps {
     /* Properties of WebKit.DOMElement */
     class_name?:string
     id?:string
     scroll_left?:number
     scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMElement {
     /* Properties of WebKit.DOMElement */
@@ -3748,13 +3636,7 @@ export interface DOMElement_Static {
     new (config: DOMElement_ConstructProps): DOMElement
 }
 export declare var DOMElement: DOMElement_Static
-export interface DOMEntityReference_ConstructProps {
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMEntityReference_ConstructProps extends DOMNode_ConstructProps {
 }
 export interface DOMEntityReference {
     /* Properties of WebKit.DOMNode */
@@ -3879,12 +3761,10 @@ export interface DOMEntityReference_Static {
     new (config: DOMEntityReference_ConstructProps): DOMEntityReference
 }
 export declare var DOMEntityReference: DOMEntityReference_Static
-export interface DOMEvent_ConstructProps {
+export interface DOMEvent_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMEvent */
     cancel_bubble?:boolean
     return_value?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMEvent {
     /* Properties of WebKit.DOMEvent */
@@ -3977,11 +3857,8 @@ export interface DOMEvent_Static {
     new (config: DOMEvent_ConstructProps): DOMEvent
 }
 export declare var DOMEvent: DOMEvent_Static
-export interface DOMFile_ConstructProps {
+export interface DOMFile_ConstructProps extends DOMBlob_ConstructProps {
     /* Properties of WebKit.DOMFile */
-    /* Properties of WebKit.DOMBlob */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMFile {
     /* Properties of WebKit.DOMFile */
@@ -4052,10 +3929,8 @@ export interface DOMFile_Static {
     new (config: DOMFile_ConstructProps): DOMFile
 }
 export declare var DOMFile: DOMFile_Static
-export interface DOMFileList_ConstructProps {
+export interface DOMFileList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMFileList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMFileList {
     /* Properties of WebKit.DOMFileList */
@@ -4114,10 +3989,8 @@ export interface DOMFileList_Static {
     new (config: DOMFileList_ConstructProps): DOMFileList
 }
 export declare var DOMFileList: DOMFileList_Static
-export interface DOMGamepad_ConstructProps {
+export interface DOMGamepad_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMGamepad */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMGamepad {
     /* Properties of WebKit.DOMGamepad */
@@ -4181,10 +4054,8 @@ export interface DOMGamepad_Static {
     new (config: DOMGamepad_ConstructProps): DOMGamepad
 }
 export declare var DOMGamepad: DOMGamepad_Static
-export interface DOMGamepadList_ConstructProps {
+export interface DOMGamepadList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMGamepadList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMGamepadList {
     /* Properties of WebKit.DOMGamepadList */
@@ -4243,9 +4114,7 @@ export interface DOMGamepadList_Static {
     new (config: DOMGamepadList_ConstructProps): DOMGamepadList
 }
 export declare var DOMGamepadList: DOMGamepadList_Static
-export interface DOMGeolocation_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMGeolocation_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMGeolocation {
     /* Properties of WebKit.DOMObject */
@@ -4300,7 +4169,7 @@ export interface DOMGeolocation_Static {
     new (config: DOMGeolocation_ConstructProps): DOMGeolocation
 }
 export declare var DOMGeolocation: DOMGeolocation_Static
-export interface DOMHTMLAnchorElement_ConstructProps {
+export interface DOMHTMLAnchorElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLAnchorElement */
     charset?:string
     coords?:string
@@ -4321,33 +4190,6 @@ export interface DOMHTMLAnchorElement_ConstructProps {
     shape?:string
     target?:string
     type?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLAnchorElement {
     /* Properties of WebKit.DOMHTMLAnchorElement */
@@ -4745,7 +4587,7 @@ export interface DOMHTMLAnchorElement_Static {
     new (config: DOMHTMLAnchorElement_ConstructProps): DOMHTMLAnchorElement
 }
 export declare var DOMHTMLAnchorElement: DOMHTMLAnchorElement_Static
-export interface DOMHTMLAppletElement_ConstructProps {
+export interface DOMHTMLAppletElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLAppletElement */
     align?:string
     alt?:string
@@ -4758,33 +4600,6 @@ export interface DOMHTMLAppletElement_ConstructProps {
     object?:string
     vspace?:number
     width?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLAppletElement {
     /* Properties of WebKit.DOMHTMLAppletElement */
@@ -5146,7 +4961,7 @@ export interface DOMHTMLAppletElement_Static {
     new (config: DOMHTMLAppletElement_ConstructProps): DOMHTMLAppletElement
 }
 export declare var DOMHTMLAppletElement: DOMHTMLAppletElement_Static
-export interface DOMHTMLAreaElement_ConstructProps {
+export interface DOMHTMLAreaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLAreaElement */
     alt?:string
     coords?:string
@@ -5155,33 +4970,6 @@ export interface DOMHTMLAreaElement_ConstructProps {
     ping?:string
     shape?:string
     target?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLAreaElement {
     /* Properties of WebKit.DOMHTMLAreaElement */
@@ -5548,49 +5336,7 @@ export interface DOMHTMLAreaElement_Static {
     new (config: DOMHTMLAreaElement_ConstructProps): DOMHTMLAreaElement
 }
 export declare var DOMHTMLAreaElement: DOMHTMLAreaElement_Static
-export interface DOMHTMLAudioElement_ConstructProps {
-    /* Properties of WebKit.DOMHTMLMediaElement */
-    autoplay?:boolean
-    controls?:boolean
-    current_time?:number
-    default_muted?:boolean
-    default_playback_rate?:number
-    loop?:boolean
-    media_group?:string
-    muted?:boolean
-    playback_rate?:number
-    preload?:string
-    src?:string
-    volume?:number
-    webkit_closed_captions_visible?:boolean
-    webkit_preserves_pitch?:boolean
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMHTMLAudioElement_ConstructProps extends DOMHTMLMediaElement_ConstructProps {
 }
 export interface DOMHTMLAudioElement {
     /* Properties of WebKit.DOMHTMLMediaElement */
@@ -6031,36 +5777,9 @@ export interface DOMHTMLAudioElement_Static {
     new (config: DOMHTMLAudioElement_ConstructProps): DOMHTMLAudioElement
 }
 export declare var DOMHTMLAudioElement: DOMHTMLAudioElement_Static
-export interface DOMHTMLBRElement_ConstructProps {
+export interface DOMHTMLBRElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLBRElement */
     clear?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLBRElement {
     /* Properties of WebKit.DOMHTMLBRElement */
@@ -6382,37 +6101,10 @@ export interface DOMHTMLBRElement_Static {
     new (config: DOMHTMLBRElement_ConstructProps): DOMHTMLBRElement
 }
 export declare var DOMHTMLBRElement: DOMHTMLBRElement_Static
-export interface DOMHTMLBaseElement_ConstructProps {
+export interface DOMHTMLBaseElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLBaseElement */
     href?:string
     target?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLBaseElement {
     /* Properties of WebKit.DOMHTMLBaseElement */
@@ -6738,38 +6430,11 @@ export interface DOMHTMLBaseElement_Static {
     new (config: DOMHTMLBaseElement_ConstructProps): DOMHTMLBaseElement
 }
 export declare var DOMHTMLBaseElement: DOMHTMLBaseElement_Static
-export interface DOMHTMLBaseFontElement_ConstructProps {
+export interface DOMHTMLBaseFontElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLBaseFontElement */
     color?:string
     face?:string
     size?:number
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLBaseFontElement {
     /* Properties of WebKit.DOMHTMLBaseFontElement */
@@ -7099,7 +6764,7 @@ export interface DOMHTMLBaseFontElement_Static {
     new (config: DOMHTMLBaseFontElement_ConstructProps): DOMHTMLBaseFontElement
 }
 export declare var DOMHTMLBaseFontElement: DOMHTMLBaseFontElement_Static
-export interface DOMHTMLBodyElement_ConstructProps {
+export interface DOMHTMLBodyElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLBodyElement */
     a_link?:string
     background?:string
@@ -7107,33 +6772,6 @@ export interface DOMHTMLBodyElement_ConstructProps {
     link?:string
     text?:string
     v_link?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLBodyElement {
     /* Properties of WebKit.DOMHTMLBodyElement */
@@ -7475,7 +7113,7 @@ export interface DOMHTMLBodyElement_Static {
     new (config: DOMHTMLBodyElement_ConstructProps): DOMHTMLBodyElement
 }
 export declare var DOMHTMLBodyElement: DOMHTMLBodyElement_Static
-export interface DOMHTMLButtonElement_ConstructProps {
+export interface DOMHTMLButtonElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLButtonElement */
     autofocus?:boolean
     disabled?:boolean
@@ -7487,33 +7125,6 @@ export interface DOMHTMLButtonElement_ConstructProps {
     name?:string
     type?:string
     value?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLButtonElement {
     /* Properties of WebKit.DOMHTMLButtonElement */
@@ -7886,37 +7497,10 @@ export interface DOMHTMLButtonElement_Static {
     new (config: DOMHTMLButtonElement_ConstructProps): DOMHTMLButtonElement
 }
 export declare var DOMHTMLButtonElement: DOMHTMLButtonElement_Static
-export interface DOMHTMLCanvasElement_ConstructProps {
+export interface DOMHTMLCanvasElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLCanvasElement */
     height?:number
     width?:number
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLCanvasElement {
     /* Properties of WebKit.DOMHTMLCanvasElement */
@@ -8242,10 +7826,8 @@ export interface DOMHTMLCanvasElement_Static {
     new (config: DOMHTMLCanvasElement_ConstructProps): DOMHTMLCanvasElement
 }
 export declare var DOMHTMLCanvasElement: DOMHTMLCanvasElement_Static
-export interface DOMHTMLCollection_ConstructProps {
+export interface DOMHTMLCollection_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMHTMLCollection */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLCollection {
     /* Properties of WebKit.DOMHTMLCollection */
@@ -8305,36 +7887,9 @@ export interface DOMHTMLCollection_Static {
     new (config: DOMHTMLCollection_ConstructProps): DOMHTMLCollection
 }
 export declare var DOMHTMLCollection: DOMHTMLCollection_Static
-export interface DOMHTMLDListElement_ConstructProps {
+export interface DOMHTMLDListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLDListElement */
     compact?:boolean
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLDListElement {
     /* Properties of WebKit.DOMHTMLDListElement */
@@ -8656,36 +8211,9 @@ export interface DOMHTMLDListElement_Static {
     new (config: DOMHTMLDListElement_ConstructProps): DOMHTMLDListElement
 }
 export declare var DOMHTMLDListElement: DOMHTMLDListElement_Static
-export interface DOMHTMLDetailsElement_ConstructProps {
+export interface DOMHTMLDetailsElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLDetailsElement */
     open?:boolean
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLDetailsElement {
     /* Properties of WebKit.DOMHTMLDetailsElement */
@@ -9007,36 +8535,9 @@ export interface DOMHTMLDetailsElement_Static {
     new (config: DOMHTMLDetailsElement_ConstructProps): DOMHTMLDetailsElement
 }
 export declare var DOMHTMLDetailsElement: DOMHTMLDetailsElement_Static
-export interface DOMHTMLDirectoryElement_ConstructProps {
+export interface DOMHTMLDirectoryElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLDirectoryElement */
     compact?:boolean
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLDirectoryElement {
     /* Properties of WebKit.DOMHTMLDirectoryElement */
@@ -9358,36 +8859,9 @@ export interface DOMHTMLDirectoryElement_Static {
     new (config: DOMHTMLDirectoryElement_ConstructProps): DOMHTMLDirectoryElement
 }
 export declare var DOMHTMLDirectoryElement: DOMHTMLDirectoryElement_Static
-export interface DOMHTMLDivElement_ConstructProps {
+export interface DOMHTMLDivElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLDivElement */
     align?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLDivElement {
     /* Properties of WebKit.DOMHTMLDivElement */
@@ -9709,7 +9183,7 @@ export interface DOMHTMLDivElement_Static {
     new (config: DOMHTMLDivElement_ConstructProps): DOMHTMLDivElement
 }
 export declare var DOMHTMLDivElement: DOMHTMLDivElement_Static
-export interface DOMHTMLDocument_ConstructProps {
+export interface DOMHTMLDocument_ConstructProps extends DOMDocument_ConstructProps {
     /* Properties of WebKit.DOMHTMLDocument */
     alink_color?:string
     bg_color?:string
@@ -9718,20 +9192,6 @@ export interface DOMHTMLDocument_ConstructProps {
     fg_color?:string
     link_color?:string
     vlink_color?:string
-    /* Properties of WebKit.DOMDocument */
-    charset?:string
-    cookie?:string
-    document_uri?:string
-    selected_stylesheet_set?:string
-    title?:string
-    xml_standalone?:boolean
-    xml_version?:string
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLDocument {
     /* Properties of WebKit.DOMHTMLDocument */
@@ -10084,7 +9544,7 @@ export interface DOMHTMLDocument_Static {
     new (config: DOMHTMLDocument_ConstructProps): DOMHTMLDocument
 }
 export declare var DOMHTMLDocument: DOMHTMLDocument_Static
-export interface DOMHTMLElement_ConstructProps {
+export interface DOMHTMLElement_ConstructProps extends DOMElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLElement */
     access_key?:string
     content_editable?:string
@@ -10101,17 +9561,6 @@ export interface DOMHTMLElement_ConstructProps {
     title?:string
     translate?:boolean
     webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLElement {
     /* Properties of WebKit.DOMHTMLElement */
@@ -10426,7 +9875,7 @@ export interface DOMHTMLElement_Static {
     new (config: DOMHTMLElement_ConstructProps): DOMHTMLElement
 }
 export declare var DOMHTMLElement: DOMHTMLElement_Static
-export interface DOMHTMLEmbedElement_ConstructProps {
+export interface DOMHTMLEmbedElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLEmbedElement */
     align?:string
     height?:number
@@ -10434,33 +9883,6 @@ export interface DOMHTMLEmbedElement_ConstructProps {
     src?:string
     type?:string
     width?:number
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLEmbedElement {
     /* Properties of WebKit.DOMHTMLEmbedElement */
@@ -10800,37 +10222,10 @@ export interface DOMHTMLEmbedElement_Static {
     new (config: DOMHTMLEmbedElement_ConstructProps): DOMHTMLEmbedElement
 }
 export declare var DOMHTMLEmbedElement: DOMHTMLEmbedElement_Static
-export interface DOMHTMLFieldSetElement_ConstructProps {
+export interface DOMHTMLFieldSetElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLFieldSetElement */
     disabled?:boolean
     name?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLFieldSetElement {
     /* Properties of WebKit.DOMHTMLFieldSetElement */
@@ -11175,38 +10570,11 @@ export interface DOMHTMLFieldSetElement_Static {
     new (config: DOMHTMLFieldSetElement_ConstructProps): DOMHTMLFieldSetElement
 }
 export declare var DOMHTMLFieldSetElement: DOMHTMLFieldSetElement_Static
-export interface DOMHTMLFontElement_ConstructProps {
+export interface DOMHTMLFontElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLFontElement */
     color?:string
     face?:string
     size?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLFontElement {
     /* Properties of WebKit.DOMHTMLFontElement */
@@ -11536,7 +10904,7 @@ export interface DOMHTMLFontElement_Static {
     new (config: DOMHTMLFontElement_ConstructProps): DOMHTMLFontElement
 }
 export declare var DOMHTMLFontElement: DOMHTMLFontElement_Static
-export interface DOMHTMLFormElement_ConstructProps {
+export interface DOMHTMLFormElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLFormElement */
     accept_charset?:string
     action?:string
@@ -11549,33 +10917,6 @@ export interface DOMHTMLFormElement_ConstructProps {
     name?:string
     no_validate?:boolean
     target?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLFormElement {
     /* Properties of WebKit.DOMHTMLFormElement */
@@ -11948,7 +11289,7 @@ export interface DOMHTMLFormElement_Static {
     new (config: DOMHTMLFormElement_ConstructProps): DOMHTMLFormElement
 }
 export declare var DOMHTMLFormElement: DOMHTMLFormElement_Static
-export interface DOMHTMLFrameElement_ConstructProps {
+export interface DOMHTMLFrameElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLFrameElement */
     frame_border?:string
     long_desc?:string
@@ -11958,33 +11299,6 @@ export interface DOMHTMLFrameElement_ConstructProps {
     no_resize?:boolean
     scrolling?:string
     src?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLFrameElement {
     /* Properties of WebKit.DOMHTMLFrameElement */
@@ -12346,37 +11660,10 @@ export interface DOMHTMLFrameElement_Static {
     new (config: DOMHTMLFrameElement_ConstructProps): DOMHTMLFrameElement
 }
 export declare var DOMHTMLFrameElement: DOMHTMLFrameElement_Static
-export interface DOMHTMLFrameSetElement_ConstructProps {
+export interface DOMHTMLFrameSetElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLFrameSetElement */
     cols?:string
     rows?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLFrameSetElement {
     /* Properties of WebKit.DOMHTMLFrameSetElement */
@@ -12702,39 +11989,12 @@ export interface DOMHTMLFrameSetElement_Static {
     new (config: DOMHTMLFrameSetElement_ConstructProps): DOMHTMLFrameSetElement
 }
 export declare var DOMHTMLFrameSetElement: DOMHTMLFrameSetElement_Static
-export interface DOMHTMLHRElement_ConstructProps {
+export interface DOMHTMLHRElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLHRElement */
     align?:string
     no_shade?:boolean
     size?:string
     width?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLHRElement {
     /* Properties of WebKit.DOMHTMLHRElement */
@@ -13068,36 +12328,9 @@ export interface DOMHTMLHRElement_Static {
     new (config: DOMHTMLHRElement_ConstructProps): DOMHTMLHRElement
 }
 export declare var DOMHTMLHRElement: DOMHTMLHRElement_Static
-export interface DOMHTMLHeadElement_ConstructProps {
+export interface DOMHTMLHeadElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLHeadElement */
     profile?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLHeadElement {
     /* Properties of WebKit.DOMHTMLHeadElement */
@@ -13419,36 +12652,9 @@ export interface DOMHTMLHeadElement_Static {
     new (config: DOMHTMLHeadElement_ConstructProps): DOMHTMLHeadElement
 }
 export declare var DOMHTMLHeadElement: DOMHTMLHeadElement_Static
-export interface DOMHTMLHeadingElement_ConstructProps {
+export interface DOMHTMLHeadingElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLHeadingElement */
     align?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLHeadingElement {
     /* Properties of WebKit.DOMHTMLHeadingElement */
@@ -13770,37 +12976,10 @@ export interface DOMHTMLHeadingElement_Static {
     new (config: DOMHTMLHeadingElement_ConstructProps): DOMHTMLHeadingElement
 }
 export declare var DOMHTMLHeadingElement: DOMHTMLHeadingElement_Static
-export interface DOMHTMLHtmlElement_ConstructProps {
+export interface DOMHTMLHtmlElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLHtmlElement */
     manifest?:string
     version?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLHtmlElement {
     /* Properties of WebKit.DOMHTMLHtmlElement */
@@ -14126,7 +13305,7 @@ export interface DOMHTMLHtmlElement_Static {
     new (config: DOMHTMLHtmlElement_ConstructProps): DOMHTMLHtmlElement
 }
 export declare var DOMHTMLHtmlElement: DOMHTMLHtmlElement_Static
-export interface DOMHTMLIFrameElement_ConstructProps {
+export interface DOMHTMLIFrameElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLIFrameElement */
     align?:string
     frame_border?:string
@@ -14141,33 +13320,6 @@ export interface DOMHTMLIFrameElement_ConstructProps {
     src?:string
     srcdoc?:string
     width?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLIFrameElement {
     /* Properties of WebKit.DOMHTMLIFrameElement */
@@ -14543,7 +13695,7 @@ export interface DOMHTMLIFrameElement_Static {
     new (config: DOMHTMLIFrameElement_ConstructProps): DOMHTMLIFrameElement
 }
 export declare var DOMHTMLIFrameElement: DOMHTMLIFrameElement_Static
-export interface DOMHTMLImageElement_ConstructProps {
+export interface DOMHTMLImageElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLImageElement */
     align?:string
     alt?:string
@@ -14560,33 +13712,6 @@ export interface DOMHTMLImageElement_ConstructProps {
     use_map?:string
     vspace?:number
     width?:number
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLImageElement {
     /* Properties of WebKit.DOMHTMLImageElement */
@@ -14979,7 +14104,7 @@ export interface DOMHTMLImageElement_Static {
     new (config: DOMHTMLImageElement_ConstructProps): DOMHTMLImageElement
 }
 export declare var DOMHTMLImageElement: DOMHTMLImageElement_Static
-export interface DOMHTMLInputElement_ConstructProps {
+export interface DOMHTMLInputElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLInputElement */
     accept?:string
     align?:string
@@ -15022,33 +14147,6 @@ export interface DOMHTMLInputElement_ConstructProps {
     webkit_speech?:boolean
     webkitdirectory?:boolean
     width?:number
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLInputElement {
     /* Properties of WebKit.DOMHTMLInputElement */
@@ -15558,40 +14656,13 @@ export interface DOMHTMLInputElement_Static {
     new (config: DOMHTMLInputElement_ConstructProps): DOMHTMLInputElement
 }
 export declare var DOMHTMLInputElement: DOMHTMLInputElement_Static
-export interface DOMHTMLKeygenElement_ConstructProps {
+export interface DOMHTMLKeygenElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLKeygenElement */
     autofocus?:boolean
     challenge?:string
     disabled?:boolean
     keytype?:string
     name?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLKeygenElement {
     /* Properties of WebKit.DOMHTMLKeygenElement */
@@ -15948,37 +15019,10 @@ export interface DOMHTMLKeygenElement_Static {
     new (config: DOMHTMLKeygenElement_ConstructProps): DOMHTMLKeygenElement
 }
 export declare var DOMHTMLKeygenElement: DOMHTMLKeygenElement_Static
-export interface DOMHTMLLIElement_ConstructProps {
+export interface DOMHTMLLIElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLLIElement */
     type?:string
     value?:number
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLLIElement {
     /* Properties of WebKit.DOMHTMLLIElement */
@@ -16302,36 +15346,9 @@ export interface DOMHTMLLIElement_Static {
     new (config: DOMHTMLLIElement_ConstructProps): DOMHTMLLIElement
 }
 export declare var DOMHTMLLIElement: DOMHTMLLIElement_Static
-export interface DOMHTMLLabelElement_ConstructProps {
+export interface DOMHTMLLabelElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLLabelElement */
     html_for?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLLabelElement {
     /* Properties of WebKit.DOMHTMLLabelElement */
@@ -16659,36 +15676,9 @@ export interface DOMHTMLLabelElement_Static {
     new (config: DOMHTMLLabelElement_ConstructProps): DOMHTMLLabelElement
 }
 export declare var DOMHTMLLabelElement: DOMHTMLLabelElement_Static
-export interface DOMHTMLLegendElement_ConstructProps {
+export interface DOMHTMLLegendElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLLegendElement */
     align?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLLegendElement {
     /* Properties of WebKit.DOMHTMLLegendElement */
@@ -17013,7 +16003,7 @@ export interface DOMHTMLLegendElement_Static {
     new (config: DOMHTMLLegendElement_ConstructProps): DOMHTMLLegendElement
 }
 export declare var DOMHTMLLegendElement: DOMHTMLLegendElement_Static
-export interface DOMHTMLLinkElement_ConstructProps {
+export interface DOMHTMLLinkElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLLinkElement */
     charset?:string
     disabled?:boolean
@@ -17024,33 +16014,6 @@ export interface DOMHTMLLinkElement_ConstructProps {
     rev?:string
     target?:string
     type?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLLinkElement {
     /* Properties of WebKit.DOMHTMLLinkElement */
@@ -17405,36 +16368,9 @@ export interface DOMHTMLLinkElement_Static {
     new (config: DOMHTMLLinkElement_ConstructProps): DOMHTMLLinkElement
 }
 export declare var DOMHTMLLinkElement: DOMHTMLLinkElement_Static
-export interface DOMHTMLMapElement_ConstructProps {
+export interface DOMHTMLMapElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLMapElement */
     name?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLMapElement {
     /* Properties of WebKit.DOMHTMLMapElement */
@@ -17759,7 +16695,7 @@ export interface DOMHTMLMapElement_Static {
     new (config: DOMHTMLMapElement_ConstructProps): DOMHTMLMapElement
 }
 export declare var DOMHTMLMapElement: DOMHTMLMapElement_Static
-export interface DOMHTMLMarqueeElement_ConstructProps {
+export interface DOMHTMLMarqueeElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLMarqueeElement */
     behavior?:string
     bg_color?:string
@@ -17772,33 +16708,6 @@ export interface DOMHTMLMarqueeElement_ConstructProps {
     true_speed?:boolean
     vspace?:number
     width?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLMarqueeElement {
     /* Properties of WebKit.DOMHTMLMarqueeElement */
@@ -18162,7 +17071,7 @@ export interface DOMHTMLMarqueeElement_Static {
     new (config: DOMHTMLMarqueeElement_ConstructProps): DOMHTMLMarqueeElement
 }
 export declare var DOMHTMLMarqueeElement: DOMHTMLMarqueeElement_Static
-export interface DOMHTMLMediaElement_ConstructProps {
+export interface DOMHTMLMediaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLMediaElement */
     autoplay?:boolean
     controls?:boolean
@@ -18178,33 +17087,6 @@ export interface DOMHTMLMediaElement_ConstructProps {
     volume?:number
     webkit_closed_captions_visible?:boolean
     webkit_preserves_pitch?:boolean
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLMediaElement {
     /* Properties of WebKit.DOMHTMLMediaElement */
@@ -18644,36 +17526,9 @@ export interface DOMHTMLMediaElement_Static {
     new (config: DOMHTMLMediaElement_ConstructProps): DOMHTMLMediaElement
 }
 export declare var DOMHTMLMediaElement: DOMHTMLMediaElement_Static
-export interface DOMHTMLMenuElement_ConstructProps {
+export interface DOMHTMLMenuElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLMenuElement */
     compact?:boolean
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLMenuElement {
     /* Properties of WebKit.DOMHTMLMenuElement */
@@ -18995,39 +17850,12 @@ export interface DOMHTMLMenuElement_Static {
     new (config: DOMHTMLMenuElement_ConstructProps): DOMHTMLMenuElement
 }
 export declare var DOMHTMLMenuElement: DOMHTMLMenuElement_Static
-export interface DOMHTMLMetaElement_ConstructProps {
+export interface DOMHTMLMetaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLMetaElement */
     content?:string
     http_equiv?:string
     name?:string
     scheme?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLMetaElement {
     /* Properties of WebKit.DOMHTMLMetaElement */
@@ -19361,37 +18189,10 @@ export interface DOMHTMLMetaElement_Static {
     new (config: DOMHTMLMetaElement_ConstructProps): DOMHTMLMetaElement
 }
 export declare var DOMHTMLMetaElement: DOMHTMLMetaElement_Static
-export interface DOMHTMLModElement_ConstructProps {
+export interface DOMHTMLModElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLModElement */
     cite?:string
     date_time?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLModElement {
     /* Properties of WebKit.DOMHTMLModElement */
@@ -19717,39 +18518,12 @@ export interface DOMHTMLModElement_Static {
     new (config: DOMHTMLModElement_ConstructProps): DOMHTMLModElement
 }
 export declare var DOMHTMLModElement: DOMHTMLModElement_Static
-export interface DOMHTMLOListElement_ConstructProps {
+export interface DOMHTMLOListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLOListElement */
     compact?:boolean
     reversed?:boolean
     start?:number
     type?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLOListElement {
     /* Properties of WebKit.DOMHTMLOListElement */
@@ -20081,7 +18855,7 @@ export interface DOMHTMLOListElement_Static {
     new (config: DOMHTMLOListElement_ConstructProps): DOMHTMLOListElement
 }
 export declare var DOMHTMLOListElement: DOMHTMLOListElement_Static
-export interface DOMHTMLObjectElement_ConstructProps {
+export interface DOMHTMLObjectElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLObjectElement */
     align?:string
     archive?:string
@@ -20099,33 +18873,6 @@ export interface DOMHTMLObjectElement_ConstructProps {
     use_map?:string
     vspace?:number
     width?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLObjectElement {
     /* Properties of WebKit.DOMHTMLObjectElement */
@@ -20520,37 +19267,10 @@ export interface DOMHTMLObjectElement_Static {
     new (config: DOMHTMLObjectElement_ConstructProps): DOMHTMLObjectElement
 }
 export declare var DOMHTMLObjectElement: DOMHTMLObjectElement_Static
-export interface DOMHTMLOptGroupElement_ConstructProps {
+export interface DOMHTMLOptGroupElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLOptGroupElement */
     disabled?:boolean
     label?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLOptGroupElement {
     /* Properties of WebKit.DOMHTMLOptGroupElement */
@@ -20876,40 +19596,13 @@ export interface DOMHTMLOptGroupElement_Static {
     new (config: DOMHTMLOptGroupElement_ConstructProps): DOMHTMLOptGroupElement
 }
 export declare var DOMHTMLOptGroupElement: DOMHTMLOptGroupElement_Static
-export interface DOMHTMLOptionElement_ConstructProps {
+export interface DOMHTMLOptionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLOptionElement */
     default_selected?:boolean
     disabled?:boolean
     label?:string
     selected?:boolean
     value?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLOptionElement {
     /* Properties of WebKit.DOMHTMLOptionElement */
@@ -21256,12 +19949,9 @@ export interface DOMHTMLOptionElement_Static {
     new (config: DOMHTMLOptionElement_ConstructProps): DOMHTMLOptionElement
 }
 export declare var DOMHTMLOptionElement: DOMHTMLOptionElement_Static
-export interface DOMHTMLOptionsCollection_ConstructProps {
+export interface DOMHTMLOptionsCollection_ConstructProps extends DOMHTMLCollection_ConstructProps {
     /* Properties of WebKit.DOMHTMLOptionsCollection */
     selected_index?:number
-    /* Properties of WebKit.DOMHTMLCollection */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLOptionsCollection {
     /* Properties of WebKit.DOMHTMLOptionsCollection */
@@ -21328,36 +20018,9 @@ export interface DOMHTMLOptionsCollection_Static {
     new (config: DOMHTMLOptionsCollection_ConstructProps): DOMHTMLOptionsCollection
 }
 export declare var DOMHTMLOptionsCollection: DOMHTMLOptionsCollection_Static
-export interface DOMHTMLParagraphElement_ConstructProps {
+export interface DOMHTMLParagraphElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLParagraphElement */
     align?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLParagraphElement {
     /* Properties of WebKit.DOMHTMLParagraphElement */
@@ -21679,39 +20342,12 @@ export interface DOMHTMLParagraphElement_Static {
     new (config: DOMHTMLParagraphElement_ConstructProps): DOMHTMLParagraphElement
 }
 export declare var DOMHTMLParagraphElement: DOMHTMLParagraphElement_Static
-export interface DOMHTMLParamElement_ConstructProps {
+export interface DOMHTMLParamElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLParamElement */
     name?:string
     type?:string
     value?:string
     value_type?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLParamElement {
     /* Properties of WebKit.DOMHTMLParamElement */
@@ -22043,37 +20679,10 @@ export interface DOMHTMLParamElement_Static {
     new (config: DOMHTMLParamElement_ConstructProps): DOMHTMLParamElement
 }
 export declare var DOMHTMLParamElement: DOMHTMLParamElement_Static
-export interface DOMHTMLPreElement_ConstructProps {
+export interface DOMHTMLPreElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLPreElement */
     width?:number
     wrap?:boolean
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLPreElement {
     /* Properties of WebKit.DOMHTMLPreElement */
@@ -22399,11 +21008,8 @@ export interface DOMHTMLPreElement_Static {
     new (config: DOMHTMLPreElement_ConstructProps): DOMHTMLPreElement
 }
 export declare var DOMHTMLPreElement: DOMHTMLPreElement_Static
-export interface DOMHTMLPropertiesCollection_ConstructProps {
+export interface DOMHTMLPropertiesCollection_ConstructProps extends DOMHTMLCollection_ConstructProps {
     /* Properties of WebKit.DOMHTMLPropertiesCollection */
-    /* Properties of WebKit.DOMHTMLCollection */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLPropertiesCollection {
     /* Properties of WebKit.DOMHTMLPropertiesCollection */
@@ -22472,36 +21078,9 @@ export declare class DOMHTMLPropertiesCollection_Static {
     named_item(self: object, name: string): object
 }
 export declare var DOMHTMLPropertiesCollection: DOMHTMLPropertiesCollection_Static
-export interface DOMHTMLQuoteElement_ConstructProps {
+export interface DOMHTMLQuoteElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLQuoteElement */
     cite?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLQuoteElement {
     /* Properties of WebKit.DOMHTMLQuoteElement */
@@ -22823,7 +21402,7 @@ export interface DOMHTMLQuoteElement_Static {
     new (config: DOMHTMLQuoteElement_ConstructProps): DOMHTMLQuoteElement
 }
 export declare var DOMHTMLQuoteElement: DOMHTMLQuoteElement_Static
-export interface DOMHTMLScriptElement_ConstructProps {
+export interface DOMHTMLScriptElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLScriptElement */
     async?:boolean
     charset?:string
@@ -22835,33 +21414,6 @@ export interface DOMHTMLScriptElement_ConstructProps {
     src?:string
     text?:string
     type?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLScriptElement {
     /* Properties of WebKit.DOMHTMLScriptElement */
@@ -23217,7 +21769,7 @@ export interface DOMHTMLScriptElement_Static {
     new (config: DOMHTMLScriptElement_ConstructProps): DOMHTMLScriptElement
 }
 export declare var DOMHTMLScriptElement: DOMHTMLScriptElement_Static
-export interface DOMHTMLSelectElement_ConstructProps {
+export interface DOMHTMLSelectElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLSelectElement */
     autofocus?:boolean
     disabled?:boolean
@@ -23228,33 +21780,6 @@ export interface DOMHTMLSelectElement_ConstructProps {
     selected_index?:number
     size?:number
     value?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLSelectElement {
     /* Properties of WebKit.DOMHTMLSelectElement */
@@ -23636,38 +22161,11 @@ export interface DOMHTMLSelectElement_Static {
     new (config: DOMHTMLSelectElement_ConstructProps): DOMHTMLSelectElement
 }
 export declare var DOMHTMLSelectElement: DOMHTMLSelectElement_Static
-export interface DOMHTMLStyleElement_ConstructProps {
+export interface DOMHTMLStyleElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLStyleElement */
     disabled?:boolean
     media?:string
     type?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLStyleElement {
     /* Properties of WebKit.DOMHTMLStyleElement */
@@ -24000,36 +22498,9 @@ export interface DOMHTMLStyleElement_Static {
     new (config: DOMHTMLStyleElement_ConstructProps): DOMHTMLStyleElement
 }
 export declare var DOMHTMLStyleElement: DOMHTMLStyleElement_Static
-export interface DOMHTMLTableCaptionElement_ConstructProps {
+export interface DOMHTMLTableCaptionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLTableCaptionElement */
     align?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLTableCaptionElement {
     /* Properties of WebKit.DOMHTMLTableCaptionElement */
@@ -24351,7 +22822,7 @@ export interface DOMHTMLTableCaptionElement_Static {
     new (config: DOMHTMLTableCaptionElement_ConstructProps): DOMHTMLTableCaptionElement
 }
 export declare var DOMHTMLTableCaptionElement: DOMHTMLTableCaptionElement_Static
-export interface DOMHTMLTableCellElement_ConstructProps {
+export interface DOMHTMLTableCellElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLTableCellElement */
     abbr?:string
     align?:string
@@ -24367,33 +22838,6 @@ export interface DOMHTMLTableCellElement_ConstructProps {
     scope?:string
     v_align?:string
     width?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLTableCellElement {
     /* Properties of WebKit.DOMHTMLTableCellElement */
@@ -24770,7 +23214,7 @@ export interface DOMHTMLTableCellElement_Static {
     new (config: DOMHTMLTableCellElement_ConstructProps): DOMHTMLTableCellElement
 }
 export declare var DOMHTMLTableCellElement: DOMHTMLTableCellElement_Static
-export interface DOMHTMLTableColElement_ConstructProps {
+export interface DOMHTMLTableColElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLTableColElement */
     align?:string
     ch?:string
@@ -24778,33 +23222,6 @@ export interface DOMHTMLTableColElement_ConstructProps {
     span?:number
     v_align?:string
     width?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLTableColElement {
     /* Properties of WebKit.DOMHTMLTableColElement */
@@ -25146,7 +23563,7 @@ export interface DOMHTMLTableColElement_Static {
     new (config: DOMHTMLTableColElement_ConstructProps): DOMHTMLTableColElement
 }
 export declare var DOMHTMLTableColElement: DOMHTMLTableColElement_Static
-export interface DOMHTMLTableElement_ConstructProps {
+export interface DOMHTMLTableElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLTableElement */
     align?:string
     bg_color?:string
@@ -25157,33 +23574,6 @@ export interface DOMHTMLTableElement_ConstructProps {
     rules?:string
     summary?:string
     width?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLTableElement {
     /* Properties of WebKit.DOMHTMLTableElement */
@@ -25564,40 +23954,13 @@ export interface DOMHTMLTableElement_Static {
     new (config: DOMHTMLTableElement_ConstructProps): DOMHTMLTableElement
 }
 export declare var DOMHTMLTableElement: DOMHTMLTableElement_Static
-export interface DOMHTMLTableRowElement_ConstructProps {
+export interface DOMHTMLTableRowElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLTableRowElement */
     align?:string
     bg_color?:string
     ch?:string
     ch_off?:string
     v_align?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLTableRowElement {
     /* Properties of WebKit.DOMHTMLTableRowElement */
@@ -25946,39 +24309,12 @@ export interface DOMHTMLTableRowElement_Static {
     new (config: DOMHTMLTableRowElement_ConstructProps): DOMHTMLTableRowElement
 }
 export declare var DOMHTMLTableRowElement: DOMHTMLTableRowElement_Static
-export interface DOMHTMLTableSectionElement_ConstructProps {
+export interface DOMHTMLTableSectionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLTableSectionElement */
     align?:string
     ch?:string
     ch_off?:string
     v_align?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLTableSectionElement {
     /* Properties of WebKit.DOMHTMLTableSectionElement */
@@ -26317,7 +24653,7 @@ export interface DOMHTMLTableSectionElement_Static {
     new (config: DOMHTMLTableSectionElement_ConstructProps): DOMHTMLTableSectionElement
 }
 export declare var DOMHTMLTableSectionElement: DOMHTMLTableSectionElement_Static
-export interface DOMHTMLTextAreaElement_ConstructProps {
+export interface DOMHTMLTextAreaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLTextAreaElement */
     autocapitalize?:string
     autocorrect?:boolean
@@ -26337,33 +24673,6 @@ export interface DOMHTMLTextAreaElement_ConstructProps {
     selection_start?:number
     value?:string
     wrap?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLTextAreaElement {
     /* Properties of WebKit.DOMHTMLTextAreaElement */
@@ -26779,36 +25088,9 @@ export interface DOMHTMLTextAreaElement_Static {
     new (config: DOMHTMLTextAreaElement_ConstructProps): DOMHTMLTextAreaElement
 }
 export declare var DOMHTMLTextAreaElement: DOMHTMLTextAreaElement_Static
-export interface DOMHTMLTitleElement_ConstructProps {
+export interface DOMHTMLTitleElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLTitleElement */
     text?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLTitleElement {
     /* Properties of WebKit.DOMHTMLTitleElement */
@@ -27130,37 +25412,10 @@ export interface DOMHTMLTitleElement_Static {
     new (config: DOMHTMLTitleElement_ConstructProps): DOMHTMLTitleElement
 }
 export declare var DOMHTMLTitleElement: DOMHTMLTitleElement_Static
-export interface DOMHTMLUListElement_ConstructProps {
+export interface DOMHTMLUListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLUListElement */
     compact?:boolean
     type?:string
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLUListElement {
     /* Properties of WebKit.DOMHTMLUListElement */
@@ -27484,54 +25739,12 @@ export interface DOMHTMLUListElement_Static {
     new (config: DOMHTMLUListElement_ConstructProps): DOMHTMLUListElement
 }
 export declare var DOMHTMLUListElement: DOMHTMLUListElement_Static
-export interface DOMHTMLVideoElement_ConstructProps {
+export interface DOMHTMLVideoElement_ConstructProps extends DOMHTMLMediaElement_ConstructProps {
     /* Properties of WebKit.DOMHTMLVideoElement */
     height?:number
     poster?:string
     webkit_wireless_video_playback_disabled?:boolean
     width?:number
-    /* Properties of WebKit.DOMHTMLMediaElement */
-    autoplay?:boolean
-    controls?:boolean
-    current_time?:number
-    default_muted?:boolean
-    default_playback_rate?:number
-    loop?:boolean
-    media_group?:string
-    muted?:boolean
-    playback_rate?:number
-    preload?:string
-    src?:string
-    volume?:number
-    webkit_closed_captions_visible?:boolean
-    webkit_preserves_pitch?:boolean
-    /* Properties of WebKit.DOMHTMLElement */
-    access_key?:string
-    content_editable?:string
-    dir?:string
-    draggable?:boolean
-    hidden?:boolean
-    inner_html?:string
-    inner_text?:string
-    lang?:string
-    outer_html?:string
-    outer_text?:string
-    spellcheck?:boolean
-    tab_index?:number
-    title?:string
-    translate?:boolean
-    webkitdropzone?:string
-    /* Properties of WebKit.DOMElement */
-    class_name?:string
-    id?:string
-    scroll_left?:number
-    scroll_top?:number
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHTMLVideoElement {
     /* Properties of WebKit.DOMHTMLVideoElement */
@@ -28012,10 +26225,8 @@ export interface DOMHTMLVideoElement_Static {
     new (config: DOMHTMLVideoElement_ConstructProps): DOMHTMLVideoElement
 }
 export declare var DOMHTMLVideoElement: DOMHTMLVideoElement_Static
-export interface DOMHistory_ConstructProps {
+export interface DOMHistory_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMHistory */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMHistory {
     /* Properties of WebKit.DOMHistory */
@@ -28076,14 +26287,8 @@ export interface DOMHistory_Static {
     new (config: DOMHistory_ConstructProps): DOMHistory
 }
 export declare var DOMHistory: DOMHistory_Static
-export interface DOMKeyboardEvent_ConstructProps {
+export interface DOMKeyboardEvent_ConstructProps extends DOMUIEvent_ConstructProps {
     /* Properties of WebKit.DOMKeyboardEvent */
-    /* Properties of WebKit.DOMUIEvent */
-    /* Properties of WebKit.DOMEvent */
-    cancel_bubble?:boolean
-    return_value?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMKeyboardEvent {
     /* Properties of WebKit.DOMKeyboardEvent */
@@ -28233,10 +26438,8 @@ export interface DOMKeyboardEvent_Static {
     new (config: DOMKeyboardEvent_ConstructProps): DOMKeyboardEvent
 }
 export declare var DOMKeyboardEvent: DOMKeyboardEvent_Static
-export interface DOMLocation_ConstructProps {
+export interface DOMLocation_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMLocation */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMLocation {
     /* Properties of WebKit.DOMLocation */
@@ -28321,15 +26524,13 @@ export interface DOMLocation_Static {
     new (config: DOMLocation_ConstructProps): DOMLocation
 }
 export declare var DOMLocation: DOMLocation_Static
-export interface DOMMediaController_ConstructProps {
+export interface DOMMediaController_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMMediaController */
     current_time?:number
     default_playback_rate?:number
     muted?:boolean
     playback_rate?:number
     volume?:number
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMMediaController {
     /* Properties of WebKit.DOMMediaController */
@@ -28425,10 +26626,8 @@ export interface DOMMediaController_Static {
     new (config: DOMMediaController_ConstructProps): DOMMediaController
 }
 export declare var DOMMediaController: DOMMediaController_Static
-export interface DOMMediaError_ConstructProps {
+export interface DOMMediaError_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMMediaError */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMMediaError {
     /* Properties of WebKit.DOMMediaError */
@@ -28486,11 +26685,9 @@ export interface DOMMediaError_Static {
     new (config: DOMMediaError_ConstructProps): DOMMediaError
 }
 export declare var DOMMediaError: DOMMediaError_Static
-export interface DOMMediaList_ConstructProps {
+export interface DOMMediaList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMMediaList */
     media_text?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMMediaList {
     /* Properties of WebKit.DOMMediaList */
@@ -28555,10 +26752,8 @@ export interface DOMMediaList_Static {
     new (config: DOMMediaList_ConstructProps): DOMMediaList
 }
 export declare var DOMMediaList: DOMMediaList_Static
-export interface DOMMediaQueryList_ConstructProps {
+export interface DOMMediaQueryList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMMediaQueryList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMMediaQueryList {
     /* Properties of WebKit.DOMMediaQueryList */
@@ -28619,10 +26814,8 @@ export interface DOMMediaQueryList_Static {
     new (config: DOMMediaQueryList_ConstructProps): DOMMediaQueryList
 }
 export declare var DOMMediaQueryList: DOMMediaQueryList_Static
-export interface DOMMemoryInfo_ConstructProps {
+export interface DOMMemoryInfo_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMMemoryInfo */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMMemoryInfo {
     /* Properties of WebKit.DOMMemoryInfo */
@@ -28685,9 +26878,7 @@ export declare class DOMMemoryInfo_Static {
     get_used_js_heap_size(self: object): number
 }
 export declare var DOMMemoryInfo: DOMMemoryInfo_Static
-export interface DOMMessagePort_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMMessagePort_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMMessagePort {
     /* Properties of WebKit.DOMObject */
@@ -28740,9 +26931,7 @@ export interface DOMMessagePort_Static {
     new (config: DOMMessagePort_ConstructProps): DOMMessagePort
 }
 export declare var DOMMessagePort: DOMMessagePort_Static
-export interface DOMMicroDataItemValue_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMMicroDataItemValue_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMMicroDataItemValue {
     /* Properties of WebKit.DOMObject */
@@ -28793,14 +26982,8 @@ export interface DOMMicroDataItemValue_Static {
     new (config: DOMMicroDataItemValue_ConstructProps): DOMMicroDataItemValue
 }
 export declare var DOMMicroDataItemValue: DOMMicroDataItemValue_Static
-export interface DOMMouseEvent_ConstructProps {
+export interface DOMMouseEvent_ConstructProps extends DOMUIEvent_ConstructProps {
     /* Properties of WebKit.DOMMouseEvent */
-    /* Properties of WebKit.DOMUIEvent */
-    /* Properties of WebKit.DOMEvent */
-    cancel_bubble?:boolean
-    return_value?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMMouseEvent {
     /* Properties of WebKit.DOMMouseEvent */
@@ -28982,10 +27165,8 @@ export interface DOMMouseEvent_Static {
     new (config: DOMMouseEvent_ConstructProps): DOMMouseEvent
 }
 export declare var DOMMouseEvent: DOMMouseEvent_Static
-export interface DOMNamedNodeMap_ConstructProps {
+export interface DOMNamedNodeMap_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMNamedNodeMap */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMNamedNodeMap {
     /* Properties of WebKit.DOMNamedNodeMap */
@@ -29050,10 +27231,8 @@ export interface DOMNamedNodeMap_Static {
     new (config: DOMNamedNodeMap_ConstructProps): DOMNamedNodeMap
 }
 export declare var DOMNamedNodeMap: DOMNamedNodeMap_Static
-export interface DOMNavigator_ConstructProps {
+export interface DOMNavigator_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMNavigator */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMNavigator {
     /* Properties of WebKit.DOMNavigator */
@@ -29168,13 +27347,11 @@ export interface DOMNavigator_Static {
     new (config: DOMNavigator_ConstructProps): DOMNavigator
 }
 export declare var DOMNavigator: DOMNavigator_Static
-export interface DOMNode_ConstructProps {
+export interface DOMNode_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMNode */
     node_value?:string
     prefix?:string
     text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMNode {
     /* Properties of WebKit.DOMNode */
@@ -29298,9 +27475,7 @@ export interface DOMNode_Static {
     new (config: DOMNode_ConstructProps): DOMNode
 }
 export declare var DOMNode: DOMNode_Static
-export interface DOMNodeFilter_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMNodeFilter_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMNodeFilter {
     /* Properties of WebKit.DOMObject */
@@ -29355,10 +27530,8 @@ export interface DOMNodeFilter_Static {
     new (config: DOMNodeFilter_ConstructProps): DOMNodeFilter
 }
 export declare var DOMNodeFilter: DOMNodeFilter_Static
-export interface DOMNodeIterator_ConstructProps {
+export interface DOMNodeIterator_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMNodeIterator */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMNodeIterator {
     /* Properties of WebKit.DOMNodeIterator */
@@ -29434,10 +27607,8 @@ export interface DOMNodeIterator_Static {
     new (config: DOMNodeIterator_ConstructProps): DOMNodeIterator
 }
 export declare var DOMNodeIterator: DOMNodeIterator_Static
-export interface DOMNodeList_ConstructProps {
+export interface DOMNodeList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMNodeList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMNodeList {
     /* Properties of WebKit.DOMNodeList */
@@ -29496,7 +27667,7 @@ export interface DOMNodeList_Static {
     new (config: DOMNodeList_ConstructProps): DOMNodeList
 }
 export declare var DOMNodeList: DOMNodeList_Static
-export interface DOMObject_ConstructProps {
+export interface DOMObject_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.DOMObject */
     core_object?:object
 }
@@ -29549,10 +27720,8 @@ export interface DOMObject_Static {
     new (config: DOMObject_ConstructProps): DOMObject
 }
 export declare var DOMObject: DOMObject_Static
-export interface DOMPerformance_ConstructProps {
+export interface DOMPerformance_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMPerformance */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMPerformance {
     /* Properties of WebKit.DOMPerformance */
@@ -29615,10 +27784,8 @@ export interface DOMPerformance_Static {
     new (config: DOMPerformance_ConstructProps): DOMPerformance
 }
 export declare var DOMPerformance: DOMPerformance_Static
-export interface DOMPerformanceEntry_ConstructProps {
+export interface DOMPerformanceEntry_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMPerformanceEntry */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMPerformanceEntry {
     /* Properties of WebKit.DOMPerformanceEntry */
@@ -29685,10 +27852,8 @@ export interface DOMPerformanceEntry_Static {
     new (config: DOMPerformanceEntry_ConstructProps): DOMPerformanceEntry
 }
 export declare var DOMPerformanceEntry: DOMPerformanceEntry_Static
-export interface DOMPerformanceEntryList_ConstructProps {
+export interface DOMPerformanceEntryList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMPerformanceEntryList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMPerformanceEntryList {
     /* Properties of WebKit.DOMPerformanceEntryList */
@@ -29747,10 +27912,8 @@ export interface DOMPerformanceEntryList_Static {
     new (config: DOMPerformanceEntryList_ConstructProps): DOMPerformanceEntryList
 }
 export declare var DOMPerformanceEntryList: DOMPerformanceEntryList_Static
-export interface DOMPerformanceNavigation_ConstructProps {
+export interface DOMPerformanceNavigation_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMPerformanceNavigation */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMPerformanceNavigation {
     /* Properties of WebKit.DOMPerformanceNavigation */
@@ -29810,10 +27973,8 @@ export interface DOMPerformanceNavigation_Static {
     new (config: DOMPerformanceNavigation_ConstructProps): DOMPerformanceNavigation
 }
 export declare var DOMPerformanceNavigation: DOMPerformanceNavigation_Static
-export interface DOMPerformanceTiming_ConstructProps {
+export interface DOMPerformanceTiming_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMPerformanceTiming */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMPerformanceTiming {
     /* Properties of WebKit.DOMPerformanceTiming */
@@ -29931,16 +28092,8 @@ export interface DOMPerformanceTiming_Static {
     new (config: DOMPerformanceTiming_ConstructProps): DOMPerformanceTiming
 }
 export declare var DOMPerformanceTiming: DOMPerformanceTiming_Static
-export interface DOMProcessingInstruction_ConstructProps {
+export interface DOMProcessingInstruction_ConstructProps extends DOMCharacterData_ConstructProps {
     /* Properties of WebKit.DOMProcessingInstruction */
-    /* Properties of WebKit.DOMCharacterData */
-    data?:string
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMProcessingInstruction {
     /* Properties of WebKit.DOMProcessingInstruction */
@@ -30086,11 +28239,8 @@ export interface DOMProcessingInstruction_Static {
     new (config: DOMProcessingInstruction_ConstructProps): DOMProcessingInstruction
 }
 export declare var DOMProcessingInstruction: DOMProcessingInstruction_Static
-export interface DOMPropertyNodeList_ConstructProps {
+export interface DOMPropertyNodeList_ConstructProps extends DOMNodeList_ConstructProps {
     /* Properties of WebKit.DOMPropertyNodeList */
-    /* Properties of WebKit.DOMNodeList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMPropertyNodeList {
     /* Properties of WebKit.DOMPropertyNodeList */
@@ -30154,10 +28304,8 @@ export declare class DOMPropertyNodeList_Static {
     item(self: object, index: number): DOMNode
 }
 export declare var DOMPropertyNodeList: DOMPropertyNodeList_Static
-export interface DOMRange_ConstructProps {
+export interface DOMRange_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMRange */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMRange {
     /* Properties of WebKit.DOMRange */
@@ -30257,10 +28405,8 @@ export interface DOMRange_Static {
     new (config: DOMRange_ConstructProps): DOMRange
 }
 export declare var DOMRange: DOMRange_Static
-export interface DOMScreen_ConstructProps {
+export interface DOMScreen_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMScreen */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMScreen {
     /* Properties of WebKit.DOMScreen */
@@ -30339,17 +28485,11 @@ export interface DOMScreen_Static {
     new (config: DOMScreen_ConstructProps): DOMScreen
 }
 export declare var DOMScreen: DOMScreen_Static
-export interface DOMShadowRoot_ConstructProps {
+export interface DOMShadowRoot_ConstructProps extends DOMDocumentFragment_ConstructProps {
     /* Properties of WebKit.DOMShadowRoot */
     apply_author_styles?:boolean
     inner_html?:string
     reset_style_inheritance?:boolean
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMShadowRoot {
     /* Properties of WebKit.DOMShadowRoot */
@@ -30501,10 +28641,8 @@ export interface DOMShadowRoot_Static {
     new (config: DOMShadowRoot_ConstructProps): DOMShadowRoot
 }
 export declare var DOMShadowRoot: DOMShadowRoot_Static
-export interface DOMStorage_ConstructProps {
+export interface DOMStorage_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMStorage */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMStorage {
     /* Properties of WebKit.DOMStorage */
@@ -30567,9 +28705,7 @@ export interface DOMStorage_Static {
     new (config: DOMStorage_ConstructProps): DOMStorage
 }
 export declare var DOMStorage: DOMStorage_Static
-export interface DOMStorageInfo_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMStorageInfo_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMStorageInfo {
     /* Properties of WebKit.DOMObject */
@@ -30622,9 +28758,7 @@ export interface DOMStorageInfo_Static {
     new (config: DOMStorageInfo_ConstructProps): DOMStorageInfo
 }
 export declare var DOMStorageInfo: DOMStorageInfo_Static
-export interface DOMStorageQuota_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMStorageQuota_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMStorageQuota {
     /* Properties of WebKit.DOMObject */
@@ -30677,10 +28811,8 @@ export interface DOMStorageQuota_Static {
     new (config: DOMStorageQuota_ConstructProps): DOMStorageQuota
 }
 export declare var DOMStorageQuota: DOMStorageQuota_Static
-export interface DOMStyleMedia_ConstructProps {
+export interface DOMStyleMedia_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMStyleMedia */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMStyleMedia {
     /* Properties of WebKit.DOMStyleMedia */
@@ -30738,11 +28870,9 @@ export interface DOMStyleMedia_Static {
     new (config: DOMStyleMedia_ConstructProps): DOMStyleMedia
 }
 export declare var DOMStyleMedia: DOMStyleMedia_Static
-export interface DOMStyleSheet_ConstructProps {
+export interface DOMStyleSheet_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMStyleSheet */
     disabled?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMStyleSheet {
     /* Properties of WebKit.DOMStyleSheet */
@@ -30818,10 +28948,8 @@ export interface DOMStyleSheet_Static {
     new (config: DOMStyleSheet_ConstructProps): DOMStyleSheet
 }
 export declare var DOMStyleSheet: DOMStyleSheet_Static
-export interface DOMStyleSheetList_ConstructProps {
+export interface DOMStyleSheetList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMStyleSheetList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMStyleSheetList {
     /* Properties of WebKit.DOMStyleSheetList */
@@ -30880,16 +29008,8 @@ export interface DOMStyleSheetList_Static {
     new (config: DOMStyleSheetList_ConstructProps): DOMStyleSheetList
 }
 export declare var DOMStyleSheetList: DOMStyleSheetList_Static
-export interface DOMText_ConstructProps {
+export interface DOMText_ConstructProps extends DOMCharacterData_ConstructProps {
     /* Properties of WebKit.DOMText */
-    /* Properties of WebKit.DOMCharacterData */
-    data?:string
-    /* Properties of WebKit.DOMNode */
-    node_value?:string
-    prefix?:string
-    text_content?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMText {
     /* Properties of WebKit.DOMText */
@@ -31034,11 +29154,9 @@ export interface DOMText_Static {
     new (config: DOMText_ConstructProps): DOMText
 }
 export declare var DOMText: DOMText_Static
-export interface DOMTextTrack_ConstructProps {
+export interface DOMTextTrack_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMTextTrack */
     mode?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMTextTrack {
     /* Properties of WebKit.DOMTextTrack */
@@ -31118,7 +29236,7 @@ export interface DOMTextTrack_Static {
     new (config: DOMTextTrack_ConstructProps): DOMTextTrack
 }
 export declare var DOMTextTrack: DOMTextTrack_Static
-export interface DOMTextTrackCue_ConstructProps {
+export interface DOMTextTrackCue_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMTextTrackCue */
     align?:string
     end_time?:number
@@ -31131,8 +29249,6 @@ export interface DOMTextTrackCue_ConstructProps {
     start_time?:number
     text?:string
     vertical?:string
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMTextTrackCue {
     /* Properties of WebKit.DOMTextTrackCue */
@@ -31236,10 +29352,8 @@ export interface DOMTextTrackCue_Static {
     new (config: DOMTextTrackCue_ConstructProps): DOMTextTrackCue
 }
 export declare var DOMTextTrackCue: DOMTextTrackCue_Static
-export interface DOMTextTrackCueList_ConstructProps {
+export interface DOMTextTrackCueList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMTextTrackCueList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMTextTrackCueList {
     /* Properties of WebKit.DOMTextTrackCueList */
@@ -31299,10 +29413,8 @@ export interface DOMTextTrackCueList_Static {
     new (config: DOMTextTrackCueList_ConstructProps): DOMTextTrackCueList
 }
 export declare var DOMTextTrackCueList: DOMTextTrackCueList_Static
-export interface DOMTextTrackList_ConstructProps {
+export interface DOMTextTrackList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMTextTrackList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMTextTrackList {
     /* Properties of WebKit.DOMTextTrackList */
@@ -31363,10 +29475,8 @@ export interface DOMTextTrackList_Static {
     new (config: DOMTextTrackList_ConstructProps): DOMTextTrackList
 }
 export declare var DOMTextTrackList: DOMTextTrackList_Static
-export interface DOMTimeRanges_ConstructProps {
+export interface DOMTimeRanges_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMTimeRanges */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMTimeRanges {
     /* Properties of WebKit.DOMTimeRanges */
@@ -31426,10 +29536,8 @@ export interface DOMTimeRanges_Static {
     new (config: DOMTimeRanges_ConstructProps): DOMTimeRanges
 }
 export declare var DOMTimeRanges: DOMTimeRanges_Static
-export interface DOMTouch_ConstructProps {
+export interface DOMTouch_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMTouch */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMTouch {
     /* Properties of WebKit.DOMTouch */
@@ -31520,12 +29628,7 @@ export interface DOMTouch_Static {
     new (config: DOMTouch_ConstructProps): DOMTouch
 }
 export declare var DOMTouch: DOMTouch_Static
-export interface DOMTrackEvent_ConstructProps {
-    /* Properties of WebKit.DOMEvent */
-    cancel_bubble?:boolean
-    return_value?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMTrackEvent_ConstructProps extends DOMEvent_ConstructProps {
 }
 export interface DOMTrackEvent {
     /* Properties of WebKit.DOMEvent */
@@ -31619,10 +29722,8 @@ export interface DOMTrackEvent_Static {
     new (config: DOMTrackEvent_ConstructProps): DOMTrackEvent
 }
 export declare var DOMTrackEvent: DOMTrackEvent_Static
-export interface DOMTreeWalker_ConstructProps {
+export interface DOMTreeWalker_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMTreeWalker */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMTreeWalker {
     /* Properties of WebKit.DOMTreeWalker */
@@ -31700,13 +29801,8 @@ export interface DOMTreeWalker_Static {
     new (config: DOMTreeWalker_ConstructProps): DOMTreeWalker
 }
 export declare var DOMTreeWalker: DOMTreeWalker_Static
-export interface DOMUIEvent_ConstructProps {
+export interface DOMUIEvent_ConstructProps extends DOMEvent_ConstructProps {
     /* Properties of WebKit.DOMUIEvent */
-    /* Properties of WebKit.DOMEvent */
-    cancel_bubble?:boolean
-    return_value?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMUIEvent {
     /* Properties of WebKit.DOMUIEvent */
@@ -31830,10 +29926,8 @@ export interface DOMUIEvent_Static {
     new (config: DOMUIEvent_ConstructProps): DOMUIEvent
 }
 export declare var DOMUIEvent: DOMUIEvent_Static
-export interface DOMValidityState_ConstructProps {
+export interface DOMValidityState_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMValidityState */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMValidityState {
     /* Properties of WebKit.DOMValidityState */
@@ -31918,10 +30012,8 @@ export interface DOMValidityState_Static {
     new (config: DOMValidityState_ConstructProps): DOMValidityState
 }
 export declare var DOMValidityState: DOMValidityState_Static
-export interface DOMVideoPlaybackQuality_ConstructProps {
+export interface DOMVideoPlaybackQuality_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMVideoPlaybackQuality */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMVideoPlaybackQuality {
     /* Properties of WebKit.DOMVideoPlaybackQuality */
@@ -31991,11 +30083,9 @@ export interface DOMVideoPlaybackQuality_Static {
     new (config: DOMVideoPlaybackQuality_ConstructProps): DOMVideoPlaybackQuality
 }
 export declare var DOMVideoPlaybackQuality: DOMVideoPlaybackQuality_Static
-export interface DOMVideoTrack_ConstructProps {
+export interface DOMVideoTrack_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMVideoTrack */
     selected?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMVideoTrack {
     /* Properties of WebKit.DOMVideoTrack */
@@ -32066,10 +30156,8 @@ export interface DOMVideoTrack_Static {
     new (config: DOMVideoTrack_ConstructProps): DOMVideoTrack
 }
 export declare var DOMVideoTrack: DOMVideoTrack_Static
-export interface DOMVideoTrackList_ConstructProps {
+export interface DOMVideoTrackList_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMVideoTrackList */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMVideoTrackList {
     /* Properties of WebKit.DOMVideoTrackList */
@@ -32130,10 +30218,8 @@ export interface DOMVideoTrackList_Static {
     new (config: DOMVideoTrackList_ConstructProps): DOMVideoTrackList
 }
 export declare var DOMVideoTrackList: DOMVideoTrackList_Static
-export interface DOMWebKitNamedFlow_ConstructProps {
+export interface DOMWebKitNamedFlow_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMWebKitNamedFlow */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMWebKitNamedFlow {
     /* Properties of WebKit.DOMWebKitNamedFlow */
@@ -32204,12 +30290,10 @@ export interface DOMWebKitNamedFlow_Static {
     new (config: DOMWebKitNamedFlow_ConstructProps): DOMWebKitNamedFlow
 }
 export declare var DOMWebKitNamedFlow: DOMWebKitNamedFlow_Static
-export interface DOMWebKitPoint_ConstructProps {
+export interface DOMWebKitPoint_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMWebKitPoint */
     x?:number
     y?:number
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMWebKitPoint {
     /* Properties of WebKit.DOMWebKitPoint */
@@ -32272,15 +30356,8 @@ export interface DOMWebKitPoint_Static {
     new (config: DOMWebKitPoint_ConstructProps): DOMWebKitPoint
 }
 export declare var DOMWebKitPoint: DOMWebKitPoint_Static
-export interface DOMWheelEvent_ConstructProps {
+export interface DOMWheelEvent_ConstructProps extends DOMMouseEvent_ConstructProps {
     /* Properties of WebKit.DOMWheelEvent */
-    /* Properties of WebKit.DOMMouseEvent */
-    /* Properties of WebKit.DOMUIEvent */
-    /* Properties of WebKit.DOMEvent */
-    cancel_bubble?:boolean
-    return_value?:boolean
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMWheelEvent {
     /* Properties of WebKit.DOMWheelEvent */
@@ -32490,9 +30567,7 @@ export interface DOMWheelEvent_Static {
     new (config: DOMWheelEvent_ConstructProps): DOMWheelEvent
 }
 export declare var DOMWheelEvent: DOMWheelEvent_Static
-export interface DOMXPathExpression_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMXPathExpression_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMXPathExpression {
     /* Properties of WebKit.DOMObject */
@@ -32547,9 +30622,7 @@ export interface DOMXPathExpression_Static {
     new (config: DOMXPathExpression_ConstructProps): DOMXPathExpression
 }
 export declare var DOMXPathExpression: DOMXPathExpression_Static
-export interface DOMXPathNSResolver_ConstructProps {
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
+export interface DOMXPathNSResolver_ConstructProps extends DOMObject_ConstructProps {
 }
 export interface DOMXPathNSResolver {
     /* Properties of WebKit.DOMObject */
@@ -32604,10 +30677,8 @@ export interface DOMXPathNSResolver_Static {
     new (config: DOMXPathNSResolver_ConstructProps): DOMXPathNSResolver
 }
 export declare var DOMXPathNSResolver: DOMXPathNSResolver_Static
-export interface DOMXPathResult_ConstructProps {
+export interface DOMXPathResult_ConstructProps extends DOMObject_ConstructProps {
     /* Properties of WebKit.DOMXPathResult */
-    /* Properties of WebKit.DOMObject */
-    core_object?:object
 }
 export interface DOMXPathResult {
     /* Properties of WebKit.DOMXPathResult */
@@ -32685,7 +30756,7 @@ export interface DOMXPathResult_Static {
     new (config: DOMXPathResult_ConstructProps): DOMXPathResult
 }
 export declare var DOMXPathResult: DOMXPathResult_Static
-export interface Download_ConstructProps {
+export interface Download_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.Download */
     destination_uri?:string
     network_request?:NetworkRequest
@@ -32771,7 +30842,7 @@ export declare class Download_Static {
     new(request: NetworkRequest): Download
 }
 export declare var Download: Download_Static
-export interface FaviconDatabase_ConstructProps {
+export interface FaviconDatabase_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.FaviconDatabase */
     path?:string
 }
@@ -32836,7 +30907,7 @@ export interface FaviconDatabase_Static {
     new (config: FaviconDatabase_ConstructProps): FaviconDatabase
 }
 export declare var FaviconDatabase: FaviconDatabase_Static
-export interface FileChooserRequest_ConstructProps {
+export interface FileChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.FileChooserRequest */
 }
 export interface FileChooserRequest {
@@ -32902,7 +30973,7 @@ export interface FileChooserRequest_Static {
     new (config: FileChooserRequest_ConstructProps): FileChooserRequest
 }
 export declare var FileChooserRequest: FileChooserRequest_Static
-export interface GeolocationPolicyDecision_ConstructProps {
+export interface GeolocationPolicyDecision_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface GeolocationPolicyDecision {
     /* Fields of WebKit.GeolocationPolicyDecision */
@@ -32952,7 +31023,7 @@ export interface GeolocationPolicyDecision_Static {
     new (config: GeolocationPolicyDecision_ConstructProps): GeolocationPolicyDecision
 }
 export declare var GeolocationPolicyDecision: GeolocationPolicyDecision_Static
-export interface HitTestResult_ConstructProps {
+export interface HitTestResult_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.HitTestResult */
     context?:HitTestResultContext
     image_uri?:string
@@ -33011,7 +31082,7 @@ export interface HitTestResult_Static {
     new (config: HitTestResult_ConstructProps): HitTestResult
 }
 export declare var HitTestResult: HitTestResult_Static
-export interface IconDatabase_ConstructProps {
+export interface IconDatabase_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.IconDatabase */
     path?:string
 }
@@ -33074,7 +31145,7 @@ export interface IconDatabase_Static {
     new (config: IconDatabase_ConstructProps): IconDatabase
 }
 export declare var IconDatabase: IconDatabase_Static
-export interface NetworkRequest_ConstructProps {
+export interface NetworkRequest_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.NetworkRequest */
     message?:Soup.Message
     uri?:string
@@ -33137,7 +31208,7 @@ export declare class NetworkRequest_Static {
     new(uri: string): NetworkRequest
 }
 export declare var NetworkRequest: NetworkRequest_Static
-export interface NetworkResponse_ConstructProps {
+export interface NetworkResponse_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.NetworkResponse */
     message?:Soup.Message
     uri?:string
@@ -33203,7 +31274,7 @@ export declare class NetworkResponse_Static {
     new(uri: string): NetworkResponse
 }
 export declare var NetworkResponse: NetworkResponse_Static
-export interface SecurityOrigin_ConstructProps {
+export interface SecurityOrigin_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.SecurityOrigin */
     web_database_quota?:number
 }
@@ -33274,7 +31345,7 @@ export interface SecurityOrigin_Static {
     new (config: SecurityOrigin_ConstructProps): SecurityOrigin
 }
 export declare var SecurityOrigin: SecurityOrigin_Static
-export interface SoupAuthDialog_ConstructProps {
+export interface SoupAuthDialog_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface SoupAuthDialog {
     /* Fields of WebKit.SoupAuthDialog */
@@ -33326,7 +31397,7 @@ export interface SoupAuthDialog_Static {
     new (config: SoupAuthDialog_ConstructProps): SoupAuthDialog
 }
 export declare var SoupAuthDialog: SoupAuthDialog_Static
-export interface ViewportAttributes_ConstructProps {
+export interface ViewportAttributes_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.ViewportAttributes */
     available_height?:number
     available_width?:number
@@ -33414,7 +31485,7 @@ export interface ViewportAttributes_Static {
     new (config: ViewportAttributes_ConstructProps): ViewportAttributes
 }
 export declare var ViewportAttributes: ViewportAttributes_Static
-export interface WebBackForwardList_ConstructProps {
+export interface WebBackForwardList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface WebBackForwardList {
     /* Fields of WebKit.WebBackForwardList */
@@ -33481,7 +31552,7 @@ export interface WebBackForwardList_Static {
     new (config: WebBackForwardList_ConstructProps): WebBackForwardList
 }
 export declare var WebBackForwardList: WebBackForwardList_Static
-export interface WebDataSource_ConstructProps {
+export interface WebDataSource_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface WebDataSource {
     /* Fields of WebKit.WebDataSource */
@@ -33544,7 +31615,7 @@ export declare class WebDataSource_Static {
     new_with_request(request: NetworkRequest): WebDataSource
 }
 export declare var WebDataSource: WebDataSource_Static
-export interface WebDatabase_ConstructProps {
+export interface WebDatabase_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.WebDatabase */
     name?:string
     security_origin?:SecurityOrigin
@@ -33614,7 +31685,7 @@ export interface WebDatabase_Static {
     new (config: WebDatabase_ConstructProps): WebDatabase
 }
 export declare var WebDatabase: WebDatabase_Static
-export interface WebFrame_ConstructProps {
+export interface WebFrame_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.WebFrame */
 }
 export interface WebFrame {
@@ -33719,7 +31790,7 @@ export declare class WebFrame_Static {
     new(web_view: WebView): WebFrame
 }
 export declare var WebFrame: WebFrame_Static
-export interface WebHistoryItem_ConstructProps {
+export interface WebHistoryItem_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.WebHistoryItem */
     alternate_title?:string
 }
@@ -33794,7 +31865,7 @@ export declare class WebHistoryItem_Static {
     new_with_data(uri: string, title: string): WebHistoryItem
 }
 export declare var WebHistoryItem: WebHistoryItem_Static
-export interface WebInspector_ConstructProps {
+export interface WebInspector_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.WebInspector */
     javascript_profiling_enabled?:boolean
     timeline_profiling_enabled?:boolean
@@ -33870,7 +31941,7 @@ export interface WebInspector_Static {
     new (config: WebInspector_ConstructProps): WebInspector
 }
 export declare var WebInspector: WebInspector_Static
-export interface WebNavigationAction_ConstructProps {
+export interface WebNavigationAction_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.WebNavigationAction */
     button?:number
     modifier_state?:number
@@ -33939,7 +32010,7 @@ export interface WebNavigationAction_Static {
     new (config: WebNavigationAction_ConstructProps): WebNavigationAction
 }
 export declare var WebNavigationAction: WebNavigationAction_Static
-export interface WebPlugin_ConstructProps {
+export interface WebPlugin_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.WebPlugin */
     enabled?:boolean
 }
@@ -34000,7 +32071,7 @@ export interface WebPlugin_Static {
     new (config: WebPlugin_ConstructProps): WebPlugin
 }
 export declare var WebPlugin: WebPlugin_Static
-export interface WebPluginDatabase_ConstructProps {
+export interface WebPluginDatabase_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface WebPluginDatabase {
     /* Fields of WebKit.WebPluginDatabase */
@@ -34057,7 +32128,7 @@ export declare class WebPluginDatabase_Static {
     plugins_list_free(list: GLib.SList): void
 }
 export declare var WebPluginDatabase: WebPluginDatabase_Static
-export interface WebPolicyDecision_ConstructProps {
+export interface WebPolicyDecision_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface WebPolicyDecision {
     /* Fields of WebKit.WebPolicyDecision */
@@ -34111,7 +32182,7 @@ export interface WebPolicyDecision_Static {
     new (config: WebPolicyDecision_ConstructProps): WebPolicyDecision
 }
 export declare var WebPolicyDecision: WebPolicyDecision_Static
-export interface WebResource_ConstructProps {
+export interface WebResource_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.WebResource */
     uri?:string
 }
@@ -34183,7 +32254,7 @@ export declare class WebResource_Static {
     new(data: string, size: number, uri: string, mime_type: string, encoding: string, frame_name: string): WebResource
 }
 export declare var WebResource: WebResource_Static
-export interface WebSettings_ConstructProps {
+export interface WebSettings_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.WebSettings */
     auto_load_images?:boolean
     auto_resize_window?:boolean
@@ -34418,7 +32489,7 @@ export declare class WebSettings_Static {
     new(): WebSettings
 }
 export declare var WebSettings: WebSettings_Static
-export interface WebView_ConstructProps {
+export interface WebView_ConstructProps extends Gtk.Container_ConstructProps {
     /* Properties of WebKit.WebView */
     custom_encoding?:string
     editable?:boolean
@@ -34429,46 +32500,6 @@ export interface WebView_ConstructProps {
     view_mode?:WebViewViewMode
     window_features?:WebWindowFeatures
     zoom_level?:number
-    /* Properties of Gtk.Container */
-    border_width?:number
-    child?:Gtk.Widget
-    resize_mode?:Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
-    app_paintable?:boolean
-    can_default?:boolean
-    can_focus?:boolean
-    double_buffered?:boolean
-    events?:Gdk.EventMask
-    expand?:boolean
-    halign?:Gtk.Align
-    has_default?:boolean
-    has_focus?:boolean
-    has_tooltip?:boolean
-    height_request?:number
-    hexpand?:boolean
-    hexpand_set?:boolean
-    is_focus?:boolean
-    margin?:number
-    margin_bottom?:number
-    margin_end?:number
-    margin_left?:number
-    margin_right?:number
-    margin_start?:number
-    margin_top?:number
-    name?:string
-    no_show_all?:boolean
-    opacity?:number
-    parent?:Gtk.Container
-    receives_default?:boolean
-    sensitive?:boolean
-    style?:Gtk.Style
-    tooltip_markup?:string
-    tooltip_text?:string
-    valign?:Gtk.Align
-    vexpand?:boolean
-    vexpand_set?:boolean
-    visible?:boolean
-    width_request?:number
 }
 export interface WebView {
     /* Properties of WebKit.WebView */
@@ -35256,7 +33287,7 @@ export declare class WebView_Static {
     new(): WebView
 }
 export declare var WebView: WebView_Static
-export interface WebWindowFeatures_ConstructProps {
+export interface WebWindowFeatures_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of WebKit.WebWindowFeatures */
     fullscreen?:boolean
     height?:number

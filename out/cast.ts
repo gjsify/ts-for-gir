@@ -682,6 +682,11 @@ interface StaticNamed {
     name: string
 }
 
+/** Casts between derived classes, performing a run-time type-check
+ * and raising an exception if the cast fails.
+ * 
+ * Does not take into account interfaces at all.
+ */
 export function giCast<T extends GObject.Object>(from_: GObject.Object, to_: StaticNamed): T {
     let desc: string = from_.toString()
     let clsName: string|null = null

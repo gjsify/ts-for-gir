@@ -68,7 +68,7 @@ export interface PixbufDestroyNotify {
 export interface PixbufSaveFunc {
     (buf: Gjs.byteArray.ByteArray[], data: object): boolean
 }
-export interface Pixbuf_ConstructProps {
+export interface Pixbuf_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of GdkPixbuf.Pixbuf */
     bits_per_sample?:number
     colorspace?:Colorspace
@@ -181,7 +181,7 @@ export declare class Pixbuf_Static {
     save_to_stream_finish(async_result: Gio.AsyncResult): boolean
 }
 export declare var Pixbuf: Pixbuf_Static
-export interface PixbufAnimation_ConstructProps {
+export interface PixbufAnimation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface PixbufAnimation {
     /* Fields of GObject.Object */
@@ -241,7 +241,7 @@ export declare class PixbufAnimation_Static {
     new_from_stream_async(stream: Gio.InputStream, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
 }
 export declare var PixbufAnimation: PixbufAnimation_Static
-export interface PixbufAnimationIter_ConstructProps {
+export interface PixbufAnimationIter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface PixbufAnimationIter {
     /* Fields of GObject.Object */
@@ -293,7 +293,7 @@ export interface PixbufAnimationIter_Static {
     new (config: PixbufAnimationIter_ConstructProps): PixbufAnimationIter
 }
 export declare var PixbufAnimationIter: PixbufAnimationIter_Static
-export interface PixbufLoader_ConstructProps {
+export interface PixbufLoader_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface PixbufLoader {
     /* Fields of GdkPixbuf.PixbufLoader */
@@ -366,7 +366,7 @@ export declare class PixbufLoader_Static {
     new_with_type(image_type: string): PixbufLoader
 }
 export declare var PixbufLoader: PixbufLoader_Static
-export interface PixbufSimpleAnim_ConstructProps {
+export interface PixbufSimpleAnim_ConstructProps extends PixbufAnimation_ConstructProps {
     /* Properties of GdkPixbuf.PixbufSimpleAnim */
     loop?:boolean
 }
@@ -431,7 +431,7 @@ export declare class PixbufSimpleAnim_Static {
     new(width: number, height: number, rate: number): PixbufSimpleAnim
 }
 export declare var PixbufSimpleAnim: PixbufSimpleAnim_Static
-export interface PixbufSimpleAnimIter_ConstructProps {
+export interface PixbufSimpleAnimIter_ConstructProps extends PixbufAnimationIter_ConstructProps {
 }
 export interface PixbufSimpleAnimIter {
     /* Fields of GObject.Object */

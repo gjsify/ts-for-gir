@@ -600,7 +600,7 @@ export interface SessionFeature_Static {
     name: string
 }
 export declare var SessionFeature: SessionFeature_Static
-export interface Address_ConstructProps {
+export interface Address_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.Address */
     family?:AddressFamily
     name?:string
@@ -676,7 +676,7 @@ export declare class Address_Static {
     new_from_sockaddr(sa: object, len: number): Address | null
 }
 export declare var Address: Address_Static
-export interface Auth_ConstructProps {
+export interface Auth_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.Auth */
     host?:string
     is_for_proxy?:boolean
@@ -764,11 +764,7 @@ export declare class Auth_Static {
     new(type: number, msg: Message, auth_header: string): Auth | null
 }
 export declare var Auth: Auth_Static
-export interface AuthBasic_ConstructProps {
-    /* Properties of Soup.Auth */
-    host?:string
-    is_for_proxy?:boolean
-    realm?:string
+export interface AuthBasic_ConstructProps extends Auth_ConstructProps {
 }
 export interface AuthBasic {
     /* Properties of Soup.Auth */
@@ -849,11 +845,7 @@ export interface AuthBasic_Static {
     new (config: AuthBasic_ConstructProps): AuthBasic
 }
 export declare var AuthBasic: AuthBasic_Static
-export interface AuthDigest_ConstructProps {
-    /* Properties of Soup.Auth */
-    host?:string
-    is_for_proxy?:boolean
-    realm?:string
+export interface AuthDigest_ConstructProps extends Auth_ConstructProps {
 }
 export interface AuthDigest {
     /* Properties of Soup.Auth */
@@ -934,7 +926,7 @@ export interface AuthDigest_Static {
     new (config: AuthDigest_ConstructProps): AuthDigest
 }
 export declare var AuthDigest: AuthDigest_Static
-export interface AuthDomain_ConstructProps {
+export interface AuthDomain_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.AuthDomain */
     add_path?:string
     filter?:object
@@ -1020,19 +1012,10 @@ export interface AuthDomain_Static {
     new (config: AuthDomain_ConstructProps): AuthDomain
 }
 export declare var AuthDomain: AuthDomain_Static
-export interface AuthDomainBasic_ConstructProps {
+export interface AuthDomainBasic_ConstructProps extends AuthDomain_ConstructProps {
     /* Properties of Soup.AuthDomainBasic */
     auth_callback?:object
     auth_data?:object
-    /* Properties of Soup.AuthDomain */
-    add_path?:string
-    filter?:object
-    filter_data?:object
-    generic_auth_callback?:object
-    generic_auth_data?:object
-    proxy?:boolean
-    realm?:string
-    remove_path?:string
 }
 export interface AuthDomainBasic {
     /* Properties of Soup.AuthDomainBasic */
@@ -1115,19 +1098,10 @@ export interface AuthDomainBasic_Static {
     new (config: AuthDomainBasic_ConstructProps): AuthDomainBasic
 }
 export declare var AuthDomainBasic: AuthDomainBasic_Static
-export interface AuthDomainDigest_ConstructProps {
+export interface AuthDomainDigest_ConstructProps extends AuthDomain_ConstructProps {
     /* Properties of Soup.AuthDomainDigest */
     auth_callback?:object
     auth_data?:object
-    /* Properties of Soup.AuthDomain */
-    add_path?:string
-    filter?:object
-    filter_data?:object
-    generic_auth_callback?:object
-    generic_auth_data?:object
-    proxy?:boolean
-    realm?:string
-    remove_path?:string
 }
 export interface AuthDomainDigest {
     /* Properties of Soup.AuthDomainDigest */
@@ -1213,7 +1187,7 @@ export declare class AuthDomainDigest_Static {
     encode_password(username: string, realm: string, password: string): string
 }
 export declare var AuthDomainDigest: AuthDomainDigest_Static
-export interface AuthManager_ConstructProps {
+export interface AuthManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface AuthManager {
     /* Fields of Soup.AuthManager */
@@ -1269,11 +1243,7 @@ export interface AuthManager_Static {
     new (config: AuthManager_ConstructProps): AuthManager
 }
 export declare var AuthManager: AuthManager_Static
-export interface AuthNTLM_ConstructProps {
-    /* Properties of Soup.Auth */
-    host?:string
-    is_for_proxy?:boolean
-    realm?:string
+export interface AuthNTLM_ConstructProps extends Auth_ConstructProps {
 }
 export interface AuthNTLM {
     /* Properties of Soup.Auth */
@@ -1354,7 +1324,7 @@ export interface AuthNTLM_Static {
     new (config: AuthNTLM_ConstructProps): AuthNTLM
 }
 export declare var AuthNTLM: AuthNTLM_Static
-export interface Cache_ConstructProps {
+export interface Cache_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.Cache */
     cache_dir?:string
     cache_type?:CacheType
@@ -1420,7 +1390,7 @@ export declare class Cache_Static {
     new(cache_dir: string, cache_type: CacheType): Cache
 }
 export declare var Cache: Cache_Static
-export interface ContentDecoder_ConstructProps {
+export interface ContentDecoder_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface ContentDecoder {
     /* Fields of Soup.ContentDecoder */
@@ -1470,7 +1440,7 @@ export interface ContentDecoder_Static {
     new (config: ContentDecoder_ConstructProps): ContentDecoder
 }
 export declare var ContentDecoder: ContentDecoder_Static
-export interface ContentSniffer_ConstructProps {
+export interface ContentSniffer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface ContentSniffer {
     /* Fields of Soup.ContentSniffer */
@@ -1529,7 +1499,7 @@ export declare class ContentSniffer_Static {
     new(): ContentSniffer
 }
 export declare var ContentSniffer: ContentSniffer_Static
-export interface CookieJar_ConstructProps {
+export interface CookieJar_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.CookieJar */
     accept_policy?:CookieJarAcceptPolicy
     read_only?:boolean
@@ -1606,12 +1576,9 @@ export declare class CookieJar_Static {
     new(): CookieJar
 }
 export declare var CookieJar: CookieJar_Static
-export interface CookieJarDB_ConstructProps {
+export interface CookieJarDB_ConstructProps extends CookieJar_ConstructProps {
     /* Properties of Soup.CookieJarDB */
     filename?:string
-    /* Properties of Soup.CookieJar */
-    accept_policy?:CookieJarAcceptPolicy
-    read_only?:boolean
 }
 export interface CookieJarDB {
     /* Properties of Soup.CookieJarDB */
@@ -1687,12 +1654,9 @@ export declare class CookieJarDB_Static {
     new(filename: string, read_only: boolean): CookieJarDB
 }
 export declare var CookieJarDB: CookieJarDB_Static
-export interface CookieJarText_ConstructProps {
+export interface CookieJarText_ConstructProps extends CookieJar_ConstructProps {
     /* Properties of Soup.CookieJarText */
     filename?:string
-    /* Properties of Soup.CookieJar */
-    accept_policy?:CookieJarAcceptPolicy
-    read_only?:boolean
 }
 export interface CookieJarText {
     /* Properties of Soup.CookieJarText */
@@ -1768,7 +1732,7 @@ export declare class CookieJarText_Static {
     new(filename: string, read_only: boolean): CookieJarText
 }
 export declare var CookieJarText: CookieJarText_Static
-export interface Logger_ConstructProps {
+export interface Logger_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Logger {
     /* Fields of Soup.Logger */
@@ -1826,7 +1790,7 @@ export declare class Logger_Static {
     new(level: LoggerLogLevel, max_body_size: number): Logger
 }
 export declare var Logger: Logger_Static
-export interface Message_ConstructProps {
+export interface Message_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.Message */
     first_party?:URI
     flags?:MessageFlags
@@ -1986,12 +1950,9 @@ export declare class Message_Static {
     new_from_uri(method: string, uri: URI): Message
 }
 export declare var Message: Message_Static
-export interface MultipartInputStream_ConstructProps {
+export interface MultipartInputStream_ConstructProps extends Gio.FilterInputStream_ConstructProps {
     /* Properties of Soup.MultipartInputStream */
     message?:Message
-    /* Properties of Gio.FilterInputStream */
-    base_stream?:Gio.InputStream
-    close_base_stream?:boolean
 }
 export interface MultipartInputStream {
     /* Properties of Soup.MultipartInputStream */
@@ -2090,7 +2051,7 @@ export declare class MultipartInputStream_Static {
     new(msg: Message, base_stream: Gio.InputStream): MultipartInputStream
 }
 export declare var MultipartInputStream: MultipartInputStream_Static
-export interface ProxyResolverDefault_ConstructProps {
+export interface ProxyResolverDefault_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.ProxyResolverDefault */
     gproxy_resolver?:Gio.ProxyResolver
 }
@@ -2144,7 +2105,7 @@ export interface ProxyResolverDefault_Static {
     new (config: ProxyResolverDefault_ConstructProps): ProxyResolverDefault
 }
 export declare var ProxyResolverDefault: ProxyResolverDefault_Static
-export interface Request_ConstructProps {
+export interface Request_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.Request */
     session?:Session
     uri?:URI
@@ -2213,10 +2174,7 @@ export interface Request_Static {
     new (config: Request_ConstructProps): Request
 }
 export declare var Request: Request_Static
-export interface RequestData_ConstructProps {
-    /* Properties of Soup.Request */
-    session?:Session
-    uri?:URI
+export interface RequestData_ConstructProps extends Request_ConstructProps {
 }
 export interface RequestData {
     /* Properties of Soup.Request */
@@ -2283,10 +2241,7 @@ export interface RequestData_Static {
     new (config: RequestData_ConstructProps): RequestData
 }
 export declare var RequestData: RequestData_Static
-export interface RequestFile_ConstructProps {
-    /* Properties of Soup.Request */
-    session?:Session
-    uri?:URI
+export interface RequestFile_ConstructProps extends Request_ConstructProps {
 }
 export interface RequestFile {
     /* Properties of Soup.Request */
@@ -2355,10 +2310,7 @@ export interface RequestFile_Static {
     new (config: RequestFile_ConstructProps): RequestFile
 }
 export declare var RequestFile: RequestFile_Static
-export interface RequestHTTP_ConstructProps {
-    /* Properties of Soup.Request */
-    session?:Session
-    uri?:URI
+export interface RequestHTTP_ConstructProps extends Request_ConstructProps {
 }
 export interface RequestHTTP {
     /* Properties of Soup.Request */
@@ -2427,7 +2379,7 @@ export interface RequestHTTP_Static {
     new (config: RequestHTTP_ConstructProps): RequestHTTP
 }
 export declare var RequestHTTP: RequestHTTP_Static
-export interface Requester_ConstructProps {
+export interface Requester_ConstructProps extends GObject.Object_ConstructProps {
 }
 export interface Requester {
     /* Fields of Soup.Requester */
@@ -2483,7 +2435,7 @@ export declare class Requester_Static {
     new(): Requester
 }
 export declare var Requester: Requester_Static
-export interface Server_ConstructProps {
+export interface Server_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.Server */
     async_context?:object
     http_aliases?:string[]
@@ -2586,7 +2538,7 @@ export interface Server_Static {
     new (config: Server_ConstructProps): Server
 }
 export declare var Server: Server_Static
-export interface Session_ConstructProps {
+export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.Session */
     accept_language?:string
     accept_language_auto?:boolean
@@ -2744,28 +2696,7 @@ export declare class Session_Static {
     new(): Session
 }
 export declare var Session: Session_Static
-export interface SessionAsync_ConstructProps {
-    /* Properties of Soup.Session */
-    accept_language?:string
-    accept_language_auto?:boolean
-    async_context?:object
-    http_aliases?:string[]
-    https_aliases?:string[]
-    idle_timeout?:number
-    local_address?:Address
-    max_conns?:number
-    max_conns_per_host?:number
-    proxy_resolver?:Gio.ProxyResolver
-    proxy_uri?:URI
-    ssl_ca_file?:string
-    ssl_strict?:boolean
-    ssl_use_system_ca_file?:boolean
-    timeout?:number
-    tls_database?:Gio.TlsDatabase
-    tls_interaction?:Gio.TlsInteraction
-    use_ntlm?:boolean
-    use_thread_context?:boolean
-    user_agent?:string
+export interface SessionAsync_ConstructProps extends Session_ConstructProps {
 }
 export interface SessionAsync {
     /* Properties of Soup.Session */
@@ -2903,28 +2834,7 @@ export declare class SessionAsync_Static {
     new(): SessionAsync
 }
 export declare var SessionAsync: SessionAsync_Static
-export interface SessionSync_ConstructProps {
-    /* Properties of Soup.Session */
-    accept_language?:string
-    accept_language_auto?:boolean
-    async_context?:object
-    http_aliases?:string[]
-    https_aliases?:string[]
-    idle_timeout?:number
-    local_address?:Address
-    max_conns?:number
-    max_conns_per_host?:number
-    proxy_resolver?:Gio.ProxyResolver
-    proxy_uri?:URI
-    ssl_ca_file?:string
-    ssl_strict?:boolean
-    ssl_use_system_ca_file?:boolean
-    timeout?:number
-    tls_database?:Gio.TlsDatabase
-    tls_interaction?:Gio.TlsInteraction
-    use_ntlm?:boolean
-    use_thread_context?:boolean
-    user_agent?:string
+export interface SessionSync_ConstructProps extends Session_ConstructProps {
 }
 export interface SessionSync {
     /* Properties of Soup.Session */
@@ -3062,7 +2972,7 @@ export declare class SessionSync_Static {
     new(): SessionSync
 }
 export declare var SessionSync: SessionSync_Static
-export interface Socket_ConstructProps {
+export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.Socket */
     async_context?:object
     fd?:number
@@ -3168,7 +3078,7 @@ export interface Socket_Static {
     new (config: Socket_ConstructProps): Socket
 }
 export declare var Socket: Socket_Static
-export interface WebsocketConnection_ConstructProps {
+export interface WebsocketConnection_ConstructProps extends GObject.Object_ConstructProps {
     /* Properties of Soup.WebsocketConnection */
     connection_type?:WebsocketConnectionType
     io_stream?:Gio.IOStream

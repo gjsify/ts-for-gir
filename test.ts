@@ -210,6 +210,7 @@ test('interface', t => {
             "}",
 
             "export interface Action_Static {",
+            "    name: string",
             "}",
 
             "export declare class Action_Static {",
@@ -262,6 +263,7 @@ test('interface', t => {
             "    connect(sigName: \"action-state-changed\", callback: ((obj: ActionGroup, action_name: string, value: GLib.Variant) => void))",
             "}",
             "export interface ActionGroup_Static {",
+            "    name: string",
             "}",
             "export declare var ActionGroup: ActionGroup_Static",    
 
@@ -299,6 +301,7 @@ test('constructors', t => {
             "    unref(): void",
             "}",
             "export interface DBusNodeInfo_Static {",
+            "    name: string",
             "}",
             "export declare class DBusNodeInfo_Static {",
             "    new_for_xml(xml_data: string): DBusNodeInfo",
@@ -333,7 +336,7 @@ test('class', t => {
 
     t.deepEqual(mod.exportClass(TestData.classApplicationCommandLine),
         [
-            "export interface ApplicationCommandLine_ConstructProps {",
+            "export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {",
             "    /* Properties of ApplicationCommandLine */",
             "    \"arguments\"?:GLib.Variant",
             "    options?:GLib.Variant",
@@ -403,6 +406,7 @@ test('class', t => {
 
             "}",
             "export interface ApplicationCommandLine_Static {",
+            "    name: string",
             "    new (config: ApplicationCommandLine_ConstructProps): ApplicationCommandLine",
             "}",
             "export declare var ApplicationCommandLine: ApplicationCommandLine_Static",

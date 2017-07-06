@@ -63,10 +63,10 @@ export const PIXBUF_VERSION:string
 export const PIXDATA_HEADER_LENGTH:number
 export function pixbuf_error_quark(): GLib.Quark
 export interface PixbufDestroyNotify {
-    (pixels: Gjs.byteArray.ByteArray[], data: object): void
+    (pixels: Gjs.byteArray.ByteArray, data: object): void
 }
 export interface PixbufSaveFunc {
-    (buf: Gjs.byteArray.ByteArray[], data: object): boolean
+    (buf: Gjs.byteArray.ByteArray, data: object): boolean
 }
 export interface Pixbuf_ConstructProps extends GObject.Object_ConstructProps {
     bits_per_sample?:number
@@ -101,7 +101,7 @@ export interface Pixbuf {
     get_n_channels(): number
     get_option(key: string): string
     get_options(): GLib.HashTable
-    get_pixels_with_length(): [ /* returnType */ Gjs.byteArray.ByteArray[], /* length */ number ]
+    get_pixels_with_length(): [ /* returnType */ Gjs.byteArray.ByteArray, /* length */ number ]
     get_rowstride(): number
     get_width(): number
     new_subpixbuf(src_x: number, src_y: number, width: number, height: number): Pixbuf
@@ -109,7 +109,7 @@ export interface Pixbuf {
     read_pixels(): number
     rotate_simple(angle: PixbufRotation): Pixbuf | null
     saturate_and_pixelate(dest: Pixbuf, saturation: number, pixelate: boolean): void
-    save_to_bufferv(type: string, option_keys: string[], option_values: string[]): [ /* returnType */ boolean, /* buffer */ Gjs.byteArray.ByteArray[] ]
+    save_to_bufferv(type: string, option_keys: string[], option_values: string[]): [ /* returnType */ boolean, /* buffer */ Gjs.byteArray.ByteArray ]
     save_to_callbackv(save_func: PixbufSaveFunc, user_data: object, type: string, option_keys: string[], option_values: string[]): boolean
     savev(filename: string, type: string, option_keys: string[], option_values: string[]): boolean
     scale(dest: Pixbuf, dest_x: number, dest_y: number, dest_width: number, dest_height: number, offset_x: number, offset_y: number, scale_x: number, scale_y: number, interp_type: InterpType): void
@@ -155,11 +155,11 @@ export interface Pixbuf_Static {
 export declare class Pixbuf_Static {
     new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
     new_from_bytes(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
-    new_from_data(data: Gjs.byteArray.ByteArray[], colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn: PixbufDestroyNotify | null, destroy_fn_data: object): Pixbuf
+    new_from_data(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn: PixbufDestroyNotify | null, destroy_fn_data: object): Pixbuf
     new_from_file(filename: string): Pixbuf
     new_from_file_at_scale(filename: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
     new_from_file_at_size(filename: string, width: number, height: number): Pixbuf
-    new_from_inline(data_length: number, data: Gjs.byteArray.ByteArray[], copy_pixels: boolean): Pixbuf
+    new_from_inline(data_length: number, data: Gjs.byteArray.ByteArray, copy_pixels: boolean): Pixbuf
     new_from_resource(resource_path: string): Pixbuf
     new_from_resource_at_scale(resource_path: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
     new_from_stream(stream: Gio.InputStream, cancellable: Gio.Cancellable | null): Pixbuf
@@ -295,7 +295,7 @@ export interface PixbufLoader {
     get_format(): PixbufFormat | null
     get_pixbuf(): Pixbuf
     set_size(width: number, height: number): void
-    write(buf: Gjs.byteArray.ByteArray[]): boolean
+    write(buf: Gjs.byteArray.ByteArray): boolean
     write_bytes(buffer: Gjs.byteArray.ByteArray): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -487,10 +487,10 @@ export interface Pixdata {
     rowstride:number
     width:number
     height:number
-    pixel_data:Gjs.byteArray.ByteArray[]
+    pixel_data:Gjs.byteArray.ByteArray
     /* Methods of GdkPixbuf.Pixdata */
-    deserialize(stream: Gjs.byteArray.ByteArray[]): boolean
-    serialize(): [ /* returnType */ Gjs.byteArray.ByteArray[], /* stream_length_p */ number ]
+    deserialize(stream: Gjs.byteArray.ByteArray): boolean
+    serialize(): [ /* returnType */ Gjs.byteArray.ByteArray, /* stream_length_p */ number ]
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String
 }
 export interface Pixdata_Static {

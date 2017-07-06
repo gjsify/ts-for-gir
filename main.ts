@@ -337,7 +337,7 @@ export class GirModule {
                 'gunichar': 'string'
             }
             if (podTypeMapArray[type.$.name] != null)
-                return podTypeMapArray[type.$.name] + suffix
+                return podTypeMapArray[type.$.name] + nul
         }
 
         let podTypeMap = {
@@ -986,7 +986,7 @@ function exportGjs(outDir: string|null)
 }
 export namespace Lang {
     // TODO: There is a lot more in Lang
-    export function Class(props: any): any
+    export function Class(props: any): void
 }
 export namespace gettext {
     export enum LocaleCategory {

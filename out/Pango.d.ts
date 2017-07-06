@@ -1236,7 +1236,7 @@ export interface Coverage {
     get(index_: number): CoverageLevel
     max(other: Coverage): void
     set(index_: number, level: CoverageLevel): void
-    to_bytes(): /* bytes */ Gjs.byteArray.ByteArray[]
+    to_bytes(): /* bytes */ Gjs.byteArray.ByteArray
     unref(): void
 }
 export interface Coverage_Static {

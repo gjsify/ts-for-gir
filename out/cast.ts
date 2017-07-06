@@ -675,6 +675,7 @@ let inheritanceTable = {
     'WebKit.WebSettings': [ 'GObject.Object' ],
     'WebKit.WebView': [ 'Gtk.Container', 'Gtk.Widget', 'GObject.InitiallyUnowned', 'GObject.Object' ],
     'WebKit.WebWindowFeatures': [ 'GObject.Object' ],
+    'AppIndicator3.Indicator': [ 'GObject.Object' ],
 }
 
 

@@ -11,7 +11,7 @@ export namespace byteArray {
 }
 export namespace Lang {
     // TODO: There is a lot more in Lang
-    export function Class(props: any): any
+    export function Class(props: any): void
 }
 export namespace gettext {
     export enum LocaleCategory {

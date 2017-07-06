@@ -10015,6 +10015,7 @@ export interface FileAttributeInfoList {
 }
 export interface FileAttributeInfoList_Static {
     name: string
+    new(): FileAttributeInfoList
 }
 export declare class FileAttributeInfoList_Static {
     new(): FileAttributeInfoList
@@ -10033,6 +10034,7 @@ export interface FileAttributeMatcher {
 }
 export interface FileAttributeMatcher_Static {
     name: string
+    new(attributes: string): FileAttributeMatcher
 }
 export declare class FileAttributeMatcher_Static {
     new(attributes: string): FileAttributeMatcher
@@ -10413,6 +10415,7 @@ export interface SrvTarget {
 }
 export interface SrvTarget_Static {
     name: string
+    new(hostname: string, port: number, priority: number, weight: number): SrvTarget
 }
 export declare class SrvTarget_Static {
     new(hostname: string, port: number, priority: number, weight: number): SrvTarget

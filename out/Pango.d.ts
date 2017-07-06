@@ -1166,6 +1166,7 @@ export interface AttrList {
 }
 export interface AttrList_Static {
     name: string
+    new(): AttrList
 }
 export declare class AttrList_Static {
     new(): AttrList
@@ -1298,6 +1299,7 @@ export interface FontDescription {
 }
 export interface FontDescription_Static {
     name: string
+    new(): FontDescription
 }
 export declare class FontDescription_Static {
     new(): FontDescription
@@ -1320,6 +1322,7 @@ export interface FontMetrics {
 }
 export interface FontMetrics_Static {
     name: string
+    new(): FontMetrics
 }
 export declare class FontMetrics_Static {
     new(): FontMetrics
@@ -1401,6 +1404,7 @@ export interface GlyphString {
 }
 export interface GlyphString_Static {
     name: string
+    new(): GlyphString
 }
 export declare class GlyphString_Static {
     new(): GlyphString
@@ -1437,6 +1441,7 @@ export interface Item {
 }
 export interface Item_Static {
     name: string
+    new(): Item
 }
 export declare class Item_Static {
     new(): Item
@@ -1614,6 +1619,7 @@ export interface TabArray {
 }
 export interface TabArray_Static {
     name: string
+    new(initial_size: number, positions_in_pixels: boolean): TabArray
 }
 export declare class TabArray_Static {
     new(initial_size: number, positions_in_pixels: boolean): TabArray

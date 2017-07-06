@@ -3154,6 +3154,7 @@ export interface Cookie {
 }
 export interface Cookie_Static {
     name: string
+    new(name: string, value: string, domain: string, path: string, max_age: number): Cookie
 }
 export declare class Cookie_Static {
     new(name: string, value: string, domain: string, path: string, max_age: number): Cookie
@@ -3188,6 +3189,7 @@ export interface Date {
 }
 export interface Date_Static {
     name: string
+    new(year: number, month: number, day: number, hour: number, minute: number, second: number): Date
 }
 export declare class Date_Static {
     new(year: number, month: number, day: number, hour: number, minute: number, second: number): Date
@@ -3215,6 +3217,7 @@ export interface MessageBody {
 }
 export interface MessageBody_Static {
     name: string
+    new(): MessageBody
 }
 export declare class MessageBody_Static {
     new(): MessageBody
@@ -3254,6 +3257,7 @@ export interface MessageHeaders {
 }
 export interface MessageHeaders_Static {
     name: string
+    new(type: MessageHeadersType): MessageHeaders
 }
 export declare class MessageHeaders_Static {
     new(type: MessageHeadersType): MessageHeaders
@@ -3295,6 +3299,7 @@ export interface Multipart {
 }
 export interface Multipart_Static {
     name: string
+    new(mime_type: string): Multipart
 }
 export declare class Multipart_Static {
     new(mime_type: string): Multipart
@@ -3386,6 +3391,7 @@ export interface URI {
 }
 export interface URI_Static {
     name: string
+    new(uri_string: string | null): URI | null
 }
 export declare class URI_Static {
     new(uri_string: string | null): URI | null

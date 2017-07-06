@@ -4450,6 +4450,7 @@ export interface Event {
 }
 export interface Event_Static {
     name: string
+    new(type: EventType): Event
 }
 export declare class Event_Static {
     new(type: EventType): Event

@@ -1676,6 +1676,7 @@ export interface ValueArray {
 }
 export interface ValueArray_Static {
     name: string
+    new(n_prealloced: number): ValueArray
 }
 export declare class ValueArray_Static {
     new(n_prealloced: number): ValueArray

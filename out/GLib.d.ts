@@ -1562,6 +1562,7 @@ export interface Bytes {
 }
 export interface Bytes_Static {
     name: string
+    new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
 }
 export declare class Bytes_Static {
     new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
@@ -1578,6 +1579,7 @@ export interface Checksum {
 }
 export interface Checksum_Static {
     name: string
+    new(checksum_type: ChecksumType): Checksum
 }
 export declare class Checksum_Static {
     new(checksum_type: ChecksumType): Checksum
@@ -1650,6 +1652,7 @@ export interface Date {
 }
 export interface Date_Static {
     name: string
+    new(): Date
 }
 export declare class Date_Static {
     new(): Date
@@ -1707,6 +1710,7 @@ export interface DateTime {
 }
 export interface DateTime_Static {
     name: string
+    new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
 }
 export declare class DateTime_Static {
     new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
@@ -1967,6 +1971,7 @@ export interface KeyFile {
 }
 export interface KeyFile_Static {
     name: string
+    new(): KeyFile
 }
 export declare class KeyFile_Static {
     new(): KeyFile
@@ -2009,6 +2014,7 @@ export interface MainContext {
 }
 export interface MainContext_Static {
     name: string
+    new(): MainContext
 }
 export declare class MainContext_Static {
     new(): MainContext
@@ -2028,6 +2034,7 @@ export interface MainLoop {
 }
 export interface MainLoop_Static {
     name: string
+    new(context: MainContext | null, is_running: boolean): MainLoop
 }
 export declare class MainLoop_Static {
     new(context: MainContext | null, is_running: boolean): MainLoop
@@ -2044,6 +2051,7 @@ export interface MappedFile {
 }
 export interface MappedFile_Static {
     name: string
+    new(filename: string, writable: boolean): MappedFile
 }
 export declare class MappedFile_Static {
     new(filename: string, writable: boolean): MappedFile
@@ -2063,6 +2071,7 @@ export interface MarkupParseContext {
 }
 export interface MarkupParseContext_Static {
     name: string
+    new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object, user_data_dnotify: DestroyNotify): MarkupParseContext
 }
 export declare class MarkupParseContext_Static {
     new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object, user_data_dnotify: DestroyNotify): MarkupParseContext
@@ -2199,6 +2208,7 @@ export interface OptionGroup {
 }
 export interface OptionGroup_Static {
     name: string
+    new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
 }
 export declare class OptionGroup_Static {
     new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
@@ -2332,6 +2342,7 @@ export interface Regex {
 }
 export interface Regex_Static {
     name: string
+    new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex
 }
 export declare class Regex_Static {
     new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex
@@ -2484,6 +2495,7 @@ export interface Source {
 }
 export interface Source_Static {
     name: string
+    new(source_funcs: SourceFuncs, struct_size: number): Source
 }
 export declare class Source_Static {
     new(source_funcs: SourceFuncs, struct_size: number): Source
@@ -2694,6 +2706,7 @@ export interface TimeZone {
 }
 export interface TimeZone_Static {
     name: string
+    new(identifier: string | null): TimeZone
 }
 export declare class TimeZone_Static {
     new(identifier: string | null): TimeZone
@@ -2841,6 +2854,7 @@ export interface VariantBuilder {
 }
 export interface VariantBuilder_Static {
     name: string
+    new(type: VariantType): VariantBuilder
 }
 export declare class VariantBuilder_Static {
     new(type: VariantType): VariantBuilder
@@ -2860,6 +2874,7 @@ export interface VariantDict {
 }
 export interface VariantDict_Static {
     name: string
+    new(from_asv: Variant | null): VariantDict
 }
 export declare class VariantDict_Static {
     new(from_asv: Variant | null): VariantDict
@@ -2902,6 +2917,7 @@ export interface VariantType {
 }
 export interface VariantType_Static {
     name: string
+    new(type_string: string): VariantType
 }
 export declare class VariantType_Static {
     new(type_string: string): VariantType

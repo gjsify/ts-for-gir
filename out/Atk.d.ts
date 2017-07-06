@@ -2059,6 +2059,7 @@ export interface Range {
 }
 export interface Range_Static {
     name: string
+    new(lower_limit: number, upper_limit: number, description: string): Range
 }
 export declare class Range_Static {
     new(lower_limit: number, upper_limit: number, description: string): Range

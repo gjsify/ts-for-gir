@@ -111,13 +111,7 @@ test('function', t => {
         [ 'export function my_func(arg1: MyType): string' ])
 
     t.deepEqual(mod.exportFunction(TestData.funcBusOwnName),
-        [ 'export function bus_own_name(' +
-            'bus_type: BusType, name: string, flags: BusNameOwnerFlags, ' +
-            'bus_acquired_handler: BusAcquiredCallback | null, ' + 
-            'name_acquired_handler: BusNameAcquiredCallback | null, ' + 
-            'name_lost_handler: BusNameLostCallback | null, ' + 
-            'user_data: object, ' + 
-            'user_data_free_func: GLib.DestroyNotify | null): number' ])
+        [ ])
 
     let func3 = TestData.funcBusOwnName
     func3.$.introspectable = "0"
@@ -345,12 +339,8 @@ test('class', t => {
             "    /* Properties of ApplicationCommandLine */",
             "    readonly is_remote:boolean",
             "    /* Fields of ApplicationCommandLine */",
-            "    parent_instance:GObject.Object",
-            "    priv:any",
             "    /* Fields of GObject.Object */",
             "    g_type_instance:any",
-            "    ref_count:number",
-            "    qdata:any",   
             "    /* Methods of ApplicationCommandLine */",
             "    create_file_for_arg(arg: string): File",
             "    get_arguments(): [ /* returnType */ string[], /* argc */ number | null ]",            
@@ -365,7 +355,6 @@ test('class', t => {
             "    set_exit_status(exit_status: number): void",
             "    /* Methods of GObject.Object */",
             "    bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding",
-            "    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: BindingTransformFunc | null, transform_from: BindingTransformFunc | null, user_data: object, notify: GLib.DestroyNotify): Binding",
             "    bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding",
             "    force_floating(): void",
             "    freeze_notify(): void",

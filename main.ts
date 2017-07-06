@@ -704,7 +704,7 @@ export class GirModule {
             }
 
             if (localNames[name]) {
-                console.warn(`Name ${name} already defined (${desc})`)
+                // console.warn(`Name ${name} already defined (${desc})`)
                 return [[], false]
             }
 

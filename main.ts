@@ -1059,8 +1059,8 @@ export namespace Mainloop {
     byteArray: imports.byteArray,
     Lang: imports.lang,
     Format: imports.format,
-    Mainloop: imports.mainloop
-    gettext: imports.gettext,
+    Mainloop: imports.mainloop,
+    gettext: imports.gettext
 }`)
 
     fs.createWriteStream(`${outDir}/index.d.ts`).write(

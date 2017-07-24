@@ -687,11 +687,11 @@ interface StaticNamed {
  * and raising an exception if the cast fails. Allows casting to implemented
  * interfaces, too.
  */
-export function giCast<T extends GObject.Object>(from_: GObject.Object, to_: StaticNamed): T {
+export function giCast<T>(from_: GObject.Object, to_: StaticNamed): T {
     let desc: string = from_.toString()
     let clsName: string|null = null
     for (let k of desc.split(" ")) {
-        if (k.startsWith("GIName:")) {
+        if (k.substring(7) == "GIName:") {
             clsName = k.substring(7)
             break
         }

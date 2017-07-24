@@ -20,6 +20,11 @@ interface GirDoc {
         "xml:space"?: string
     }
 }
+interface GirImplements {
+    $: {
+        "name"?: string
+    }
+}
 interface GirType {
     $: {
         name: string
@@ -94,6 +99,7 @@ interface GirClass extends TsForGjsExtended {
     field?: GirVariable[]
     "virtual-method"?: GirFunction[]
     "constructor"?: GirFunction[] | Function
+    implements?: GirImplements[]
 
     _module?: GirModule
 }
@@ -280,6 +286,7 @@ export class GirModule {
     }
 
     loadInheritance(inheritanceTable) {
+        // Class hierarchy
         for (let cls of (this.ns.class ? this.ns.class : [])) {
             let parent
             if (cls.$ && cls.$.parent) parent = cls.$.parent
@@ -294,6 +301,30 @@ export class GirModule {
             let arr: string[] = inheritanceTable[clsName] || []
             arr.push(parent)
             inheritanceTable[clsName] = arr
+        }
+
+        // Class interface implementations
+        for (let cls of (this.ns.class ? this.ns.class : [])) {
+            if (!cls._fullSymName)
+                continue
+
+            let names: string[] = []
+
+            for (let i of (cls.implements ? cls.implements : [])) {
+                if (i.$.name) {
+                    let name: string = i.$.name
+                    if (name.indexOf(".") < 0) {
+                        name = cls._fullSymName.substring(0, cls._fullSymName.indexOf(".") + 1) + name
+                    }
+                    names.push(name)
+                }
+            }
+
+            if (names.length > 0) {
+                let clsName = cls._fullSymName
+                let arr: string[] = inheritanceTable[clsName] || []
+                inheritanceTable[clsName] = arr.concat(names)
+            }
         }
     }
 
@@ -1097,9 +1128,8 @@ interface StaticNamed {
 }
 
 /** Casts between derived classes, performing a run-time type-check
- * and raising an exception if the cast fails.
- * 
- * Does not take into account interfaces at all.
+ * and raising an exception if the cast fails. Allows casting to implemented
+ * interfaces, too.
  */
 export function giCast<T extends GObject.Object>(from_: GObject.Object, to_: StaticNamed): T {
     let desc: string = from_.toString()

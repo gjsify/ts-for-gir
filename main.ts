@@ -1153,7 +1153,7 @@ export function giCast<T>(from_: GObject.Object, to_: StaticNamed): T {
         }
     }
 
-    throw Error("Invalid cast of " + desc + " to " + toName)
+    throw Error("Invalid cast of " + desc + "(" + clsName + ") to " + toName)
 }    
 `)
 

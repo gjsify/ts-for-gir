@@ -691,7 +691,7 @@ export function giCast<T>(from_: GObject.Object, to_: StaticNamed): T {
     let desc: string = from_.toString()
     let clsName: string|null = null
     for (let k of desc.split(" ")) {
-        if (k.substring(7) == "GIName:") {
+        if (k.substring(0, 7) == "GIName:") {
             clsName = k.substring(7)
             break
         }

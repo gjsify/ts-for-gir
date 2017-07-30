@@ -156,7 +156,7 @@ export interface Indicator {
 }
 export interface Indicator_Static {
     name: string
-    new (config: Indicator_ConstructProps): Indicator
+    new (config?: Indicator_ConstructProps): Indicator
 }
 export declare class Indicator_Static {
     new(id: string, icon_name: string, category: IndicatorCategory): Indicator

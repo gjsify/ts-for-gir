@@ -150,7 +150,7 @@ export interface Pixbuf {
 }
 export interface Pixbuf_Static {
     name: string
-    new (config: Pixbuf_ConstructProps): Pixbuf
+    new (config?: Pixbuf_ConstructProps): Pixbuf
 }
 export declare class Pixbuf_Static {
     new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
@@ -223,7 +223,7 @@ export interface PixbufAnimation {
 }
 export interface PixbufAnimation_Static {
     name: string
-    new (config: PixbufAnimation_ConstructProps): PixbufAnimation
+    new (config?: PixbufAnimation_ConstructProps): PixbufAnimation
 }
 export declare class PixbufAnimation_Static {
     new_from_file(filename: string): PixbufAnimation
@@ -279,7 +279,7 @@ export interface PixbufAnimationIter {
 }
 export interface PixbufAnimationIter_Static {
     name: string
-    new (config: PixbufAnimationIter_ConstructProps): PixbufAnimationIter
+    new (config?: PixbufAnimationIter_ConstructProps): PixbufAnimationIter
 }
 export declare var PixbufAnimationIter: PixbufAnimationIter_Static
 export interface PixbufLoader_ConstructProps extends GObject.Object_ConstructProps {
@@ -343,7 +343,7 @@ export interface PixbufLoader {
 }
 export interface PixbufLoader_Static {
     name: string
-    new (config: PixbufLoader_ConstructProps): PixbufLoader
+    new (config?: PixbufLoader_ConstructProps): PixbufLoader
 }
 export declare class PixbufLoader_Static {
     new(): PixbufLoader
@@ -406,7 +406,7 @@ export interface PixbufSimpleAnim {
 }
 export interface PixbufSimpleAnim_Static {
     name: string
-    new (config: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
+    new (config?: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
 }
 export declare class PixbufSimpleAnim_Static {
     new(width: number, height: number, rate: number): PixbufSimpleAnim
@@ -458,7 +458,7 @@ export interface PixbufSimpleAnimIter {
 }
 export interface PixbufSimpleAnimIter_Static {
     name: string
-    new (config: PixbufSimpleAnimIter_ConstructProps): PixbufSimpleAnimIter
+    new (config?: PixbufSimpleAnimIter_ConstructProps): PixbufSimpleAnimIter
 }
 export declare var PixbufSimpleAnimIter: PixbufSimpleAnimIter_Static
 export interface PixbufFormat {

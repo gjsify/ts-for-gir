@@ -2929,7 +2929,7 @@ export interface AppLaunchContext {
 }
 export interface AppLaunchContext_Static {
     name: string
-    new (config: AppLaunchContext_ConstructProps): AppLaunchContext
+    new (config?: AppLaunchContext_ConstructProps): AppLaunchContext
 }
 export declare class AppLaunchContext_Static {
     new(): AppLaunchContext
@@ -2984,7 +2984,7 @@ export interface Cursor {
 }
 export interface Cursor_Static {
     name: string
-    new (config: Cursor_ConstructProps): Cursor
+    new (config?: Cursor_ConstructProps): Cursor
 }
 export declare class Cursor_Static {
     new(cursor_type: CursorType): Cursor
@@ -3080,7 +3080,7 @@ export interface Device {
 }
 export interface Device_Static {
     name: string
-    new (config: Device_ConstructProps): Device
+    new (config?: Device_ConstructProps): Device
 }
 export declare class Device_Static {
     grab_info_libgtk_only(display: Display, device: Device): [ /* returnType */ boolean, /* grab_window */ Window, /* owner_events */ boolean ]
@@ -3137,7 +3137,7 @@ export interface DeviceManager {
 }
 export interface DeviceManager_Static {
     name: string
-    new (config: DeviceManager_ConstructProps): DeviceManager
+    new (config?: DeviceManager_ConstructProps): DeviceManager
 }
 export declare var DeviceManager: DeviceManager_Static
 export interface Display_ConstructProps extends GObject.Object_ConstructProps {
@@ -3223,7 +3223,7 @@ export interface Display {
 }
 export interface Display_Static {
     name: string
-    new (config: Display_ConstructProps): Display
+    new (config?: Display_ConstructProps): Display
 }
 export declare class Display_Static {
     get_default(): Display | null
@@ -3283,7 +3283,7 @@ export interface DisplayManager {
 }
 export interface DisplayManager_Static {
     name: string
-    new (config: DisplayManager_ConstructProps): DisplayManager
+    new (config?: DisplayManager_ConstructProps): DisplayManager
 }
 export declare class DisplayManager_Static {
     get(): DisplayManager
@@ -3340,7 +3340,7 @@ export interface DragContext {
 }
 export interface DragContext_Static {
     name: string
-    new (config: DragContext_ConstructProps): DragContext
+    new (config?: DragContext_ConstructProps): DragContext
 }
 export declare var DragContext: DragContext_Static
 export interface FrameClock_ConstructProps extends GObject.Object_ConstructProps {
@@ -3402,7 +3402,7 @@ export interface FrameClock {
 }
 export interface FrameClock_Static {
     name: string
-    new (config: FrameClock_ConstructProps): FrameClock
+    new (config?: FrameClock_ConstructProps): FrameClock
 }
 export declare var FrameClock: FrameClock_Static
 export interface GLContext_ConstructProps extends GObject.Object_ConstructProps {
@@ -3463,7 +3463,7 @@ export interface GLContext {
 }
 export interface GLContext_Static {
     name: string
-    new (config: GLContext_ConstructProps): GLContext
+    new (config?: GLContext_ConstructProps): GLContext
 }
 export declare class GLContext_Static {
     clear_current(): void
@@ -3529,7 +3529,7 @@ export interface Keymap {
 }
 export interface Keymap_Static {
     name: string
-    new (config: Keymap_ConstructProps): Keymap
+    new (config?: Keymap_ConstructProps): Keymap
 }
 export declare class Keymap_Static {
     get_default(): Keymap
@@ -3619,7 +3619,7 @@ export interface Screen {
 }
 export interface Screen_Static {
     name: string
-    new (config: Screen_ConstructProps): Screen
+    new (config?: Screen_ConstructProps): Screen
 }
 export declare class Screen_Static {
     get_default(): Screen | null
@@ -3680,7 +3680,7 @@ export interface Visual {
 }
 export interface Visual_Static {
     name: string
-    new (config: Visual_ConstructProps): Visual
+    new (config?: Visual_ConstructProps): Visual
 }
 export declare class Visual_Static {
     get_best(): Visual
@@ -3898,7 +3898,7 @@ export interface Window {
 }
 export interface Window_Static {
     name: string
-    new (config: Window_ConstructProps): Window
+    new (config?: Window_ConstructProps): Window
 }
 export declare class Window_Static {
     new(parent: Window | null, attributes: WindowAttr, attributes_mask: WindowAttributesType): Window

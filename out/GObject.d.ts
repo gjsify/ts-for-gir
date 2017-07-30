@@ -371,7 +371,7 @@ export interface Binding {
 }
 export interface Binding_Static {
     name: string
-    new (config: Binding_ConstructProps): Binding
+    new (config?: Binding_ConstructProps): Binding
 }
 export declare var Binding: Binding_Static
 export interface InitiallyUnowned_ConstructProps extends Object_ConstructProps {
@@ -416,7 +416,7 @@ export interface InitiallyUnowned {
 }
 export interface InitiallyUnowned_Static {
     name: string
-    new (config: InitiallyUnowned_ConstructProps): InitiallyUnowned
+    new (config?: InitiallyUnowned_ConstructProps): InitiallyUnowned
 }
 export declare var InitiallyUnowned: InitiallyUnowned_Static
 export interface Object_ConstructProps  {
@@ -460,7 +460,7 @@ export interface Object {
 }
 export interface Object_Static {
     name: string
-    new (config: Object_ConstructProps): Object
+    new (config?: Object_ConstructProps): Object
 }
 export declare class Object_Static {
     newv(object_type: number, n_parameters: number, parameters: Parameter[]): Object
@@ -1294,7 +1294,7 @@ export interface TypeModule {
 }
 export interface TypeModule_Static {
     name: string
-    new (config: TypeModule_ConstructProps): TypeModule
+    new (config?: TypeModule_ConstructProps): TypeModule
 }
 export declare var TypeModule: TypeModule_Static
 export interface CClosure {

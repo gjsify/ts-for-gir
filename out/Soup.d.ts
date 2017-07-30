@@ -664,7 +664,7 @@ export interface Address {
 }
 export interface Address_Static {
     name: string
-    new (config: Address_ConstructProps): Address
+    new (config?: Address_ConstructProps): Address
 }
 export declare class Address_Static {
     new(name: string, port: number): Address
@@ -750,7 +750,7 @@ export interface Auth {
 }
 export interface Auth_Static {
     name: string
-    new (config: Auth_ConstructProps): Auth
+    new (config?: Auth_ConstructProps): Auth
 }
 export declare class Auth_Static {
     new(type: number, msg: Message, auth_header: string): Auth | null
@@ -831,7 +831,7 @@ export interface AuthBasic {
 }
 export interface AuthBasic_Static {
     name: string
-    new (config: AuthBasic_ConstructProps): AuthBasic
+    new (config?: AuthBasic_ConstructProps): AuthBasic
 }
 export declare var AuthBasic: AuthBasic_Static
 export interface AuthDigest_ConstructProps extends Auth_ConstructProps {
@@ -909,7 +909,7 @@ export interface AuthDigest {
 }
 export interface AuthDigest_Static {
     name: string
-    new (config: AuthDigest_ConstructProps): AuthDigest
+    new (config?: AuthDigest_ConstructProps): AuthDigest
 }
 export declare var AuthDigest: AuthDigest_Static
 export interface AuthDomain_ConstructProps extends GObject.Object_ConstructProps {
@@ -991,7 +991,7 @@ export interface AuthDomain {
 }
 export interface AuthDomain_Static {
     name: string
-    new (config: AuthDomain_ConstructProps): AuthDomain
+    new (config?: AuthDomain_ConstructProps): AuthDomain
 }
 export declare var AuthDomain: AuthDomain_Static
 export interface AuthDomainBasic_ConstructProps extends AuthDomain_ConstructProps {
@@ -1073,7 +1073,7 @@ export interface AuthDomainBasic {
 }
 export interface AuthDomainBasic_Static {
     name: string
-    new (config: AuthDomainBasic_ConstructProps): AuthDomainBasic
+    new (config?: AuthDomainBasic_ConstructProps): AuthDomainBasic
 }
 export declare var AuthDomainBasic: AuthDomainBasic_Static
 export interface AuthDomainDigest_ConstructProps extends AuthDomain_ConstructProps {
@@ -1155,7 +1155,7 @@ export interface AuthDomainDigest {
 }
 export interface AuthDomainDigest_Static {
     name: string
-    new (config: AuthDomainDigest_ConstructProps): AuthDomainDigest
+    new (config?: AuthDomainDigest_ConstructProps): AuthDomainDigest
 }
 export declare class AuthDomainDigest_Static {
     encode_password(username: string, realm: string, password: string): string
@@ -1211,7 +1211,7 @@ export interface AuthManager {
 }
 export interface AuthManager_Static {
     name: string
-    new (config: AuthManager_ConstructProps): AuthManager
+    new (config?: AuthManager_ConstructProps): AuthManager
 }
 export declare var AuthManager: AuthManager_Static
 export interface AuthNTLM_ConstructProps extends Auth_ConstructProps {
@@ -1289,7 +1289,7 @@ export interface AuthNTLM {
 }
 export interface AuthNTLM_Static {
     name: string
-    new (config: AuthNTLM_ConstructProps): AuthNTLM
+    new (config?: AuthNTLM_ConstructProps): AuthNTLM
 }
 export declare var AuthNTLM: AuthNTLM_Static
 export interface Cache_ConstructProps extends GObject.Object_ConstructProps {
@@ -1348,7 +1348,7 @@ export interface Cache {
 }
 export interface Cache_Static {
     name: string
-    new (config: Cache_ConstructProps): Cache
+    new (config?: Cache_ConstructProps): Cache
 }
 export declare class Cache_Static {
     new(cache_dir: string, cache_type: CacheType): Cache
@@ -1398,7 +1398,7 @@ export interface ContentDecoder {
 }
 export interface ContentDecoder_Static {
     name: string
-    new (config: ContentDecoder_ConstructProps): ContentDecoder
+    new (config?: ContentDecoder_ConstructProps): ContentDecoder
 }
 export declare var ContentDecoder: ContentDecoder_Static
 export interface ContentSniffer_ConstructProps extends GObject.Object_ConstructProps {
@@ -1451,7 +1451,7 @@ export interface ContentSniffer {
 }
 export interface ContentSniffer_Static {
     name: string
-    new (config: ContentSniffer_ConstructProps): ContentSniffer
+    new (config?: ContentSniffer_ConstructProps): ContentSniffer
 }
 export declare class ContentSniffer_Static {
     new(): ContentSniffer
@@ -1524,7 +1524,7 @@ export interface CookieJar {
 }
 export interface CookieJar_Static {
     name: string
-    new (config: CookieJar_ConstructProps): CookieJar
+    new (config?: CookieJar_ConstructProps): CookieJar
 }
 export declare class CookieJar_Static {
     new(): CookieJar
@@ -1598,7 +1598,7 @@ export interface CookieJarDB {
 }
 export interface CookieJarDB_Static {
     name: string
-    new (config: CookieJarDB_ConstructProps): CookieJarDB
+    new (config?: CookieJarDB_ConstructProps): CookieJarDB
 }
 export declare class CookieJarDB_Static {
     new(filename: string, read_only: boolean): CookieJarDB
@@ -1672,7 +1672,7 @@ export interface CookieJarText {
 }
 export interface CookieJarText_Static {
     name: string
-    new (config: CookieJarText_ConstructProps): CookieJarText
+    new (config?: CookieJarText_ConstructProps): CookieJarText
 }
 export declare class CookieJarText_Static {
     new(filename: string, read_only: boolean): CookieJarText
@@ -1727,7 +1727,7 @@ export interface Logger {
 }
 export interface Logger_Static {
     name: string
-    new (config: Logger_ConstructProps): Logger
+    new (config?: Logger_ConstructProps): Logger
 }
 export declare class Logger_Static {
     new(level: LoggerLogLevel, max_body_size: number): Logger
@@ -1882,7 +1882,7 @@ export interface Message {
 }
 export interface Message_Static {
     name: string
-    new (config: Message_ConstructProps): Message
+    new (config?: Message_ConstructProps): Message
 }
 export declare class Message_Static {
     new(method: string, uri_string: string): Message | null
@@ -1979,7 +1979,7 @@ export interface MultipartInputStream {
 }
 export interface MultipartInputStream_Static {
     name: string
-    new (config: MultipartInputStream_ConstructProps): MultipartInputStream
+    new (config?: MultipartInputStream_ConstructProps): MultipartInputStream
 }
 export declare class MultipartInputStream_Static {
     new(msg: Message, base_stream: Gio.InputStream): MultipartInputStream
@@ -2032,7 +2032,7 @@ export interface ProxyResolverDefault {
 }
 export interface ProxyResolverDefault_Static {
     name: string
-    new (config: ProxyResolverDefault_ConstructProps): ProxyResolverDefault
+    new (config?: ProxyResolverDefault_ConstructProps): ProxyResolverDefault
 }
 export declare var ProxyResolverDefault: ProxyResolverDefault_Static
 export interface Request_ConstructProps extends GObject.Object_ConstructProps {
@@ -2097,7 +2097,7 @@ export interface Request {
 }
 export interface Request_Static {
     name: string
-    new (config: Request_ConstructProps): Request
+    new (config?: Request_ConstructProps): Request
 }
 export declare var Request: Request_Static
 export interface RequestData_ConstructProps extends Request_ConstructProps {
@@ -2161,7 +2161,7 @@ export interface RequestData {
 }
 export interface RequestData_Static {
     name: string
-    new (config: RequestData_ConstructProps): RequestData
+    new (config?: RequestData_ConstructProps): RequestData
 }
 export declare var RequestData: RequestData_Static
 export interface RequestFile_ConstructProps extends Request_ConstructProps {
@@ -2227,7 +2227,7 @@ export interface RequestFile {
 }
 export interface RequestFile_Static {
     name: string
-    new (config: RequestFile_ConstructProps): RequestFile
+    new (config?: RequestFile_ConstructProps): RequestFile
 }
 export declare var RequestFile: RequestFile_Static
 export interface RequestHTTP_ConstructProps extends Request_ConstructProps {
@@ -2293,7 +2293,7 @@ export interface RequestHTTP {
 }
 export interface RequestHTTP_Static {
     name: string
-    new (config: RequestHTTP_ConstructProps): RequestHTTP
+    new (config?: RequestHTTP_ConstructProps): RequestHTTP
 }
 export declare var RequestHTTP: RequestHTTP_Static
 export interface Requester_ConstructProps extends GObject.Object_ConstructProps {
@@ -2343,7 +2343,7 @@ export interface Requester {
 }
 export interface Requester_Static {
     name: string
-    new (config: Requester_ConstructProps): Requester
+    new (config?: Requester_ConstructProps): Requester
 }
 export declare class Requester_Static {
     new(): Requester
@@ -2445,7 +2445,7 @@ export interface Server {
 }
 export interface Server_Static {
     name: string
-    new (config: Server_ConstructProps): Server
+    new (config?: Server_ConstructProps): Server
 }
 export declare var Server: Server_Static
 export interface Session_ConstructProps extends GObject.Object_ConstructProps {
@@ -2596,7 +2596,7 @@ export interface Session {
 }
 export interface Session_Static {
     name: string
-    new (config: Session_ConstructProps): Session
+    new (config?: Session_ConstructProps): Session
 }
 export declare class Session_Static {
     new(): Session
@@ -2731,7 +2731,7 @@ export interface SessionAsync {
 }
 export interface SessionAsync_Static {
     name: string
-    new (config: SessionAsync_ConstructProps): SessionAsync
+    new (config?: SessionAsync_ConstructProps): SessionAsync
 }
 export declare class SessionAsync_Static {
     new(): SessionAsync
@@ -2866,7 +2866,7 @@ export interface SessionSync {
 }
 export interface SessionSync_Static {
     name: string
-    new (config: SessionSync_ConstructProps): SessionSync
+    new (config?: SessionSync_ConstructProps): SessionSync
 }
 export declare class SessionSync_Static {
     new(): SessionSync
@@ -2971,7 +2971,7 @@ export interface Socket {
 }
 export interface Socket_Static {
     name: string
-    new (config: Socket_ConstructProps): Socket
+    new (config?: Socket_ConstructProps): Socket
 }
 export declare var Socket: Socket_Static
 export interface WebsocketConnection_ConstructProps extends GObject.Object_ConstructProps {
@@ -3047,7 +3047,7 @@ export interface WebsocketConnection {
 }
 export interface WebsocketConnection_Static {
     name: string
-    new (config: WebsocketConnection_ConstructProps): WebsocketConnection
+    new (config?: WebsocketConnection_ConstructProps): WebsocketConnection
 }
 export declare class WebsocketConnection_Static {
     new(stream: Gio.IOStream, uri: URI, type: WebsocketConnectionType, origin: string | null, protocol: string | null): WebsocketConnection

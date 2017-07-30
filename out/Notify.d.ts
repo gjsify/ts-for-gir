@@ -113,7 +113,7 @@ export interface Notification {
 }
 export interface Notification_Static {
     name: string
-    new (config: Notification_ConstructProps): Notification
+    new (config?: Notification_ConstructProps): Notification
 }
 export declare class Notification_Static {
     new(summary: string, body: string | null, icon: string | null): Notification

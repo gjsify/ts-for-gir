@@ -439,7 +439,7 @@ export interface Buffer {
 }
 export interface Buffer_Static {
     name: string
-    new (config: Buffer_ConstructProps): Buffer
+    new (config?: Buffer_ConstructProps): Buffer
 }
 export declare class Buffer_Static {
     new(table: Gtk.TextTagTable | null): Buffer
@@ -543,7 +543,7 @@ export interface Completion {
 }
 export interface Completion_Static {
     name: string
-    new (config: Completion_ConstructProps): Completion
+    new (config?: Completion_ConstructProps): Completion
 }
 export declare var Completion: Completion_Static
 export interface CompletionContext_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
@@ -607,7 +607,7 @@ export interface CompletionContext {
 }
 export interface CompletionContext_Static {
     name: string
-    new (config: CompletionContext_ConstructProps): CompletionContext
+    new (config?: CompletionContext_ConstructProps): CompletionContext
 }
 export declare var CompletionContext: CompletionContext_Static
 export interface CompletionInfo_ConstructProps extends Gtk.Window_ConstructProps {
@@ -1388,7 +1388,7 @@ export interface CompletionInfo {
 }
 export interface CompletionInfo_Static {
     name: string
-    new (config: CompletionInfo_ConstructProps): CompletionInfo
+    new (config?: CompletionInfo_ConstructProps): CompletionInfo
 }
 export declare class CompletionInfo_Static {
     new(): CompletionInfo
@@ -1460,7 +1460,7 @@ export interface CompletionItem {
 }
 export interface CompletionItem_Static {
     name: string
-    new (config: CompletionItem_ConstructProps): CompletionItem
+    new (config?: CompletionItem_ConstructProps): CompletionItem
 }
 export declare class CompletionItem_Static {
     new(label: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
@@ -1540,7 +1540,7 @@ export interface CompletionWords {
 }
 export interface CompletionWords_Static {
     name: string
-    new (config: CompletionWords_ConstructProps): CompletionWords
+    new (config?: CompletionWords_ConstructProps): CompletionWords
 }
 export declare class CompletionWords_Static {
     new(name: string | null, icon: GdkPixbuf.Pixbuf | null): CompletionWords
@@ -1613,7 +1613,7 @@ export interface File {
 }
 export interface File_Static {
     name: string
-    new (config: File_ConstructProps): File
+    new (config?: File_ConstructProps): File
 }
 export declare class File_Static {
     new(): File
@@ -1679,7 +1679,7 @@ export interface FileLoader {
 }
 export interface FileLoader_Static {
     name: string
-    new (config: FileLoader_ConstructProps): FileLoader
+    new (config?: FileLoader_ConstructProps): FileLoader
 }
 export declare class FileLoader_Static {
     new(buffer: Buffer, file: File): FileLoader
@@ -1760,7 +1760,7 @@ export interface FileSaver {
 }
 export interface FileSaver_Static {
     name: string
-    new (config: FileSaver_ConstructProps): FileSaver
+    new (config?: FileSaver_ConstructProps): FileSaver
 }
 export declare class FileSaver_Static {
     new(buffer: Buffer, file: File): FileSaver
@@ -1829,7 +1829,7 @@ export interface Gutter {
 }
 export interface Gutter_Static {
     name: string
-    new (config: Gutter_ConstructProps): Gutter
+    new (config?: Gutter_ConstructProps): Gutter
 }
 export declare var Gutter: Gutter_Static
 export interface GutterRenderer_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
@@ -1948,7 +1948,7 @@ export interface GutterRenderer {
 }
 export interface GutterRenderer_Static {
     name: string
-    new (config: GutterRenderer_ConstructProps): GutterRenderer
+    new (config?: GutterRenderer_ConstructProps): GutterRenderer
 }
 export declare var GutterRenderer: GutterRenderer_Static
 export interface GutterRendererPixbuf_ConstructProps extends GutterRenderer_ConstructProps {
@@ -2081,7 +2081,7 @@ export interface GutterRendererPixbuf {
 }
 export interface GutterRendererPixbuf_Static {
     name: string
-    new (config: GutterRendererPixbuf_ConstructProps): GutterRendererPixbuf
+    new (config?: GutterRendererPixbuf_ConstructProps): GutterRendererPixbuf
 }
 export declare class GutterRendererPixbuf_Static {
     new(): GutterRendererPixbuf
@@ -2207,7 +2207,7 @@ export interface GutterRendererText {
 }
 export interface GutterRendererText_Static {
     name: string
-    new (config: GutterRendererText_ConstructProps): GutterRendererText
+    new (config?: GutterRendererText_ConstructProps): GutterRendererText
 }
 export declare class GutterRendererText_Static {
     new(): GutterRendererText
@@ -2277,7 +2277,7 @@ export interface Language {
 }
 export interface Language_Static {
     name: string
-    new (config: Language_ConstructProps): Language
+    new (config?: Language_ConstructProps): Language
 }
 export declare var Language: Language_Static
 export interface LanguageManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -2336,7 +2336,7 @@ export interface LanguageManager {
 }
 export interface LanguageManager_Static {
     name: string
-    new (config: LanguageManager_ConstructProps): LanguageManager
+    new (config?: LanguageManager_ConstructProps): LanguageManager
 }
 export declare class LanguageManager_Static {
     new(): LanguageManager
@@ -3167,7 +3167,7 @@ export interface Map {
 }
 export interface Map_Static {
     name: string
-    new (config: Map_ConstructProps): Map
+    new (config?: Map_ConstructProps): Map
 }
 export declare class Map_Static {
     new(): Map
@@ -3232,7 +3232,7 @@ export interface Mark {
 }
 export interface Mark_Static {
     name: string
-    new (config: Mark_ConstructProps): Mark
+    new (config?: Mark_ConstructProps): Mark
 }
 export declare class Mark_Static {
     new(name: string, category: string): Mark
@@ -3313,7 +3313,7 @@ export interface MarkAttributes {
 }
 export interface MarkAttributes_Static {
     name: string
-    new (config: MarkAttributes_ConstructProps): MarkAttributes
+    new (config?: MarkAttributes_ConstructProps): MarkAttributes
 }
 export declare class MarkAttributes_Static {
     new(): MarkAttributes
@@ -3433,7 +3433,7 @@ export interface PrintCompositor {
 }
 export interface PrintCompositor_Static {
     name: string
-    new (config: PrintCompositor_ConstructProps): PrintCompositor
+    new (config?: PrintCompositor_ConstructProps): PrintCompositor
 }
 export declare class PrintCompositor_Static {
     new(buffer: Buffer): PrintCompositor
@@ -3518,7 +3518,7 @@ export interface SearchContext {
 }
 export interface SearchContext_Static {
     name: string
-    new (config: SearchContext_ConstructProps): SearchContext
+    new (config?: SearchContext_ConstructProps): SearchContext
 }
 export declare class SearchContext_Static {
     new(buffer: Buffer, settings: SearchSettings | null): SearchContext
@@ -3595,7 +3595,7 @@ export interface SearchSettings {
 }
 export interface SearchSettings_Static {
     name: string
-    new (config: SearchSettings_ConstructProps): SearchSettings
+    new (config?: SearchSettings_ConstructProps): SearchSettings
 }
 export declare class SearchSettings_Static {
     new(): SearchSettings
@@ -3664,7 +3664,7 @@ export interface Style {
 }
 export interface Style_Static {
     name: string
-    new (config: Style_ConstructProps): Style
+    new (config?: Style_ConstructProps): Style
 }
 export declare var Style: Style_Static
 export interface StyleScheme_ConstructProps extends GObject.Object_ConstructProps {
@@ -3726,7 +3726,7 @@ export interface StyleScheme {
 }
 export interface StyleScheme_Static {
     name: string
-    new (config: StyleScheme_ConstructProps): StyleScheme
+    new (config?: StyleScheme_ConstructProps): StyleScheme
 }
 export declare var StyleScheme: StyleScheme_Static
 export interface StyleSchemeChooserButton_ConstructProps extends Gtk.Button_ConstructProps {
@@ -4377,7 +4377,7 @@ export interface StyleSchemeChooserButton {
 }
 export interface StyleSchemeChooserButton_Static {
     name: string
-    new (config: StyleSchemeChooserButton_ConstructProps): StyleSchemeChooserButton
+    new (config?: StyleSchemeChooserButton_ConstructProps): StyleSchemeChooserButton
 }
 export declare class StyleSchemeChooserButton_Static {
     new(): StyleSchemeChooserButton
@@ -4970,7 +4970,7 @@ export interface StyleSchemeChooserWidget {
 }
 export interface StyleSchemeChooserWidget_Static {
     name: string
-    new (config: StyleSchemeChooserWidget_ConstructProps): StyleSchemeChooserWidget
+    new (config?: StyleSchemeChooserWidget_ConstructProps): StyleSchemeChooserWidget
 }
 export declare class StyleSchemeChooserWidget_Static {
     new(): StyleSchemeChooserWidget
@@ -5034,7 +5034,7 @@ export interface StyleSchemeManager {
 }
 export interface StyleSchemeManager_Static {
     name: string
-    new (config: StyleSchemeManager_ConstructProps): StyleSchemeManager
+    new (config?: StyleSchemeManager_ConstructProps): StyleSchemeManager
 }
 export declare class StyleSchemeManager_Static {
     new(): StyleSchemeManager
@@ -5868,7 +5868,7 @@ export interface View {
 }
 export interface View_Static {
     name: string
-    new (config: View_ConstructProps): View
+    new (config?: View_ConstructProps): View
 }
 export declare class View_Static {
     new(): View

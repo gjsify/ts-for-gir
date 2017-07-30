@@ -896,7 +896,7 @@ export interface GObjectAccessible {
 }
 export interface GObjectAccessible_Static {
     name: string
-    new (config: GObjectAccessible_ConstructProps): GObjectAccessible
+    new (config?: GObjectAccessible_ConstructProps): GObjectAccessible
 }
 export declare class GObjectAccessible_Static {
     for_object(obj: GObject.Object): Object
@@ -975,7 +975,7 @@ export interface Hyperlink {
 }
 export interface Hyperlink_Static {
     name: string
-    new (config: Hyperlink_ConstructProps): Hyperlink
+    new (config?: Hyperlink_ConstructProps): Hyperlink
 }
 export declare var Hyperlink: Hyperlink_Static
 export interface Misc_ConstructProps extends GObject.Object_ConstructProps {
@@ -1027,7 +1027,7 @@ export interface Misc {
 }
 export interface Misc_Static {
     name: string
-    new (config: Misc_ConstructProps): Misc
+    new (config?: Misc_ConstructProps): Misc
 }
 export declare class Misc_Static {
     get_instance(): Misc
@@ -1169,7 +1169,7 @@ export interface NoOpObject {
 }
 export interface NoOpObject_Static {
     name: string
-    new (config: NoOpObject_ConstructProps): NoOpObject
+    new (config?: NoOpObject_ConstructProps): NoOpObject
 }
 export declare class NoOpObject_Static {
     new(obj: GObject.Object): NoOpObject
@@ -1225,7 +1225,7 @@ export interface NoOpObjectFactory {
 }
 export interface NoOpObjectFactory_Static {
     name: string
-    new (config: NoOpObjectFactory_ConstructProps): NoOpObjectFactory
+    new (config?: NoOpObjectFactory_ConstructProps): NoOpObjectFactory
 }
 export declare class NoOpObjectFactory_Static {
     new(): NoOpObjectFactory
@@ -1378,7 +1378,7 @@ export interface Object {
 }
 export interface Object_Static {
     name: string
-    new (config: Object_ConstructProps): Object
+    new (config?: Object_ConstructProps): Object
 }
 export declare var Object: Object_Static
 export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructProps {
@@ -1430,7 +1430,7 @@ export interface ObjectFactory {
 }
 export interface ObjectFactory_Static {
     name: string
-    new (config: ObjectFactory_ConstructProps): ObjectFactory
+    new (config?: ObjectFactory_ConstructProps): ObjectFactory
 }
 export declare var ObjectFactory: ObjectFactory_Static
 export interface Plug_ConstructProps extends Object_ConstructProps {
@@ -1573,7 +1573,7 @@ export interface Plug {
 }
 export interface Plug_Static {
     name: string
-    new (config: Plug_ConstructProps): Plug
+    new (config?: Plug_ConstructProps): Plug
 }
 export declare class Plug_Static {
     new(): Plug
@@ -1628,7 +1628,7 @@ export interface Registry {
 }
 export interface Registry_Static {
     name: string
-    new (config: Registry_ConstructProps): Registry
+    new (config?: Registry_ConstructProps): Registry
 }
 export declare var Registry: Registry_Static
 export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
@@ -1687,7 +1687,7 @@ export interface Relation {
 }
 export interface Relation_Static {
     name: string
-    new (config: Relation_ConstructProps): Relation
+    new (config?: Relation_ConstructProps): Relation
 }
 export declare class Relation_Static {
     new(targets: Object[], n_targets: number, relationship: RelationType): Relation
@@ -1746,7 +1746,7 @@ export interface RelationSet {
 }
 export interface RelationSet_Static {
     name: string
-    new (config: RelationSet_ConstructProps): RelationSet
+    new (config?: RelationSet_ConstructProps): RelationSet
 }
 export declare class RelationSet_Static {
     new(): RelationSet
@@ -1893,7 +1893,7 @@ export interface Socket {
 }
 export interface Socket_Static {
     name: string
-    new (config: Socket_ConstructProps): Socket
+    new (config?: Socket_ConstructProps): Socket
 }
 export declare class Socket_Static {
     new(): Socket
@@ -1953,7 +1953,7 @@ export interface StateSet {
 }
 export interface StateSet_Static {
     name: string
-    new (config: StateSet_ConstructProps): StateSet
+    new (config?: StateSet_ConstructProps): StateSet
 }
 export declare class StateSet_Static {
     new(): StateSet
@@ -2002,7 +2002,7 @@ export interface Util {
 }
 export interface Util_Static {
     name: string
-    new (config: Util_ConstructProps): Util
+    new (config?: Util_ConstructProps): Util
 }
 export declare var Util: Util_Static
 export interface Attribute {

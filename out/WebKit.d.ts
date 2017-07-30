@@ -364,7 +364,7 @@ export interface DOMAttr {
 }
 export interface DOMAttr_Static {
     name: string
-    new (config: DOMAttr_ConstructProps): DOMAttr
+    new (config?: DOMAttr_ConstructProps): DOMAttr
 }
 export declare var DOMAttr: DOMAttr_Static
 export interface DOMAudioTrack_ConstructProps extends DOMObject_ConstructProps {
@@ -433,7 +433,7 @@ export interface DOMAudioTrack {
 }
 export interface DOMAudioTrack_Static {
     name: string
-    new (config: DOMAudioTrack_ConstructProps): DOMAudioTrack
+    new (config?: DOMAudioTrack_ConstructProps): DOMAudioTrack
 }
 export declare var DOMAudioTrack: DOMAudioTrack_Static
 export interface DOMAudioTrackList_ConstructProps extends DOMObject_ConstructProps {
@@ -491,7 +491,7 @@ export interface DOMAudioTrackList {
 }
 export interface DOMAudioTrackList_Static {
     name: string
-    new (config: DOMAudioTrackList_ConstructProps): DOMAudioTrackList
+    new (config?: DOMAudioTrackList_ConstructProps): DOMAudioTrackList
 }
 export declare var DOMAudioTrackList: DOMAudioTrackList_Static
 export interface DOMBarInfo_ConstructProps extends DOMObject_ConstructProps {
@@ -542,7 +542,7 @@ export interface DOMBarInfo {
 }
 export interface DOMBarInfo_Static {
     name: string
-    new (config: DOMBarInfo_ConstructProps): DOMBarInfo
+    new (config?: DOMBarInfo_ConstructProps): DOMBarInfo
 }
 export declare class DOMBarInfo_Static {
     get_visible(self: object): boolean
@@ -600,7 +600,7 @@ export interface DOMBarProp {
 }
 export interface DOMBarProp_Static {
     name: string
-    new (config: DOMBarProp_ConstructProps): DOMBarProp
+    new (config?: DOMBarProp_ConstructProps): DOMBarProp
 }
 export declare var DOMBarProp: DOMBarProp_Static
 export interface DOMBatteryManager_ConstructProps extends DOMObject_ConstructProps {
@@ -665,7 +665,7 @@ export interface DOMBatteryManager {
 }
 export interface DOMBatteryManager_Static {
     name: string
-    new (config: DOMBatteryManager_ConstructProps): DOMBatteryManager
+    new (config?: DOMBatteryManager_ConstructProps): DOMBatteryManager
 }
 export declare var DOMBatteryManager: DOMBatteryManager_Static
 export interface DOMBlob_ConstructProps extends DOMObject_ConstructProps {
@@ -724,7 +724,7 @@ export interface DOMBlob {
 }
 export interface DOMBlob_Static {
     name: string
-    new (config: DOMBlob_ConstructProps): DOMBlob
+    new (config?: DOMBlob_ConstructProps): DOMBlob
 }
 export declare var DOMBlob: DOMBlob_Static
 export interface DOMCDATASection_ConstructProps extends DOMText_ConstructProps {
@@ -867,7 +867,7 @@ export interface DOMCDATASection {
 }
 export interface DOMCDATASection_Static {
     name: string
-    new (config: DOMCDATASection_ConstructProps): DOMCDATASection
+    new (config?: DOMCDATASection_ConstructProps): DOMCDATASection
 }
 export declare var DOMCDATASection: DOMCDATASection_Static
 export interface DOMCSSRule_ConstructProps extends DOMObject_ConstructProps {
@@ -932,7 +932,7 @@ export interface DOMCSSRule {
 }
 export interface DOMCSSRule_Static {
     name: string
-    new (config: DOMCSSRule_ConstructProps): DOMCSSRule
+    new (config?: DOMCSSRule_ConstructProps): DOMCSSRule
 }
 export declare var DOMCSSRule: DOMCSSRule_Static
 export interface DOMCSSRuleList_ConstructProps extends DOMObject_ConstructProps {
@@ -988,7 +988,7 @@ export interface DOMCSSRuleList {
 }
 export interface DOMCSSRuleList_Static {
     name: string
-    new (config: DOMCSSRuleList_ConstructProps): DOMCSSRuleList
+    new (config?: DOMCSSRuleList_ConstructProps): DOMCSSRuleList
 }
 export declare var DOMCSSRuleList: DOMCSSRuleList_Static
 export interface DOMCSSStyleDeclaration_ConstructProps extends DOMObject_ConstructProps {
@@ -1058,7 +1058,7 @@ export interface DOMCSSStyleDeclaration {
 }
 export interface DOMCSSStyleDeclaration_Static {
     name: string
-    new (config: DOMCSSStyleDeclaration_ConstructProps): DOMCSSStyleDeclaration
+    new (config?: DOMCSSStyleDeclaration_ConstructProps): DOMCSSStyleDeclaration
 }
 export declare var DOMCSSStyleDeclaration: DOMCSSStyleDeclaration_Static
 export interface DOMCSSStyleSheet_ConstructProps extends DOMStyleSheet_ConstructProps {
@@ -1147,7 +1147,7 @@ export interface DOMCSSStyleSheet {
 }
 export interface DOMCSSStyleSheet_Static {
     name: string
-    new (config: DOMCSSStyleSheet_ConstructProps): DOMCSSStyleSheet
+    new (config?: DOMCSSStyleSheet_ConstructProps): DOMCSSStyleSheet
 }
 export declare var DOMCSSStyleSheet: DOMCSSStyleSheet_Static
 export interface DOMCSSValue_ConstructProps extends DOMObject_ConstructProps {
@@ -1207,7 +1207,7 @@ export interface DOMCSSValue {
 }
 export interface DOMCSSValue_Static {
     name: string
-    new (config: DOMCSSValue_ConstructProps): DOMCSSValue
+    new (config?: DOMCSSValue_ConstructProps): DOMCSSValue
 }
 export declare var DOMCSSValue: DOMCSSValue_Static
 export interface DOMCharacterData_ConstructProps extends DOMNode_ConstructProps {
@@ -1342,7 +1342,7 @@ export interface DOMCharacterData {
 }
 export interface DOMCharacterData_Static {
     name: string
-    new (config: DOMCharacterData_ConstructProps): DOMCharacterData
+    new (config?: DOMCharacterData_ConstructProps): DOMCharacterData
 }
 export declare var DOMCharacterData: DOMCharacterData_Static
 export interface DOMComment_ConstructProps extends DOMCharacterData_ConstructProps {
@@ -1477,7 +1477,7 @@ export interface DOMComment {
 }
 export interface DOMComment_Static {
     name: string
-    new (config: DOMComment_ConstructProps): DOMComment
+    new (config?: DOMComment_ConstructProps): DOMComment
 }
 export declare var DOMComment: DOMComment_Static
 export interface DOMConsole_ConstructProps extends DOMObject_ConstructProps {
@@ -1531,7 +1531,7 @@ export interface DOMConsole {
 }
 export interface DOMConsole_Static {
     name: string
-    new (config: DOMConsole_ConstructProps): DOMConsole
+    new (config?: DOMConsole_ConstructProps): DOMConsole
 }
 export declare var DOMConsole: DOMConsole_Static
 export interface DOMDOMApplicationCache_ConstructProps extends DOMObject_ConstructProps {
@@ -1590,7 +1590,7 @@ export interface DOMDOMApplicationCache {
 }
 export interface DOMDOMApplicationCache_Static {
     name: string
-    new (config: DOMDOMApplicationCache_ConstructProps): DOMDOMApplicationCache
+    new (config?: DOMDOMApplicationCache_ConstructProps): DOMDOMApplicationCache
 }
 export declare var DOMDOMApplicationCache: DOMDOMApplicationCache_Static
 export interface DOMDOMImplementation_ConstructProps extends DOMObject_ConstructProps {
@@ -1646,7 +1646,7 @@ export interface DOMDOMImplementation {
 }
 export interface DOMDOMImplementation_Static {
     name: string
-    new (config: DOMDOMImplementation_ConstructProps): DOMDOMImplementation
+    new (config?: DOMDOMImplementation_ConstructProps): DOMDOMImplementation
 }
 export declare var DOMDOMImplementation: DOMDOMImplementation_Static
 export interface DOMDOMMimeType_ConstructProps extends DOMObject_ConstructProps {
@@ -1709,7 +1709,7 @@ export interface DOMDOMMimeType {
 }
 export interface DOMDOMMimeType_Static {
     name: string
-    new (config: DOMDOMMimeType_ConstructProps): DOMDOMMimeType
+    new (config?: DOMDOMMimeType_ConstructProps): DOMDOMMimeType
 }
 export declare var DOMDOMMimeType: DOMDOMMimeType_Static
 export interface DOMDOMMimeTypeArray_ConstructProps extends DOMObject_ConstructProps {
@@ -1766,7 +1766,7 @@ export interface DOMDOMMimeTypeArray {
 }
 export interface DOMDOMMimeTypeArray_Static {
     name: string
-    new (config: DOMDOMMimeTypeArray_ConstructProps): DOMDOMMimeTypeArray
+    new (config?: DOMDOMMimeTypeArray_ConstructProps): DOMDOMMimeTypeArray
 }
 export declare var DOMDOMMimeTypeArray: DOMDOMMimeTypeArray_Static
 export interface DOMDOMNamedFlowCollection_ConstructProps extends DOMObject_ConstructProps {
@@ -1823,7 +1823,7 @@ export interface DOMDOMNamedFlowCollection {
 }
 export interface DOMDOMNamedFlowCollection_Static {
     name: string
-    new (config: DOMDOMNamedFlowCollection_ConstructProps): DOMDOMNamedFlowCollection
+    new (config?: DOMDOMNamedFlowCollection_ConstructProps): DOMDOMNamedFlowCollection
 }
 export declare var DOMDOMNamedFlowCollection: DOMDOMNamedFlowCollection_Static
 export interface DOMDOMPlugin_ConstructProps extends DOMObject_ConstructProps {
@@ -1889,7 +1889,7 @@ export interface DOMDOMPlugin {
 }
 export interface DOMDOMPlugin_Static {
     name: string
-    new (config: DOMDOMPlugin_ConstructProps): DOMDOMPlugin
+    new (config?: DOMDOMPlugin_ConstructProps): DOMDOMPlugin
 }
 export declare var DOMDOMPlugin: DOMDOMPlugin_Static
 export interface DOMDOMPluginArray_ConstructProps extends DOMObject_ConstructProps {
@@ -1947,7 +1947,7 @@ export interface DOMDOMPluginArray {
 }
 export interface DOMDOMPluginArray_Static {
     name: string
-    new (config: DOMDOMPluginArray_ConstructProps): DOMDOMPluginArray
+    new (config?: DOMDOMPluginArray_ConstructProps): DOMDOMPluginArray
 }
 export declare var DOMDOMPluginArray: DOMDOMPluginArray_Static
 export interface DOMDOMSecurityPolicy_ConstructProps extends DOMObject_ConstructProps {
@@ -2024,7 +2024,7 @@ export interface DOMDOMSecurityPolicy {
 }
 export interface DOMDOMSecurityPolicy_Static {
     name: string
-    new (config: DOMDOMSecurityPolicy_ConstructProps): DOMDOMSecurityPolicy
+    new (config?: DOMDOMSecurityPolicy_ConstructProps): DOMDOMSecurityPolicy
 }
 export declare var DOMDOMSecurityPolicy: DOMDOMSecurityPolicy_Static
 export interface DOMDOMSelection_ConstructProps extends DOMObject_ConstructProps {
@@ -2122,7 +2122,7 @@ export interface DOMDOMSelection {
 }
 export interface DOMDOMSelection_Static {
     name: string
-    new (config: DOMDOMSelection_ConstructProps): DOMDOMSelection
+    new (config?: DOMDOMSelection_ConstructProps): DOMDOMSelection
 }
 export declare var DOMDOMSelection: DOMDOMSelection_Static
 export interface DOMDOMSettableTokenList_ConstructProps extends DOMDOMTokenList_ConstructProps {
@@ -2190,7 +2190,7 @@ export interface DOMDOMSettableTokenList {
 }
 export interface DOMDOMSettableTokenList_Static {
     name: string
-    new (config: DOMDOMSettableTokenList_ConstructProps): DOMDOMSettableTokenList
+    new (config?: DOMDOMSettableTokenList_ConstructProps): DOMDOMSettableTokenList
 }
 export declare var DOMDOMSettableTokenList: DOMDOMSettableTokenList_Static
 export interface DOMDOMStringList_ConstructProps extends DOMObject_ConstructProps {
@@ -2247,7 +2247,7 @@ export interface DOMDOMStringList {
 }
 export interface DOMDOMStringList_Static {
     name: string
-    new (config: DOMDOMStringList_ConstructProps): DOMDOMStringList
+    new (config?: DOMDOMStringList_ConstructProps): DOMDOMStringList
 }
 export declare var DOMDOMStringList: DOMDOMStringList_Static
 export interface DOMDOMStringMap_ConstructProps extends DOMObject_ConstructProps {
@@ -2297,7 +2297,7 @@ export interface DOMDOMStringMap {
 }
 export interface DOMDOMStringMap_Static {
     name: string
-    new (config: DOMDOMStringMap_ConstructProps): DOMDOMStringMap
+    new (config?: DOMDOMStringMap_ConstructProps): DOMDOMStringMap
 }
 export declare var DOMDOMStringMap: DOMDOMStringMap_Static
 export interface DOMDOMTokenList_ConstructProps extends DOMObject_ConstructProps {
@@ -2357,7 +2357,7 @@ export interface DOMDOMTokenList {
 }
 export interface DOMDOMTokenList_Static {
     name: string
-    new (config: DOMDOMTokenList_ConstructProps): DOMDOMTokenList
+    new (config?: DOMDOMTokenList_ConstructProps): DOMDOMTokenList
 }
 export declare var DOMDOMTokenList: DOMDOMTokenList_Static
 export interface DOMDOMWindow_ConstructProps extends DOMObject_ConstructProps {
@@ -2581,7 +2581,7 @@ export interface DOMDOMWindow {
 }
 export interface DOMDOMWindow_Static {
     name: string
-    new (config: DOMDOMWindow_ConstructProps): DOMDOMWindow
+    new (config?: DOMDOMWindow_ConstructProps): DOMDOMWindow
 }
 export declare var DOMDOMWindow: DOMDOMWindow_Static
 export interface DOMDOMWindowCSS_ConstructProps extends DOMObject_ConstructProps {
@@ -2633,7 +2633,7 @@ export interface DOMDOMWindowCSS {
 }
 export interface DOMDOMWindowCSS_Static {
     name: string
-    new (config: DOMDOMWindowCSS_ConstructProps): DOMDOMWindowCSS
+    new (config?: DOMDOMWindowCSS_ConstructProps): DOMDOMWindowCSS
 }
 export declare var DOMDOMWindowCSS: DOMDOMWindowCSS_Static
 export interface DOMDatabase_ConstructProps extends DOMObject_ConstructProps {
@@ -2688,7 +2688,7 @@ export interface DOMDatabase {
 }
 export interface DOMDatabase_Static {
     name: string
-    new (config: DOMDatabase_ConstructProps): DOMDatabase
+    new (config?: DOMDatabase_ConstructProps): DOMDatabase
 }
 export declare var DOMDatabase: DOMDatabase_Static
 export interface DOMDocument_ConstructProps extends DOMNode_ConstructProps {
@@ -2990,7 +2990,7 @@ export interface DOMDocument {
 }
 export interface DOMDocument_Static {
     name: string
-    new (config: DOMDocument_ConstructProps): DOMDocument
+    new (config?: DOMDocument_ConstructProps): DOMDocument
 }
 export declare var DOMDocument: DOMDocument_Static
 export interface DOMDocumentFragment_ConstructProps extends DOMNode_ConstructProps {
@@ -3115,7 +3115,7 @@ export interface DOMDocumentFragment {
 }
 export interface DOMDocumentFragment_Static {
     name: string
-    new (config: DOMDocumentFragment_ConstructProps): DOMDocumentFragment
+    new (config?: DOMDocumentFragment_ConstructProps): DOMDocumentFragment
 }
 export declare var DOMDocumentFragment: DOMDocumentFragment_Static
 export interface DOMDocumentType_ConstructProps extends DOMNode_ConstructProps {
@@ -3258,7 +3258,7 @@ export interface DOMDocumentType {
 }
 export interface DOMDocumentType_Static {
     name: string
-    new (config: DOMDocumentType_ConstructProps): DOMDocumentType
+    new (config?: DOMDocumentType_ConstructProps): DOMDocumentType
 }
 export declare var DOMDocumentType: DOMDocumentType_Static
 export interface DOMElement_ConstructProps extends DOMNode_ConstructProps {
@@ -3494,7 +3494,7 @@ export interface DOMElement {
 }
 export interface DOMElement_Static {
     name: string
-    new (config: DOMElement_ConstructProps): DOMElement
+    new (config?: DOMElement_ConstructProps): DOMElement
 }
 export declare var DOMElement: DOMElement_Static
 export interface DOMEntityReference_ConstructProps extends DOMNode_ConstructProps {
@@ -3616,7 +3616,7 @@ export interface DOMEntityReference {
 }
 export interface DOMEntityReference_Static {
     name: string
-    new (config: DOMEntityReference_ConstructProps): DOMEntityReference
+    new (config?: DOMEntityReference_ConstructProps): DOMEntityReference
 }
 export declare var DOMEntityReference: DOMEntityReference_Static
 export interface DOMEvent_ConstructProps extends DOMObject_ConstructProps {
@@ -3708,7 +3708,7 @@ export interface DOMEvent {
 }
 export interface DOMEvent_Static {
     name: string
-    new (config: DOMEvent_ConstructProps): DOMEvent
+    new (config?: DOMEvent_ConstructProps): DOMEvent
 }
 export declare var DOMEvent: DOMEvent_Static
 export interface DOMFile_ConstructProps extends DOMBlob_ConstructProps {
@@ -3776,7 +3776,7 @@ export interface DOMFile {
 }
 export interface DOMFile_Static {
     name: string
-    new (config: DOMFile_ConstructProps): DOMFile
+    new (config?: DOMFile_ConstructProps): DOMFile
 }
 export declare var DOMFile: DOMFile_Static
 export interface DOMFileList_ConstructProps extends DOMObject_ConstructProps {
@@ -3832,7 +3832,7 @@ export interface DOMFileList {
 }
 export interface DOMFileList_Static {
     name: string
-    new (config: DOMFileList_ConstructProps): DOMFileList
+    new (config?: DOMFileList_ConstructProps): DOMFileList
 }
 export declare var DOMFileList: DOMFileList_Static
 export interface DOMGamepad_ConstructProps extends DOMObject_ConstructProps {
@@ -3893,7 +3893,7 @@ export interface DOMGamepad {
 }
 export interface DOMGamepad_Static {
     name: string
-    new (config: DOMGamepad_ConstructProps): DOMGamepad
+    new (config?: DOMGamepad_ConstructProps): DOMGamepad
 }
 export declare var DOMGamepad: DOMGamepad_Static
 export interface DOMGamepadList_ConstructProps extends DOMObject_ConstructProps {
@@ -3949,7 +3949,7 @@ export interface DOMGamepadList {
 }
 export interface DOMGamepadList_Static {
     name: string
-    new (config: DOMGamepadList_ConstructProps): DOMGamepadList
+    new (config?: DOMGamepadList_ConstructProps): DOMGamepadList
 }
 export declare var DOMGamepadList: DOMGamepadList_Static
 export interface DOMGeolocation_ConstructProps extends DOMObject_ConstructProps {
@@ -4001,7 +4001,7 @@ export interface DOMGeolocation {
 }
 export interface DOMGeolocation_Static {
     name: string
-    new (config: DOMGeolocation_ConstructProps): DOMGeolocation
+    new (config?: DOMGeolocation_ConstructProps): DOMGeolocation
 }
 export declare var DOMGeolocation: DOMGeolocation_Static
 export interface DOMHTMLAnchorElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -4415,7 +4415,7 @@ export interface DOMHTMLAnchorElement {
 }
 export interface DOMHTMLAnchorElement_Static {
     name: string
-    new (config: DOMHTMLAnchorElement_ConstructProps): DOMHTMLAnchorElement
+    new (config?: DOMHTMLAnchorElement_ConstructProps): DOMHTMLAnchorElement
 }
 export declare var DOMHTMLAnchorElement: DOMHTMLAnchorElement_Static
 export interface DOMHTMLAppletElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -4785,7 +4785,7 @@ export interface DOMHTMLAppletElement {
 }
 export interface DOMHTMLAppletElement_Static {
     name: string
-    new (config: DOMHTMLAppletElement_ConstructProps): DOMHTMLAppletElement
+    new (config?: DOMHTMLAppletElement_ConstructProps): DOMHTMLAppletElement
 }
 export declare var DOMHTMLAppletElement: DOMHTMLAppletElement_Static
 export interface DOMHTMLAreaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -5156,7 +5156,7 @@ export interface DOMHTMLAreaElement {
 }
 export interface DOMHTMLAreaElement_Static {
     name: string
-    new (config: DOMHTMLAreaElement_ConstructProps): DOMHTMLAreaElement
+    new (config?: DOMHTMLAreaElement_ConstructProps): DOMHTMLAreaElement
 }
 export declare var DOMHTMLAreaElement: DOMHTMLAreaElement_Static
 export interface DOMHTMLAudioElement_ConstructProps extends DOMHTMLMediaElement_ConstructProps {
@@ -5594,7 +5594,7 @@ export interface DOMHTMLAudioElement {
 }
 export interface DOMHTMLAudioElement_Static {
     name: string
-    new (config: DOMHTMLAudioElement_ConstructProps): DOMHTMLAudioElement
+    new (config?: DOMHTMLAudioElement_ConstructProps): DOMHTMLAudioElement
 }
 export declare var DOMHTMLAudioElement: DOMHTMLAudioElement_Static
 export interface DOMHTMLBRElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -5914,7 +5914,7 @@ export interface DOMHTMLBRElement {
 }
 export interface DOMHTMLBRElement_Static {
     name: string
-    new (config: DOMHTMLBRElement_ConstructProps): DOMHTMLBRElement
+    new (config?: DOMHTMLBRElement_ConstructProps): DOMHTMLBRElement
 }
 export declare var DOMHTMLBRElement: DOMHTMLBRElement_Static
 export interface DOMHTMLBaseElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -6239,7 +6239,7 @@ export interface DOMHTMLBaseElement {
 }
 export interface DOMHTMLBaseElement_Static {
     name: string
-    new (config: DOMHTMLBaseElement_ConstructProps): DOMHTMLBaseElement
+    new (config?: DOMHTMLBaseElement_ConstructProps): DOMHTMLBaseElement
 }
 export declare var DOMHTMLBaseElement: DOMHTMLBaseElement_Static
 export interface DOMHTMLBaseFontElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -6569,7 +6569,7 @@ export interface DOMHTMLBaseFontElement {
 }
 export interface DOMHTMLBaseFontElement_Static {
     name: string
-    new (config: DOMHTMLBaseFontElement_ConstructProps): DOMHTMLBaseFontElement
+    new (config?: DOMHTMLBaseFontElement_ConstructProps): DOMHTMLBaseFontElement
 }
 export declare var DOMHTMLBaseFontElement: DOMHTMLBaseFontElement_Static
 export interface DOMHTMLBodyElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -6914,7 +6914,7 @@ export interface DOMHTMLBodyElement {
 }
 export interface DOMHTMLBodyElement_Static {
     name: string
-    new (config: DOMHTMLBodyElement_ConstructProps): DOMHTMLBodyElement
+    new (config?: DOMHTMLBodyElement_ConstructProps): DOMHTMLBodyElement
 }
 export declare var DOMHTMLBodyElement: DOMHTMLBodyElement_Static
 export interface DOMHTMLButtonElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -7294,7 +7294,7 @@ export interface DOMHTMLButtonElement {
 }
 export interface DOMHTMLButtonElement_Static {
     name: string
-    new (config: DOMHTMLButtonElement_ConstructProps): DOMHTMLButtonElement
+    new (config?: DOMHTMLButtonElement_ConstructProps): DOMHTMLButtonElement
 }
 export declare var DOMHTMLButtonElement: DOMHTMLButtonElement_Static
 export interface DOMHTMLCanvasElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -7619,7 +7619,7 @@ export interface DOMHTMLCanvasElement {
 }
 export interface DOMHTMLCanvasElement_Static {
     name: string
-    new (config: DOMHTMLCanvasElement_ConstructProps): DOMHTMLCanvasElement
+    new (config?: DOMHTMLCanvasElement_ConstructProps): DOMHTMLCanvasElement
 }
 export declare var DOMHTMLCanvasElement: DOMHTMLCanvasElement_Static
 export interface DOMHTMLCollection_ConstructProps extends DOMObject_ConstructProps {
@@ -7676,7 +7676,7 @@ export interface DOMHTMLCollection {
 }
 export interface DOMHTMLCollection_Static {
     name: string
-    new (config: DOMHTMLCollection_ConstructProps): DOMHTMLCollection
+    new (config?: DOMHTMLCollection_ConstructProps): DOMHTMLCollection
 }
 export declare var DOMHTMLCollection: DOMHTMLCollection_Static
 export interface DOMHTMLDListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -7996,7 +7996,7 @@ export interface DOMHTMLDListElement {
 }
 export interface DOMHTMLDListElement_Static {
     name: string
-    new (config: DOMHTMLDListElement_ConstructProps): DOMHTMLDListElement
+    new (config?: DOMHTMLDListElement_ConstructProps): DOMHTMLDListElement
 }
 export declare var DOMHTMLDListElement: DOMHTMLDListElement_Static
 export interface DOMHTMLDetailsElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -8316,7 +8316,7 @@ export interface DOMHTMLDetailsElement {
 }
 export interface DOMHTMLDetailsElement_Static {
     name: string
-    new (config: DOMHTMLDetailsElement_ConstructProps): DOMHTMLDetailsElement
+    new (config?: DOMHTMLDetailsElement_ConstructProps): DOMHTMLDetailsElement
 }
 export declare var DOMHTMLDetailsElement: DOMHTMLDetailsElement_Static
 export interface DOMHTMLDirectoryElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -8636,7 +8636,7 @@ export interface DOMHTMLDirectoryElement {
 }
 export interface DOMHTMLDirectoryElement_Static {
     name: string
-    new (config: DOMHTMLDirectoryElement_ConstructProps): DOMHTMLDirectoryElement
+    new (config?: DOMHTMLDirectoryElement_ConstructProps): DOMHTMLDirectoryElement
 }
 export declare var DOMHTMLDirectoryElement: DOMHTMLDirectoryElement_Static
 export interface DOMHTMLDivElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -8956,7 +8956,7 @@ export interface DOMHTMLDivElement {
 }
 export interface DOMHTMLDivElement_Static {
     name: string
-    new (config: DOMHTMLDivElement_ConstructProps): DOMHTMLDivElement
+    new (config?: DOMHTMLDivElement_ConstructProps): DOMHTMLDivElement
 }
 export declare var DOMHTMLDivElement: DOMHTMLDivElement_Static
 export interface DOMHTMLDocument_ConstructProps extends DOMDocument_ConstructProps {
@@ -9313,7 +9313,7 @@ export interface DOMHTMLDocument {
 }
 export interface DOMHTMLDocument_Static {
     name: string
-    new (config: DOMHTMLDocument_ConstructProps): DOMHTMLDocument
+    new (config?: DOMHTMLDocument_ConstructProps): DOMHTMLDocument
 }
 export declare var DOMHTMLDocument: DOMHTMLDocument_Static
 export interface DOMHTMLElement_ConstructProps extends DOMElement_ConstructProps {
@@ -9640,7 +9640,7 @@ export interface DOMHTMLElement {
 }
 export interface DOMHTMLElement_Static {
     name: string
-    new (config: DOMHTMLElement_ConstructProps): DOMHTMLElement
+    new (config?: DOMHTMLElement_ConstructProps): DOMHTMLElement
 }
 export declare var DOMHTMLElement: DOMHTMLElement_Static
 export interface DOMHTMLEmbedElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -9983,7 +9983,7 @@ export interface DOMHTMLEmbedElement {
 }
 export interface DOMHTMLEmbedElement_Static {
     name: string
-    new (config: DOMHTMLEmbedElement_ConstructProps): DOMHTMLEmbedElement
+    new (config?: DOMHTMLEmbedElement_ConstructProps): DOMHTMLEmbedElement
 }
 export declare var DOMHTMLEmbedElement: DOMHTMLEmbedElement_Static
 export interface DOMHTMLFieldSetElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -10327,7 +10327,7 @@ export interface DOMHTMLFieldSetElement {
 }
 export interface DOMHTMLFieldSetElement_Static {
     name: string
-    new (config: DOMHTMLFieldSetElement_ConstructProps): DOMHTMLFieldSetElement
+    new (config?: DOMHTMLFieldSetElement_ConstructProps): DOMHTMLFieldSetElement
 }
 export declare var DOMHTMLFieldSetElement: DOMHTMLFieldSetElement_Static
 export interface DOMHTMLFontElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -10657,7 +10657,7 @@ export interface DOMHTMLFontElement {
 }
 export interface DOMHTMLFontElement_Static {
     name: string
-    new (config: DOMHTMLFontElement_ConstructProps): DOMHTMLFontElement
+    new (config?: DOMHTMLFontElement_ConstructProps): DOMHTMLFontElement
 }
 export declare var DOMHTMLFontElement: DOMHTMLFontElement_Static
 export interface DOMHTMLFormElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -11038,7 +11038,7 @@ export interface DOMHTMLFormElement {
 }
 export interface DOMHTMLFormElement_Static {
     name: string
-    new (config: DOMHTMLFormElement_ConstructProps): DOMHTMLFormElement
+    new (config?: DOMHTMLFormElement_ConstructProps): DOMHTMLFormElement
 }
 export declare var DOMHTMLFormElement: DOMHTMLFormElement_Static
 export interface DOMHTMLFrameElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -11405,7 +11405,7 @@ export interface DOMHTMLFrameElement {
 }
 export interface DOMHTMLFrameElement_Static {
     name: string
-    new (config: DOMHTMLFrameElement_ConstructProps): DOMHTMLFrameElement
+    new (config?: DOMHTMLFrameElement_ConstructProps): DOMHTMLFrameElement
 }
 export declare var DOMHTMLFrameElement: DOMHTMLFrameElement_Static
 export interface DOMHTMLFrameSetElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -11730,7 +11730,7 @@ export interface DOMHTMLFrameSetElement {
 }
 export interface DOMHTMLFrameSetElement_Static {
     name: string
-    new (config: DOMHTMLFrameSetElement_ConstructProps): DOMHTMLFrameSetElement
+    new (config?: DOMHTMLFrameSetElement_ConstructProps): DOMHTMLFrameSetElement
 }
 export declare var DOMHTMLFrameSetElement: DOMHTMLFrameSetElement_Static
 export interface DOMHTMLHRElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -12065,7 +12065,7 @@ export interface DOMHTMLHRElement {
 }
 export interface DOMHTMLHRElement_Static {
     name: string
-    new (config: DOMHTMLHRElement_ConstructProps): DOMHTMLHRElement
+    new (config?: DOMHTMLHRElement_ConstructProps): DOMHTMLHRElement
 }
 export declare var DOMHTMLHRElement: DOMHTMLHRElement_Static
 export interface DOMHTMLHeadElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -12385,7 +12385,7 @@ export interface DOMHTMLHeadElement {
 }
 export interface DOMHTMLHeadElement_Static {
     name: string
-    new (config: DOMHTMLHeadElement_ConstructProps): DOMHTMLHeadElement
+    new (config?: DOMHTMLHeadElement_ConstructProps): DOMHTMLHeadElement
 }
 export declare var DOMHTMLHeadElement: DOMHTMLHeadElement_Static
 export interface DOMHTMLHeadingElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -12705,7 +12705,7 @@ export interface DOMHTMLHeadingElement {
 }
 export interface DOMHTMLHeadingElement_Static {
     name: string
-    new (config: DOMHTMLHeadingElement_ConstructProps): DOMHTMLHeadingElement
+    new (config?: DOMHTMLHeadingElement_ConstructProps): DOMHTMLHeadingElement
 }
 export declare var DOMHTMLHeadingElement: DOMHTMLHeadingElement_Static
 export interface DOMHTMLHtmlElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -13030,7 +13030,7 @@ export interface DOMHTMLHtmlElement {
 }
 export interface DOMHTMLHtmlElement_Static {
     name: string
-    new (config: DOMHTMLHtmlElement_ConstructProps): DOMHTMLHtmlElement
+    new (config?: DOMHTMLHtmlElement_ConstructProps): DOMHTMLHtmlElement
 }
 export declare var DOMHTMLHtmlElement: DOMHTMLHtmlElement_Static
 export interface DOMHTMLIFrameElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -13416,7 +13416,7 @@ export interface DOMHTMLIFrameElement {
 }
 export interface DOMHTMLIFrameElement_Static {
     name: string
-    new (config: DOMHTMLIFrameElement_ConstructProps): DOMHTMLIFrameElement
+    new (config?: DOMHTMLIFrameElement_ConstructProps): DOMHTMLIFrameElement
 }
 export declare var DOMHTMLIFrameElement: DOMHTMLIFrameElement_Static
 export interface DOMHTMLImageElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -13821,7 +13821,7 @@ export interface DOMHTMLImageElement {
 }
 export interface DOMHTMLImageElement_Static {
     name: string
-    new (config: DOMHTMLImageElement_ConstructProps): DOMHTMLImageElement
+    new (config?: DOMHTMLImageElement_ConstructProps): DOMHTMLImageElement
 }
 export declare var DOMHTMLImageElement: DOMHTMLImageElement_Static
 export interface DOMHTMLInputElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -14369,7 +14369,7 @@ export interface DOMHTMLInputElement {
 }
 export interface DOMHTMLInputElement_Static {
     name: string
-    new (config: DOMHTMLInputElement_ConstructProps): DOMHTMLInputElement
+    new (config?: DOMHTMLInputElement_ConstructProps): DOMHTMLInputElement
 }
 export declare var DOMHTMLInputElement: DOMHTMLInputElement_Static
 export interface DOMHTMLKeygenElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -14728,7 +14728,7 @@ export interface DOMHTMLKeygenElement {
 }
 export interface DOMHTMLKeygenElement_Static {
     name: string
-    new (config: DOMHTMLKeygenElement_ConstructProps): DOMHTMLKeygenElement
+    new (config?: DOMHTMLKeygenElement_ConstructProps): DOMHTMLKeygenElement
 }
 export declare var DOMHTMLKeygenElement: DOMHTMLKeygenElement_Static
 export interface DOMHTMLLIElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -15051,7 +15051,7 @@ export interface DOMHTMLLIElement {
 }
 export interface DOMHTMLLIElement_Static {
     name: string
-    new (config: DOMHTMLLIElement_ConstructProps): DOMHTMLLIElement
+    new (config?: DOMHTMLLIElement_ConstructProps): DOMHTMLLIElement
 }
 export declare var DOMHTMLLIElement: DOMHTMLLIElement_Static
 export interface DOMHTMLLabelElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -15377,7 +15377,7 @@ export interface DOMHTMLLabelElement {
 }
 export interface DOMHTMLLabelElement_Static {
     name: string
-    new (config: DOMHTMLLabelElement_ConstructProps): DOMHTMLLabelElement
+    new (config?: DOMHTMLLabelElement_ConstructProps): DOMHTMLLabelElement
 }
 export declare var DOMHTMLLabelElement: DOMHTMLLabelElement_Static
 export interface DOMHTMLLegendElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -15700,7 +15700,7 @@ export interface DOMHTMLLegendElement {
 }
 export interface DOMHTMLLegendElement_Static {
     name: string
-    new (config: DOMHTMLLegendElement_ConstructProps): DOMHTMLLegendElement
+    new (config?: DOMHTMLLegendElement_ConstructProps): DOMHTMLLegendElement
 }
 export declare var DOMHTMLLegendElement: DOMHTMLLegendElement_Static
 export interface DOMHTMLLinkElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -16061,7 +16061,7 @@ export interface DOMHTMLLinkElement {
 }
 export interface DOMHTMLLinkElement_Static {
     name: string
-    new (config: DOMHTMLLinkElement_ConstructProps): DOMHTMLLinkElement
+    new (config?: DOMHTMLLinkElement_ConstructProps): DOMHTMLLinkElement
 }
 export declare var DOMHTMLLinkElement: DOMHTMLLinkElement_Static
 export interface DOMHTMLMapElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -16384,7 +16384,7 @@ export interface DOMHTMLMapElement {
 }
 export interface DOMHTMLMapElement_Static {
     name: string
-    new (config: DOMHTMLMapElement_ConstructProps): DOMHTMLMapElement
+    new (config?: DOMHTMLMapElement_ConstructProps): DOMHTMLMapElement
 }
 export declare var DOMHTMLMapElement: DOMHTMLMapElement_Static
 export interface DOMHTMLMarqueeElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -16756,7 +16756,7 @@ export interface DOMHTMLMarqueeElement {
 }
 export interface DOMHTMLMarqueeElement_Static {
     name: string
-    new (config: DOMHTMLMarqueeElement_ConstructProps): DOMHTMLMarqueeElement
+    new (config?: DOMHTMLMarqueeElement_ConstructProps): DOMHTMLMarqueeElement
 }
 export declare var DOMHTMLMarqueeElement: DOMHTMLMarqueeElement_Static
 export interface DOMHTMLMediaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -17207,7 +17207,7 @@ export interface DOMHTMLMediaElement {
 }
 export interface DOMHTMLMediaElement_Static {
     name: string
-    new (config: DOMHTMLMediaElement_ConstructProps): DOMHTMLMediaElement
+    new (config?: DOMHTMLMediaElement_ConstructProps): DOMHTMLMediaElement
 }
 export declare var DOMHTMLMediaElement: DOMHTMLMediaElement_Static
 export interface DOMHTMLMenuElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -17527,7 +17527,7 @@ export interface DOMHTMLMenuElement {
 }
 export interface DOMHTMLMenuElement_Static {
     name: string
-    new (config: DOMHTMLMenuElement_ConstructProps): DOMHTMLMenuElement
+    new (config?: DOMHTMLMenuElement_ConstructProps): DOMHTMLMenuElement
 }
 export declare var DOMHTMLMenuElement: DOMHTMLMenuElement_Static
 export interface DOMHTMLMetaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -17862,7 +17862,7 @@ export interface DOMHTMLMetaElement {
 }
 export interface DOMHTMLMetaElement_Static {
     name: string
-    new (config: DOMHTMLMetaElement_ConstructProps): DOMHTMLMetaElement
+    new (config?: DOMHTMLMetaElement_ConstructProps): DOMHTMLMetaElement
 }
 export declare var DOMHTMLMetaElement: DOMHTMLMetaElement_Static
 export interface DOMHTMLModElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -18187,7 +18187,7 @@ export interface DOMHTMLModElement {
 }
 export interface DOMHTMLModElement_Static {
     name: string
-    new (config: DOMHTMLModElement_ConstructProps): DOMHTMLModElement
+    new (config?: DOMHTMLModElement_ConstructProps): DOMHTMLModElement
 }
 export declare var DOMHTMLModElement: DOMHTMLModElement_Static
 export interface DOMHTMLOListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -18520,7 +18520,7 @@ export interface DOMHTMLOListElement {
 }
 export interface DOMHTMLOListElement_Static {
     name: string
-    new (config: DOMHTMLOListElement_ConstructProps): DOMHTMLOListElement
+    new (config?: DOMHTMLOListElement_ConstructProps): DOMHTMLOListElement
 }
 export declare var DOMHTMLOListElement: DOMHTMLOListElement_Static
 export interface DOMHTMLObjectElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -18928,7 +18928,7 @@ export interface DOMHTMLObjectElement {
 }
 export interface DOMHTMLObjectElement_Static {
     name: string
-    new (config: DOMHTMLObjectElement_ConstructProps): DOMHTMLObjectElement
+    new (config?: DOMHTMLObjectElement_ConstructProps): DOMHTMLObjectElement
 }
 export declare var DOMHTMLObjectElement: DOMHTMLObjectElement_Static
 export interface DOMHTMLOptGroupElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -19253,7 +19253,7 @@ export interface DOMHTMLOptGroupElement {
 }
 export interface DOMHTMLOptGroupElement_Static {
     name: string
-    new (config: DOMHTMLOptGroupElement_ConstructProps): DOMHTMLOptGroupElement
+    new (config?: DOMHTMLOptGroupElement_ConstructProps): DOMHTMLOptGroupElement
 }
 export declare var DOMHTMLOptGroupElement: DOMHTMLOptGroupElement_Static
 export interface DOMHTMLOptionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -19602,7 +19602,7 @@ export interface DOMHTMLOptionElement {
 }
 export interface DOMHTMLOptionElement_Static {
     name: string
-    new (config: DOMHTMLOptionElement_ConstructProps): DOMHTMLOptionElement
+    new (config?: DOMHTMLOptionElement_ConstructProps): DOMHTMLOptionElement
 }
 export declare var DOMHTMLOptionElement: DOMHTMLOptionElement_Static
 export interface DOMHTMLOptionsCollection_ConstructProps extends DOMHTMLCollection_ConstructProps {
@@ -19667,7 +19667,7 @@ export interface DOMHTMLOptionsCollection {
 }
 export interface DOMHTMLOptionsCollection_Static {
     name: string
-    new (config: DOMHTMLOptionsCollection_ConstructProps): DOMHTMLOptionsCollection
+    new (config?: DOMHTMLOptionsCollection_ConstructProps): DOMHTMLOptionsCollection
 }
 export declare var DOMHTMLOptionsCollection: DOMHTMLOptionsCollection_Static
 export interface DOMHTMLParagraphElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -19987,7 +19987,7 @@ export interface DOMHTMLParagraphElement {
 }
 export interface DOMHTMLParagraphElement_Static {
     name: string
-    new (config: DOMHTMLParagraphElement_ConstructProps): DOMHTMLParagraphElement
+    new (config?: DOMHTMLParagraphElement_ConstructProps): DOMHTMLParagraphElement
 }
 export declare var DOMHTMLParagraphElement: DOMHTMLParagraphElement_Static
 export interface DOMHTMLParamElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -20320,7 +20320,7 @@ export interface DOMHTMLParamElement {
 }
 export interface DOMHTMLParamElement_Static {
     name: string
-    new (config: DOMHTMLParamElement_ConstructProps): DOMHTMLParamElement
+    new (config?: DOMHTMLParamElement_ConstructProps): DOMHTMLParamElement
 }
 export declare var DOMHTMLParamElement: DOMHTMLParamElement_Static
 export interface DOMHTMLPreElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -20645,7 +20645,7 @@ export interface DOMHTMLPreElement {
 }
 export interface DOMHTMLPreElement_Static {
     name: string
-    new (config: DOMHTMLPreElement_ConstructProps): DOMHTMLPreElement
+    new (config?: DOMHTMLPreElement_ConstructProps): DOMHTMLPreElement
 }
 export declare var DOMHTMLPreElement: DOMHTMLPreElement_Static
 export interface DOMHTMLPropertiesCollection_ConstructProps extends DOMHTMLCollection_ConstructProps {
@@ -20705,7 +20705,7 @@ export interface DOMHTMLPropertiesCollection {
 }
 export interface DOMHTMLPropertiesCollection_Static {
     name: string
-    new (config: DOMHTMLPropertiesCollection_ConstructProps): DOMHTMLPropertiesCollection
+    new (config?: DOMHTMLPropertiesCollection_ConstructProps): DOMHTMLPropertiesCollection
 }
 export declare class DOMHTMLPropertiesCollection_Static {
     get_length(self: object): number
@@ -21031,7 +21031,7 @@ export interface DOMHTMLQuoteElement {
 }
 export interface DOMHTMLQuoteElement_Static {
     name: string
-    new (config: DOMHTMLQuoteElement_ConstructProps): DOMHTMLQuoteElement
+    new (config?: DOMHTMLQuoteElement_ConstructProps): DOMHTMLQuoteElement
 }
 export declare var DOMHTMLQuoteElement: DOMHTMLQuoteElement_Static
 export interface DOMHTMLScriptElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -21394,7 +21394,7 @@ export interface DOMHTMLScriptElement {
 }
 export interface DOMHTMLScriptElement_Static {
     name: string
-    new (config: DOMHTMLScriptElement_ConstructProps): DOMHTMLScriptElement
+    new (config?: DOMHTMLScriptElement_ConstructProps): DOMHTMLScriptElement
 }
 export declare var DOMHTMLScriptElement: DOMHTMLScriptElement_Static
 export interface DOMHTMLSelectElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -21782,7 +21782,7 @@ export interface DOMHTMLSelectElement {
 }
 export interface DOMHTMLSelectElement_Static {
     name: string
-    new (config: DOMHTMLSelectElement_ConstructProps): DOMHTMLSelectElement
+    new (config?: DOMHTMLSelectElement_ConstructProps): DOMHTMLSelectElement
 }
 export declare var DOMHTMLSelectElement: DOMHTMLSelectElement_Static
 export interface DOMHTMLStyleElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -22115,7 +22115,7 @@ export interface DOMHTMLStyleElement {
 }
 export interface DOMHTMLStyleElement_Static {
     name: string
-    new (config: DOMHTMLStyleElement_ConstructProps): DOMHTMLStyleElement
+    new (config?: DOMHTMLStyleElement_ConstructProps): DOMHTMLStyleElement
 }
 export declare var DOMHTMLStyleElement: DOMHTMLStyleElement_Static
 export interface DOMHTMLTableCaptionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -22435,7 +22435,7 @@ export interface DOMHTMLTableCaptionElement {
 }
 export interface DOMHTMLTableCaptionElement_Static {
     name: string
-    new (config: DOMHTMLTableCaptionElement_ConstructProps): DOMHTMLTableCaptionElement
+    new (config?: DOMHTMLTableCaptionElement_ConstructProps): DOMHTMLTableCaptionElement
 }
 export declare var DOMHTMLTableCaptionElement: DOMHTMLTableCaptionElement_Static
 export interface DOMHTMLTableCellElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -22823,7 +22823,7 @@ export interface DOMHTMLTableCellElement {
 }
 export interface DOMHTMLTableCellElement_Static {
     name: string
-    new (config: DOMHTMLTableCellElement_ConstructProps): DOMHTMLTableCellElement
+    new (config?: DOMHTMLTableCellElement_ConstructProps): DOMHTMLTableCellElement
 }
 export declare var DOMHTMLTableCellElement: DOMHTMLTableCellElement_Static
 export interface DOMHTMLTableColElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -23168,7 +23168,7 @@ export interface DOMHTMLTableColElement {
 }
 export interface DOMHTMLTableColElement_Static {
     name: string
-    new (config: DOMHTMLTableColElement_ConstructProps): DOMHTMLTableColElement
+    new (config?: DOMHTMLTableColElement_ConstructProps): DOMHTMLTableColElement
 }
 export declare var DOMHTMLTableColElement: DOMHTMLTableColElement_Static
 export interface DOMHTMLTableElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -23555,7 +23555,7 @@ export interface DOMHTMLTableElement {
 }
 export interface DOMHTMLTableElement_Static {
     name: string
-    new (config: DOMHTMLTableElement_ConstructProps): DOMHTMLTableElement
+    new (config?: DOMHTMLTableElement_ConstructProps): DOMHTMLTableElement
 }
 export declare var DOMHTMLTableElement: DOMHTMLTableElement_Static
 export interface DOMHTMLTableRowElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -23906,7 +23906,7 @@ export interface DOMHTMLTableRowElement {
 }
 export interface DOMHTMLTableRowElement_Static {
     name: string
-    new (config: DOMHTMLTableRowElement_ConstructProps): DOMHTMLTableRowElement
+    new (config?: DOMHTMLTableRowElement_ConstructProps): DOMHTMLTableRowElement
 }
 export declare var DOMHTMLTableRowElement: DOMHTMLTableRowElement_Static
 export interface DOMHTMLTableSectionElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -24246,7 +24246,7 @@ export interface DOMHTMLTableSectionElement {
 }
 export interface DOMHTMLTableSectionElement_Static {
     name: string
-    new (config: DOMHTMLTableSectionElement_ConstructProps): DOMHTMLTableSectionElement
+    new (config?: DOMHTMLTableSectionElement_ConstructProps): DOMHTMLTableSectionElement
 }
 export declare var DOMHTMLTableSectionElement: DOMHTMLTableSectionElement_Static
 export interface DOMHTMLTextAreaElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -24677,7 +24677,7 @@ export interface DOMHTMLTextAreaElement {
 }
 export interface DOMHTMLTextAreaElement_Static {
     name: string
-    new (config: DOMHTMLTextAreaElement_ConstructProps): DOMHTMLTextAreaElement
+    new (config?: DOMHTMLTextAreaElement_ConstructProps): DOMHTMLTextAreaElement
 }
 export declare var DOMHTMLTextAreaElement: DOMHTMLTextAreaElement_Static
 export interface DOMHTMLTitleElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -24997,7 +24997,7 @@ export interface DOMHTMLTitleElement {
 }
 export interface DOMHTMLTitleElement_Static {
     name: string
-    new (config: DOMHTMLTitleElement_ConstructProps): DOMHTMLTitleElement
+    new (config?: DOMHTMLTitleElement_ConstructProps): DOMHTMLTitleElement
 }
 export declare var DOMHTMLTitleElement: DOMHTMLTitleElement_Static
 export interface DOMHTMLUListElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -25320,7 +25320,7 @@ export interface DOMHTMLUListElement {
 }
 export interface DOMHTMLUListElement_Static {
     name: string
-    new (config: DOMHTMLUListElement_ConstructProps): DOMHTMLUListElement
+    new (config?: DOMHTMLUListElement_ConstructProps): DOMHTMLUListElement
 }
 export declare var DOMHTMLUListElement: DOMHTMLUListElement_Static
 export interface DOMHTMLVideoElement_ConstructProps extends DOMHTMLMediaElement_ConstructProps {
@@ -25802,7 +25802,7 @@ export interface DOMHTMLVideoElement {
 }
 export interface DOMHTMLVideoElement_Static {
     name: string
-    new (config: DOMHTMLVideoElement_ConstructProps): DOMHTMLVideoElement
+    new (config?: DOMHTMLVideoElement_ConstructProps): DOMHTMLVideoElement
 }
 export declare var DOMHTMLVideoElement: DOMHTMLVideoElement_Static
 export interface DOMHistory_ConstructProps extends DOMObject_ConstructProps {
@@ -25860,7 +25860,7 @@ export interface DOMHistory {
 }
 export interface DOMHistory_Static {
     name: string
-    new (config: DOMHistory_ConstructProps): DOMHistory
+    new (config?: DOMHistory_ConstructProps): DOMHistory
 }
 export declare var DOMHistory: DOMHistory_Static
 export interface DOMKeyboardEvent_ConstructProps extends DOMUIEvent_ConstructProps {
@@ -26007,7 +26007,7 @@ export interface DOMKeyboardEvent {
 }
 export interface DOMKeyboardEvent_Static {
     name: string
-    new (config: DOMKeyboardEvent_ConstructProps): DOMKeyboardEvent
+    new (config?: DOMKeyboardEvent_ConstructProps): DOMKeyboardEvent
 }
 export declare var DOMKeyboardEvent: DOMKeyboardEvent_Static
 export interface DOMLocation_ConstructProps extends DOMObject_ConstructProps {
@@ -26089,7 +26089,7 @@ export interface DOMLocation {
 }
 export interface DOMLocation_Static {
     name: string
-    new (config: DOMLocation_ConstructProps): DOMLocation
+    new (config?: DOMLocation_ConstructProps): DOMLocation
 }
 export declare var DOMLocation: DOMLocation_Static
 export interface DOMMediaController_ConstructProps extends DOMObject_ConstructProps {
@@ -26187,7 +26187,7 @@ export interface DOMMediaController {
 }
 export interface DOMMediaController_Static {
     name: string
-    new (config: DOMMediaController_ConstructProps): DOMMediaController
+    new (config?: DOMMediaController_ConstructProps): DOMMediaController
 }
 export declare var DOMMediaController: DOMMediaController_Static
 export interface DOMMediaError_ConstructProps extends DOMObject_ConstructProps {
@@ -26242,7 +26242,7 @@ export interface DOMMediaError {
 }
 export interface DOMMediaError_Static {
     name: string
-    new (config: DOMMediaError_ConstructProps): DOMMediaError
+    new (config?: DOMMediaError_ConstructProps): DOMMediaError
 }
 export declare var DOMMediaError: DOMMediaError_Static
 export interface DOMMediaList_ConstructProps extends DOMObject_ConstructProps {
@@ -26305,7 +26305,7 @@ export interface DOMMediaList {
 }
 export interface DOMMediaList_Static {
     name: string
-    new (config: DOMMediaList_ConstructProps): DOMMediaList
+    new (config?: DOMMediaList_ConstructProps): DOMMediaList
 }
 export declare var DOMMediaList: DOMMediaList_Static
 export interface DOMMediaQueryList_ConstructProps extends DOMObject_ConstructProps {
@@ -26363,7 +26363,7 @@ export interface DOMMediaQueryList {
 }
 export interface DOMMediaQueryList_Static {
     name: string
-    new (config: DOMMediaQueryList_ConstructProps): DOMMediaQueryList
+    new (config?: DOMMediaQueryList_ConstructProps): DOMMediaQueryList
 }
 export declare var DOMMediaQueryList: DOMMediaQueryList_Static
 export interface DOMMemoryInfo_ConstructProps extends DOMObject_ConstructProps {
@@ -26418,7 +26418,7 @@ export interface DOMMemoryInfo {
 }
 export interface DOMMemoryInfo_Static {
     name: string
-    new (config: DOMMemoryInfo_ConstructProps): DOMMemoryInfo
+    new (config?: DOMMemoryInfo_ConstructProps): DOMMemoryInfo
 }
 export declare class DOMMemoryInfo_Static {
     get_js_heap_size_limit(self: object): number
@@ -26473,7 +26473,7 @@ export interface DOMMessagePort {
 }
 export interface DOMMessagePort_Static {
     name: string
-    new (config: DOMMessagePort_ConstructProps): DOMMessagePort
+    new (config?: DOMMessagePort_ConstructProps): DOMMessagePort
 }
 export declare var DOMMessagePort: DOMMessagePort_Static
 export interface DOMMicroDataItemValue_ConstructProps extends DOMObject_ConstructProps {
@@ -26521,7 +26521,7 @@ export interface DOMMicroDataItemValue {
 }
 export interface DOMMicroDataItemValue_Static {
     name: string
-    new (config: DOMMicroDataItemValue_ConstructProps): DOMMicroDataItemValue
+    new (config?: DOMMicroDataItemValue_ConstructProps): DOMMicroDataItemValue
 }
 export declare var DOMMicroDataItemValue: DOMMicroDataItemValue_Static
 export interface DOMMouseEvent_ConstructProps extends DOMUIEvent_ConstructProps {
@@ -26700,7 +26700,7 @@ export interface DOMMouseEvent {
 }
 export interface DOMMouseEvent_Static {
     name: string
-    new (config: DOMMouseEvent_ConstructProps): DOMMouseEvent
+    new (config?: DOMMouseEvent_ConstructProps): DOMMouseEvent
 }
 export declare var DOMMouseEvent: DOMMouseEvent_Static
 export interface DOMNamedNodeMap_ConstructProps extends DOMObject_ConstructProps {
@@ -26762,7 +26762,7 @@ export interface DOMNamedNodeMap {
 }
 export interface DOMNamedNodeMap_Static {
     name: string
-    new (config: DOMNamedNodeMap_ConstructProps): DOMNamedNodeMap
+    new (config?: DOMNamedNodeMap_ConstructProps): DOMNamedNodeMap
 }
 export declare var DOMNamedNodeMap: DOMNamedNodeMap_Static
 export interface DOMNavigator_ConstructProps extends DOMObject_ConstructProps {
@@ -26874,7 +26874,7 @@ export interface DOMNavigator {
 }
 export interface DOMNavigator_Static {
     name: string
-    new (config: DOMNavigator_ConstructProps): DOMNavigator
+    new (config?: DOMNavigator_ConstructProps): DOMNavigator
 }
 export declare var DOMNavigator: DOMNavigator_Static
 export interface DOMNode_ConstructProps extends DOMObject_ConstructProps {
@@ -26998,7 +26998,7 @@ export interface DOMNode {
 }
 export interface DOMNode_Static {
     name: string
-    new (config: DOMNode_ConstructProps): DOMNode
+    new (config?: DOMNode_ConstructProps): DOMNode
 }
 export declare var DOMNode: DOMNode_Static
 export interface DOMNodeFilter_ConstructProps extends DOMObject_ConstructProps {
@@ -27050,7 +27050,7 @@ export interface DOMNodeFilter {
 }
 export interface DOMNodeFilter_Static {
     name: string
-    new (config: DOMNodeFilter_ConstructProps): DOMNodeFilter
+    new (config?: DOMNodeFilter_ConstructProps): DOMNodeFilter
 }
 export declare var DOMNodeFilter: DOMNodeFilter_Static
 export interface DOMNodeIterator_ConstructProps extends DOMObject_ConstructProps {
@@ -27123,7 +27123,7 @@ export interface DOMNodeIterator {
 }
 export interface DOMNodeIterator_Static {
     name: string
-    new (config: DOMNodeIterator_ConstructProps): DOMNodeIterator
+    new (config?: DOMNodeIterator_ConstructProps): DOMNodeIterator
 }
 export declare var DOMNodeIterator: DOMNodeIterator_Static
 export interface DOMNodeList_ConstructProps extends DOMObject_ConstructProps {
@@ -27179,7 +27179,7 @@ export interface DOMNodeList {
 }
 export interface DOMNodeList_Static {
     name: string
-    new (config: DOMNodeList_ConstructProps): DOMNodeList
+    new (config?: DOMNodeList_ConstructProps): DOMNodeList
 }
 export declare var DOMNodeList: DOMNodeList_Static
 export interface DOMObject_ConstructProps extends GObject.Object_ConstructProps {
@@ -27228,7 +27228,7 @@ export interface DOMObject {
 }
 export interface DOMObject_Static {
     name: string
-    new (config: DOMObject_ConstructProps): DOMObject
+    new (config?: DOMObject_ConstructProps): DOMObject
 }
 export declare var DOMObject: DOMObject_Static
 export interface DOMPerformance_ConstructProps extends DOMObject_ConstructProps {
@@ -27288,7 +27288,7 @@ export interface DOMPerformance {
 }
 export interface DOMPerformance_Static {
     name: string
-    new (config: DOMPerformance_ConstructProps): DOMPerformance
+    new (config?: DOMPerformance_ConstructProps): DOMPerformance
 }
 export declare var DOMPerformance: DOMPerformance_Static
 export interface DOMPerformanceEntry_ConstructProps extends DOMObject_ConstructProps {
@@ -27352,7 +27352,7 @@ export interface DOMPerformanceEntry {
 }
 export interface DOMPerformanceEntry_Static {
     name: string
-    new (config: DOMPerformanceEntry_ConstructProps): DOMPerformanceEntry
+    new (config?: DOMPerformanceEntry_ConstructProps): DOMPerformanceEntry
 }
 export declare var DOMPerformanceEntry: DOMPerformanceEntry_Static
 export interface DOMPerformanceEntryList_ConstructProps extends DOMObject_ConstructProps {
@@ -27408,7 +27408,7 @@ export interface DOMPerformanceEntryList {
 }
 export interface DOMPerformanceEntryList_Static {
     name: string
-    new (config: DOMPerformanceEntryList_ConstructProps): DOMPerformanceEntryList
+    new (config?: DOMPerformanceEntryList_ConstructProps): DOMPerformanceEntryList
 }
 export declare var DOMPerformanceEntryList: DOMPerformanceEntryList_Static
 export interface DOMPerformanceNavigation_ConstructProps extends DOMObject_ConstructProps {
@@ -27465,7 +27465,7 @@ export interface DOMPerformanceNavigation {
 }
 export interface DOMPerformanceNavigation_Static {
     name: string
-    new (config: DOMPerformanceNavigation_ConstructProps): DOMPerformanceNavigation
+    new (config?: DOMPerformanceNavigation_ConstructProps): DOMPerformanceNavigation
 }
 export declare var DOMPerformanceNavigation: DOMPerformanceNavigation_Static
 export interface DOMPerformanceTiming_ConstructProps extends DOMObject_ConstructProps {
@@ -27580,7 +27580,7 @@ export interface DOMPerformanceTiming {
 }
 export interface DOMPerformanceTiming_Static {
     name: string
-    new (config: DOMPerformanceTiming_ConstructProps): DOMPerformanceTiming
+    new (config?: DOMPerformanceTiming_ConstructProps): DOMPerformanceTiming
 }
 export declare var DOMPerformanceTiming: DOMPerformanceTiming_Static
 export interface DOMProcessingInstruction_ConstructProps extends DOMCharacterData_ConstructProps {
@@ -27723,7 +27723,7 @@ export interface DOMProcessingInstruction {
 }
 export interface DOMProcessingInstruction_Static {
     name: string
-    new (config: DOMProcessingInstruction_ConstructProps): DOMProcessingInstruction
+    new (config?: DOMProcessingInstruction_ConstructProps): DOMProcessingInstruction
 }
 export declare var DOMProcessingInstruction: DOMProcessingInstruction_Static
 export interface DOMPropertyNodeList_ConstructProps extends DOMNodeList_ConstructProps {
@@ -27780,7 +27780,7 @@ export interface DOMPropertyNodeList {
 }
 export interface DOMPropertyNodeList_Static {
     name: string
-    new (config: DOMPropertyNodeList_ConstructProps): DOMPropertyNodeList
+    new (config?: DOMPropertyNodeList_ConstructProps): DOMPropertyNodeList
 }
 export declare class DOMPropertyNodeList_Static {
     get_length(self: object): number
@@ -27881,7 +27881,7 @@ export interface DOMRange {
 }
 export interface DOMRange_Static {
     name: string
-    new (config: DOMRange_ConstructProps): DOMRange
+    new (config?: DOMRange_ConstructProps): DOMRange
 }
 export declare var DOMRange: DOMRange_Static
 export interface DOMScreen_ConstructProps extends DOMObject_ConstructProps {
@@ -27957,7 +27957,7 @@ export interface DOMScreen {
 }
 export interface DOMScreen_Static {
     name: string
-    new (config: DOMScreen_ConstructProps): DOMScreen
+    new (config?: DOMScreen_ConstructProps): DOMScreen
 }
 export declare var DOMScreen: DOMScreen_Static
 export interface DOMShadowRoot_ConstructProps extends DOMDocumentFragment_ConstructProps {
@@ -28109,7 +28109,7 @@ export interface DOMShadowRoot {
 }
 export interface DOMShadowRoot_Static {
     name: string
-    new (config: DOMShadowRoot_ConstructProps): DOMShadowRoot
+    new (config?: DOMShadowRoot_ConstructProps): DOMShadowRoot
 }
 export declare var DOMShadowRoot: DOMShadowRoot_Static
 export interface DOMStorage_ConstructProps extends DOMObject_ConstructProps {
@@ -28169,7 +28169,7 @@ export interface DOMStorage {
 }
 export interface DOMStorage_Static {
     name: string
-    new (config: DOMStorage_ConstructProps): DOMStorage
+    new (config?: DOMStorage_ConstructProps): DOMStorage
 }
 export declare var DOMStorage: DOMStorage_Static
 export interface DOMStorageInfo_ConstructProps extends DOMObject_ConstructProps {
@@ -28219,7 +28219,7 @@ export interface DOMStorageInfo {
 }
 export interface DOMStorageInfo_Static {
     name: string
-    new (config: DOMStorageInfo_ConstructProps): DOMStorageInfo
+    new (config?: DOMStorageInfo_ConstructProps): DOMStorageInfo
 }
 export declare var DOMStorageInfo: DOMStorageInfo_Static
 export interface DOMStorageQuota_ConstructProps extends DOMObject_ConstructProps {
@@ -28269,7 +28269,7 @@ export interface DOMStorageQuota {
 }
 export interface DOMStorageQuota_Static {
     name: string
-    new (config: DOMStorageQuota_ConstructProps): DOMStorageQuota
+    new (config?: DOMStorageQuota_ConstructProps): DOMStorageQuota
 }
 export declare var DOMStorageQuota: DOMStorageQuota_Static
 export interface DOMStyleMedia_ConstructProps extends DOMObject_ConstructProps {
@@ -28324,7 +28324,7 @@ export interface DOMStyleMedia {
 }
 export interface DOMStyleMedia_Static {
     name: string
-    new (config: DOMStyleMedia_ConstructProps): DOMStyleMedia
+    new (config?: DOMStyleMedia_ConstructProps): DOMStyleMedia
 }
 export declare var DOMStyleMedia: DOMStyleMedia_Static
 export interface DOMStyleSheet_ConstructProps extends DOMObject_ConstructProps {
@@ -28398,7 +28398,7 @@ export interface DOMStyleSheet {
 }
 export interface DOMStyleSheet_Static {
     name: string
-    new (config: DOMStyleSheet_ConstructProps): DOMStyleSheet
+    new (config?: DOMStyleSheet_ConstructProps): DOMStyleSheet
 }
 export declare var DOMStyleSheet: DOMStyleSheet_Static
 export interface DOMStyleSheetList_ConstructProps extends DOMObject_ConstructProps {
@@ -28454,7 +28454,7 @@ export interface DOMStyleSheetList {
 }
 export interface DOMStyleSheetList_Static {
     name: string
-    new (config: DOMStyleSheetList_ConstructProps): DOMStyleSheetList
+    new (config?: DOMStyleSheetList_ConstructProps): DOMStyleSheetList
 }
 export declare var DOMStyleSheetList: DOMStyleSheetList_Static
 export interface DOMText_ConstructProps extends DOMCharacterData_ConstructProps {
@@ -28596,7 +28596,7 @@ export interface DOMText {
 }
 export interface DOMText_Static {
     name: string
-    new (config: DOMText_ConstructProps): DOMText
+    new (config?: DOMText_ConstructProps): DOMText
 }
 export declare var DOMText: DOMText_Static
 export interface DOMTextTrack_ConstructProps extends DOMObject_ConstructProps {
@@ -28674,7 +28674,7 @@ export interface DOMTextTrack {
 }
 export interface DOMTextTrack_Static {
     name: string
-    new (config: DOMTextTrack_ConstructProps): DOMTextTrack
+    new (config?: DOMTextTrack_ConstructProps): DOMTextTrack
 }
 export declare var DOMTextTrack: DOMTextTrack_Static
 export interface DOMTextTrackCue_ConstructProps extends DOMObject_ConstructProps {
@@ -28786,7 +28786,7 @@ export interface DOMTextTrackCue {
 }
 export interface DOMTextTrackCue_Static {
     name: string
-    new (config: DOMTextTrackCue_ConstructProps): DOMTextTrackCue
+    new (config?: DOMTextTrackCue_ConstructProps): DOMTextTrackCue
 }
 export declare var DOMTextTrackCue: DOMTextTrackCue_Static
 export interface DOMTextTrackCueList_ConstructProps extends DOMObject_ConstructProps {
@@ -28843,7 +28843,7 @@ export interface DOMTextTrackCueList {
 }
 export interface DOMTextTrackCueList_Static {
     name: string
-    new (config: DOMTextTrackCueList_ConstructProps): DOMTextTrackCueList
+    new (config?: DOMTextTrackCueList_ConstructProps): DOMTextTrackCueList
 }
 export declare var DOMTextTrackCueList: DOMTextTrackCueList_Static
 export interface DOMTextTrackList_ConstructProps extends DOMObject_ConstructProps {
@@ -28901,7 +28901,7 @@ export interface DOMTextTrackList {
 }
 export interface DOMTextTrackList_Static {
     name: string
-    new (config: DOMTextTrackList_ConstructProps): DOMTextTrackList
+    new (config?: DOMTextTrackList_ConstructProps): DOMTextTrackList
 }
 export declare var DOMTextTrackList: DOMTextTrackList_Static
 export interface DOMTimeRanges_ConstructProps extends DOMObject_ConstructProps {
@@ -28958,7 +28958,7 @@ export interface DOMTimeRanges {
 }
 export interface DOMTimeRanges_Static {
     name: string
-    new (config: DOMTimeRanges_ConstructProps): DOMTimeRanges
+    new (config?: DOMTimeRanges_ConstructProps): DOMTimeRanges
 }
 export declare var DOMTimeRanges: DOMTimeRanges_Static
 export interface DOMTouch_ConstructProps extends DOMObject_ConstructProps {
@@ -29046,7 +29046,7 @@ export interface DOMTouch {
 }
 export interface DOMTouch_Static {
     name: string
-    new (config: DOMTouch_ConstructProps): DOMTouch
+    new (config?: DOMTouch_ConstructProps): DOMTouch
 }
 export declare var DOMTouch: DOMTouch_Static
 export interface DOMTrackEvent_ConstructProps extends DOMEvent_ConstructProps {
@@ -29137,7 +29137,7 @@ export interface DOMTrackEvent {
 }
 export interface DOMTrackEvent_Static {
     name: string
-    new (config: DOMTrackEvent_ConstructProps): DOMTrackEvent
+    new (config?: DOMTrackEvent_ConstructProps): DOMTrackEvent
 }
 export declare var DOMTrackEvent: DOMTrackEvent_Static
 export interface DOMTreeWalker_ConstructProps extends DOMObject_ConstructProps {
@@ -29212,7 +29212,7 @@ export interface DOMTreeWalker {
 }
 export interface DOMTreeWalker_Static {
     name: string
-    new (config: DOMTreeWalker_ConstructProps): DOMTreeWalker
+    new (config?: DOMTreeWalker_ConstructProps): DOMTreeWalker
 }
 export declare var DOMTreeWalker: DOMTreeWalker_Static
 export interface DOMUIEvent_ConstructProps extends DOMEvent_ConstructProps {
@@ -29333,7 +29333,7 @@ export interface DOMUIEvent {
 }
 export interface DOMUIEvent_Static {
     name: string
-    new (config: DOMUIEvent_ConstructProps): DOMUIEvent
+    new (config?: DOMUIEvent_ConstructProps): DOMUIEvent
 }
 export declare var DOMUIEvent: DOMUIEvent_Static
 export interface DOMValidityState_ConstructProps extends DOMObject_ConstructProps {
@@ -29415,7 +29415,7 @@ export interface DOMValidityState {
 }
 export interface DOMValidityState_Static {
     name: string
-    new (config: DOMValidityState_ConstructProps): DOMValidityState
+    new (config?: DOMValidityState_ConstructProps): DOMValidityState
 }
 export declare var DOMValidityState: DOMValidityState_Static
 export interface DOMVideoPlaybackQuality_ConstructProps extends DOMObject_ConstructProps {
@@ -29482,7 +29482,7 @@ export interface DOMVideoPlaybackQuality {
 }
 export interface DOMVideoPlaybackQuality_Static {
     name: string
-    new (config: DOMVideoPlaybackQuality_ConstructProps): DOMVideoPlaybackQuality
+    new (config?: DOMVideoPlaybackQuality_ConstructProps): DOMVideoPlaybackQuality
 }
 export declare var DOMVideoPlaybackQuality: DOMVideoPlaybackQuality_Static
 export interface DOMVideoTrack_ConstructProps extends DOMObject_ConstructProps {
@@ -29551,7 +29551,7 @@ export interface DOMVideoTrack {
 }
 export interface DOMVideoTrack_Static {
     name: string
-    new (config: DOMVideoTrack_ConstructProps): DOMVideoTrack
+    new (config?: DOMVideoTrack_ConstructProps): DOMVideoTrack
 }
 export declare var DOMVideoTrack: DOMVideoTrack_Static
 export interface DOMVideoTrackList_ConstructProps extends DOMObject_ConstructProps {
@@ -29609,7 +29609,7 @@ export interface DOMVideoTrackList {
 }
 export interface DOMVideoTrackList_Static {
     name: string
-    new (config: DOMVideoTrackList_ConstructProps): DOMVideoTrackList
+    new (config?: DOMVideoTrackList_ConstructProps): DOMVideoTrackList
 }
 export declare var DOMVideoTrackList: DOMVideoTrackList_Static
 export interface DOMWebKitNamedFlow_ConstructProps extends DOMObject_ConstructProps {
@@ -29677,7 +29677,7 @@ export interface DOMWebKitNamedFlow {
 }
 export interface DOMWebKitNamedFlow_Static {
     name: string
-    new (config: DOMWebKitNamedFlow_ConstructProps): DOMWebKitNamedFlow
+    new (config?: DOMWebKitNamedFlow_ConstructProps): DOMWebKitNamedFlow
 }
 export declare var DOMWebKitNamedFlow: DOMWebKitNamedFlow_Static
 export interface DOMWebKitPoint_ConstructProps extends DOMObject_ConstructProps {
@@ -29739,7 +29739,7 @@ export interface DOMWebKitPoint {
 }
 export interface DOMWebKitPoint_Static {
     name: string
-    new (config: DOMWebKitPoint_ConstructProps): DOMWebKitPoint
+    new (config?: DOMWebKitPoint_ConstructProps): DOMWebKitPoint
 }
 export declare var DOMWebKitPoint: DOMWebKitPoint_Static
 export interface DOMWheelEvent_ConstructProps extends DOMMouseEvent_ConstructProps {
@@ -29946,7 +29946,7 @@ export interface DOMWheelEvent {
 }
 export interface DOMWheelEvent_Static {
     name: string
-    new (config: DOMWheelEvent_ConstructProps): DOMWheelEvent
+    new (config?: DOMWheelEvent_ConstructProps): DOMWheelEvent
 }
 export declare var DOMWheelEvent: DOMWheelEvent_Static
 export interface DOMXPathExpression_ConstructProps extends DOMObject_ConstructProps {
@@ -29998,7 +29998,7 @@ export interface DOMXPathExpression {
 }
 export interface DOMXPathExpression_Static {
     name: string
-    new (config: DOMXPathExpression_ConstructProps): DOMXPathExpression
+    new (config?: DOMXPathExpression_ConstructProps): DOMXPathExpression
 }
 export declare var DOMXPathExpression: DOMXPathExpression_Static
 export interface DOMXPathNSResolver_ConstructProps extends DOMObject_ConstructProps {
@@ -30050,7 +30050,7 @@ export interface DOMXPathNSResolver {
 }
 export interface DOMXPathNSResolver_Static {
     name: string
-    new (config: DOMXPathNSResolver_ConstructProps): DOMXPathNSResolver
+    new (config?: DOMXPathNSResolver_ConstructProps): DOMXPathNSResolver
 }
 export declare var DOMXPathNSResolver: DOMXPathNSResolver_Static
 export interface DOMXPathResult_ConstructProps extends DOMObject_ConstructProps {
@@ -30125,7 +30125,7 @@ export interface DOMXPathResult {
 }
 export interface DOMXPathResult_Static {
     name: string
-    new (config: DOMXPathResult_ConstructProps): DOMXPathResult
+    new (config?: DOMXPathResult_ConstructProps): DOMXPathResult
 }
 export declare var DOMXPathResult: DOMXPathResult_Static
 export interface Download_ConstructProps extends GObject.Object_ConstructProps {
@@ -30204,7 +30204,7 @@ export interface Download {
 }
 export interface Download_Static {
     name: string
-    new (config: Download_ConstructProps): Download
+    new (config?: Download_ConstructProps): Download
 }
 export declare class Download_Static {
     new(request: NetworkRequest): Download
@@ -30267,7 +30267,7 @@ export interface FaviconDatabase {
 }
 export interface FaviconDatabase_Static {
     name: string
-    new (config: FaviconDatabase_ConstructProps): FaviconDatabase
+    new (config?: FaviconDatabase_ConstructProps): FaviconDatabase
 }
 export declare var FaviconDatabase: FaviconDatabase_Static
 export interface FileChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
@@ -30328,7 +30328,7 @@ export interface FileChooserRequest {
 }
 export interface FileChooserRequest_Static {
     name: string
-    new (config: FileChooserRequest_ConstructProps): FileChooserRequest
+    new (config?: FileChooserRequest_ConstructProps): FileChooserRequest
 }
 export declare var FileChooserRequest: FileChooserRequest_Static
 export interface GeolocationPolicyDecision_ConstructProps extends GObject.Object_ConstructProps {
@@ -30374,7 +30374,7 @@ export interface GeolocationPolicyDecision {
 }
 export interface GeolocationPolicyDecision_Static {
     name: string
-    new (config: GeolocationPolicyDecision_ConstructProps): GeolocationPolicyDecision
+    new (config?: GeolocationPolicyDecision_ConstructProps): GeolocationPolicyDecision
 }
 export declare var GeolocationPolicyDecision: GeolocationPolicyDecision_Static
 export interface HitTestResult_ConstructProps extends GObject.Object_ConstructProps {
@@ -30428,7 +30428,7 @@ export interface HitTestResult {
 }
 export interface HitTestResult_Static {
     name: string
-    new (config: HitTestResult_ConstructProps): HitTestResult
+    new (config?: HitTestResult_ConstructProps): HitTestResult
 }
 export declare var HitTestResult: HitTestResult_Static
 export interface IconDatabase_ConstructProps extends GObject.Object_ConstructProps {
@@ -30486,7 +30486,7 @@ export interface IconDatabase {
 }
 export interface IconDatabase_Static {
     name: string
-    new (config: IconDatabase_ConstructProps): IconDatabase
+    new (config?: IconDatabase_ConstructProps): IconDatabase
 }
 export declare var IconDatabase: IconDatabase_Static
 export interface NetworkRequest_ConstructProps extends GObject.Object_ConstructProps {
@@ -30541,7 +30541,7 @@ export interface NetworkRequest {
 }
 export interface NetworkRequest_Static {
     name: string
-    new (config: NetworkRequest_ConstructProps): NetworkRequest
+    new (config?: NetworkRequest_ConstructProps): NetworkRequest
 }
 export declare class NetworkRequest_Static {
     new(uri: string): NetworkRequest
@@ -30602,7 +30602,7 @@ export interface NetworkResponse {
 }
 export interface NetworkResponse_Static {
     name: string
-    new (config: NetworkResponse_ConstructProps): NetworkResponse
+    new (config?: NetworkResponse_ConstructProps): NetworkResponse
 }
 export declare class NetworkResponse_Static {
     new(uri: string): NetworkResponse
@@ -30671,7 +30671,7 @@ export interface SecurityOrigin {
 }
 export interface SecurityOrigin_Static {
     name: string
-    new (config: SecurityOrigin_ConstructProps): SecurityOrigin
+    new (config?: SecurityOrigin_ConstructProps): SecurityOrigin
 }
 export declare var SecurityOrigin: SecurityOrigin_Static
 export interface SoupAuthDialog_ConstructProps extends GObject.Object_ConstructProps {
@@ -30720,7 +30720,7 @@ export interface SoupAuthDialog {
 }
 export interface SoupAuthDialog_Static {
     name: string
-    new (config: SoupAuthDialog_ConstructProps): SoupAuthDialog
+    new (config?: SoupAuthDialog_ConstructProps): SoupAuthDialog
 }
 export declare var SoupAuthDialog: SoupAuthDialog_Static
 export interface ViewportAttributes_ConstructProps extends GObject.Object_ConstructProps {
@@ -30803,7 +30803,7 @@ export interface ViewportAttributes {
 }
 export interface ViewportAttributes_Static {
     name: string
-    new (config: ViewportAttributes_ConstructProps): ViewportAttributes
+    new (config?: ViewportAttributes_ConstructProps): ViewportAttributes
 }
 export declare var ViewportAttributes: ViewportAttributes_Static
 export interface WebBackForwardList_ConstructProps extends GObject.Object_ConstructProps {
@@ -30866,7 +30866,7 @@ export interface WebBackForwardList {
 }
 export interface WebBackForwardList_Static {
     name: string
-    new (config: WebBackForwardList_ConstructProps): WebBackForwardList
+    new (config?: WebBackForwardList_ConstructProps): WebBackForwardList
 }
 export declare var WebBackForwardList: WebBackForwardList_Static
 export interface WebDataSource_ConstructProps extends GObject.Object_ConstructProps {
@@ -30921,7 +30921,7 @@ export interface WebDataSource {
 }
 export interface WebDataSource_Static {
     name: string
-    new (config: WebDataSource_ConstructProps): WebDataSource
+    new (config?: WebDataSource_ConstructProps): WebDataSource
 }
 export declare class WebDataSource_Static {
     new(): WebDataSource
@@ -30990,7 +30990,7 @@ export interface WebDatabase {
 }
 export interface WebDatabase_Static {
     name: string
-    new (config: WebDatabase_ConstructProps): WebDatabase
+    new (config?: WebDatabase_ConstructProps): WebDatabase
 }
 export declare var WebDatabase: WebDatabase_Static
 export interface WebFrame_ConstructProps extends GObject.Object_ConstructProps {
@@ -31087,7 +31087,7 @@ export interface WebFrame {
 }
 export interface WebFrame_Static {
     name: string
-    new (config: WebFrame_ConstructProps): WebFrame
+    new (config?: WebFrame_ConstructProps): WebFrame
 }
 export declare class WebFrame_Static {
     new(web_view: WebView): WebFrame
@@ -31156,7 +31156,7 @@ export interface WebHistoryItem {
 }
 export interface WebHistoryItem_Static {
     name: string
-    new (config: WebHistoryItem_ConstructProps): WebHistoryItem
+    new (config?: WebHistoryItem_ConstructProps): WebHistoryItem
 }
 export declare class WebHistoryItem_Static {
     new(): WebHistoryItem
@@ -31232,7 +31232,7 @@ export interface WebInspector {
 }
 export interface WebInspector_Static {
     name: string
-    new (config: WebInspector_ConstructProps): WebInspector
+    new (config?: WebInspector_ConstructProps): WebInspector
 }
 export declare var WebInspector: WebInspector_Static
 export interface WebNavigationAction_ConstructProps extends GObject.Object_ConstructProps {
@@ -31296,7 +31296,7 @@ export interface WebNavigationAction {
 }
 export interface WebNavigationAction_Static {
     name: string
-    new (config: WebNavigationAction_ConstructProps): WebNavigationAction
+    new (config?: WebNavigationAction_ConstructProps): WebNavigationAction
 }
 export declare var WebNavigationAction: WebNavigationAction_Static
 export interface WebPlugin_ConstructProps extends GObject.Object_ConstructProps {
@@ -31353,7 +31353,7 @@ export interface WebPlugin {
 }
 export interface WebPlugin_Static {
     name: string
-    new (config: WebPlugin_ConstructProps): WebPlugin
+    new (config?: WebPlugin_ConstructProps): WebPlugin
 }
 export declare var WebPlugin: WebPlugin_Static
 export interface WebPluginDatabase_ConstructProps extends GObject.Object_ConstructProps {
@@ -31404,7 +31404,7 @@ export interface WebPluginDatabase {
 }
 export interface WebPluginDatabase_Static {
     name: string
-    new (config: WebPluginDatabase_ConstructProps): WebPluginDatabase
+    new (config?: WebPluginDatabase_ConstructProps): WebPluginDatabase
 }
 export declare class WebPluginDatabase_Static {
     plugins_list_free(list: GLib.SList): void
@@ -31457,7 +31457,7 @@ export interface WebPolicyDecision {
 }
 export interface WebPolicyDecision_Static {
     name: string
-    new (config: WebPolicyDecision_ConstructProps): WebPolicyDecision
+    new (config?: WebPolicyDecision_ConstructProps): WebPolicyDecision
 }
 export declare var WebPolicyDecision: WebPolicyDecision_Static
 export interface WebResource_ConstructProps extends GObject.Object_ConstructProps {
@@ -31521,7 +31521,7 @@ export interface WebResource {
 }
 export interface WebResource_Static {
     name: string
-    new (config: WebResource_ConstructProps): WebResource
+    new (config?: WebResource_ConstructProps): WebResource
 }
 export declare class WebResource_Static {
     new(data: string, size: number, uri: string, mime_type: string, encoding: string, frame_name: string): WebResource
@@ -31751,7 +31751,7 @@ export interface WebSettings {
 }
 export interface WebSettings_Static {
     name: string
-    new (config: WebSettings_ConstructProps): WebSettings
+    new (config?: WebSettings_ConstructProps): WebSettings
 }
 export declare class WebSettings_Static {
     new(): WebSettings
@@ -32544,7 +32544,7 @@ export interface WebView {
 }
 export interface WebView_Static {
     name: string
-    new (config: WebView_ConstructProps): WebView
+    new (config?: WebView_ConstructProps): WebView
 }
 export declare class WebView_Static {
     new(): WebView
@@ -32626,7 +32626,7 @@ export interface WebWindowFeatures {
 }
 export interface WebWindowFeatures_Static {
     name: string
-    new (config: WebWindowFeatures_ConstructProps): WebWindowFeatures
+    new (config?: WebWindowFeatures_ConstructProps): WebWindowFeatures
 }
 export declare class WebWindowFeatures_Static {
     new(): WebWindowFeatures

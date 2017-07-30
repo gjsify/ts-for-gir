@@ -383,7 +383,7 @@ export interface Context {
 }
 export interface Context_Static {
     name: string
-    new (config: Context_ConstructProps): Context
+    new (config?: Context_ConstructProps): Context
 }
 export declare class Context_Static {
     new(): Context
@@ -431,7 +431,7 @@ export interface Engine {
 }
 export interface Engine_Static {
     name: string
-    new (config: Engine_ConstructProps): Engine
+    new (config?: Engine_ConstructProps): Engine
 }
 export declare var Engine: Engine_Static
 export interface EngineLang_ConstructProps extends Engine_ConstructProps {
@@ -479,7 +479,7 @@ export interface EngineLang {
 }
 export interface EngineLang_Static {
     name: string
-    new (config: EngineLang_ConstructProps): EngineLang
+    new (config?: EngineLang_ConstructProps): EngineLang
 }
 export declare var EngineLang: EngineLang_Static
 export interface EngineShape_ConstructProps extends Engine_ConstructProps {
@@ -529,7 +529,7 @@ export interface EngineShape {
 }
 export interface EngineShape_Static {
     name: string
-    new (config: EngineShape_ConstructProps): EngineShape
+    new (config?: EngineShape_ConstructProps): EngineShape
 }
 export declare var EngineShape: EngineShape_Static
 export interface Font_ConstructProps extends GObject.Object_ConstructProps {
@@ -587,7 +587,7 @@ export interface Font {
 }
 export interface Font_Static {
     name: string
-    new (config: Font_ConstructProps): Font
+    new (config?: Font_ConstructProps): Font
 }
 export declare class Font_Static {
     descriptions_free(descs: FontDescription[] | null): void
@@ -646,7 +646,7 @@ export interface FontFace {
 }
 export interface FontFace_Static {
     name: string
-    new (config: FontFace_ConstructProps): FontFace
+    new (config?: FontFace_ConstructProps): FontFace
 }
 export declare var FontFace: FontFace_Static
 export interface FontFamily_ConstructProps extends GObject.Object_ConstructProps {
@@ -700,7 +700,7 @@ export interface FontFamily {
 }
 export interface FontFamily_Static {
     name: string
-    new (config: FontFamily_ConstructProps): FontFamily
+    new (config?: FontFamily_ConstructProps): FontFamily
 }
 export declare var FontFamily: FontFamily_Static
 export interface FontMap_ConstructProps extends GObject.Object_ConstructProps {
@@ -760,7 +760,7 @@ export interface FontMap {
 }
 export interface FontMap_Static {
     name: string
-    new (config: FontMap_ConstructProps): FontMap
+    new (config?: FontMap_ConstructProps): FontMap
 }
 export declare var FontMap: FontMap_Static
 export interface Fontset_ConstructProps extends GObject.Object_ConstructProps {
@@ -815,7 +815,7 @@ export interface Fontset {
 }
 export interface Fontset_Static {
     name: string
-    new (config: Fontset_ConstructProps): Fontset
+    new (config?: Fontset_ConstructProps): Fontset
 }
 export declare var Fontset: Fontset_Static
 export interface FontsetSimple_ConstructProps extends Fontset_ConstructProps {
@@ -873,7 +873,7 @@ export interface FontsetSimple {
 }
 export interface FontsetSimple_Static {
     name: string
-    new (config: FontsetSimple_ConstructProps): FontsetSimple
+    new (config?: FontsetSimple_ConstructProps): FontsetSimple
 }
 export declare class FontsetSimple_Static {
     new(language: Language): FontsetSimple
@@ -977,7 +977,7 @@ export interface Layout {
 }
 export interface Layout_Static {
     name: string
-    new (config: Layout_ConstructProps): Layout
+    new (config?: Layout_ConstructProps): Layout
 }
 export declare class Layout_Static {
     new(context: Context): Layout
@@ -1058,7 +1058,7 @@ export interface Renderer {
 }
 export interface Renderer_Static {
     name: string
-    new (config: Renderer_ConstructProps): Renderer
+    new (config?: Renderer_ConstructProps): Renderer
 }
 export declare var Renderer: Renderer_Static
 export interface Analysis {

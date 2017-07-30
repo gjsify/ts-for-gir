@@ -16,7 +16,7 @@ cd ts-for-gjs
 npm install
 ```
 
-Now open some code that understands Typescript, for example
+Now open some code with an editor that understands Typescript, for example
 [Visual Studio Code](https://code.visualstudio.com/).
 
 ```

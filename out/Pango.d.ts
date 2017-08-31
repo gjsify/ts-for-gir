@@ -189,6 +189,35 @@ export enum Script {
     SHARADA,
     SORA_SOMPENG,
     TAKRI,
+    BASSA_VAH,
+    CAUCASIAN_ALBANIAN,
+    DUPLOYAN,
+    ELBASAN,
+    GRANTHA,
+    KHOJKI,
+    KHUDAWADI,
+    LINEAR_A,
+    MAHAJANI,
+    MANICHAEAN,
+    MENDE_KIKAKUI,
+    MODI,
+    MRO,
+    NABATAEAN,
+    OLD_NORTH_ARABIAN,
+    OLD_PERMIC,
+    PAHAWH_HMONG,
+    PALMYRENE,
+    PAU_CIN_HAU,
+    PSALTER_PAHLAVI,
+    SIDDHAM,
+    TIRHUTA,
+    WARANG_CITI,
+    AHOM,
+    ANATOLIAN_HIEROGLYPHS,
+    HATRAN,
+    MULTANI,
+    OLD_HUNGARIAN,
+    SIGNWRITING,
 }
 export enum Stretch {
     ULTRA_CONDENSED,
@@ -260,6 +289,7 @@ export const RENDER_TYPE_NONE:string
 export const SCALE:number
 export const UNKNOWN_GLYPH_HEIGHT:number
 export const UNKNOWN_GLYPH_WIDTH:number
+export const VERSION_MIN_REQUIRED:number
 export function attr_type_get_name(type: AttrType): string | null
 export function attr_type_register(name: string): AttrType
 export function bidi_type_for_unichar(ch: number): BidiType
@@ -296,7 +326,7 @@ export function parse_style(str: string, warn: boolean): [ /* returnType */ bool
 export function parse_variant(str: string, warn: boolean): [ /* returnType */ boolean, /* variant */ Variant ]
 export function parse_weight(str: string, warn: boolean): [ /* returnType */ boolean, /* weight */ Weight ]
 export function quantize_line_geometry(thickness: number, position: number): void
-export function read_line(stream: object): [ /* returnType */ number, /* str */ GLib.String ]
+export function read_line(stream: object | null): [ /* returnType */ number, /* str */ GLib.String ]
 export function reorder_items(logical_items: GLib.List): GLib.List
 export function scan_int(pos: string): [ /* returnType */ boolean, /* out */ number ]
 export function scan_string(pos: string): [ /* returnType */ boolean, /* out */ GLib.String ]
@@ -314,11 +344,14 @@ export function units_to_double(i: number): number
 export function version(): number
 export function version_check(required_major: number, required_minor: number, required_micro: number): string | null
 export function version_string(): string
+export interface AttrDataCopyFunc {
+    (user_data: object | null): object | null
+}
 export interface AttrFilterFunc {
-    (attribute: Attribute, user_data: object): boolean
+    (attribute: Attribute, user_data: object | null): boolean
 }
 export interface FontsetForeachFunc {
-    (fontset: Fontset, font: Font, user_data: object): boolean
+    (fontset: Fontset, font: Font, user_data: object | null): boolean
 }
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -352,9 +385,9 @@ export interface Context {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -363,10 +396,10 @@ export interface Context {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -400,9 +433,9 @@ export interface Engine {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -411,10 +444,10 @@ export interface Engine {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -446,9 +479,9 @@ export interface EngineLang {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -457,10 +490,10 @@ export interface EngineLang {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -495,9 +528,9 @@ export interface EngineShape {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -506,10 +539,10 @@ export interface EngineShape {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -542,6 +575,7 @@ export interface Font {
     /* Methods of Pango.Font */
     describe(): FontDescription
     describe_with_absolute_size(): FontDescription
+    find_shaper(language: Language, ch: number): EngineShape
     get_font_map(): FontMap | null
     get_glyph_extents(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_metrics(language: Language | null): FontMetrics
@@ -550,9 +584,9 @@ export interface Font {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -561,16 +595,17 @@ export interface Font {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Font */
     vfunc_describe(): FontDescription
     vfunc_describe_absolute(): FontDescription
+    vfunc_find_shaper(lang: Language, ch: number): EngineShape
     vfunc_get_font_map(): FontMap | null
     vfunc_get_glyph_extents(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     vfunc_get_metrics(language: Language | null): FontMetrics
@@ -610,9 +645,9 @@ export interface FontFace {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -621,10 +656,10 @@ export interface FontFace {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -665,9 +700,9 @@ export interface FontFamily {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -676,10 +711,10 @@ export interface FontFamily {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -723,9 +758,9 @@ export interface FontMap {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -734,10 +769,10 @@ export interface FontMap {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -771,7 +806,7 @@ export interface Fontset {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Pango.Fontset */
-    foreach(func: FontsetForeachFunc, data: object): void
+    foreach(func: FontsetForeachFunc, data: object | null): void
     get_font(wc: number): Font
     get_metrics(): FontMetrics
     /* Methods of GObject.Object */
@@ -779,9 +814,9 @@ export interface Fontset {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -790,15 +825,15 @@ export interface Fontset {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Fontset */
-    vfunc_foreach(func: FontsetForeachFunc, data: object): void
+    vfunc_foreach(func: FontsetForeachFunc, data: object | null): void
     vfunc_get_font(wc: number): Font
     vfunc_get_language(): Language
     vfunc_get_metrics(): FontMetrics
@@ -829,7 +864,7 @@ export interface FontsetSimple {
     append(font: Font): void
     size(): number
     /* Methods of Pango.Fontset */
-    foreach(func: FontsetForeachFunc, data: object): void
+    foreach(func: FontsetForeachFunc, data: object | null): void
     get_font(wc: number): Font
     get_metrics(): FontMetrics
     /* Methods of GObject.Object */
@@ -837,9 +872,9 @@ export interface FontsetSimple {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -848,15 +883,15 @@ export interface FontsetSimple {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Fontset */
-    vfunc_foreach(func: FontsetForeachFunc, data: object): void
+    vfunc_foreach(func: FontsetForeachFunc, data: object | null): void
     vfunc_get_font(wc: number): Font
     vfunc_get_language(): Language
     vfunc_get_metrics(): FontMetrics
@@ -946,9 +981,9 @@ export interface Layout {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -957,10 +992,10 @@ export interface Layout {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1015,9 +1050,9 @@ export interface Renderer {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1026,10 +1061,10 @@ export interface Renderer {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1157,7 +1192,7 @@ export interface AttrList {
     /* Methods of Pango.AttrList */
     change(attr: Attribute): void
     copy(): AttrList | null
-    filter(func: AttrFilterFunc, data: object): AttrList | null
+    filter(func: AttrFilterFunc, data: object | null): AttrList | null
     insert(attr: Attribute): void
     insert_before(attr: Attribute): void
     ref(): AttrList
@@ -1178,6 +1213,7 @@ export interface AttrShape {
     ink_rect:Rectangle
     logical_rect:Rectangle
     data:object
+    copy_func:AttrDataCopyFunc
     destroy_func:GLib.DestroyNotify
 }
 export interface AttrShape_Static {
@@ -1587,15 +1623,6 @@ export interface RendererPrivate_Static {
     name: string
 }
 export declare var RendererPrivate: RendererPrivate_Static
-export interface ScriptForLang {
-    /* Fields of Pango.ScriptForLang */
-    lang:number[]
-    scripts:Script[]
-}
-export interface ScriptForLang_Static {
-    name: string
-}
-export declare var ScriptForLang: ScriptForLang_Static
 export interface ScriptIter {
     /* Methods of Pango.ScriptIter */
     free(): void

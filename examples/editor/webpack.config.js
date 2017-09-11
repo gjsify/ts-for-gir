@@ -1,4 +1,8 @@
-module.exports = {
+const path = require('path')
+const webpack = require('webpack')
+const MinifyPlugin = require('babel-minify-webpack-plugin')
+
+module.exports = env => ({
   entry: ['./main.ts' ],
   output: {
     filename: 'editor.js',
@@ -12,7 +16,10 @@ module.exports = {
       }
     ]
   },
+  plugins: env === 'production'
+    ? [ new MinifyPlugin({}, { comments: false }) ]
+    : [],
   resolve: {
     extensions: [".tsx", ".ts", ".js"]
   }
-};
+})

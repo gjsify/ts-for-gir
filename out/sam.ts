@@ -4,7 +4,8 @@ import * as Atk from './Atk'
 import * as Gtk from './Gtk'
 import * as Soup from './Soup'
 import * as GtkSource from './GtkSource'
-import * as WebKit from './WebKit'
+import * as WebKit from './WebKit2'
+import {giCast} from './cast'
 
 Gtk.init(null)
 
@@ -15,4 +16,4 @@ w.connect("notify::composite-child", (obj, pspec) => {
     
 })
 
-var s: Gtk.Widget = w
+var s: Gtk.Widget = giCast<Gtk.Widget>(w, Gtk.Widget)

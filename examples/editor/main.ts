@@ -1,6 +1,6 @@
 import * as Gtk from '../../out/Gtk';
 import * as GtkSource from '../../out/GtkSource'
-import * as giCast from '../../out/cast'
+import { giCast } from '../../out/cast'
 
 Gtk.init(null)
 
@@ -15,7 +15,7 @@ srcView.monospace = true
 
 // Unfortunately the "buffer" property is not GtkSource.Buffer so we need to downcast
 // it. giCast gives us a type-check at runtime.
-let buf: GtkSource.Buffer = giCast.GtkSource_Buffer(srcView.buffer)
+let buf: GtkSource.Buffer = giCast<GtkSource.Buffer>(srcView.buffer, GtkSource.Buffer)
 let lang = GtkSource.LanguageManager.get_default().get_language("js")
 buf.set_language(lang)
 

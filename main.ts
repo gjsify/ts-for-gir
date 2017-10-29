@@ -1,7 +1,7 @@
 import * as xml2js from 'xml2js'
 import * as lodash from 'lodash'
 import * as commander from 'commander'
-import * as fs from 'fs'
+import fs = require('fs')
 
 interface TsForGjsExtended {
     _module?: GirModule
@@ -1112,20 +1112,26 @@ function exportExtra(outDir: string|null, inheritanceTable)
         return
 
     let def: string[] = []
-    const present = {}
-    Object.keys(inheritanceTable)
-      .map(k => k.split('.')[0])
-      .filter(k => present[k] ? false : present[k] = true)
-      .forEach(k => def.push(`import * as ${k} from './${k}'`))
+    def.push("import * as GObject from './GObject'")
     def.push("")
-    
-    
+    def.push("let inheritanceTable = {")
+    for (let k of lodash.keys(inheritanceTable)) {
+        let arr: string = "'" + inheritanceTable[k].join("', '") + "'"
+        def.push(`    '${k}': [ ${arr} ],`)
+    }
+    def.push("}")
+    def.push("")
+
     def.push(`
+interface StaticNamed {
+    name: string
+}
+
 /** Casts between derived classes, performing a run-time type-check
  * and raising an exception if the cast fails. Allows casting to implemented
  * interfaces, too.
  */
-function c<T>(to_: string, inheritanceTable: string[], from_: GObject.Object): T {
+export function giCast<T>(from_: GObject.Object, to_: StaticNamed): T {
     let desc: string = from_.toString()
     let clsName: string|null = null
     for (let k of desc.split(" ")) {
@@ -1134,7 +1140,7 @@ function c<T>(to_: string, inheritanceTable: string[], from_: GObject.Object): T
             break
         }
     }
-    let toName = to_.replace("_", ".")
+    let toName = to_.name.replace("_", ".")
 
     if (toName === clsName)
         return ((from_ as any) as T)
@@ -1148,13 +1154,8 @@ function c<T>(to_: string, inheritanceTable: string[], from_: GObject.Object): T
     }
 
     throw Error("Invalid cast of " + desc + "(" + clsName + ") to " + toName)
-}
+}    
 `)
-    def.push('')
-    for (let k of lodash.keys(inheritanceTable)) {
-        let arr: string = "'" + inheritanceTable[k].join("', '") + "'"
-        def.push(`export function ${k.replace('.','_')}(from_: GObject.Object) { return c<${k}>('${k}', [ ${arr} ], from_) }`)
-    }
 
     fs.createWriteStream(`${outDir}/cast.ts`).write(def.join("\n"))
 }

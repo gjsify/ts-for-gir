@@ -4,9 +4,7 @@ import * as WebKit from '../../out/WebKit';
 
 function makeButton(label: string, callback) {
     let but = new Gtk.Button({ label: label })
-    const child = but.get_child()
-    if(!child) throw new Error('Gtk.Button child is undefined')
-    child.modify_font(FontDescription.from_string('sans bold 16'))
+    but.get_child().modify_font(FontDescription.from_string('sans bold 16'))
     but.connect("clicked", (obj) => { callback() })
     return but
 }

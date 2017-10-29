@@ -23,7 +23,7 @@ export interface Module {
     close(): boolean
     make_resident(): void
     name(): string
-    symbol(symbol_name: string): [ /* returnType */ boolean, /* symbol */ object | null ]
+    symbol(symbol_name: string): [ /* returnType */ boolean, /* symbol */ object ]
 }
 export interface Module_Static {
     name: string

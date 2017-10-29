@@ -312,9 +312,9 @@ export interface DOMAttr {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -323,10 +323,10 @@ export interface DOMAttr {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -397,9 +397,9 @@ export interface DOMAudioTrack {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -408,10 +408,10 @@ export interface DOMAudioTrack {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -459,9 +459,9 @@ export interface DOMAudioTrackList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -470,10 +470,10 @@ export interface DOMAudioTrackList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -510,9 +510,9 @@ export interface DOMBarInfo {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -521,10 +521,10 @@ export interface DOMBarInfo {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -545,7 +545,7 @@ export interface DOMBarInfo_Static {
     new (config?: DOMBarInfo_ConstructProps): DOMBarInfo
 }
 export declare class DOMBarInfo_Static {
-    get_visible(self: object | null): boolean
+    get_visible(self: object): boolean
 }
 export declare var DOMBarInfo: DOMBarInfo_Static
 export interface DOMBarProp_ConstructProps extends DOMObject_ConstructProps {
@@ -568,9 +568,9 @@ export interface DOMBarProp {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -579,10 +579,10 @@ export interface DOMBarProp {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -630,9 +630,9 @@ export interface DOMBatteryManager {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -641,10 +641,10 @@ export interface DOMBatteryManager {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -691,9 +691,9 @@ export interface DOMBlob {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -702,10 +702,10 @@ export interface DOMBlob {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -821,7 +821,7 @@ export interface DOMCDATASection {
     force_floating(): void
     freeze_notify(): void
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -830,8 +830,8 @@ export interface DOMCDATASection {
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -897,9 +897,9 @@ export interface DOMCSSRule {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -908,10 +908,10 @@ export interface DOMCSSRule {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -956,9 +956,9 @@ export interface DOMCSSRuleList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -967,10 +967,10 @@ export interface DOMCSSRuleList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1025,9 +1025,9 @@ export interface DOMCSSStyleDeclaration {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1036,9 +1036,9 @@ export interface DOMCSSStyleDeclaration {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    set_data(key: string, data: object): void
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1106,9 +1106,9 @@ export interface DOMCSSStyleSheet {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1117,10 +1117,10 @@ export interface DOMCSSStyleSheet {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1174,9 +1174,9 @@ export interface DOMCSSValue {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1185,10 +1185,10 @@ export interface DOMCSSValue {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1297,7 +1297,7 @@ export interface DOMCharacterData {
     force_floating(): void
     freeze_notify(): void
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1306,8 +1306,8 @@ export interface DOMCharacterData {
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1432,7 +1432,7 @@ export interface DOMComment {
     force_floating(): void
     freeze_notify(): void
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1441,8 +1441,8 @@ export interface DOMComment {
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1492,7 +1492,7 @@ export interface DOMConsole {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit.DOMConsole */
-    get_memory(): object | null
+    get_memory(): object
     group_end(): void
     time(title: string): void
     /* Methods of GObject.Object */
@@ -1500,9 +1500,9 @@ export interface DOMConsole {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1511,10 +1511,10 @@ export interface DOMConsole {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1558,9 +1558,9 @@ export interface DOMDOMApplicationCache {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1569,10 +1569,10 @@ export interface DOMDOMApplicationCache {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1615,9 +1615,9 @@ export interface DOMDOMImplementation {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1626,10 +1626,10 @@ export interface DOMDOMImplementation {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1674,9 +1674,9 @@ export interface DOMDOMMimeType {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1685,10 +1685,10 @@ export interface DOMDOMMimeType {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1734,9 +1734,9 @@ export interface DOMDOMMimeTypeArray {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1745,10 +1745,10 @@ export interface DOMDOMMimeTypeArray {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1791,9 +1791,9 @@ export interface DOMDOMNamedFlowCollection {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1802,10 +1802,10 @@ export interface DOMDOMNamedFlowCollection {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1854,9 +1854,9 @@ export interface DOMDOMPlugin {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1865,10 +1865,10 @@ export interface DOMDOMPlugin {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1915,9 +1915,9 @@ export interface DOMDOMPluginArray {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1926,10 +1926,10 @@ export interface DOMDOMPluginArray {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1988,9 +1988,9 @@ export interface DOMDOMSecurityPolicy {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1999,10 +1999,10 @@ export interface DOMDOMSecurityPolicy {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2080,9 +2080,9 @@ export interface DOMDOMSelection {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2091,10 +2091,10 @@ export interface DOMDOMSelection {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2157,9 +2157,9 @@ export interface DOMDOMSettableTokenList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2168,10 +2168,10 @@ export interface DOMDOMSettableTokenList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2215,9 +2215,9 @@ export interface DOMDOMStringList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2226,10 +2226,10 @@ export interface DOMDOMStringList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2266,9 +2266,9 @@ export interface DOMDOMStringMap {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2277,10 +2277,10 @@ export interface DOMDOMStringMap {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2325,9 +2325,9 @@ export interface DOMDOMTokenList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2336,10 +2336,10 @@ export interface DOMDOMTokenList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2505,9 +2505,9 @@ export interface DOMDOMWindow {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2516,10 +2516,10 @@ export interface DOMDOMWindow {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2602,9 +2602,9 @@ export interface DOMDOMWindowCSS {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2613,10 +2613,10 @@ export interface DOMDOMWindowCSS {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2656,9 +2656,9 @@ export interface DOMDatabase {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2667,10 +2667,10 @@ export interface DOMDatabase {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2903,9 +2903,9 @@ export interface DOMDocument {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2914,10 +2914,10 @@ export interface DOMDocument {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3068,9 +3068,9 @@ export interface DOMDocumentFragment {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3079,10 +3079,10 @@ export interface DOMDocumentFragment {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3205,9 +3205,9 @@ export interface DOMDocumentType {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3216,10 +3216,10 @@ export interface DOMDocumentType {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3422,9 +3422,9 @@ export interface DOMElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3433,10 +3433,10 @@ export interface DOMElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3569,9 +3569,9 @@ export interface DOMEntityReference {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3580,10 +3580,10 @@ export interface DOMEntityReference {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3666,9 +3666,9 @@ export interface DOMEvent {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3677,10 +3677,10 @@ export interface DOMEvent {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3741,9 +3741,9 @@ export interface DOMFile {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3752,10 +3752,10 @@ export interface DOMFile {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3800,9 +3800,9 @@ export interface DOMFileList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3811,10 +3811,10 @@ export interface DOMFileList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3859,9 +3859,9 @@ export interface DOMGamepad {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3870,10 +3870,10 @@ export interface DOMGamepad {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3917,9 +3917,9 @@ export interface DOMGamepadList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3928,10 +3928,10 @@ export interface DOMGamepadList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3970,9 +3970,9 @@ export interface DOMGeolocation {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3981,10 +3981,10 @@ export interface DOMGeolocation {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -4177,7 +4177,7 @@ export interface DOMHTMLAnchorElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -4305,9 +4305,9 @@ export interface DOMHTMLAnchorElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4316,10 +4316,10 @@ export interface DOMHTMLAnchorElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -4557,7 +4557,7 @@ export interface DOMHTMLAppletElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -4685,9 +4685,9 @@ export interface DOMHTMLAppletElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4696,10 +4696,10 @@ export interface DOMHTMLAppletElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -4925,7 +4925,7 @@ export interface DOMHTMLAreaElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -5053,9 +5053,9 @@ export interface DOMHTMLAreaElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5064,10 +5064,10 @@ export interface DOMHTMLAreaElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -5344,7 +5344,7 @@ export interface DOMHTMLAudioElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -5472,9 +5472,9 @@ export interface DOMHTMLAudioElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5483,10 +5483,10 @@ export interface DOMHTMLAudioElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -5696,7 +5696,7 @@ export interface DOMHTMLBRElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -5824,9 +5824,9 @@ export interface DOMHTMLBRElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5835,10 +5835,10 @@ export interface DOMHTMLBRElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -6020,7 +6020,7 @@ export interface DOMHTMLBaseElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -6148,9 +6148,9 @@ export interface DOMHTMLBaseElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -6159,10 +6159,10 @@ export interface DOMHTMLBaseElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -6349,7 +6349,7 @@ export interface DOMHTMLBaseFontElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -6477,9 +6477,9 @@ export interface DOMHTMLBaseFontElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -6488,10 +6488,10 @@ export interface DOMHTMLBaseFontElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -6691,7 +6691,7 @@ export interface DOMHTMLBodyElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -6819,9 +6819,9 @@ export interface DOMHTMLBodyElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -6830,10 +6830,10 @@ export interface DOMHTMLBodyElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -7062,7 +7062,7 @@ export interface DOMHTMLButtonElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -7190,9 +7190,9 @@ export interface DOMHTMLButtonElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7201,10 +7201,10 @@ export interface DOMHTMLButtonElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -7400,7 +7400,7 @@ export interface DOMHTMLCanvasElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -7528,9 +7528,9 @@ export interface DOMHTMLCanvasElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7539,10 +7539,10 @@ export interface DOMHTMLCanvasElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -7644,9 +7644,9 @@ export interface DOMHTMLCollection {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7655,10 +7655,10 @@ export interface DOMHTMLCollection {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -7778,7 +7778,7 @@ export interface DOMHTMLDListElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -7906,9 +7906,9 @@ export interface DOMHTMLDListElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7917,10 +7917,10 @@ export interface DOMHTMLDListElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -8098,7 +8098,7 @@ export interface DOMHTMLDetailsElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -8226,9 +8226,9 @@ export interface DOMHTMLDetailsElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -8237,10 +8237,10 @@ export interface DOMHTMLDetailsElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -8418,7 +8418,7 @@ export interface DOMHTMLDirectoryElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -8546,9 +8546,9 @@ export interface DOMHTMLDirectoryElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -8557,10 +8557,10 @@ export interface DOMHTMLDirectoryElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -8738,7 +8738,7 @@ export interface DOMHTMLDivElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -8866,9 +8866,9 @@ export interface DOMHTMLDivElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -8877,10 +8877,10 @@ export interface DOMHTMLDivElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -9213,9 +9213,9 @@ export interface DOMHTMLDocument {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9224,10 +9224,10 @@ export interface DOMHTMLDocument {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -9423,7 +9423,7 @@ export interface DOMHTMLElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -9551,9 +9551,9 @@ export interface DOMHTMLElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9562,10 +9562,10 @@ export interface DOMHTMLElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -9760,7 +9760,7 @@ export interface DOMHTMLEmbedElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -9888,9 +9888,9 @@ export interface DOMHTMLEmbedElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9899,10 +9899,10 @@ export interface DOMHTMLEmbedElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -10102,7 +10102,7 @@ export interface DOMHTMLFieldSetElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -10230,9 +10230,9 @@ export interface DOMHTMLFieldSetElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10241,10 +10241,10 @@ export interface DOMHTMLFieldSetElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -10437,7 +10437,7 @@ export interface DOMHTMLFontElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -10565,9 +10565,9 @@ export interface DOMHTMLFontElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10576,10 +10576,10 @@ export interface DOMHTMLFontElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -10808,7 +10808,7 @@ export interface DOMHTMLFormElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -10936,9 +10936,9 @@ export interface DOMHTMLFormElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10947,10 +10947,10 @@ export interface DOMHTMLFormElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -11176,7 +11176,7 @@ export interface DOMHTMLFrameElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -11304,9 +11304,9 @@ export interface DOMHTMLFrameElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -11315,10 +11315,10 @@ export interface DOMHTMLFrameElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -11511,7 +11511,7 @@ export interface DOMHTMLFrameSetElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -11639,9 +11639,9 @@ export interface DOMHTMLFrameSetElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -11650,10 +11650,10 @@ export interface DOMHTMLFrameSetElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -11844,7 +11844,7 @@ export interface DOMHTMLHRElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -11972,9 +11972,9 @@ export interface DOMHTMLHRElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -11983,10 +11983,10 @@ export interface DOMHTMLHRElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -12167,7 +12167,7 @@ export interface DOMHTMLHeadElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -12295,9 +12295,9 @@ export interface DOMHTMLHeadElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -12306,10 +12306,10 @@ export interface DOMHTMLHeadElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -12487,7 +12487,7 @@ export interface DOMHTMLHeadingElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -12615,9 +12615,9 @@ export interface DOMHTMLHeadingElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -12626,10 +12626,10 @@ export interface DOMHTMLHeadingElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -12811,7 +12811,7 @@ export interface DOMHTMLHtmlElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -12939,9 +12939,9 @@ export interface DOMHTMLHtmlElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -12950,10 +12950,10 @@ export interface DOMHTMLHtmlElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -13184,7 +13184,7 @@ export interface DOMHTMLIFrameElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -13312,9 +13312,9 @@ export interface DOMHTMLIFrameElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -13323,10 +13323,10 @@ export interface DOMHTMLIFrameElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -13584,7 +13584,7 @@ export interface DOMHTMLImageElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -13712,9 +13712,9 @@ export interface DOMHTMLImageElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -13723,10 +13723,10 @@ export interface DOMHTMLImageElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -14104,7 +14104,7 @@ export interface DOMHTMLInputElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -14232,9 +14232,9 @@ export interface DOMHTMLInputElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -14243,10 +14243,10 @@ export interface DOMHTMLInputElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -14500,7 +14500,7 @@ export interface DOMHTMLKeygenElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -14628,9 +14628,9 @@ export interface DOMHTMLKeygenElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -14639,10 +14639,10 @@ export interface DOMHTMLKeygenElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -14832,7 +14832,7 @@ export interface DOMHTMLLIElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -14960,9 +14960,9 @@ export interface DOMHTMLLIElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -14971,10 +14971,10 @@ export interface DOMHTMLLIElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -15157,7 +15157,7 @@ export interface DOMHTMLLabelElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -15285,9 +15285,9 @@ export interface DOMHTMLLabelElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -15296,10 +15296,10 @@ export interface DOMHTMLLabelElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -15481,7 +15481,7 @@ export interface DOMHTMLLegendElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -15609,9 +15609,9 @@ export interface DOMHTMLLegendElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -15620,10 +15620,10 @@ export interface DOMHTMLLegendElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -15834,7 +15834,7 @@ export interface DOMHTMLLinkElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -15962,9 +15962,9 @@ export interface DOMHTMLLinkElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -15973,10 +15973,10 @@ export interface DOMHTMLLinkElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -16165,7 +16165,7 @@ export interface DOMHTMLMapElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -16293,9 +16293,9 @@ export interface DOMHTMLMapElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -16304,10 +16304,10 @@ export interface DOMHTMLMapElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -16528,7 +16528,7 @@ export interface DOMHTMLMarqueeElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -16656,9 +16656,9 @@ export interface DOMHTMLMarqueeElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -16667,10 +16667,10 @@ export interface DOMHTMLMarqueeElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -16957,7 +16957,7 @@ export interface DOMHTMLMediaElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -17085,9 +17085,9 @@ export interface DOMHTMLMediaElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -17096,10 +17096,10 @@ export interface DOMHTMLMediaElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -17309,7 +17309,7 @@ export interface DOMHTMLMenuElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -17437,9 +17437,9 @@ export interface DOMHTMLMenuElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -17448,10 +17448,10 @@ export interface DOMHTMLMenuElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -17641,7 +17641,7 @@ export interface DOMHTMLMetaElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -17769,9 +17769,9 @@ export interface DOMHTMLMetaElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -17780,10 +17780,10 @@ export interface DOMHTMLMetaElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -17968,7 +17968,7 @@ export interface DOMHTMLModElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -18096,9 +18096,9 @@ export interface DOMHTMLModElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -18107,10 +18107,10 @@ export interface DOMHTMLModElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -18299,7 +18299,7 @@ export interface DOMHTMLOListElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -18427,9 +18427,9 @@ export interface DOMHTMLOListElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -18438,10 +18438,10 @@ export interface DOMHTMLOListElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -18692,7 +18692,7 @@ export interface DOMHTMLObjectElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -18821,7 +18821,7 @@ export interface DOMHTMLObjectElement {
     force_floating(): void
     freeze_notify(): void
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -18831,8 +18831,8 @@ export interface DOMHTMLObjectElement {
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -19034,7 +19034,7 @@ export interface DOMHTMLOptGroupElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -19162,9 +19162,9 @@ export interface DOMHTMLOptGroupElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -19173,10 +19173,10 @@ export interface DOMHTMLOptGroupElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -19377,7 +19377,7 @@ export interface DOMHTMLOptionElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -19505,9 +19505,9 @@ export interface DOMHTMLOptionElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -19516,10 +19516,10 @@ export interface DOMHTMLOptionElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -19634,9 +19634,9 @@ export interface DOMHTMLOptionsCollection {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -19645,10 +19645,10 @@ export interface DOMHTMLOptionsCollection {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -19769,7 +19769,7 @@ export interface DOMHTMLParagraphElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -19897,9 +19897,9 @@ export interface DOMHTMLParagraphElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -19908,10 +19908,10 @@ export interface DOMHTMLParagraphElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -20099,7 +20099,7 @@ export interface DOMHTMLParamElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -20227,9 +20227,9 @@ export interface DOMHTMLParamElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -20238,10 +20238,10 @@ export interface DOMHTMLParamElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -20426,7 +20426,7 @@ export interface DOMHTMLPreElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -20554,9 +20554,9 @@ export interface DOMHTMLPreElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -20565,10 +20565,10 @@ export interface DOMHTMLPreElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -20672,9 +20672,9 @@ export interface DOMHTMLPropertiesCollection {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -20683,10 +20683,10 @@ export interface DOMHTMLPropertiesCollection {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -20708,10 +20708,10 @@ export interface DOMHTMLPropertiesCollection_Static {
     new (config?: DOMHTMLPropertiesCollection_ConstructProps): DOMHTMLPropertiesCollection
 }
 export declare class DOMHTMLPropertiesCollection_Static {
-    get_length(self: object | null): number
-    get_names(self: object | null): DOMDOMStringList
-    item(self: object | null, index: number): DOMNode
-    named_item(self: object | null, name: string): object | null
+    get_length(self: object): number
+    get_names(self: object): DOMDOMStringList
+    item(self: object, index: number): DOMNode
+    named_item(self: object, name: string): object
 }
 export declare var DOMHTMLPropertiesCollection: DOMHTMLPropertiesCollection_Static
 export interface DOMHTMLQuoteElement_ConstructProps extends DOMHTMLElement_ConstructProps {
@@ -20813,7 +20813,7 @@ export interface DOMHTMLQuoteElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -20941,9 +20941,9 @@ export interface DOMHTMLQuoteElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -20952,10 +20952,10 @@ export interface DOMHTMLQuoteElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -21167,7 +21167,7 @@ export interface DOMHTMLScriptElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -21295,9 +21295,9 @@ export interface DOMHTMLScriptElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -21306,10 +21306,10 @@ export interface DOMHTMLScriptElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -21549,7 +21549,7 @@ export interface DOMHTMLSelectElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -21676,9 +21676,9 @@ export interface DOMHTMLSelectElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -21687,10 +21687,10 @@ export interface DOMHTMLSelectElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -21894,7 +21894,7 @@ export interface DOMHTMLStyleElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -22022,9 +22022,9 @@ export interface DOMHTMLStyleElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -22033,10 +22033,10 @@ export interface DOMHTMLStyleElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -22217,7 +22217,7 @@ export interface DOMHTMLTableCaptionElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -22345,9 +22345,9 @@ export interface DOMHTMLTableCaptionElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -22356,10 +22356,10 @@ export interface DOMHTMLTableCaptionElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -22591,7 +22591,7 @@ export interface DOMHTMLTableCellElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -22719,9 +22719,9 @@ export interface DOMHTMLTableCellElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -22730,10 +22730,10 @@ export interface DOMHTMLTableCellElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -22945,7 +22945,7 @@ export interface DOMHTMLTableColElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -23073,9 +23073,9 @@ export interface DOMHTMLTableColElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -23084,10 +23084,10 @@ export interface DOMHTMLTableColElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -23324,7 +23324,7 @@ export interface DOMHTMLTableElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -23452,9 +23452,9 @@ export interface DOMHTMLTableElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -23463,10 +23463,10 @@ export interface DOMHTMLTableElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -23681,7 +23681,7 @@ export interface DOMHTMLTableRowElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -23809,9 +23809,9 @@ export interface DOMHTMLTableRowElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -23820,10 +23820,10 @@ export interface DOMHTMLTableRowElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -24024,7 +24024,7 @@ export interface DOMHTMLTableSectionElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -24152,9 +24152,9 @@ export interface DOMHTMLTableSectionElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -24163,10 +24163,10 @@ export interface DOMHTMLTableSectionElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -24435,7 +24435,7 @@ export interface DOMHTMLTextAreaElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -24563,9 +24563,9 @@ export interface DOMHTMLTextAreaElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -24574,10 +24574,10 @@ export interface DOMHTMLTextAreaElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -24779,7 +24779,7 @@ export interface DOMHTMLTitleElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -24907,9 +24907,9 @@ export interface DOMHTMLTitleElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -24918,10 +24918,10 @@ export interface DOMHTMLTitleElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -25101,7 +25101,7 @@ export interface DOMHTMLUListElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -25229,9 +25229,9 @@ export interface DOMHTMLUListElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -25240,10 +25240,10 @@ export interface DOMHTMLUListElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -25542,7 +25542,7 @@ export interface DOMHTMLVideoElement {
     get_item_prop(): DOMDOMSettableTokenList
     get_item_ref(): DOMDOMSettableTokenList
     get_item_scope(): boolean
-    get_item_type(): object | null
+    get_item_type(): object
     get_lang(): string
     get_outer_html(): string
     get_outer_text(): string
@@ -25670,9 +25670,9 @@ export interface DOMHTMLVideoElement {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -25681,10 +25681,10 @@ export interface DOMHTMLVideoElement {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -25828,9 +25828,9 @@ export interface DOMHistory {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -25839,10 +25839,10 @@ export interface DOMHistory {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -25949,9 +25949,9 @@ export interface DOMKeyboardEvent {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -25960,10 +25960,10 @@ export interface DOMKeyboardEvent {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26048,9 +26048,9 @@ export interface DOMLocation {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26059,10 +26059,10 @@ export interface DOMLocation {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26145,9 +26145,9 @@ export interface DOMMediaController {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26156,10 +26156,10 @@ export interface DOMMediaController {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26210,9 +26210,9 @@ export interface DOMMediaError {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26221,10 +26221,10 @@ export interface DOMMediaError {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26272,9 +26272,9 @@ export interface DOMMediaList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26283,10 +26283,10 @@ export interface DOMMediaList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26330,9 +26330,9 @@ export interface DOMMediaQueryList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26341,10 +26341,10 @@ export interface DOMMediaQueryList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26384,9 +26384,9 @@ export interface DOMMemoryInfo {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26395,10 +26395,10 @@ export interface DOMMemoryInfo {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26421,9 +26421,9 @@ export interface DOMMemoryInfo_Static {
     new (config?: DOMMemoryInfo_ConstructProps): DOMMemoryInfo
 }
 export declare class DOMMemoryInfo_Static {
-    get_js_heap_size_limit(self: object | null): number
-    get_total_js_heap_size(self: object | null): number
-    get_used_js_heap_size(self: object | null): number
+    get_js_heap_size_limit(self: object): number
+    get_total_js_heap_size(self: object): number
+    get_used_js_heap_size(self: object): number
 }
 export declare var DOMMemoryInfo: DOMMemoryInfo_Static
 export interface DOMMessagePort_ConstructProps extends DOMObject_ConstructProps {
@@ -26442,9 +26442,9 @@ export interface DOMMessagePort {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26453,10 +26453,10 @@ export interface DOMMessagePort {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26490,9 +26490,9 @@ export interface DOMMicroDataItemValue {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26501,10 +26501,10 @@ export interface DOMMicroDataItemValue {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26631,9 +26631,9 @@ export interface DOMMouseEvent {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26642,10 +26642,10 @@ export interface DOMMouseEvent {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26730,9 +26730,9 @@ export interface DOMNamedNodeMap {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26741,10 +26741,10 @@ export interface DOMNamedNodeMap {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26825,9 +26825,9 @@ export interface DOMNavigator {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26836,10 +26836,10 @@ export interface DOMNavigator {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -26951,9 +26951,9 @@ export interface DOMNode {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -26962,10 +26962,10 @@ export interface DOMNode {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27019,9 +27019,9 @@ export interface DOMNodeFilter {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27030,10 +27030,10 @@ export interface DOMNodeFilter {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27086,9 +27086,9 @@ export interface DOMNodeIterator {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27097,10 +27097,10 @@ export interface DOMNodeIterator {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27147,9 +27147,9 @@ export interface DOMNodeList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27158,10 +27158,10 @@ export interface DOMNodeList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27197,9 +27197,9 @@ export interface DOMObject {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27208,10 +27208,10 @@ export interface DOMObject {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27246,7 +27246,7 @@ export interface DOMPerformance {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit.DOMPerformance */
-    get_memory(): object | null
+    get_memory(): object
     get_navigation(): DOMPerformanceNavigation
     get_timing(): DOMPerformanceTiming
     now(): number
@@ -27255,9 +27255,9 @@ export interface DOMPerformance {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27266,10 +27266,10 @@ export interface DOMPerformance {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27317,9 +27317,9 @@ export interface DOMPerformanceEntry {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27328,10 +27328,10 @@ export interface DOMPerformanceEntry {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27376,9 +27376,9 @@ export interface DOMPerformanceEntryList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27387,10 +27387,10 @@ export interface DOMPerformanceEntryList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27432,9 +27432,9 @@ export interface DOMPerformanceNavigation {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27443,10 +27443,10 @@ export interface DOMPerformanceNavigation {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27528,9 +27528,9 @@ export interface DOMPerformanceTiming {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27539,10 +27539,10 @@ export interface DOMPerformanceTiming {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27676,7 +27676,7 @@ export interface DOMProcessingInstruction {
     force_floating(): void
     freeze_notify(): void
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27685,8 +27685,8 @@ export interface DOMProcessingInstruction {
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27748,9 +27748,9 @@ export interface DOMPropertyNodeList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27759,10 +27759,10 @@ export interface DOMPropertyNodeList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27783,8 +27783,8 @@ export interface DOMPropertyNodeList_Static {
     new (config?: DOMPropertyNodeList_ConstructProps): DOMPropertyNodeList
 }
 export declare class DOMPropertyNodeList_Static {
-    get_length(self: object | null): number
-    item(self: object | null, index: number): DOMNode
+    get_length(self: object): number
+    item(self: object, index: number): DOMNode
 }
 export declare var DOMPropertyNodeList: DOMPropertyNodeList_Static
 export interface DOMRange_ConstructProps extends DOMObject_ConstructProps {
@@ -27843,9 +27843,9 @@ export interface DOMRange {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27854,10 +27854,10 @@ export interface DOMRange {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -27918,9 +27918,9 @@ export interface DOMScreen {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -27929,10 +27929,10 @@ export interface DOMScreen {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28058,9 +28058,9 @@ export interface DOMShadowRoot {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28069,10 +28069,10 @@ export interface DOMShadowRoot {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28137,9 +28137,9 @@ export interface DOMStorage {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28148,10 +28148,10 @@ export interface DOMStorage {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28188,9 +28188,9 @@ export interface DOMStorageInfo {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28199,10 +28199,10 @@ export interface DOMStorageInfo {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28238,9 +28238,9 @@ export interface DOMStorageQuota {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28249,10 +28249,10 @@ export interface DOMStorageQuota {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28292,9 +28292,9 @@ export interface DOMStyleMedia {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28303,10 +28303,10 @@ export interface DOMStyleMedia {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28360,9 +28360,9 @@ export interface DOMStyleSheet {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28371,10 +28371,10 @@ export interface DOMStyleSheet {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28422,9 +28422,9 @@ export interface DOMStyleSheetList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28433,10 +28433,10 @@ export interface DOMStyleSheetList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28550,7 +28550,7 @@ export interface DOMText {
     force_floating(): void
     freeze_notify(): void
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28559,8 +28559,8 @@ export interface DOMText {
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28636,9 +28636,9 @@ export interface DOMTextTrack {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28647,10 +28647,10 @@ export interface DOMTextTrack {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28743,9 +28743,9 @@ export interface DOMTextTrackCue {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28754,10 +28754,10 @@ export interface DOMTextTrackCue {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28811,9 +28811,9 @@ export interface DOMTextTrackCueList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28822,10 +28822,10 @@ export interface DOMTextTrackCueList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28869,9 +28869,9 @@ export interface DOMTextTrackList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28880,10 +28880,10 @@ export interface DOMTextTrackList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -28926,9 +28926,9 @@ export interface DOMTimeRanges {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -28937,10 +28937,10 @@ export interface DOMTimeRanges {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29003,9 +29003,9 @@ export interface DOMTouch {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29014,10 +29014,10 @@ export interface DOMTouch {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29095,9 +29095,9 @@ export interface DOMTrackEvent {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29106,10 +29106,10 @@ export interface DOMTrackEvent {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29176,9 +29176,9 @@ export interface DOMTreeWalker {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29187,10 +29187,10 @@ export interface DOMTreeWalker {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29282,9 +29282,9 @@ export interface DOMUIEvent {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29293,10 +29293,10 @@ export interface DOMUIEvent {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29374,9 +29374,9 @@ export interface DOMValidityState {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29385,10 +29385,10 @@ export interface DOMValidityState {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29446,9 +29446,9 @@ export interface DOMVideoPlaybackQuality {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29457,10 +29457,10 @@ export interface DOMVideoPlaybackQuality {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29515,9 +29515,9 @@ export interface DOMVideoTrack {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29526,10 +29526,10 @@ export interface DOMVideoTrack {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29577,9 +29577,9 @@ export interface DOMVideoTrackList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29588,10 +29588,10 @@ export interface DOMVideoTrackList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29643,9 +29643,9 @@ export interface DOMWebKitNamedFlow {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29654,10 +29654,10 @@ export interface DOMWebKitNamedFlow {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29706,9 +29706,9 @@ export interface DOMWebKitPoint {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29717,10 +29717,10 @@ export interface DOMWebKitPoint {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29869,9 +29869,9 @@ export interface DOMWheelEvent {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29880,10 +29880,10 @@ export interface DOMWheelEvent {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -29967,9 +29967,9 @@ export interface DOMXPathExpression {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -29978,10 +29978,10 @@ export interface DOMXPathExpression {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30019,9 +30019,9 @@ export interface DOMXPathNSResolver {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30030,10 +30030,10 @@ export interface DOMXPathNSResolver {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30087,9 +30087,9 @@ export interface DOMXPathResult {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30098,10 +30098,10 @@ export interface DOMXPathResult {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30165,9 +30165,9 @@ export interface Download {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30176,10 +30176,10 @@ export interface Download {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30222,7 +30222,7 @@ export interface FaviconDatabase {
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit.FaviconDatabase */
     clear(): void
-    get_favicon_pixbuf(page_uri: string, width: number, height: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    get_favicon_pixbuf(page_uri: string, width: number, height: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object): void
     get_favicon_pixbuf_finish(result: Gio.AsyncResult): GdkPixbuf.Pixbuf
     get_favicon_uri(page_uri: string): string
     get_path(): string
@@ -30233,9 +30233,9 @@ export interface FaviconDatabase {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30244,10 +30244,10 @@ export interface FaviconDatabase {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30293,9 +30293,9 @@ export interface FileChooserRequest {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30304,10 +30304,10 @@ export interface FileChooserRequest {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30343,9 +30343,9 @@ export interface GeolocationPolicyDecision {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30354,10 +30354,10 @@ export interface GeolocationPolicyDecision {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30397,9 +30397,9 @@ export interface HitTestResult {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30408,10 +30408,10 @@ export interface HitTestResult {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30452,9 +30452,9 @@ export interface IconDatabase {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30463,10 +30463,10 @@ export interface IconDatabase {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30509,9 +30509,9 @@ export interface NetworkRequest {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30520,10 +30520,10 @@ export interface NetworkRequest {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30569,9 +30569,9 @@ export interface NetworkResponse {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30580,10 +30580,10 @@ export interface NetworkResponse {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30635,9 +30635,9 @@ export interface SecurityOrigin {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30646,10 +30646,10 @@ export interface SecurityOrigin {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30686,9 +30686,9 @@ export interface SoupAuthDialog {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30697,10 +30697,10 @@ export interface SoupAuthDialog {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30758,9 +30758,9 @@ export interface ViewportAttributes {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30769,10 +30769,10 @@ export interface ViewportAttributes {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30835,9 +30835,9 @@ export interface WebBackForwardList {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30846,10 +30846,10 @@ export interface WebBackForwardList {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30892,7 +30892,7 @@ export interface WebDataSource {
     force_floating(): void
     freeze_notify(): void
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30901,10 +30901,10 @@ export interface WebDataSource {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -30955,9 +30955,9 @@ export interface WebDatabase {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -30966,10 +30966,10 @@ export interface WebDatabase {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31038,9 +31038,9 @@ export interface WebFrame {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -31049,10 +31049,10 @@ export interface WebFrame {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31070,7 +31070,7 @@ export interface WebFrame {
     connect(sigName: "insecure-content-run", callback: ((obj: WebFrame, security_origin: SecurityOrigin, url: string) => void))
     connect(sigName: "load-committed", callback: ((obj: WebFrame) => void))
     connect(sigName: "resource-content-length-received", callback: ((obj: WebFrame, web_resource: WebResource, length_received: number) => void))
-    connect(sigName: "resource-load-failed", callback: ((obj: WebFrame, web_resource: WebResource, error: object | null) => void))
+    connect(sigName: "resource-load-failed", callback: ((obj: WebFrame, web_resource: WebResource, error: object) => void))
     connect(sigName: "resource-load-finished", callback: ((obj: WebFrame, web_resource: WebResource) => void))
     connect(sigName: "resource-request-starting", callback: ((obj: WebFrame, web_resource: WebResource, request: NetworkRequest, response: NetworkResponse) => void))
     connect(sigName: "resource-response-received", callback: ((obj: WebFrame, web_resource: WebResource, response: NetworkResponse) => void))
@@ -31120,9 +31120,9 @@ export interface WebHistoryItem {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -31131,10 +31131,10 @@ export interface WebHistoryItem {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31190,9 +31190,9 @@ export interface WebInspector {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -31201,10 +31201,10 @@ export interface WebInspector {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31263,9 +31263,9 @@ export interface WebNavigationAction {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -31274,10 +31274,10 @@ export interface WebNavigationAction {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31321,9 +31321,9 @@ export interface WebPlugin {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -31332,10 +31332,10 @@ export interface WebPlugin {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31373,9 +31373,9 @@ export interface WebPluginDatabase {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -31384,10 +31384,10 @@ export interface WebPluginDatabase {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31426,9 +31426,9 @@ export interface WebPolicyDecision {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -31437,10 +31437,10 @@ export interface WebPolicyDecision {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31484,7 +31484,7 @@ export interface WebResource {
     force_floating(): void
     freeze_notify(): void
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -31493,10 +31493,10 @@ export interface WebResource {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31510,7 +31510,7 @@ export interface WebResource {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit.WebResource */
     connect(sigName: "content-length-received", callback: ((obj: WebResource, length_received: number) => void))
-    connect(sigName: "load-failed", callback: ((obj: WebResource, error: object | null) => void))
+    connect(sigName: "load-failed", callback: ((obj: WebResource, error: object) => void))
     connect(sigName: "load-finished", callback: ((obj: WebResource) => void))
     connect(sigName: "response-received", callback: ((obj: WebResource, response: NetworkResponse) => void))
     /* Signals of GObject.Object */
@@ -31661,9 +31661,9 @@ export interface WebSettings {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -31672,10 +31672,10 @@ export interface WebSettings {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -31801,7 +31801,6 @@ export interface WebView {
     double_buffered:boolean
     events:Gdk.EventMask
     expand:boolean
-    focus_on_click:boolean
     halign:Gtk.Align
     has_default:boolean
     has_focus:boolean
@@ -31921,14 +31920,14 @@ export interface WebView {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data: object | null): void
-    foreach(callback: Gtk.Callback, callback_data: object | null): void
+    forall(callback: Gtk.Callback, callback_data: object): void
+    foreach(callback: Gtk.Callback, callback_data: object): void
     get_border_width(): number
     get_children(): GLib.List
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
-    get_focus_child(): Gtk.Widget | null
-    get_focus_hadjustment(): Gtk.Adjustment | null
-    get_focus_vadjustment(): Gtk.Adjustment | null
+    get_focus_child(): Gtk.Widget
+    get_focus_hadjustment(): Gtk.Adjustment
+    get_focus_vadjustment(): Gtk.Adjustment
     get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     get_resize_mode(): Gtk.ResizeMode
     propagate_draw(child: Gtk.Widget, cr: cairo.Context): void
@@ -31948,7 +31947,7 @@ export interface WebView {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, user_data: object | null, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback, user_data: object, notify: GLib.DestroyNotify): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void
@@ -31966,7 +31965,7 @@ export interface WebView {
     drag_dest_add_text_targets(): void
     drag_dest_add_uri_targets(): void
     drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
-    drag_dest_get_target_list(): Gtk.TargetList | null
+    drag_dest_get_target_list(): Gtk.TargetList
     drag_dest_get_track_motion(): boolean
     drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
@@ -31978,7 +31977,7 @@ export interface WebView {
     drag_source_add_image_targets(): void
     drag_source_add_text_targets(): void
     drag_source_add_uri_targets(): void
-    drag_source_get_target_list(): Gtk.TargetList | null
+    drag_source_get_target_list(): Gtk.TargetList
     drag_source_set(start_button_mask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_source_set_icon_gicon(icon: Gio.Icon): void
     drag_source_set_icon_name(icon_name: string): void
@@ -31996,7 +31995,6 @@ export interface WebView {
     get_action_group(prefix: string): Gio.ActionGroup | null
     get_allocated_baseline(): number
     get_allocated_height(): number
-    get_allocated_size(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
     get_allocated_width(): number
     get_allocation(): /* allocation */ Gtk.Allocation
     get_ancestor(widget_type: number): Gtk.Widget | null
@@ -32014,10 +32012,9 @@ export interface WebView {
     get_display(): Gdk.Display
     get_double_buffered(): boolean
     get_events(): number
-    get_focus_on_click(): boolean
     get_font_map(): Pango.FontMap | null
     get_font_options(): cairo.FontOptions | null
-    get_frame_clock(): Gdk.FrameClock | null
+    get_frame_clock(): Gdk.FrameClock
     get_halign(): Gtk.Align
     get_has_tooltip(): boolean
     get_has_window(): boolean
@@ -32037,7 +32034,7 @@ export interface WebView {
     get_opacity(): number
     get_pango_context(): Pango.Context
     get_parent(): Gtk.Widget | null
-    get_parent_window(): Gdk.Window | null
+    get_parent_window(): Gdk.Window
     get_path(): Gtk.WidgetPath
     get_pointer(): [ /* x */ number | null, /* y */ number | null ]
     get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
@@ -32072,7 +32069,7 @@ export interface WebView {
     get_vexpand_set(): boolean
     get_visible(): boolean
     get_visual(): Gdk.Visual
-    get_window(): Gdk.Window | null
+    get_window(): Gdk.Window
     grab_add(): void
     grab_default(): void
     grab_focus(): void
@@ -32087,7 +32084,7 @@ export interface WebView {
     init_template(): void
     input_shape_combine_region(region: cairo.Region | null): void
     insert_action_group(name: string, group: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle, intersection: Gdk.Rectangle | null): boolean
     is_ancestor(ancestor: Gtk.Widget): boolean
     is_composited(): boolean
     is_drawable(): boolean
@@ -32113,7 +32110,6 @@ export interface WebView {
     override_font(font_desc: Pango.FontDescription | null): void
     override_symbolic_color(name: string, color: Gdk.RGBA | null): void
     path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
-    queue_allocate(): void
     queue_compute_expand(): void
     queue_draw(): void
     queue_draw_area(x: number, y: number, width: number, height: number): void
@@ -32126,7 +32122,7 @@ export interface WebView {
     remove_accelerator(accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType): boolean
     remove_mnemonic_label(label: Gtk.Widget): void
     remove_tick_callback(id: number): void
-    render_icon(stock_id: string, size: number, detail: string | null): GdkPixbuf.Pixbuf | null
+    render_icon(stock_id: string, size: number, detail: string | null): GdkPixbuf.Pixbuf
     render_icon_pixbuf(stock_id: string, size: number): GdkPixbuf.Pixbuf | null
     reparent(new_parent: Gtk.Widget): void
     reset_rc_styles(): void
@@ -32146,7 +32142,6 @@ export interface WebView {
     set_direction(dir: Gtk.TextDirection): void
     set_double_buffered(double_buffered: boolean): void
     set_events(events: number): void
-    set_focus_on_click(focus_on_click: boolean): void
     set_font_map(font_map: Pango.FontMap | null): void
     set_font_options(options: cairo.FontOptions | null): void
     set_halign(align: Gtk.Align): void
@@ -32194,7 +32189,7 @@ export interface WebView {
     style_attach(): void
     style_get_property(property_name: string, value: any): void
     thaw_child_notify(): void
-    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number | null, /* dest_y */ number | null ]
+    translate_coordinates(dest_widget: Gtk.Widget, src_x: number, src_y: number): [ /* returnType */ boolean, /* dest_x */ number, /* dest_y */ number ]
     trigger_tooltip_query(): void
     unmap(): void
     unparent(): void
@@ -32206,9 +32201,9 @@ export interface WebView {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -32217,10 +32212,10 @@ export interface WebView {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -32250,7 +32245,7 @@ export interface WebView {
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
@@ -32389,8 +32384,8 @@ export interface WebView {
     connect(sigName: "resource-response-received", callback: ((obj: WebView, web_frame: WebFrame, web_resource: WebResource, response: NetworkResponse) => void))
     connect(sigName: "run-file-chooser", callback: ((obj: WebView, request: FileChooserRequest) => boolean))
     connect(sigName: "script-alert", callback: ((obj: WebView, frame: WebFrame, message: string) => boolean))
-    connect(sigName: "script-confirm", callback: ((obj: WebView, frame: WebFrame, message: string, confirmed: object | null) => boolean))
-    connect(sigName: "script-prompt", callback: ((obj: WebView, frame: WebFrame, message: string, default_: string, text: object | null) => boolean))
+    connect(sigName: "script-confirm", callback: ((obj: WebView, frame: WebFrame, message: string, confirmed: object) => boolean))
+    connect(sigName: "script-prompt", callback: ((obj: WebView, frame: WebFrame, message: string, default_: string, text: object) => boolean))
     connect(sigName: "select-all", callback: ((obj: WebView) => void))
     connect(sigName: "selection-changed", callback: ((obj: WebView) => void))
     connect(sigName: "should-apply-style", callback: ((obj: WebView, set: DOMCSSStyleDeclaration, range: DOMRange) => boolean))
@@ -32408,7 +32403,7 @@ export interface WebView {
     connect(sigName: "viewport-attributes-changed", callback: ((obj: WebView, object: ViewportAttributes) => void))
     connect(sigName: "viewport-attributes-recompute-requested", callback: ((obj: WebView, object: ViewportAttributes) => void))
     connect(sigName: "web-view-ready", callback: ((obj: WebView) => boolean))
-    connect(sigName: "window-object-cleared", callback: ((obj: WebView, frame: WebFrame, context: object | null, window_object: object | null) => void))
+    connect(sigName: "window-object-cleared", callback: ((obj: WebView, frame: WebFrame, context: object, window_object: object) => void))
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: ((obj: WebView, object: Gtk.Widget) => void))
     connect(sigName: "check-resize", callback: ((obj: WebView) => void))
@@ -32454,7 +32449,7 @@ export interface WebView {
     connect(sigName: "leave-notify-event", callback: ((obj: WebView, event: Gdk.EventCrossing) => boolean))
     connect(sigName: "map", callback: ((obj: WebView) => void))
     connect(sigName: "map-event", callback: ((obj: WebView, event: Gdk.EventAny) => boolean))
-    connect(sigName: "mnemonic-activate", callback: ((obj: WebView, group_cycling: boolean) => boolean))
+    connect(sigName: "mnemonic-activate", callback: ((obj: WebView, arg1: boolean) => boolean))
     connect(sigName: "motion-notify-event", callback: ((obj: WebView, event: Gdk.EventMotion) => boolean))
     connect(sigName: "move-focus", callback: ((obj: WebView, direction: Gtk.DirectionType) => void))
     connect(sigName: "parent-set", callback: ((obj: WebView, old_parent: Gtk.Widget | null) => void))
@@ -32515,7 +32510,6 @@ export interface WebView {
     connect(sigName: "notify::double-buffered", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::events", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::expand", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::focus-on-click", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::halign", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::has-default", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::has-focus", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
@@ -32591,9 +32585,9 @@ export interface WebWindowFeatures {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -32602,10 +32596,10 @@ export interface WebWindowFeatures {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void

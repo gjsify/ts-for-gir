@@ -1,5 +1,5 @@
 /**
- * JavaScriptCore-3.0
+ * JavaScriptCore-4.0
  */
 
 import * as Gjs from './Gjs'

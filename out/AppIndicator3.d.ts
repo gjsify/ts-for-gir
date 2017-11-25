@@ -97,9 +97,10 @@ export interface Indicator {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -108,21 +109,21 @@ export interface Indicator {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of AppIndicator3.Indicator */
-    vfunc_connection_changed(connected: boolean, user_data: object): void
-    vfunc_new_attention_icon(user_data: object): void
-    vfunc_new_icon(user_data: object): void
-    vfunc_new_icon_theme_path(icon_theme_path: string, user_data: object): void
-    vfunc_new_label(label: string, guide: string, user_data: object): void
-    vfunc_new_status(status: string, user_data: object): void
-    vfunc_scroll_event(delta: number, direction: Gdk.ScrollDirection, user_data: object): void
+    vfunc_connection_changed(connected: boolean, user_data: object | null): void
+    vfunc_new_attention_icon(user_data: object | null): void
+    vfunc_new_icon(user_data: object | null): void
+    vfunc_new_icon_theme_path(icon_theme_path: string, user_data: object | null): void
+    vfunc_new_label(label: string, guide: string, user_data: object | null): void
+    vfunc_new_status(status: string, user_data: object | null): void
+    vfunc_scroll_event(delta: number, direction: Gdk.ScrollDirection, user_data: object | null): void
     vfunc_unfallback(status_icon: Gtk.StatusIcon): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void

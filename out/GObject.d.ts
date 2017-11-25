@@ -81,39 +81,41 @@ export const VALUE_COLLECT_FORMAT_MAX_LENGTH:number
 export const VALUE_NOCOPY_CONTENTS:number
 export function boxed_copy(boxed_type: number, src_boxed: object): object
 export function boxed_free(boxed_type: number, boxed: object): void
-export function cclosure_marshal_BOOLEAN__BOXED_BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_BOOLEAN__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_STRING__OBJECT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__BOOLEAN(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__CHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__DOUBLE(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__ENUM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__FLOAT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__INT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__LONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__OBJECT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__PARAM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__STRING(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__UCHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__UINT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__UINT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__ULONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__VARIANT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_VOID__VOID(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-export function cclosure_marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
+export function cclosure_marshal_BOOLEAN__BOXED_BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_BOOLEAN__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_STRING__OBJECT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__BOOLEAN(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__CHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__DOUBLE(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__ENUM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__FLOAT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__INT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__LONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__OBJECT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__PARAM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__STRING(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__UCHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__UINT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__UINT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__ULONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__VARIANT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_VOID__VOID(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+export function cclosure_marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
 export function enum_complete_type_info(g_enum_type: number, const_values: EnumValue): /* info */ TypeInfo
 export function enum_get_value(enum_class: EnumClass, value: number): EnumValue
 export function enum_get_value_by_name(enum_class: EnumClass, name: string): EnumValue
 export function enum_get_value_by_nick(enum_class: EnumClass, nick: string): EnumValue
 export function enum_register_static(name: string, const_static_values: EnumValue): number
+export function enum_to_string(g_enum_type: number, value: number): string
 export function flags_complete_type_info(g_flags_type: number, const_values: FlagsValue): /* info */ TypeInfo
 export function flags_get_first_value(flags_class: FlagsClass, value: number): FlagsValue
 export function flags_get_value_by_name(flags_class: FlagsClass, name: string): FlagsValue
 export function flags_get_value_by_nick(flags_class: FlagsClass, nick: string): FlagsValue
 export function flags_register_static(name: string, const_static_values: FlagsValue): number
+export function flags_to_string(flags_type: number, value: number): string
 export function gtype_get_type(): number
 export function param_spec_boolean(name: string, nick: string, blurb: string, default_value: boolean, flags: ParamFlags): ParamSpec
 export function param_spec_boxed(name: string, nick: string, blurb: string, boxed_type: number, flags: ParamFlags): ParamSpec
@@ -130,7 +132,7 @@ export function param_spec_object(name: string, nick: string, blurb: string, obj
 export function param_spec_param(name: string, nick: string, blurb: string, param_type: number, flags: ParamFlags): ParamSpec
 export function param_spec_pointer(name: string, nick: string, blurb: string, flags: ParamFlags): ParamSpec
 export function param_spec_pool_new(type_prefixing: boolean): ParamSpecPool
-export function param_spec_string(name: string, nick: string, blurb: string, default_value: string, flags: ParamFlags): ParamSpec
+export function param_spec_string(name: string, nick: string, blurb: string, default_value: string | null, flags: ParamFlags): ParamSpec
 export function param_spec_uchar(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
 export function param_spec_uint(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
 export function param_spec_uint64(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
@@ -144,9 +146,9 @@ export function param_value_set_default(pspec: ParamSpec, value: Value): void
 export function param_value_validate(pspec: ParamSpec, value: Value): boolean
 export function param_values_cmp(pspec: ParamSpec, value1: Value, value2: Value): number
 export function pointer_type_register_static(name: string): number
-export function signal_accumulator_first_wins(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy: object): boolean
-export function signal_accumulator_true_handled(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy: object): boolean
-export function signal_add_emission_hook(signal_id: number, detail: GLib.Quark, hook_func: SignalEmissionHook, hook_data: object, data_destroy: GLib.DestroyNotify): number
+export function signal_accumulator_first_wins(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy: object | null): boolean
+export function signal_accumulator_true_handled(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy: object | null): boolean
+export function signal_add_emission_hook(signal_id: number, detail: GLib.Quark, hook_func: SignalEmissionHook, hook_data: object | null, data_destroy: GLib.DestroyNotify): number
 export function signal_chain_from_overridden(instance_and_params: Value[], return_value: Value): void
 export function signal_connect_closure(instance: Object, detailed_signal: string, closure: Closure, after: boolean): number
 export function signal_connect_closure_by_id(instance: Object, signal_id: number, detail: GLib.Quark, closure: Closure, after: boolean): number
@@ -154,13 +156,13 @@ export function signal_emitv(instance_and_params: Value[], signal_id: number, de
 export function signal_get_invocation_hint(instance: Object): SignalInvocationHint
 export function signal_handler_block(instance: Object, handler_id: number): void
 export function signal_handler_disconnect(instance: Object, handler_id: number): void
-export function signal_handler_find(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object, data: object): number
+export function signal_handler_find(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object | null, data: object | null): number
 export function signal_handler_is_connected(instance: Object, handler_id: number): boolean
 export function signal_handler_unblock(instance: Object, handler_id: number): void
-export function signal_handlers_block_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object, data: object): number
+export function signal_handlers_block_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object | null, data: object | null): number
 export function signal_handlers_destroy(instance: Object): void
-export function signal_handlers_disconnect_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object, data: object): number
-export function signal_handlers_unblock_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object, data: object): number
+export function signal_handlers_disconnect_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object | null, data: object | null): number
+export function signal_handlers_unblock_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure: Closure | null, func: object | null, data: object | null): number
 export function signal_has_handler_pending(instance: Object, signal_id: number, detail: GLib.Quark, may_be_blocked: boolean): boolean
 export function signal_list_ids(itype: number): [ /* returnType */ number[], /* n_ids */ number ]
 export function signal_lookup(name: string, itype: number): number
@@ -188,8 +190,7 @@ export function type_check_is_value_type(type: number): boolean
 export function type_check_value(value: Value): boolean
 export function type_check_value_holds(value: Value, type: number): boolean
 export function type_children(type: number): [ /* returnType */ number, /* n_children */ number | null ]
-export function type_class_add_private(g_class: object, private_size: number): void
-export function type_class_adjust_private_offset(g_class: object, private_size_or_offset: number): void
+export function type_class_adjust_private_offset(g_class: object | null, private_size_or_offset: number): void
 export function type_class_peek(type: number): TypeClass
 export function type_class_peek_static(type: number): TypeClass
 export function type_class_ref(type: number): TypeClass
@@ -204,7 +205,7 @@ export function type_fundamental(type_id: number): number
 export function type_fundamental_next(): number
 export function type_get_instance_count(type: number): number
 export function type_get_plugin(type: number): TypePlugin
-export function type_get_qdata(type: number, quark: GLib.Quark): object
+export function type_get_qdata(type: number, quark: GLib.Quark): object | null
 export function type_get_type_registration_serial(): number
 export function type_init(): void
 export function type_init_with_debug_flags(debug_flags: TypeDebugFlags): void
@@ -224,7 +225,7 @@ export function type_query(type: number): /* query */ TypeQuery
 export function type_register_dynamic(parent_type: number, type_name: string, plugin: TypePlugin, flags: TypeFlags): number
 export function type_register_fundamental(type_id: number, type_name: string, info: TypeInfo, finfo: TypeFundamentalInfo, flags: TypeFlags): number
 export function type_register_static(parent_type: number, type_name: string, info: TypeInfo, flags: TypeFlags): number
-export function type_set_qdata(type: number, quark: GLib.Quark, data: object): void
+export function type_set_qdata(type: number, quark: GLib.Quark, data: object | null): void
 export function type_test_flags(type: number, flags: number): boolean
 export function value_type_compatible(src_type: number, dest_type: number): boolean
 export function value_type_transformable(src_type: number, dest_type: number): boolean
@@ -235,7 +236,10 @@ export interface BaseInitFunc {
     (g_class: TypeClass): void
 }
 export interface BindingTransformFunc {
-    (binding: Binding, from_value: Value, to_value: Value, user_data: object): boolean
+    (binding: Binding, from_value: Value, to_value: Value, user_data: object | null): boolean
+}
+export interface BoxedCopyFunc {
+    (boxed: object): object
 }
 export interface BoxedFreeFunc {
     (boxed: object): void
@@ -244,25 +248,25 @@ export interface Callback {
     (): void
 }
 export interface ClassFinalizeFunc {
-    (g_class: TypeClass, class_data: object): void
+    (g_class: TypeClass, class_data: object | null): void
 }
 export interface ClassInitFunc {
-    (g_class: TypeClass, class_data: object): void
+    (g_class: TypeClass, class_data: object | null): void
 }
 export interface ClosureMarshal {
     (closure: Closure, return_value: Value | null, param_values: Value[], invocation_hint: object | null, marshal_data: object | null): void
 }
 export interface ClosureNotify {
-    (data: object, closure: Closure): void
+    (data: object | null, closure: Closure): void
 }
 export interface InstanceInitFunc {
     (instance: TypeInstance, g_class: TypeClass): void
 }
 export interface InterfaceFinalizeFunc {
-    (g_iface: TypeInterface, iface_data: object): void
+    (g_iface: TypeInterface, iface_data: object | null): void
 }
 export interface InterfaceInitFunc {
-    (g_iface: TypeInterface, iface_data: object): void
+    (g_iface: TypeInterface, iface_data: object | null): void
 }
 export interface ObjectFinalizeFunc {
     (object: Object): void
@@ -274,19 +278,19 @@ export interface ObjectSetPropertyFunc {
     (object: Object, property_id: number, value: Value, pspec: ParamSpec): void
 }
 export interface SignalAccumulator {
-    (ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, data: object): boolean
+    (ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, data: object | null): boolean
 }
 export interface SignalEmissionHook {
-    (ihint: SignalInvocationHint, param_values: Value[], data: object): boolean
+    (ihint: SignalInvocationHint, param_values: Value[], data: object | null): boolean
 }
 export interface ToggleNotify {
-    (data: object, object: Object, is_last_ref: boolean): void
+    (data: object | null, object: Object, is_last_ref: boolean): void
 }
 export interface TypeClassCacheFunc {
-    (cache_data: object, g_class: TypeClass): boolean
+    (cache_data: object | null, g_class: TypeClass): boolean
 }
 export interface TypeInterfaceCheckFunc {
-    (check_data: object, g_iface: TypeInterface): void
+    (check_data: object | null, g_iface: TypeInterface): void
 }
 export interface TypePluginCompleteInterfaceInfo {
     (plugin: TypePlugin, instance_type: number, interface_type: number, info: InterfaceInfo): void
@@ -304,7 +308,7 @@ export interface ValueTransform {
     (src_value: Value, dest_value: Value): void
 }
 export interface WeakNotify {
-    (data: object, where_the_object_was: Object): void
+    (data: object | null, where_the_object_was: Object): void
 }
 export interface TypePlugin {
     /* Methods of GObject.TypePlugin */
@@ -340,9 +344,10 @@ export interface Binding {
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: Value[]): void
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: ParamSpec): void
@@ -351,10 +356,10 @@ export interface Binding {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
@@ -385,9 +390,10 @@ export interface InitiallyUnowned {
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: Value[]): void
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: ParamSpec): void
@@ -396,10 +402,10 @@ export interface InitiallyUnowned {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
@@ -429,9 +435,10 @@ export interface Object {
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: Value[]): void
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: ParamSpec): void
@@ -440,10 +447,10 @@ export interface Object {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
@@ -463,11 +470,12 @@ export interface Object_Static {
     new (config?: Object_ConstructProps): Object
 }
 export declare class Object_Static {
+    new_with_properties(object_type: number, n_properties: number, names: string[], values: Value[]): Object
     newv(object_type: number, n_parameters: number, parameters: Parameter[]): Object
-    compat_control(what: number, data: object): number
-    interface_find_property(g_iface: object, property_name: string): ParamSpec
-    interface_install_property(g_iface: object, pspec: ParamSpec): void
-    interface_list_properties(g_iface: object): [ /* returnType */ ParamSpec[], /* n_properties_p */ number ]
+    compat_control(what: number, data: object | null): number
+    interface_find_property(g_iface: TypeInterface, property_name: string): ParamSpec
+    interface_install_property(g_iface: TypeInterface, pspec: ParamSpec): void
+    interface_list_properties(g_iface: TypeInterface): [ /* returnType */ ParamSpec[], /* n_properties_p */ number ]
 }
 export declare var Object: Object_Static
 export interface ParamSpec {
@@ -483,11 +491,11 @@ export interface ParamSpec {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -514,11 +522,11 @@ export interface ParamSpecBoolean {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -544,11 +552,11 @@ export interface ParamSpecBoxed {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -577,11 +585,11 @@ export interface ParamSpecChar {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -611,11 +619,11 @@ export interface ParamSpecDouble {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -643,11 +651,11 @@ export interface ParamSpecEnum {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -675,11 +683,11 @@ export interface ParamSpecFlags {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -709,11 +717,11 @@ export interface ParamSpecFloat {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -740,11 +748,11 @@ export interface ParamSpecGType {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -773,11 +781,11 @@ export interface ParamSpecInt {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -806,11 +814,11 @@ export interface ParamSpecInt64 {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -839,11 +847,11 @@ export interface ParamSpecLong {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -869,11 +877,11 @@ export interface ParamSpecObject {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -898,11 +906,11 @@ export interface ParamSpecOverride {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -928,11 +936,11 @@ export interface ParamSpecParam {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -958,11 +966,11 @@ export interface ParamSpecPointer {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -994,11 +1002,11 @@ export interface ParamSpecString {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -1027,11 +1035,11 @@ export interface ParamSpecUChar {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -1060,11 +1068,11 @@ export interface ParamSpecUInt {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -1093,11 +1101,11 @@ export interface ParamSpecUInt64 {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -1126,11 +1134,11 @@ export interface ParamSpecULong {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -1157,11 +1165,11 @@ export interface ParamSpecUnichar {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -1189,11 +1197,11 @@ export interface ParamSpecValueArray {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -1221,11 +1229,11 @@ export interface ParamSpecVariant {
     get_name(): string
     get_name_quark(): GLib.Quark
     get_nick(): string
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
     get_redirect_target(): ParamSpec
-    set_qdata(quark: GLib.Quark, data: object): void
+    set_qdata(quark: GLib.Quark, data: object | null): void
     sink(): void
-    steal_qdata(quark: GLib.Quark): object
+    steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
     vfunc_finalize(): void
     vfunc_value_set_default(value: Value): void
@@ -1260,9 +1268,10 @@ export interface TypeModule {
     bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: Value[]): void
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: ParamSpec): void
@@ -1271,10 +1280,10 @@ export interface TypeModule {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
@@ -1306,29 +1315,29 @@ export interface CClosure_Static {
     name: string
 }
 export declare class CClosure_Static {
-    marshal_BOOLEAN__BOXED_BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_BOOLEAN__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_STRING__OBJECT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__BOOLEAN(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__CHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__DOUBLE(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__ENUM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__FLOAT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__INT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__LONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__OBJECT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__PARAM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__STRING(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__UCHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__UINT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__UINT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__ULONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__VARIANT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_VOID__VOID(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
-    marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object): void
+    marshal_BOOLEAN__BOXED_BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_BOOLEAN__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_STRING__OBJECT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__BOOLEAN(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__CHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__DOUBLE(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__ENUM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__FLOAT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__INT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__LONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__OBJECT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__PARAM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__STRING(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__UCHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__UINT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__UINT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__ULONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__VARIANT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_VOID__VOID(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
 }
 export declare var CClosure: CClosure_Static
 export interface Closure {
@@ -1338,7 +1347,7 @@ export interface Closure {
     marshal:any
     /* Methods of GObject.Closure */
     invalidate(): void
-    invoke(return_value: Value | null, param_values: Value[], invocation_hint: object | null): void
+    invoke(param_values: Value[], invocation_hint: object | null): /* return_value */ Value | null
     ref(): Closure
     sink(): void
     unref(): void
@@ -1348,7 +1357,7 @@ export interface Closure_Static {
 }
 export declare class Closure_Static {
     new_object(sizeof_closure: number, object: Object): Closure
-    new_simple(sizeof_closure: number, data: object): Closure
+    new_simple(sizeof_closure: number, data: object | null): Closure
 }
 export declare var Closure: Closure_Static
 export interface ClosureNotifyData {
@@ -1488,6 +1497,8 @@ export declare var SignalQuery: SignalQuery_Static
 export interface TypeClass {
     /* Fields of GObject.TypeClass */
     /* Methods of GObject.TypeClass */
+    add_private(private_size: number): void
+    get_private(private_type: number): object | null
     peek_parent(): TypeClass
     unref(): void
 }
@@ -1495,8 +1506,7 @@ export interface TypeClass_Static {
     name: string
 }
 export declare class TypeClass_Static {
-    add_private(g_class: object, private_size: number): void
-    adjust_private_offset(g_class: object, private_size_or_offset: number): void
+    adjust_private_offset(g_class: object | null, private_size_or_offset: number): void
     peek(type: number): TypeClass
     peek_static(type: number): TypeClass
     ref(type: number): TypeClass
@@ -1530,6 +1540,7 @@ export declare var TypeInfo: TypeInfo_Static
 export interface TypeInstance {
     /* Fields of GObject.TypeInstance */
     /* Methods of GObject.TypeInstance */
+    get_private(private_type: number): object | null
 }
 export interface TypeInstance_Static {
     name: string
@@ -1577,6 +1588,7 @@ export interface TypeValueTable {
     value_init:any
     value_free:any
     value_copy:any
+    value_peek_pointer:any
     collect_format:string
     collect_value:any
     lcopy_format:string
@@ -1596,7 +1608,7 @@ export interface Value {
     dup_variant(): GLib.Variant
     fits_pointer(): boolean
     get_boolean(): boolean
-    get_boxed(): object
+    get_boxed(): object | null
     get_char(): number
     get_double(): number
     get_enum(): number
@@ -1608,7 +1620,7 @@ export interface Value {
     get_long(): number
     get_object(): Object
     get_param(): ParamSpec
-    get_pointer(): object
+    get_pointer(): object | null
     get_schar(): number
     get_string(): string
     get_uchar(): number
@@ -1617,8 +1629,8 @@ export interface Value {
     get_ulong(): number
     get_variant(): GLib.Variant
     init(g_type: number): Value
-    init_from_instance(instance: object): void
-    peek_pointer(): object
+    init_from_instance(instance: TypeInstance): void
+    peek_pointer(): object | null
     reset(): Value
     set_boolean(v_boolean: boolean): void
     set_boxed(v_boxed: object | null): void
@@ -1635,7 +1647,7 @@ export interface Value {
     set_long(v_long: number): void
     set_object(v_object: Object | null): void
     set_param(param: ParamSpec | null): void
-    set_pointer(v_pointer: object): void
+    set_pointer(v_pointer: object | null): void
     set_schar(v_char: number): void
     set_static_boxed(v_boxed: object | null): void
     set_static_string(v_string: string | null): void
@@ -1672,7 +1684,7 @@ export interface ValueArray {
     insert(index_: number, value: Value | null): ValueArray
     prepend(value: Value | null): ValueArray
     remove(index_: number): ValueArray
-    sort_with_data(compare_func: GLib.CompareDataFunc, user_data: object): ValueArray
+    sort_with_data(compare_func: GLib.CompareDataFunc, user_data: object | null): ValueArray
 }
 export interface ValueArray_Static {
     name: string
@@ -1717,8 +1729,6 @@ export interface _Value__data__union_Static {
     name: string
 }
 export declare var _Value__data__union: _Value__data__union_Static
-type InitiallyUnowned_autoptr = object
-type Object_autoptr = object
 type SignalCMarshaller = ClosureMarshal
 type SignalCVaMarshaller = any
 type Type = number

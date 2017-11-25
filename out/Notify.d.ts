@@ -26,7 +26,7 @@ export function is_initted(): boolean
 export function set_app_name(app_name: string): void
 export function uninit(): void
 export interface ActionCallback {
-    (notification: Notification, action: string, user_data: object): void
+    (notification: Notification, action: string, user_data: object | null): void
 }
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
     app_name?:string
@@ -47,7 +47,7 @@ export interface Notification {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Notify.Notification */
-    add_action(action: string, label: string, callback: ActionCallback, user_data: object, free_func: GLib.DestroyNotify): void
+    add_action(action: string, label: string, callback: ActionCallback, user_data: object | null, free_func: GLib.DestroyNotify): void
     clear_actions(): void
     clear_hints(): void
     close(): boolean
@@ -56,7 +56,7 @@ export interface Notification {
     set_category(category: string): void
     set_hint(key: string, value: GLib.Variant | null): void
     set_hint_byte(key: string, value: number): void
-    set_hint_byte_array(key: string, value: number, len: number): void
+    set_hint_byte_array(key: string, value: Gjs.byteArray.ByteArray): void
     set_hint_double(key: string, value: number): void
     set_hint_int32(key: string, value: number): void
     set_hint_string(key: string, value: string): void
@@ -72,9 +72,10 @@ export interface Notification {
     bind_property_with_closures(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object
+    get_data(key: string): object | null
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -83,10 +84,10 @@ export interface Notification {
     replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object): void
+    set_data(key: string, data: object | null): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object
-    steal_qdata(quark: GLib.Quark): object
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void

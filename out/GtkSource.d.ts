@@ -442,6 +442,7 @@ export class Buffer {
     connect(sigName: "notify::text", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Buffer_ConstructProps): Buffer
+    constructor (config?: Buffer_ConstructProps)
     static new(table: Gtk.TextTagTable | null): Buffer
     static new_with_language(language: Language): Buffer
 }
@@ -542,6 +543,7 @@ export class Completion {
     connect(sigName: "notify::show-icons", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Completion_ConstructProps): Completion
+    constructor (config?: Completion_ConstructProps)
 }
 export interface CompletionContext_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     activation?:CompletionActivation
@@ -604,6 +606,7 @@ export class CompletionContext {
     connect(sigName: "notify::iter", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: CompletionContext_ConstructProps): CompletionContext
+    constructor (config?: CompletionContext_ConstructProps)
 }
 export interface CompletionInfo_ConstructProps extends Gtk.Window_ConstructProps {
 }
@@ -1389,6 +1392,7 @@ export class CompletionInfo {
     connect(sigName: "notify::window", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: CompletionInfo_ConstructProps): CompletionInfo
+    constructor (config?: CompletionInfo_ConstructProps)
     static new(): CompletionInfo
 }
 export interface CompletionItem_ConstructProps extends GObject.Object_ConstructProps {
@@ -1465,6 +1469,7 @@ export class CompletionItem {
     connect(sigName: "notify::text", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: CompletionItem_ConstructProps): CompletionItem
+    constructor (config?: CompletionItem_ConstructProps)
     static new(label: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
     static new_from_stock(label: string | null, text: string, stock: string, info: string | null): CompletionItem
     static new_with_markup(markup: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
@@ -1542,6 +1547,7 @@ export class CompletionWords {
     connect(sigName: "notify::scan-batch-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: CompletionWords_ConstructProps): CompletionWords
+    constructor (config?: CompletionWords_ConstructProps)
     static new(name: string | null, icon: GdkPixbuf.Pixbuf | null): CompletionWords
 }
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
@@ -1611,6 +1617,7 @@ export class File {
     connect(sigName: "notify::read-only", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: File_ConstructProps): File
+    constructor (config?: File_ConstructProps)
     static new(): File
 }
 export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps {
@@ -1673,6 +1680,7 @@ export class FileLoader {
     connect(sigName: "notify", callback: ((obj: FileLoader, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileLoader_ConstructProps): FileLoader
+    constructor (config?: FileLoader_ConstructProps)
     static new(buffer: Buffer, file: File): FileLoader
     static new_from_stream(buffer: Buffer, file: File, stream: Gio.InputStream): FileLoader
 }
@@ -1750,6 +1758,7 @@ export class FileSaver {
     connect(sigName: "notify::newline-type", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileSaver_ConstructProps): FileSaver
+    constructor (config?: FileSaver_ConstructProps)
     static new(buffer: Buffer, file: File): FileSaver
     static new_with_target(buffer: Buffer, file: File, target_location: Gio.File): FileSaver
 }
@@ -1817,6 +1826,7 @@ export class Gutter {
     connect(sigName: "notify::ypad", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Gutter_ConstructProps): Gutter
+    constructor (config?: Gutter_ConstructProps)
 }
 export interface GutterRenderer_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     alignment_mode?:GutterRendererAlignmentMode
@@ -1934,6 +1944,7 @@ export class GutterRenderer {
     connect(sigName: "notify::ypad", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: GutterRenderer_ConstructProps): GutterRenderer
+    constructor (config?: GutterRenderer_ConstructProps)
 }
 export interface GutterRendererPixbuf_ConstructProps extends GutterRenderer_ConstructProps {
     gicon?:Gio.Icon
@@ -2065,6 +2076,7 @@ export class GutterRendererPixbuf {
     connect(sigName: "notify::ypad", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: GutterRendererPixbuf_ConstructProps): GutterRendererPixbuf
+    constructor (config?: GutterRendererPixbuf_ConstructProps)
     new(): GutterRendererPixbuf
 }
 export interface GutterRendererText_ConstructProps extends GutterRenderer_ConstructProps {
@@ -2187,6 +2199,7 @@ export class GutterRendererText {
     connect(sigName: "notify::ypad", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: GutterRendererText_ConstructProps): GutterRendererText
+    constructor (config?: GutterRendererText_ConstructProps)
     new(): GutterRendererText
 }
 export interface Language_ConstructProps extends GObject.Object_ConstructProps {
@@ -2253,6 +2266,7 @@ export class Language {
     connect(sigName: "notify::section", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Language_ConstructProps): Language
+    constructor (config?: Language_ConstructProps)
 }
 export interface LanguageManager_ConstructProps extends GObject.Object_ConstructProps {
     search_path?:string[]
@@ -2310,6 +2324,7 @@ export class LanguageManager {
     connect(sigName: "notify::search-path", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: LanguageManager_ConstructProps): LanguageManager
+    constructor (config?: LanguageManager_ConstructProps)
     static new(): LanguageManager
     static get_default(): LanguageManager
 }
@@ -3147,6 +3162,7 @@ export class Map {
     connect(sigName: "notify::window", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Map_ConstructProps): Map
+    constructor (config?: Map_ConstructProps)
     new(): Map
 }
 export interface Mark_ConstructProps extends Gtk.TextMark_ConstructProps {
@@ -3208,6 +3224,7 @@ export class Mark {
     connect(sigName: "notify", callback: ((obj: Mark, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Mark_ConstructProps): Mark
+    constructor (config?: Mark_ConstructProps)
     static new(name: string, category: string): Mark
 }
 export interface MarkAttributes_ConstructProps extends GObject.Object_ConstructProps {
@@ -3285,6 +3302,7 @@ export class MarkAttributes {
     connect(sigName: "notify::stock-id", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: MarkAttributes_ConstructProps): MarkAttributes
+    constructor (config?: MarkAttributes_ConstructProps)
     static new(): MarkAttributes
 }
 export interface PrintCompositor_ConstructProps extends GObject.Object_ConstructProps {
@@ -3401,6 +3419,7 @@ export class PrintCompositor {
     connect(sigName: "notify::wrap-mode", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PrintCompositor_ConstructProps): PrintCompositor
+    constructor (config?: PrintCompositor_ConstructProps)
     static new(buffer: Buffer): PrintCompositor
     static new_from_view(view: View): PrintCompositor
 }
@@ -3461,6 +3480,7 @@ export class Region {
     connect(sigName: "notify", callback: ((obj: Region, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Region_ConstructProps): Region
+    constructor (config?: Region_ConstructProps)
     static new(buffer: Gtk.TextBuffer): Region
 }
 export interface SearchContext_ConstructProps extends GObject.Object_ConstructProps {
@@ -3546,6 +3566,7 @@ export class SearchContext {
     connect(sigName: "notify::settings", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SearchContext_ConstructProps): SearchContext
+    constructor (config?: SearchContext_ConstructProps)
     static new(buffer: Buffer, settings: SearchSettings | null): SearchContext
 }
 export interface SearchSettings_ConstructProps extends GObject.Object_ConstructProps {
@@ -3619,6 +3640,7 @@ export class SearchSettings {
     connect(sigName: "notify::wrap-around", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SearchSettings_ConstructProps): SearchSettings
+    constructor (config?: SearchSettings_ConstructProps)
     static new(): SearchSettings
 }
 export interface SpaceDrawer_ConstructProps extends GObject.Object_ConstructProps {
@@ -3680,6 +3702,7 @@ export class SpaceDrawer {
     connect(sigName: "notify::matrix", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SpaceDrawer_ConstructProps): SpaceDrawer
+    constructor (config?: SpaceDrawer_ConstructProps)
     static new(): SpaceDrawer
 }
 export interface Style_ConstructProps extends GObject.Object_ConstructProps {
@@ -3746,6 +3769,7 @@ export class Style {
     connect(sigName: "notify", callback: ((obj: Style, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Style_ConstructProps): Style
+    constructor (config?: Style_ConstructProps)
 }
 export interface StyleScheme_ConstructProps extends GObject.Object_ConstructProps {
     id?:string
@@ -3806,6 +3830,7 @@ export class StyleScheme {
     connect(sigName: "notify::name", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: StyleScheme_ConstructProps): StyleScheme
+    constructor (config?: StyleScheme_ConstructProps)
 }
 export interface StyleSchemeChooserButton_ConstructProps extends Gtk.Button_ConstructProps {
 }
@@ -4457,6 +4482,7 @@ export class StyleSchemeChooserButton {
     connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: StyleSchemeChooserButton_ConstructProps): StyleSchemeChooserButton
+    constructor (config?: StyleSchemeChooserButton_ConstructProps)
     new(): StyleSchemeChooserButton
 }
 export interface StyleSchemeChooserWidget_ConstructProps extends Gtk.Bin_ConstructProps {
@@ -5052,6 +5078,7 @@ export class StyleSchemeChooserWidget {
     connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: StyleSchemeChooserWidget_ConstructProps): StyleSchemeChooserWidget
+    constructor (config?: StyleSchemeChooserWidget_ConstructProps)
     new(): StyleSchemeChooserWidget
 }
 export interface StyleSchemeManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -5112,6 +5139,7 @@ export class StyleSchemeManager {
     connect(sigName: "notify::search-path", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: StyleSchemeManager_ConstructProps): StyleSchemeManager
+    constructor (config?: StyleSchemeManager_ConstructProps)
     static new(): StyleSchemeManager
     static get_default(): StyleSchemeManager
 }
@@ -5323,6 +5351,7 @@ export class Tag {
     connect(sigName: "notify::wrap-mode-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Tag_ConstructProps): Tag
+    constructor (config?: Tag_ConstructProps)
     new(name: string | null): Tag
 }
 export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
@@ -6162,6 +6191,7 @@ export class View {
     connect(sigName: "notify::window", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: View_ConstructProps): View
+    constructor (config?: View_ConstructProps)
     new(): View
     new_with_buffer(buffer: Buffer): View
 }

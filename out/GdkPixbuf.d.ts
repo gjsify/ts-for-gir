@@ -156,6 +156,7 @@ export class Pixbuf {
     connect(sigName: "notify", callback: ((obj: Pixbuf, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Pixbuf_ConstructProps): Pixbuf
+    constructor (config?: Pixbuf_ConstructProps)
     static new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
     static new_from_bytes(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
     static new_from_data(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn: PixbufDestroyNotify | null, destroy_fn_data: object | null): Pixbuf
@@ -226,6 +227,7 @@ export class PixbufAnimation {
     connect(sigName: "notify", callback: ((obj: PixbufAnimation, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PixbufAnimation_ConstructProps): PixbufAnimation
+    constructor (config?: PixbufAnimation_ConstructProps)
     static new_from_file(filename: string): PixbufAnimation
     static new_from_resource(resource_path: string): PixbufAnimation
     static new_from_stream(stream: Gio.InputStream, cancellable: Gio.Cancellable | null): PixbufAnimation
@@ -278,6 +280,7 @@ export class PixbufAnimationIter {
     connect(sigName: "notify", callback: ((obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PixbufAnimationIter_ConstructProps): PixbufAnimationIter
+    constructor (config?: PixbufAnimationIter_ConstructProps)
 }
 export interface PixbufLoader_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -340,6 +343,7 @@ export class PixbufLoader {
     connect(sigName: "notify", callback: ((obj: PixbufLoader, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PixbufLoader_ConstructProps): PixbufLoader
+    constructor (config?: PixbufLoader_ConstructProps)
     static new(): PixbufLoader
     static new_with_mime_type(mime_type: string): PixbufLoader
     static new_with_type(image_type: string): PixbufLoader
@@ -399,6 +403,7 @@ export class PixbufSimpleAnim {
     connect(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
+    constructor (config?: PixbufSimpleAnim_ConstructProps)
     static new(width: number, height: number, rate: number): PixbufSimpleAnim
 }
 export interface PixbufSimpleAnimIter_ConstructProps extends PixbufAnimationIter_ConstructProps {
@@ -447,6 +452,7 @@ export class PixbufSimpleAnimIter {
     connect(sigName: "notify", callback: ((obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PixbufSimpleAnimIter_ConstructProps): PixbufSimpleAnimIter
+    constructor (config?: PixbufSimpleAnimIter_ConstructProps)
 }
 export class PixbufFormat {
     /* Methods of GdkPixbuf.PixbufFormat */

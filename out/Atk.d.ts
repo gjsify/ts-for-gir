@@ -854,6 +854,7 @@ export class GObjectAccessible {
     connect(sigName: "notify::accessible-value", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: GObjectAccessible_ConstructProps): GObjectAccessible
+    constructor (config?: GObjectAccessible_ConstructProps)
     static for_object(obj: GObject.Object): Object
 }
 export interface Hyperlink_ConstructProps extends GObject.Object_ConstructProps {
@@ -929,6 +930,7 @@ export class Hyperlink {
     connect(sigName: "notify::start-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Hyperlink_ConstructProps): Hyperlink
+    constructor (config?: Hyperlink_ConstructProps)
 }
 export interface Misc_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -979,6 +981,7 @@ export class Misc {
     connect(sigName: "notify", callback: ((obj: Misc, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Misc_ConstructProps): Misc
+    constructor (config?: Misc_ConstructProps)
     static get_instance(): Misc
 }
 export interface NoOpObject_ConstructProps extends Object_ConstructProps {
@@ -1117,6 +1120,7 @@ export class NoOpObject {
     connect(sigName: "notify::accessible-value", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: NoOpObject_ConstructProps): NoOpObject
+    constructor (config?: NoOpObject_ConstructProps)
     new(obj: GObject.Object): NoOpObject
 }
 export interface NoOpObjectFactory_ConstructProps extends ObjectFactory_ConstructProps {
@@ -1169,6 +1173,7 @@ export class NoOpObjectFactory {
     connect(sigName: "notify", callback: ((obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: NoOpObjectFactory_ConstructProps): NoOpObjectFactory
+    constructor (config?: NoOpObjectFactory_ConstructProps)
     new(): NoOpObjectFactory
 }
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
@@ -1318,6 +1323,7 @@ export class Object {
     connect(sigName: "notify::accessible-value", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Object_ConstructProps): Object
+    constructor (config?: Object_ConstructProps)
 }
 export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1368,6 +1374,7 @@ export class ObjectFactory {
     connect(sigName: "notify", callback: ((obj: ObjectFactory, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ObjectFactory_ConstructProps): ObjectFactory
+    constructor (config?: ObjectFactory_ConstructProps)
 }
 export interface Plug_ConstructProps extends Object_ConstructProps {
 }
@@ -1509,6 +1516,7 @@ export class Plug {
     connect(sigName: "notify::accessible-value", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Plug_ConstructProps): Plug
+    constructor (config?: Plug_ConstructProps)
     new(): Plug
 }
 export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
@@ -1560,6 +1568,7 @@ export class Registry {
     connect(sigName: "notify", callback: ((obj: Registry, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Registry_ConstructProps): Registry
+    constructor (config?: Registry_ConstructProps)
 }
 export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
     relation_type?:RelationType
@@ -1617,6 +1626,7 @@ export class Relation {
     connect(sigName: "notify::target", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Relation_ConstructProps): Relation
+    constructor (config?: Relation_ConstructProps)
     static new(targets: Object[], n_targets: number, relationship: RelationType): Relation
 }
 export interface RelationSet_ConstructProps extends GObject.Object_ConstructProps {
@@ -1672,6 +1682,7 @@ export class RelationSet {
     connect(sigName: "notify", callback: ((obj: RelationSet, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: RelationSet_ConstructProps): RelationSet
+    constructor (config?: RelationSet_ConstructProps)
     static new(): RelationSet
 }
 export interface Socket_ConstructProps extends Object_ConstructProps {
@@ -1815,6 +1826,7 @@ export class Socket {
     connect(sigName: "notify::accessible-value", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Socket_ConstructProps): Socket
+    constructor (config?: Socket_ConstructProps)
     new(): Socket
 }
 export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
@@ -1871,6 +1883,7 @@ export class StateSet {
     connect(sigName: "notify", callback: ((obj: StateSet, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: StateSet_ConstructProps): StateSet
+    constructor (config?: StateSet_ConstructProps)
     static new(): StateSet
 }
 export interface Util_ConstructProps extends GObject.Object_ConstructProps {
@@ -1916,6 +1929,7 @@ export class Util {
     connect(sigName: "notify", callback: ((obj: Util, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Util_ConstructProps): Util
+    constructor (config?: Util_ConstructProps)
 }
 export class Attribute {
     /* Fields of Atk.Attribute */
@@ -1956,6 +1970,7 @@ export class Range {
     get_upper_limit(): number
     static name: string
     static new(lower_limit: number, upper_limit: number, description: string): Range
+    constructor(lower_limit: number, upper_limit: number, description: string)
     static new(lower_limit: number, upper_limit: number, description: string): Range
 }
 export class Rectangle {

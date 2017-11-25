@@ -3022,6 +3022,7 @@ export class AppLaunchContext {
     connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AppLaunchContext_ConstructProps): AppLaunchContext
+    constructor (config?: AppLaunchContext_ConstructProps)
     static new(): AppLaunchContext
 }
 export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
@@ -3073,6 +3074,7 @@ export class Cursor {
     connect(sigName: "notify", callback: ((obj: Cursor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Cursor_ConstructProps): Cursor
+    constructor (config?: Cursor_ConstructProps)
     static new(cursor_type: CursorType): Cursor
     static new_for_display(display: Display, cursor_type: CursorType): Cursor
     static new_from_name(display: Display, name: string): Cursor | null
@@ -3176,6 +3178,7 @@ export class Device {
     connect(sigName: "notify::tool", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Device_ConstructProps): Device
+    constructor (config?: Device_ConstructProps)
     static grab_info_libgtk_only(display: Display, device: Device): [ /* returnType */ boolean, /* grab_window */ Window, /* owner_events */ boolean ]
 }
 export interface DeviceManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -3229,6 +3232,7 @@ export class DeviceManager {
     connect(sigName: "notify", callback: ((obj: DeviceManager, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DeviceManager_ConstructProps): DeviceManager
+    constructor (config?: DeviceManager_ConstructProps)
 }
 export interface DeviceTool_ConstructProps extends GObject.Object_ConstructProps {
     axes?:AxisFlags
@@ -3280,6 +3284,7 @@ export class DeviceTool {
     connect(sigName: "notify", callback: ((obj: DeviceTool, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DeviceTool_ConstructProps): DeviceTool
+    constructor (config?: DeviceTool_ConstructProps)
 }
 export interface Display_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -3375,6 +3380,7 @@ export class Display {
     connect(sigName: "notify", callback: ((obj: Display, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Display_ConstructProps): Display
+    constructor (config?: Display_ConstructProps)
     static get_default(): Display | null
     static open(display_name: string): Display | null
     static open_default_libgtk_only(): Display | null
@@ -3431,6 +3437,7 @@ export class DisplayManager {
     connect(sigName: "notify::default-display", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DisplayManager_ConstructProps): DisplayManager
+    constructor (config?: DisplayManager_ConstructProps)
     static get(): DisplayManager
 }
 export interface DragContext_ConstructProps extends GObject.Object_ConstructProps {
@@ -3492,6 +3499,7 @@ export class DragContext {
     connect(sigName: "notify", callback: ((obj: DragContext, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DragContext_ConstructProps): DragContext
+    constructor (config?: DragContext_ConstructProps)
 }
 export interface DrawingContext_ConstructProps extends GObject.Object_ConstructProps {
     clip?:cairo.Region
@@ -3542,6 +3550,7 @@ export class DrawingContext {
     connect(sigName: "notify", callback: ((obj: DrawingContext, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DrawingContext_ConstructProps): DrawingContext
+    constructor (config?: DrawingContext_ConstructProps)
 }
 export interface FrameClock_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -3602,6 +3611,7 @@ export class FrameClock {
     connect(sigName: "notify", callback: ((obj: FrameClock, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FrameClock_ConstructProps): FrameClock
+    constructor (config?: FrameClock_ConstructProps)
 }
 export interface GLContext_ConstructProps extends GObject.Object_ConstructProps {
     display?:Display
@@ -3664,6 +3674,7 @@ export class GLContext {
     connect(sigName: "notify", callback: ((obj: GLContext, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: GLContext_ConstructProps): GLContext
+    constructor (config?: GLContext_ConstructProps)
     static clear_current(): void
     static get_current(): GLContext | null
 }
@@ -3726,6 +3737,7 @@ export class Keymap {
     connect(sigName: "notify", callback: ((obj: Keymap, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Keymap_ConstructProps): Keymap
+    constructor (config?: Keymap_ConstructProps)
     static get_default(): Keymap
     static get_for_display(display: Display): Keymap
 }
@@ -3804,6 +3816,7 @@ export class Monitor {
     connect(sigName: "notify::workarea", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Monitor_ConstructProps): Monitor
+    constructor (config?: Monitor_ConstructProps)
 }
 export interface Screen_ConstructProps extends GObject.Object_ConstructProps {
     font_options?:object
@@ -3888,6 +3901,7 @@ export class Screen {
     connect(sigName: "notify::resolution", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Screen_ConstructProps): Screen
+    constructor (config?: Screen_ConstructProps)
     static get_default(): Screen | null
     static height(): number
     static height_mm(): number
@@ -3952,6 +3966,7 @@ export class Seat {
     connect(sigName: "notify", callback: ((obj: Seat, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Seat_ConstructProps): Seat
+    constructor (config?: Seat_ConstructProps)
 }
 export interface Visual_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -4004,6 +4019,7 @@ export class Visual {
     connect(sigName: "notify", callback: ((obj: Visual, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Visual_ConstructProps): Visual
+    constructor (config?: Visual_ConstructProps)
     static get_best(): Visual
     static get_best_depth(): number
     static get_best_type(): VisualType
@@ -4221,6 +4237,7 @@ export class Window {
     connect(sigName: "notify::cursor", callback: ((obj: Window, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Window_ConstructProps): Window
+    constructor (config?: Window_ConstructProps)
     static new(parent: Window | null, attributes: WindowAttr, attributes_mask: WindowAttributesType): Window
     static at_pointer(): [ /* returnType */ Window, /* win_x */ number | null, /* win_y */ number | null ]
     static constrain_size(geometry: Geometry, flags: WindowHints, width: number, height: number): [ /* new_width */ number, /* new_height */ number ]
@@ -4706,6 +4723,7 @@ export class Event {
     triggers_context_menu(): boolean
     static name: string
     static new(type: EventType): Event
+    constructor(type: EventType)
     static new(type: EventType): Event
     static get(): Event | null
     static handler_set(func: EventFunc, data: object | null, notify: GLib.DestroyNotify): void

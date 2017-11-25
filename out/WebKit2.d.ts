@@ -339,6 +339,7 @@ export class AuthenticationRequest {
     connect(sigName: "notify", callback: ((obj: AuthenticationRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AuthenticationRequest_ConstructProps): AuthenticationRequest
+    constructor (config?: AuthenticationRequest_ConstructProps)
 }
 export interface AutomationSession_ConstructProps extends GObject.Object_ConstructProps {
     id?:string
@@ -392,6 +393,7 @@ export class AutomationSession {
     connect(sigName: "notify", callback: ((obj: AutomationSession, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AutomationSession_ConstructProps): AutomationSession
+    constructor (config?: AutomationSession_ConstructProps)
 }
 export interface BackForwardList_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -449,6 +451,7 @@ export class BackForwardList {
     connect(sigName: "notify", callback: ((obj: BackForwardList, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: BackForwardList_ConstructProps): BackForwardList
+    constructor (config?: BackForwardList_ConstructProps)
 }
 export interface BackForwardListItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
@@ -499,6 +502,7 @@ export class BackForwardListItem {
     connect(sigName: "notify", callback: ((obj: BackForwardListItem, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: BackForwardListItem_ConstructProps): BackForwardListItem
+    constructor (config?: BackForwardListItem_ConstructProps)
 }
 export interface ColorChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
     rgba?:Gdk.RGBA
@@ -555,6 +559,7 @@ export class ColorChooserRequest {
     connect(sigName: "notify::rgba", callback: ((obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ColorChooserRequest_ConstructProps): ColorChooserRequest
+    constructor (config?: ColorChooserRequest_ConstructProps)
 }
 export interface ContextMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -614,6 +619,7 @@ export class ContextMenu {
     connect(sigName: "notify", callback: ((obj: ContextMenu, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ContextMenu_ConstructProps): ContextMenu
+    constructor (config?: ContextMenu_ConstructProps)
     static new(): ContextMenu
     static new_with_items(items: GLib.List): ContextMenu
 }
@@ -669,6 +675,7 @@ export class ContextMenuItem {
     connect(sigName: "notify", callback: ((obj: ContextMenuItem, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ContextMenuItem_ConstructProps): ContextMenuItem
+    constructor (config?: ContextMenuItem_ConstructProps)
     static new(action: Gtk.Action): ContextMenuItem
     static new_from_gaction(action: Gio.Action, label: string, target: GLib.Variant | null): ContextMenuItem
     static new_from_stock_action(action: ContextMenuAction): ContextMenuItem
@@ -731,6 +738,7 @@ export class CookieManager {
     connect(sigName: "notify", callback: ((obj: CookieManager, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: CookieManager_ConstructProps): CookieManager
+    constructor (config?: CookieManager_ConstructProps)
 }
 export interface Download_ConstructProps extends GObject.Object_ConstructProps {
     allow_overwrite?:boolean
@@ -806,6 +814,7 @@ export class Download {
     connect(sigName: "notify::response", callback: ((obj: Download, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Download_ConstructProps): Download
+    constructor (config?: Download_ConstructProps)
 }
 export interface EditorState_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -856,6 +865,7 @@ export class EditorState {
     connect(sigName: "notify::typing-attributes", callback: ((obj: EditorState, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: EditorState_ConstructProps): EditorState
+    constructor (config?: EditorState_ConstructProps)
 }
 export interface FaviconDatabase_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -908,6 +918,7 @@ export class FaviconDatabase {
     connect(sigName: "notify", callback: ((obj: FaviconDatabase, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FaviconDatabase_ConstructProps): FaviconDatabase
+    constructor (config?: FaviconDatabase_ConstructProps)
 }
 export interface FileChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -968,6 +979,7 @@ export class FileChooserRequest {
     connect(sigName: "notify::selected-files", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileChooserRequest_ConstructProps): FileChooserRequest
+    constructor (config?: FileChooserRequest_ConstructProps)
 }
 export interface FindController_ConstructProps extends GObject.Object_ConstructProps {
     web_view?:WebView
@@ -1034,6 +1046,7 @@ export class FindController {
     connect(sigName: "notify::text", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FindController_ConstructProps): FindController
+    constructor (config?: FindController_ConstructProps)
 }
 export interface FormSubmissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1081,6 +1094,7 @@ export class FormSubmissionRequest {
     connect(sigName: "notify", callback: ((obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FormSubmissionRequest_ConstructProps): FormSubmissionRequest
+    constructor (config?: FormSubmissionRequest_ConstructProps)
 }
 export interface GeolocationPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1125,6 +1139,7 @@ export class GeolocationPermissionRequest {
     connect(sigName: "notify", callback: ((obj: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: GeolocationPermissionRequest_ConstructProps): GeolocationPermissionRequest
+    constructor (config?: GeolocationPermissionRequest_ConstructProps)
 }
 export interface HitTestResult_ConstructProps extends GObject.Object_ConstructProps {
     context?:number
@@ -1190,6 +1205,7 @@ export class HitTestResult {
     connect(sigName: "notify", callback: ((obj: HitTestResult, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: HitTestResult_ConstructProps): HitTestResult
+    constructor (config?: HitTestResult_ConstructProps)
 }
 export interface InstallMissingMediaPluginsPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1237,6 +1253,7 @@ export class InstallMissingMediaPluginsPermissionRequest {
     connect(sigName: "notify", callback: ((obj: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: InstallMissingMediaPluginsPermissionRequest_ConstructProps): InstallMissingMediaPluginsPermissionRequest
+    constructor (config?: InstallMissingMediaPluginsPermissionRequest_ConstructProps)
 }
 export interface NavigationPolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
@@ -1306,6 +1323,7 @@ export class NavigationPolicyDecision {
     connect(sigName: "notify::request", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: NavigationPolicyDecision_ConstructProps): NavigationPolicyDecision
+    constructor (config?: NavigationPolicyDecision_ConstructProps)
 }
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1370,6 +1388,7 @@ export class Notification {
     connect(sigName: "notify::title", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Notification_ConstructProps): Notification
+    constructor (config?: Notification_ConstructProps)
 }
 export interface NotificationPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1414,6 +1433,7 @@ export class NotificationPermissionRequest {
     connect(sigName: "notify", callback: ((obj: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: NotificationPermissionRequest_ConstructProps): NotificationPermissionRequest
+    constructor (config?: NotificationPermissionRequest_ConstructProps)
 }
 export interface OptionMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1467,6 +1487,7 @@ export class OptionMenu {
     connect(sigName: "notify", callback: ((obj: OptionMenu, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: OptionMenu_ConstructProps): OptionMenu
+    constructor (config?: OptionMenu_ConstructProps)
 }
 export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1517,6 +1538,7 @@ export class Plugin {
     connect(sigName: "notify", callback: ((obj: Plugin, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Plugin_ConstructProps): Plugin
+    constructor (config?: Plugin_ConstructProps)
 }
 export interface PolicyDecision_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1565,6 +1587,7 @@ export class PolicyDecision {
     connect(sigName: "notify", callback: ((obj: PolicyDecision, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PolicyDecision_ConstructProps): PolicyDecision
+    constructor (config?: PolicyDecision_ConstructProps)
 }
 export interface PrintCustomWidget_ConstructProps extends GObject.Object_ConstructProps {
     title?:string
@@ -1622,6 +1645,7 @@ export class PrintCustomWidget {
     connect(sigName: "notify", callback: ((obj: PrintCustomWidget, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PrintCustomWidget_ConstructProps): PrintCustomWidget
+    constructor (config?: PrintCustomWidget_ConstructProps)
     static new(widget: Gtk.Widget, title: string): PrintCustomWidget
 }
 export interface PrintOperation_ConstructProps extends GObject.Object_ConstructProps {
@@ -1687,6 +1711,7 @@ export class PrintOperation {
     connect(sigName: "notify::print-settings", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PrintOperation_ConstructProps): PrintOperation
+    constructor (config?: PrintOperation_ConstructProps)
     static new(web_view: WebView): PrintOperation
 }
 export interface ResponsePolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
@@ -1746,6 +1771,7 @@ export class ResponsePolicyDecision {
     connect(sigName: "notify::response", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ResponsePolicyDecision_ConstructProps): ResponsePolicyDecision
+    constructor (config?: ResponsePolicyDecision_ConstructProps)
 }
 export interface SecurityManager_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1804,6 +1830,7 @@ export class SecurityManager {
     connect(sigName: "notify", callback: ((obj: SecurityManager, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SecurityManager_ConstructProps): SecurityManager
+    constructor (config?: SecurityManager_ConstructProps)
 }
 export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     allow_file_access_from_file_urls?:boolean
@@ -2107,6 +2134,7 @@ export class Settings {
     connect(sigName: "notify::zoom-text-only", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Settings_ConstructProps): Settings
+    constructor (config?: Settings_ConstructProps)
     static new(): Settings
 }
 export interface URIRequest_ConstructProps extends GObject.Object_ConstructProps {
@@ -2161,6 +2189,7 @@ export class URIRequest {
     connect(sigName: "notify::uri", callback: ((obj: URIRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: URIRequest_ConstructProps): URIRequest
+    constructor (config?: URIRequest_ConstructProps)
     static new(uri: string): URIRequest
 }
 export interface URIResponse_ConstructProps extends GObject.Object_ConstructProps {
@@ -2226,6 +2255,7 @@ export class URIResponse {
     connect(sigName: "notify::uri", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: URIResponse_ConstructProps): URIResponse
+    constructor (config?: URIResponse_ConstructProps)
 }
 export interface URISchemeRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -2278,6 +2308,7 @@ export class URISchemeRequest {
     connect(sigName: "notify", callback: ((obj: URISchemeRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: URISchemeRequest_ConstructProps): URISchemeRequest
+    constructor (config?: URISchemeRequest_ConstructProps)
 }
 export interface UserContentManager_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -2331,6 +2362,7 @@ export class UserContentManager {
     connect(sigName: "notify", callback: ((obj: UserContentManager, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UserContentManager_ConstructProps): UserContentManager
+    constructor (config?: UserContentManager_ConstructProps)
     static new(): UserContentManager
 }
 export interface UserMediaPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
@@ -2381,6 +2413,7 @@ export class UserMediaPermissionRequest {
     connect(sigName: "notify::is-for-video-device", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UserMediaPermissionRequest_ConstructProps): UserMediaPermissionRequest
+    constructor (config?: UserMediaPermissionRequest_ConstructProps)
 }
 export interface WebContext_ConstructProps extends GObject.Object_ConstructProps {
     local_storage_directory?:string
@@ -2474,6 +2507,7 @@ export class WebContext {
     connect(sigName: "notify", callback: ((obj: WebContext, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: WebContext_ConstructProps): WebContext
+    constructor (config?: WebContext_ConstructProps)
     static new(): WebContext
     static new_ephemeral(): WebContext
     static new_with_website_data_manager(manager: WebsiteDataManager): WebContext
@@ -2546,6 +2580,7 @@ export class WebInspector {
     connect(sigName: "notify::inspected-uri", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: WebInspector_ConstructProps): WebInspector
+    constructor (config?: WebInspector_ConstructProps)
 }
 export interface WebResource_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -2606,6 +2641,7 @@ export class WebResource {
     connect(sigName: "notify::uri", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: WebResource_ConstructProps): WebResource
+    constructor (config?: WebResource_ConstructProps)
 }
 export interface WebView_ConstructProps extends WebViewBase_ConstructProps {
     editable?:boolean
@@ -3337,6 +3373,7 @@ export class WebView {
     connect(sigName: "notify::window", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: WebView_ConstructProps): WebView
+    constructor (config?: WebView_ConstructProps)
     new(): WebView
     new_with_context(context: WebContext): WebView
     new_with_related_view(web_view: WebView): WebView
@@ -3933,6 +3970,7 @@ export class WebViewBase {
     connect(sigName: "notify::window", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: WebViewBase_ConstructProps): WebViewBase
+    constructor (config?: WebViewBase_ConstructProps)
 }
 export interface WebsiteDataManager_ConstructProps extends GObject.Object_ConstructProps {
     base_cache_directory?:string
@@ -4003,6 +4041,7 @@ export class WebsiteDataManager {
     connect(sigName: "notify", callback: ((obj: WebsiteDataManager, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: WebsiteDataManager_ConstructProps): WebsiteDataManager
+    constructor (config?: WebsiteDataManager_ConstructProps)
     static new_ephemeral(): WebsiteDataManager
 }
 export interface WindowProperties_ConstructProps extends GObject.Object_ConstructProps {
@@ -4066,6 +4105,7 @@ export class WindowProperties {
     connect(sigName: "notify", callback: ((obj: WindowProperties, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: WindowProperties_ConstructProps): WindowProperties
+    constructor (config?: WindowProperties_ConstructProps)
 }
 export class ApplicationInfo {
     /* Methods of WebKit2.ApplicationInfo */
@@ -4077,6 +4117,7 @@ export class ApplicationInfo {
     unref(): void
     static name: string
     static new(): ApplicationInfo
+    constructor()
     static new(): ApplicationInfo
 }
 export class AuthenticationRequestPrivate {
@@ -4113,6 +4154,7 @@ export class Credential {
     has_password(): boolean
     static name: string
     static new(username: string, password: string, persistence: CredentialPersistence): Credential
+    constructor(username: string, password: string, persistence: CredentialPersistence)
     static new(username: string, password: string, persistence: CredentialPersistence): Credential
 }
 export class DownloadPrivate {
@@ -4180,6 +4222,7 @@ export class NetworkProxySettings {
     free(): void
     static name: string
     static new(default_proxy_uri: string | null, ignore_hosts: string | null): NetworkProxySettings
+    constructor(default_proxy_uri: string | null, ignore_hosts: string | null)
     static new(default_proxy_uri: string | null, ignore_hosts: string | null): NetworkProxySettings
 }
 export class NotificationPermissionRequestPrivate {
@@ -4241,6 +4284,7 @@ export class SecurityOrigin {
     unref(): void
     static name: string
     static new(protocol: string, host: string, port: number): SecurityOrigin
+    constructor(protocol: string, host: string, port: number)
     static new(protocol: string, host: string, port: number): SecurityOrigin
     static new_for_uri(uri: string): SecurityOrigin
 }
@@ -4268,6 +4312,7 @@ export class UserScript {
     unref(): void
     static name: string
     static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null): UserScript
+    constructor(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null)
     static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null): UserScript
 }
 export class UserStyleSheet {
@@ -4276,6 +4321,7 @@ export class UserStyleSheet {
     unref(): void
     static name: string
     static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null): UserStyleSheet
+    constructor(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null)
     static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null): UserStyleSheet
 }
 export class WebContextPrivate {
@@ -4300,6 +4346,7 @@ export class WebViewSessionState {
     unref(): void
     static name: string
     static new(data: Gjs.byteArray.ByteArray): WebViewSessionState
+    constructor(data: Gjs.byteArray.ByteArray)
     static new(data: Gjs.byteArray.ByteArray): WebViewSessionState
 }
 export class WebsiteData {

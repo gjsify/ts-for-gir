@@ -156,6 +156,7 @@ export class Indicator {
     connect(sigName: "notify::title", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Indicator_ConstructProps): Indicator
+    constructor (config?: Indicator_ConstructProps)
     static new(id: string, icon_name: string, category: IndicatorCategory): Indicator
     static new_with_path(id: string, icon_name: string, category: IndicatorCategory, icon_theme_path: string): Indicator
 }

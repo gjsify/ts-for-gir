@@ -887,6 +887,7 @@ export class GirModule {
         def.push(`    static name: string`)
         if (isDerivedFromGObject) {
             def.push(`    static new (config?: ${name}_ConstructProps): ${name}`)
+            def.push(`    constructor (config?: ${name}_ConstructProps)`)
         } else {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
@@ -898,6 +899,12 @@ export class GirModule {
                         continue
                     
                     def = def.concat(desc)
+
+                    const jsStyleCtor = desc[0]
+                        .replace("static new", "constructor")
+                        .replace(/:[^:]+$/, "")
+
+                    def = def.concat(jsStyleCtor)
                 }
             }
         }

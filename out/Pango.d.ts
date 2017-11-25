@@ -416,6 +416,7 @@ export class Context {
     connect(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Context_ConstructProps): Context
+    constructor (config?: Context_ConstructProps)
     static new(): Context
 }
 export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
@@ -460,6 +461,7 @@ export class Engine {
     connect(sigName: "notify", callback: ((obj: Engine, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Engine_ConstructProps): Engine
+    constructor (config?: Engine_ConstructProps)
 }
 export interface EngineLang_ConstructProps extends Engine_ConstructProps {
 }
@@ -506,6 +508,7 @@ export class EngineLang {
     connect(sigName: "notify", callback: ((obj: EngineLang, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: EngineLang_ConstructProps): EngineLang
+    constructor (config?: EngineLang_ConstructProps)
 }
 export interface EngineShape_ConstructProps extends Engine_ConstructProps {
 }
@@ -554,6 +557,7 @@ export class EngineShape {
     connect(sigName: "notify", callback: ((obj: EngineShape, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: EngineShape_ConstructProps): EngineShape
+    constructor (config?: EngineShape_ConstructProps)
 }
 export interface Font_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -612,6 +616,7 @@ export class Font {
     connect(sigName: "notify", callback: ((obj: Font, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Font_ConstructProps): Font
+    constructor (config?: Font_ConstructProps)
     static descriptions_free(descs: FontDescription[] | null): void
 }
 export interface FontFace_ConstructProps extends GObject.Object_ConstructProps {
@@ -667,6 +672,7 @@ export class FontFace {
     connect(sigName: "notify", callback: ((obj: FontFace, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FontFace_ConstructProps): FontFace
+    constructor (config?: FontFace_ConstructProps)
 }
 export interface FontFamily_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -719,6 +725,7 @@ export class FontFamily {
     connect(sigName: "notify", callback: ((obj: FontFamily, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FontFamily_ConstructProps): FontFamily
+    constructor (config?: FontFamily_ConstructProps)
 }
 export interface FontMap_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -777,6 +784,7 @@ export class FontMap {
     connect(sigName: "notify", callback: ((obj: FontMap, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FontMap_ConstructProps): FontMap
+    constructor (config?: FontMap_ConstructProps)
 }
 export interface Fontset_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -830,6 +838,7 @@ export class Fontset {
     connect(sigName: "notify", callback: ((obj: Fontset, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Fontset_ConstructProps): Fontset
+    constructor (config?: Fontset_ConstructProps)
 }
 export interface FontsetSimple_ConstructProps extends Fontset_ConstructProps {
 }
@@ -886,6 +895,7 @@ export class FontsetSimple {
     connect(sigName: "notify", callback: ((obj: FontsetSimple, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FontsetSimple_ConstructProps): FontsetSimple
+    constructor (config?: FontsetSimple_ConstructProps)
     static new(language: Language): FontsetSimple
 }
 export interface Layout_ConstructProps extends GObject.Object_ConstructProps {
@@ -986,6 +996,7 @@ export class Layout {
     connect(sigName: "notify", callback: ((obj: Layout, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Layout_ConstructProps): Layout
+    constructor (config?: Layout_ConstructProps)
     static new(context: Context): Layout
 }
 export interface Renderer_ConstructProps extends GObject.Object_ConstructProps {
@@ -1063,6 +1074,7 @@ export class Renderer {
     connect(sigName: "notify", callback: ((obj: Renderer, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Renderer_ConstructProps): Renderer
+    constructor (config?: Renderer_ConstructProps)
 }
 export class Analysis {
     /* Fields of Pango.Analysis */
@@ -1141,6 +1153,7 @@ export class AttrList {
     unref(): void
     static name: string
     static new(): AttrList
+    constructor()
     static new(): AttrList
 }
 export class AttrShape {
@@ -1246,6 +1259,7 @@ export class FontDescription {
     unset_fields(to_unset: FontMask): void
     static name: string
     static new(): FontDescription
+    constructor()
     static new(): FontDescription
     static from_string(str: string): FontDescription
 }
@@ -1264,6 +1278,7 @@ export class FontMetrics {
     unref(): void
     static name: string
     static new(): FontMetrics
+    constructor()
     static new(): FontMetrics
 }
 export class GlyphGeometry {
@@ -1329,6 +1344,7 @@ export class GlyphString {
     x_to_index(text: string, length: number, analysis: Analysis, x_pos: number): [ /* index_ */ number, /* trailing */ number ]
     static name: string
     static new(): GlyphString
+    constructor()
     static new(): GlyphString
 }
 export class GlyphVisAttr {
@@ -1355,6 +1371,7 @@ export class Item {
     split(split_index: number, split_offset: number): Item
     static name: string
     static new(): Item
+    constructor()
     static new(): Item
 }
 export class Language {
@@ -1493,6 +1510,7 @@ export class TabArray {
     set_tab(tab_index: number, alignment: TabAlign, location: number): void
     static name: string
     static new(initial_size: number, positions_in_pixels: boolean): TabArray
+    constructor(initial_size: number, positions_in_pixels: boolean)
     static new(initial_size: number, positions_in_pixels: boolean): TabArray
 }
 type Glyph = number

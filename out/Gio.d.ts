@@ -1841,6 +1841,7 @@ export class AppInfoMonitor {
     connect(sigName: "notify", callback: ((obj: AppInfoMonitor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AppInfoMonitor_ConstructProps): AppInfoMonitor
+    constructor (config?: AppInfoMonitor_ConstructProps)
     static get(): AppInfoMonitor
 }
 export interface AppLaunchContext_ConstructProps extends GObject.Object_ConstructProps {
@@ -1901,6 +1902,7 @@ export class AppLaunchContext {
     connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AppLaunchContext_ConstructProps): AppLaunchContext
+    constructor (config?: AppLaunchContext_ConstructProps)
     static new(): AppLaunchContext
 }
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
@@ -2021,6 +2023,7 @@ export class Application {
     connect(sigName: "notify::resource-base-path", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Application_ConstructProps): Application
+    constructor (config?: Application_ConstructProps)
     static new(application_id: string | null, flags: ApplicationFlags): Application
     static get_default(): Application
     static id_is_valid(application_id: string): boolean
@@ -2089,6 +2092,7 @@ export class ApplicationCommandLine {
     connect(sigName: "notify::is-remote", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ApplicationCommandLine_ConstructProps): ApplicationCommandLine
+    constructor (config?: ApplicationCommandLine_ConstructProps)
 }
 export interface BufferedInputStream_ConstructProps extends FilterInputStream_ConstructProps {
     buffer_size?:number
@@ -2191,6 +2195,7 @@ export class BufferedInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: BufferedInputStream_ConstructProps): BufferedInputStream
+    constructor (config?: BufferedInputStream_ConstructProps)
     new(base_stream: InputStream): BufferedInputStream
     new_sized(base_stream: InputStream, size: number): BufferedInputStream
 }
@@ -2295,6 +2300,7 @@ export class BufferedOutputStream {
     connect(sigName: "notify::buffer-size", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: BufferedOutputStream_ConstructProps): BufferedOutputStream
+    constructor (config?: BufferedOutputStream_ConstructProps)
     new(base_stream: OutputStream): BufferedOutputStream
     new_sized(base_stream: OutputStream, size: number): BufferedOutputStream
 }
@@ -2343,6 +2349,7 @@ export class BytesIcon {
     connect(sigName: "notify", callback: ((obj: BytesIcon, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: BytesIcon_ConstructProps): BytesIcon
+    constructor (config?: BytesIcon_ConstructProps)
     static new(bytes: Gjs.byteArray.ByteArray): BytesIcon
 }
 export interface Cancellable_ConstructProps extends GObject.Object_ConstructProps {
@@ -2404,6 +2411,7 @@ export class Cancellable {
     connect(sigName: "notify", callback: ((obj: Cancellable, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Cancellable_ConstructProps): Cancellable
+    constructor (config?: Cancellable_ConstructProps)
     static new(): Cancellable
     static get_current(): Cancellable | null
 }
@@ -2458,6 +2466,7 @@ export class CharsetConverter {
     connect(sigName: "notify::use-fallback", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: CharsetConverter_ConstructProps): CharsetConverter
+    constructor (config?: CharsetConverter_ConstructProps)
     static new(to_charset: string, from_charset: string): CharsetConverter
 }
 export interface ConverterInputStream_ConstructProps extends FilterInputStream_ConstructProps {
@@ -2547,6 +2556,7 @@ export class ConverterInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ConverterInputStream_ConstructProps): ConverterInputStream
+    constructor (config?: ConverterInputStream_ConstructProps)
     new(base_stream: InputStream, converter: Converter): ConverterInputStream
 }
 export interface ConverterOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
@@ -2641,6 +2651,7 @@ export class ConverterOutputStream {
     connect(sigName: "notify", callback: ((obj: ConverterOutputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ConverterOutputStream_ConstructProps): ConverterOutputStream
+    constructor (config?: ConverterOutputStream_ConstructProps)
     new(base_stream: OutputStream, converter: Converter): ConverterOutputStream
 }
 export interface Credentials_ConstructProps extends GObject.Object_ConstructProps {
@@ -2691,6 +2702,7 @@ export class Credentials {
     connect(sigName: "notify", callback: ((obj: Credentials, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Credentials_ConstructProps): Credentials
+    constructor (config?: Credentials_ConstructProps)
     static new(): Credentials
 }
 export interface DBusActionGroup_ConstructProps extends GObject.Object_ConstructProps {
@@ -2734,6 +2746,7 @@ export class DBusActionGroup {
     connect(sigName: "notify", callback: ((obj: DBusActionGroup, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusActionGroup_ConstructProps): DBusActionGroup
+    constructor (config?: DBusActionGroup_ConstructProps)
     static get(connection: DBusConnection, bus_name: string, object_path: string): DBusActionGroup
 }
 export interface DBusAuthObserver_ConstructProps extends GObject.Object_ConstructProps {
@@ -2783,6 +2796,7 @@ export class DBusAuthObserver {
     connect(sigName: "notify", callback: ((obj: DBusAuthObserver, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusAuthObserver_ConstructProps): DBusAuthObserver
+    constructor (config?: DBusAuthObserver_ConstructProps)
     static new(): DBusAuthObserver
 }
 export interface DBusConnection_ConstructProps extends GObject.Object_ConstructProps {
@@ -2883,6 +2897,7 @@ export class DBusConnection {
     connect(sigName: "notify::unique-name", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusConnection_ConstructProps): DBusConnection
+    constructor (config?: DBusConnection_ConstructProps)
     static new_finish(res: AsyncResult): DBusConnection
     static new_for_address_finish(res: AsyncResult): DBusConnection
     static new_for_address_sync(address: string, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusConnection
@@ -2956,6 +2971,7 @@ export class DBusInterfaceSkeleton {
     connect(sigName: "notify::g-flags", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusInterfaceSkeleton_ConstructProps): DBusInterfaceSkeleton
+    constructor (config?: DBusInterfaceSkeleton_ConstructProps)
 }
 export interface DBusMenuModel_ConstructProps extends MenuModel_ConstructProps {
 }
@@ -3020,6 +3036,7 @@ export class DBusMenuModel {
     connect(sigName: "notify", callback: ((obj: DBusMenuModel, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusMenuModel_ConstructProps): DBusMenuModel
+    constructor (config?: DBusMenuModel_ConstructProps)
     static get(connection: DBusConnection, bus_name: string, object_path: string): DBusMenuModel
 }
 export interface DBusMessage_ConstructProps extends GObject.Object_ConstructProps {
@@ -3109,6 +3126,7 @@ export class DBusMessage {
     connect(sigName: "notify::locked", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusMessage_ConstructProps): DBusMessage
+    constructor (config?: DBusMessage_ConstructProps)
     static new(): DBusMessage
     static new_from_blob(blob: Gjs.byteArray.ByteArray, blob_len: number, capabilities: DBusCapabilityFlags): DBusMessage
     static new_method_call(name: string | null, path: string, interface_: string | null, method: string): DBusMessage
@@ -3171,6 +3189,7 @@ export class DBusMethodInvocation {
     connect(sigName: "notify", callback: ((obj: DBusMethodInvocation, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusMethodInvocation_ConstructProps): DBusMethodInvocation
+    constructor (config?: DBusMethodInvocation_ConstructProps)
 }
 export interface DBusObjectManagerClient_ConstructProps extends GObject.Object_ConstructProps {
     bus_type?:BusType
@@ -3236,6 +3255,7 @@ export class DBusObjectManagerClient {
     connect(sigName: "notify::name-owner", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusObjectManagerClient_ConstructProps): DBusObjectManagerClient
+    constructor (config?: DBusObjectManagerClient_ConstructProps)
     static new_finish(res: AsyncResult): DBusObjectManagerClient
     static new_for_bus_finish(res: AsyncResult): DBusObjectManagerClient
     static new_for_bus_sync(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object | null, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null): DBusObjectManagerClient
@@ -3297,6 +3317,7 @@ export class DBusObjectManagerServer {
     connect(sigName: "notify::connection", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusObjectManagerServer_ConstructProps): DBusObjectManagerServer
+    constructor (config?: DBusObjectManagerServer_ConstructProps)
     static new(object_path: string): DBusObjectManagerServer
 }
 export interface DBusObjectProxy_ConstructProps extends GObject.Object_ConstructProps {
@@ -3346,6 +3367,7 @@ export class DBusObjectProxy {
     connect(sigName: "notify", callback: ((obj: DBusObjectProxy, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusObjectProxy_ConstructProps): DBusObjectProxy
+    constructor (config?: DBusObjectProxy_ConstructProps)
     static new(connection: DBusConnection, object_path: string): DBusObjectProxy
 }
 export interface DBusObjectSkeleton_ConstructProps extends GObject.Object_ConstructProps {
@@ -3404,6 +3426,7 @@ export class DBusObjectSkeleton {
     connect(sigName: "notify::g-object-path", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusObjectSkeleton_ConstructProps): DBusObjectSkeleton
+    constructor (config?: DBusObjectSkeleton_ConstructProps)
     static new(object_path: string): DBusObjectSkeleton
 }
 export interface DBusProxy_ConstructProps extends GObject.Object_ConstructProps {
@@ -3489,6 +3512,7 @@ export class DBusProxy {
     connect(sigName: "notify::g-name-owner", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusProxy_ConstructProps): DBusProxy
+    constructor (config?: DBusProxy_ConstructProps)
     static new_finish(res: AsyncResult): DBusProxy
     static new_for_bus_finish(res: AsyncResult): DBusProxy
     static new_for_bus_sync(bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable: Cancellable | null): DBusProxy
@@ -3555,6 +3579,7 @@ export class DBusServer {
     connect(sigName: "notify::client-address", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusServer_ConstructProps): DBusServer
+    constructor (config?: DBusServer_ConstructProps)
     static new_sync(address: string, flags: DBusServerFlags, guid: string, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusServer
 }
 export interface DataInputStream_ConstructProps extends BufferedInputStream_ConstructProps {
@@ -3687,6 +3712,7 @@ export class DataInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DataInputStream_ConstructProps): DataInputStream
+    constructor (config?: DataInputStream_ConstructProps)
     static new(base_stream: InputStream): DataInputStream
 }
 export interface DataOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
@@ -3792,6 +3818,7 @@ export class DataOutputStream {
     connect(sigName: "notify::byte-order", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DataOutputStream_ConstructProps): DataOutputStream
+    constructor (config?: DataOutputStream_ConstructProps)
     static new(base_stream: OutputStream): DataOutputStream
 }
 export interface DesktopAppInfo_ConstructProps extends GObject.Object_ConstructProps {
@@ -3853,6 +3880,7 @@ export class DesktopAppInfo {
     connect(sigName: "notify", callback: ((obj: DesktopAppInfo, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DesktopAppInfo_ConstructProps): DesktopAppInfo
+    constructor (config?: DesktopAppInfo_ConstructProps)
     static new(desktop_id: string): DesktopAppInfo
     static new_from_filename(filename: string): DesktopAppInfo
     static new_from_keyfile(key_file: GLib.KeyFile): DesktopAppInfo
@@ -3907,6 +3935,7 @@ export class Emblem {
     connect(sigName: "notify", callback: ((obj: Emblem, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Emblem_ConstructProps): Emblem
+    constructor (config?: Emblem_ConstructProps)
     static new(icon: Icon): Emblem
     static new_with_origin(icon: Icon, origin: EmblemOrigin): Emblem
 }
@@ -3960,6 +3989,7 @@ export class EmblemedIcon {
     connect(sigName: "notify", callback: ((obj: EmblemedIcon, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: EmblemedIcon_ConstructProps): EmblemedIcon
+    constructor (config?: EmblemedIcon_ConstructProps)
     static new(icon: Icon, emblem: Emblem | null): EmblemedIcon
 }
 export interface FileEnumerator_ConstructProps extends GObject.Object_ConstructProps {
@@ -4027,6 +4057,7 @@ export class FileEnumerator {
     connect(sigName: "notify", callback: ((obj: FileEnumerator, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileEnumerator_ConstructProps): FileEnumerator
+    constructor (config?: FileEnumerator_ConstructProps)
 }
 export interface FileIOStream_ConstructProps extends IOStream_ConstructProps {
 }
@@ -4111,6 +4142,7 @@ export class FileIOStream {
     connect(sigName: "notify::output-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileIOStream_ConstructProps): FileIOStream
+    constructor (config?: FileIOStream_ConstructProps)
 }
 export interface FileIcon_ConstructProps extends GObject.Object_ConstructProps {
     file?:File
@@ -4157,6 +4189,7 @@ export class FileIcon {
     connect(sigName: "notify", callback: ((obj: FileIcon, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileIcon_ConstructProps): FileIcon
+    constructor (config?: FileIcon_ConstructProps)
     static new(file: File): FileIcon
 }
 export interface FileInfo_ConstructProps extends GObject.Object_ConstructProps {
@@ -4263,6 +4296,7 @@ export class FileInfo {
     connect(sigName: "notify", callback: ((obj: FileInfo, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileInfo_ConstructProps): FileInfo
+    constructor (config?: FileInfo_ConstructProps)
     static new(): FileInfo
 }
 export interface FileInputStream_ConstructProps extends InputStream_ConstructProps {
@@ -4350,6 +4384,7 @@ export class FileInputStream {
     connect(sigName: "notify", callback: ((obj: FileInputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileInputStream_ConstructProps): FileInputStream
+    constructor (config?: FileInputStream_ConstructProps)
 }
 export interface FileMonitor_ConstructProps extends GObject.Object_ConstructProps {
     rate_limit?:number
@@ -4410,6 +4445,7 @@ export class FileMonitor {
     connect(sigName: "notify::rate-limit", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileMonitor_ConstructProps): FileMonitor
+    constructor (config?: FileMonitor_ConstructProps)
 }
 export interface FileOutputStream_ConstructProps extends OutputStream_ConstructProps {
 }
@@ -4507,6 +4543,7 @@ export class FileOutputStream {
     connect(sigName: "notify", callback: ((obj: FileOutputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FileOutputStream_ConstructProps): FileOutputStream
+    constructor (config?: FileOutputStream_ConstructProps)
 }
 export interface FilenameCompleter_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -4557,6 +4594,7 @@ export class FilenameCompleter {
     connect(sigName: "notify", callback: ((obj: FilenameCompleter, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FilenameCompleter_ConstructProps): FilenameCompleter
+    constructor (config?: FilenameCompleter_ConstructProps)
     static new(): FilenameCompleter
 }
 export interface FilterInputStream_ConstructProps extends InputStream_ConstructProps {
@@ -4643,6 +4681,7 @@ export class FilterInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FilterInputStream_ConstructProps): FilterInputStream
+    constructor (config?: FilterInputStream_ConstructProps)
 }
 export interface FilterOutputStream_ConstructProps extends OutputStream_ConstructProps {
     base_stream?:OutputStream
@@ -4733,6 +4772,7 @@ export class FilterOutputStream {
     connect(sigName: "notify", callback: ((obj: FilterOutputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: FilterOutputStream_ConstructProps): FilterOutputStream
+    constructor (config?: FilterOutputStream_ConstructProps)
 }
 export interface IOModule_ConstructProps extends GObject.TypeModule_ConstructProps {
 }
@@ -4795,6 +4835,7 @@ export class IOModule {
     connect(sigName: "notify", callback: ((obj: IOModule, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: IOModule_ConstructProps): IOModule
+    constructor (config?: IOModule_ConstructProps)
     static new(filename: string): IOModule
     static query(): string[]
 }
@@ -4865,6 +4906,7 @@ export class IOStream {
     connect(sigName: "notify::output-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: IOStream_ConstructProps): IOStream
+    constructor (config?: IOStream_ConstructProps)
     static splice_finish(result: AsyncResult): boolean
 }
 export interface InetAddress_ConstructProps extends GObject.Object_ConstructProps {
@@ -4950,6 +4992,7 @@ export class InetAddress {
     connect(sigName: "notify::is-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: InetAddress_ConstructProps): InetAddress
+    constructor (config?: InetAddress_ConstructProps)
     static new_any(family: SocketFamily): InetAddress
     static new_from_bytes(bytes: Gjs.byteArray.ByteArray, family: SocketFamily): InetAddress
     static new_from_string(string: string): InetAddress
@@ -5014,6 +5057,7 @@ export class InetAddressMask {
     connect(sigName: "notify::length", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: InetAddressMask_ConstructProps): InetAddressMask
+    constructor (config?: InetAddressMask_ConstructProps)
     static new(addr: InetAddress, length: number): InetAddressMask
     static new_from_string(mask_string: string): InetAddressMask
 }
@@ -5082,6 +5126,7 @@ export class InetSocketAddress {
     connect(sigName: "notify::family", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: InetSocketAddress_ConstructProps): InetSocketAddress
+    constructor (config?: InetSocketAddress_ConstructProps)
     new(address: InetAddress, port: number): InetSocketAddress
     new_from_string(address: string, port: number): InetSocketAddress
 }
@@ -5158,6 +5203,7 @@ export class InputStream {
     connect(sigName: "notify", callback: ((obj: InputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: InputStream_ConstructProps): InputStream
+    constructor (config?: InputStream_ConstructProps)
 }
 export interface ListStore_ConstructProps extends GObject.Object_ConstructProps {
     item_type?:number
@@ -5210,6 +5256,7 @@ export class ListStore {
     connect(sigName: "notify", callback: ((obj: ListStore, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ListStore_ConstructProps): ListStore
+    constructor (config?: ListStore_ConstructProps)
     static new(item_type: number): ListStore
 }
 export interface MemoryInputStream_ConstructProps extends InputStream_ConstructProps {
@@ -5289,6 +5336,7 @@ export class MemoryInputStream {
     connect(sigName: "notify", callback: ((obj: MemoryInputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: MemoryInputStream_ConstructProps): MemoryInputStream
+    constructor (config?: MemoryInputStream_ConstructProps)
     new(): MemoryInputStream
     new_from_bytes(bytes: Gjs.byteArray.ByteArray): MemoryInputStream
     new_from_data(data: Gjs.byteArray.ByteArray, len: number, destroy: GLib.DestroyNotify | null): MemoryInputStream
@@ -5383,6 +5431,7 @@ export class MemoryOutputStream {
     connect(sigName: "notify::data-size", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: MemoryOutputStream_ConstructProps): MemoryOutputStream
+    constructor (config?: MemoryOutputStream_ConstructProps)
     new_resizable(): MemoryOutputStream
 }
 export interface Menu_ConstructProps extends MenuModel_ConstructProps {
@@ -5464,6 +5513,7 @@ export class Menu {
     connect(sigName: "notify", callback: ((obj: Menu, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Menu_ConstructProps): Menu
+    constructor (config?: Menu_ConstructProps)
     static new(): Menu
 }
 export interface MenuAttributeIter_ConstructProps extends GObject.Object_ConstructProps {
@@ -5517,6 +5567,7 @@ export class MenuAttributeIter {
     connect(sigName: "notify", callback: ((obj: MenuAttributeIter, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: MenuAttributeIter_ConstructProps): MenuAttributeIter
+    constructor (config?: MenuAttributeIter_ConstructProps)
 }
 export interface MenuItem_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -5570,6 +5621,7 @@ export class MenuItem {
     connect(sigName: "notify", callback: ((obj: MenuItem, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: MenuItem_ConstructProps): MenuItem
+    constructor (config?: MenuItem_ConstructProps)
     static new(label: string | null, detailed_action: string | null): MenuItem
     static new_from_model(model: MenuModel, item_index: number): MenuItem
     static new_section(label: string | null, section: MenuModel): MenuItem
@@ -5626,6 +5678,7 @@ export class MenuLinkIter {
     connect(sigName: "notify", callback: ((obj: MenuLinkIter, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: MenuLinkIter_ConstructProps): MenuLinkIter
+    constructor (config?: MenuLinkIter_ConstructProps)
 }
 export interface MenuModel_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -5690,6 +5743,7 @@ export class MenuModel {
     connect(sigName: "notify", callback: ((obj: MenuModel, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: MenuModel_ConstructProps): MenuModel
+    constructor (config?: MenuModel_ConstructProps)
 }
 export interface MountOperation_ConstructProps extends GObject.Object_ConstructProps {
     anonymous?:boolean
@@ -5781,6 +5835,7 @@ export class MountOperation {
     connect(sigName: "notify::username", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: MountOperation_ConstructProps): MountOperation
+    constructor (config?: MountOperation_ConstructProps)
     static new(): MountOperation
 }
 export interface NativeVolumeMonitor_ConstructProps extends VolumeMonitor_ConstructProps {
@@ -5864,6 +5919,7 @@ export class NativeVolumeMonitor {
     connect(sigName: "notify", callback: ((obj: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: NativeVolumeMonitor_ConstructProps): NativeVolumeMonitor
+    constructor (config?: NativeVolumeMonitor_ConstructProps)
 }
 export interface NetworkAddress_ConstructProps extends GObject.Object_ConstructProps {
     hostname?:string
@@ -5916,6 +5972,7 @@ export class NetworkAddress {
     connect(sigName: "notify", callback: ((obj: NetworkAddress, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: NetworkAddress_ConstructProps): NetworkAddress
+    constructor (config?: NetworkAddress_ConstructProps)
     static new(hostname: string, port: number): NetworkAddress
     static new_loopback(port: number): NetworkAddress
     static parse(host_and_port: string, default_port: number): NetworkAddress
@@ -5977,6 +6034,7 @@ export class NetworkService {
     connect(sigName: "notify::scheme", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: NetworkService_ConstructProps): NetworkService
+    constructor (config?: NetworkService_ConstructProps)
     static new(service: string, protocol: string, domain: string): NetworkService
 }
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
@@ -6030,6 +6088,7 @@ export class Notification {
     connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Notification_ConstructProps): Notification
+    constructor (config?: Notification_ConstructProps)
     static new(title: string): Notification
 }
 export interface OutputStream_ConstructProps extends GObject.Object_ConstructProps {
@@ -6112,6 +6171,7 @@ export class OutputStream {
     connect(sigName: "notify", callback: ((obj: OutputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: OutputStream_ConstructProps): OutputStream
+    constructor (config?: OutputStream_ConstructProps)
 }
 export interface Permission_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -6181,6 +6241,7 @@ export class Permission {
     connect(sigName: "notify::can-release", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Permission_ConstructProps): Permission
+    constructor (config?: Permission_ConstructProps)
 }
 export interface PropertyAction_ConstructProps extends GObject.Object_ConstructProps {
     invert_boolean?:boolean
@@ -6236,6 +6297,7 @@ export class PropertyAction {
     connect(sigName: "notify::state-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PropertyAction_ConstructProps): PropertyAction
+    constructor (config?: PropertyAction_ConstructProps)
     static new(name: string, object: GObject.Object, property_name: string): PropertyAction
 }
 export interface ProxyAddress_ConstructProps extends InetSocketAddress_ConstructProps {
@@ -6316,6 +6378,7 @@ export class ProxyAddress {
     connect(sigName: "notify::family", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ProxyAddress_ConstructProps): ProxyAddress
+    constructor (config?: ProxyAddress_ConstructProps)
     new(inetaddr: InetAddress, port: number, protocol: string, dest_hostname: string, dest_port: number, username: string | null, password: string | null): ProxyAddress
 }
 export interface ProxyAddressEnumerator_ConstructProps extends SocketAddressEnumerator_ConstructProps {
@@ -6378,6 +6441,7 @@ export class ProxyAddressEnumerator {
     connect(sigName: "notify::proxy-resolver", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ProxyAddressEnumerator_ConstructProps): ProxyAddressEnumerator
+    constructor (config?: ProxyAddressEnumerator_ConstructProps)
 }
 export interface Resolver_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -6452,6 +6516,7 @@ export class Resolver {
     connect(sigName: "notify", callback: ((obj: Resolver, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Resolver_ConstructProps): Resolver
+    constructor (config?: Resolver_ConstructProps)
     static get_default(): Resolver
 }
 export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
@@ -6558,6 +6623,7 @@ export class Settings {
     connect(sigName: "notify::has-unapplied", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Settings_ConstructProps): Settings
+    constructor (config?: Settings_ConstructProps)
     static new(schema_id: string): Settings
     static new_full(schema: SettingsSchema, backend: SettingsBackend | null, path: string | null): Settings
     static new_with_backend(schema_id: string, backend: SettingsBackend): Settings
@@ -6628,6 +6694,7 @@ export class SettingsBackend {
     connect(sigName: "notify", callback: ((obj: SettingsBackend, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SettingsBackend_ConstructProps): SettingsBackend
+    constructor (config?: SettingsBackend_ConstructProps)
     static flatten_tree(tree: GLib.Tree): [ /* path */ string, /* keys */ string[], /* values */ GLib.Variant[] | null ]
     static get_default(): SettingsBackend
 }
@@ -6690,6 +6757,7 @@ export class SimpleAction {
     connect(sigName: "notify::state-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SimpleAction_ConstructProps): SimpleAction
+    constructor (config?: SimpleAction_ConstructProps)
     static new(name: string, parameter_type: GLib.VariantType | null): SimpleAction
     static new_stateful(name: string, parameter_type: GLib.VariantType | null, state: GLib.Variant): SimpleAction
 }
@@ -6740,6 +6808,7 @@ export class SimpleActionGroup {
     connect(sigName: "notify", callback: ((obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SimpleActionGroup_ConstructProps): SimpleActionGroup
+    constructor (config?: SimpleActionGroup_ConstructProps)
     static new(): SimpleActionGroup
 }
 export interface SimpleAsyncResult_ConstructProps extends GObject.Object_ConstructProps {
@@ -6794,6 +6863,7 @@ export class SimpleAsyncResult {
     connect(sigName: "notify", callback: ((obj: SimpleAsyncResult, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SimpleAsyncResult_ConstructProps): SimpleAsyncResult
+    constructor (config?: SimpleAsyncResult_ConstructProps)
     static new(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, user_data: object | null, source_tag: object | null): SimpleAsyncResult
     static new_from_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, user_data: object | null, error: GLib.Error): SimpleAsyncResult
     static is_valid(result: AsyncResult, source: GObject.Object | null, source_tag: object | null): boolean
@@ -6868,6 +6938,7 @@ export class SimpleIOStream {
     connect(sigName: "notify::output-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SimpleIOStream_ConstructProps): SimpleIOStream
+    constructor (config?: SimpleIOStream_ConstructProps)
     new(input_stream: InputStream, output_stream: OutputStream): SimpleIOStream
 }
 export interface SimplePermission_ConstructProps extends Permission_ConstructProps {
@@ -6938,6 +7009,7 @@ export class SimplePermission {
     connect(sigName: "notify::can-release", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SimplePermission_ConstructProps): SimplePermission
+    constructor (config?: SimplePermission_ConstructProps)
     new(allowed: boolean): SimplePermission
 }
 export interface SimpleProxyResolver_ConstructProps extends GObject.Object_ConstructProps {
@@ -6994,6 +7066,7 @@ export class SimpleProxyResolver {
     connect(sigName: "notify::ignore-hosts", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SimpleProxyResolver_ConstructProps): SimpleProxyResolver
+    constructor (config?: SimpleProxyResolver_ConstructProps)
     static new(default_proxy: string | null, ignore_hosts: string | null): ProxyResolver
 }
 export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
@@ -7126,6 +7199,7 @@ export class Socket {
     connect(sigName: "notify::ttl", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Socket_ConstructProps): Socket
+    constructor (config?: Socket_ConstructProps)
     static new(family: SocketFamily, type: SocketType, protocol: SocketProtocol): Socket
     static new_from_fd(fd: number): Socket
 }
@@ -7183,6 +7257,7 @@ export class SocketAddress {
     connect(sigName: "notify::family", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SocketAddress_ConstructProps): SocketAddress
+    constructor (config?: SocketAddress_ConstructProps)
     static new_from_native(native: object, len: number): SocketAddress
 }
 export interface SocketAddressEnumerator_ConstructProps extends GObject.Object_ConstructProps {
@@ -7236,6 +7311,7 @@ export class SocketAddressEnumerator {
     connect(sigName: "notify", callback: ((obj: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SocketAddressEnumerator_ConstructProps): SocketAddressEnumerator
+    constructor (config?: SocketAddressEnumerator_ConstructProps)
 }
 export interface SocketClient_ConstructProps extends GObject.Object_ConstructProps {
     enable_proxy?:boolean
@@ -7345,6 +7421,7 @@ export class SocketClient {
     connect(sigName: "notify::type", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SocketClient_ConstructProps): SocketClient
+    constructor (config?: SocketClient_ConstructProps)
     static new(): SocketClient
 }
 export interface SocketConnection_ConstructProps extends IOStream_ConstructProps {
@@ -7426,6 +7503,7 @@ export class SocketConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SocketConnection_ConstructProps): SocketConnection
+    constructor (config?: SocketConnection_ConstructProps)
     static factory_lookup_type(family: SocketFamily, type: SocketType, protocol_id: number): number
     static factory_register_type(g_type: number, family: SocketFamily, type: SocketType, protocol: number): void
 }
@@ -7483,6 +7561,7 @@ export class SocketControlMessage {
     connect(sigName: "notify", callback: ((obj: SocketControlMessage, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SocketControlMessage_ConstructProps): SocketControlMessage
+    constructor (config?: SocketControlMessage_ConstructProps)
     static deserialize(level: number, type: number, data: Gjs.byteArray.ByteArray): SocketControlMessage
 }
 export interface SocketListener_ConstructProps extends GObject.Object_ConstructProps {
@@ -7551,6 +7630,7 @@ export class SocketListener {
     connect(sigName: "notify::listen-backlog", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SocketListener_ConstructProps): SocketListener
+    constructor (config?: SocketListener_ConstructProps)
     static new(): SocketListener
 }
 export interface SocketService_ConstructProps extends SocketListener_ConstructProps {
@@ -7631,6 +7711,7 @@ export class SocketService {
     connect(sigName: "notify::listen-backlog", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SocketService_ConstructProps): SocketService
+    constructor (config?: SocketService_ConstructProps)
     static new(): SocketService
 }
 export interface Subprocess_ConstructProps extends GObject.Object_ConstructProps {
@@ -7702,6 +7783,7 @@ export class Subprocess {
     connect(sigName: "notify", callback: ((obj: Subprocess, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Subprocess_ConstructProps): Subprocess
+    constructor (config?: Subprocess_ConstructProps)
     static newv(argv: string[], flags: SubprocessFlags): Subprocess
 }
 export interface SubprocessLauncher_ConstructProps extends GObject.Object_ConstructProps {
@@ -7763,6 +7845,7 @@ export class SubprocessLauncher {
     connect(sigName: "notify", callback: ((obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SubprocessLauncher_ConstructProps): SubprocessLauncher
+    constructor (config?: SubprocessLauncher_ConstructProps)
     static new(flags: SubprocessFlags): SubprocessLauncher
 }
 export interface Task_ConstructProps extends GObject.Object_ConstructProps {
@@ -7833,6 +7916,7 @@ export class Task {
     connect(sigName: "notify::completed", callback: ((obj: Task, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Task_ConstructProps): Task
+    constructor (config?: Task_ConstructProps)
     static new(source_object: GObject.Object | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, callback_data: object | null): Task
     static is_valid(result: AsyncResult, source_object: GObject.Object | null): boolean
     static report_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, callback_data: object | null, source_tag: object | null, error: GLib.Error): void
@@ -7923,6 +8007,7 @@ export class TcpConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: TcpConnection_ConstructProps): TcpConnection
+    constructor (config?: TcpConnection_ConstructProps)
 }
 export interface TcpWrapperConnection_ConstructProps extends TcpConnection_ConstructProps {
     base_io_stream?:IOStream
@@ -8014,6 +8099,7 @@ export class TcpWrapperConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: TcpWrapperConnection_ConstructProps): TcpWrapperConnection
+    constructor (config?: TcpWrapperConnection_ConstructProps)
     new(base_io_stream: IOStream, socket: Socket): TcpWrapperConnection
 }
 export interface TestDBus_ConstructProps extends GObject.Object_ConstructProps {
@@ -8066,6 +8152,7 @@ export class TestDBus {
     connect(sigName: "notify", callback: ((obj: TestDBus, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: TestDBus_ConstructProps): TestDBus
+    constructor (config?: TestDBus_ConstructProps)
     static new(flags: TestDBusFlags): TestDBus
     static unset(): void
 }
@@ -8118,6 +8205,7 @@ export class ThemedIcon {
     connect(sigName: "notify", callback: ((obj: ThemedIcon, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ThemedIcon_ConstructProps): ThemedIcon
+    constructor (config?: ThemedIcon_ConstructProps)
     static new(iconname: string): ThemedIcon
     static new_from_names(iconnames: string[], len: number): ThemedIcon
     static new_with_default_fallbacks(iconname: string): ThemedIcon
@@ -8206,6 +8294,7 @@ export class ThreadedSocketService {
     connect(sigName: "notify::listen-backlog", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ThreadedSocketService_ConstructProps): ThreadedSocketService
+    constructor (config?: ThreadedSocketService_ConstructProps)
     new(max_threads: number): ThreadedSocketService
 }
 export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructProps {
@@ -8264,6 +8353,7 @@ export class TlsCertificate {
     connect(sigName: "notify", callback: ((obj: TlsCertificate, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: TlsCertificate_ConstructProps): TlsCertificate
+    constructor (config?: TlsCertificate_ConstructProps)
     static new_from_file(file: string): TlsCertificate
     static new_from_files(cert_file: string, key_file: string): TlsCertificate
     static new_from_pem(data: string, length: number): TlsCertificate
@@ -8388,6 +8478,7 @@ export class TlsConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: TlsConnection_ConstructProps): TlsConnection
+    constructor (config?: TlsConnection_ConstructProps)
 }
 export interface TlsDatabase_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -8461,6 +8552,7 @@ export class TlsDatabase {
     connect(sigName: "notify", callback: ((obj: TlsDatabase, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: TlsDatabase_ConstructProps): TlsDatabase
+    constructor (config?: TlsDatabase_ConstructProps)
 }
 export interface TlsInteraction_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -8520,6 +8612,7 @@ export class TlsInteraction {
     connect(sigName: "notify", callback: ((obj: TlsInteraction, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: TlsInteraction_ConstructProps): TlsInteraction
+    constructor (config?: TlsInteraction_ConstructProps)
 }
 export interface TlsPassword_ConstructProps extends GObject.Object_ConstructProps {
     description?:string
@@ -8589,6 +8682,7 @@ export class TlsPassword {
     connect(sigName: "notify::warning", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: TlsPassword_ConstructProps): TlsPassword
+    constructor (config?: TlsPassword_ConstructProps)
     static new(flags: TlsPasswordFlags, description: string): TlsPassword
 }
 export interface UnixConnection_ConstructProps extends SocketConnection_ConstructProps {
@@ -8679,6 +8773,7 @@ export class UnixConnection {
     connect(sigName: "notify::output-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UnixConnection_ConstructProps): UnixConnection
+    constructor (config?: UnixConnection_ConstructProps)
 }
 export interface UnixCredentialsMessage_ConstructProps extends SocketControlMessage_ConstructProps {
     credentials?:Credentials
@@ -8739,6 +8834,7 @@ export class UnixCredentialsMessage {
     connect(sigName: "notify", callback: ((obj: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UnixCredentialsMessage_ConstructProps): UnixCredentialsMessage
+    constructor (config?: UnixCredentialsMessage_ConstructProps)
     new(): UnixCredentialsMessage
     new_with_credentials(credentials: Credentials): UnixCredentialsMessage
     static is_supported(): boolean
@@ -8793,6 +8889,7 @@ export class UnixFDList {
     connect(sigName: "notify", callback: ((obj: UnixFDList, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UnixFDList_ConstructProps): UnixFDList
+    constructor (config?: UnixFDList_ConstructProps)
     static new(): UnixFDList
     static new_from_array(fds: number[], n_fds: number): UnixFDList
 }
@@ -8857,6 +8954,7 @@ export class UnixFDMessage {
     connect(sigName: "notify", callback: ((obj: UnixFDMessage, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UnixFDMessage_ConstructProps): UnixFDMessage
+    constructor (config?: UnixFDMessage_ConstructProps)
     new(): UnixFDMessage
     new_with_fd_list(fd_list: UnixFDList): UnixFDMessage
 }
@@ -8943,6 +9041,7 @@ export class UnixInputStream {
     connect(sigName: "notify::close-fd", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UnixInputStream_ConstructProps): UnixInputStream
+    constructor (config?: UnixInputStream_ConstructProps)
     new(fd: number, close_fd: boolean): UnixInputStream
 }
 export interface UnixMountMonitor_ConstructProps extends GObject.Object_ConstructProps {
@@ -8991,6 +9090,7 @@ export class UnixMountMonitor {
     connect(sigName: "notify", callback: ((obj: UnixMountMonitor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UnixMountMonitor_ConstructProps): UnixMountMonitor
+    constructor (config?: UnixMountMonitor_ConstructProps)
     static new(): UnixMountMonitor
     static get(): UnixMountMonitor
 }
@@ -9084,6 +9184,7 @@ export class UnixOutputStream {
     connect(sigName: "notify::close-fd", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UnixOutputStream_ConstructProps): UnixOutputStream
+    constructor (config?: UnixOutputStream_ConstructProps)
     new(fd: number, close_fd: boolean): UnixOutputStream
 }
 export interface UnixSocketAddress_ConstructProps extends SocketAddress_ConstructProps {
@@ -9151,6 +9252,7 @@ export class UnixSocketAddress {
     connect(sigName: "notify::family", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: UnixSocketAddress_ConstructProps): UnixSocketAddress
+    constructor (config?: UnixSocketAddress_ConstructProps)
     new(path: string): UnixSocketAddress
     new_abstract(path: number[], path_len: number): UnixSocketAddress
     new_with_type(path: number[], path_len: number, type: UnixSocketAddressType): UnixSocketAddress
@@ -9218,6 +9320,7 @@ export class Vfs {
     connect(sigName: "notify", callback: ((obj: Vfs, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Vfs_ConstructProps): Vfs
+    constructor (config?: Vfs_ConstructProps)
     static get_default(): Vfs
     static get_local(): Vfs
 }
@@ -9301,6 +9404,7 @@ export class VolumeMonitor {
     connect(sigName: "notify", callback: ((obj: VolumeMonitor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: VolumeMonitor_ConstructProps): VolumeMonitor
+    constructor (config?: VolumeMonitor_ConstructProps)
     static adopt_orphan_mount(mount: Mount): Volume
     static get(): VolumeMonitor
 }
@@ -9354,6 +9458,7 @@ export class ZlibCompressor {
     connect(sigName: "notify::file-info", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ZlibCompressor_ConstructProps): ZlibCompressor
+    constructor (config?: ZlibCompressor_ConstructProps)
     static new(format: ZlibCompressorFormat, level: number): ZlibCompressor
 }
 export interface ZlibDecompressor_ConstructProps extends GObject.Object_ConstructProps {
@@ -9403,6 +9508,7 @@ export class ZlibDecompressor {
     connect(sigName: "notify::file-info", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ZlibDecompressor_ConstructProps): ZlibDecompressor
+    constructor (config?: ZlibDecompressor_ConstructProps)
     static new(format: ZlibCompressorFormat): ZlibDecompressor
 }
 export class ActionEntry {
@@ -9595,6 +9701,7 @@ export class FileAttributeInfoList {
     unref(): void
     static name: string
     static new(): FileAttributeInfoList
+    constructor()
     static new(): FileAttributeInfoList
 }
 export class FileAttributeMatcher {
@@ -9609,6 +9716,7 @@ export class FileAttributeMatcher {
     unref(): void
     static name: string
     static new(attributes: string): FileAttributeMatcher
+    constructor(attributes: string)
     static new(attributes: string): FileAttributeMatcher
 }
 export class FileEnumeratorPrivate {
@@ -9838,6 +9946,7 @@ export class SrvTarget {
     get_weight(): number
     static name: string
     static new(hostname: string, port: number, priority: number, weight: number): SrvTarget
+    constructor(hostname: string, port: number, priority: number, weight: number)
     static new(hostname: string, port: number, priority: number, weight: number): SrvTarget
 }
 export class StaticResource {

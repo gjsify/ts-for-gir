@@ -666,6 +666,7 @@ export class Address {
     connect(sigName: "notify::physical", callback: ((obj: Address, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Address_ConstructProps): Address
+    constructor (config?: Address_ConstructProps)
     static new(name: string, port: number): Address
     static new_any(family: AddressFamily, port: number): Address | null
     static new_from_sockaddr(sa: object | null, len: number): Address | null
@@ -750,6 +751,7 @@ export class Auth {
     connect(sigName: "notify::scheme-name", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Auth_ConstructProps): Auth
+    constructor (config?: Auth_ConstructProps)
     static new(type: number, msg: Message, auth_header: string): Auth | null
 }
 export interface AuthBasic_ConstructProps extends Auth_ConstructProps {
@@ -829,6 +831,7 @@ export class AuthBasic {
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AuthBasic_ConstructProps): AuthBasic
+    constructor (config?: AuthBasic_ConstructProps)
 }
 export interface AuthDigest_ConstructProps extends Auth_ConstructProps {
 }
@@ -907,6 +910,7 @@ export class AuthDigest {
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AuthDigest_ConstructProps): AuthDigest
+    constructor (config?: AuthDigest_ConstructProps)
 }
 export interface AuthDomain_ConstructProps extends GObject.Object_ConstructProps {
     add_path?:string
@@ -987,6 +991,7 @@ export class AuthDomain {
     connect(sigName: "notify::remove-path", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AuthDomain_ConstructProps): AuthDomain
+    constructor (config?: AuthDomain_ConstructProps)
 }
 export interface AuthDomainBasic_ConstructProps extends AuthDomain_ConstructProps {
     auth_callback?:object
@@ -1067,6 +1072,7 @@ export class AuthDomainBasic {
     connect(sigName: "notify::remove-path", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AuthDomainBasic_ConstructProps): AuthDomainBasic
+    constructor (config?: AuthDomainBasic_ConstructProps)
 }
 export interface AuthDomainDigest_ConstructProps extends AuthDomain_ConstructProps {
     auth_callback?:object
@@ -1147,6 +1153,7 @@ export class AuthDomainDigest {
     connect(sigName: "notify::remove-path", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AuthDomainDigest_ConstructProps): AuthDomainDigest
+    constructor (config?: AuthDomainDigest_ConstructProps)
     static encode_password(username: string, realm: string, password: string): string
 }
 export interface AuthManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -1200,6 +1207,7 @@ export class AuthManager {
     connect(sigName: "notify", callback: ((obj: AuthManager, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AuthManager_ConstructProps): AuthManager
+    constructor (config?: AuthManager_ConstructProps)
 }
 export interface AuthNTLM_ConstructProps extends Auth_ConstructProps {
 }
@@ -1278,6 +1286,7 @@ export class AuthNTLM {
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AuthNTLM_ConstructProps): AuthNTLM
+    constructor (config?: AuthNTLM_ConstructProps)
 }
 export interface AuthNegotiate_ConstructProps extends Auth_ConstructProps {
 }
@@ -1356,6 +1365,7 @@ export class AuthNegotiate {
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: AuthNegotiate_ConstructProps): AuthNegotiate
+    constructor (config?: AuthNegotiate_ConstructProps)
     static supported(): boolean
 }
 export interface Cache_ConstructProps extends GObject.Object_ConstructProps {
@@ -1414,6 +1424,7 @@ export class Cache {
     connect(sigName: "notify", callback: ((obj: Cache, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Cache_ConstructProps): Cache
+    constructor (config?: Cache_ConstructProps)
     static new(cache_dir: string | null, cache_type: CacheType): Cache
 }
 export interface ContentDecoder_ConstructProps extends GObject.Object_ConstructProps {
@@ -1460,6 +1471,7 @@ export class ContentDecoder {
     connect(sigName: "notify", callback: ((obj: ContentDecoder, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ContentDecoder_ConstructProps): ContentDecoder
+    constructor (config?: ContentDecoder_ConstructProps)
 }
 export interface ContentSniffer_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -1511,6 +1523,7 @@ export class ContentSniffer {
     connect(sigName: "notify", callback: ((obj: ContentSniffer, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ContentSniffer_ConstructProps): ContentSniffer
+    constructor (config?: ContentSniffer_ConstructProps)
     static new(): ContentSniffer
 }
 export interface CookieJar_ConstructProps extends GObject.Object_ConstructProps {
@@ -1580,6 +1593,7 @@ export class CookieJar {
     connect(sigName: "notify::accept-policy", callback: ((obj: CookieJar, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: CookieJar_ConstructProps): CookieJar
+    constructor (config?: CookieJar_ConstructProps)
     static new(): CookieJar
 }
 export interface CookieJarDB_ConstructProps extends CookieJar_ConstructProps {
@@ -1650,6 +1664,7 @@ export class CookieJarDB {
     connect(sigName: "notify::accept-policy", callback: ((obj: CookieJarDB, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: CookieJarDB_ConstructProps): CookieJarDB
+    constructor (config?: CookieJarDB_ConstructProps)
     new(filename: string, read_only: boolean): CookieJarDB
 }
 export interface CookieJarText_ConstructProps extends CookieJar_ConstructProps {
@@ -1720,6 +1735,7 @@ export class CookieJarText {
     connect(sigName: "notify::accept-policy", callback: ((obj: CookieJarText, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: CookieJarText_ConstructProps): CookieJarText
+    constructor (config?: CookieJarText_ConstructProps)
     new(filename: string, read_only: boolean): CookieJarText
 }
 export interface Logger_ConstructProps extends GObject.Object_ConstructProps {
@@ -1778,6 +1794,7 @@ export class Logger {
     connect(sigName: "notify::max-body-size", callback: ((obj: Logger, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Logger_ConstructProps): Logger
+    constructor (config?: Logger_ConstructProps)
     static new(level: LoggerLogLevel, max_body_size: number): Logger
 }
 export interface Message_ConstructProps extends GObject.Object_ConstructProps {
@@ -1929,6 +1946,7 @@ export class Message {
     connect(sigName: "notify::uri", callback: ((obj: Message, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Message_ConstructProps): Message
+    constructor (config?: Message_ConstructProps)
     static new(method: string, uri_string: string): Message | null
     static new_from_uri(method: string, uri: URI): Message
 }
@@ -2022,6 +2040,7 @@ export class MultipartInputStream {
     connect(sigName: "notify::close-base-stream", callback: ((obj: MultipartInputStream, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: MultipartInputStream_ConstructProps): MultipartInputStream
+    constructor (config?: MultipartInputStream_ConstructProps)
     static new(msg: Message, base_stream: Gio.InputStream): MultipartInputStream
 }
 export interface ProxyResolverDefault_ConstructProps extends GObject.Object_ConstructProps {
@@ -2071,6 +2090,7 @@ export class ProxyResolverDefault {
     connect(sigName: "notify::gproxy-resolver", callback: ((obj: ProxyResolverDefault, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: ProxyResolverDefault_ConstructProps): ProxyResolverDefault
+    constructor (config?: ProxyResolverDefault_ConstructProps)
 }
 export interface Request_ConstructProps extends GObject.Object_ConstructProps {
     session?:Session
@@ -2134,6 +2154,7 @@ export class Request {
     connect(sigName: "notify", callback: ((obj: Request, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Request_ConstructProps): Request
+    constructor (config?: Request_ConstructProps)
 }
 export interface RequestData_ConstructProps extends Request_ConstructProps {
 }
@@ -2196,6 +2217,7 @@ export class RequestData {
     connect(sigName: "notify", callback: ((obj: RequestData, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: RequestData_ConstructProps): RequestData
+    constructor (config?: RequestData_ConstructProps)
 }
 export interface RequestFile_ConstructProps extends Request_ConstructProps {
 }
@@ -2260,6 +2282,7 @@ export class RequestFile {
     connect(sigName: "notify", callback: ((obj: RequestFile, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: RequestFile_ConstructProps): RequestFile
+    constructor (config?: RequestFile_ConstructProps)
 }
 export interface RequestHTTP_ConstructProps extends Request_ConstructProps {
 }
@@ -2324,6 +2347,7 @@ export class RequestHTTP {
     connect(sigName: "notify", callback: ((obj: RequestHTTP, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: RequestHTTP_ConstructProps): RequestHTTP
+    constructor (config?: RequestHTTP_ConstructProps)
 }
 export interface Requester_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -2372,6 +2396,7 @@ export class Requester {
     connect(sigName: "notify", callback: ((obj: Requester, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Requester_ConstructProps): Requester
+    constructor (config?: Requester_ConstructProps)
     static new(): Requester
 }
 export interface Server_ConstructProps extends GObject.Object_ConstructProps {
@@ -2470,6 +2495,7 @@ export class Server {
     connect(sigName: "notify::server-header", callback: ((obj: Server, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Server_ConstructProps): Server
+    constructor (config?: Server_ConstructProps)
 }
 export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     accept_language?:string
@@ -2619,6 +2645,7 @@ export class Session {
     connect(sigName: "notify::user-agent", callback: ((obj: Session, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Session_ConstructProps): Session
+    constructor (config?: Session_ConstructProps)
     static new(): Session
 }
 export interface SessionAsync_ConstructProps extends Session_ConstructProps {
@@ -2750,6 +2777,7 @@ export class SessionAsync {
     connect(sigName: "notify::user-agent", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SessionAsync_ConstructProps): SessionAsync
+    constructor (config?: SessionAsync_ConstructProps)
     new(): SessionAsync
 }
 export interface SessionSync_ConstructProps extends Session_ConstructProps {
@@ -2881,6 +2909,7 @@ export class SessionSync {
     connect(sigName: "notify::user-agent", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SessionSync_ConstructProps): SessionSync
+    constructor (config?: SessionSync_ConstructProps)
     new(): SessionSync
 }
 export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
@@ -2982,6 +3011,7 @@ export class Socket {
     connect(sigName: "notify::trusted-certificate", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Socket_ConstructProps): Socket
+    constructor (config?: Socket_ConstructProps)
 }
 export interface WebsocketConnection_ConstructProps extends GObject.Object_ConstructProps {
     connection_type?:WebsocketConnectionType
@@ -3068,6 +3098,7 @@ export class WebsocketConnection {
     connect(sigName: "notify::state", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: WebsocketConnection_ConstructProps): WebsocketConnection
+    constructor (config?: WebsocketConnection_ConstructProps)
     static new(stream: Gio.IOStream, uri: URI, type: WebsocketConnectionType, origin: string | null, protocol: string | null): WebsocketConnection
 }
 export class AuthManagerPrivate {
@@ -3147,6 +3178,7 @@ export class Cookie {
     to_set_cookie_header(): string
     static name: string
     static new(name: string, value: string, domain: string, path: string, max_age: number): Cookie
+    constructor(name: string, value: string, domain: string, path: string, max_age: number)
     static new(name: string, value: string, domain: string, path: string, max_age: number): Cookie
     static parse(header: string, origin: URI): Cookie | null
 }
@@ -3177,6 +3209,7 @@ export class Date {
     to_timeval(): /* time */ GLib.TimeVal
     static name: string
     static new(year: number, month: number, day: number, hour: number, minute: number, second: number): Date
+    constructor(year: number, month: number, day: number, hour: number, minute: number, second: number)
     static new(year: number, month: number, day: number, hour: number, minute: number, second: number): Date
     static new_from_now(offset_seconds: number): Date
     static new_from_string(date_string: string): Date | null
@@ -3200,6 +3233,7 @@ export class MessageBody {
     wrote_chunk(chunk: Buffer): void
     static name: string
     static new(): MessageBody
+    constructor()
     static new(): MessageBody
 }
 export class MessageHeaders {
@@ -3235,6 +3269,7 @@ export class MessageHeaders {
     set_ranges(ranges: Range, length: number): void
     static name: string
     static new(type: MessageHeadersType): MessageHeaders
+    constructor(type: MessageHeadersType)
     static new(type: MessageHeadersType): MessageHeaders
 }
 export class MessageHeadersIter {
@@ -3261,6 +3296,7 @@ export class Multipart {
     to_message(dest_headers: MessageHeaders, dest_body: MessageBody): void
     static name: string
     static new(mime_type: string): Multipart
+    constructor(mime_type: string)
     static new(mime_type: string): Multipart
     static new_from_message(headers: MessageHeaders, body: MessageBody): Multipart | null
 }
@@ -3327,6 +3363,7 @@ export class URI {
     uses_default_port(): boolean
     static name: string
     static new(uri_string: string | null): URI | null
+    constructor(uri_string: string | null)
     static new(uri_string: string | null): URI | null
     static decode(part: string): string
     static encode(part: string, escape_extra: string | null): string

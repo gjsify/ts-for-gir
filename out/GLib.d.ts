@@ -1625,6 +1625,7 @@ export class Bytes {
     unref_to_data(): [ /* returnType */ Gjs.byteArray.ByteArray, /* size */ number ]
     static name: string
     static new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
+    constructor(data: Gjs.byteArray.ByteArray | null, size: number)
     static new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
     static new_take(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
 }
@@ -1637,6 +1638,7 @@ export class Checksum {
     update(data: Gjs.byteArray.ByteArray): void
     static name: string
     static new(checksum_type: ChecksumType): Checksum
+    constructor(checksum_type: ChecksumType)
     static new(checksum_type: ChecksumType): Checksum
     static type_get_length(checksum_type: ChecksumType): number
 }
@@ -1699,6 +1701,7 @@ export class Date {
     valid(): boolean
     static name: string
     static new(): Date
+    constructor()
     static new(): Date
     static new_dmy(day: DateDay, month: DateMonth, year: DateYear): Date
     static new_julian(julian_day: number): Date
@@ -1752,6 +1755,7 @@ export class DateTime {
     unref(): void
     static name: string
     static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    constructor(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number)
     static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
     static new_from_timeval_local(tv: TimeVal): DateTime
     static new_from_timeval_utc(tv: TimeVal): DateTime
@@ -1967,6 +1971,7 @@ export class KeyFile {
     unref(): void
     static name: string
     static new(): KeyFile
+    constructor()
     static new(): KeyFile
     static error_quark(): Quark
 }
@@ -2009,6 +2014,7 @@ export class MainContext {
     wakeup(): void
     static name: string
     static new(): MainContext
+    constructor()
     static new(): MainContext
     static default(): MainContext
     static get_thread_default(): MainContext
@@ -2024,6 +2030,7 @@ export class MainLoop {
     unref(): void
     static name: string
     static new(context: MainContext | null, is_running: boolean): MainLoop
+    constructor(context: MainContext | null, is_running: boolean)
     static new(context: MainContext | null, is_running: boolean): MainLoop
 }
 export class MappedFile {
@@ -2036,6 +2043,7 @@ export class MappedFile {
     unref(): void
     static name: string
     static new(filename: string, writable: boolean): MappedFile
+    constructor(filename: string, writable: boolean)
     static new(filename: string, writable: boolean): MappedFile
     static new_from_fd(fd: number, writable: boolean): MappedFile
 }
@@ -2053,6 +2061,7 @@ export class MarkupParseContext {
     unref(): void
     static name: string
     static new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
+    constructor(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify)
     static new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
 }
 export class MarkupParser {
@@ -2167,6 +2176,7 @@ export class OptionGroup {
     unref(): void
     static name: string
     static new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
+    constructor(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null)
     static new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
 }
 export class PatternSpec {
@@ -2279,6 +2289,7 @@ export class Regex {
     unref(): void
     static name: string
     static new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
+    constructor(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags)
     static new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
     static check_replacement(replacement: string): [ /* returnType */ boolean, /* has_references */ boolean | null ]
     static error_quark(): Quark
@@ -2425,6 +2436,7 @@ export class Source {
     unref(): void
     static name: string
     static new(source_funcs: SourceFuncs, struct_size: number): Source
+    constructor(source_funcs: SourceFuncs, struct_size: number)
     static new(source_funcs: SourceFuncs, struct_size: number): Source
     static remove(tag: number): boolean
     static remove_by_funcs_user_data(funcs: SourceFuncs, user_data: object | null): boolean
@@ -2584,6 +2596,7 @@ export class TimeZone {
     unref(): void
     static name: string
     static new(identifier: string | null): TimeZone
+    constructor(identifier: string | null)
     static new(identifier: string | null): TimeZone
     static new_local(): TimeZone
     static new_utc(): TimeZone
@@ -2713,6 +2726,7 @@ export class VariantBuilder {
     unref(): void
     static name: string
     static new(type: VariantType): VariantBuilder
+    constructor(type: VariantType)
     static new(type: VariantType): VariantBuilder
 }
 export class VariantDict {
@@ -2727,6 +2741,7 @@ export class VariantDict {
     unref(): void
     static name: string
     static new(from_asv: Variant | null): VariantDict
+    constructor(from_asv: Variant | null)
     static new(from_asv: Variant | null): VariantDict
 }
 export class VariantIter {
@@ -2762,6 +2777,7 @@ export class VariantType {
     value(): VariantType
     static name: string
     static new(type_string: string): VariantType
+    constructor(type_string: string)
     static new(type_string: string): VariantType
     static new_array(element: VariantType): VariantType
     static new_dict_entry(key: VariantType, value: VariantType): VariantType

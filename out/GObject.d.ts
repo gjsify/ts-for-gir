@@ -372,6 +372,7 @@ export class Binding {
     connect(sigName: "notify", callback: ((obj: Binding, pspec: ParamSpec) => void))
     static name: string
     static new (config?: Binding_ConstructProps): Binding
+    constructor (config?: Binding_ConstructProps)
 }
 export interface InitiallyUnowned_ConstructProps extends Object_ConstructProps {
 }
@@ -415,6 +416,7 @@ export class InitiallyUnowned {
     connect(sigName: "notify", callback: ((obj: InitiallyUnowned, pspec: ParamSpec) => void))
     static name: string
     static new (config?: InitiallyUnowned_ConstructProps): InitiallyUnowned
+    constructor (config?: InitiallyUnowned_ConstructProps)
 }
 export interface Object_ConstructProps  {
 }
@@ -457,6 +459,7 @@ export class Object {
     connect(sigName: "notify", callback: ((obj: Object, pspec: ParamSpec) => void))
     static name: string
     static new (config?: Object_ConstructProps): Object
+    constructor (config?: Object_ConstructProps)
     static new_with_properties(object_type: number, n_properties: number, names: string[], values: Value[]): Object
     static newv(object_type: number, n_parameters: number, parameters: Parameter[]): Object
     static compat_control(what: number, data: object | null): number
@@ -1216,6 +1219,7 @@ export class TypeModule {
     connect(sigName: "notify", callback: ((obj: TypeModule, pspec: ParamSpec) => void))
     static name: string
     static new (config?: TypeModule_ConstructProps): TypeModule
+    constructor (config?: TypeModule_ConstructProps)
 }
 export class CClosure {
     /* Fields of GObject.CClosure */
@@ -1517,6 +1521,7 @@ export class ValueArray {
     sort_with_data(compare_func: GLib.CompareDataFunc, user_data: object | null): ValueArray
     static name: string
     static new(n_prealloced: number): ValueArray
+    constructor(n_prealloced: number)
     static new(n_prealloced: number): ValueArray
 }
 export class WeakRef {

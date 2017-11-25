@@ -113,6 +113,7 @@ export class Notification {
     connect(sigName: "notify::summary", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Notification_ConstructProps): Notification
+    constructor (config?: Notification_ConstructProps)
     static new(summary: string, body: string | null, icon: string | null): Notification
 }
 export class NotificationPrivate {

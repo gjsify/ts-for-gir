@@ -875,7 +875,7 @@ export interface TaskThreadFunc {
 export interface VfsFileLookupFunc {
     (vfs: Vfs, identifier: string, user_data: object | null): File
 }
-export interface Action {
+export class Action {
     /* Properties of Gio.Action */
     readonly enabled:boolean
     readonly name:string
@@ -900,17 +900,12 @@ export interface Action {
     vfunc_get_state(): GLib.Variant
     vfunc_get_state_hint(): GLib.Variant | null
     vfunc_get_state_type(): GLib.VariantType | null
+    static name: string
+    static name_is_valid(action_name: string): boolean
+    static parse_detailed_name(detailed_name: string): [ /* returnType */ boolean, /* action_name */ string, /* target_value */ GLib.Variant ]
+    static print_detailed_name(action_name: string, target_value: GLib.Variant | null): string
 }
-export interface Action_Static {
-    name: string
-}
-export declare class Action_Static {
-    name_is_valid(action_name: string): boolean
-    parse_detailed_name(detailed_name: string): [ /* returnType */ boolean, /* action_name */ string, /* target_value */ GLib.Variant ]
-    print_detailed_name(action_name: string, target_value: GLib.Variant | null): string
-}
-export declare var Action: Action_Static
-export interface ActionGroup {
+export class ActionGroup {
     /* Methods of Gio.ActionGroup */
     action_added(action_name: string): void
     action_enabled_changed(action_name: string, enabled: boolean): void
@@ -946,12 +941,9 @@ export interface ActionGroup {
     connect(sigName: "action-enabled-changed", callback: ((obj: ActionGroup, action_name: string, enabled: boolean) => void))
     connect(sigName: "action-removed", callback: ((obj: ActionGroup, action_name: string) => void))
     connect(sigName: "action-state-changed", callback: ((obj: ActionGroup, action_name: string, value: GLib.Variant) => void))
+    static name: string
 }
-export interface ActionGroup_Static {
-    name: string
-}
-export declare var ActionGroup: ActionGroup_Static
-export interface ActionMap {
+export class ActionMap {
     /* Methods of Gio.ActionMap */
     add_action(action: Action): void
     add_action_entries(entries: ActionEntry[], user_data: object | null): void
@@ -961,12 +953,9 @@ export interface ActionMap {
     vfunc_add_action(action: Action): void
     vfunc_lookup_action(action_name: string): Action
     vfunc_remove_action(action_name: string): void
+    static name: string
 }
-export interface ActionMap_Static {
-    name: string
-}
-export declare var ActionMap: ActionMap_Static
-export interface AppInfo {
+export class AppInfo {
     /* Methods of Gio.AppInfo */
     add_supports_type(content_type: string): boolean
     can_delete(): boolean
@@ -1015,25 +1004,20 @@ export interface AppInfo {
     vfunc_should_show(): boolean
     vfunc_supports_files(): boolean
     vfunc_supports_uris(): boolean
+    static name: string
+    static create_from_commandline(commandline: string, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
+    static get_all(): GLib.List
+    static get_all_for_type(content_type: string): GLib.List
+    static get_default_for_type(content_type: string, must_support_uris: boolean): AppInfo
+    static get_default_for_uri_scheme(uri_scheme: string): AppInfo
+    static get_fallback_for_type(content_type: string): GLib.List
+    static get_recommended_for_type(content_type: string): GLib.List
+    static launch_default_for_uri(uri: string, launch_context: AppLaunchContext | null): boolean
+    static launch_default_for_uri_async(uri: string, launch_context: AppLaunchContext, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
+    static launch_default_for_uri_finish(result: AsyncResult): boolean
+    static reset_type_associations(content_type: string): void
 }
-export interface AppInfo_Static {
-    name: string
-}
-export declare class AppInfo_Static {
-    create_from_commandline(commandline: string, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
-    get_all(): GLib.List
-    get_all_for_type(content_type: string): GLib.List
-    get_default_for_type(content_type: string, must_support_uris: boolean): AppInfo
-    get_default_for_uri_scheme(uri_scheme: string): AppInfo
-    get_fallback_for_type(content_type: string): GLib.List
-    get_recommended_for_type(content_type: string): GLib.List
-    launch_default_for_uri(uri: string, launch_context: AppLaunchContext | null): boolean
-    launch_default_for_uri_async(uri: string, launch_context: AppLaunchContext, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    launch_default_for_uri_finish(result: AsyncResult): boolean
-    reset_type_associations(content_type: string): void
-}
-export declare var AppInfo: AppInfo_Static
-export interface AsyncInitable {
+export class AsyncInitable {
     /* Methods of Gio.AsyncInitable */
     init_async(io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     init_finish(res: AsyncResult): boolean
@@ -1041,15 +1025,10 @@ export interface AsyncInitable {
     /* Virtual methods of Gio.AsyncInitable */
     vfunc_init_async(io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     vfunc_init_finish(res: AsyncResult): boolean
+    static name: string
+    static newv_async(object_type: number, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
 }
-export interface AsyncInitable_Static {
-    name: string
-}
-export declare class AsyncInitable_Static {
-    newv_async(object_type: number, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-}
-export declare var AsyncInitable: AsyncInitable_Static
-export interface AsyncResult {
+export class AsyncResult {
     /* Methods of Gio.AsyncResult */
     get_source_object(): GObject.Object
     get_user_data(): object | null
@@ -1059,24 +1038,18 @@ export interface AsyncResult {
     vfunc_get_source_object(): GObject.Object
     vfunc_get_user_data(): object | null
     vfunc_is_tagged(source_tag: object | null): boolean
+    static name: string
 }
-export interface AsyncResult_Static {
-    name: string
-}
-export declare var AsyncResult: AsyncResult_Static
-export interface Converter {
+export class Converter {
     /* Methods of Gio.Converter */
     convert(inbuf: Gjs.byteArray.ByteArray, outbuf: Gjs.byteArray.ByteArray, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     reset(): void
     /* Virtual methods of Gio.Converter */
     vfunc_convert(inbuf: Gjs.byteArray.ByteArray | null, outbuf: Gjs.byteArray.ByteArray | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
     vfunc_reset(): void
+    static name: string
 }
-export interface Converter_Static {
-    name: string
-}
-export declare var Converter: Converter_Static
-export interface DBusInterface {
+export class DBusInterface {
     /* Methods of Gio.DBusInterface */
     dup_object(): DBusObject
     get_info(): DBusInterfaceInfo
@@ -1085,12 +1058,9 @@ export interface DBusInterface {
     vfunc_dup_object(): DBusObject
     vfunc_get_info(): DBusInterfaceInfo
     vfunc_set_object(object: DBusObject | null): void
+    static name: string
 }
-export interface DBusInterface_Static {
-    name: string
-}
-export declare var DBusInterface: DBusInterface_Static
-export interface DBusObject {
+export class DBusObject {
     /* Methods of Gio.DBusObject */
     get_interface(interface_name: string): DBusInterface
     get_interfaces(): GLib.List
@@ -1104,12 +1074,9 @@ export interface DBusObject {
     /* Signals of Gio.DBusObject */
     connect(sigName: "interface-added", callback: ((obj: DBusObject, interface: DBusInterface) => void))
     connect(sigName: "interface-removed", callback: ((obj: DBusObject, interface: DBusInterface) => void))
+    static name: string
 }
-export interface DBusObject_Static {
-    name: string
-}
-export declare var DBusObject: DBusObject_Static
-export interface DBusObjectManager {
+export class DBusObjectManager {
     /* Methods of Gio.DBusObjectManager */
     get_interface(object_path: string, interface_name: string): DBusInterface
     get_object(object_path: string): DBusObject
@@ -1129,12 +1096,9 @@ export interface DBusObjectManager {
     connect(sigName: "interface-removed", callback: ((obj: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void))
     connect(sigName: "object-added", callback: ((obj: DBusObjectManager, object: DBusObject) => void))
     connect(sigName: "object-removed", callback: ((obj: DBusObjectManager, object: DBusObject) => void))
+    static name: string
 }
-export interface DBusObjectManager_Static {
-    name: string
-}
-export declare var DBusObjectManager: DBusObjectManager_Static
-export interface DatagramBased {
+export class DatagramBased {
     /* Methods of Gio.DatagramBased */
     condition_check(condition: GLib.IOCondition): GLib.IOCondition
     condition_wait(condition: GLib.IOCondition, timeout: number, cancellable: Cancellable | null): boolean
@@ -1147,22 +1111,16 @@ export interface DatagramBased {
     vfunc_create_source(condition: GLib.IOCondition, cancellable: Cancellable | null): GLib.Source
     vfunc_receive_messages(messages: InputMessage[], flags: number, timeout: number, cancellable: Cancellable | null): number
     vfunc_send_messages(messages: OutputMessage[], flags: number, timeout: number, cancellable: Cancellable | null): number
+    static name: string
 }
-export interface DatagramBased_Static {
-    name: string
-}
-export declare var DatagramBased: DatagramBased_Static
-export interface DesktopAppInfoLookup {
+export class DesktopAppInfoLookup {
     /* Methods of Gio.DesktopAppInfoLookup */
     get_default_for_uri_scheme(uri_scheme: string): AppInfo
     /* Virtual methods of Gio.DesktopAppInfoLookup */
     vfunc_get_default_for_uri_scheme(uri_scheme: string): AppInfo
+    static name: string
 }
-export interface DesktopAppInfoLookup_Static {
-    name: string
-}
-export declare var DesktopAppInfoLookup: DesktopAppInfoLookup_Static
-export interface Drive {
+export class Drive {
     /* Methods of Gio.Drive */
     can_eject(): boolean
     can_poll_for_media(): boolean
@@ -1230,12 +1188,9 @@ export interface Drive {
     connect(sigName: "disconnected", callback: ((obj: Drive) => void))
     connect(sigName: "eject-button", callback: ((obj: Drive) => void))
     connect(sigName: "stop-button", callback: ((obj: Drive) => void))
+    static name: string
 }
-export interface Drive_Static {
-    name: string
-}
-export declare var Drive: Drive_Static
-export interface DtlsClientConnection {
+export class DtlsClientConnection {
     /* Properties of Gio.DtlsClientConnection */
     readonly accepted_cas:GLib.List
     server_identity:SocketConnectable
@@ -1246,15 +1201,10 @@ export interface DtlsClientConnection {
     get_validation_flags(): TlsCertificateFlags
     set_server_identity(identity: SocketConnectable): void
     set_validation_flags(flags: TlsCertificateFlags): void
+    static name: string
+    static new(base_socket: DatagramBased, server_identity: SocketConnectable | null): DtlsClientConnection
 }
-export interface DtlsClientConnection_Static {
-    name: string
-}
-export declare class DtlsClientConnection_Static {
-    new(base_socket: DatagramBased, server_identity: SocketConnectable | null): DtlsClientConnection
-}
-export declare var DtlsClientConnection: DtlsClientConnection_Static
-export interface DtlsConnection {
+export class DtlsConnection {
     /* Properties of Gio.DtlsConnection */
     certificate:TlsCertificate
     database:TlsDatabase
@@ -1296,23 +1246,15 @@ export interface DtlsConnection {
     vfunc_shutdown_finish(result: AsyncResult): boolean
     /* Signals of Gio.DtlsConnection */
     connect(sigName: "accept-certificate", callback: ((obj: DtlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean))
+    static name: string
 }
-export interface DtlsConnection_Static {
-    name: string
-}
-export declare var DtlsConnection: DtlsConnection_Static
-export interface DtlsServerConnection {
+export class DtlsServerConnection {
     /* Properties of Gio.DtlsServerConnection */
     authentication_mode:TlsAuthenticationMode
+    static name: string
+    static new(base_socket: DatagramBased, certificate: TlsCertificate | null): DtlsServerConnection
 }
-export interface DtlsServerConnection_Static {
-    name: string
-}
-export declare class DtlsServerConnection_Static {
-    new(base_socket: DatagramBased, certificate: TlsCertificate | null): DtlsServerConnection
-}
-export declare var DtlsServerConnection: DtlsServerConnection_Static
-export interface File {
+export class File {
     /* Methods of Gio.File */
     append_to(flags: FileCreateFlags, cancellable: Cancellable | null): FileOutputStream
     append_to_async(flags: FileCreateFlags, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
@@ -1522,30 +1464,22 @@ export interface File {
     vfunc_unmount_mountable_finish(result: AsyncResult): boolean
     vfunc_unmount_mountable_with_operation(flags: MountUnmountFlags, mount_operation: MountOperation | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     vfunc_unmount_mountable_with_operation_finish(result: AsyncResult): boolean
+    static name: string
+    static new_for_commandline_arg(arg: string): File
+    static new_for_commandline_arg_and_cwd(arg: string, cwd: string): File
+    static new_for_path(path: string): File
+    static new_for_uri(uri: string): File
+    static new_tmp(tmpl: string): [ /* returnType */ File, /* iostream */ FileIOStream ]
+    static parse_name(parse_name: string): File
 }
-export interface File_Static {
-    name: string
-}
-export declare class File_Static {
-    new_for_commandline_arg(arg: string): File
-    new_for_commandline_arg_and_cwd(arg: string, cwd: string): File
-    new_for_path(path: string): File
-    new_for_uri(uri: string): File
-    new_tmp(tmpl: string): [ /* returnType */ File, /* iostream */ FileIOStream ]
-    parse_name(parse_name: string): File
-}
-export declare var File: File_Static
-export interface FileDescriptorBased {
+export class FileDescriptorBased {
     /* Methods of Gio.FileDescriptorBased */
     get_fd(): number
     /* Virtual methods of Gio.FileDescriptorBased */
     vfunc_get_fd(): number
+    static name: string
 }
-export interface FileDescriptorBased_Static {
-    name: string
-}
-export declare var FileDescriptorBased: FileDescriptorBased_Static
-export interface Icon {
+export class Icon {
     /* Methods of Gio.Icon */
     equal(icon2: Icon | null): boolean
     serialize(): GLib.Variant
@@ -1554,30 +1488,20 @@ export interface Icon {
     vfunc_equal(icon2: Icon | null): boolean
     vfunc_hash(): number
     vfunc_serialize(): GLib.Variant
+    static name: string
+    static deserialize(value: GLib.Variant): Icon
+    static hash(icon: object): number
+    static new_for_string(str: string): Icon
 }
-export interface Icon_Static {
-    name: string
-}
-export declare class Icon_Static {
-    deserialize(value: GLib.Variant): Icon
-    hash(icon: object): number
-    new_for_string(str: string): Icon
-}
-export declare var Icon: Icon_Static
-export interface Initable {
+export class Initable {
     /* Methods of Gio.Initable */
     init(cancellable: Cancellable | null): boolean
     /* Virtual methods of Gio.Initable */
     vfunc_init(cancellable: Cancellable | null): boolean
+    static name: string
+    static newv(object_type: number, parameters: GObject.Parameter[], cancellable: Cancellable | null): GObject.Object
 }
-export interface Initable_Static {
-    name: string
-}
-export declare class Initable_Static {
-    newv(object_type: number, parameters: GObject.Parameter[], cancellable: Cancellable | null): GObject.Object
-}
-export declare var Initable: Initable_Static
-export interface ListModel {
+export class ListModel {
     /* Methods of Gio.ListModel */
     get_item_type(): number
     get_n_items(): number
@@ -1589,12 +1513,9 @@ export interface ListModel {
     vfunc_get_n_items(): number
     /* Signals of Gio.ListModel */
     connect(sigName: "items-changed", callback: ((obj: ListModel, position: number, removed: number, added: number) => void))
+    static name: string
 }
-export interface ListModel_Static {
-    name: string
-}
-export declare var ListModel: ListModel_Static
-export interface LoadableIcon {
+export class LoadableIcon {
     /* Methods of Gio.LoadableIcon */
     load(size: number, cancellable: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     load_async(size: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
@@ -1603,12 +1524,9 @@ export interface LoadableIcon {
     vfunc_load(size: number, cancellable: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
     vfunc_load_async(size: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     vfunc_load_finish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
+    static name: string
 }
-export interface LoadableIcon_Static {
-    name: string
-}
-export declare var LoadableIcon: LoadableIcon_Static
-export interface Mount {
+export class Mount {
     /* Methods of Gio.Mount */
     can_eject(): boolean
     can_unmount(): boolean
@@ -1669,12 +1587,9 @@ export interface Mount {
     connect(sigName: "changed", callback: ((obj: Mount) => void))
     connect(sigName: "pre-unmount", callback: ((obj: Mount) => void))
     connect(sigName: "unmounted", callback: ((obj: Mount) => void))
+    static name: string
 }
-export interface Mount_Static {
-    name: string
-}
-export declare var Mount: Mount_Static
-export interface NetworkMonitor {
+export class NetworkMonitor {
     /* Properties of Gio.NetworkMonitor */
     readonly connectivity:NetworkConnectivity
     readonly network_available:boolean
@@ -1693,15 +1608,10 @@ export interface NetworkMonitor {
     vfunc_network_changed(available: boolean): void
     /* Signals of Gio.NetworkMonitor */
     connect(sigName: "network-changed", callback: ((obj: NetworkMonitor, available: boolean) => void))
+    static name: string
+    static get_default(): NetworkMonitor
 }
-export interface NetworkMonitor_Static {
-    name: string
-}
-export declare class NetworkMonitor_Static {
-    get_default(): NetworkMonitor
-}
-export declare var NetworkMonitor: NetworkMonitor_Static
-export interface PollableInputStream {
+export class PollableInputStream {
     /* Methods of Gio.PollableInputStream */
     can_poll(): boolean
     create_source(cancellable: Cancellable | null): GLib.Source
@@ -1712,12 +1622,9 @@ export interface PollableInputStream {
     vfunc_create_source(cancellable: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
     vfunc_read_nonblocking(buffer: Gjs.byteArray.ByteArray | null): number
+    static name: string
 }
-export interface PollableInputStream_Static {
-    name: string
-}
-export declare var PollableInputStream: PollableInputStream_Static
-export interface PollableOutputStream {
+export class PollableOutputStream {
     /* Methods of Gio.PollableOutputStream */
     can_poll(): boolean
     create_source(cancellable: Cancellable | null): GLib.Source
@@ -1728,12 +1635,9 @@ export interface PollableOutputStream {
     vfunc_create_source(cancellable: Cancellable | null): GLib.Source
     vfunc_is_writable(): boolean
     vfunc_write_nonblocking(buffer: Gjs.byteArray.ByteArray | null): number
+    static name: string
 }
-export interface PollableOutputStream_Static {
-    name: string
-}
-export declare var PollableOutputStream: PollableOutputStream_Static
-export interface Proxy {
+export class Proxy {
     /* Methods of Gio.Proxy */
     connect(connection: IOStream, proxy_address: ProxyAddress, cancellable: Cancellable | null): IOStream
     connect_async(connection: IOStream, proxy_address: ProxyAddress, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
@@ -1744,15 +1648,10 @@ export interface Proxy {
     vfunc_connect_async(connection: IOStream, proxy_address: ProxyAddress, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     vfunc_connect_finish(result: AsyncResult): IOStream
     vfunc_supports_hostname(): boolean
+    static name: string
+    static get_default_for_protocol(protocol: string): Proxy
 }
-export interface Proxy_Static {
-    name: string
-}
-export declare class Proxy_Static {
-    get_default_for_protocol(protocol: string): Proxy
-}
-export declare var Proxy: Proxy_Static
-export interface ProxyResolver {
+export class ProxyResolver {
     /* Methods of Gio.ProxyResolver */
     is_supported(): boolean
     lookup(uri: string, cancellable: Cancellable | null): string[]
@@ -1763,27 +1662,19 @@ export interface ProxyResolver {
     vfunc_lookup(uri: string, cancellable: Cancellable | null): string[]
     vfunc_lookup_async(uri: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     vfunc_lookup_finish(result: AsyncResult): string[]
+    static name: string
+    static get_default(): ProxyResolver
 }
-export interface ProxyResolver_Static {
-    name: string
-}
-export declare class ProxyResolver_Static {
-    get_default(): ProxyResolver
-}
-export declare var ProxyResolver: ProxyResolver_Static
-export interface RemoteActionGroup {
+export class RemoteActionGroup {
     /* Methods of Gio.RemoteActionGroup */
     activate_action_full(action_name: string, parameter: GLib.Variant | null, platform_data: GLib.Variant): void
     change_action_state_full(action_name: string, value: GLib.Variant, platform_data: GLib.Variant): void
     /* Virtual methods of Gio.RemoteActionGroup */
     vfunc_activate_action_full(action_name: string, parameter: GLib.Variant | null, platform_data: GLib.Variant): void
     vfunc_change_action_state_full(action_name: string, value: GLib.Variant, platform_data: GLib.Variant): void
+    static name: string
 }
-export interface RemoteActionGroup_Static {
-    name: string
-}
-export declare var RemoteActionGroup: RemoteActionGroup_Static
-export interface Seekable {
+export class Seekable {
     /* Methods of Gio.Seekable */
     can_seek(): boolean
     can_truncate(): boolean
@@ -1796,12 +1687,9 @@ export interface Seekable {
     vfunc_seek(offset: number, type: GLib.SeekType, cancellable: Cancellable | null): boolean
     vfunc_tell(): number
     vfunc_truncate_fn(offset: number, cancellable: Cancellable | null): boolean
+    static name: string
 }
-export interface Seekable_Static {
-    name: string
-}
-export declare var Seekable: Seekable_Static
-export interface SocketConnectable {
+export class SocketConnectable {
     /* Methods of Gio.SocketConnectable */
     enumerate(): SocketAddressEnumerator
     proxy_enumerate(): SocketAddressEnumerator
@@ -1810,12 +1698,9 @@ export interface SocketConnectable {
     vfunc_enumerate(): SocketAddressEnumerator
     vfunc_proxy_enumerate(): SocketAddressEnumerator
     vfunc_to_string(): string
+    static name: string
 }
-export interface SocketConnectable_Static {
-    name: string
-}
-export declare var SocketConnectable: SocketConnectable_Static
-export interface TlsBackend {
+export class TlsBackend {
     /* Methods of Gio.TlsBackend */
     get_certificate_type(): number
     get_client_connection_type(): number
@@ -1830,15 +1715,10 @@ export interface TlsBackend {
     vfunc_get_default_database(): TlsDatabase
     vfunc_supports_dtls(): boolean
     vfunc_supports_tls(): boolean
+    static name: string
+    static get_default(): TlsBackend
 }
-export interface TlsBackend_Static {
-    name: string
-}
-export declare class TlsBackend_Static {
-    get_default(): TlsBackend
-}
-export declare var TlsBackend: TlsBackend_Static
-export interface TlsClientConnection {
+export class TlsClientConnection {
     /* Properties of Gio.TlsClientConnection */
     readonly accepted_cas:GLib.List
     server_identity:SocketConnectable
@@ -1855,37 +1735,22 @@ export interface TlsClientConnection {
     set_validation_flags(flags: TlsCertificateFlags): void
     /* Virtual methods of Gio.TlsClientConnection */
     vfunc_copy_session_state(source: TlsClientConnection): void
+    static name: string
+    static new(base_io_stream: IOStream, server_identity: SocketConnectable | null): TlsClientConnection
 }
-export interface TlsClientConnection_Static {
-    name: string
-}
-export declare class TlsClientConnection_Static {
-    new(base_io_stream: IOStream, server_identity: SocketConnectable | null): TlsClientConnection
-}
-export declare var TlsClientConnection: TlsClientConnection_Static
-export interface TlsFileDatabase {
+export class TlsFileDatabase {
     /* Properties of Gio.TlsFileDatabase */
     anchors:string
+    static name: string
+    static new(anchors: string): TlsFileDatabase
 }
-export interface TlsFileDatabase_Static {
-    name: string
-}
-export declare class TlsFileDatabase_Static {
-    new(anchors: string): TlsFileDatabase
-}
-export declare var TlsFileDatabase: TlsFileDatabase_Static
-export interface TlsServerConnection {
+export class TlsServerConnection {
     /* Properties of Gio.TlsServerConnection */
     authentication_mode:TlsAuthenticationMode
+    static name: string
+    static new(base_io_stream: IOStream, certificate: TlsCertificate | null): TlsServerConnection
 }
-export interface TlsServerConnection_Static {
-    name: string
-}
-export declare class TlsServerConnection_Static {
-    new(base_io_stream: IOStream, certificate: TlsCertificate | null): TlsServerConnection
-}
-export declare var TlsServerConnection: TlsServerConnection_Static
-export interface Volume {
+export class Volume {
     /* Methods of Gio.Volume */
     can_eject(): boolean
     can_mount(): boolean
@@ -1931,14 +1796,11 @@ export interface Volume {
     /* Signals of Gio.Volume */
     connect(sigName: "changed", callback: ((obj: Volume) => void))
     connect(sigName: "removed", callback: ((obj: Volume) => void))
+    static name: string
 }
-export interface Volume_Static {
-    name: string
-}
-export declare var Volume: Volume_Static
 export interface AppInfoMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface AppInfoMonitor {
+export class AppInfoMonitor {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GObject.Object */
@@ -1977,18 +1839,13 @@ export interface AppInfoMonitor {
     connect(sigName: "changed", callback: ((obj: AppInfoMonitor) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AppInfoMonitor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: AppInfoMonitor_ConstructProps): AppInfoMonitor
+    static get(): AppInfoMonitor
 }
-export interface AppInfoMonitor_Static {
-    name: string
-    new (config?: AppInfoMonitor_ConstructProps): AppInfoMonitor
-}
-export declare class AppInfoMonitor_Static {
-    get(): AppInfoMonitor
-}
-export declare var AppInfoMonitor: AppInfoMonitor_Static
 export interface AppLaunchContext_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface AppLaunchContext {
+export class AppLaunchContext {
     /* Fields of Gio.AppLaunchContext */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -2042,15 +1899,10 @@ export interface AppLaunchContext {
     connect(sigName: "launched", callback: ((obj: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: AppLaunchContext_ConstructProps): AppLaunchContext
+    static new(): AppLaunchContext
 }
-export interface AppLaunchContext_Static {
-    name: string
-    new (config?: AppLaunchContext_ConstructProps): AppLaunchContext
-}
-export declare class AppLaunchContext_Static {
-    new(): AppLaunchContext
-}
-export declare var AppLaunchContext: AppLaunchContext_Static
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
     action_group?:ActionGroup
     application_id?:string
@@ -2058,7 +1910,7 @@ export interface Application_ConstructProps extends GObject.Object_ConstructProp
     inactivity_timeout?:number
     resource_base_path?:string
 }
-export interface Application {
+export class Application {
     /* Properties of Gio.Application */
     action_group:ActionGroup
     application_id:string
@@ -2167,23 +2019,18 @@ export interface Application {
     connect(sigName: "notify::is-registered", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::is-remote", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::resource-base-path", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Application_ConstructProps): Application
+    static new(application_id: string | null, flags: ApplicationFlags): Application
+    static get_default(): Application
+    static id_is_valid(application_id: string): boolean
 }
-export interface Application_Static {
-    name: string
-    new (config?: Application_ConstructProps): Application
-}
-export declare class Application_Static {
-    new(application_id: string | null, flags: ApplicationFlags): Application
-    get_default(): Application
-    id_is_valid(application_id: string): boolean
-}
-export declare var Application: Application_Static
 export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {
     "arguments"?:GLib.Variant
     options?:GLib.Variant
     platform_data?:GLib.Variant
 }
-export interface ApplicationCommandLine {
+export class ApplicationCommandLine {
     /* Properties of Gio.ApplicationCommandLine */
     readonly is_remote:boolean
     /* Fields of Gio.ApplicationCommandLine */
@@ -2240,16 +2087,13 @@ export interface ApplicationCommandLine {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::is-remote", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ApplicationCommandLine_ConstructProps): ApplicationCommandLine
 }
-export interface ApplicationCommandLine_Static {
-    name: string
-    new (config?: ApplicationCommandLine_ConstructProps): ApplicationCommandLine
-}
-export declare var ApplicationCommandLine: ApplicationCommandLine_Static
 export interface BufferedInputStream_ConstructProps extends FilterInputStream_ConstructProps {
     buffer_size?:number
 }
-export interface BufferedInputStream {
+export class BufferedInputStream {
     /* Properties of Gio.BufferedInputStream */
     buffer_size:number
     /* Properties of Gio.FilterInputStream */
@@ -2345,21 +2189,16 @@ export interface BufferedInputStream {
     connect(sigName: "notify", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::buffer-size", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::close-base-stream", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void))
-}
-export interface BufferedInputStream_Static {
-    name: string
-    new (config?: BufferedInputStream_ConstructProps): BufferedInputStream
-}
-export declare class BufferedInputStream_Static {
+    static name: string
+    static new (config?: BufferedInputStream_ConstructProps): BufferedInputStream
     new(base_stream: InputStream): BufferedInputStream
     new_sized(base_stream: InputStream, size: number): BufferedInputStream
 }
-export declare var BufferedInputStream: BufferedInputStream_Static
 export interface BufferedOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
     auto_grow?:boolean
     buffer_size?:number
 }
-export interface BufferedOutputStream {
+export class BufferedOutputStream {
     /* Properties of Gio.BufferedOutputStream */
     auto_grow:boolean
     buffer_size:number
@@ -2454,20 +2293,15 @@ export interface BufferedOutputStream {
     connect(sigName: "notify", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::auto-grow", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::buffer-size", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void))
-}
-export interface BufferedOutputStream_Static {
-    name: string
-    new (config?: BufferedOutputStream_ConstructProps): BufferedOutputStream
-}
-export declare class BufferedOutputStream_Static {
+    static name: string
+    static new (config?: BufferedOutputStream_ConstructProps): BufferedOutputStream
     new(base_stream: OutputStream): BufferedOutputStream
     new_sized(base_stream: OutputStream, size: number): BufferedOutputStream
 }
-export declare var BufferedOutputStream: BufferedOutputStream_Static
 export interface BytesIcon_ConstructProps extends GObject.Object_ConstructProps {
     bytes?:Gjs.byteArray.ByteArray
 }
-export interface BytesIcon {
+export class BytesIcon {
     /* Properties of Gio.BytesIcon */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -2507,18 +2341,13 @@ export interface BytesIcon {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: BytesIcon, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: BytesIcon_ConstructProps): BytesIcon
+    static new(bytes: Gjs.byteArray.ByteArray): BytesIcon
 }
-export interface BytesIcon_Static {
-    name: string
-    new (config?: BytesIcon_ConstructProps): BytesIcon
-}
-export declare class BytesIcon_Static {
-    new(bytes: Gjs.byteArray.ByteArray): BytesIcon
-}
-export declare var BytesIcon: BytesIcon_Static
 export interface Cancellable_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Cancellable {
+export class Cancellable {
     /* Fields of Gio.Cancellable */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -2573,22 +2402,17 @@ export interface Cancellable {
     connect(sigName: "cancelled", callback: ((obj: Cancellable) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Cancellable, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Cancellable_ConstructProps): Cancellable
+    static new(): Cancellable
+    static get_current(): Cancellable | null
 }
-export interface Cancellable_Static {
-    name: string
-    new (config?: Cancellable_ConstructProps): Cancellable
-}
-export declare class Cancellable_Static {
-    new(): Cancellable
-    get_current(): Cancellable | null
-}
-export declare var Cancellable: Cancellable_Static
 export interface CharsetConverter_ConstructProps extends GObject.Object_ConstructProps {
     from_charset?:string
     to_charset?:string
     use_fallback?:boolean
 }
-export interface CharsetConverter {
+export class CharsetConverter {
     /* Properties of Gio.CharsetConverter */
     use_fallback:boolean
     /* Fields of GObject.Object */
@@ -2632,19 +2456,14 @@ export interface CharsetConverter {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::use-fallback", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: CharsetConverter_ConstructProps): CharsetConverter
+    static new(to_charset: string, from_charset: string): CharsetConverter
 }
-export interface CharsetConverter_Static {
-    name: string
-    new (config?: CharsetConverter_ConstructProps): CharsetConverter
-}
-export declare class CharsetConverter_Static {
-    new(to_charset: string, from_charset: string): CharsetConverter
-}
-export declare var CharsetConverter: CharsetConverter_Static
 export interface ConverterInputStream_ConstructProps extends FilterInputStream_ConstructProps {
     converter?:Converter
 }
-export interface ConverterInputStream {
+export class ConverterInputStream {
     /* Properties of Gio.ConverterInputStream */
     /* Properties of Gio.FilterInputStream */
     close_base_stream:boolean
@@ -2726,19 +2545,14 @@ export interface ConverterInputStream {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::close-base-stream", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void))
-}
-export interface ConverterInputStream_Static {
-    name: string
-    new (config?: ConverterInputStream_ConstructProps): ConverterInputStream
-}
-export declare class ConverterInputStream_Static {
+    static name: string
+    static new (config?: ConverterInputStream_ConstructProps): ConverterInputStream
     new(base_stream: InputStream, converter: Converter): ConverterInputStream
 }
-export declare var ConverterInputStream: ConverterInputStream_Static
 export interface ConverterOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
     converter?:Converter
 }
-export interface ConverterOutputStream {
+export class ConverterOutputStream {
     /* Properties of Gio.ConverterOutputStream */
     /* Properties of Gio.FilterOutputStream */
     /* Fields of Gio.ConverterOutputStream */
@@ -2825,18 +2639,13 @@ export interface ConverterOutputStream {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ConverterOutputStream, pspec: GObject.ParamSpec) => void))
-}
-export interface ConverterOutputStream_Static {
-    name: string
-    new (config?: ConverterOutputStream_ConstructProps): ConverterOutputStream
-}
-export declare class ConverterOutputStream_Static {
+    static name: string
+    static new (config?: ConverterOutputStream_ConstructProps): ConverterOutputStream
     new(base_stream: OutputStream, converter: Converter): ConverterOutputStream
 }
-export declare var ConverterOutputStream: ConverterOutputStream_Static
 export interface Credentials_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Credentials {
+export class Credentials {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.Credentials */
@@ -2880,18 +2689,13 @@ export interface Credentials {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Credentials, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Credentials_ConstructProps): Credentials
+    static new(): Credentials
 }
-export interface Credentials_Static {
-    name: string
-    new (config?: Credentials_ConstructProps): Credentials
-}
-export declare class Credentials_Static {
-    new(): Credentials
-}
-export declare var Credentials: Credentials_Static
 export interface DBusActionGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface DBusActionGroup {
+export class DBusActionGroup {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GObject.Object */
@@ -2928,18 +2732,13 @@ export interface DBusActionGroup {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusActionGroup, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusActionGroup_ConstructProps): DBusActionGroup
+    static get(connection: DBusConnection, bus_name: string, object_path: string): DBusActionGroup
 }
-export interface DBusActionGroup_Static {
-    name: string
-    new (config?: DBusActionGroup_ConstructProps): DBusActionGroup
-}
-export declare class DBusActionGroup_Static {
-    get(connection: DBusConnection, bus_name: string, object_path: string): DBusActionGroup
-}
-export declare var DBusActionGroup: DBusActionGroup_Static
 export interface DBusAuthObserver_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface DBusAuthObserver {
+export class DBusAuthObserver {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.DBusAuthObserver */
@@ -2982,15 +2781,10 @@ export interface DBusAuthObserver {
     connect(sigName: "authorize-authenticated-peer", callback: ((obj: DBusAuthObserver, stream: IOStream, credentials: Credentials | null) => boolean))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusAuthObserver, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusAuthObserver_ConstructProps): DBusAuthObserver
+    static new(): DBusAuthObserver
 }
-export interface DBusAuthObserver_Static {
-    name: string
-    new (config?: DBusAuthObserver_ConstructProps): DBusAuthObserver
-}
-export declare class DBusAuthObserver_Static {
-    new(): DBusAuthObserver
-}
-export declare var DBusAuthObserver: DBusAuthObserver_Static
 export interface DBusConnection_ConstructProps extends GObject.Object_ConstructProps {
     address?:string
     authentication_observer?:DBusAuthObserver
@@ -2999,7 +2793,7 @@ export interface DBusConnection_ConstructProps extends GObject.Object_ConstructP
     guid?:string
     stream?:IOStream
 }
-export interface DBusConnection {
+export class DBusConnection {
     /* Properties of Gio.DBusConnection */
     readonly capabilities:DBusCapabilityFlags
     readonly closed:boolean
@@ -3087,24 +2881,19 @@ export interface DBusConnection {
     connect(sigName: "notify::closed", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::exit-on-close", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::unique-name", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusConnection_ConstructProps): DBusConnection
+    static new_finish(res: AsyncResult): DBusConnection
+    static new_for_address_finish(res: AsyncResult): DBusConnection
+    static new_for_address_sync(address: string, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusConnection
+    static new_sync(stream: IOStream, guid: string | null, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusConnection
+    static new(stream: IOStream, guid: string | null, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
+    static new_for_address(address: string, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
 }
-export interface DBusConnection_Static {
-    name: string
-    new (config?: DBusConnection_ConstructProps): DBusConnection
-}
-export declare class DBusConnection_Static {
-    new_finish(res: AsyncResult): DBusConnection
-    new_for_address_finish(res: AsyncResult): DBusConnection
-    new_for_address_sync(address: string, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusConnection
-    new_sync(stream: IOStream, guid: string | null, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusConnection
-    new(stream: IOStream, guid: string | null, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    new_for_address(address: string, flags: DBusConnectionFlags, observer: DBusAuthObserver | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-}
-export declare var DBusConnection: DBusConnection_Static
 export interface DBusInterfaceSkeleton_ConstructProps extends GObject.Object_ConstructProps {
     g_flags?:DBusInterfaceSkeletonFlags
 }
-export interface DBusInterfaceSkeleton {
+export class DBusInterfaceSkeleton {
     /* Properties of Gio.DBusInterfaceSkeleton */
     g_flags:DBusInterfaceSkeletonFlags
     /* Fields of Gio.DBusInterfaceSkeleton */
@@ -3165,15 +2954,12 @@ export interface DBusInterfaceSkeleton {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::g-flags", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusInterfaceSkeleton_ConstructProps): DBusInterfaceSkeleton
 }
-export interface DBusInterfaceSkeleton_Static {
-    name: string
-    new (config?: DBusInterfaceSkeleton_ConstructProps): DBusInterfaceSkeleton
-}
-export declare var DBusInterfaceSkeleton: DBusInterfaceSkeleton_Static
 export interface DBusMenuModel_ConstructProps extends MenuModel_ConstructProps {
 }
-export interface DBusMenuModel {
+export class DBusMenuModel {
     /* Fields of Gio.MenuModel */
     parent_instance:GObject.Object
     priv:MenuModelPrivate
@@ -3232,18 +3018,13 @@ export interface DBusMenuModel {
     connect(sigName: "items-changed", callback: ((obj: DBusMenuModel, position: number, removed: number, added: number) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusMenuModel, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusMenuModel_ConstructProps): DBusMenuModel
+    static get(connection: DBusConnection, bus_name: string, object_path: string): DBusMenuModel
 }
-export interface DBusMenuModel_Static {
-    name: string
-    new (config?: DBusMenuModel_ConstructProps): DBusMenuModel
-}
-export declare class DBusMenuModel_Static {
-    get(connection: DBusConnection, bus_name: string, object_path: string): DBusMenuModel
-}
-export declare var DBusMenuModel: DBusMenuModel_Static
 export interface DBusMessage_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface DBusMessage {
+export class DBusMessage {
     /* Properties of Gio.DBusMessage */
     readonly locked:boolean
     /* Fields of GObject.Object */
@@ -3326,22 +3107,17 @@ export interface DBusMessage {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::locked", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusMessage_ConstructProps): DBusMessage
+    static new(): DBusMessage
+    static new_from_blob(blob: Gjs.byteArray.ByteArray, blob_len: number, capabilities: DBusCapabilityFlags): DBusMessage
+    static new_method_call(name: string | null, path: string, interface_: string | null, method: string): DBusMessage
+    static new_signal(path: string, interface_: string, signal: string): DBusMessage
+    static bytes_needed(blob: Gjs.byteArray.ByteArray): number
 }
-export interface DBusMessage_Static {
-    name: string
-    new (config?: DBusMessage_ConstructProps): DBusMessage
-}
-export declare class DBusMessage_Static {
-    new(): DBusMessage
-    new_from_blob(blob: Gjs.byteArray.ByteArray, blob_len: number, capabilities: DBusCapabilityFlags): DBusMessage
-    new_method_call(name: string | null, path: string, interface_: string | null, method: string): DBusMessage
-    new_signal(path: string, interface_: string, signal: string): DBusMessage
-    bytes_needed(blob: Gjs.byteArray.ByteArray): number
-}
-export declare var DBusMessage: DBusMessage_Static
 export interface DBusMethodInvocation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface DBusMethodInvocation {
+export class DBusMethodInvocation {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.DBusMethodInvocation */
@@ -3393,12 +3169,9 @@ export interface DBusMethodInvocation {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusMethodInvocation, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusMethodInvocation_ConstructProps): DBusMethodInvocation
 }
-export interface DBusMethodInvocation_Static {
-    name: string
-    new (config?: DBusMethodInvocation_ConstructProps): DBusMethodInvocation
-}
-export declare var DBusMethodInvocation: DBusMethodInvocation_Static
 export interface DBusObjectManagerClient_ConstructProps extends GObject.Object_ConstructProps {
     bus_type?:BusType
     connection?:DBusConnection
@@ -3409,7 +3182,7 @@ export interface DBusObjectManagerClient_ConstructProps extends GObject.Object_C
     name?:string
     object_path?:string
 }
-export interface DBusObjectManagerClient {
+export class DBusObjectManagerClient {
     /* Properties of Gio.DBusObjectManagerClient */
     readonly name_owner:string
     /* Fields of Gio.DBusObjectManagerClient */
@@ -3461,25 +3234,20 @@ export interface DBusObjectManagerClient {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::name-owner", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusObjectManagerClient_ConstructProps): DBusObjectManagerClient
+    static new_finish(res: AsyncResult): DBusObjectManagerClient
+    static new_for_bus_finish(res: AsyncResult): DBusObjectManagerClient
+    static new_for_bus_sync(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object | null, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null): DBusObjectManagerClient
+    static new_sync(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string | null, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object | null, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null): DBusObjectManagerClient
+    static new(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object | null, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
+    static new_for_bus(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object | null, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
 }
-export interface DBusObjectManagerClient_Static {
-    name: string
-    new (config?: DBusObjectManagerClient_ConstructProps): DBusObjectManagerClient
-}
-export declare class DBusObjectManagerClient_Static {
-    new_finish(res: AsyncResult): DBusObjectManagerClient
-    new_for_bus_finish(res: AsyncResult): DBusObjectManagerClient
-    new_for_bus_sync(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object | null, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null): DBusObjectManagerClient
-    new_sync(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string | null, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object | null, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null): DBusObjectManagerClient
-    new(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object | null, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    new_for_bus(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func: DBusProxyTypeFunc | null, get_proxy_type_user_data: object | null, get_proxy_type_destroy_notify: GLib.DestroyNotify | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-}
-export declare var DBusObjectManagerClient: DBusObjectManagerClient_Static
 export interface DBusObjectManagerServer_ConstructProps extends GObject.Object_ConstructProps {
     connection?:DBusConnection
     object_path?:string
 }
-export interface DBusObjectManagerServer {
+export class DBusObjectManagerServer {
     /* Properties of Gio.DBusObjectManagerServer */
     connection:DBusConnection
     /* Fields of Gio.DBusObjectManagerServer */
@@ -3527,20 +3295,15 @@ export interface DBusObjectManagerServer {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::connection", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusObjectManagerServer_ConstructProps): DBusObjectManagerServer
+    static new(object_path: string): DBusObjectManagerServer
 }
-export interface DBusObjectManagerServer_Static {
-    name: string
-    new (config?: DBusObjectManagerServer_ConstructProps): DBusObjectManagerServer
-}
-export declare class DBusObjectManagerServer_Static {
-    new(object_path: string): DBusObjectManagerServer
-}
-export declare var DBusObjectManagerServer: DBusObjectManagerServer_Static
 export interface DBusObjectProxy_ConstructProps extends GObject.Object_ConstructProps {
     g_connection?:DBusConnection
     g_object_path?:string
 }
-export interface DBusObjectProxy {
+export class DBusObjectProxy {
     /* Properties of Gio.DBusObjectProxy */
     /* Fields of Gio.DBusObjectProxy */
     /* Fields of GObject.Object */
@@ -3581,19 +3344,14 @@ export interface DBusObjectProxy {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectProxy, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusObjectProxy_ConstructProps): DBusObjectProxy
+    static new(connection: DBusConnection, object_path: string): DBusObjectProxy
 }
-export interface DBusObjectProxy_Static {
-    name: string
-    new (config?: DBusObjectProxy_ConstructProps): DBusObjectProxy
-}
-export declare class DBusObjectProxy_Static {
-    new(connection: DBusConnection, object_path: string): DBusObjectProxy
-}
-export declare var DBusObjectProxy: DBusObjectProxy_Static
 export interface DBusObjectSkeleton_ConstructProps extends GObject.Object_ConstructProps {
     g_object_path?:string
 }
-export interface DBusObjectSkeleton {
+export class DBusObjectSkeleton {
     /* Properties of Gio.DBusObjectSkeleton */
     g_object_path:string
     /* Fields of Gio.DBusObjectSkeleton */
@@ -3644,15 +3402,10 @@ export interface DBusObjectSkeleton {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::g-object-path", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusObjectSkeleton_ConstructProps): DBusObjectSkeleton
+    static new(object_path: string): DBusObjectSkeleton
 }
-export interface DBusObjectSkeleton_Static {
-    name: string
-    new (config?: DBusObjectSkeleton_ConstructProps): DBusObjectSkeleton
-}
-export declare class DBusObjectSkeleton_Static {
-    new(object_path: string): DBusObjectSkeleton
-}
-export declare var DBusObjectSkeleton: DBusObjectSkeleton_Static
 export interface DBusProxy_ConstructProps extends GObject.Object_ConstructProps {
     g_bus_type?:BusType
     g_connection?:DBusConnection
@@ -3663,7 +3416,7 @@ export interface DBusProxy_ConstructProps extends GObject.Object_ConstructProps 
     g_name?:string
     g_object_path?:string
 }
-export interface DBusProxy {
+export class DBusProxy {
     /* Properties of Gio.DBusProxy */
     g_default_timeout:number
     g_interface_info:DBusInterfaceInfo
@@ -3734,27 +3487,22 @@ export interface DBusProxy {
     connect(sigName: "notify::g-default-timeout", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::g-interface-info", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::g-name-owner", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusProxy_ConstructProps): DBusProxy
+    static new_finish(res: AsyncResult): DBusProxy
+    static new_for_bus_finish(res: AsyncResult): DBusProxy
+    static new_for_bus_sync(bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable: Cancellable | null): DBusProxy
+    static new_sync(connection: DBusConnection, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable: Cancellable | null): DBusProxy
+    static new(connection: DBusConnection, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
+    static new_for_bus(bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
 }
-export interface DBusProxy_Static {
-    name: string
-    new (config?: DBusProxy_ConstructProps): DBusProxy
-}
-export declare class DBusProxy_Static {
-    new_finish(res: AsyncResult): DBusProxy
-    new_for_bus_finish(res: AsyncResult): DBusProxy
-    new_for_bus_sync(bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable: Cancellable | null): DBusProxy
-    new_sync(connection: DBusConnection, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable: Cancellable | null): DBusProxy
-    new(connection: DBusConnection, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    new_for_bus(bus_type: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-}
-export declare var DBusProxy: DBusProxy_Static
 export interface DBusServer_ConstructProps extends GObject.Object_ConstructProps {
     address?:string
     authentication_observer?:DBusAuthObserver
     flags?:DBusServerFlags
     guid?:string
 }
-export interface DBusServer {
+export class DBusServer {
     /* Properties of Gio.DBusServer */
     readonly active:boolean
     readonly client_address:string
@@ -3805,20 +3553,15 @@ export interface DBusServer {
     connect(sigName: "notify", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::active", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::client-address", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DBusServer_ConstructProps): DBusServer
+    static new_sync(address: string, flags: DBusServerFlags, guid: string, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusServer
 }
-export interface DBusServer_Static {
-    name: string
-    new (config?: DBusServer_ConstructProps): DBusServer
-}
-export declare class DBusServer_Static {
-    new_sync(address: string, flags: DBusServerFlags, guid: string, observer: DBusAuthObserver | null, cancellable: Cancellable | null): DBusServer
-}
-export declare var DBusServer: DBusServer_Static
 export interface DataInputStream_ConstructProps extends BufferedInputStream_ConstructProps {
     byte_order?:DataStreamByteOrder
     newline_type?:DataStreamNewlineType
 }
-export interface DataInputStream {
+export class DataInputStream {
     /* Properties of Gio.DataInputStream */
     byte_order:DataStreamByteOrder
     newline_type:DataStreamNewlineType
@@ -3942,19 +3685,14 @@ export interface DataInputStream {
     connect(sigName: "notify::newline-type", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::buffer-size", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::close-base-stream", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DataInputStream_ConstructProps): DataInputStream
+    static new(base_stream: InputStream): DataInputStream
 }
-export interface DataInputStream_Static {
-    name: string
-    new (config?: DataInputStream_ConstructProps): DataInputStream
-}
-export declare class DataInputStream_Static {
-    new(base_stream: InputStream): DataInputStream
-}
-export declare var DataInputStream: DataInputStream_Static
 export interface DataOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
     byte_order?:DataStreamByteOrder
 }
-export interface DataOutputStream {
+export class DataOutputStream {
     /* Properties of Gio.DataOutputStream */
     byte_order:DataStreamByteOrder
     /* Properties of Gio.FilterOutputStream */
@@ -4052,19 +3790,14 @@ export interface DataOutputStream {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::byte-order", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DataOutputStream_ConstructProps): DataOutputStream
+    static new(base_stream: OutputStream): DataOutputStream
 }
-export interface DataOutputStream_Static {
-    name: string
-    new (config?: DataOutputStream_ConstructProps): DataOutputStream
-}
-export declare class DataOutputStream_Static {
-    new(base_stream: OutputStream): DataOutputStream
-}
-export declare var DataOutputStream: DataOutputStream_Static
 export interface DesktopAppInfo_ConstructProps extends GObject.Object_ConstructProps {
     filename?:string
 }
-export interface DesktopAppInfo {
+export class DesktopAppInfo {
     /* Properties of Gio.DesktopAppInfo */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -4118,25 +3851,20 @@ export interface DesktopAppInfo {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DesktopAppInfo, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DesktopAppInfo_ConstructProps): DesktopAppInfo
+    static new(desktop_id: string): DesktopAppInfo
+    static new_from_filename(filename: string): DesktopAppInfo
+    static new_from_keyfile(key_file: GLib.KeyFile): DesktopAppInfo
+    static get_implementations(interface: string): GLib.List
+    static search(search_string: string): any
+    static set_desktop_env(desktop_env: string): void
 }
-export interface DesktopAppInfo_Static {
-    name: string
-    new (config?: DesktopAppInfo_ConstructProps): DesktopAppInfo
-}
-export declare class DesktopAppInfo_Static {
-    new(desktop_id: string): DesktopAppInfo
-    new_from_filename(filename: string): DesktopAppInfo
-    new_from_keyfile(key_file: GLib.KeyFile): DesktopAppInfo
-    get_implementations(interface: string): GLib.List
-    search(search_string: string): any
-    set_desktop_env(desktop_env: string): void
-}
-export declare var DesktopAppInfo: DesktopAppInfo_Static
 export interface Emblem_ConstructProps extends GObject.Object_ConstructProps {
     icon?:GObject.Object
     origin?:EmblemOrigin
 }
-export interface Emblem {
+export class Emblem {
     /* Properties of Gio.Emblem */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -4177,20 +3905,15 @@ export interface Emblem {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Emblem, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Emblem_ConstructProps): Emblem
+    static new(icon: Icon): Emblem
+    static new_with_origin(icon: Icon, origin: EmblemOrigin): Emblem
 }
-export interface Emblem_Static {
-    name: string
-    new (config?: Emblem_ConstructProps): Emblem
-}
-export declare class Emblem_Static {
-    new(icon: Icon): Emblem
-    new_with_origin(icon: Icon, origin: EmblemOrigin): Emblem
-}
-export declare var Emblem: Emblem_Static
 export interface EmblemedIcon_ConstructProps extends GObject.Object_ConstructProps {
     gicon?:Icon
 }
-export interface EmblemedIcon {
+export class EmblemedIcon {
     /* Properties of Gio.EmblemedIcon */
     /* Fields of Gio.EmblemedIcon */
     parent_instance:GObject.Object
@@ -4235,19 +3958,14 @@ export interface EmblemedIcon {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: EmblemedIcon, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: EmblemedIcon_ConstructProps): EmblemedIcon
+    static new(icon: Icon, emblem: Emblem | null): EmblemedIcon
 }
-export interface EmblemedIcon_Static {
-    name: string
-    new (config?: EmblemedIcon_ConstructProps): EmblemedIcon
-}
-export declare class EmblemedIcon_Static {
-    new(icon: Icon, emblem: Emblem | null): EmblemedIcon
-}
-export declare var EmblemedIcon: EmblemedIcon_Static
 export interface FileEnumerator_ConstructProps extends GObject.Object_ConstructProps {
     container?:File
 }
-export interface FileEnumerator {
+export class FileEnumerator {
     /* Properties of Gio.FileEnumerator */
     /* Fields of Gio.FileEnumerator */
     parent_instance:GObject.Object
@@ -4307,15 +4025,12 @@ export interface FileEnumerator {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileEnumerator, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileEnumerator_ConstructProps): FileEnumerator
 }
-export interface FileEnumerator_Static {
-    name: string
-    new (config?: FileEnumerator_ConstructProps): FileEnumerator
-}
-export declare var FileEnumerator: FileEnumerator_Static
 export interface FileIOStream_ConstructProps extends IOStream_ConstructProps {
 }
-export interface FileIOStream {
+export class FileIOStream {
     /* Properties of Gio.IOStream */
     readonly closed:boolean
     readonly input_stream:InputStream
@@ -4394,16 +4109,13 @@ export interface FileIOStream {
     connect(sigName: "notify::closed", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::input-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::output-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileIOStream_ConstructProps): FileIOStream
 }
-export interface FileIOStream_Static {
-    name: string
-    new (config?: FileIOStream_ConstructProps): FileIOStream
-}
-export declare var FileIOStream: FileIOStream_Static
 export interface FileIcon_ConstructProps extends GObject.Object_ConstructProps {
     file?:File
 }
-export interface FileIcon {
+export class FileIcon {
     /* Properties of Gio.FileIcon */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -4443,18 +4155,13 @@ export interface FileIcon {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileIcon, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileIcon_ConstructProps): FileIcon
+    static new(file: File): FileIcon
 }
-export interface FileIcon_Static {
-    name: string
-    new (config?: FileIcon_ConstructProps): FileIcon
-}
-export declare class FileIcon_Static {
-    new(file: File): FileIcon
-}
-export declare var FileIcon: FileIcon_Static
 export interface FileInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface FileInfo {
+export class FileInfo {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.FileInfo */
@@ -4554,18 +4261,13 @@ export interface FileInfo {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileInfo, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileInfo_ConstructProps): FileInfo
+    static new(): FileInfo
 }
-export interface FileInfo_Static {
-    name: string
-    new (config?: FileInfo_ConstructProps): FileInfo
-}
-export declare class FileInfo_Static {
-    new(): FileInfo
-}
-export declare var FileInfo: FileInfo_Static
 export interface FileInputStream_ConstructProps extends InputStream_ConstructProps {
 }
-export interface FileInputStream {
+export class FileInputStream {
     /* Fields of Gio.FileInputStream */
     parent_instance:InputStream
     /* Fields of Gio.InputStream */
@@ -4646,16 +4348,13 @@ export interface FileInputStream {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileInputStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileInputStream_ConstructProps): FileInputStream
 }
-export interface FileInputStream_Static {
-    name: string
-    new (config?: FileInputStream_ConstructProps): FileInputStream
-}
-export declare var FileInputStream: FileInputStream_Static
 export interface FileMonitor_ConstructProps extends GObject.Object_ConstructProps {
     rate_limit?:number
 }
-export interface FileMonitor {
+export class FileMonitor {
     /* Properties of Gio.FileMonitor */
     readonly cancelled:boolean
     rate_limit:number
@@ -4709,15 +4408,12 @@ export interface FileMonitor {
     connect(sigName: "notify", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::cancelled", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::rate-limit", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileMonitor_ConstructProps): FileMonitor
 }
-export interface FileMonitor_Static {
-    name: string
-    new (config?: FileMonitor_ConstructProps): FileMonitor
-}
-export declare var FileMonitor: FileMonitor_Static
 export interface FileOutputStream_ConstructProps extends OutputStream_ConstructProps {
 }
-export interface FileOutputStream {
+export class FileOutputStream {
     /* Fields of Gio.FileOutputStream */
     parent_instance:OutputStream
     /* Fields of Gio.OutputStream */
@@ -4809,15 +4505,12 @@ export interface FileOutputStream {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileOutputStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileOutputStream_ConstructProps): FileOutputStream
 }
-export interface FileOutputStream_Static {
-    name: string
-    new (config?: FileOutputStream_ConstructProps): FileOutputStream
-}
-export declare var FileOutputStream: FileOutputStream_Static
 export interface FilenameCompleter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface FilenameCompleter {
+export class FilenameCompleter {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.FilenameCompleter */
@@ -4862,20 +4555,15 @@ export interface FilenameCompleter {
     connect(sigName: "got-completion-data", callback: ((obj: FilenameCompleter) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FilenameCompleter, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FilenameCompleter_ConstructProps): FilenameCompleter
+    static new(): FilenameCompleter
 }
-export interface FilenameCompleter_Static {
-    name: string
-    new (config?: FilenameCompleter_ConstructProps): FilenameCompleter
-}
-export declare class FilenameCompleter_Static {
-    new(): FilenameCompleter
-}
-export declare var FilenameCompleter: FilenameCompleter_Static
 export interface FilterInputStream_ConstructProps extends InputStream_ConstructProps {
     base_stream?:InputStream
     close_base_stream?:boolean
 }
-export interface FilterInputStream {
+export class FilterInputStream {
     /* Properties of Gio.FilterInputStream */
     close_base_stream:boolean
     /* Fields of Gio.FilterInputStream */
@@ -4953,17 +4641,14 @@ export interface FilterInputStream {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::close-base-stream", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FilterInputStream_ConstructProps): FilterInputStream
 }
-export interface FilterInputStream_Static {
-    name: string
-    new (config?: FilterInputStream_ConstructProps): FilterInputStream
-}
-export declare var FilterInputStream: FilterInputStream_Static
 export interface FilterOutputStream_ConstructProps extends OutputStream_ConstructProps {
     base_stream?:OutputStream
     close_base_stream?:boolean
 }
-export interface FilterOutputStream {
+export class FilterOutputStream {
     /* Properties of Gio.FilterOutputStream */
     /* Fields of Gio.FilterOutputStream */
     parent_instance:OutputStream
@@ -5046,15 +4731,12 @@ export interface FilterOutputStream {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FilterOutputStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FilterOutputStream_ConstructProps): FilterOutputStream
 }
-export interface FilterOutputStream_Static {
-    name: string
-    new (config?: FilterOutputStream_ConstructProps): FilterOutputStream
-}
-export declare var FilterOutputStream: FilterOutputStream_Static
 export interface IOModule_ConstructProps extends GObject.TypeModule_ConstructProps {
 }
-export interface IOModule {
+export class IOModule {
     /* Fields of GObject.TypeModule */
     parent_instance:GObject.Object
     use_count:number
@@ -5111,19 +4793,14 @@ export interface IOModule {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: IOModule, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: IOModule_ConstructProps): IOModule
+    static new(filename: string): IOModule
+    static query(): string[]
 }
-export interface IOModule_Static {
-    name: string
-    new (config?: IOModule_ConstructProps): IOModule
-}
-export declare class IOModule_Static {
-    new(filename: string): IOModule
-    query(): string[]
-}
-export declare var IOModule: IOModule_Static
 export interface IOStream_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface IOStream {
+export class IOStream {
     /* Properties of Gio.IOStream */
     readonly closed:boolean
     readonly input_stream:InputStream
@@ -5186,20 +4863,15 @@ export interface IOStream {
     connect(sigName: "notify::closed", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::input-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::output-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: IOStream_ConstructProps): IOStream
+    static splice_finish(result: AsyncResult): boolean
 }
-export interface IOStream_Static {
-    name: string
-    new (config?: IOStream_ConstructProps): IOStream
-}
-export declare class IOStream_Static {
-    splice_finish(result: AsyncResult): boolean
-}
-export declare var IOStream: IOStream_Static
 export interface InetAddress_ConstructProps extends GObject.Object_ConstructProps {
     bytes?:object
     family?:SocketFamily
 }
-export interface InetAddress {
+export class InetAddress {
     /* Properties of Gio.InetAddress */
     readonly is_any:boolean
     readonly is_link_local:boolean
@@ -5276,23 +4948,18 @@ export interface InetAddress {
     connect(sigName: "notify::is-mc-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::is-multicast", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::is-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: InetAddress_ConstructProps): InetAddress
+    static new_any(family: SocketFamily): InetAddress
+    static new_from_bytes(bytes: Gjs.byteArray.ByteArray, family: SocketFamily): InetAddress
+    static new_from_string(string: string): InetAddress
+    static new_loopback(family: SocketFamily): InetAddress
 }
-export interface InetAddress_Static {
-    name: string
-    new (config?: InetAddress_ConstructProps): InetAddress
-}
-export declare class InetAddress_Static {
-    new_any(family: SocketFamily): InetAddress
-    new_from_bytes(bytes: Gjs.byteArray.ByteArray, family: SocketFamily): InetAddress
-    new_from_string(string: string): InetAddress
-    new_loopback(family: SocketFamily): InetAddress
-}
-export declare var InetAddress: InetAddress_Static
 export interface InetAddressMask_ConstructProps extends GObject.Object_ConstructProps {
     address?:InetAddress
     length?:number
 }
-export interface InetAddressMask {
+export class InetAddressMask {
     /* Properties of Gio.InetAddressMask */
     address:InetAddress
     readonly family:SocketFamily
@@ -5345,23 +5012,18 @@ export interface InetAddressMask {
     connect(sigName: "notify::address", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::family", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::length", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: InetAddressMask_ConstructProps): InetAddressMask
+    static new(addr: InetAddress, length: number): InetAddressMask
+    static new_from_string(mask_string: string): InetAddressMask
 }
-export interface InetAddressMask_Static {
-    name: string
-    new (config?: InetAddressMask_ConstructProps): InetAddressMask
-}
-export declare class InetAddressMask_Static {
-    new(addr: InetAddress, length: number): InetAddressMask
-    new_from_string(mask_string: string): InetAddressMask
-}
-export declare var InetAddressMask: InetAddressMask_Static
 export interface InetSocketAddress_ConstructProps extends SocketAddress_ConstructProps {
     address?:InetAddress
     flowinfo?:number
     port?:number
     scope_id?:number
 }
-export interface InetSocketAddress {
+export class InetSocketAddress {
     /* Properties of Gio.InetSocketAddress */
     /* Properties of Gio.SocketAddress */
     readonly family:SocketFamily
@@ -5418,19 +5080,14 @@ export interface InetSocketAddress {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::family", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void))
-}
-export interface InetSocketAddress_Static {
-    name: string
-    new (config?: InetSocketAddress_ConstructProps): InetSocketAddress
-}
-export declare class InetSocketAddress_Static {
+    static name: string
+    static new (config?: InetSocketAddress_ConstructProps): InetSocketAddress
     new(address: InetAddress, port: number): InetSocketAddress
     new_from_string(address: string, port: number): InetSocketAddress
 }
-export declare var InetSocketAddress: InetSocketAddress_Static
 export interface InputStream_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface InputStream {
+export class InputStream {
     /* Fields of Gio.InputStream */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -5499,16 +5156,13 @@ export interface InputStream {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: InputStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: InputStream_ConstructProps): InputStream
 }
-export interface InputStream_Static {
-    name: string
-    new (config?: InputStream_ConstructProps): InputStream
-}
-export declare var InputStream: InputStream_Static
 export interface ListStore_ConstructProps extends GObject.Object_ConstructProps {
     item_type?:number
 }
-export interface ListStore {
+export class ListStore {
     /* Properties of Gio.ListStore */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -5554,18 +5208,13 @@ export interface ListStore {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ListStore, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ListStore_ConstructProps): ListStore
+    static new(item_type: number): ListStore
 }
-export interface ListStore_Static {
-    name: string
-    new (config?: ListStore_ConstructProps): ListStore
-}
-export declare class ListStore_Static {
-    new(item_type: number): ListStore
-}
-export declare var ListStore: ListStore_Static
 export interface MemoryInputStream_ConstructProps extends InputStream_ConstructProps {
 }
-export interface MemoryInputStream {
+export class MemoryInputStream {
     /* Fields of Gio.MemoryInputStream */
     parent_instance:InputStream
     /* Fields of Gio.InputStream */
@@ -5638,22 +5287,17 @@ export interface MemoryInputStream {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: MemoryInputStream, pspec: GObject.ParamSpec) => void))
-}
-export interface MemoryInputStream_Static {
-    name: string
-    new (config?: MemoryInputStream_ConstructProps): MemoryInputStream
-}
-export declare class MemoryInputStream_Static {
+    static name: string
+    static new (config?: MemoryInputStream_ConstructProps): MemoryInputStream
     new(): MemoryInputStream
     new_from_bytes(bytes: Gjs.byteArray.ByteArray): MemoryInputStream
     new_from_data(data: Gjs.byteArray.ByteArray, len: number, destroy: GLib.DestroyNotify | null): MemoryInputStream
 }
-export declare var MemoryInputStream: MemoryInputStream_Static
 export interface MemoryOutputStream_ConstructProps extends OutputStream_ConstructProps {
     data?:object
     size?:number
 }
-export interface MemoryOutputStream {
+export class MemoryOutputStream {
     /* Properties of Gio.MemoryOutputStream */
     readonly data_size:number
     /* Fields of Gio.MemoryOutputStream */
@@ -5737,18 +5381,13 @@ export interface MemoryOutputStream {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::data-size", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void))
-}
-export interface MemoryOutputStream_Static {
-    name: string
-    new (config?: MemoryOutputStream_ConstructProps): MemoryOutputStream
-}
-export declare class MemoryOutputStream_Static {
+    static name: string
+    static new (config?: MemoryOutputStream_ConstructProps): MemoryOutputStream
     new_resizable(): MemoryOutputStream
 }
-export declare var MemoryOutputStream: MemoryOutputStream_Static
 export interface Menu_ConstructProps extends MenuModel_ConstructProps {
 }
-export interface Menu {
+export class Menu {
     /* Fields of Gio.MenuModel */
     parent_instance:GObject.Object
     priv:MenuModelPrivate
@@ -5823,18 +5462,13 @@ export interface Menu {
     connect(sigName: "items-changed", callback: ((obj: Menu, position: number, removed: number, added: number) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Menu, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Menu_ConstructProps): Menu
+    static new(): Menu
 }
-export interface Menu_Static {
-    name: string
-    new (config?: Menu_ConstructProps): Menu
-}
-export declare class Menu_Static {
-    new(): Menu
-}
-export declare var Menu: Menu_Static
 export interface MenuAttributeIter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface MenuAttributeIter {
+export class MenuAttributeIter {
     /* Fields of Gio.MenuAttributeIter */
     parent_instance:GObject.Object
     priv:MenuAttributeIterPrivate
@@ -5881,15 +5515,12 @@ export interface MenuAttributeIter {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: MenuAttributeIter, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: MenuAttributeIter_ConstructProps): MenuAttributeIter
 }
-export interface MenuAttributeIter_Static {
-    name: string
-    new (config?: MenuAttributeIter_ConstructProps): MenuAttributeIter
-}
-export declare var MenuAttributeIter: MenuAttributeIter_Static
 export interface MenuItem_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface MenuItem {
+export class MenuItem {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.MenuItem */
@@ -5937,21 +5568,16 @@ export interface MenuItem {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: MenuItem, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: MenuItem_ConstructProps): MenuItem
+    static new(label: string | null, detailed_action: string | null): MenuItem
+    static new_from_model(model: MenuModel, item_index: number): MenuItem
+    static new_section(label: string | null, section: MenuModel): MenuItem
+    static new_submenu(label: string | null, submenu: MenuModel): MenuItem
 }
-export interface MenuItem_Static {
-    name: string
-    new (config?: MenuItem_ConstructProps): MenuItem
-}
-export declare class MenuItem_Static {
-    new(label: string | null, detailed_action: string | null): MenuItem
-    new_from_model(model: MenuModel, item_index: number): MenuItem
-    new_section(label: string | null, section: MenuModel): MenuItem
-    new_submenu(label: string | null, submenu: MenuModel): MenuItem
-}
-export declare var MenuItem: MenuItem_Static
 export interface MenuLinkIter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface MenuLinkIter {
+export class MenuLinkIter {
     /* Fields of Gio.MenuLinkIter */
     parent_instance:GObject.Object
     priv:MenuLinkIterPrivate
@@ -5998,15 +5624,12 @@ export interface MenuLinkIter {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: MenuLinkIter, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: MenuLinkIter_ConstructProps): MenuLinkIter
 }
-export interface MenuLinkIter_Static {
-    name: string
-    new (config?: MenuLinkIter_ConstructProps): MenuLinkIter
-}
-export declare var MenuLinkIter: MenuLinkIter_Static
 export interface MenuModel_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface MenuModel {
+export class MenuModel {
     /* Fields of Gio.MenuModel */
     parent_instance:GObject.Object
     priv:MenuModelPrivate
@@ -6065,12 +5688,9 @@ export interface MenuModel {
     connect(sigName: "items-changed", callback: ((obj: MenuModel, position: number, removed: number, added: number) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: MenuModel, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: MenuModel_ConstructProps): MenuModel
 }
-export interface MenuModel_Static {
-    name: string
-    new (config?: MenuModel_ConstructProps): MenuModel
-}
-export declare var MenuModel: MenuModel_Static
 export interface MountOperation_ConstructProps extends GObject.Object_ConstructProps {
     anonymous?:boolean
     choice?:number
@@ -6079,7 +5699,7 @@ export interface MountOperation_ConstructProps extends GObject.Object_ConstructP
     password_save?:PasswordSave
     username?:string
 }
-export interface MountOperation {
+export class MountOperation {
     /* Properties of Gio.MountOperation */
     anonymous:boolean
     choice:number
@@ -6159,18 +5779,13 @@ export interface MountOperation {
     connect(sigName: "notify::password", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::password-save", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::username", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: MountOperation_ConstructProps): MountOperation
+    static new(): MountOperation
 }
-export interface MountOperation_Static {
-    name: string
-    new (config?: MountOperation_ConstructProps): MountOperation
-}
-export declare class MountOperation_Static {
-    new(): MountOperation
-}
-export declare var MountOperation: MountOperation_Static
 export interface NativeVolumeMonitor_ConstructProps extends VolumeMonitor_ConstructProps {
 }
-export interface NativeVolumeMonitor {
+export class NativeVolumeMonitor {
     /* Fields of Gio.NativeVolumeMonitor */
     parent_instance:VolumeMonitor
     /* Fields of Gio.VolumeMonitor */
@@ -6247,18 +5862,15 @@ export interface NativeVolumeMonitor {
     connect(sigName: "volume-removed", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: NativeVolumeMonitor_ConstructProps): NativeVolumeMonitor
 }
-export interface NativeVolumeMonitor_Static {
-    name: string
-    new (config?: NativeVolumeMonitor_ConstructProps): NativeVolumeMonitor
-}
-export declare var NativeVolumeMonitor: NativeVolumeMonitor_Static
 export interface NetworkAddress_ConstructProps extends GObject.Object_ConstructProps {
     hostname?:string
     port?:number
     scheme?:string
 }
-export interface NetworkAddress {
+export class NetworkAddress {
     /* Properties of Gio.NetworkAddress */
     /* Fields of Gio.NetworkAddress */
     parent_instance:GObject.Object
@@ -6302,25 +5914,20 @@ export interface NetworkAddress {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NetworkAddress, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: NetworkAddress_ConstructProps): NetworkAddress
+    static new(hostname: string, port: number): NetworkAddress
+    static new_loopback(port: number): NetworkAddress
+    static parse(host_and_port: string, default_port: number): NetworkAddress
+    static parse_uri(uri: string, default_port: number): NetworkAddress
 }
-export interface NetworkAddress_Static {
-    name: string
-    new (config?: NetworkAddress_ConstructProps): NetworkAddress
-}
-export declare class NetworkAddress_Static {
-    new(hostname: string, port: number): NetworkAddress
-    new_loopback(port: number): NetworkAddress
-    parse(host_and_port: string, default_port: number): NetworkAddress
-    parse_uri(uri: string, default_port: number): NetworkAddress
-}
-export declare var NetworkAddress: NetworkAddress_Static
 export interface NetworkService_ConstructProps extends GObject.Object_ConstructProps {
     domain?:string
     protocol?:string
     scheme?:string
     service?:string
 }
-export interface NetworkService {
+export class NetworkService {
     /* Properties of Gio.NetworkService */
     scheme:string
     /* Fields of Gio.NetworkService */
@@ -6368,18 +5975,13 @@ export interface NetworkService {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::scheme", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: NetworkService_ConstructProps): NetworkService
+    static new(service: string, protocol: string, domain: string): NetworkService
 }
-export interface NetworkService_Static {
-    name: string
-    new (config?: NetworkService_ConstructProps): NetworkService
-}
-export declare class NetworkService_Static {
-    new(service: string, protocol: string, domain: string): NetworkService
-}
-export declare var NetworkService: NetworkService_Static
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Notification {
+export class Notification {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.Notification */
@@ -6426,18 +6028,13 @@ export interface Notification {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Notification_ConstructProps): Notification
+    static new(title: string): Notification
 }
-export interface Notification_Static {
-    name: string
-    new (config?: Notification_ConstructProps): Notification
-}
-export declare class Notification_Static {
-    new(title: string): Notification
-}
-export declare var Notification: Notification_Static
 export interface OutputStream_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface OutputStream {
+export class OutputStream {
     /* Fields of Gio.OutputStream */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -6513,15 +6110,12 @@ export interface OutputStream {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: OutputStream, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: OutputStream_ConstructProps): OutputStream
 }
-export interface OutputStream_Static {
-    name: string
-    new (config?: OutputStream_ConstructProps): OutputStream
-}
-export declare var OutputStream: OutputStream_Static
 export interface Permission_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Permission {
+export class Permission {
     /* Properties of Gio.Permission */
     readonly allowed:boolean
     readonly can_acquire:boolean
@@ -6585,19 +6179,16 @@ export interface Permission {
     connect(sigName: "notify::allowed", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::can-acquire", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::can-release", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Permission_ConstructProps): Permission
 }
-export interface Permission_Static {
-    name: string
-    new (config?: Permission_ConstructProps): Permission
-}
-export declare var Permission: Permission_Static
 export interface PropertyAction_ConstructProps extends GObject.Object_ConstructProps {
     invert_boolean?:boolean
     name?:string
     object?:GObject.Object
     property_name?:string
 }
-export interface PropertyAction {
+export class PropertyAction {
     /* Properties of Gio.PropertyAction */
     readonly enabled:boolean
     readonly parameter_type:GLib.VariantType
@@ -6643,15 +6234,10 @@ export interface PropertyAction {
     connect(sigName: "notify::parameter-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::state", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::state-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PropertyAction_ConstructProps): PropertyAction
+    static new(name: string, object: GObject.Object, property_name: string): PropertyAction
 }
-export interface PropertyAction_Static {
-    name: string
-    new (config?: PropertyAction_ConstructProps): PropertyAction
-}
-export declare class PropertyAction_Static {
-    new(name: string, object: GObject.Object, property_name: string): PropertyAction
-}
-export declare var PropertyAction: PropertyAction_Static
 export interface ProxyAddress_ConstructProps extends InetSocketAddress_ConstructProps {
     destination_hostname?:string
     destination_port?:number
@@ -6661,7 +6247,7 @@ export interface ProxyAddress_ConstructProps extends InetSocketAddress_Construct
     uri?:string
     username?:string
 }
-export interface ProxyAddress {
+export class ProxyAddress {
     /* Properties of Gio.ProxyAddress */
     /* Properties of Gio.InetSocketAddress */
     /* Properties of Gio.SocketAddress */
@@ -6728,22 +6314,17 @@ export interface ProxyAddress {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::family", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void))
-}
-export interface ProxyAddress_Static {
-    name: string
-    new (config?: ProxyAddress_ConstructProps): ProxyAddress
-}
-export declare class ProxyAddress_Static {
+    static name: string
+    static new (config?: ProxyAddress_ConstructProps): ProxyAddress
     new(inetaddr: InetAddress, port: number, protocol: string, dest_hostname: string, dest_port: number, username: string | null, password: string | null): ProxyAddress
 }
-export declare var ProxyAddress: ProxyAddress_Static
 export interface ProxyAddressEnumerator_ConstructProps extends SocketAddressEnumerator_ConstructProps {
     connectable?:SocketConnectable
     default_port?:number
     proxy_resolver?:ProxyResolver
     uri?:string
 }
-export interface ProxyAddressEnumerator {
+export class ProxyAddressEnumerator {
     /* Properties of Gio.ProxyAddressEnumerator */
     proxy_resolver:ProxyResolver
     /* Fields of Gio.ProxyAddressEnumerator */
@@ -6795,15 +6376,12 @@ export interface ProxyAddressEnumerator {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::proxy-resolver", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ProxyAddressEnumerator_ConstructProps): ProxyAddressEnumerator
 }
-export interface ProxyAddressEnumerator_Static {
-    name: string
-    new (config?: ProxyAddressEnumerator_ConstructProps): ProxyAddressEnumerator
-}
-export declare var ProxyAddressEnumerator: ProxyAddressEnumerator_Static
 export interface Resolver_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Resolver {
+export class Resolver {
     /* Fields of Gio.Resolver */
     parent_instance:GObject.Object
     priv:ResolverPrivate
@@ -6872,15 +6450,10 @@ export interface Resolver {
     connect(sigName: "reload", callback: ((obj: Resolver) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Resolver, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Resolver_ConstructProps): Resolver
+    static get_default(): Resolver
 }
-export interface Resolver_Static {
-    name: string
-    new (config?: Resolver_ConstructProps): Resolver
-}
-export declare class Resolver_Static {
-    get_default(): Resolver
-}
-export declare var Resolver: Resolver_Static
 export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     backend?:SettingsBackend
     path?:string
@@ -6888,7 +6461,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     schema_id?:string
     settings_schema?:SettingsSchema
 }
-export interface Settings {
+export class Settings {
     /* Properties of Gio.Settings */
     readonly delay_apply:boolean
     readonly has_unapplied:boolean
@@ -6983,26 +6556,21 @@ export interface Settings {
     connect(sigName: "notify", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::delay-apply", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::has-unapplied", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Settings_ConstructProps): Settings
+    static new(schema_id: string): Settings
+    static new_full(schema: SettingsSchema, backend: SettingsBackend | null, path: string | null): Settings
+    static new_with_backend(schema_id: string, backend: SettingsBackend): Settings
+    static new_with_backend_and_path(schema_id: string, backend: SettingsBackend, path: string): Settings
+    static new_with_path(schema_id: string, path: string): Settings
+    static list_relocatable_schemas(): string[]
+    static list_schemas(): string[]
+    static sync(): void
+    static unbind(object: GObject.Object, property: string): void
 }
-export interface Settings_Static {
-    name: string
-    new (config?: Settings_ConstructProps): Settings
-}
-export declare class Settings_Static {
-    new(schema_id: string): Settings
-    new_full(schema: SettingsSchema, backend: SettingsBackend | null, path: string | null): Settings
-    new_with_backend(schema_id: string, backend: SettingsBackend): Settings
-    new_with_backend_and_path(schema_id: string, backend: SettingsBackend, path: string): Settings
-    new_with_path(schema_id: string, path: string): Settings
-    list_relocatable_schemas(): string[]
-    list_schemas(): string[]
-    sync(): void
-    unbind(object: GObject.Object, property: string): void
-}
-export declare var Settings: Settings_Static
 export interface SettingsBackend_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface SettingsBackend {
+export class SettingsBackend {
     /* Fields of Gio.SettingsBackend */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -7058,23 +6626,18 @@ export interface SettingsBackend {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SettingsBackend, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SettingsBackend_ConstructProps): SettingsBackend
+    static flatten_tree(tree: GLib.Tree): [ /* path */ string, /* keys */ string[], /* values */ GLib.Variant[] | null ]
+    static get_default(): SettingsBackend
 }
-export interface SettingsBackend_Static {
-    name: string
-    new (config?: SettingsBackend_ConstructProps): SettingsBackend
-}
-export declare class SettingsBackend_Static {
-    flatten_tree(tree: GLib.Tree): [ /* path */ string, /* keys */ string[], /* values */ GLib.Variant[] | null ]
-    get_default(): SettingsBackend
-}
-export declare var SettingsBackend: SettingsBackend_Static
 export interface SimpleAction_ConstructProps extends GObject.Object_ConstructProps {
     enabled?:boolean
     name?:string
     parameter_type?:GLib.VariantType
     state?:GLib.Variant
 }
-export interface SimpleAction {
+export class SimpleAction {
     /* Properties of Gio.SimpleAction */
     enabled:boolean
     state:GLib.Variant
@@ -7125,19 +6688,14 @@ export interface SimpleAction {
     connect(sigName: "notify::enabled", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::state", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::state-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SimpleAction_ConstructProps): SimpleAction
+    static new(name: string, parameter_type: GLib.VariantType | null): SimpleAction
+    static new_stateful(name: string, parameter_type: GLib.VariantType | null, state: GLib.Variant): SimpleAction
 }
-export interface SimpleAction_Static {
-    name: string
-    new (config?: SimpleAction_ConstructProps): SimpleAction
-}
-export declare class SimpleAction_Static {
-    new(name: string, parameter_type: GLib.VariantType | null): SimpleAction
-    new_stateful(name: string, parameter_type: GLib.VariantType | null, state: GLib.Variant): SimpleAction
-}
-export declare var SimpleAction: SimpleAction_Static
 export interface SimpleActionGroup_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface SimpleActionGroup {
+export class SimpleActionGroup {
     /* Fields of Gio.SimpleActionGroup */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -7180,18 +6738,13 @@ export interface SimpleActionGroup {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SimpleActionGroup_ConstructProps): SimpleActionGroup
+    static new(): SimpleActionGroup
 }
-export interface SimpleActionGroup_Static {
-    name: string
-    new (config?: SimpleActionGroup_ConstructProps): SimpleActionGroup
-}
-export declare class SimpleActionGroup_Static {
-    new(): SimpleActionGroup
-}
-export declare var SimpleActionGroup: SimpleActionGroup_Static
 export interface SimpleAsyncResult_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface SimpleAsyncResult {
+export class SimpleAsyncResult {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.SimpleAsyncResult */
@@ -7239,22 +6792,17 @@ export interface SimpleAsyncResult {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SimpleAsyncResult, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SimpleAsyncResult_ConstructProps): SimpleAsyncResult
+    static new(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, user_data: object | null, source_tag: object | null): SimpleAsyncResult
+    static new_from_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, user_data: object | null, error: GLib.Error): SimpleAsyncResult
+    static is_valid(result: AsyncResult, source: GObject.Object | null, source_tag: object | null): boolean
 }
-export interface SimpleAsyncResult_Static {
-    name: string
-    new (config?: SimpleAsyncResult_ConstructProps): SimpleAsyncResult
-}
-export declare class SimpleAsyncResult_Static {
-    new(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, user_data: object | null, source_tag: object | null): SimpleAsyncResult
-    new_from_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, user_data: object | null, error: GLib.Error): SimpleAsyncResult
-    is_valid(result: AsyncResult, source: GObject.Object | null, source_tag: object | null): boolean
-}
-export declare var SimpleAsyncResult: SimpleAsyncResult_Static
 export interface SimpleIOStream_ConstructProps extends IOStream_ConstructProps {
     input_stream?:InputStream
     output_stream?:OutputStream
 }
-export interface SimpleIOStream {
+export class SimpleIOStream {
     /* Properties of Gio.SimpleIOStream */
     /* Properties of Gio.IOStream */
     readonly closed:boolean
@@ -7318,18 +6866,13 @@ export interface SimpleIOStream {
     connect(sigName: "notify::closed", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::input-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::output-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void))
-}
-export interface SimpleIOStream_Static {
-    name: string
-    new (config?: SimpleIOStream_ConstructProps): SimpleIOStream
-}
-export declare class SimpleIOStream_Static {
+    static name: string
+    static new (config?: SimpleIOStream_ConstructProps): SimpleIOStream
     new(input_stream: InputStream, output_stream: OutputStream): SimpleIOStream
 }
-export declare var SimpleIOStream: SimpleIOStream_Static
 export interface SimplePermission_ConstructProps extends Permission_ConstructProps {
 }
-export interface SimplePermission {
+export class SimplePermission {
     /* Properties of Gio.Permission */
     readonly allowed:boolean
     readonly can_acquire:boolean
@@ -7393,20 +6936,15 @@ export interface SimplePermission {
     connect(sigName: "notify::allowed", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::can-acquire", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::can-release", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void))
-}
-export interface SimplePermission_Static {
-    name: string
-    new (config?: SimplePermission_ConstructProps): SimplePermission
-}
-export declare class SimplePermission_Static {
+    static name: string
+    static new (config?: SimplePermission_ConstructProps): SimplePermission
     new(allowed: boolean): SimplePermission
 }
-export declare var SimplePermission: SimplePermission_Static
 export interface SimpleProxyResolver_ConstructProps extends GObject.Object_ConstructProps {
     default_proxy?:string
     ignore_hosts?:string[]
 }
-export interface SimpleProxyResolver {
+export class SimpleProxyResolver {
     /* Properties of Gio.SimpleProxyResolver */
     default_proxy:string
     ignore_hosts:string[]
@@ -7454,15 +6992,10 @@ export interface SimpleProxyResolver {
     connect(sigName: "notify", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::default-proxy", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ignore-hosts", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SimpleProxyResolver_ConstructProps): SimpleProxyResolver
+    static new(default_proxy: string | null, ignore_hosts: string | null): ProxyResolver
 }
-export interface SimpleProxyResolver_Static {
-    name: string
-    new (config?: SimpleProxyResolver_ConstructProps): SimpleProxyResolver
-}
-export declare class SimpleProxyResolver_Static {
-    new(default_proxy: string | null, ignore_hosts: string | null): ProxyResolver
-}
-export declare var SimpleProxyResolver: SimpleProxyResolver_Static
 export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
     blocking?:boolean
     broadcast?:boolean
@@ -7477,7 +7010,7 @@ export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
     ttl?:number
     type?:SocketType
 }
-export interface Socket {
+export class Socket {
     /* Properties of Gio.Socket */
     blocking:boolean
     broadcast:boolean
@@ -7591,19 +7124,14 @@ export interface Socket {
     connect(sigName: "notify::remote-address", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::timeout", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ttl", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Socket_ConstructProps): Socket
+    static new(family: SocketFamily, type: SocketType, protocol: SocketProtocol): Socket
+    static new_from_fd(fd: number): Socket
 }
-export interface Socket_Static {
-    name: string
-    new (config?: Socket_ConstructProps): Socket
-}
-export declare class Socket_Static {
-    new(family: SocketFamily, type: SocketType, protocol: SocketProtocol): Socket
-    new_from_fd(fd: number): Socket
-}
-export declare var Socket: Socket_Static
 export interface SocketAddress_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface SocketAddress {
+export class SocketAddress {
     /* Properties of Gio.SocketAddress */
     readonly family:SocketFamily
     /* Fields of Gio.SocketAddress */
@@ -7653,18 +7181,13 @@ export interface SocketAddress {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::family", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SocketAddress_ConstructProps): SocketAddress
+    static new_from_native(native: object, len: number): SocketAddress
 }
-export interface SocketAddress_Static {
-    name: string
-    new (config?: SocketAddress_ConstructProps): SocketAddress
-}
-export declare class SocketAddress_Static {
-    new_from_native(native: object, len: number): SocketAddress
-}
-export declare var SocketAddress: SocketAddress_Static
 export interface SocketAddressEnumerator_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface SocketAddressEnumerator {
+export class SocketAddressEnumerator {
     /* Fields of Gio.SocketAddressEnumerator */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -7711,12 +7234,9 @@ export interface SocketAddressEnumerator {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SocketAddressEnumerator_ConstructProps): SocketAddressEnumerator
 }
-export interface SocketAddressEnumerator_Static {
-    name: string
-    new (config?: SocketAddressEnumerator_ConstructProps): SocketAddressEnumerator
-}
-export declare var SocketAddressEnumerator: SocketAddressEnumerator_Static
 export interface SocketClient_ConstructProps extends GObject.Object_ConstructProps {
     enable_proxy?:boolean
     family?:SocketFamily
@@ -7728,7 +7248,7 @@ export interface SocketClient_ConstructProps extends GObject.Object_ConstructPro
     tls_validation_flags?:TlsCertificateFlags
     type?:SocketType
 }
-export interface SocketClient {
+export class SocketClient {
     /* Properties of Gio.SocketClient */
     enable_proxy:boolean
     family:SocketFamily
@@ -7823,19 +7343,14 @@ export interface SocketClient {
     connect(sigName: "notify::tls", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::tls-validation-flags", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::type", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SocketClient_ConstructProps): SocketClient
+    static new(): SocketClient
 }
-export interface SocketClient_Static {
-    name: string
-    new (config?: SocketClient_ConstructProps): SocketClient
-}
-export declare class SocketClient_Static {
-    new(): SocketClient
-}
-export declare var SocketClient: SocketClient_Static
 export interface SocketConnection_ConstructProps extends IOStream_ConstructProps {
     socket?:Socket
 }
-export interface SocketConnection {
+export class SocketConnection {
     /* Properties of Gio.SocketConnection */
     /* Properties of Gio.IOStream */
     readonly closed:boolean
@@ -7909,19 +7424,14 @@ export interface SocketConnection {
     connect(sigName: "notify::closed", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::input-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::output-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SocketConnection_ConstructProps): SocketConnection
+    static factory_lookup_type(family: SocketFamily, type: SocketType, protocol_id: number): number
+    static factory_register_type(g_type: number, family: SocketFamily, type: SocketType, protocol: number): void
 }
-export interface SocketConnection_Static {
-    name: string
-    new (config?: SocketConnection_ConstructProps): SocketConnection
-}
-export declare class SocketConnection_Static {
-    factory_lookup_type(family: SocketFamily, type: SocketType, protocol_id: number): number
-    factory_register_type(g_type: number, family: SocketFamily, type: SocketType, protocol: number): void
-}
-export declare var SocketConnection: SocketConnection_Static
 export interface SocketControlMessage_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface SocketControlMessage {
+export class SocketControlMessage {
     /* Fields of Gio.SocketControlMessage */
     parent_instance:GObject.Object
     priv:SocketControlMessagePrivate
@@ -7971,19 +7481,14 @@ export interface SocketControlMessage {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SocketControlMessage, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SocketControlMessage_ConstructProps): SocketControlMessage
+    static deserialize(level: number, type: number, data: Gjs.byteArray.ByteArray): SocketControlMessage
 }
-export interface SocketControlMessage_Static {
-    name: string
-    new (config?: SocketControlMessage_ConstructProps): SocketControlMessage
-}
-export declare class SocketControlMessage_Static {
-    deserialize(level: number, type: number, data: Gjs.byteArray.ByteArray): SocketControlMessage
-}
-export declare var SocketControlMessage: SocketControlMessage_Static
 export interface SocketListener_ConstructProps extends GObject.Object_ConstructProps {
     listen_backlog?:number
 }
-export interface SocketListener {
+export class SocketListener {
     /* Properties of Gio.SocketListener */
     listen_backlog:number
     /* Fields of Gio.SocketListener */
@@ -8044,19 +7549,14 @@ export interface SocketListener {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::listen-backlog", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SocketListener_ConstructProps): SocketListener
+    static new(): SocketListener
 }
-export interface SocketListener_Static {
-    name: string
-    new (config?: SocketListener_ConstructProps): SocketListener
-}
-export declare class SocketListener_Static {
-    new(): SocketListener
-}
-export declare var SocketListener: SocketListener_Static
 export interface SocketService_ConstructProps extends SocketListener_ConstructProps {
     active?:boolean
 }
-export interface SocketService {
+export class SocketService {
     /* Properties of Gio.SocketService */
     active:boolean
     /* Properties of Gio.SocketListener */
@@ -8129,20 +7629,15 @@ export interface SocketService {
     connect(sigName: "notify", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::active", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::listen-backlog", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SocketService_ConstructProps): SocketService
+    static new(): SocketService
 }
-export interface SocketService_Static {
-    name: string
-    new (config?: SocketService_ConstructProps): SocketService
-}
-export declare class SocketService_Static {
-    new(): SocketService
-}
-export declare var SocketService: SocketService_Static
 export interface Subprocess_ConstructProps extends GObject.Object_ConstructProps {
     argv?:string[]
     flags?:SubprocessFlags
 }
-export interface Subprocess {
+export class Subprocess {
     /* Properties of Gio.Subprocess */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -8205,19 +7700,14 @@ export interface Subprocess {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Subprocess, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Subprocess_ConstructProps): Subprocess
+    static newv(argv: string[], flags: SubprocessFlags): Subprocess
 }
-export interface Subprocess_Static {
-    name: string
-    new (config?: Subprocess_ConstructProps): Subprocess
-}
-export declare class Subprocess_Static {
-    newv(argv: string[], flags: SubprocessFlags): Subprocess
-}
-export declare var Subprocess: Subprocess_Static
 export interface SubprocessLauncher_ConstructProps extends GObject.Object_ConstructProps {
     flags?:SubprocessFlags
 }
-export interface SubprocessLauncher {
+export class SubprocessLauncher {
     /* Properties of Gio.SubprocessLauncher */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -8271,18 +7761,13 @@ export interface SubprocessLauncher {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SubprocessLauncher_ConstructProps): SubprocessLauncher
+    static new(flags: SubprocessFlags): SubprocessLauncher
 }
-export interface SubprocessLauncher_Static {
-    name: string
-    new (config?: SubprocessLauncher_ConstructProps): SubprocessLauncher
-}
-export declare class SubprocessLauncher_Static {
-    new(flags: SubprocessFlags): SubprocessLauncher
-}
-export declare var SubprocessLauncher: SubprocessLauncher_Static
 export interface Task_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Task {
+export class Task {
     /* Properties of Gio.Task */
     readonly completed:boolean
     /* Fields of GObject.Object */
@@ -8346,21 +7831,16 @@ export interface Task {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Task, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::completed", callback: ((obj: Task, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Task_ConstructProps): Task
+    static new(source_object: GObject.Object | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, callback_data: object | null): Task
+    static is_valid(result: AsyncResult, source_object: GObject.Object | null): boolean
+    static report_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, callback_data: object | null, source_tag: object | null, error: GLib.Error): void
 }
-export interface Task_Static {
-    name: string
-    new (config?: Task_ConstructProps): Task
-}
-export declare class Task_Static {
-    new(source_object: GObject.Object | null, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, callback_data: object | null): Task
-    is_valid(result: AsyncResult, source_object: GObject.Object | null): boolean
-    report_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, callback_data: object | null, source_tag: object | null, error: GLib.Error): void
-}
-export declare var Task: Task_Static
 export interface TcpConnection_ConstructProps extends SocketConnection_ConstructProps {
     graceful_disconnect?:boolean
 }
-export interface TcpConnection {
+export class TcpConnection {
     /* Properties of Gio.TcpConnection */
     graceful_disconnect:boolean
     /* Properties of Gio.SocketConnection */
@@ -8441,16 +7921,13 @@ export interface TcpConnection {
     connect(sigName: "notify::closed", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::input-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::output-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: TcpConnection_ConstructProps): TcpConnection
 }
-export interface TcpConnection_Static {
-    name: string
-    new (config?: TcpConnection_ConstructProps): TcpConnection
-}
-export declare var TcpConnection: TcpConnection_Static
 export interface TcpWrapperConnection_ConstructProps extends TcpConnection_ConstructProps {
     base_io_stream?:IOStream
 }
-export interface TcpWrapperConnection {
+export class TcpWrapperConnection {
     /* Properties of Gio.TcpWrapperConnection */
     /* Properties of Gio.TcpConnection */
     graceful_disconnect:boolean
@@ -8535,19 +8012,14 @@ export interface TcpWrapperConnection {
     connect(sigName: "notify::closed", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::input-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::output-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
-}
-export interface TcpWrapperConnection_Static {
-    name: string
-    new (config?: TcpWrapperConnection_ConstructProps): TcpWrapperConnection
-}
-export declare class TcpWrapperConnection_Static {
+    static name: string
+    static new (config?: TcpWrapperConnection_ConstructProps): TcpWrapperConnection
     new(base_io_stream: IOStream, socket: Socket): TcpWrapperConnection
 }
-export declare var TcpWrapperConnection: TcpWrapperConnection_Static
 export interface TestDBus_ConstructProps extends GObject.Object_ConstructProps {
     flags?:TestDBusFlags
 }
-export interface TestDBus {
+export class TestDBus {
     /* Properties of Gio.TestDBus */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -8592,22 +8064,17 @@ export interface TestDBus {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: TestDBus, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: TestDBus_ConstructProps): TestDBus
+    static new(flags: TestDBusFlags): TestDBus
+    static unset(): void
 }
-export interface TestDBus_Static {
-    name: string
-    new (config?: TestDBus_ConstructProps): TestDBus
-}
-export declare class TestDBus_Static {
-    new(flags: TestDBusFlags): TestDBus
-    unset(): void
-}
-export declare var TestDBus: TestDBus_Static
 export interface ThemedIcon_ConstructProps extends GObject.Object_ConstructProps {
     name?:string
     names?:string[]
     use_default_fallbacks?:boolean
 }
-export interface ThemedIcon {
+export class ThemedIcon {
     /* Properties of Gio.ThemedIcon */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -8649,21 +8116,16 @@ export interface ThemedIcon {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ThemedIcon, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ThemedIcon_ConstructProps): ThemedIcon
+    static new(iconname: string): ThemedIcon
+    static new_from_names(iconnames: string[], len: number): ThemedIcon
+    static new_with_default_fallbacks(iconname: string): ThemedIcon
 }
-export interface ThemedIcon_Static {
-    name: string
-    new (config?: ThemedIcon_ConstructProps): ThemedIcon
-}
-export declare class ThemedIcon_Static {
-    new(iconname: string): ThemedIcon
-    new_from_names(iconnames: string[], len: number): ThemedIcon
-    new_with_default_fallbacks(iconname: string): ThemedIcon
-}
-export declare var ThemedIcon: ThemedIcon_Static
 export interface ThreadedSocketService_ConstructProps extends SocketService_ConstructProps {
     max_threads?:number
 }
-export interface ThreadedSocketService {
+export class ThreadedSocketService {
     /* Properties of Gio.ThreadedSocketService */
     /* Properties of Gio.SocketService */
     active:boolean
@@ -8742,15 +8204,10 @@ export interface ThreadedSocketService {
     connect(sigName: "notify", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::active", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::listen-backlog", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void))
-}
-export interface ThreadedSocketService_Static {
-    name: string
-    new (config?: ThreadedSocketService_ConstructProps): ThreadedSocketService
-}
-export declare class ThreadedSocketService_Static {
+    static name: string
+    static new (config?: ThreadedSocketService_ConstructProps): ThreadedSocketService
     new(max_threads: number): ThreadedSocketService
 }
-export declare var ThreadedSocketService: ThreadedSocketService_Static
 export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructProps {
     certificate?:object[]
     certificate_pem?:string
@@ -8758,7 +8215,7 @@ export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructP
     private_key?:object[]
     private_key_pem?:string
 }
-export interface TlsCertificate {
+export class TlsCertificate {
     /* Properties of Gio.TlsCertificate */
     /* Fields of Gio.TlsCertificate */
     parent_instance:GObject.Object
@@ -8805,18 +8262,13 @@ export interface TlsCertificate {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: TlsCertificate, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: TlsCertificate_ConstructProps): TlsCertificate
+    static new_from_file(file: string): TlsCertificate
+    static new_from_files(cert_file: string, key_file: string): TlsCertificate
+    static new_from_pem(data: string, length: number): TlsCertificate
+    static list_new_from_file(file: string): GLib.List
 }
-export interface TlsCertificate_Static {
-    name: string
-    new (config?: TlsCertificate_ConstructProps): TlsCertificate
-}
-export declare class TlsCertificate_Static {
-    new_from_file(file: string): TlsCertificate
-    new_from_files(cert_file: string, key_file: string): TlsCertificate
-    new_from_pem(data: string, length: number): TlsCertificate
-    list_new_from_file(file: string): GLib.List
-}
-export declare var TlsCertificate: TlsCertificate_Static
 export interface TlsConnection_ConstructProps extends IOStream_ConstructProps {
     base_io_stream?:IOStream
     certificate?:TlsCertificate
@@ -8826,7 +8278,7 @@ export interface TlsConnection_ConstructProps extends IOStream_ConstructProps {
     require_close_notify?:boolean
     use_system_certdb?:boolean
 }
-export interface TlsConnection {
+export class TlsConnection {
     /* Properties of Gio.TlsConnection */
     certificate:TlsCertificate
     database:TlsDatabase
@@ -8934,15 +8386,12 @@ export interface TlsConnection {
     connect(sigName: "notify::closed", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::input-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::output-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: TlsConnection_ConstructProps): TlsConnection
 }
-export interface TlsConnection_Static {
-    name: string
-    new (config?: TlsConnection_ConstructProps): TlsConnection
-}
-export declare var TlsConnection: TlsConnection_Static
 export interface TlsDatabase_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface TlsDatabase {
+export class TlsDatabase {
     /* Fields of Gio.TlsDatabase */
     parent_instance:GObject.Object
     priv:TlsDatabasePrivate
@@ -9010,15 +8459,12 @@ export interface TlsDatabase {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: TlsDatabase, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: TlsDatabase_ConstructProps): TlsDatabase
 }
-export interface TlsDatabase_Static {
-    name: string
-    new (config?: TlsDatabase_ConstructProps): TlsDatabase
-}
-export declare var TlsDatabase: TlsDatabase_Static
 export interface TlsInteraction_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface TlsInteraction {
+export class TlsInteraction {
     /* Fields of Gio.TlsInteraction */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -9072,18 +8518,15 @@ export interface TlsInteraction {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: TlsInteraction, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: TlsInteraction_ConstructProps): TlsInteraction
 }
-export interface TlsInteraction_Static {
-    name: string
-    new (config?: TlsInteraction_ConstructProps): TlsInteraction
-}
-export declare var TlsInteraction: TlsInteraction_Static
 export interface TlsPassword_ConstructProps extends GObject.Object_ConstructProps {
     description?:string
     flags?:TlsPasswordFlags
     warning?:string
 }
-export interface TlsPassword {
+export class TlsPassword {
     /* Properties of Gio.TlsPassword */
     description:string
     flags:TlsPasswordFlags
@@ -9144,18 +8587,13 @@ export interface TlsPassword {
     connect(sigName: "notify::description", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::flags", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::warning", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: TlsPassword_ConstructProps): TlsPassword
+    static new(flags: TlsPasswordFlags, description: string): TlsPassword
 }
-export interface TlsPassword_Static {
-    name: string
-    new (config?: TlsPassword_ConstructProps): TlsPassword
-}
-export declare class TlsPassword_Static {
-    new(flags: TlsPasswordFlags, description: string): TlsPassword
-}
-export declare var TlsPassword: TlsPassword_Static
 export interface UnixConnection_ConstructProps extends SocketConnection_ConstructProps {
 }
-export interface UnixConnection {
+export class UnixConnection {
     /* Properties of Gio.SocketConnection */
     /* Properties of Gio.IOStream */
     readonly closed:boolean
@@ -9239,16 +8677,13 @@ export interface UnixConnection {
     connect(sigName: "notify::closed", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::input-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::output-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: UnixConnection_ConstructProps): UnixConnection
 }
-export interface UnixConnection_Static {
-    name: string
-    new (config?: UnixConnection_ConstructProps): UnixConnection
-}
-export declare var UnixConnection: UnixConnection_Static
 export interface UnixCredentialsMessage_ConstructProps extends SocketControlMessage_ConstructProps {
     credentials?:Credentials
 }
-export interface UnixCredentialsMessage {
+export class UnixCredentialsMessage {
     /* Properties of Gio.UnixCredentialsMessage */
     /* Fields of Gio.UnixCredentialsMessage */
     parent_instance:SocketControlMessage
@@ -9302,20 +8737,15 @@ export interface UnixCredentialsMessage {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void))
-}
-export interface UnixCredentialsMessage_Static {
-    name: string
-    new (config?: UnixCredentialsMessage_ConstructProps): UnixCredentialsMessage
-}
-export declare class UnixCredentialsMessage_Static {
+    static name: string
+    static new (config?: UnixCredentialsMessage_ConstructProps): UnixCredentialsMessage
     new(): UnixCredentialsMessage
     new_with_credentials(credentials: Credentials): UnixCredentialsMessage
-    is_supported(): boolean
+    static is_supported(): boolean
 }
-export declare var UnixCredentialsMessage: UnixCredentialsMessage_Static
 export interface UnixFDList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface UnixFDList {
+export class UnixFDList {
     /* Fields of Gio.UnixFDList */
     parent_instance:GObject.Object
     priv:UnixFDListPrivate
@@ -9361,20 +8791,15 @@ export interface UnixFDList {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UnixFDList, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: UnixFDList_ConstructProps): UnixFDList
+    static new(): UnixFDList
+    static new_from_array(fds: number[], n_fds: number): UnixFDList
 }
-export interface UnixFDList_Static {
-    name: string
-    new (config?: UnixFDList_ConstructProps): UnixFDList
-}
-export declare class UnixFDList_Static {
-    new(): UnixFDList
-    new_from_array(fds: number[], n_fds: number): UnixFDList
-}
-export declare var UnixFDList: UnixFDList_Static
 export interface UnixFDMessage_ConstructProps extends SocketControlMessage_ConstructProps {
     fd_list?:UnixFDList
 }
-export interface UnixFDMessage {
+export class UnixFDMessage {
     /* Properties of Gio.UnixFDMessage */
     /* Fields of Gio.UnixFDMessage */
     parent_instance:SocketControlMessage
@@ -9430,21 +8855,16 @@ export interface UnixFDMessage {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UnixFDMessage, pspec: GObject.ParamSpec) => void))
-}
-export interface UnixFDMessage_Static {
-    name: string
-    new (config?: UnixFDMessage_ConstructProps): UnixFDMessage
-}
-export declare class UnixFDMessage_Static {
+    static name: string
+    static new (config?: UnixFDMessage_ConstructProps): UnixFDMessage
     new(): UnixFDMessage
     new_with_fd_list(fd_list: UnixFDList): UnixFDMessage
 }
-export declare var UnixFDMessage: UnixFDMessage_Static
 export interface UnixInputStream_ConstructProps extends InputStream_ConstructProps {
     close_fd?:boolean
     fd?:number
 }
-export interface UnixInputStream {
+export class UnixInputStream {
     /* Properties of Gio.UnixInputStream */
     close_fd:boolean
     /* Fields of Gio.UnixInputStream */
@@ -9521,18 +8941,13 @@ export interface UnixInputStream {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::close-fd", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void))
-}
-export interface UnixInputStream_Static {
-    name: string
-    new (config?: UnixInputStream_ConstructProps): UnixInputStream
-}
-export declare class UnixInputStream_Static {
+    static name: string
+    static new (config?: UnixInputStream_ConstructProps): UnixInputStream
     new(fd: number, close_fd: boolean): UnixInputStream
 }
-export declare var UnixInputStream: UnixInputStream_Static
 export interface UnixMountMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface UnixMountMonitor {
+export class UnixMountMonitor {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.UnixMountMonitor */
@@ -9574,21 +8989,16 @@ export interface UnixMountMonitor {
     connect(sigName: "mounts-changed", callback: ((obj: UnixMountMonitor) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UnixMountMonitor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: UnixMountMonitor_ConstructProps): UnixMountMonitor
+    static new(): UnixMountMonitor
+    static get(): UnixMountMonitor
 }
-export interface UnixMountMonitor_Static {
-    name: string
-    new (config?: UnixMountMonitor_ConstructProps): UnixMountMonitor
-}
-export declare class UnixMountMonitor_Static {
-    new(): UnixMountMonitor
-    get(): UnixMountMonitor
-}
-export declare var UnixMountMonitor: UnixMountMonitor_Static
 export interface UnixOutputStream_ConstructProps extends OutputStream_ConstructProps {
     close_fd?:boolean
     fd?:number
 }
-export interface UnixOutputStream {
+export class UnixOutputStream {
     /* Properties of Gio.UnixOutputStream */
     close_fd:boolean
     /* Fields of Gio.UnixOutputStream */
@@ -9672,22 +9082,17 @@ export interface UnixOutputStream {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::close-fd", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void))
-}
-export interface UnixOutputStream_Static {
-    name: string
-    new (config?: UnixOutputStream_ConstructProps): UnixOutputStream
-}
-export declare class UnixOutputStream_Static {
+    static name: string
+    static new (config?: UnixOutputStream_ConstructProps): UnixOutputStream
     new(fd: number, close_fd: boolean): UnixOutputStream
 }
-export declare var UnixOutputStream: UnixOutputStream_Static
 export interface UnixSocketAddress_ConstructProps extends SocketAddress_ConstructProps {
     abstract?:boolean
     address_type?:UnixSocketAddressType
     path?:string
     path_as_array?:object[]
 }
-export interface UnixSocketAddress {
+export class UnixSocketAddress {
     /* Properties of Gio.UnixSocketAddress */
     /* Properties of Gio.SocketAddress */
     readonly family:SocketFamily
@@ -9744,21 +9149,16 @@ export interface UnixSocketAddress {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::family", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void))
-}
-export interface UnixSocketAddress_Static {
-    name: string
-    new (config?: UnixSocketAddress_ConstructProps): UnixSocketAddress
-}
-export declare class UnixSocketAddress_Static {
+    static name: string
+    static new (config?: UnixSocketAddress_ConstructProps): UnixSocketAddress
     new(path: string): UnixSocketAddress
     new_abstract(path: number[], path_len: number): UnixSocketAddress
     new_with_type(path: number[], path_len: number, type: UnixSocketAddressType): UnixSocketAddress
-    abstract_names_supported(): boolean
+    static abstract_names_supported(): boolean
 }
-export declare var UnixSocketAddress: UnixSocketAddress_Static
 export interface Vfs_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Vfs {
+export class Vfs {
     /* Fields of Gio.Vfs */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -9816,19 +9216,14 @@ export interface Vfs {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Vfs, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Vfs_ConstructProps): Vfs
+    static get_default(): Vfs
+    static get_local(): Vfs
 }
-export interface Vfs_Static {
-    name: string
-    new (config?: Vfs_ConstructProps): Vfs
-}
-export declare class Vfs_Static {
-    get_default(): Vfs
-    get_local(): Vfs
-}
-export declare var Vfs: Vfs_Static
 export interface VolumeMonitor_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface VolumeMonitor {
+export class VolumeMonitor {
     /* Fields of Gio.VolumeMonitor */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -9904,22 +9299,17 @@ export interface VolumeMonitor {
     connect(sigName: "volume-removed", callback: ((obj: VolumeMonitor, volume: Volume) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: VolumeMonitor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: VolumeMonitor_ConstructProps): VolumeMonitor
+    static adopt_orphan_mount(mount: Mount): Volume
+    static get(): VolumeMonitor
 }
-export interface VolumeMonitor_Static {
-    name: string
-    new (config?: VolumeMonitor_ConstructProps): VolumeMonitor
-}
-export declare class VolumeMonitor_Static {
-    adopt_orphan_mount(mount: Mount): Volume
-    get(): VolumeMonitor
-}
-export declare var VolumeMonitor: VolumeMonitor_Static
 export interface ZlibCompressor_ConstructProps extends GObject.Object_ConstructProps {
     file_info?:FileInfo
     format?:ZlibCompressorFormat
     level?:number
 }
-export interface ZlibCompressor {
+export class ZlibCompressor {
     /* Properties of Gio.ZlibCompressor */
     file_info:FileInfo
     /* Fields of GObject.Object */
@@ -9962,19 +9352,14 @@ export interface ZlibCompressor {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::file-info", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ZlibCompressor_ConstructProps): ZlibCompressor
+    static new(format: ZlibCompressorFormat, level: number): ZlibCompressor
 }
-export interface ZlibCompressor_Static {
-    name: string
-    new (config?: ZlibCompressor_ConstructProps): ZlibCompressor
-}
-export declare class ZlibCompressor_Static {
-    new(format: ZlibCompressorFormat, level: number): ZlibCompressor
-}
-export declare var ZlibCompressor: ZlibCompressor_Static
 export interface ZlibDecompressor_ConstructProps extends GObject.Object_ConstructProps {
     format?:ZlibCompressorFormat
 }
-export interface ZlibDecompressor {
+export class ZlibDecompressor {
     /* Properties of Gio.ZlibDecompressor */
     readonly file_info:FileInfo
     /* Fields of GObject.Object */
@@ -10016,76 +9401,44 @@ export interface ZlibDecompressor {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::file-info", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ZlibDecompressor_ConstructProps): ZlibDecompressor
+    static new(format: ZlibCompressorFormat): ZlibDecompressor
 }
-export interface ZlibDecompressor_Static {
-    name: string
-    new (config?: ZlibDecompressor_ConstructProps): ZlibDecompressor
-}
-export declare class ZlibDecompressor_Static {
-    new(format: ZlibCompressorFormat): ZlibDecompressor
-}
-export declare var ZlibDecompressor: ZlibDecompressor_Static
-export interface ActionEntry {
+export class ActionEntry {
     /* Fields of Gio.ActionEntry */
     name:string
     activate:any
     parameter_type:string
     state:string
     change_state:any
+    static name: string
 }
-export interface ActionEntry_Static {
-    name: string
+export class AppLaunchContextPrivate {
+    static name: string
 }
-export declare var ActionEntry: ActionEntry_Static
-export interface AppLaunchContextPrivate {
+export class ApplicationCommandLinePrivate {
+    static name: string
 }
-export interface AppLaunchContextPrivate_Static {
-    name: string
+export class ApplicationPrivate {
+    static name: string
 }
-export declare var AppLaunchContextPrivate: AppLaunchContextPrivate_Static
-export interface ApplicationCommandLinePrivate {
+export class BufferedInputStreamPrivate {
+    static name: string
 }
-export interface ApplicationCommandLinePrivate_Static {
-    name: string
+export class BufferedOutputStreamPrivate {
+    static name: string
 }
-export declare var ApplicationCommandLinePrivate: ApplicationCommandLinePrivate_Static
-export interface ApplicationPrivate {
+export class CancellablePrivate {
+    static name: string
 }
-export interface ApplicationPrivate_Static {
-    name: string
+export class ConverterInputStreamPrivate {
+    static name: string
 }
-export declare var ApplicationPrivate: ApplicationPrivate_Static
-export interface BufferedInputStreamPrivate {
+export class ConverterOutputStreamPrivate {
+    static name: string
 }
-export interface BufferedInputStreamPrivate_Static {
-    name: string
-}
-export declare var BufferedInputStreamPrivate: BufferedInputStreamPrivate_Static
-export interface BufferedOutputStreamPrivate {
-}
-export interface BufferedOutputStreamPrivate_Static {
-    name: string
-}
-export declare var BufferedOutputStreamPrivate: BufferedOutputStreamPrivate_Static
-export interface CancellablePrivate {
-}
-export interface CancellablePrivate_Static {
-    name: string
-}
-export declare var CancellablePrivate: CancellablePrivate_Static
-export interface ConverterInputStreamPrivate {
-}
-export interface ConverterInputStreamPrivate_Static {
-    name: string
-}
-export declare var ConverterInputStreamPrivate: ConverterInputStreamPrivate_Static
-export interface ConverterOutputStreamPrivate {
-}
-export interface ConverterOutputStreamPrivate_Static {
-    name: string
-}
-export declare var ConverterOutputStreamPrivate: ConverterOutputStreamPrivate_Static
-export interface DBusAnnotationInfo {
+export class DBusAnnotationInfo {
     /* Fields of Gio.DBusAnnotationInfo */
     ref_count:number
     key:string
@@ -10094,15 +9447,10 @@ export interface DBusAnnotationInfo {
     /* Methods of Gio.DBusAnnotationInfo */
     ref(): DBusAnnotationInfo
     unref(): void
+    static name: string
+    static lookup(annotations: DBusAnnotationInfo[] | null, name: string): string
 }
-export interface DBusAnnotationInfo_Static {
-    name: string
-}
-export declare class DBusAnnotationInfo_Static {
-    lookup(annotations: DBusAnnotationInfo[] | null, name: string): string
-}
-export declare var DBusAnnotationInfo: DBusAnnotationInfo_Static
-export interface DBusArgInfo {
+export class DBusArgInfo {
     /* Fields of Gio.DBusArgInfo */
     ref_count:number
     name:string
@@ -10111,21 +9459,15 @@ export interface DBusArgInfo {
     /* Methods of Gio.DBusArgInfo */
     ref(): DBusArgInfo
     unref(): void
+    static name: string
 }
-export interface DBusArgInfo_Static {
-    name: string
-}
-export declare var DBusArgInfo: DBusArgInfo_Static
-export interface DBusErrorEntry {
+export class DBusErrorEntry {
     /* Fields of Gio.DBusErrorEntry */
     error_code:number
     dbus_error_name:string
+    static name: string
 }
-export interface DBusErrorEntry_Static {
-    name: string
-}
-export declare var DBusErrorEntry: DBusErrorEntry_Static
-export interface DBusInterfaceInfo {
+export class DBusInterfaceInfo {
     /* Fields of Gio.DBusInterfaceInfo */
     ref_count:number
     name:string
@@ -10142,28 +9484,19 @@ export interface DBusInterfaceInfo {
     lookup_signal(name: string): DBusSignalInfo
     ref(): DBusInterfaceInfo
     unref(): void
+    static name: string
 }
-export interface DBusInterfaceInfo_Static {
-    name: string
+export class DBusInterfaceSkeletonPrivate {
+    static name: string
 }
-export declare var DBusInterfaceInfo: DBusInterfaceInfo_Static
-export interface DBusInterfaceSkeletonPrivate {
-}
-export interface DBusInterfaceSkeletonPrivate_Static {
-    name: string
-}
-export declare var DBusInterfaceSkeletonPrivate: DBusInterfaceSkeletonPrivate_Static
-export interface DBusInterfaceVTable {
+export class DBusInterfaceVTable {
     /* Fields of Gio.DBusInterfaceVTable */
     method_call:DBusInterfaceMethodCallFunc
     get_property:DBusInterfaceGetPropertyFunc
     set_property:DBusInterfaceSetPropertyFunc
+    static name: string
 }
-export interface DBusInterfaceVTable_Static {
-    name: string
-}
-export declare var DBusInterfaceVTable: DBusInterfaceVTable_Static
-export interface DBusMethodInfo {
+export class DBusMethodInfo {
     /* Fields of Gio.DBusMethodInfo */
     ref_count:number
     name:string
@@ -10173,12 +9506,9 @@ export interface DBusMethodInfo {
     /* Methods of Gio.DBusMethodInfo */
     ref(): DBusMethodInfo
     unref(): void
+    static name: string
 }
-export interface DBusMethodInfo_Static {
-    name: string
-}
-export declare var DBusMethodInfo: DBusMethodInfo_Static
-export interface DBusNodeInfo {
+export class DBusNodeInfo {
     /* Fields of Gio.DBusNodeInfo */
     ref_count:number
     path:string
@@ -10190,39 +9520,22 @@ export interface DBusNodeInfo {
     lookup_interface(name: string): DBusInterfaceInfo
     ref(): DBusNodeInfo
     unref(): void
+    static name: string
+    static new_for_xml(xml_data: string): DBusNodeInfo
 }
-export interface DBusNodeInfo_Static {
-    name: string
+export class DBusObjectManagerClientPrivate {
+    static name: string
 }
-export declare class DBusNodeInfo_Static {
-    new_for_xml(xml_data: string): DBusNodeInfo
+export class DBusObjectManagerServerPrivate {
+    static name: string
 }
-export declare var DBusNodeInfo: DBusNodeInfo_Static
-export interface DBusObjectManagerClientPrivate {
+export class DBusObjectProxyPrivate {
+    static name: string
 }
-export interface DBusObjectManagerClientPrivate_Static {
-    name: string
+export class DBusObjectSkeletonPrivate {
+    static name: string
 }
-export declare var DBusObjectManagerClientPrivate: DBusObjectManagerClientPrivate_Static
-export interface DBusObjectManagerServerPrivate {
-}
-export interface DBusObjectManagerServerPrivate_Static {
-    name: string
-}
-export declare var DBusObjectManagerServerPrivate: DBusObjectManagerServerPrivate_Static
-export interface DBusObjectProxyPrivate {
-}
-export interface DBusObjectProxyPrivate_Static {
-    name: string
-}
-export declare var DBusObjectProxyPrivate: DBusObjectProxyPrivate_Static
-export interface DBusObjectSkeletonPrivate {
-}
-export interface DBusObjectSkeletonPrivate_Static {
-    name: string
-}
-export declare var DBusObjectSkeletonPrivate: DBusObjectSkeletonPrivate_Static
-export interface DBusPropertyInfo {
+export class DBusPropertyInfo {
     /* Fields of Gio.DBusPropertyInfo */
     ref_count:number
     name:string
@@ -10232,18 +9545,12 @@ export interface DBusPropertyInfo {
     /* Methods of Gio.DBusPropertyInfo */
     ref(): DBusPropertyInfo
     unref(): void
+    static name: string
 }
-export interface DBusPropertyInfo_Static {
-    name: string
+export class DBusProxyPrivate {
+    static name: string
 }
-export declare var DBusPropertyInfo: DBusPropertyInfo_Static
-export interface DBusProxyPrivate {
-}
-export interface DBusProxyPrivate_Static {
-    name: string
-}
-export declare var DBusProxyPrivate: DBusProxyPrivate_Static
-export interface DBusSignalInfo {
+export class DBusSignalInfo {
     /* Fields of Gio.DBusSignalInfo */
     ref_count:number
     name:string
@@ -10252,49 +9559,31 @@ export interface DBusSignalInfo {
     /* Methods of Gio.DBusSignalInfo */
     ref(): DBusSignalInfo
     unref(): void
+    static name: string
 }
-export interface DBusSignalInfo_Static {
-    name: string
-}
-export declare var DBusSignalInfo: DBusSignalInfo_Static
-export interface DBusSubtreeVTable {
+export class DBusSubtreeVTable {
     /* Fields of Gio.DBusSubtreeVTable */
     introspect:DBusSubtreeIntrospectFunc
     dispatch:DBusSubtreeDispatchFunc
+    static name: string
 }
-export interface DBusSubtreeVTable_Static {
-    name: string
+export class DataInputStreamPrivate {
+    static name: string
 }
-export declare var DBusSubtreeVTable: DBusSubtreeVTable_Static
-export interface DataInputStreamPrivate {
+export class DataOutputStreamPrivate {
+    static name: string
 }
-export interface DataInputStreamPrivate_Static {
-    name: string
+export class EmblemedIconPrivate {
+    static name: string
 }
-export declare var DataInputStreamPrivate: DataInputStreamPrivate_Static
-export interface DataOutputStreamPrivate {
-}
-export interface DataOutputStreamPrivate_Static {
-    name: string
-}
-export declare var DataOutputStreamPrivate: DataOutputStreamPrivate_Static
-export interface EmblemedIconPrivate {
-}
-export interface EmblemedIconPrivate_Static {
-    name: string
-}
-export declare var EmblemedIconPrivate: EmblemedIconPrivate_Static
-export interface FileAttributeInfo {
+export class FileAttributeInfo {
     /* Fields of Gio.FileAttributeInfo */
     name:string
     type:FileAttributeType
     flags:FileAttributeInfoFlags
+    static name: string
 }
-export interface FileAttributeInfo_Static {
-    name: string
-}
-export declare var FileAttributeInfo: FileAttributeInfo_Static
-export interface FileAttributeInfoList {
+export class FileAttributeInfoList {
     /* Fields of Gio.FileAttributeInfoList */
     infos:FileAttributeInfo
     n_infos:number
@@ -10304,16 +9593,11 @@ export interface FileAttributeInfoList {
     lookup(name: string): FileAttributeInfo
     ref(): FileAttributeInfoList
     unref(): void
+    static name: string
+    static new(): FileAttributeInfoList
+    static new(): FileAttributeInfoList
 }
-export interface FileAttributeInfoList_Static {
-    name: string
-    new(): FileAttributeInfoList
-}
-export declare class FileAttributeInfoList_Static {
-    new(): FileAttributeInfoList
-}
-export declare var FileAttributeInfoList: FileAttributeInfoList_Static
-export interface FileAttributeMatcher {
+export class FileAttributeMatcher {
     /* Methods of Gio.FileAttributeMatcher */
     enumerate_namespace(ns: string): boolean
     enumerate_next(): string
@@ -10323,120 +9607,71 @@ export interface FileAttributeMatcher {
     subtract(subtract: FileAttributeMatcher): FileAttributeMatcher
     to_string(): string
     unref(): void
+    static name: string
+    static new(attributes: string): FileAttributeMatcher
+    static new(attributes: string): FileAttributeMatcher
 }
-export interface FileAttributeMatcher_Static {
-    name: string
-    new(attributes: string): FileAttributeMatcher
+export class FileEnumeratorPrivate {
+    static name: string
 }
-export declare class FileAttributeMatcher_Static {
-    new(attributes: string): FileAttributeMatcher
+export class FileIOStreamPrivate {
+    static name: string
 }
-export declare var FileAttributeMatcher: FileAttributeMatcher_Static
-export interface FileEnumeratorPrivate {
+export class FileInputStreamPrivate {
+    static name: string
 }
-export interface FileEnumeratorPrivate_Static {
-    name: string
+export class FileMonitorPrivate {
+    static name: string
 }
-export declare var FileEnumeratorPrivate: FileEnumeratorPrivate_Static
-export interface FileIOStreamPrivate {
+export class FileOutputStreamPrivate {
+    static name: string
 }
-export interface FileIOStreamPrivate_Static {
-    name: string
-}
-export declare var FileIOStreamPrivate: FileIOStreamPrivate_Static
-export interface FileInputStreamPrivate {
-}
-export interface FileInputStreamPrivate_Static {
-    name: string
-}
-export declare var FileInputStreamPrivate: FileInputStreamPrivate_Static
-export interface FileMonitorPrivate {
-}
-export interface FileMonitorPrivate_Static {
-    name: string
-}
-export declare var FileMonitorPrivate: FileMonitorPrivate_Static
-export interface FileOutputStreamPrivate {
-}
-export interface FileOutputStreamPrivate_Static {
-    name: string
-}
-export declare var FileOutputStreamPrivate: FileOutputStreamPrivate_Static
-export interface IOExtension {
+export class IOExtension {
     /* Methods of Gio.IOExtension */
     get_name(): string
     get_priority(): number
     get_type(): number
+    static name: string
 }
-export interface IOExtension_Static {
-    name: string
-}
-export declare var IOExtension: IOExtension_Static
-export interface IOExtensionPoint {
+export class IOExtensionPoint {
     /* Methods of Gio.IOExtensionPoint */
     get_extension_by_name(name: string): IOExtension
     get_extensions(): GLib.List
     get_required_type(): number
     set_required_type(type: number): void
+    static name: string
+    static implement(extension_point_name: string, type: number, extension_name: string, priority: number): IOExtension
+    static lookup(name: string): IOExtensionPoint
+    static register(name: string): IOExtensionPoint
 }
-export interface IOExtensionPoint_Static {
-    name: string
-}
-export declare class IOExtensionPoint_Static {
-    implement(extension_point_name: string, type: number, extension_name: string, priority: number): IOExtension
-    lookup(name: string): IOExtensionPoint
-    register(name: string): IOExtensionPoint
-}
-export declare var IOExtensionPoint: IOExtensionPoint_Static
-export interface IOModuleScope {
+export class IOModuleScope {
     /* Methods of Gio.IOModuleScope */
     block(basename: string): void
     free(): void
+    static name: string
 }
-export interface IOModuleScope_Static {
-    name: string
-}
-export declare var IOModuleScope: IOModuleScope_Static
-export interface IOSchedulerJob {
+export class IOSchedulerJob {
     /* Methods of Gio.IOSchedulerJob */
     send_to_mainloop(func: GLib.SourceFunc, user_data: object | null, notify: GLib.DestroyNotify | null): boolean
     send_to_mainloop_async(func: GLib.SourceFunc, user_data: object | null, notify: GLib.DestroyNotify | null): void
+    static name: string
 }
-export interface IOSchedulerJob_Static {
-    name: string
+export class IOStreamAdapter {
+    static name: string
 }
-export declare var IOSchedulerJob: IOSchedulerJob_Static
-export interface IOStreamAdapter {
+export class IOStreamPrivate {
+    static name: string
 }
-export interface IOStreamAdapter_Static {
-    name: string
+export class InetAddressMaskPrivate {
+    static name: string
 }
-export declare var IOStreamAdapter: IOStreamAdapter_Static
-export interface IOStreamPrivate {
+export class InetAddressPrivate {
+    static name: string
 }
-export interface IOStreamPrivate_Static {
-    name: string
+export class InetSocketAddressPrivate {
+    static name: string
 }
-export declare var IOStreamPrivate: IOStreamPrivate_Static
-export interface InetAddressMaskPrivate {
-}
-export interface InetAddressMaskPrivate_Static {
-    name: string
-}
-export declare var InetAddressMaskPrivate: InetAddressMaskPrivate_Static
-export interface InetAddressPrivate {
-}
-export interface InetAddressPrivate_Static {
-    name: string
-}
-export declare var InetAddressPrivate: InetAddressPrivate_Static
-export interface InetSocketAddressPrivate {
-}
-export interface InetSocketAddressPrivate_Static {
-    name: string
-}
-export declare var InetSocketAddressPrivate: InetSocketAddressPrivate_Static
-export interface InputMessage {
+export class InputMessage {
     /* Fields of Gio.InputMessage */
     address:SocketAddress
     vectors:InputVector[]
@@ -10445,81 +9680,45 @@ export interface InputMessage {
     flags:number
     control_messages:SocketControlMessage[]
     num_control_messages:number
+    static name: string
 }
-export interface InputMessage_Static {
-    name: string
+export class InputStreamPrivate {
+    static name: string
 }
-export declare var InputMessage: InputMessage_Static
-export interface InputStreamPrivate {
-}
-export interface InputStreamPrivate_Static {
-    name: string
-}
-export declare var InputStreamPrivate: InputStreamPrivate_Static
-export interface InputVector {
+export class InputVector {
     /* Fields of Gio.InputVector */
     buffer:object
     size:number
+    static name: string
 }
-export interface InputVector_Static {
-    name: string
+export class MemoryInputStreamPrivate {
+    static name: string
 }
-export declare var InputVector: InputVector_Static
-export interface MemoryInputStreamPrivate {
+export class MemoryOutputStreamPrivate {
+    static name: string
 }
-export interface MemoryInputStreamPrivate_Static {
-    name: string
+export class MenuAttributeIterPrivate {
+    static name: string
 }
-export declare var MemoryInputStreamPrivate: MemoryInputStreamPrivate_Static
-export interface MemoryOutputStreamPrivate {
+export class MenuLinkIterPrivate {
+    static name: string
 }
-export interface MemoryOutputStreamPrivate_Static {
-    name: string
+export class MenuModelPrivate {
+    static name: string
 }
-export declare var MemoryOutputStreamPrivate: MemoryOutputStreamPrivate_Static
-export interface MenuAttributeIterPrivate {
+export class MountOperationPrivate {
+    static name: string
 }
-export interface MenuAttributeIterPrivate_Static {
-    name: string
+export class NativeSocketAddress {
+    static name: string
 }
-export declare var MenuAttributeIterPrivate: MenuAttributeIterPrivate_Static
-export interface MenuLinkIterPrivate {
+export class NetworkAddressPrivate {
+    static name: string
 }
-export interface MenuLinkIterPrivate_Static {
-    name: string
+export class NetworkServicePrivate {
+    static name: string
 }
-export declare var MenuLinkIterPrivate: MenuLinkIterPrivate_Static
-export interface MenuModelPrivate {
-}
-export interface MenuModelPrivate_Static {
-    name: string
-}
-export declare var MenuModelPrivate: MenuModelPrivate_Static
-export interface MountOperationPrivate {
-}
-export interface MountOperationPrivate_Static {
-    name: string
-}
-export declare var MountOperationPrivate: MountOperationPrivate_Static
-export interface NativeSocketAddress {
-}
-export interface NativeSocketAddress_Static {
-    name: string
-}
-export declare var NativeSocketAddress: NativeSocketAddress_Static
-export interface NetworkAddressPrivate {
-}
-export interface NetworkAddressPrivate_Static {
-    name: string
-}
-export declare var NetworkAddressPrivate: NetworkAddressPrivate_Static
-export interface NetworkServicePrivate {
-}
-export interface NetworkServicePrivate_Static {
-    name: string
-}
-export declare var NetworkServicePrivate: NetworkServicePrivate_Static
-export interface OutputMessage {
+export class OutputMessage {
     /* Fields of Gio.OutputMessage */
     address:SocketAddress
     vectors:OutputVector
@@ -10527,51 +9726,30 @@ export interface OutputMessage {
     bytes_sent:number
     control_messages:SocketControlMessage[]
     num_control_messages:number
+    static name: string
 }
-export interface OutputMessage_Static {
-    name: string
+export class OutputStreamPrivate {
+    static name: string
 }
-export declare var OutputMessage: OutputMessage_Static
-export interface OutputStreamPrivate {
-}
-export interface OutputStreamPrivate_Static {
-    name: string
-}
-export declare var OutputStreamPrivate: OutputStreamPrivate_Static
-export interface OutputVector {
+export class OutputVector {
     /* Fields of Gio.OutputVector */
     buffer:object
     size:number
+    static name: string
 }
-export interface OutputVector_Static {
-    name: string
+export class PermissionPrivate {
+    static name: string
 }
-export declare var OutputVector: OutputVector_Static
-export interface PermissionPrivate {
+export class ProxyAddressEnumeratorPrivate {
+    static name: string
 }
-export interface PermissionPrivate_Static {
-    name: string
+export class ProxyAddressPrivate {
+    static name: string
 }
-export declare var PermissionPrivate: PermissionPrivate_Static
-export interface ProxyAddressEnumeratorPrivate {
+export class ResolverPrivate {
+    static name: string
 }
-export interface ProxyAddressEnumeratorPrivate_Static {
-    name: string
-}
-export declare var ProxyAddressEnumeratorPrivate: ProxyAddressEnumeratorPrivate_Static
-export interface ProxyAddressPrivate {
-}
-export interface ProxyAddressPrivate_Static {
-    name: string
-}
-export declare var ProxyAddressPrivate: ProxyAddressPrivate_Static
-export interface ResolverPrivate {
-}
-export interface ResolverPrivate_Static {
-    name: string
-}
-export declare var ResolverPrivate: ResolverPrivate_Static
-export interface Resource {
+export class Resource {
     /* Methods of Gio.Resource */
     _register(): void
     _unregister(): void
@@ -10581,28 +9759,17 @@ export interface Resource {
     open_stream(path: string, lookup_flags: ResourceLookupFlags): InputStream
     ref(): Resource
     unref(): void
+    static name: string
+    static new_from_data(data: Gjs.byteArray.ByteArray): Resource
+    static load(filename: string): Resource
 }
-export interface Resource_Static {
-    name: string
+export class SettingsBackendPrivate {
+    static name: string
 }
-export declare class Resource_Static {
-    new_from_data(data: Gjs.byteArray.ByteArray): Resource
-    load(filename: string): Resource
+export class SettingsPrivate {
+    static name: string
 }
-export declare var Resource: Resource_Static
-export interface SettingsBackendPrivate {
-}
-export interface SettingsBackendPrivate_Static {
-    name: string
-}
-export declare var SettingsBackendPrivate: SettingsBackendPrivate_Static
-export interface SettingsPrivate {
-}
-export interface SettingsPrivate_Static {
-    name: string
-}
-export declare var SettingsPrivate: SettingsPrivate_Static
-export interface SettingsSchema {
+export class SettingsSchema {
     /* Methods of Gio.SettingsSchema */
     get_id(): string
     get_key(name: string): SettingsSchemaKey
@@ -10612,12 +9779,9 @@ export interface SettingsSchema {
     list_keys(): string[]
     ref(): SettingsSchema
     unref(): void
+    static name: string
 }
-export interface SettingsSchema_Static {
-    name: string
-}
-export declare var SettingsSchema: SettingsSchema_Static
-export interface SettingsSchemaKey {
+export class SettingsSchemaKey {
     /* Methods of Gio.SettingsSchemaKey */
     get_default_value(): GLib.Variant
     get_description(): string
@@ -10628,75 +9792,43 @@ export interface SettingsSchemaKey {
     range_check(value: GLib.Variant): boolean
     ref(): SettingsSchemaKey
     unref(): void
+    static name: string
 }
-export interface SettingsSchemaKey_Static {
-    name: string
-}
-export declare var SettingsSchemaKey: SettingsSchemaKey_Static
-export interface SettingsSchemaSource {
+export class SettingsSchemaSource {
     /* Methods of Gio.SettingsSchemaSource */
     list_schemas(recursive: boolean): [ /* non_relocatable */ string[], /* relocatable */ string[] ]
     lookup(schema_id: string, recursive: boolean): SettingsSchema | null
     ref(): SettingsSchemaSource
     unref(): void
+    static name: string
+    static new_from_directory(directory: string, parent: SettingsSchemaSource | null, trusted: boolean): SettingsSchemaSource
+    static get_default(): SettingsSchemaSource
 }
-export interface SettingsSchemaSource_Static {
-    name: string
+export class SimpleActionGroupPrivate {
+    static name: string
 }
-export declare class SettingsSchemaSource_Static {
-    new_from_directory(directory: string, parent: SettingsSchemaSource | null, trusted: boolean): SettingsSchemaSource
-    get_default(): SettingsSchemaSource
+export class SimpleProxyResolverPrivate {
+    static name: string
 }
-export declare var SettingsSchemaSource: SettingsSchemaSource_Static
-export interface SimpleActionGroupPrivate {
+export class SocketClientPrivate {
+    static name: string
 }
-export interface SimpleActionGroupPrivate_Static {
-    name: string
+export class SocketConnectionPrivate {
+    static name: string
 }
-export declare var SimpleActionGroupPrivate: SimpleActionGroupPrivate_Static
-export interface SimpleProxyResolverPrivate {
+export class SocketControlMessagePrivate {
+    static name: string
 }
-export interface SimpleProxyResolverPrivate_Static {
-    name: string
+export class SocketListenerPrivate {
+    static name: string
 }
-export declare var SimpleProxyResolverPrivate: SimpleProxyResolverPrivate_Static
-export interface SocketClientPrivate {
+export class SocketPrivate {
+    static name: string
 }
-export interface SocketClientPrivate_Static {
-    name: string
+export class SocketServicePrivate {
+    static name: string
 }
-export declare var SocketClientPrivate: SocketClientPrivate_Static
-export interface SocketConnectionPrivate {
-}
-export interface SocketConnectionPrivate_Static {
-    name: string
-}
-export declare var SocketConnectionPrivate: SocketConnectionPrivate_Static
-export interface SocketControlMessagePrivate {
-}
-export interface SocketControlMessagePrivate_Static {
-    name: string
-}
-export declare var SocketControlMessagePrivate: SocketControlMessagePrivate_Static
-export interface SocketListenerPrivate {
-}
-export interface SocketListenerPrivate_Static {
-    name: string
-}
-export declare var SocketListenerPrivate: SocketListenerPrivate_Static
-export interface SocketPrivate {
-}
-export interface SocketPrivate_Static {
-    name: string
-}
-export declare var SocketPrivate: SocketPrivate_Static
-export interface SocketServicePrivate {
-}
-export interface SocketServicePrivate_Static {
-    name: string
-}
-export declare var SocketServicePrivate: SocketServicePrivate_Static
-export interface SrvTarget {
+export class SrvTarget {
     /* Methods of Gio.SrvTarget */
     copy(): SrvTarget
     free(): void
@@ -10704,111 +9836,61 @@ export interface SrvTarget {
     get_port(): number
     get_priority(): number
     get_weight(): number
+    static name: string
+    static new(hostname: string, port: number, priority: number, weight: number): SrvTarget
+    static new(hostname: string, port: number, priority: number, weight: number): SrvTarget
 }
-export interface SrvTarget_Static {
-    name: string
-    new(hostname: string, port: number, priority: number, weight: number): SrvTarget
-}
-export declare class SrvTarget_Static {
-    new(hostname: string, port: number, priority: number, weight: number): SrvTarget
-}
-export declare var SrvTarget: SrvTarget_Static
-export interface StaticResource {
+export class StaticResource {
     /* Fields of Gio.StaticResource */
     /* Methods of Gio.StaticResource */
     fini(): void
     get_resource(): Resource
     init(): void
+    static name: string
 }
-export interface StaticResource_Static {
-    name: string
+export class TcpConnectionPrivate {
+    static name: string
 }
-export declare var StaticResource: StaticResource_Static
-export interface TcpConnectionPrivate {
+export class TcpWrapperConnectionPrivate {
+    static name: string
 }
-export interface TcpConnectionPrivate_Static {
-    name: string
+export class ThreadedSocketServicePrivate {
+    static name: string
 }
-export declare var TcpConnectionPrivate: TcpConnectionPrivate_Static
-export interface TcpWrapperConnectionPrivate {
+export class TlsCertificatePrivate {
+    static name: string
 }
-export interface TcpWrapperConnectionPrivate_Static {
-    name: string
+export class TlsConnectionPrivate {
+    static name: string
 }
-export declare var TcpWrapperConnectionPrivate: TcpWrapperConnectionPrivate_Static
-export interface ThreadedSocketServicePrivate {
+export class TlsDatabasePrivate {
+    static name: string
 }
-export interface ThreadedSocketServicePrivate_Static {
-    name: string
+export class TlsInteractionPrivate {
+    static name: string
 }
-export declare var ThreadedSocketServicePrivate: ThreadedSocketServicePrivate_Static
-export interface TlsCertificatePrivate {
+export class TlsPasswordPrivate {
+    static name: string
 }
-export interface TlsCertificatePrivate_Static {
-    name: string
+export class UnixConnectionPrivate {
+    static name: string
 }
-export declare var TlsCertificatePrivate: TlsCertificatePrivate_Static
-export interface TlsConnectionPrivate {
+export class UnixCredentialsMessagePrivate {
+    static name: string
 }
-export interface TlsConnectionPrivate_Static {
-    name: string
+export class UnixFDListPrivate {
+    static name: string
 }
-export declare var TlsConnectionPrivate: TlsConnectionPrivate_Static
-export interface TlsDatabasePrivate {
+export class UnixFDMessagePrivate {
+    static name: string
 }
-export interface TlsDatabasePrivate_Static {
-    name: string
+export class UnixInputStreamPrivate {
+    static name: string
 }
-export declare var TlsDatabasePrivate: TlsDatabasePrivate_Static
-export interface TlsInteractionPrivate {
+export class UnixMountEntry {
+    static name: string
 }
-export interface TlsInteractionPrivate_Static {
-    name: string
-}
-export declare var TlsInteractionPrivate: TlsInteractionPrivate_Static
-export interface TlsPasswordPrivate {
-}
-export interface TlsPasswordPrivate_Static {
-    name: string
-}
-export declare var TlsPasswordPrivate: TlsPasswordPrivate_Static
-export interface UnixConnectionPrivate {
-}
-export interface UnixConnectionPrivate_Static {
-    name: string
-}
-export declare var UnixConnectionPrivate: UnixConnectionPrivate_Static
-export interface UnixCredentialsMessagePrivate {
-}
-export interface UnixCredentialsMessagePrivate_Static {
-    name: string
-}
-export declare var UnixCredentialsMessagePrivate: UnixCredentialsMessagePrivate_Static
-export interface UnixFDListPrivate {
-}
-export interface UnixFDListPrivate_Static {
-    name: string
-}
-export declare var UnixFDListPrivate: UnixFDListPrivate_Static
-export interface UnixFDMessagePrivate {
-}
-export interface UnixFDMessagePrivate_Static {
-    name: string
-}
-export declare var UnixFDMessagePrivate: UnixFDMessagePrivate_Static
-export interface UnixInputStreamPrivate {
-}
-export interface UnixInputStreamPrivate_Static {
-    name: string
-}
-export declare var UnixInputStreamPrivate: UnixInputStreamPrivate_Static
-export interface UnixMountEntry {
-}
-export interface UnixMountEntry_Static {
-    name: string
-}
-export declare var UnixMountEntry: UnixMountEntry_Static
-export interface UnixMountPoint {
+export class UnixMountPoint {
     /* Methods of Gio.UnixMountPoint */
     compare(mount2: UnixMountPoint): number
     copy(): UnixMountPoint
@@ -10824,20 +9906,11 @@ export interface UnixMountPoint {
     is_loopback(): boolean
     is_readonly(): boolean
     is_user_mountable(): boolean
+    static name: string
 }
-export interface UnixMountPoint_Static {
-    name: string
+export class UnixOutputStreamPrivate {
+    static name: string
 }
-export declare var UnixMountPoint: UnixMountPoint_Static
-export interface UnixOutputStreamPrivate {
+export class UnixSocketAddressPrivate {
+    static name: string
 }
-export interface UnixOutputStreamPrivate_Static {
-    name: string
-}
-export declare var UnixOutputStreamPrivate: UnixOutputStreamPrivate_Static
-export interface UnixSocketAddressPrivate {
-}
-export interface UnixSocketAddressPrivate_Static {
-    name: string
-}
-export declare var UnixSocketAddressPrivate: UnixSocketAddressPrivate_Static

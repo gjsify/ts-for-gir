@@ -35,7 +35,7 @@ export interface Notification_ConstructProps extends GObject.Object_ConstructPro
     id?:number
     summary?:string
 }
-export interface Notification {
+export class Notification {
     /* Properties of Notify.Notification */
     app_name:string
     body:string
@@ -111,18 +111,10 @@ export interface Notification {
     connect(sigName: "notify::icon-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::id", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::summary", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Notification_ConstructProps): Notification
+    static new(summary: string, body: string | null, icon: string | null): Notification
 }
-export interface Notification_Static {
-    name: string
-    new (config?: Notification_ConstructProps): Notification
+export class NotificationPrivate {
+    static name: string
 }
-export declare class Notification_Static {
-    new(summary: string, body: string | null, icon: string | null): Notification
-}
-export declare var Notification: Notification_Static
-export interface NotificationPrivate {
-}
-export interface NotificationPrivate_Static {
-    name: string
-}
-export declare var NotificationPrivate: NotificationPrivate_Static

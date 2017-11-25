@@ -125,7 +125,7 @@ export function file_loader_error_quark(): GLib.Quark
 export function file_saver_error_quark(): GLib.Quark
 export function utils_escape_search_text(text: string): string
 export function utils_unescape_search_text(text: string): string
-export interface CompletionProposal {
+export class CompletionProposal {
     /* Methods of GtkSource.CompletionProposal */
     changed(): void
     equal(other: CompletionProposal): boolean
@@ -150,12 +150,9 @@ export interface CompletionProposal {
     vfunc_hash(): number
     /* Signals of GtkSource.CompletionProposal */
     connect(sigName: "changed", callback: ((obj: CompletionProposal) => void))
+    static name: string
 }
-export interface CompletionProposal_Static {
-    name: string
-}
-export declare var CompletionProposal: CompletionProposal_Static
-export interface CompletionProvider {
+export class CompletionProvider {
     /* Methods of GtkSource.CompletionProvider */
     activate_proposal(proposal: CompletionProposal, iter: Gtk.TextIter): boolean
     get_activation(): CompletionActivation
@@ -184,12 +181,9 @@ export interface CompletionProvider {
     vfunc_match(context: CompletionContext): boolean
     vfunc_populate(context: CompletionContext): void
     vfunc_update_info(proposal: CompletionProposal, info: CompletionInfo): void
+    static name: string
 }
-export interface CompletionProvider_Static {
-    name: string
-}
-export declare var CompletionProvider: CompletionProvider_Static
-export interface StyleSchemeChooser {
+export class StyleSchemeChooser {
     /* Properties of GtkSource.StyleSchemeChooser */
     style_scheme:StyleScheme
     /* Methods of GtkSource.StyleSchemeChooser */
@@ -198,12 +192,9 @@ export interface StyleSchemeChooser {
     /* Virtual methods of GtkSource.StyleSchemeChooser */
     vfunc_get_style_scheme(): StyleScheme
     vfunc_set_style_scheme(scheme: StyleScheme): void
+    static name: string
 }
-export interface StyleSchemeChooser_Static {
-    name: string
-}
-export declare var StyleSchemeChooser: StyleSchemeChooser_Static
-export interface UndoManager {
+export class UndoManager {
     /* Methods of GtkSource.UndoManager */
     begin_not_undoable_action(): void
     can_redo(): boolean
@@ -225,11 +216,8 @@ export interface UndoManager {
     /* Signals of GtkSource.UndoManager */
     connect(sigName: "can-redo-changed", callback: ((obj: UndoManager) => void))
     connect(sigName: "can-undo-changed", callback: ((obj: UndoManager) => void))
+    static name: string
 }
-export interface UndoManager_Static {
-    name: string
-}
-export declare var UndoManager: UndoManager_Static
 export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
     highlight_matching_brackets?:boolean
     highlight_syntax?:boolean
@@ -239,7 +227,7 @@ export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
     style_scheme?:StyleScheme
     undo_manager?:UndoManager
 }
-export interface Buffer {
+export class Buffer {
     /* Properties of GtkSource.Buffer */
     readonly can_redo:boolean
     readonly can_undo:boolean
@@ -452,16 +440,11 @@ export interface Buffer {
     connect(sigName: "notify::has-selection", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::paste-target-list", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::text", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Buffer_ConstructProps): Buffer
+    static new(table: Gtk.TextTagTable | null): Buffer
+    static new_with_language(language: Language): Buffer
 }
-export interface Buffer_Static {
-    name: string
-    new (config?: Buffer_ConstructProps): Buffer
-}
-export declare class Buffer_Static {
-    new(table: Gtk.TextTagTable | null): Buffer
-    new_with_language(language: Language): Buffer
-}
-export declare var Buffer: Buffer_Static
 export interface Completion_ConstructProps extends GObject.Object_ConstructProps {
     accelerators?:number
     auto_complete_delay?:number
@@ -473,7 +456,7 @@ export interface Completion_ConstructProps extends GObject.Object_ConstructProps
     show_icons?:boolean
     view?:View
 }
-export interface Completion {
+export class Completion {
     /* Properties of GtkSource.Completion */
     accelerators:number
     auto_complete_delay:number
@@ -557,18 +540,15 @@ export interface Completion {
     connect(sigName: "notify::select-on-show", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::show-headers", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::show-icons", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Completion_ConstructProps): Completion
 }
-export interface Completion_Static {
-    name: string
-    new (config?: Completion_ConstructProps): Completion
-}
-export declare var Completion: Completion_Static
 export interface CompletionContext_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     activation?:CompletionActivation
     completion?:Completion
     iter?:Gtk.TextIter
 }
-export interface CompletionContext {
+export class CompletionContext {
     /* Properties of GtkSource.CompletionContext */
     activation:CompletionActivation
     iter:Gtk.TextIter
@@ -622,15 +602,12 @@ export interface CompletionContext {
     connect(sigName: "notify", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::activation", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::iter", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: CompletionContext_ConstructProps): CompletionContext
 }
-export interface CompletionContext_Static {
-    name: string
-    new (config?: CompletionContext_ConstructProps): CompletionContext
-}
-export declare var CompletionContext: CompletionContext_Static
 export interface CompletionInfo_ConstructProps extends Gtk.Window_ConstructProps {
 }
-export interface CompletionInfo {
+export class CompletionInfo {
     /* Properties of Gtk.Window */
     accept_focus:boolean
     application:Gtk.Application
@@ -1410,15 +1387,10 @@ export interface CompletionInfo {
     connect(sigName: "notify::visible", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: CompletionInfo_ConstructProps): CompletionInfo
+    static new(): CompletionInfo
 }
-export interface CompletionInfo_Static {
-    name: string
-    new (config?: CompletionInfo_ConstructProps): CompletionInfo
-}
-export declare class CompletionInfo_Static {
-    new(): CompletionInfo
-}
-export declare var CompletionInfo: CompletionInfo_Static
 export interface CompletionItem_ConstructProps extends GObject.Object_ConstructProps {
     gicon?:Gio.Icon
     icon?:GdkPixbuf.Pixbuf
@@ -1428,7 +1400,7 @@ export interface CompletionItem_ConstructProps extends GObject.Object_ConstructP
     markup?:string
     text?:string
 }
-export interface CompletionItem {
+export class CompletionItem {
     /* Properties of GtkSource.CompletionItem */
     gicon:Gio.Icon
     icon:GdkPixbuf.Pixbuf
@@ -1491,18 +1463,13 @@ export interface CompletionItem {
     connect(sigName: "notify::label", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::markup", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::text", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: CompletionItem_ConstructProps): CompletionItem
+    static new(label: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
+    static new_from_stock(label: string | null, text: string, stock: string, info: string | null): CompletionItem
+    static new_with_markup(markup: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
+    static new2(): CompletionItem
 }
-export interface CompletionItem_Static {
-    name: string
-    new (config?: CompletionItem_ConstructProps): CompletionItem
-}
-export declare class CompletionItem_Static {
-    new(label: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
-    new_from_stock(label: string | null, text: string, stock: string, info: string | null): CompletionItem
-    new_with_markup(markup: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
-    new2(): CompletionItem
-}
-export declare var CompletionItem: CompletionItem_Static
 export interface CompletionWords_ConstructProps extends GObject.Object_ConstructProps {
     activation?:CompletionActivation
     icon?:GdkPixbuf.Pixbuf
@@ -1513,7 +1480,7 @@ export interface CompletionWords_ConstructProps extends GObject.Object_Construct
     proposals_batch_size?:number
     scan_batch_size?:number
 }
-export interface CompletionWords {
+export class CompletionWords {
     /* Properties of GtkSource.CompletionWords */
     activation:CompletionActivation
     icon:GdkPixbuf.Pixbuf
@@ -1573,19 +1540,14 @@ export interface CompletionWords {
     connect(sigName: "notify::priority", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::proposals-batch-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::scan-batch-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: CompletionWords_ConstructProps): CompletionWords
+    static new(name: string | null, icon: GdkPixbuf.Pixbuf | null): CompletionWords
 }
-export interface CompletionWords_Static {
-    name: string
-    new (config?: CompletionWords_ConstructProps): CompletionWords
-}
-export declare class CompletionWords_Static {
-    new(name: string | null, icon: GdkPixbuf.Pixbuf | null): CompletionWords
-}
-export declare var CompletionWords: CompletionWords_Static
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
     location?:Gio.File
 }
-export interface File {
+export class File {
     /* Properties of GtkSource.File */
     readonly compression_type:CompressionType
     readonly encoding:Encoding
@@ -1647,22 +1609,17 @@ export interface File {
     connect(sigName: "notify::location", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::newline-type", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::read-only", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: File_ConstructProps): File
+    static new(): File
 }
-export interface File_Static {
-    name: string
-    new (config?: File_ConstructProps): File
-}
-export declare class File_Static {
-    new(): File
-}
-export declare var File: File_Static
 export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps {
     buffer?:Buffer
     file?:File
     input_stream?:Gio.InputStream
     location?:Gio.File
 }
-export interface FileLoader {
+export class FileLoader {
     /* Properties of GtkSource.FileLoader */
     /* Fields of GtkSource.FileLoader */
     parent:GObject.Object
@@ -1714,16 +1671,11 @@ export interface FileLoader {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileLoader, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileLoader_ConstructProps): FileLoader
+    static new(buffer: Buffer, file: File): FileLoader
+    static new_from_stream(buffer: Buffer, file: File, stream: Gio.InputStream): FileLoader
 }
-export interface FileLoader_Static {
-    name: string
-    new (config?: FileLoader_ConstructProps): FileLoader
-}
-export declare class FileLoader_Static {
-    new(buffer: Buffer, file: File): FileLoader
-    new_from_stream(buffer: Buffer, file: File, stream: Gio.InputStream): FileLoader
-}
-export declare var FileLoader: FileLoader_Static
 export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps {
     buffer?:Buffer
     compression_type?:CompressionType
@@ -1733,7 +1685,7 @@ export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps 
     location?:Gio.File
     newline_type?:NewlineType
 }
-export interface FileSaver {
+export class FileSaver {
     /* Properties of GtkSource.FileSaver */
     compression_type:CompressionType
     encoding:Encoding
@@ -1796,23 +1748,18 @@ export interface FileSaver {
     connect(sigName: "notify::encoding", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::flags", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::newline-type", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileSaver_ConstructProps): FileSaver
+    static new(buffer: Buffer, file: File): FileSaver
+    static new_with_target(buffer: Buffer, file: File, target_location: Gio.File): FileSaver
 }
-export interface FileSaver_Static {
-    name: string
-    new (config?: FileSaver_ConstructProps): FileSaver
-}
-export declare class FileSaver_Static {
-    new(buffer: Buffer, file: File): FileSaver
-    new_with_target(buffer: Buffer, file: File, target_location: Gio.File): FileSaver
-}
-export declare var FileSaver: FileSaver_Static
 export interface Gutter_ConstructProps extends GObject.Object_ConstructProps {
     view?:View
     window_type?:Gtk.TextWindowType
     xpad?:number
     ypad?:number
 }
-export interface Gutter {
+export class Gutter {
     /* Properties of GtkSource.Gutter */
     xpad:number
     ypad:number
@@ -1868,12 +1815,9 @@ export interface Gutter {
     connect(sigName: "notify", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::xpad", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ypad", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Gutter_ConstructProps): Gutter
 }
-export interface Gutter_Static {
-    name: string
-    new (config?: Gutter_ConstructProps): Gutter
-}
-export declare var Gutter: Gutter_Static
 export interface GutterRenderer_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     alignment_mode?:GutterRendererAlignmentMode
     background_rgba?:Gdk.RGBA
@@ -1885,7 +1829,7 @@ export interface GutterRenderer_ConstructProps extends GObject.InitiallyUnowned_
     yalign?:number
     ypad?:number
 }
-export interface GutterRenderer {
+export class GutterRenderer {
     /* Properties of GtkSource.GutterRenderer */
     alignment_mode:GutterRendererAlignmentMode
     background_rgba:Gdk.RGBA
@@ -1988,19 +1932,16 @@ export interface GutterRenderer {
     connect(sigName: "notify::xpad", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::yalign", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ypad", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: GutterRenderer_ConstructProps): GutterRenderer
 }
-export interface GutterRenderer_Static {
-    name: string
-    new (config?: GutterRenderer_ConstructProps): GutterRenderer
-}
-export declare var GutterRenderer: GutterRenderer_Static
 export interface GutterRendererPixbuf_ConstructProps extends GutterRenderer_ConstructProps {
     gicon?:Gio.Icon
     icon_name?:string
     pixbuf?:GdkPixbuf.Pixbuf
     stock_id?:string
 }
-export interface GutterRendererPixbuf {
+export class GutterRendererPixbuf {
     /* Properties of GtkSource.GutterRendererPixbuf */
     gicon:Gio.Icon
     icon_name:string
@@ -2122,20 +2063,15 @@ export interface GutterRendererPixbuf {
     connect(sigName: "notify::xpad", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::yalign", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ypad", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-}
-export interface GutterRendererPixbuf_Static {
-    name: string
-    new (config?: GutterRendererPixbuf_ConstructProps): GutterRendererPixbuf
-}
-export declare class GutterRendererPixbuf_Static {
+    static name: string
+    static new (config?: GutterRendererPixbuf_ConstructProps): GutterRendererPixbuf
     new(): GutterRendererPixbuf
 }
-export declare var GutterRendererPixbuf: GutterRendererPixbuf_Static
 export interface GutterRendererText_ConstructProps extends GutterRenderer_ConstructProps {
     markup?:string
     text?:string
 }
-export interface GutterRendererText {
+export class GutterRendererText {
     /* Properties of GtkSource.GutterRendererText */
     markup:string
     text:string
@@ -2249,18 +2185,13 @@ export interface GutterRendererText {
     connect(sigName: "notify::xpad", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::yalign", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::ypad", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-}
-export interface GutterRendererText_Static {
-    name: string
-    new (config?: GutterRendererText_ConstructProps): GutterRendererText
-}
-export declare class GutterRendererText_Static {
+    static name: string
+    static new (config?: GutterRendererText_ConstructProps): GutterRendererText
     new(): GutterRendererText
 }
-export declare var GutterRendererText: GutterRendererText_Static
 export interface Language_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Language {
+export class Language {
     /* Properties of GtkSource.Language */
     readonly hidden:boolean
     readonly id:string
@@ -2320,16 +2251,13 @@ export interface Language {
     connect(sigName: "notify::id", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::name", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::section", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Language_ConstructProps): Language
 }
-export interface Language_Static {
-    name: string
-    new (config?: Language_ConstructProps): Language
-}
-export declare var Language: Language_Static
 export interface LanguageManager_ConstructProps extends GObject.Object_ConstructProps {
     search_path?:string[]
 }
-export interface LanguageManager {
+export class LanguageManager {
     /* Properties of GtkSource.LanguageManager */
     readonly language_ids:string[]
     search_path:string[]
@@ -2380,21 +2308,16 @@ export interface LanguageManager {
     connect(sigName: "notify", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::language-ids", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::search-path", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: LanguageManager_ConstructProps): LanguageManager
+    static new(): LanguageManager
+    static get_default(): LanguageManager
 }
-export interface LanguageManager_Static {
-    name: string
-    new (config?: LanguageManager_ConstructProps): LanguageManager
-}
-export declare class LanguageManager_Static {
-    new(): LanguageManager
-    get_default(): LanguageManager
-}
-export declare var LanguageManager: LanguageManager_Static
 export interface Map_ConstructProps extends View_ConstructProps {
     font_desc?:Pango.FontDescription
     view?:View
 }
-export interface Map {
+export class Map {
     /* Properties of GtkSource.Map */
     font_desc:Pango.FontDescription
     view:View
@@ -3222,19 +3145,14 @@ export interface Map {
     connect(sigName: "notify::visible", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-}
-export interface Map_Static {
-    name: string
-    new (config?: Map_ConstructProps): Map
-}
-export declare class Map_Static {
+    static name: string
+    static new (config?: Map_ConstructProps): Map
     new(): Map
 }
-export declare var Map: Map_Static
 export interface Mark_ConstructProps extends Gtk.TextMark_ConstructProps {
     category?:string
 }
-export interface Mark {
+export class Mark {
     /* Properties of GtkSource.Mark */
     /* Properties of Gtk.TextMark */
     /* Fields of GtkSource.Mark */
@@ -3288,15 +3206,10 @@ export interface Mark {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Mark, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Mark_ConstructProps): Mark
+    static new(name: string, category: string): Mark
 }
-export interface Mark_Static {
-    name: string
-    new (config?: Mark_ConstructProps): Mark
-}
-export declare class Mark_Static {
-    new(name: string, category: string): Mark
-}
-export declare var Mark: Mark_Static
 export interface MarkAttributes_ConstructProps extends GObject.Object_ConstructProps {
     background?:Gdk.RGBA
     gicon?:Gio.Icon
@@ -3304,7 +3217,7 @@ export interface MarkAttributes_ConstructProps extends GObject.Object_ConstructP
     pixbuf?:GdkPixbuf.Pixbuf
     stock_id?:string
 }
-export interface MarkAttributes {
+export class MarkAttributes {
     /* Properties of GtkSource.MarkAttributes */
     background:Gdk.RGBA
     gicon:Gio.Icon
@@ -3370,15 +3283,10 @@ export interface MarkAttributes {
     connect(sigName: "notify::icon-name", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::pixbuf", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::stock-id", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: MarkAttributes_ConstructProps): MarkAttributes
+    static new(): MarkAttributes
 }
-export interface MarkAttributes_Static {
-    name: string
-    new (config?: MarkAttributes_ConstructProps): MarkAttributes
-}
-export declare class MarkAttributes_Static {
-    new(): MarkAttributes
-}
-export declare var MarkAttributes: MarkAttributes_Static
 export interface PrintCompositor_ConstructProps extends GObject.Object_ConstructProps {
     body_font_name?:string
     buffer?:Buffer
@@ -3392,7 +3300,7 @@ export interface PrintCompositor_ConstructProps extends GObject.Object_Construct
     tab_width?:number
     wrap_mode?:Gtk.WrapMode
 }
-export interface PrintCompositor {
+export class PrintCompositor {
     /* Properties of GtkSource.PrintCompositor */
     body_font_name:string
     footer_font_name:string
@@ -3491,20 +3399,15 @@ export interface PrintCompositor {
     connect(sigName: "notify::print-line-numbers", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::tab-width", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::wrap-mode", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PrintCompositor_ConstructProps): PrintCompositor
+    static new(buffer: Buffer): PrintCompositor
+    static new_from_view(view: View): PrintCompositor
 }
-export interface PrintCompositor_Static {
-    name: string
-    new (config?: PrintCompositor_ConstructProps): PrintCompositor
-}
-export declare class PrintCompositor_Static {
-    new(buffer: Buffer): PrintCompositor
-    new_from_view(view: View): PrintCompositor
-}
-export declare var PrintCompositor: PrintCompositor_Static
 export interface Region_ConstructProps extends GObject.Object_ConstructProps {
     buffer?:Gtk.TextBuffer
 }
-export interface Region {
+export class Region {
     /* Properties of GtkSource.Region */
     /* Fields of GtkSource.Region */
     parent_instance:GObject.Object
@@ -3556,22 +3459,17 @@ export interface Region {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Region, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Region_ConstructProps): Region
+    static new(buffer: Gtk.TextBuffer): Region
 }
-export interface Region_Static {
-    name: string
-    new (config?: Region_ConstructProps): Region
-}
-export declare class Region_Static {
-    new(buffer: Gtk.TextBuffer): Region
-}
-export declare var Region: Region_Static
 export interface SearchContext_ConstructProps extends GObject.Object_ConstructProps {
     buffer?:Buffer
     highlight?:boolean
     match_style?:Style
     settings?:SearchSettings
 }
-export interface SearchContext {
+export class SearchContext {
     /* Properties of GtkSource.SearchContext */
     highlight:boolean
     match_style:Style
@@ -3646,15 +3544,10 @@ export interface SearchContext {
     connect(sigName: "notify::occurrences-count", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::regex-error", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::settings", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SearchContext_ConstructProps): SearchContext
+    static new(buffer: Buffer, settings: SearchSettings | null): SearchContext
 }
-export interface SearchContext_Static {
-    name: string
-    new (config?: SearchContext_ConstructProps): SearchContext
-}
-export declare class SearchContext_Static {
-    new(buffer: Buffer, settings: SearchSettings | null): SearchContext
-}
-export declare var SearchContext: SearchContext_Static
 export interface SearchSettings_ConstructProps extends GObject.Object_ConstructProps {
     at_word_boundaries?:boolean
     case_sensitive?:boolean
@@ -3662,7 +3555,7 @@ export interface SearchSettings_ConstructProps extends GObject.Object_ConstructP
     search_text?:string
     wrap_around?:boolean
 }
-export interface SearchSettings {
+export class SearchSettings {
     /* Properties of GtkSource.SearchSettings */
     at_word_boundaries:boolean
     case_sensitive:boolean
@@ -3724,20 +3617,15 @@ export interface SearchSettings {
     connect(sigName: "notify::regex-enabled", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::search-text", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::wrap-around", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SearchSettings_ConstructProps): SearchSettings
+    static new(): SearchSettings
 }
-export interface SearchSettings_Static {
-    name: string
-    new (config?: SearchSettings_ConstructProps): SearchSettings
-}
-export declare class SearchSettings_Static {
-    new(): SearchSettings
-}
-export declare var SearchSettings: SearchSettings_Static
 export interface SpaceDrawer_ConstructProps extends GObject.Object_ConstructProps {
     enable_matrix?:boolean
     matrix?:GLib.Variant
 }
-export interface SpaceDrawer {
+export class SpaceDrawer {
     /* Properties of GtkSource.SpaceDrawer */
     enable_matrix:boolean
     matrix:GLib.Variant
@@ -3790,15 +3678,10 @@ export interface SpaceDrawer {
     connect(sigName: "notify", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::enable-matrix", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::matrix", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SpaceDrawer_ConstructProps): SpaceDrawer
+    static new(): SpaceDrawer
 }
-export interface SpaceDrawer_Static {
-    name: string
-    new (config?: SpaceDrawer_ConstructProps): SpaceDrawer
-}
-export declare class SpaceDrawer_Static {
-    new(): SpaceDrawer
-}
-export declare var SpaceDrawer: SpaceDrawer_Static
 export interface Style_ConstructProps extends GObject.Object_ConstructProps {
     background?:string
     background_set?:boolean
@@ -3820,7 +3703,7 @@ export interface Style_ConstructProps extends GObject.Object_ConstructProps {
     underline_color_set?:boolean
     underline_set?:boolean
 }
-export interface Style {
+export class Style {
     /* Properties of GtkSource.Style */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -3861,16 +3744,13 @@ export interface Style {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Style, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Style_ConstructProps): Style
 }
-export interface Style_Static {
-    name: string
-    new (config?: Style_ConstructProps): Style
-}
-export declare var Style: Style_Static
 export interface StyleScheme_ConstructProps extends GObject.Object_ConstructProps {
     id?:string
 }
-export interface StyleScheme {
+export class StyleScheme {
     /* Properties of GtkSource.StyleScheme */
     readonly description:string
     readonly filename:string
@@ -3924,15 +3804,12 @@ export interface StyleScheme {
     connect(sigName: "notify::description", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::filename", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::name", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: StyleScheme_ConstructProps): StyleScheme
 }
-export interface StyleScheme_Static {
-    name: string
-    new (config?: StyleScheme_ConstructProps): StyleScheme
-}
-export declare var StyleScheme: StyleScheme_Static
 export interface StyleSchemeChooserButton_ConstructProps extends Gtk.Button_ConstructProps {
 }
-export interface StyleSchemeChooserButton {
+export class StyleSchemeChooserButton {
     /* Properties of Gtk.Button */
     always_show_image:boolean
     image:Gtk.Widget
@@ -4578,18 +4455,13 @@ export interface StyleSchemeChooserButton {
     connect(sigName: "notify::visible", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-}
-export interface StyleSchemeChooserButton_Static {
-    name: string
-    new (config?: StyleSchemeChooserButton_ConstructProps): StyleSchemeChooserButton
-}
-export declare class StyleSchemeChooserButton_Static {
+    static name: string
+    static new (config?: StyleSchemeChooserButton_ConstructProps): StyleSchemeChooserButton
     new(): StyleSchemeChooserButton
 }
-export declare var StyleSchemeChooserButton: StyleSchemeChooserButton_Static
 export interface StyleSchemeChooserWidget_ConstructProps extends Gtk.Bin_ConstructProps {
 }
-export interface StyleSchemeChooserWidget {
+export class StyleSchemeChooserWidget {
     /* Properties of Gtk.Container */
     border_width:number
     child:Gtk.Widget
@@ -5178,19 +5050,14 @@ export interface StyleSchemeChooserWidget {
     connect(sigName: "notify::visible", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-}
-export interface StyleSchemeChooserWidget_Static {
-    name: string
-    new (config?: StyleSchemeChooserWidget_ConstructProps): StyleSchemeChooserWidget
-}
-export declare class StyleSchemeChooserWidget_Static {
+    static name: string
+    static new (config?: StyleSchemeChooserWidget_ConstructProps): StyleSchemeChooserWidget
     new(): StyleSchemeChooserWidget
 }
-export declare var StyleSchemeChooserWidget: StyleSchemeChooserWidget_Static
 export interface StyleSchemeManager_ConstructProps extends GObject.Object_ConstructProps {
     search_path?:string[]
 }
-export interface StyleSchemeManager {
+export class StyleSchemeManager {
     /* Properties of GtkSource.StyleSchemeManager */
     readonly scheme_ids:string[]
     search_path:string[]
@@ -5243,21 +5110,16 @@ export interface StyleSchemeManager {
     connect(sigName: "notify", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::scheme-ids", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::search-path", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: StyleSchemeManager_ConstructProps): StyleSchemeManager
+    static new(): StyleSchemeManager
+    static get_default(): StyleSchemeManager
 }
-export interface StyleSchemeManager_Static {
-    name: string
-    new (config?: StyleSchemeManager_ConstructProps): StyleSchemeManager
-}
-export declare class StyleSchemeManager_Static {
-    new(): StyleSchemeManager
-    get_default(): StyleSchemeManager
-}
-export declare var StyleSchemeManager: StyleSchemeManager_Static
 export interface Tag_ConstructProps extends Gtk.TextTag_ConstructProps {
     draw_spaces?:boolean
     draw_spaces_set?:boolean
 }
-export interface Tag {
+export class Tag {
     /* Properties of GtkSource.Tag */
     draw_spaces:boolean
     draw_spaces_set:boolean
@@ -5459,15 +5321,10 @@ export interface Tag {
     connect(sigName: "notify::weight-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::wrap-mode", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::wrap-mode-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-}
-export interface Tag_Static {
-    name: string
-    new (config?: Tag_ConstructProps): Tag
-}
-export declare class Tag_Static {
+    static name: string
+    static new (config?: Tag_ConstructProps): Tag
     new(name: string | null): Tag
 }
-export declare var Tag: Tag_Static
 export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
     auto_indent?:boolean
     background_pattern?:BackgroundPatternType
@@ -5484,7 +5341,7 @@ export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
     smart_home_end?:SmartHomeEndType
     tab_width?:number
 }
-export interface View {
+export class View {
     /* Properties of GtkSource.View */
     auto_indent:boolean
     background_pattern:BackgroundPatternType
@@ -6303,187 +6160,102 @@ export interface View {
     connect(sigName: "notify::visible", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-}
-export interface View_Static {
-    name: string
-    new (config?: View_ConstructProps): View
-}
-export declare class View_Static {
+    static name: string
+    static new (config?: View_ConstructProps): View
     new(): View
     new_with_buffer(buffer: Buffer): View
 }
-export declare var View: View_Static
-export interface BufferPrivate {
+export class BufferPrivate {
+    static name: string
 }
-export interface BufferPrivate_Static {
-    name: string
+export class CompletionContextPrivate {
+    static name: string
 }
-export declare var BufferPrivate: BufferPrivate_Static
-export interface CompletionContextPrivate {
+export class CompletionInfoPrivate {
+    static name: string
 }
-export interface CompletionContextPrivate_Static {
-    name: string
+export class CompletionItemPrivate {
+    static name: string
 }
-export declare var CompletionContextPrivate: CompletionContextPrivate_Static
-export interface CompletionInfoPrivate {
+export class CompletionPrivate {
+    static name: string
 }
-export interface CompletionInfoPrivate_Static {
-    name: string
+export class CompletionWordsPrivate {
+    static name: string
 }
-export declare var CompletionInfoPrivate: CompletionInfoPrivate_Static
-export interface CompletionItemPrivate {
-}
-export interface CompletionItemPrivate_Static {
-    name: string
-}
-export declare var CompletionItemPrivate: CompletionItemPrivate_Static
-export interface CompletionPrivate {
-}
-export interface CompletionPrivate_Static {
-    name: string
-}
-export declare var CompletionPrivate: CompletionPrivate_Static
-export interface CompletionWordsPrivate {
-}
-export interface CompletionWordsPrivate_Static {
-    name: string
-}
-export declare var CompletionWordsPrivate: CompletionWordsPrivate_Static
-export interface Encoding {
+export class Encoding {
     /* Methods of GtkSource.Encoding */
     copy(): Encoding
     free(): void
     get_charset(): string
     get_name(): string
     to_string(): string
+    static name: string
+    static get_all(): GLib.SList
+    static get_current(): Encoding
+    static get_default_candidates(): GLib.SList
+    static get_from_charset(charset: string): Encoding | null
+    static get_utf8(): Encoding
 }
-export interface Encoding_Static {
-    name: string
+export class FileLoaderPrivate {
+    static name: string
 }
-export declare class Encoding_Static {
-    get_all(): GLib.SList
-    get_current(): Encoding
-    get_default_candidates(): GLib.SList
-    get_from_charset(charset: string): Encoding | null
-    get_utf8(): Encoding
+export class FilePrivate {
+    static name: string
 }
-export declare var Encoding: Encoding_Static
-export interface FileLoaderPrivate {
+export class FileSaverPrivate {
+    static name: string
 }
-export interface FileLoaderPrivate_Static {
-    name: string
+export class GutterPrivate {
+    static name: string
 }
-export declare var FileLoaderPrivate: FileLoaderPrivate_Static
-export interface FilePrivate {
+export class GutterRendererPixbufPrivate {
+    static name: string
 }
-export interface FilePrivate_Static {
-    name: string
+export class GutterRendererPrivate {
+    static name: string
 }
-export declare var FilePrivate: FilePrivate_Static
-export interface FileSaverPrivate {
+export class GutterRendererTextPrivate {
+    static name: string
 }
-export interface FileSaverPrivate_Static {
-    name: string
+export class LanguageManagerPrivate {
+    static name: string
 }
-export declare var FileSaverPrivate: FileSaverPrivate_Static
-export interface GutterPrivate {
+export class LanguagePrivate {
+    static name: string
 }
-export interface GutterPrivate_Static {
-    name: string
+export class MarkAttributesPrivate {
+    static name: string
 }
-export declare var GutterPrivate: GutterPrivate_Static
-export interface GutterRendererPixbufPrivate {
+export class MarkPrivate {
+    static name: string
 }
-export interface GutterRendererPixbufPrivate_Static {
-    name: string
+export class PrintCompositorPrivate {
+    static name: string
 }
-export declare var GutterRendererPixbufPrivate: GutterRendererPixbufPrivate_Static
-export interface GutterRendererPrivate {
-}
-export interface GutterRendererPrivate_Static {
-    name: string
-}
-export declare var GutterRendererPrivate: GutterRendererPrivate_Static
-export interface GutterRendererTextPrivate {
-}
-export interface GutterRendererTextPrivate_Static {
-    name: string
-}
-export declare var GutterRendererTextPrivate: GutterRendererTextPrivate_Static
-export interface LanguageManagerPrivate {
-}
-export interface LanguageManagerPrivate_Static {
-    name: string
-}
-export declare var LanguageManagerPrivate: LanguageManagerPrivate_Static
-export interface LanguagePrivate {
-}
-export interface LanguagePrivate_Static {
-    name: string
-}
-export declare var LanguagePrivate: LanguagePrivate_Static
-export interface MarkAttributesPrivate {
-}
-export interface MarkAttributesPrivate_Static {
-    name: string
-}
-export declare var MarkAttributesPrivate: MarkAttributesPrivate_Static
-export interface MarkPrivate {
-}
-export interface MarkPrivate_Static {
-    name: string
-}
-export declare var MarkPrivate: MarkPrivate_Static
-export interface PrintCompositorPrivate {
-}
-export interface PrintCompositorPrivate_Static {
-    name: string
-}
-export declare var PrintCompositorPrivate: PrintCompositorPrivate_Static
-export interface RegionIter {
+export class RegionIter {
     /* Fields of GtkSource.RegionIter */
     /* Methods of GtkSource.RegionIter */
     get_subregion(): [ /* returnType */ boolean, /* start */ Gtk.TextIter | null, /* end */ Gtk.TextIter | null ]
     is_end(): boolean
     next(): boolean
+    static name: string
 }
-export interface RegionIter_Static {
-    name: string
+export class SearchContextPrivate {
+    static name: string
 }
-export declare var RegionIter: RegionIter_Static
-export interface SearchContextPrivate {
+export class SearchSettingsPrivate {
+    static name: string
 }
-export interface SearchContextPrivate_Static {
-    name: string
+export class SpaceDrawerPrivate {
+    static name: string
 }
-export declare var SearchContextPrivate: SearchContextPrivate_Static
-export interface SearchSettingsPrivate {
+export class StyleSchemeManagerPrivate {
+    static name: string
 }
-export interface SearchSettingsPrivate_Static {
-    name: string
+export class StyleSchemePrivate {
+    static name: string
 }
-export declare var SearchSettingsPrivate: SearchSettingsPrivate_Static
-export interface SpaceDrawerPrivate {
+export class ViewPrivate {
+    static name: string
 }
-export interface SpaceDrawerPrivate_Static {
-    name: string
-}
-export declare var SpaceDrawerPrivate: SpaceDrawerPrivate_Static
-export interface StyleSchemeManagerPrivate {
-}
-export interface StyleSchemeManagerPrivate_Static {
-    name: string
-}
-export declare var StyleSchemeManagerPrivate: StyleSchemeManagerPrivate_Static
-export interface StyleSchemePrivate {
-}
-export interface StyleSchemePrivate_Static {
-    name: string
-}
-export declare var StyleSchemePrivate: StyleSchemePrivate_Static
-export interface ViewPrivate {
-}
-export interface ViewPrivate_Static {
-    name: string
-}
-export declare var ViewPrivate: ViewPrivate_Static

@@ -355,7 +355,7 @@ export interface FontsetForeachFunc {
 }
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Context {
+export class Context {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Pango.Context */
@@ -414,18 +414,13 @@ export interface Context {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Context_ConstructProps): Context
+    static new(): Context
 }
-export interface Context_Static {
-    name: string
-    new (config?: Context_ConstructProps): Context
-}
-export declare class Context_Static {
-    new(): Context
-}
-export declare var Context: Context_Static
 export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Engine {
+export class Engine {
     /* Fields of Pango.Engine */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -463,15 +458,12 @@ export interface Engine {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Engine, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Engine_ConstructProps): Engine
 }
-export interface Engine_Static {
-    name: string
-    new (config?: Engine_ConstructProps): Engine
-}
-export declare var Engine: Engine_Static
 export interface EngineLang_ConstructProps extends Engine_ConstructProps {
 }
-export interface EngineLang {
+export class EngineLang {
     /* Fields of Pango.EngineLang */
     /* Fields of Pango.Engine */
     /* Fields of GObject.Object */
@@ -512,15 +504,12 @@ export interface EngineLang {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: EngineLang, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: EngineLang_ConstructProps): EngineLang
 }
-export interface EngineLang_Static {
-    name: string
-    new (config?: EngineLang_ConstructProps): EngineLang
-}
-export declare var EngineLang: EngineLang_Static
 export interface EngineShape_ConstructProps extends Engine_ConstructProps {
 }
-export interface EngineShape {
+export class EngineShape {
     /* Fields of Pango.EngineShape */
     parent_instance:Engine
     /* Fields of Pango.Engine */
@@ -563,15 +552,12 @@ export interface EngineShape {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: EngineShape, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: EngineShape_ConstructProps): EngineShape
 }
-export interface EngineShape_Static {
-    name: string
-    new (config?: EngineShape_ConstructProps): EngineShape
-}
-export declare var EngineShape: EngineShape_Static
 export interface Font_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Font {
+export class Font {
     /* Fields of Pango.Font */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -624,18 +610,13 @@ export interface Font {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Font, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Font_ConstructProps): Font
+    static descriptions_free(descs: FontDescription[] | null): void
 }
-export interface Font_Static {
-    name: string
-    new (config?: Font_ConstructProps): Font
-}
-export declare class Font_Static {
-    descriptions_free(descs: FontDescription[] | null): void
-}
-export declare var Font: Font_Static
 export interface FontFace_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface FontFace {
+export class FontFace {
     /* Fields of Pango.FontFace */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -684,15 +665,12 @@ export interface FontFace {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FontFace, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FontFace_ConstructProps): FontFace
 }
-export interface FontFace_Static {
-    name: string
-    new (config?: FontFace_ConstructProps): FontFace
-}
-export declare var FontFace: FontFace_Static
 export interface FontFamily_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface FontFamily {
+export class FontFamily {
     /* Fields of Pango.FontFamily */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -739,15 +717,12 @@ export interface FontFamily {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FontFamily, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FontFamily_ConstructProps): FontFamily
 }
-export interface FontFamily_Static {
-    name: string
-    new (config?: FontFamily_ConstructProps): FontFamily
-}
-export declare var FontFamily: FontFamily_Static
 export interface FontMap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface FontMap {
+export class FontMap {
     /* Fields of Pango.FontMap */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -800,15 +775,12 @@ export interface FontMap {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FontMap, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FontMap_ConstructProps): FontMap
 }
-export interface FontMap_Static {
-    name: string
-    new (config?: FontMap_ConstructProps): FontMap
-}
-export declare var FontMap: FontMap_Static
 export interface Fontset_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Fontset {
+export class Fontset {
     /* Fields of Pango.Fontset */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -856,15 +828,12 @@ export interface Fontset {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Fontset, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Fontset_ConstructProps): Fontset
 }
-export interface Fontset_Static {
-    name: string
-    new (config?: Fontset_ConstructProps): Fontset
-}
-export declare var Fontset: Fontset_Static
 export interface FontsetSimple_ConstructProps extends Fontset_ConstructProps {
 }
-export interface FontsetSimple {
+export class FontsetSimple {
     /* Fields of Pango.Fontset */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -915,18 +884,13 @@ export interface FontsetSimple {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FontsetSimple, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FontsetSimple_ConstructProps): FontsetSimple
+    static new(language: Language): FontsetSimple
 }
-export interface FontsetSimple_Static {
-    name: string
-    new (config?: FontsetSimple_ConstructProps): FontsetSimple
-}
-export declare class FontsetSimple_Static {
-    new(language: Language): FontsetSimple
-}
-export declare var FontsetSimple: FontsetSimple_Static
 export interface Layout_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Layout {
+export class Layout {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Pango.Layout */
@@ -1020,18 +984,13 @@ export interface Layout {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Layout, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Layout_ConstructProps): Layout
+    static new(context: Context): Layout
 }
-export interface Layout_Static {
-    name: string
-    new (config?: Layout_ConstructProps): Layout
-}
-export declare class Layout_Static {
-    new(context: Context): Layout
-}
-export declare var Layout: Layout_Static
 export interface Renderer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Renderer {
+export class Renderer {
     /* Fields of Pango.Renderer */
     matrix:Matrix
     /* Fields of GObject.Object */
@@ -1102,13 +1061,10 @@ export interface Renderer {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Renderer, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Renderer_ConstructProps): Renderer
 }
-export interface Renderer_Static {
-    name: string
-    new (config?: Renderer_ConstructProps): Renderer
-}
-export declare var Renderer: Renderer_Static
-export interface Analysis {
+export class Analysis {
     /* Fields of Pango.Analysis */
     shape_engine:EngineShape
     lang_engine:EngineLang
@@ -1119,88 +1075,61 @@ export interface Analysis {
     script:number
     language:Language
     extra_attrs:GLib.SList
+    static name: string
 }
-export interface Analysis_Static {
-    name: string
-}
-export declare var Analysis: Analysis_Static
-export interface AttrClass {
+export class AttrClass {
     /* Fields of Pango.AttrClass */
     type:AttrType
     destroy:any
     equal:any
+    static name: string
 }
-export interface AttrClass_Static {
-    name: string
-}
-export declare var AttrClass: AttrClass_Static
-export interface AttrColor {
+export class AttrColor {
     /* Fields of Pango.AttrColor */
     attr:Attribute
     color:Color
+    static name: string
 }
-export interface AttrColor_Static {
-    name: string
-}
-export declare var AttrColor: AttrColor_Static
-export interface AttrFloat {
+export class AttrFloat {
     /* Fields of Pango.AttrFloat */
     attr:Attribute
     value:number
+    static name: string
 }
-export interface AttrFloat_Static {
-    name: string
-}
-export declare var AttrFloat: AttrFloat_Static
-export interface AttrFontDesc {
+export class AttrFontDesc {
     /* Fields of Pango.AttrFontDesc */
     attr:Attribute
     desc:FontDescription
+    static name: string
 }
-export interface AttrFontDesc_Static {
-    name: string
-}
-export declare var AttrFontDesc: AttrFontDesc_Static
-export interface AttrFontFeatures {
+export class AttrFontFeatures {
     /* Fields of Pango.AttrFontFeatures */
     attr:Attribute
     features:string
+    static name: string
 }
-export interface AttrFontFeatures_Static {
-    name: string
-}
-export declare var AttrFontFeatures: AttrFontFeatures_Static
-export interface AttrInt {
+export class AttrInt {
     /* Fields of Pango.AttrInt */
     attr:Attribute
     value:number
+    static name: string
 }
-export interface AttrInt_Static {
-    name: string
-}
-export declare var AttrInt: AttrInt_Static
-export interface AttrIterator {
+export class AttrIterator {
     /* Methods of Pango.AttrIterator */
     destroy(): void
     get_attrs(): GLib.SList
     get_font(desc: FontDescription, language: Language | null, extra_attrs: GLib.SList | null): void
     next(): boolean
     range(): [ /* start */ number, /* end */ number ]
+    static name: string
 }
-export interface AttrIterator_Static {
-    name: string
-}
-export declare var AttrIterator: AttrIterator_Static
-export interface AttrLanguage {
+export class AttrLanguage {
     /* Fields of Pango.AttrLanguage */
     attr:Attribute
     value:Language
+    static name: string
 }
-export interface AttrLanguage_Static {
-    name: string
-}
-export declare var AttrLanguage: AttrLanguage_Static
-export interface AttrList {
+export class AttrList {
     /* Methods of Pango.AttrList */
     change(attr: Attribute): void
     copy(): AttrList | null
@@ -1210,16 +1139,11 @@ export interface AttrList {
     ref(): AttrList
     splice(other: AttrList, pos: number, len: number): void
     unref(): void
+    static name: string
+    static new(): AttrList
+    static new(): AttrList
 }
-export interface AttrList_Static {
-    name: string
-    new(): AttrList
-}
-export declare class AttrList_Static {
-    new(): AttrList
-}
-export declare var AttrList: AttrList_Static
-export interface AttrShape {
+export class AttrShape {
     /* Fields of Pango.AttrShape */
     attr:Attribute
     ink_rect:Rectangle
@@ -1227,31 +1151,22 @@ export interface AttrShape {
     data:object
     copy_func:AttrDataCopyFunc
     destroy_func:GLib.DestroyNotify
+    static name: string
 }
-export interface AttrShape_Static {
-    name: string
-}
-export declare var AttrShape: AttrShape_Static
-export interface AttrSize {
+export class AttrSize {
     /* Fields of Pango.AttrSize */
     attr:Attribute
     size:number
     absolute:number
+    static name: string
 }
-export interface AttrSize_Static {
-    name: string
-}
-export declare var AttrSize: AttrSize_Static
-export interface AttrString {
+export class AttrString {
     /* Fields of Pango.AttrString */
     attr:Attribute
     value:string
+    static name: string
 }
-export interface AttrString_Static {
-    name: string
-}
-export declare var AttrString: AttrString_Static
-export interface Attribute {
+export class Attribute {
     /* Fields of Pango.Attribute */
     klass:AttrClass
     start_index:number
@@ -1260,12 +1175,9 @@ export interface Attribute {
     destroy(): void
     equal(attr2: Attribute): boolean
     init(klass: AttrClass): void
+    static name: string
 }
-export interface Attribute_Static {
-    name: string
-}
-export declare var Attribute: Attribute_Static
-export interface Color {
+export class Color {
     /* Fields of Pango.Color */
     red:number
     green:number
@@ -1275,45 +1187,33 @@ export interface Color {
     free(): void
     parse(spec: string): boolean
     to_string(): string
+    static name: string
 }
-export interface Color_Static {
-    name: string
-}
-export declare var Color: Color_Static
-export interface Coverage {
+export class Coverage {
     /* Methods of Pango.Coverage */
     get(index_: number): CoverageLevel
     max(other: Coverage): void
     set(index_: number, level: CoverageLevel): void
     to_bytes(): /* bytes */ Gjs.byteArray.ByteArray
     unref(): void
+    static name: string
 }
-export interface Coverage_Static {
-    name: string
-}
-export declare var Coverage: Coverage_Static
-export interface EngineInfo {
+export class EngineInfo {
     /* Fields of Pango.EngineInfo */
     id:string
     engine_type:string
     render_type:string
     scripts:EngineScriptInfo
     n_scripts:number
+    static name: string
 }
-export interface EngineInfo_Static {
-    name: string
-}
-export declare var EngineInfo: EngineInfo_Static
-export interface EngineScriptInfo {
+export class EngineScriptInfo {
     /* Fields of Pango.EngineScriptInfo */
     script:Script
     langs:string
+    static name: string
 }
-export interface EngineScriptInfo_Static {
-    name: string
-}
-export declare var EngineScriptInfo: EngineScriptInfo_Static
-export interface FontDescription {
+export class FontDescription {
     /* Methods of Pango.FontDescription */
     better_match(old_match: FontDescription | null, new_match: FontDescription): boolean
     copy(): FontDescription | null
@@ -1344,17 +1244,12 @@ export interface FontDescription {
     to_filename(): string
     to_string(): string
     unset_fields(to_unset: FontMask): void
+    static name: string
+    static new(): FontDescription
+    static new(): FontDescription
+    static from_string(str: string): FontDescription
 }
-export interface FontDescription_Static {
-    name: string
-    new(): FontDescription
-}
-export declare class FontDescription_Static {
-    new(): FontDescription
-    from_string(str: string): FontDescription
-}
-export declare var FontDescription: FontDescription_Static
-export interface FontMetrics {
+export class FontMetrics {
     /* Fields of Pango.FontMetrics */
     /* Methods of Pango.FontMetrics */
     get_approximate_char_width(): number
@@ -1367,36 +1262,25 @@ export interface FontMetrics {
     get_underline_thickness(): number
     ref(): FontMetrics | null
     unref(): void
+    static name: string
+    static new(): FontMetrics
+    static new(): FontMetrics
 }
-export interface FontMetrics_Static {
-    name: string
-    new(): FontMetrics
-}
-export declare class FontMetrics_Static {
-    new(): FontMetrics
-}
-export declare var FontMetrics: FontMetrics_Static
-export interface GlyphGeometry {
+export class GlyphGeometry {
     /* Fields of Pango.GlyphGeometry */
     width:GlyphUnit
     x_offset:GlyphUnit
     y_offset:GlyphUnit
+    static name: string
 }
-export interface GlyphGeometry_Static {
-    name: string
-}
-export declare var GlyphGeometry: GlyphGeometry_Static
-export interface GlyphInfo {
+export class GlyphInfo {
     /* Fields of Pango.GlyphInfo */
     glyph:Glyph
     geometry:GlyphGeometry
     attr:GlyphVisAttr
+    static name: string
 }
-export interface GlyphInfo_Static {
-    name: string
-}
-export declare var GlyphInfo: GlyphInfo_Static
-export interface GlyphItem {
+export class GlyphItem {
     /* Fields of Pango.GlyphItem */
     item:Item
     glyphs:GlyphString
@@ -1407,12 +1291,9 @@ export interface GlyphItem {
     get_logical_widths(text: string, logical_widths: number[]): void
     letter_space(text: string, log_attrs: LogAttr[], letter_spacing: number): void
     split(text: string, split_index: number): GlyphItem
+    static name: string
 }
-export interface GlyphItem_Static {
-    name: string
-}
-export declare var GlyphItem: GlyphItem_Static
-export interface GlyphItemIter {
+export class GlyphItemIter {
     /* Fields of Pango.GlyphItemIter */
     glyph_item:GlyphItem
     text:string
@@ -1429,12 +1310,9 @@ export interface GlyphItemIter {
     init_start(glyph_item: GlyphItem, text: string): boolean
     next_cluster(): boolean
     prev_cluster(): boolean
+    static name: string
 }
-export interface GlyphItemIter_Static {
-    name: string
-}
-export declare var GlyphItemIter: GlyphItemIter_Static
-export interface GlyphString {
+export class GlyphString {
     /* Fields of Pango.GlyphString */
     num_glyphs:number
     glyphs:GlyphInfo[]
@@ -1449,34 +1327,23 @@ export interface GlyphString {
     index_to_x(text: string, length: number, analysis: Analysis, index_: number, trailing: boolean): /* x_pos */ number
     set_size(new_len: number): void
     x_to_index(text: string, length: number, analysis: Analysis, x_pos: number): [ /* index_ */ number, /* trailing */ number ]
+    static name: string
+    static new(): GlyphString
+    static new(): GlyphString
 }
-export interface GlyphString_Static {
-    name: string
-    new(): GlyphString
-}
-export declare class GlyphString_Static {
-    new(): GlyphString
-}
-export declare var GlyphString: GlyphString_Static
-export interface GlyphVisAttr {
+export class GlyphVisAttr {
     /* Fields of Pango.GlyphVisAttr */
     is_cluster_start:number
+    static name: string
 }
-export interface GlyphVisAttr_Static {
-    name: string
-}
-export declare var GlyphVisAttr: GlyphVisAttr_Static
-export interface IncludedModule {
+export class IncludedModule {
     /* Fields of Pango.IncludedModule */
     list:any
     init:any
     exit:any
+    static name: string
 }
-export interface IncludedModule_Static {
-    name: string
-}
-export declare var IncludedModule: IncludedModule_Static
-export interface Item {
+export class Item {
     /* Fields of Pango.Item */
     offset:number
     length:number
@@ -1486,32 +1353,22 @@ export interface Item {
     copy(): Item | null
     free(): void
     split(split_index: number, split_offset: number): Item
+    static name: string
+    static new(): Item
+    static new(): Item
 }
-export interface Item_Static {
-    name: string
-    new(): Item
-}
-export declare class Item_Static {
-    new(): Item
-}
-export declare var Item: Item_Static
-export interface Language {
+export class Language {
     /* Methods of Pango.Language */
     get_sample_string(): string
     get_scripts(): [ /* returnType */ Script[] | null, /* num_scripts */ number | null ]
     includes_script(script: Script): boolean
     matches(range_list: string): boolean
     to_string(): string
+    static name: string
+    static from_string(language: string | null): Language | null
+    static get_default(): Language
 }
-export interface Language_Static {
-    name: string
-}
-export declare class Language_Static {
-    from_string(language: string | null): Language | null
-    get_default(): Language
-}
-export declare var Language: Language_Static
-export interface LayoutIter {
+export class LayoutIter {
     /* Methods of Pango.LayoutIter */
     at_last_line(): boolean
     copy(): LayoutIter | null
@@ -1533,12 +1390,9 @@ export interface LayoutIter {
     next_cluster(): boolean
     next_line(): boolean
     next_run(): boolean
+    static name: string
 }
-export interface LayoutIter_Static {
-    name: string
-}
-export declare var LayoutIter: LayoutIter_Static
-export interface LayoutLine {
+export class LayoutLine {
     /* Fields of Pango.LayoutLine */
     layout:Layout
     start_index:number
@@ -1554,12 +1408,9 @@ export interface LayoutLine {
     ref(): LayoutLine
     unref(): void
     x_to_index(x_pos: number): [ /* returnType */ boolean, /* index_ */ number, /* trailing */ number ]
+    static name: string
 }
-export interface LayoutLine_Static {
-    name: string
-}
-export declare var LayoutLine: LayoutLine_Static
-export interface LogAttr {
+export class LogAttr {
     /* Fields of Pango.LogAttr */
     is_line_break:number
     is_mandatory_break:number
@@ -1574,25 +1425,16 @@ export interface LogAttr {
     backspace_deletes_character:number
     is_expandable_space:number
     is_word_boundary:number
+    static name: string
 }
-export interface LogAttr_Static {
-    name: string
-}
-export declare var LogAttr: LogAttr_Static
-export interface Map {
+export class Map {
     /* Methods of Pango.Map */
+    static name: string
 }
-export interface Map_Static {
-    name: string
+export class MapEntry {
+    static name: string
 }
-export declare var Map: Map_Static
-export interface MapEntry {
-}
-export interface MapEntry_Static {
-    name: string
-}
-export declare var MapEntry: MapEntry_Static
-export interface Matrix {
+export class Matrix {
     /* Fields of Pango.Matrix */
     xx:number
     xy:number
@@ -1613,48 +1455,33 @@ export interface Matrix {
     transform_point(x: number, y: number): void
     transform_rectangle(rect: Rectangle | null): void
     translate(tx: number, ty: number): void
+    static name: string
 }
-export interface Matrix_Static {
-    name: string
-}
-export declare var Matrix: Matrix_Static
-export interface Rectangle {
+export class Rectangle {
     /* Fields of Pango.Rectangle */
     x:number
     y:number
     width:number
     height:number
+    static name: string
 }
-export interface Rectangle_Static {
-    name: string
+export class RendererPrivate {
+    static name: string
 }
-export declare var Rectangle: Rectangle_Static
-export interface RendererPrivate {
-}
-export interface RendererPrivate_Static {
-    name: string
-}
-export declare var RendererPrivate: RendererPrivate_Static
-export interface ScriptForLang {
+export class ScriptForLang {
     /* Fields of Pango.ScriptForLang */
     lang:number[]
     scripts:Script[]
+    static name: string
 }
-export interface ScriptForLang_Static {
-    name: string
-}
-export declare var ScriptForLang: ScriptForLang_Static
-export interface ScriptIter {
+export class ScriptIter {
     /* Methods of Pango.ScriptIter */
     free(): void
     get_range(): [ /* start */ string | null, /* end */ string | null, /* script */ Script | null ]
     next(): boolean
+    static name: string
 }
-export interface ScriptIter_Static {
-    name: string
-}
-export declare var ScriptIter: ScriptIter_Static
-export interface TabArray {
+export class TabArray {
     /* Methods of Pango.TabArray */
     copy(): TabArray
     free(): void
@@ -1664,15 +1491,10 @@ export interface TabArray {
     get_tabs(): [ /* alignments */ TabAlign | null, /* locations */ number[] | null ]
     resize(new_size: number): void
     set_tab(tab_index: number, alignment: TabAlign, location: number): void
+    static name: string
+    static new(initial_size: number, positions_in_pixels: boolean): TabArray
+    static new(initial_size: number, positions_in_pixels: boolean): TabArray
 }
-export interface TabArray_Static {
-    name: string
-    new(initial_size: number, positions_in_pixels: boolean): TabArray
-}
-export declare class TabArray_Static {
-    new(initial_size: number, positions_in_pixels: boolean): TabArray
-}
-export declare var TabArray: TabArray_Static
 type Glyph = number
 type GlyphUnit = number
 type LayoutRun = GlyphItem

@@ -274,21 +274,18 @@ export function user_media_permission_is_for_video_device(request: UserMediaPerm
 export interface URISchemeRequestCallback {
     (request: URISchemeRequest, user_data: object | null): void
 }
-export interface PermissionRequest {
+export class PermissionRequest {
     /* Methods of WebKit2.PermissionRequest */
     allow(): void
     deny(): void
     /* Virtual methods of WebKit2.PermissionRequest */
     vfunc_allow(): void
     vfunc_deny(): void
+    static name: string
 }
-export interface PermissionRequest_Static {
-    name: string
-}
-export declare var PermissionRequest: PermissionRequest_Static
 export interface AuthenticationRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface AuthenticationRequest {
+export class AuthenticationRequest {
     /* Fields of WebKit2.AuthenticationRequest */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -340,16 +337,13 @@ export interface AuthenticationRequest {
     connect(sigName: "cancelled", callback: ((obj: AuthenticationRequest) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AuthenticationRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: AuthenticationRequest_ConstructProps): AuthenticationRequest
 }
-export interface AuthenticationRequest_Static {
-    name: string
-    new (config?: AuthenticationRequest_ConstructProps): AuthenticationRequest
-}
-export declare var AuthenticationRequest: AuthenticationRequest_Static
 export interface AutomationSession_ConstructProps extends GObject.Object_ConstructProps {
     id?:string
 }
-export interface AutomationSession {
+export class AutomationSession {
     /* Properties of WebKit2.AutomationSession */
     /* Fields of WebKit2.AutomationSession */
     parent:GObject.Object
@@ -396,15 +390,12 @@ export interface AutomationSession {
     connect(sigName: "create-web-view", callback: ((obj: AutomationSession) => WebView))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AutomationSession, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: AutomationSession_ConstructProps): AutomationSession
 }
-export interface AutomationSession_Static {
-    name: string
-    new (config?: AutomationSession_ConstructProps): AutomationSession
-}
-export declare var AutomationSession: AutomationSession_Static
 export interface BackForwardList_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface BackForwardList {
+export class BackForwardList {
     /* Fields of WebKit2.BackForwardList */
     parent:GObject.Object
     priv:BackForwardListPrivate
@@ -456,15 +447,12 @@ export interface BackForwardList {
     connect(sigName: "changed", callback: ((obj: BackForwardList, item_added: BackForwardListItem | null, items_removed: object | null) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: BackForwardList, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: BackForwardList_ConstructProps): BackForwardList
 }
-export interface BackForwardList_Static {
-    name: string
-    new (config?: BackForwardList_ConstructProps): BackForwardList
-}
-export declare var BackForwardList: BackForwardList_Static
 export interface BackForwardListItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export interface BackForwardListItem {
+export class BackForwardListItem {
     /* Fields of WebKit2.BackForwardListItem */
     parent:GObject.InitiallyUnowned
     priv:BackForwardListItemPrivate
@@ -509,16 +497,13 @@ export interface BackForwardListItem {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: BackForwardListItem, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: BackForwardListItem_ConstructProps): BackForwardListItem
 }
-export interface BackForwardListItem_Static {
-    name: string
-    new (config?: BackForwardListItem_ConstructProps): BackForwardListItem
-}
-export declare var BackForwardListItem: BackForwardListItem_Static
 export interface ColorChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
     rgba?:Gdk.RGBA
 }
-export interface ColorChooserRequest {
+export class ColorChooserRequest {
     /* Properties of WebKit2.ColorChooserRequest */
     rgba:Gdk.RGBA
     /* Fields of WebKit2.ColorChooserRequest */
@@ -568,15 +553,12 @@ export interface ColorChooserRequest {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::rgba", callback: ((obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ColorChooserRequest_ConstructProps): ColorChooserRequest
 }
-export interface ColorChooserRequest_Static {
-    name: string
-    new (config?: ColorChooserRequest_ConstructProps): ColorChooserRequest
-}
-export declare var ColorChooserRequest: ColorChooserRequest_Static
 export interface ContextMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface ContextMenu {
+export class ContextMenu {
     /* Fields of WebKit2.ContextMenu */
     parent:GObject.Object
     priv:ContextMenuPrivate
@@ -630,19 +612,14 @@ export interface ContextMenu {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ContextMenu, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ContextMenu_ConstructProps): ContextMenu
+    static new(): ContextMenu
+    static new_with_items(items: GLib.List): ContextMenu
 }
-export interface ContextMenu_Static {
-    name: string
-    new (config?: ContextMenu_ConstructProps): ContextMenu
-}
-export declare class ContextMenu_Static {
-    new(): ContextMenu
-    new_with_items(items: GLib.List): ContextMenu
-}
-export declare var ContextMenu: ContextMenu_Static
 export interface ContextMenuItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
-export interface ContextMenuItem {
+export class ContextMenuItem {
     /* Fields of WebKit2.ContextMenuItem */
     parent:GObject.InitiallyUnowned
     priv:ContextMenuItemPrivate
@@ -690,23 +667,18 @@ export interface ContextMenuItem {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ContextMenuItem, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ContextMenuItem_ConstructProps): ContextMenuItem
+    static new(action: Gtk.Action): ContextMenuItem
+    static new_from_gaction(action: Gio.Action, label: string, target: GLib.Variant | null): ContextMenuItem
+    static new_from_stock_action(action: ContextMenuAction): ContextMenuItem
+    static new_from_stock_action_with_label(action: ContextMenuAction, label: string): ContextMenuItem
+    static new_separator(): ContextMenuItem
+    static new_with_submenu(label: string, submenu: ContextMenu): ContextMenuItem
 }
-export interface ContextMenuItem_Static {
-    name: string
-    new (config?: ContextMenuItem_ConstructProps): ContextMenuItem
-}
-export declare class ContextMenuItem_Static {
-    new(action: Gtk.Action): ContextMenuItem
-    new_from_gaction(action: Gio.Action, label: string, target: GLib.Variant | null): ContextMenuItem
-    new_from_stock_action(action: ContextMenuAction): ContextMenuItem
-    new_from_stock_action_with_label(action: ContextMenuAction, label: string): ContextMenuItem
-    new_separator(): ContextMenuItem
-    new_with_submenu(label: string, submenu: ContextMenu): ContextMenuItem
-}
-export declare var ContextMenuItem: ContextMenuItem_Static
 export interface CookieManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface CookieManager {
+export class CookieManager {
     /* Fields of WebKit2.CookieManager */
     parent:GObject.Object
     priv:CookieManagerPrivate
@@ -757,16 +729,13 @@ export interface CookieManager {
     connect(sigName: "changed", callback: ((obj: CookieManager) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: CookieManager, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: CookieManager_ConstructProps): CookieManager
 }
-export interface CookieManager_Static {
-    name: string
-    new (config?: CookieManager_ConstructProps): CookieManager
-}
-export declare var CookieManager: CookieManager_Static
 export interface Download_ConstructProps extends GObject.Object_ConstructProps {
     allow_overwrite?:boolean
 }
-export interface Download {
+export class Download {
     /* Properties of WebKit2.Download */
     allow_overwrite:boolean
     readonly destination:string
@@ -835,15 +804,12 @@ export interface Download {
     connect(sigName: "notify::destination", callback: ((obj: Download, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::estimated-progress", callback: ((obj: Download, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::response", callback: ((obj: Download, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Download_ConstructProps): Download
 }
-export interface Download_Static {
-    name: string
-    new (config?: Download_ConstructProps): Download
-}
-export declare var Download: Download_Static
 export interface EditorState_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface EditorState {
+export class EditorState {
     /* Properties of WebKit2.EditorState */
     readonly typing_attributes:number
     /* Fields of WebKit2.EditorState */
@@ -888,15 +854,12 @@ export interface EditorState {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: EditorState, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::typing-attributes", callback: ((obj: EditorState, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: EditorState_ConstructProps): EditorState
 }
-export interface EditorState_Static {
-    name: string
-    new (config?: EditorState_ConstructProps): EditorState
-}
-export declare var EditorState: EditorState_Static
 export interface FaviconDatabase_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface FaviconDatabase {
+export class FaviconDatabase {
     /* Fields of WebKit2.FaviconDatabase */
     parent:GObject.Object
     priv:FaviconDatabasePrivate
@@ -943,15 +906,12 @@ export interface FaviconDatabase {
     connect(sigName: "favicon-changed", callback: ((obj: FaviconDatabase, page_uri: string, favicon_uri: string) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FaviconDatabase, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FaviconDatabase_ConstructProps): FaviconDatabase
 }
-export interface FaviconDatabase_Static {
-    name: string
-    new (config?: FaviconDatabase_ConstructProps): FaviconDatabase
-}
-export declare var FaviconDatabase: FaviconDatabase_Static
 export interface FileChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface FileChooserRequest {
+export class FileChooserRequest {
     /* Properties of WebKit2.FileChooserRequest */
     readonly filter:Gtk.FileFilter
     readonly mime_types:string[]
@@ -1006,16 +966,13 @@ export interface FileChooserRequest {
     connect(sigName: "notify::mime-types", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::select-multiple", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::selected-files", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FileChooserRequest_ConstructProps): FileChooserRequest
 }
-export interface FileChooserRequest_Static {
-    name: string
-    new (config?: FileChooserRequest_ConstructProps): FileChooserRequest
-}
-export declare var FileChooserRequest: FileChooserRequest_Static
 export interface FindController_ConstructProps extends GObject.Object_ConstructProps {
     web_view?:WebView
 }
-export interface FindController {
+export class FindController {
     /* Properties of WebKit2.FindController */
     readonly max_match_count:number
     readonly options:FindOptions
@@ -1075,15 +1032,12 @@ export interface FindController {
     connect(sigName: "notify::max-match-count", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::options", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::text", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FindController_ConstructProps): FindController
 }
-export interface FindController_Static {
-    name: string
-    new (config?: FindController_ConstructProps): FindController
-}
-export declare var FindController: FindController_Static
 export interface FormSubmissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface FormSubmissionRequest {
+export class FormSubmissionRequest {
     /* Fields of WebKit2.FormSubmissionRequest */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -1125,15 +1079,12 @@ export interface FormSubmissionRequest {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FormSubmissionRequest_ConstructProps): FormSubmissionRequest
 }
-export interface FormSubmissionRequest_Static {
-    name: string
-    new (config?: FormSubmissionRequest_ConstructProps): FormSubmissionRequest
-}
-export declare var FormSubmissionRequest: FormSubmissionRequest_Static
 export interface GeolocationPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface GeolocationPermissionRequest {
+export class GeolocationPermissionRequest {
     /* Fields of WebKit2.GeolocationPermissionRequest */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -1172,12 +1123,9 @@ export interface GeolocationPermissionRequest {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: GeolocationPermissionRequest_ConstructProps): GeolocationPermissionRequest
 }
-export interface GeolocationPermissionRequest_Static {
-    name: string
-    new (config?: GeolocationPermissionRequest_ConstructProps): GeolocationPermissionRequest
-}
-export declare var GeolocationPermissionRequest: GeolocationPermissionRequest_Static
 export interface HitTestResult_ConstructProps extends GObject.Object_ConstructProps {
     context?:number
     image_uri?:string
@@ -1186,7 +1134,7 @@ export interface HitTestResult_ConstructProps extends GObject.Object_ConstructPr
     link_uri?:string
     media_uri?:string
 }
-export interface HitTestResult {
+export class HitTestResult {
     /* Properties of WebKit2.HitTestResult */
     /* Fields of WebKit2.HitTestResult */
     parent:GObject.Object
@@ -1240,15 +1188,12 @@ export interface HitTestResult {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: HitTestResult, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: HitTestResult_ConstructProps): HitTestResult
 }
-export interface HitTestResult_Static {
-    name: string
-    new (config?: HitTestResult_ConstructProps): HitTestResult
-}
-export declare var HitTestResult: HitTestResult_Static
 export interface InstallMissingMediaPluginsPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface InstallMissingMediaPluginsPermissionRequest {
+export class InstallMissingMediaPluginsPermissionRequest {
     /* Fields of WebKit2.InstallMissingMediaPluginsPermissionRequest */
     parent:GObject.Object
     priv:InstallMissingMediaPluginsPermissionRequestPrivate
@@ -1290,15 +1235,12 @@ export interface InstallMissingMediaPluginsPermissionRequest {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: InstallMissingMediaPluginsPermissionRequest_ConstructProps): InstallMissingMediaPluginsPermissionRequest
 }
-export interface InstallMissingMediaPluginsPermissionRequest_Static {
-    name: string
-    new (config?: InstallMissingMediaPluginsPermissionRequest_ConstructProps): InstallMissingMediaPluginsPermissionRequest
-}
-export declare var InstallMissingMediaPluginsPermissionRequest: InstallMissingMediaPluginsPermissionRequest_Static
 export interface NavigationPolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
-export interface NavigationPolicyDecision {
+export class NavigationPolicyDecision {
     /* Properties of WebKit2.NavigationPolicyDecision */
     readonly frame_name:string
     readonly modifiers:number
@@ -1362,15 +1304,12 @@ export interface NavigationPolicyDecision {
     connect(sigName: "notify::navigation-action", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::navigation-type", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::request", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: NavigationPolicyDecision_ConstructProps): NavigationPolicyDecision
 }
-export interface NavigationPolicyDecision_Static {
-    name: string
-    new (config?: NavigationPolicyDecision_ConstructProps): NavigationPolicyDecision
-}
-export declare var NavigationPolicyDecision: NavigationPolicyDecision_Static
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Notification {
+export class Notification {
     /* Properties of WebKit2.Notification */
     readonly body:string
     readonly id:number
@@ -1429,15 +1368,12 @@ export interface Notification {
     connect(sigName: "notify::id", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::tag", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::title", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Notification_ConstructProps): Notification
 }
-export interface Notification_Static {
-    name: string
-    new (config?: Notification_ConstructProps): Notification
-}
-export declare var Notification: Notification_Static
 export interface NotificationPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface NotificationPermissionRequest {
+export class NotificationPermissionRequest {
     /* Fields of WebKit2.NotificationPermissionRequest */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -1476,15 +1412,12 @@ export interface NotificationPermissionRequest {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: NotificationPermissionRequest_ConstructProps): NotificationPermissionRequest
 }
-export interface NotificationPermissionRequest_Static {
-    name: string
-    new (config?: NotificationPermissionRequest_ConstructProps): NotificationPermissionRequest
-}
-export declare var NotificationPermissionRequest: NotificationPermissionRequest_Static
 export interface OptionMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface OptionMenu {
+export class OptionMenu {
     /* Fields of WebKit2.OptionMenu */
     parent:GObject.Object
     priv:OptionMenuPrivate
@@ -1532,15 +1465,12 @@ export interface OptionMenu {
     connect(sigName: "close", callback: ((obj: OptionMenu) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: OptionMenu, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: OptionMenu_ConstructProps): OptionMenu
 }
-export interface OptionMenu_Static {
-    name: string
-    new (config?: OptionMenu_ConstructProps): OptionMenu
-}
-export declare var OptionMenu: OptionMenu_Static
 export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Plugin {
+export class Plugin {
     /* Fields of WebKit2.Plugin */
     parent:GObject.Object
     priv:PluginPrivate
@@ -1585,15 +1515,12 @@ export interface Plugin {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Plugin, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Plugin_ConstructProps): Plugin
 }
-export interface Plugin_Static {
-    name: string
-    new (config?: Plugin_ConstructProps): Plugin
-}
-export declare var Plugin: Plugin_Static
 export interface PolicyDecision_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface PolicyDecision {
+export class PolicyDecision {
     /* Fields of WebKit2.PolicyDecision */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -1636,17 +1563,14 @@ export interface PolicyDecision {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PolicyDecision, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PolicyDecision_ConstructProps): PolicyDecision
 }
-export interface PolicyDecision_Static {
-    name: string
-    new (config?: PolicyDecision_ConstructProps): PolicyDecision
-}
-export declare var PolicyDecision: PolicyDecision_Static
 export interface PrintCustomWidget_ConstructProps extends GObject.Object_ConstructProps {
     title?:string
     widget?:Gtk.Widget
 }
-export interface PrintCustomWidget {
+export class PrintCustomWidget {
     /* Properties of WebKit2.PrintCustomWidget */
     /* Fields of WebKit2.PrintCustomWidget */
     parent:GObject.Object
@@ -1696,21 +1620,16 @@ export interface PrintCustomWidget {
     connect(sigName: "update", callback: ((obj: PrintCustomWidget, page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PrintCustomWidget, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PrintCustomWidget_ConstructProps): PrintCustomWidget
+    static new(widget: Gtk.Widget, title: string): PrintCustomWidget
 }
-export interface PrintCustomWidget_Static {
-    name: string
-    new (config?: PrintCustomWidget_ConstructProps): PrintCustomWidget
-}
-export declare class PrintCustomWidget_Static {
-    new(widget: Gtk.Widget, title: string): PrintCustomWidget
-}
-export declare var PrintCustomWidget: PrintCustomWidget_Static
 export interface PrintOperation_ConstructProps extends GObject.Object_ConstructProps {
     page_setup?:Gtk.PageSetup
     print_settings?:Gtk.PrintSettings
     web_view?:WebView
 }
-export interface PrintOperation {
+export class PrintOperation {
     /* Properties of WebKit2.PrintOperation */
     page_setup:Gtk.PageSetup
     print_settings:Gtk.PrintSettings
@@ -1766,18 +1685,13 @@ export interface PrintOperation {
     connect(sigName: "notify", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::page-setup", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::print-settings", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PrintOperation_ConstructProps): PrintOperation
+    static new(web_view: WebView): PrintOperation
 }
-export interface PrintOperation_Static {
-    name: string
-    new (config?: PrintOperation_ConstructProps): PrintOperation
-}
-export declare class PrintOperation_Static {
-    new(web_view: WebView): PrintOperation
-}
-export declare var PrintOperation: PrintOperation_Static
 export interface ResponsePolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
-export interface ResponsePolicyDecision {
+export class ResponsePolicyDecision {
     /* Properties of WebKit2.ResponsePolicyDecision */
     readonly request:URIRequest
     readonly response:URIResponse
@@ -1830,15 +1744,12 @@ export interface ResponsePolicyDecision {
     connect(sigName: "notify", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::request", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::response", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ResponsePolicyDecision_ConstructProps): ResponsePolicyDecision
 }
-export interface ResponsePolicyDecision_Static {
-    name: string
-    new (config?: ResponsePolicyDecision_ConstructProps): ResponsePolicyDecision
-}
-export declare var ResponsePolicyDecision: ResponsePolicyDecision_Static
 export interface SecurityManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface SecurityManager {
+export class SecurityManager {
     /* Fields of WebKit2.SecurityManager */
     parent:GObject.Object
     priv:SecurityManagerPrivate
@@ -1891,12 +1802,9 @@ export interface SecurityManager {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SecurityManager, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: SecurityManager_ConstructProps): SecurityManager
 }
-export interface SecurityManager_Static {
-    name: string
-    new (config?: SecurityManager_ConstructProps): SecurityManager
-}
-export declare var SecurityManager: SecurityManager_Static
 export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     allow_file_access_from_file_urls?:boolean
     allow_modal_dialogs?:boolean
@@ -1950,7 +1858,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     user_agent?:string
     zoom_text_only?:boolean
 }
-export interface Settings {
+export class Settings {
     /* Properties of WebKit2.Settings */
     allow_file_access_from_file_urls:boolean
     allow_modal_dialogs:boolean
@@ -2197,19 +2105,14 @@ export interface Settings {
     connect(sigName: "notify::serif-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::user-agent", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::zoom-text-only", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Settings_ConstructProps): Settings
+    static new(): Settings
 }
-export interface Settings_Static {
-    name: string
-    new (config?: Settings_ConstructProps): Settings
-}
-export declare class Settings_Static {
-    new(): Settings
-}
-export declare var Settings: Settings_Static
 export interface URIRequest_ConstructProps extends GObject.Object_ConstructProps {
     uri?:string
 }
-export interface URIRequest {
+export class URIRequest {
     /* Properties of WebKit2.URIRequest */
     uri:string
     /* Fields of WebKit2.URIRequest */
@@ -2256,18 +2159,13 @@ export interface URIRequest {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: URIRequest, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::uri", callback: ((obj: URIRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: URIRequest_ConstructProps): URIRequest
+    static new(uri: string): URIRequest
 }
-export interface URIRequest_Static {
-    name: string
-    new (config?: URIRequest_ConstructProps): URIRequest
-}
-export declare class URIRequest_Static {
-    new(uri: string): URIRequest
-}
-export declare var URIRequest: URIRequest_Static
 export interface URIResponse_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface URIResponse {
+export class URIResponse {
     /* Properties of WebKit2.URIResponse */
     readonly content_length:number
     readonly http_headers:Soup.MessageHeaders
@@ -2326,15 +2224,12 @@ export interface URIResponse {
     connect(sigName: "notify::status-code", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::suggested-filename", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::uri", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: URIResponse_ConstructProps): URIResponse
 }
-export interface URIResponse_Static {
-    name: string
-    new (config?: URIResponse_ConstructProps): URIResponse
-}
-export declare var URIResponse: URIResponse_Static
 export interface URISchemeRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface URISchemeRequest {
+export class URISchemeRequest {
     /* Fields of WebKit2.URISchemeRequest */
     parent:GObject.Object
     priv:URISchemeRequestPrivate
@@ -2381,15 +2276,12 @@ export interface URISchemeRequest {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: URISchemeRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: URISchemeRequest_ConstructProps): URISchemeRequest
 }
-export interface URISchemeRequest_Static {
-    name: string
-    new (config?: URISchemeRequest_ConstructProps): URISchemeRequest
-}
-export declare var URISchemeRequest: URISchemeRequest_Static
 export interface UserContentManager_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface UserContentManager {
+export class UserContentManager {
     /* Fields of WebKit2.UserContentManager */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -2437,18 +2329,13 @@ export interface UserContentManager {
     connect(sigName: "script-message-received", callback: ((obj: UserContentManager, js_result: JavascriptResult) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UserContentManager, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: UserContentManager_ConstructProps): UserContentManager
+    static new(): UserContentManager
 }
-export interface UserContentManager_Static {
-    name: string
-    new (config?: UserContentManager_ConstructProps): UserContentManager
-}
-export declare class UserContentManager_Static {
-    new(): UserContentManager
-}
-export declare var UserContentManager: UserContentManager_Static
 export interface UserMediaPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface UserMediaPermissionRequest {
+export class UserMediaPermissionRequest {
     /* Properties of WebKit2.UserMediaPermissionRequest */
     readonly is_for_audio_device:boolean
     readonly is_for_video_device:boolean
@@ -2492,17 +2379,14 @@ export interface UserMediaPermissionRequest {
     connect(sigName: "notify", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::is-for-audio-device", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::is-for-video-device", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: UserMediaPermissionRequest_ConstructProps): UserMediaPermissionRequest
 }
-export interface UserMediaPermissionRequest_Static {
-    name: string
-    new (config?: UserMediaPermissionRequest_ConstructProps): UserMediaPermissionRequest
-}
-export declare var UserMediaPermissionRequest: UserMediaPermissionRequest_Static
 export interface WebContext_ConstructProps extends GObject.Object_ConstructProps {
     local_storage_directory?:string
     website_data_manager?:WebsiteDataManager
 }
-export interface WebContext {
+export class WebContext {
     /* Properties of WebKit2.WebContext */
     /* Fields of WebKit2.WebContext */
     parent:GObject.Object
@@ -2588,21 +2472,16 @@ export interface WebContext {
     connect(sigName: "initialize-web-extensions", callback: ((obj: WebContext) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebContext, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: WebContext_ConstructProps): WebContext
+    static new(): WebContext
+    static new_ephemeral(): WebContext
+    static new_with_website_data_manager(manager: WebsiteDataManager): WebContext
+    static get_default(): WebContext
 }
-export interface WebContext_Static {
-    name: string
-    new (config?: WebContext_ConstructProps): WebContext
-}
-export declare class WebContext_Static {
-    new(): WebContext
-    new_ephemeral(): WebContext
-    new_with_website_data_manager(manager: WebsiteDataManager): WebContext
-    get_default(): WebContext
-}
-export declare var WebContext: WebContext_Static
 export interface WebInspector_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface WebInspector {
+export class WebInspector {
     /* Properties of WebKit2.WebInspector */
     readonly attached_height:number
     readonly can_attach:boolean
@@ -2665,15 +2544,12 @@ export interface WebInspector {
     connect(sigName: "notify::attached-height", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::can-attach", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::inspected-uri", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: WebInspector_ConstructProps): WebInspector
 }
-export interface WebInspector_Static {
-    name: string
-    new (config?: WebInspector_ConstructProps): WebInspector
-}
-export declare var WebInspector: WebInspector_Static
 export interface WebResource_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface WebResource {
+export class WebResource {
     /* Properties of WebKit2.WebResource */
     readonly response:URIResponse
     readonly uri:string
@@ -2728,12 +2604,9 @@ export interface WebResource {
     connect(sigName: "notify", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::response", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::uri", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: WebResource_ConstructProps): WebResource
 }
-export interface WebResource_Static {
-    name: string
-    new (config?: WebResource_ConstructProps): WebResource
-}
-export declare var WebResource: WebResource_Static
 export interface WebView_ConstructProps extends WebViewBase_ConstructProps {
     editable?:boolean
     is_controlled_by_automation?:boolean
@@ -2744,7 +2617,7 @@ export interface WebView_ConstructProps extends WebViewBase_ConstructProps {
     web_context?:WebContext
     zoom_level?:number
 }
-export interface WebView {
+export class WebView {
     /* Properties of WebKit2.WebView */
     editable:boolean
     readonly estimated_load_progress:number
@@ -3462,22 +3335,17 @@ export interface WebView {
     connect(sigName: "notify::visible", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
-}
-export interface WebView_Static {
-    name: string
-    new (config?: WebView_ConstructProps): WebView
-}
-export declare class WebView_Static {
+    static name: string
+    static new (config?: WebView_ConstructProps): WebView
     new(): WebView
     new_with_context(context: WebContext): WebView
     new_with_related_view(web_view: WebView): WebView
     new_with_settings(settings: Settings): WebView
     new_with_user_content_manager(user_content_manager: UserContentManager): WebView
 }
-export declare var WebView: WebView_Static
 export interface WebViewBase_ConstructProps extends Gtk.Container_ConstructProps {
 }
-export interface WebViewBase {
+export class WebViewBase {
     /* Properties of Gtk.Container */
     border_width:number
     child:Gtk.Widget
@@ -4063,12 +3931,9 @@ export interface WebViewBase {
     connect(sigName: "notify::visible", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: WebViewBase_ConstructProps): WebViewBase
 }
-export interface WebViewBase_Static {
-    name: string
-    new (config?: WebViewBase_ConstructProps): WebViewBase
-}
-export declare var WebViewBase: WebViewBase_Static
 export interface WebsiteDataManager_ConstructProps extends GObject.Object_ConstructProps {
     base_cache_directory?:string
     base_data_directory?:string
@@ -4079,7 +3944,7 @@ export interface WebsiteDataManager_ConstructProps extends GObject.Object_Constr
     offline_application_cache_directory?:string
     websql_directory?:string
 }
-export interface WebsiteDataManager {
+export class WebsiteDataManager {
     /* Properties of WebKit2.WebsiteDataManager */
     /* Fields of WebKit2.WebsiteDataManager */
     parent:GObject.Object
@@ -4136,15 +4001,10 @@ export interface WebsiteDataManager {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebsiteDataManager, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: WebsiteDataManager_ConstructProps): WebsiteDataManager
+    static new_ephemeral(): WebsiteDataManager
 }
-export interface WebsiteDataManager_Static {
-    name: string
-    new (config?: WebsiteDataManager_ConstructProps): WebsiteDataManager
-}
-export declare class WebsiteDataManager_Static {
-    new_ephemeral(): WebsiteDataManager
-}
-export declare var WebsiteDataManager: WebsiteDataManager_Static
 export interface WindowProperties_ConstructProps extends GObject.Object_ConstructProps {
     fullscreen?:boolean
     geometry?:Gdk.Rectangle
@@ -4155,7 +4015,7 @@ export interface WindowProperties_ConstructProps extends GObject.Object_Construc
     statusbar_visible?:boolean
     toolbar_visible?:boolean
 }
-export interface WindowProperties {
+export class WindowProperties {
     /* Properties of WebKit2.WindowProperties */
     /* Fields of WebKit2.WindowProperties */
     parent:GObject.Object
@@ -4204,13 +4064,10 @@ export interface WindowProperties {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WindowProperties, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: WindowProperties_ConstructProps): WindowProperties
 }
-export interface WindowProperties_Static {
-    name: string
-    new (config?: WindowProperties_ConstructProps): WindowProperties
-}
-export declare var WindowProperties: WindowProperties_Static
-export interface ApplicationInfo {
+export class ApplicationInfo {
     /* Methods of WebKit2.ApplicationInfo */
     get_name(): string
     get_version(): [ /* major */ number, /* minor */ number | null, /* micro */ number | null ]
@@ -4218,64 +4075,35 @@ export interface ApplicationInfo {
     set_name(name: string): void
     set_version(major: number, minor: number, micro: number): void
     unref(): void
+    static name: string
+    static new(): ApplicationInfo
+    static new(): ApplicationInfo
 }
-export interface ApplicationInfo_Static {
-    name: string
-    new(): ApplicationInfo
+export class AuthenticationRequestPrivate {
+    static name: string
 }
-export declare class ApplicationInfo_Static {
-    new(): ApplicationInfo
+export class AutomationSessionPrivate {
+    static name: string
 }
-export declare var ApplicationInfo: ApplicationInfo_Static
-export interface AuthenticationRequestPrivate {
+export class BackForwardListItemPrivate {
+    static name: string
 }
-export interface AuthenticationRequestPrivate_Static {
-    name: string
+export class BackForwardListPrivate {
+    static name: string
 }
-export declare var AuthenticationRequestPrivate: AuthenticationRequestPrivate_Static
-export interface AutomationSessionPrivate {
+export class ColorChooserRequestPrivate {
+    static name: string
 }
-export interface AutomationSessionPrivate_Static {
-    name: string
+export class ContextMenuItemPrivate {
+    static name: string
 }
-export declare var AutomationSessionPrivate: AutomationSessionPrivate_Static
-export interface BackForwardListItemPrivate {
+export class ContextMenuPrivate {
+    static name: string
 }
-export interface BackForwardListItemPrivate_Static {
-    name: string
+export class CookieManagerPrivate {
+    static name: string
 }
-export declare var BackForwardListItemPrivate: BackForwardListItemPrivate_Static
-export interface BackForwardListPrivate {
-}
-export interface BackForwardListPrivate_Static {
-    name: string
-}
-export declare var BackForwardListPrivate: BackForwardListPrivate_Static
-export interface ColorChooserRequestPrivate {
-}
-export interface ColorChooserRequestPrivate_Static {
-    name: string
-}
-export declare var ColorChooserRequestPrivate: ColorChooserRequestPrivate_Static
-export interface ContextMenuItemPrivate {
-}
-export interface ContextMenuItemPrivate_Static {
-    name: string
-}
-export declare var ContextMenuItemPrivate: ContextMenuItemPrivate_Static
-export interface ContextMenuPrivate {
-}
-export interface ContextMenuPrivate_Static {
-    name: string
-}
-export declare var ContextMenuPrivate: ContextMenuPrivate_Static
-export interface CookieManagerPrivate {
-}
-export interface CookieManagerPrivate_Static {
-    name: string
-}
-export declare var CookieManagerPrivate: CookieManagerPrivate_Static
-export interface Credential {
+export class Credential {
     /* Methods of WebKit2.Credential */
     copy(): Credential
     free(): void
@@ -4283,93 +4111,55 @@ export interface Credential {
     get_persistence(): CredentialPersistence
     get_username(): string
     has_password(): boolean
+    static name: string
+    static new(username: string, password: string, persistence: CredentialPersistence): Credential
+    static new(username: string, password: string, persistence: CredentialPersistence): Credential
 }
-export interface Credential_Static {
-    name: string
-    new(username: string, password: string, persistence: CredentialPersistence): Credential
+export class DownloadPrivate {
+    static name: string
 }
-export declare class Credential_Static {
-    new(username: string, password: string, persistence: CredentialPersistence): Credential
+export class EditorStatePrivate {
+    static name: string
 }
-export declare var Credential: Credential_Static
-export interface DownloadPrivate {
+export class FaviconDatabasePrivate {
+    static name: string
 }
-export interface DownloadPrivate_Static {
-    name: string
+export class FileChooserRequestPrivate {
+    static name: string
 }
-export declare var DownloadPrivate: DownloadPrivate_Static
-export interface EditorStatePrivate {
+export class FindControllerPrivate {
+    static name: string
 }
-export interface EditorStatePrivate_Static {
-    name: string
+export class FormSubmissionRequestPrivate {
+    static name: string
 }
-export declare var EditorStatePrivate: EditorStatePrivate_Static
-export interface FaviconDatabasePrivate {
+export class GeolocationPermissionRequestPrivate {
+    static name: string
 }
-export interface FaviconDatabasePrivate_Static {
-    name: string
+export class HitTestResultPrivate {
+    static name: string
 }
-export declare var FaviconDatabasePrivate: FaviconDatabasePrivate_Static
-export interface FileChooserRequestPrivate {
+export class InstallMissingMediaPluginsPermissionRequestPrivate {
+    static name: string
 }
-export interface FileChooserRequestPrivate_Static {
-    name: string
-}
-export declare var FileChooserRequestPrivate: FileChooserRequestPrivate_Static
-export interface FindControllerPrivate {
-}
-export interface FindControllerPrivate_Static {
-    name: string
-}
-export declare var FindControllerPrivate: FindControllerPrivate_Static
-export interface FormSubmissionRequestPrivate {
-}
-export interface FormSubmissionRequestPrivate_Static {
-    name: string
-}
-export declare var FormSubmissionRequestPrivate: FormSubmissionRequestPrivate_Static
-export interface GeolocationPermissionRequestPrivate {
-}
-export interface GeolocationPermissionRequestPrivate_Static {
-    name: string
-}
-export declare var GeolocationPermissionRequestPrivate: GeolocationPermissionRequestPrivate_Static
-export interface HitTestResultPrivate {
-}
-export interface HitTestResultPrivate_Static {
-    name: string
-}
-export declare var HitTestResultPrivate: HitTestResultPrivate_Static
-export interface InstallMissingMediaPluginsPermissionRequestPrivate {
-}
-export interface InstallMissingMediaPluginsPermissionRequestPrivate_Static {
-    name: string
-}
-export declare var InstallMissingMediaPluginsPermissionRequestPrivate: InstallMissingMediaPluginsPermissionRequestPrivate_Static
-export interface JavascriptResult {
+export class JavascriptResult {
     /* Methods of WebKit2.JavascriptResult */
     get_global_context(): JavaScriptCore.GlobalContext
     get_value(): JavaScriptCore.Value
     ref(): JavascriptResult
     unref(): void
+    static name: string
 }
-export interface JavascriptResult_Static {
-    name: string
-}
-export declare var JavascriptResult: JavascriptResult_Static
-export interface MimeInfo {
+export class MimeInfo {
     /* Methods of WebKit2.MimeInfo */
     get_description(): string
     get_extensions(): string[]
     get_mime_type(): string
     ref(): MimeInfo
     unref(): void
+    static name: string
 }
-export interface MimeInfo_Static {
-    name: string
-}
-export declare var MimeInfo: MimeInfo_Static
-export interface NavigationAction {
+export class NavigationAction {
     /* Methods of WebKit2.NavigationAction */
     copy(): NavigationAction
     free(): void
@@ -4378,44 +4168,27 @@ export interface NavigationAction {
     get_navigation_type(): NavigationType
     get_request(): URIRequest
     is_user_gesture(): boolean
+    static name: string
 }
-export interface NavigationAction_Static {
-    name: string
+export class NavigationPolicyDecisionPrivate {
+    static name: string
 }
-export declare var NavigationAction: NavigationAction_Static
-export interface NavigationPolicyDecisionPrivate {
-}
-export interface NavigationPolicyDecisionPrivate_Static {
-    name: string
-}
-export declare var NavigationPolicyDecisionPrivate: NavigationPolicyDecisionPrivate_Static
-export interface NetworkProxySettings {
+export class NetworkProxySettings {
     /* Methods of WebKit2.NetworkProxySettings */
     add_proxy_for_scheme(scheme: string, proxy_uri: string): void
     copy(): NetworkProxySettings
     free(): void
+    static name: string
+    static new(default_proxy_uri: string | null, ignore_hosts: string | null): NetworkProxySettings
+    static new(default_proxy_uri: string | null, ignore_hosts: string | null): NetworkProxySettings
 }
-export interface NetworkProxySettings_Static {
-    name: string
-    new(default_proxy_uri: string | null, ignore_hosts: string | null): NetworkProxySettings
+export class NotificationPermissionRequestPrivate {
+    static name: string
 }
-export declare class NetworkProxySettings_Static {
-    new(default_proxy_uri: string | null, ignore_hosts: string | null): NetworkProxySettings
+export class NotificationPrivate {
+    static name: string
 }
-export declare var NetworkProxySettings: NetworkProxySettings_Static
-export interface NotificationPermissionRequestPrivate {
-}
-export interface NotificationPermissionRequestPrivate_Static {
-    name: string
-}
-export declare var NotificationPermissionRequestPrivate: NotificationPermissionRequestPrivate_Static
-export interface NotificationPrivate {
-}
-export interface NotificationPrivate_Static {
-    name: string
-}
-export declare var NotificationPrivate: NotificationPrivate_Static
-export interface OptionMenuItem {
+export class OptionMenuItem {
     /* Methods of WebKit2.OptionMenuItem */
     copy(): OptionMenuItem
     free(): void
@@ -4425,66 +4198,39 @@ export interface OptionMenuItem {
     is_group_child(): boolean
     is_group_label(): boolean
     is_selected(): boolean
+    static name: string
 }
-export interface OptionMenuItem_Static {
-    name: string
+export class OptionMenuPrivate {
+    static name: string
 }
-export declare var OptionMenuItem: OptionMenuItem_Static
-export interface OptionMenuPrivate {
+export class PluginPrivate {
+    static name: string
 }
-export interface OptionMenuPrivate_Static {
-    name: string
+export class PolicyDecisionPrivate {
+    static name: string
 }
-export declare var OptionMenuPrivate: OptionMenuPrivate_Static
-export interface PluginPrivate {
+export class PrintCustomWidgetPrivate {
+    static name: string
 }
-export interface PluginPrivate_Static {
-    name: string
+export class PrintOperationPrivate {
+    static name: string
 }
-export declare var PluginPrivate: PluginPrivate_Static
-export interface PolicyDecisionPrivate {
+export class ResponsePolicyDecisionPrivate {
+    static name: string
 }
-export interface PolicyDecisionPrivate_Static {
-    name: string
-}
-export declare var PolicyDecisionPrivate: PolicyDecisionPrivate_Static
-export interface PrintCustomWidgetPrivate {
-}
-export interface PrintCustomWidgetPrivate_Static {
-    name: string
-}
-export declare var PrintCustomWidgetPrivate: PrintCustomWidgetPrivate_Static
-export interface PrintOperationPrivate {
-}
-export interface PrintOperationPrivate_Static {
-    name: string
-}
-export declare var PrintOperationPrivate: PrintOperationPrivate_Static
-export interface ResponsePolicyDecisionPrivate {
-}
-export interface ResponsePolicyDecisionPrivate_Static {
-    name: string
-}
-export declare var ResponsePolicyDecisionPrivate: ResponsePolicyDecisionPrivate_Static
-export interface ScriptDialog {
+export class ScriptDialog {
     /* Methods of WebKit2.ScriptDialog */
     confirm_set_confirmed(confirmed: boolean): void
     get_dialog_type(): ScriptDialogType
     get_message(): string
     prompt_get_default_text(): string
     prompt_set_text(text: string): void
+    static name: string
 }
-export interface ScriptDialog_Static {
-    name: string
+export class SecurityManagerPrivate {
+    static name: string
 }
-export declare var ScriptDialog: ScriptDialog_Static
-export interface SecurityManagerPrivate {
-}
-export interface SecurityManagerPrivate_Static {
-    name: string
-}
-export declare var SecurityManagerPrivate: SecurityManagerPrivate_Static
-export interface SecurityOrigin {
+export class SecurityOrigin {
     /* Methods of WebKit2.SecurityOrigin */
     get_host(): string | null
     get_port(): number
@@ -4493,143 +4239,81 @@ export interface SecurityOrigin {
     ref(): SecurityOrigin
     to_string(): string | null
     unref(): void
+    static name: string
+    static new(protocol: string, host: string, port: number): SecurityOrigin
+    static new(protocol: string, host: string, port: number): SecurityOrigin
+    static new_for_uri(uri: string): SecurityOrigin
 }
-export interface SecurityOrigin_Static {
-    name: string
-    new(protocol: string, host: string, port: number): SecurityOrigin
+export class SettingsPrivate {
+    static name: string
 }
-export declare class SecurityOrigin_Static {
-    new(protocol: string, host: string, port: number): SecurityOrigin
-    new_for_uri(uri: string): SecurityOrigin
+export class URIRequestPrivate {
+    static name: string
 }
-export declare var SecurityOrigin: SecurityOrigin_Static
-export interface SettingsPrivate {
+export class URIResponsePrivate {
+    static name: string
 }
-export interface SettingsPrivate_Static {
-    name: string
+export class URISchemeRequestPrivate {
+    static name: string
 }
-export declare var SettingsPrivate: SettingsPrivate_Static
-export interface URIRequestPrivate {
+export class UserContentManagerPrivate {
+    static name: string
 }
-export interface URIRequestPrivate_Static {
-    name: string
+export class UserMediaPermissionRequestPrivate {
+    static name: string
 }
-export declare var URIRequestPrivate: URIRequestPrivate_Static
-export interface URIResponsePrivate {
-}
-export interface URIResponsePrivate_Static {
-    name: string
-}
-export declare var URIResponsePrivate: URIResponsePrivate_Static
-export interface URISchemeRequestPrivate {
-}
-export interface URISchemeRequestPrivate_Static {
-    name: string
-}
-export declare var URISchemeRequestPrivate: URISchemeRequestPrivate_Static
-export interface UserContentManagerPrivate {
-}
-export interface UserContentManagerPrivate_Static {
-    name: string
-}
-export declare var UserContentManagerPrivate: UserContentManagerPrivate_Static
-export interface UserMediaPermissionRequestPrivate {
-}
-export interface UserMediaPermissionRequestPrivate_Static {
-    name: string
-}
-export declare var UserMediaPermissionRequestPrivate: UserMediaPermissionRequestPrivate_Static
-export interface UserScript {
+export class UserScript {
     /* Methods of WebKit2.UserScript */
     ref(): UserScript
     unref(): void
+    static name: string
+    static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null): UserScript
+    static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null): UserScript
 }
-export interface UserScript_Static {
-    name: string
-    new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null): UserScript
-}
-export declare class UserScript_Static {
-    new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null): UserScript
-}
-export declare var UserScript: UserScript_Static
-export interface UserStyleSheet {
+export class UserStyleSheet {
     /* Methods of WebKit2.UserStyleSheet */
     ref(): UserStyleSheet
     unref(): void
+    static name: string
+    static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null): UserStyleSheet
+    static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null): UserStyleSheet
 }
-export interface UserStyleSheet_Static {
-    name: string
-    new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null): UserStyleSheet
+export class WebContextPrivate {
+    static name: string
 }
-export declare class UserStyleSheet_Static {
-    new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null): UserStyleSheet
+export class WebInspectorPrivate {
+    static name: string
 }
-export declare var UserStyleSheet: UserStyleSheet_Static
-export interface WebContextPrivate {
+export class WebResourcePrivate {
+    static name: string
 }
-export interface WebContextPrivate_Static {
-    name: string
+export class WebViewBasePrivate {
+    static name: string
 }
-export declare var WebContextPrivate: WebContextPrivate_Static
-export interface WebInspectorPrivate {
+export class WebViewPrivate {
+    static name: string
 }
-export interface WebInspectorPrivate_Static {
-    name: string
-}
-export declare var WebInspectorPrivate: WebInspectorPrivate_Static
-export interface WebResourcePrivate {
-}
-export interface WebResourcePrivate_Static {
-    name: string
-}
-export declare var WebResourcePrivate: WebResourcePrivate_Static
-export interface WebViewBasePrivate {
-}
-export interface WebViewBasePrivate_Static {
-    name: string
-}
-export declare var WebViewBasePrivate: WebViewBasePrivate_Static
-export interface WebViewPrivate {
-}
-export interface WebViewPrivate_Static {
-    name: string
-}
-export declare var WebViewPrivate: WebViewPrivate_Static
-export interface WebViewSessionState {
+export class WebViewSessionState {
     /* Methods of WebKit2.WebViewSessionState */
     ref(): WebViewSessionState
     serialize(): Gjs.byteArray.ByteArray
     unref(): void
+    static name: string
+    static new(data: Gjs.byteArray.ByteArray): WebViewSessionState
+    static new(data: Gjs.byteArray.ByteArray): WebViewSessionState
 }
-export interface WebViewSessionState_Static {
-    name: string
-    new(data: Gjs.byteArray.ByteArray): WebViewSessionState
-}
-export declare class WebViewSessionState_Static {
-    new(data: Gjs.byteArray.ByteArray): WebViewSessionState
-}
-export declare var WebViewSessionState: WebViewSessionState_Static
-export interface WebsiteData {
+export class WebsiteData {
     /* Methods of WebKit2.WebsiteData */
     get_name(): string
     get_size(types: WebsiteDataTypes): number
     get_types(): WebsiteDataTypes
     ref(): WebsiteData
     unref(): void
+    static name: string
 }
-export interface WebsiteData_Static {
-    name: string
+export class WebsiteDataManagerPrivate {
+    static name: string
 }
-export declare var WebsiteData: WebsiteData_Static
-export interface WebsiteDataManagerPrivate {
+export class WindowPropertiesPrivate {
+    static name: string
 }
-export interface WebsiteDataManagerPrivate_Static {
-    name: string
-}
-export declare var WebsiteDataManagerPrivate: WebsiteDataManagerPrivate_Static
-export interface WindowPropertiesPrivate {
-}
-export interface WindowPropertiesPrivate_Static {
-    name: string
-}
-export declare var WindowPropertiesPrivate: WindowPropertiesPrivate_Static

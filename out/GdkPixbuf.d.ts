@@ -80,7 +80,7 @@ export interface Pixbuf_ConstructProps extends GObject.Object_ConstructProps {
     rowstride?:number
     width?:number
 }
-export interface Pixbuf {
+export class Pixbuf {
     /* Properties of GdkPixbuf.Pixbuf */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -154,39 +154,34 @@ export interface Pixbuf {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Pixbuf, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Pixbuf_ConstructProps): Pixbuf
+    static new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
+    static new_from_bytes(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
+    static new_from_data(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn: PixbufDestroyNotify | null, destroy_fn_data: object | null): Pixbuf
+    static new_from_file(filename: string): Pixbuf
+    static new_from_file_at_scale(filename: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
+    static new_from_file_at_size(filename: string, width: number, height: number): Pixbuf
+    static new_from_inline(data_length: number, data: Gjs.byteArray.ByteArray, copy_pixels: boolean): Pixbuf
+    static new_from_resource(resource_path: string): Pixbuf
+    static new_from_resource_at_scale(resource_path: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
+    static new_from_stream(stream: Gio.InputStream, cancellable: Gio.Cancellable | null): Pixbuf
+    static new_from_stream_at_scale(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable: Gio.Cancellable | null): Pixbuf
+    static new_from_stream_finish(async_result: Gio.AsyncResult): Pixbuf
+    static new_from_xpm_data(data: string[]): Pixbuf
+    static calculate_rowstride(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): number
+    static from_pixdata(pixdata: Pixdata, copy_pixels: boolean): Pixbuf
+    static get_file_info(filename: string): [ /* returnType */ PixbufFormat | null, /* width */ number | null, /* height */ number | null ]
+    static get_file_info_async(filename: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    static get_file_info_finish(async_result: Gio.AsyncResult): [ /* returnType */ PixbufFormat, /* width */ number, /* height */ number ]
+    static get_formats(): GLib.SList
+    static new_from_stream_async(stream: Gio.InputStream, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    static new_from_stream_at_scale_async(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    static save_to_stream_finish(async_result: Gio.AsyncResult): boolean
 }
-export interface Pixbuf_Static {
-    name: string
-    new (config?: Pixbuf_ConstructProps): Pixbuf
-}
-export declare class Pixbuf_Static {
-    new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
-    new_from_bytes(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
-    new_from_data(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn: PixbufDestroyNotify | null, destroy_fn_data: object | null): Pixbuf
-    new_from_file(filename: string): Pixbuf
-    new_from_file_at_scale(filename: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
-    new_from_file_at_size(filename: string, width: number, height: number): Pixbuf
-    new_from_inline(data_length: number, data: Gjs.byteArray.ByteArray, copy_pixels: boolean): Pixbuf
-    new_from_resource(resource_path: string): Pixbuf
-    new_from_resource_at_scale(resource_path: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
-    new_from_stream(stream: Gio.InputStream, cancellable: Gio.Cancellable | null): Pixbuf
-    new_from_stream_at_scale(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable: Gio.Cancellable | null): Pixbuf
-    new_from_stream_finish(async_result: Gio.AsyncResult): Pixbuf
-    new_from_xpm_data(data: string[]): Pixbuf
-    calculate_rowstride(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): number
-    from_pixdata(pixdata: Pixdata, copy_pixels: boolean): Pixbuf
-    get_file_info(filename: string): [ /* returnType */ PixbufFormat | null, /* width */ number | null, /* height */ number | null ]
-    get_file_info_async(filename: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
-    get_file_info_finish(async_result: Gio.AsyncResult): [ /* returnType */ PixbufFormat, /* width */ number, /* height */ number ]
-    get_formats(): GLib.SList
-    new_from_stream_async(stream: Gio.InputStream, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
-    new_from_stream_at_scale_async(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
-    save_to_stream_finish(async_result: Gio.AsyncResult): boolean
-}
-export declare var Pixbuf: Pixbuf_Static
 export interface PixbufAnimation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface PixbufAnimation {
+export class PixbufAnimation {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GdkPixbuf.PixbufAnimation */
@@ -229,22 +224,17 @@ export interface PixbufAnimation {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PixbufAnimation, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PixbufAnimation_ConstructProps): PixbufAnimation
+    static new_from_file(filename: string): PixbufAnimation
+    static new_from_resource(resource_path: string): PixbufAnimation
+    static new_from_stream(stream: Gio.InputStream, cancellable: Gio.Cancellable | null): PixbufAnimation
+    static new_from_stream_finish(async_result: Gio.AsyncResult): PixbufAnimation
+    static new_from_stream_async(stream: Gio.InputStream, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
 }
-export interface PixbufAnimation_Static {
-    name: string
-    new (config?: PixbufAnimation_ConstructProps): PixbufAnimation
-}
-export declare class PixbufAnimation_Static {
-    new_from_file(filename: string): PixbufAnimation
-    new_from_resource(resource_path: string): PixbufAnimation
-    new_from_stream(stream: Gio.InputStream, cancellable: Gio.Cancellable | null): PixbufAnimation
-    new_from_stream_finish(async_result: Gio.AsyncResult): PixbufAnimation
-    new_from_stream_async(stream: Gio.InputStream, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
-}
-export declare var PixbufAnimation: PixbufAnimation_Static
 export interface PixbufAnimationIter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface PixbufAnimationIter {
+export class PixbufAnimationIter {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GdkPixbuf.PixbufAnimationIter */
@@ -286,15 +276,12 @@ export interface PixbufAnimationIter {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PixbufAnimationIter_ConstructProps): PixbufAnimationIter
 }
-export interface PixbufAnimationIter_Static {
-    name: string
-    new (config?: PixbufAnimationIter_ConstructProps): PixbufAnimationIter
-}
-export declare var PixbufAnimationIter: PixbufAnimationIter_Static
 export interface PixbufLoader_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface PixbufLoader {
+export class PixbufLoader {
     /* Fields of GdkPixbuf.PixbufLoader */
     parent_instance:GObject.Object
     /* Fields of GObject.Object */
@@ -351,21 +338,16 @@ export interface PixbufLoader {
     connect(sigName: "size-prepared", callback: ((obj: PixbufLoader, width: number, height: number) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PixbufLoader, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PixbufLoader_ConstructProps): PixbufLoader
+    static new(): PixbufLoader
+    static new_with_mime_type(mime_type: string): PixbufLoader
+    static new_with_type(image_type: string): PixbufLoader
 }
-export interface PixbufLoader_Static {
-    name: string
-    new (config?: PixbufLoader_ConstructProps): PixbufLoader
-}
-export declare class PixbufLoader_Static {
-    new(): PixbufLoader
-    new_with_mime_type(mime_type: string): PixbufLoader
-    new_with_type(image_type: string): PixbufLoader
-}
-export declare var PixbufLoader: PixbufLoader_Static
 export interface PixbufSimpleAnim_ConstructProps extends PixbufAnimation_ConstructProps {
     loop?:boolean
 }
-export interface PixbufSimpleAnim {
+export class PixbufSimpleAnim {
     /* Properties of GdkPixbuf.PixbufSimpleAnim */
     loop:boolean
     /* Fields of GObject.Object */
@@ -415,18 +397,13 @@ export interface PixbufSimpleAnim {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
+    static new(width: number, height: number, rate: number): PixbufSimpleAnim
 }
-export interface PixbufSimpleAnim_Static {
-    name: string
-    new (config?: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
-}
-export declare class PixbufSimpleAnim_Static {
-    new(width: number, height: number, rate: number): PixbufSimpleAnim
-}
-export declare var PixbufSimpleAnim: PixbufSimpleAnim_Static
 export interface PixbufSimpleAnimIter_ConstructProps extends PixbufAnimationIter_ConstructProps {
 }
-export interface PixbufSimpleAnimIter {
+export class PixbufSimpleAnimIter {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GdkPixbuf.PixbufAnimationIter */
@@ -468,13 +445,10 @@ export interface PixbufSimpleAnimIter {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: PixbufSimpleAnimIter_ConstructProps): PixbufSimpleAnimIter
 }
-export interface PixbufSimpleAnimIter_Static {
-    name: string
-    new (config?: PixbufSimpleAnimIter_ConstructProps): PixbufSimpleAnimIter
-}
-export declare var PixbufSimpleAnimIter: PixbufSimpleAnimIter_Static
-export interface PixbufFormat {
+export class PixbufFormat {
     /* Methods of GdkPixbuf.PixbufFormat */
     copy(): PixbufFormat
     free(): void
@@ -488,12 +462,9 @@ export interface PixbufFormat {
     is_scalable(): boolean
     is_writable(): boolean
     set_disabled(disabled: boolean): void
+    static name: string
 }
-export interface PixbufFormat_Static {
-    name: string
-}
-export declare var PixbufFormat: PixbufFormat_Static
-export interface Pixdata {
+export class Pixdata {
     /* Fields of GdkPixbuf.Pixdata */
     magic:number
     length:number
@@ -506,8 +477,5 @@ export interface Pixdata {
     deserialize(stream: Gjs.byteArray.ByteArray): boolean
     serialize(): [ /* returnType */ Gjs.byteArray.ByteArray, /* stream_length_p */ number ]
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String
+    static name: string
 }
-export interface Pixdata_Static {
-    name: string
-}
-export declare var Pixdata: Pixdata_Static

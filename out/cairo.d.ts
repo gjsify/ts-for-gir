@@ -222,74 +222,41 @@ export enum RegionOverlap {
     PART,
 }
 export function image_surface_create(): void
-export interface Context {
+export class Context {
+    static name: string
 }
-export interface Context_Static {
-    name: string
+export class Device {
+    static name: string
 }
-export declare var Context: Context_Static
-export interface Device {
+export class Surface {
+    static name: string
 }
-export interface Device_Static {
-    name: string
+export class Matrix {
+    static name: string
 }
-export declare var Device: Device_Static
-export interface Surface {
+export class Pattern {
+    static name: string
 }
-export interface Surface_Static {
-    name: string
+export class Region {
+    static name: string
 }
-export declare var Surface: Surface_Static
-export interface Matrix {
+export class FontOptions {
+    static name: string
 }
-export interface Matrix_Static {
-    name: string
+export class FontFace {
+    static name: string
 }
-export declare var Matrix: Matrix_Static
-export interface Pattern {
+export class ScaledFont {
+    static name: string
 }
-export interface Pattern_Static {
-    name: string
+export class Path {
+    static name: string
 }
-export declare var Pattern: Pattern_Static
-export interface Region {
-}
-export interface Region_Static {
-    name: string
-}
-export declare var Region: Region_Static
-export interface FontOptions {
-}
-export interface FontOptions_Static {
-    name: string
-}
-export declare var FontOptions: FontOptions_Static
-export interface FontFace {
-}
-export interface FontFace_Static {
-    name: string
-}
-export declare var FontFace: FontFace_Static
-export interface ScaledFont {
-}
-export interface ScaledFont_Static {
-    name: string
-}
-export declare var ScaledFont: ScaledFont_Static
-export interface Path {
-}
-export interface Path_Static {
-    name: string
-}
-export declare var Path: Path_Static
-export interface RectangleInt {
+export class RectangleInt {
     /* Fields of cairo.RectangleInt */
     x:number
     y:number
     width:number
     height:number
+    static name: string
 }
-export interface RectangleInt_Static {
-    name: string
-}
-export declare var RectangleInt: RectangleInt_Static

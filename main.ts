@@ -808,7 +808,7 @@ export class GirModule {
         }
 
         // Instance side
-        def.push(`export interface ${name} {`)
+        def.push(`export class ${name} {`)
         
         let localNames = {}
         let propertyNames: string[] = []
@@ -883,18 +883,15 @@ export class GirModule {
 
         // TODO: Records have fields
 
-        def.push("}")
-
         // Static side: default constructor
-        def.push(`export interface ${name}_Static {`)
-        def.push(`    name: string`)
+        def.push(`    static name: string`)
         if (isDerivedFromGObject) {
-            def.push(`    new (config?: ${name}_ConstructProps): ${name}`)
+            def.push(`    static new (config?: ${name}_ConstructProps): ${name}`)
         } else {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
                 for (let f of constructor_) {                    
-                    let [desc, funcName] = this.getConstructorFunction(name, f, "    ")
+                    let [desc, funcName] = this.getConstructorFunction(name, f, "    static ")
                     if (!funcName)
                         continue
                     if (funcName != "new")
@@ -904,7 +901,6 @@ export class GirModule {
                 }
             }
         }
-        def.push("}")
 
         // Static methods
         if (true) {
@@ -913,7 +909,7 @@ export class GirModule {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
                 for (let f of constructor_) {
-                    let [desc, funcName] = this.getConstructorFunction(name, f, "    ")
+                    let [desc, funcName] = this.getConstructorFunction(name, f, "    static ")
                     if (!funcName)
                         continue
                     
@@ -923,16 +919,14 @@ export class GirModule {
 
             if (e.function)
                 for (let f of e.function)
-                    stc = stc.concat(this.getFunction(f, "    ")[0])
+                    stc = stc.concat(this.getFunction(f, "    static ")[0])
 
             if (stc.length > 0) {
-                def.push(`export declare class ${name}_Static {`)
                 def = def.concat(stc)
-                def.push("}")
             }
         }
 
-        def.push(`export declare var ${name}: ${name}_Static`)
+        def.push("}")
 
         return def
     }

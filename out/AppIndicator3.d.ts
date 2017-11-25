@@ -47,7 +47,7 @@ export interface Indicator_ConstructProps extends GObject.Object_ConstructProps 
     status?:string
     title?:string
 }
-export interface Indicator {
+export class Indicator {
     /* Properties of AppIndicator3.Indicator */
     attention_icon_desc:string
     attention_icon_name:string
@@ -154,19 +154,11 @@ export interface Indicator {
     connect(sigName: "notify::ordering-index", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::status", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::title", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Indicator_ConstructProps): Indicator
+    static new(id: string, icon_name: string, category: IndicatorCategory): Indicator
+    static new_with_path(id: string, icon_name: string, category: IndicatorCategory, icon_theme_path: string): Indicator
 }
-export interface Indicator_Static {
-    name: string
-    new (config?: Indicator_ConstructProps): Indicator
+export class IndicatorPrivate {
+    static name: string
 }
-export declare class Indicator_Static {
-    new(id: string, icon_name: string, category: IndicatorCategory): Indicator
-    new_with_path(id: string, icon_name: string, category: IndicatorCategory, icon_theme_path: string): Indicator
-}
-export declare var Indicator: Indicator_Static
-export interface IndicatorPrivate {
-}
-export interface IndicatorPrivate_Static {
-    name: string
-}
-export declare var IndicatorPrivate: IndicatorPrivate_Static

@@ -2947,21 +2947,18 @@ export interface WindowChildFunc {
 export interface WindowInvalidateHandlerFunc {
     (window: Window, region: cairo.Region): void
 }
-export interface DevicePad {
+export class DevicePad {
     /* Methods of Gdk.DevicePad */
     get_feature_group(feature: DevicePadFeature, feature_idx: number): number
     get_group_n_modes(group_idx: number): number
     get_n_features(feature: DevicePadFeature): number
     get_n_groups(): number
+    static name: string
 }
-export interface DevicePad_Static {
-    name: string
-}
-export declare var DevicePad: DevicePad_Static
 export interface AppLaunchContext_ConstructProps extends Gio.AppLaunchContext_ConstructProps {
     display?:Display
 }
-export interface AppLaunchContext {
+export class AppLaunchContext {
     /* Properties of Gdk.AppLaunchContext */
     /* Fields of Gio.AppLaunchContext */
     parent_instance:GObject.Object
@@ -3023,20 +3020,15 @@ export interface AppLaunchContext {
     connect(sigName: "launched", callback: ((obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: AppLaunchContext_ConstructProps): AppLaunchContext
+    static new(): AppLaunchContext
 }
-export interface AppLaunchContext_Static {
-    name: string
-    new (config?: AppLaunchContext_ConstructProps): AppLaunchContext
-}
-export declare class AppLaunchContext_Static {
-    new(): AppLaunchContext
-}
-export declare var AppLaunchContext: AppLaunchContext_Static
 export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
     cursor_type?:CursorType
     display?:Display
 }
-export interface Cursor {
+export class Cursor {
     /* Properties of Gdk.Cursor */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -3079,19 +3071,14 @@ export interface Cursor {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Cursor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Cursor_ConstructProps): Cursor
+    static new(cursor_type: CursorType): Cursor
+    static new_for_display(display: Display, cursor_type: CursorType): Cursor
+    static new_from_name(display: Display, name: string): Cursor | null
+    static new_from_pixbuf(display: Display, pixbuf: GdkPixbuf.Pixbuf, x: number, y: number): Cursor
+    static new_from_surface(display: Display, surface: cairo.Surface, x: number, y: number): Cursor
 }
-export interface Cursor_Static {
-    name: string
-    new (config?: Cursor_ConstructProps): Cursor
-}
-export declare class Cursor_Static {
-    new(cursor_type: CursorType): Cursor
-    new_for_display(display: Display, cursor_type: CursorType): Cursor
-    new_from_name(display: Display, name: string): Cursor | null
-    new_from_pixbuf(display: Display, pixbuf: GdkPixbuf.Pixbuf, x: number, y: number): Cursor
-    new_from_surface(display: Display, surface: cairo.Surface, x: number, y: number): Cursor
-}
-export declare var Cursor: Cursor_Static
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     device_manager?:DeviceManager
     display?:Display
@@ -3105,7 +3092,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     type?:DeviceType
     vendor_id?:string
 }
-export interface Device {
+export class Device {
     /* Properties of Gdk.Device */
     readonly associated_device:Device
     readonly axes:AxisFlags
@@ -3187,19 +3174,14 @@ export interface Device {
     connect(sigName: "notify::n-axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::seat", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::tool", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Device_ConstructProps): Device
+    static grab_info_libgtk_only(display: Display, device: Device): [ /* returnType */ boolean, /* grab_window */ Window, /* owner_events */ boolean ]
 }
-export interface Device_Static {
-    name: string
-    new (config?: Device_ConstructProps): Device
-}
-export declare class Device_Static {
-    grab_info_libgtk_only(display: Display, device: Device): [ /* returnType */ boolean, /* grab_window */ Window, /* owner_events */ boolean ]
-}
-export declare var Device: Device_Static
 export interface DeviceManager_ConstructProps extends GObject.Object_ConstructProps {
     display?:Display
 }
-export interface DeviceManager {
+export class DeviceManager {
     /* Properties of Gdk.DeviceManager */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -3245,19 +3227,16 @@ export interface DeviceManager {
     connect(sigName: "device-removed", callback: ((obj: DeviceManager, device: Device) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DeviceManager, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DeviceManager_ConstructProps): DeviceManager
 }
-export interface DeviceManager_Static {
-    name: string
-    new (config?: DeviceManager_ConstructProps): DeviceManager
-}
-export declare var DeviceManager: DeviceManager_Static
 export interface DeviceTool_ConstructProps extends GObject.Object_ConstructProps {
     axes?:AxisFlags
     hardware_id?:number
     serial?:number
     tool_type?:DeviceToolType
 }
-export interface DeviceTool {
+export class DeviceTool {
     /* Properties of Gdk.DeviceTool */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -3299,15 +3278,12 @@ export interface DeviceTool {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DeviceTool, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DeviceTool_ConstructProps): DeviceTool
 }
-export interface DeviceTool_Static {
-    name: string
-    new (config?: DeviceTool_ConstructProps): DeviceTool
-}
-export declare var DeviceTool: DeviceTool_Static
 export interface Display_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Display {
+export class Display {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Display */
@@ -3397,21 +3373,16 @@ export interface Display {
     connect(sigName: "seat-removed", callback: ((obj: Display, seat: Seat) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Display, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Display_ConstructProps): Display
+    static get_default(): Display | null
+    static open(display_name: string): Display | null
+    static open_default_libgtk_only(): Display | null
 }
-export interface Display_Static {
-    name: string
-    new (config?: Display_ConstructProps): Display
-}
-export declare class Display_Static {
-    get_default(): Display | null
-    open(display_name: string): Display | null
-    open_default_libgtk_only(): Display | null
-}
-export declare var Display: Display_Static
 export interface DisplayManager_ConstructProps extends GObject.Object_ConstructProps {
     default_display?:Display
 }
-export interface DisplayManager {
+export class DisplayManager {
     /* Properties of Gdk.DisplayManager */
     default_display:Display
     /* Fields of GObject.Object */
@@ -3458,18 +3429,13 @@ export interface DisplayManager {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::default-display", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DisplayManager_ConstructProps): DisplayManager
+    static get(): DisplayManager
 }
-export interface DisplayManager_Static {
-    name: string
-    new (config?: DisplayManager_ConstructProps): DisplayManager
-}
-export declare class DisplayManager_Static {
-    get(): DisplayManager
-}
-export declare var DisplayManager: DisplayManager_Static
 export interface DragContext_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface DragContext {
+export class DragContext {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.DragContext */
@@ -3524,17 +3490,14 @@ export interface DragContext {
     connect(sigName: "drop-performed", callback: ((obj: DragContext, time: number) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DragContext, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DragContext_ConstructProps): DragContext
 }
-export interface DragContext_Static {
-    name: string
-    new (config?: DragContext_ConstructProps): DragContext
-}
-export declare var DragContext: DragContext_Static
 export interface DrawingContext_ConstructProps extends GObject.Object_ConstructProps {
     clip?:cairo.Region
     window?:Window
 }
-export interface DrawingContext {
+export class DrawingContext {
     /* Properties of Gdk.DrawingContext */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -3577,15 +3540,12 @@ export interface DrawingContext {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DrawingContext, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: DrawingContext_ConstructProps): DrawingContext
 }
-export interface DrawingContext_Static {
-    name: string
-    new (config?: DrawingContext_ConstructProps): DrawingContext
-}
-export declare var DrawingContext: DrawingContext_Static
 export interface FrameClock_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface FrameClock {
+export class FrameClock {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.FrameClock */
@@ -3640,18 +3600,15 @@ export interface FrameClock {
     connect(sigName: "update", callback: ((obj: FrameClock) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FrameClock, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: FrameClock_ConstructProps): FrameClock
 }
-export interface FrameClock_Static {
-    name: string
-    new (config?: FrameClock_ConstructProps): FrameClock
-}
-export declare var FrameClock: FrameClock_Static
 export interface GLContext_ConstructProps extends GObject.Object_ConstructProps {
     display?:Display
     shared_context?:GLContext
     window?:Window
 }
-export interface GLContext {
+export class GLContext {
     /* Properties of Gdk.GLContext */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -3705,19 +3662,14 @@ export interface GLContext {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: GLContext, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: GLContext_ConstructProps): GLContext
+    static clear_current(): void
+    static get_current(): GLContext | null
 }
-export interface GLContext_Static {
-    name: string
-    new (config?: GLContext_ConstructProps): GLContext
-}
-export declare class GLContext_Static {
-    clear_current(): void
-    get_current(): GLContext | null
-}
-export declare var GLContext: GLContext_Static
 export interface Keymap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Keymap {
+export class Keymap {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Keymap */
@@ -3772,20 +3724,15 @@ export interface Keymap {
     connect(sigName: "state-changed", callback: ((obj: Keymap) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Keymap, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Keymap_ConstructProps): Keymap
+    static get_default(): Keymap
+    static get_for_display(display: Display): Keymap
 }
-export interface Keymap_Static {
-    name: string
-    new (config?: Keymap_ConstructProps): Keymap
-}
-export declare class Keymap_Static {
-    get_default(): Keymap
-    get_for_display(display: Display): Keymap
-}
-export declare var Keymap: Keymap_Static
 export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
     display?:Display
 }
-export interface Monitor {
+export class Monitor {
     /* Properties of Gdk.Monitor */
     readonly geometry:Rectangle
     readonly height_mm:number
@@ -3855,17 +3802,14 @@ export interface Monitor {
     connect(sigName: "notify::subpixel-layout", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::workarea", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Monitor_ConstructProps): Monitor
 }
-export interface Monitor_Static {
-    name: string
-    new (config?: Monitor_ConstructProps): Monitor
-}
-export declare var Monitor: Monitor_Static
 export interface Screen_ConstructProps extends GObject.Object_ConstructProps {
     font_options?:object
     resolution?:number
 }
-export interface Screen {
+export class Screen {
     /* Properties of Gdk.Screen */
     font_options:object
     resolution:number
@@ -3942,23 +3886,18 @@ export interface Screen {
     connect(sigName: "notify", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::font-options", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::resolution", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Screen_ConstructProps): Screen
+    static get_default(): Screen | null
+    static height(): number
+    static height_mm(): number
+    static width(): number
+    static width_mm(): number
 }
-export interface Screen_Static {
-    name: string
-    new (config?: Screen_ConstructProps): Screen
-}
-export declare class Screen_Static {
-    get_default(): Screen | null
-    height(): number
-    height_mm(): number
-    width(): number
-    width_mm(): number
-}
-export declare var Screen: Screen_Static
 export interface Seat_ConstructProps extends GObject.Object_ConstructProps {
     display?:Display
 }
-export interface Seat {
+export class Seat {
     /* Properties of Gdk.Seat */
     /* Fields of Gdk.Seat */
     parent_instance:GObject.Object
@@ -4011,15 +3950,12 @@ export interface Seat {
     connect(sigName: "tool-removed", callback: ((obj: Seat, tool: DeviceTool) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Seat, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Seat_ConstructProps): Seat
 }
-export interface Seat_Static {
-    name: string
-    new (config?: Seat_ConstructProps): Seat
-}
-export declare var Seat: Seat_Static
 export interface Visual_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Visual {
+export class Visual {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Visual */
@@ -4066,25 +4002,20 @@ export interface Visual {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Visual, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Visual_ConstructProps): Visual
+    static get_best(): Visual
+    static get_best_depth(): number
+    static get_best_type(): VisualType
+    static get_best_with_both(depth: number, visual_type: VisualType): Visual | null
+    static get_best_with_depth(depth: number): Visual
+    static get_best_with_type(visual_type: VisualType): Visual
+    static get_system(): Visual
 }
-export interface Visual_Static {
-    name: string
-    new (config?: Visual_ConstructProps): Visual
-}
-export declare class Visual_Static {
-    get_best(): Visual
-    get_best_depth(): number
-    get_best_type(): VisualType
-    get_best_with_both(depth: number, visual_type: VisualType): Visual | null
-    get_best_with_depth(depth: number): Visual
-    get_best_with_type(visual_type: VisualType): Visual
-    get_system(): Visual
-}
-export declare var Visual: Visual_Static
 export interface Window_ConstructProps extends GObject.Object_ConstructProps {
     cursor?:Cursor
 }
-export interface Window {
+export class Window {
     /* Properties of Gdk.Window */
     cursor:Cursor
     /* Fields of GObject.Object */
@@ -4288,32 +4219,22 @@ export interface Window {
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Window, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::cursor", callback: ((obj: Window, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Window_ConstructProps): Window
+    static new(parent: Window | null, attributes: WindowAttr, attributes_mask: WindowAttributesType): Window
+    static at_pointer(): [ /* returnType */ Window, /* win_x */ number | null, /* win_y */ number | null ]
+    static constrain_size(geometry: Geometry, flags: WindowHints, width: number, height: number): [ /* new_width */ number, /* new_height */ number ]
+    static process_all_updates(): void
+    static set_debug_updates(setting: boolean): void
 }
-export interface Window_Static {
-    name: string
-    new (config?: Window_ConstructProps): Window
-}
-export declare class Window_Static {
-    new(parent: Window | null, attributes: WindowAttr, attributes_mask: WindowAttributesType): Window
-    at_pointer(): [ /* returnType */ Window, /* win_x */ number | null, /* win_y */ number | null ]
-    constrain_size(geometry: Geometry, flags: WindowHints, width: number, height: number): [ /* new_width */ number, /* new_height */ number ]
-    process_all_updates(): void
-    set_debug_updates(setting: boolean): void
-}
-export declare var Window: Window_Static
-export interface Atom {
+export class Atom {
     /* Methods of Gdk.Atom */
     name(): string
+    static name: string
+    static intern(atom_name: string, only_if_exists: boolean): Atom
+    static intern_static_string(atom_name: string): Atom
 }
-export interface Atom_Static {
-    name: string
-}
-export declare class Atom_Static {
-    intern(atom_name: string, only_if_exists: boolean): Atom
-    intern_static_string(atom_name: string): Atom
-}
-export declare var Atom: Atom_Static
-export interface Color {
+export class Color {
     /* Fields of Gdk.Color */
     pixel:number
     red:number
@@ -4325,25 +4246,17 @@ export interface Color {
     free(): void
     hash(): number
     to_string(): string
+    static name: string
+    static parse(spec: string): [ /* returnType */ boolean, /* color */ Color ]
 }
-export interface Color_Static {
-    name: string
-}
-export declare class Color_Static {
-    parse(spec: string): [ /* returnType */ boolean, /* color */ Color ]
-}
-export declare var Color: Color_Static
-export interface EventAny {
+export class EventAny {
     /* Fields of Gdk.EventAny */
     type:EventType
     window:Window
     send_event:number
+    static name: string
 }
-export interface EventAny_Static {
-    name: string
-}
-export declare var EventAny: EventAny_Static
-export interface EventButton {
+export class EventButton {
     /* Fields of Gdk.EventButton */
     type:EventType
     window:Window
@@ -4357,12 +4270,9 @@ export interface EventButton {
     device:Device
     x_root:number
     y_root:number
+    static name: string
 }
-export interface EventButton_Static {
-    name: string
-}
-export declare var EventButton: EventButton_Static
-export interface EventConfigure {
+export class EventConfigure {
     /* Fields of Gdk.EventConfigure */
     type:EventType
     window:Window
@@ -4371,12 +4281,9 @@ export interface EventConfigure {
     y:number
     width:number
     height:number
+    static name: string
 }
-export interface EventConfigure_Static {
-    name: string
-}
-export declare var EventConfigure: EventConfigure_Static
-export interface EventCrossing {
+export class EventCrossing {
     /* Fields of Gdk.EventCrossing */
     type:EventType
     window:Window
@@ -4391,12 +4298,9 @@ export interface EventCrossing {
     detail:NotifyType
     focus:boolean
     state:ModifierType
+    static name: string
 }
-export interface EventCrossing_Static {
-    name: string
-}
-export declare var EventCrossing: EventCrossing_Static
-export interface EventDND {
+export class EventDND {
     /* Fields of Gdk.EventDND */
     type:EventType
     window:Window
@@ -4405,12 +4309,9 @@ export interface EventDND {
     time:number
     x_root:number
     y_root:number
+    static name: string
 }
-export interface EventDND_Static {
-    name: string
-}
-export declare var EventDND: EventDND_Static
-export interface EventExpose {
+export class EventExpose {
     /* Fields of Gdk.EventExpose */
     type:EventType
     window:Window
@@ -4418,23 +4319,17 @@ export interface EventExpose {
     area:Rectangle
     region:cairo.Region
     count:number
+    static name: string
 }
-export interface EventExpose_Static {
-    name: string
-}
-export declare var EventExpose: EventExpose_Static
-export interface EventFocus {
+export class EventFocus {
     /* Fields of Gdk.EventFocus */
     type:EventType
     window:Window
     send_event:number
     in_:number
+    static name: string
 }
-export interface EventFocus_Static {
-    name: string
-}
-export declare var EventFocus: EventFocus_Static
-export interface EventGrabBroken {
+export class EventGrabBroken {
     /* Fields of Gdk.EventGrabBroken */
     type:EventType
     window:Window
@@ -4442,12 +4337,9 @@ export interface EventGrabBroken {
     keyboard:boolean
     implicit:boolean
     grab_window:Window
+    static name: string
 }
-export interface EventGrabBroken_Static {
-    name: string
-}
-export declare var EventGrabBroken: EventGrabBroken_Static
-export interface EventKey {
+export class EventKey {
     /* Fields of Gdk.EventKey */
     type:EventType
     window:Window
@@ -4460,12 +4352,9 @@ export interface EventKey {
     hardware_keycode:number
     group:number
     is_modifier:number
+    static name: string
 }
-export interface EventKey_Static {
-    name: string
-}
-export declare var EventKey: EventKey_Static
-export interface EventMotion {
+export class EventMotion {
     /* Fields of Gdk.EventMotion */
     type:EventType
     window:Window
@@ -4479,12 +4368,9 @@ export interface EventMotion {
     device:Device
     x_root:number
     y_root:number
+    static name: string
 }
-export interface EventMotion_Static {
-    name: string
-}
-export declare var EventMotion: EventMotion_Static
-export interface EventOwnerChange {
+export class EventOwnerChange {
     /* Fields of Gdk.EventOwnerChange */
     type:EventType
     window:Window
@@ -4494,12 +4380,9 @@ export interface EventOwnerChange {
     selection:Atom
     time:number
     selection_time:number
+    static name: string
 }
-export interface EventOwnerChange_Static {
-    name: string
-}
-export declare var EventOwnerChange: EventOwnerChange_Static
-export interface EventPadAxis {
+export class EventPadAxis {
     /* Fields of Gdk.EventPadAxis */
     type:EventType
     window:Window
@@ -4509,12 +4392,9 @@ export interface EventPadAxis {
     index:number
     mode:number
     value:number
+    static name: string
 }
-export interface EventPadAxis_Static {
-    name: string
-}
-export declare var EventPadAxis: EventPadAxis_Static
-export interface EventPadButton {
+export class EventPadButton {
     /* Fields of Gdk.EventPadButton */
     type:EventType
     window:Window
@@ -4523,12 +4403,9 @@ export interface EventPadButton {
     group:number
     button:number
     mode:number
+    static name: string
 }
-export interface EventPadButton_Static {
-    name: string
-}
-export declare var EventPadButton: EventPadButton_Static
-export interface EventPadGroupMode {
+export class EventPadGroupMode {
     /* Fields of Gdk.EventPadGroupMode */
     type:EventType
     window:Window
@@ -4536,12 +4413,9 @@ export interface EventPadGroupMode {
     time:number
     group:number
     mode:number
+    static name: string
 }
-export interface EventPadGroupMode_Static {
-    name: string
-}
-export declare var EventPadGroupMode: EventPadGroupMode_Static
-export interface EventProperty {
+export class EventProperty {
     /* Fields of Gdk.EventProperty */
     type:EventType
     window:Window
@@ -4549,24 +4423,18 @@ export interface EventProperty {
     atom:Atom
     time:number
     state:PropertyState
+    static name: string
 }
-export interface EventProperty_Static {
-    name: string
-}
-export declare var EventProperty: EventProperty_Static
-export interface EventProximity {
+export class EventProximity {
     /* Fields of Gdk.EventProximity */
     type:EventType
     window:Window
     send_event:number
     time:number
     device:Device
+    static name: string
 }
-export interface EventProximity_Static {
-    name: string
-}
-export declare var EventProximity: EventProximity_Static
-export interface EventScroll {
+export class EventScroll {
     /* Fields of Gdk.EventScroll */
     type:EventType
     window:Window
@@ -4582,12 +4450,9 @@ export interface EventScroll {
     delta_x:number
     delta_y:number
     is_stop:number
+    static name: string
 }
-export interface EventScroll_Static {
-    name: string
-}
-export declare var EventScroll: EventScroll_Static
-export interface EventSelection {
+export class EventSelection {
     /* Fields of Gdk.EventSelection */
     type:EventType
     window:Window
@@ -4597,30 +4462,21 @@ export interface EventSelection {
     property:Atom
     time:number
     requestor:Window
+    static name: string
 }
-export interface EventSelection_Static {
-    name: string
+export class EventSequence {
+    static name: string
 }
-export declare var EventSelection: EventSelection_Static
-export interface EventSequence {
-}
-export interface EventSequence_Static {
-    name: string
-}
-export declare var EventSequence: EventSequence_Static
-export interface EventSetting {
+export class EventSetting {
     /* Fields of Gdk.EventSetting */
     type:EventType
     window:Window
     send_event:number
     action:SettingAction
     name:string
+    static name: string
 }
-export interface EventSetting_Static {
-    name: string
-}
-export declare var EventSetting: EventSetting_Static
-export interface EventTouch {
+export class EventTouch {
     /* Fields of Gdk.EventTouch */
     type:EventType
     window:Window
@@ -4635,12 +4491,9 @@ export interface EventTouch {
     device:Device
     x_root:number
     y_root:number
+    static name: string
 }
-export interface EventTouch_Static {
-    name: string
-}
-export declare var EventTouch: EventTouch_Static
-export interface EventTouchpadPinch {
+export class EventTouchpadPinch {
     /* Fields of Gdk.EventTouchpadPinch */
     type:EventType
     window:Window
@@ -4657,12 +4510,9 @@ export interface EventTouchpadPinch {
     x_root:number
     y_root:number
     state:ModifierType
+    static name: string
 }
-export interface EventTouchpadPinch_Static {
-    name: string
-}
-export declare var EventTouchpadPinch: EventTouchpadPinch_Static
-export interface EventTouchpadSwipe {
+export class EventTouchpadSwipe {
     /* Fields of Gdk.EventTouchpadSwipe */
     type:EventType
     window:Window
@@ -4677,41 +4527,29 @@ export interface EventTouchpadSwipe {
     x_root:number
     y_root:number
     state:ModifierType
+    static name: string
 }
-export interface EventTouchpadSwipe_Static {
-    name: string
-}
-export declare var EventTouchpadSwipe: EventTouchpadSwipe_Static
-export interface EventVisibility {
+export class EventVisibility {
     /* Fields of Gdk.EventVisibility */
     type:EventType
     window:Window
     send_event:number
     state:VisibilityState
+    static name: string
 }
-export interface EventVisibility_Static {
-    name: string
-}
-export declare var EventVisibility: EventVisibility_Static
-export interface EventWindowState {
+export class EventWindowState {
     /* Fields of Gdk.EventWindowState */
     type:EventType
     window:Window
     send_event:number
     changed_mask:WindowState
     new_window_state:WindowState
+    static name: string
 }
-export interface EventWindowState_Static {
-    name: string
+export class FrameClockPrivate {
+    static name: string
 }
-export declare var EventWindowState: EventWindowState_Static
-export interface FrameClockPrivate {
-}
-export interface FrameClockPrivate_Static {
-    name: string
-}
-export declare var FrameClockPrivate: FrameClockPrivate_Static
-export interface FrameTimings {
+export class FrameTimings {
     /* Methods of Gdk.FrameTimings */
     get_complete(): boolean
     get_frame_counter(): number
@@ -4721,12 +4559,9 @@ export interface FrameTimings {
     get_refresh_interval(): number
     ref(): FrameTimings
     unref(): void
+    static name: string
 }
-export interface FrameTimings_Static {
-    name: string
-}
-export declare var FrameTimings: FrameTimings_Static
-export interface Geometry {
+export class Geometry {
     /* Fields of Gdk.Geometry */
     min_width:number
     min_height:number
@@ -4739,31 +4574,22 @@ export interface Geometry {
     min_aspect:number
     max_aspect:number
     win_gravity:Gravity
+    static name: string
 }
-export interface Geometry_Static {
-    name: string
-}
-export declare var Geometry: Geometry_Static
-export interface KeymapKey {
+export class KeymapKey {
     /* Fields of Gdk.KeymapKey */
     keycode:number
     group:number
     level:number
+    static name: string
 }
-export interface KeymapKey_Static {
-    name: string
-}
-export declare var KeymapKey: KeymapKey_Static
-export interface Point {
+export class Point {
     /* Fields of Gdk.Point */
     x:number
     y:number
+    static name: string
 }
-export interface Point_Static {
-    name: string
-}
-export declare var Point: Point_Static
-export interface RGBA {
+export class RGBA {
     /* Fields of Gdk.RGBA */
     red:number
     green:number
@@ -4776,12 +4602,9 @@ export interface RGBA {
     hash(): number
     parse(spec: string): boolean
     to_string(): string
+    static name: string
 }
-export interface RGBA_Static {
-    name: string
-}
-export declare var RGBA: RGBA_Static
-export interface Rectangle {
+export class Rectangle {
     /* Fields of Gdk.Rectangle */
     x:number
     y:number
@@ -4791,21 +4614,15 @@ export interface Rectangle {
     equal(rect2: Rectangle): boolean
     intersect(src2: Rectangle): [ /* returnType */ boolean, /* dest */ Rectangle | null ]
     union(src2: Rectangle): /* dest */ Rectangle
+    static name: string
 }
-export interface Rectangle_Static {
-    name: string
-}
-export declare var Rectangle: Rectangle_Static
-export interface TimeCoord {
+export class TimeCoord {
     /* Fields of Gdk.TimeCoord */
     time:number
     axes:number[]
+    static name: string
 }
-export interface TimeCoord_Static {
-    name: string
-}
-export declare var TimeCoord: TimeCoord_Static
-export interface WindowAttr {
+export class WindowAttr {
     /* Fields of Gdk.WindowAttr */
     title:string
     event_mask:number
@@ -4821,18 +4638,12 @@ export interface WindowAttr {
     wmclass_class:string
     override_redirect:boolean
     type_hint:WindowTypeHint
+    static name: string
 }
-export interface WindowAttr_Static {
-    name: string
+export class WindowRedirect {
+    static name: string
 }
-export declare var WindowAttr: WindowAttr_Static
-export interface WindowRedirect {
-}
-export interface WindowRedirect_Static {
-    name: string
-}
-export declare var WindowRedirect: WindowRedirect_Static
-export interface Event {
+export class Event {
     /* Fields of Gdk.Event */
     type:EventType
     any:EventAny
@@ -4893,17 +4704,12 @@ export interface Event {
     set_screen(screen: Screen): void
     set_source_device(device: Device): void
     triggers_context_menu(): boolean
+    static name: string
+    static new(type: EventType): Event
+    static new(type: EventType): Event
+    static get(): Event | null
+    static handler_set(func: EventFunc, data: object | null, notify: GLib.DestroyNotify): void
+    static peek(): Event | null
+    static request_motions(event: EventMotion): void
 }
-export interface Event_Static {
-    name: string
-    new(type: EventType): Event
-}
-export declare class Event_Static {
-    new(type: EventType): Event
-    get(): Event | null
-    handler_set(func: EventFunc, data: object | null, notify: GLib.DestroyNotify): void
-    peek(): Event | null
-    request_motions(event: EventMotion): void
-}
-export declare var Event: Event_Static
 type XEvent = void

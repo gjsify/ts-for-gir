@@ -351,7 +351,7 @@ export interface KeySnoopFunc {
 export interface PropertyChangeHandler {
     (obj: Object, vals: PropertyValues): void
 }
-export interface Action {
+export class Action {
     /* Methods of Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
@@ -368,12 +368,9 @@ export interface Action {
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    static name: string
 }
-export interface Action_Static {
-    name: string
-}
-export declare var Action: Action_Static
-export interface Component {
+export class Component {
     /* Methods of Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
@@ -405,12 +402,9 @@ export interface Component {
     vfunc_set_size(width: number, height: number): boolean
     /* Signals of Atk.Component */
     connect(sigName: "bounds-changed", callback: ((obj: Component, arg1: Rectangle) => void))
+    static name: string
 }
-export interface Component_Static {
-    name: string
-}
-export declare var Component: Component_Static
-export interface Document {
+export class Document {
     /* Methods of Atk.Document */
     get_attribute_value(attribute_name: string): string | null
     get_attributes(): AttributeSet
@@ -433,12 +427,9 @@ export interface Document {
     connect(sigName: "load-stopped", callback: ((obj: Document) => void))
     connect(sigName: "page-changed", callback: ((obj: Document, page_number: number) => void))
     connect(sigName: "reload", callback: ((obj: Document) => void))
+    static name: string
 }
-export interface Document_Static {
-    name: string
-}
-export declare var Document: Document_Static
-export interface EditableText {
+export class EditableText {
     /* Methods of Atk.EditableText */
     copy_text(start_pos: number, end_pos: number): void
     cut_text(start_pos: number, end_pos: number): void
@@ -455,22 +446,16 @@ export interface EditableText {
     vfunc_paste_text(position: number): void
     vfunc_set_run_attributes(attrib_set: AttributeSet, start_offset: number, end_offset: number): boolean
     vfunc_set_text_contents(string: string): void
+    static name: string
 }
-export interface EditableText_Static {
-    name: string
-}
-export declare var EditableText: EditableText_Static
-export interface HyperlinkImpl {
+export class HyperlinkImpl {
     /* Methods of Atk.HyperlinkImpl */
     get_hyperlink(): Hyperlink
     /* Virtual methods of Atk.HyperlinkImpl */
     vfunc_get_hyperlink(): Hyperlink
+    static name: string
 }
-export interface HyperlinkImpl_Static {
-    name: string
-}
-export declare var HyperlinkImpl: HyperlinkImpl_Static
-export interface Hypertext {
+export class Hypertext {
     /* Methods of Atk.Hypertext */
     get_link(link_index: number): Hyperlink
     get_link_index(char_index: number): number
@@ -482,12 +467,9 @@ export interface Hypertext {
     vfunc_link_selected(link_index: number): void
     /* Signals of Atk.Hypertext */
     connect(sigName: "link-selected", callback: ((obj: Hypertext, arg1: number) => void))
+    static name: string
 }
-export interface Hypertext_Static {
-    name: string
-}
-export declare var Hypertext: Hypertext_Static
-export interface Image {
+export class Image {
     /* Methods of Atk.Image */
     get_image_description(): string
     get_image_locale(): string | null
@@ -500,18 +482,12 @@ export interface Image {
     vfunc_get_image_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
     vfunc_get_image_size(): [ /* width */ number | null, /* height */ number | null ]
     vfunc_set_image_description(description: string): boolean
+    static name: string
 }
-export interface Image_Static {
-    name: string
+export class ImplementorIface {
+    static name: string
 }
-export declare var Image: Image_Static
-export interface ImplementorIface {
-}
-export interface ImplementorIface_Static {
-    name: string
-}
-export declare var ImplementorIface: ImplementorIface_Static
-export interface Selection {
+export class Selection {
     /* Methods of Atk.Selection */
     add_selection(i: number): boolean
     clear_selection(): boolean
@@ -531,12 +507,9 @@ export interface Selection {
     vfunc_selection_changed(): void
     /* Signals of Atk.Selection */
     connect(sigName: "selection-changed", callback: ((obj: Selection) => void))
+    static name: string
 }
-export interface Selection_Static {
-    name: string
-}
-export declare var Selection: Selection_Static
-export interface StreamableContent {
+export class StreamableContent {
     /* Methods of Atk.StreamableContent */
     get_mime_type(i: number): string
     get_n_mime_types(): number
@@ -547,12 +520,9 @@ export interface StreamableContent {
     vfunc_get_n_mime_types(): number
     vfunc_get_stream(mime_type: string): GLib.IOChannel
     vfunc_get_uri(mime_type: string): string | null
+    static name: string
 }
-export interface StreamableContent_Static {
-    name: string
-}
-export declare var StreamableContent: StreamableContent_Static
-export interface Table {
+export class Table {
     /* Methods of Atk.Table */
     add_column_selection(column: number): boolean
     add_row_selection(row: number): boolean
@@ -628,12 +598,9 @@ export interface Table {
     connect(sigName: "row-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void))
     connect(sigName: "row-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void))
     connect(sigName: "row-reordered", callback: ((obj: Table) => void))
+    static name: string
 }
-export interface Table_Static {
-    name: string
-}
-export declare var Table: Table_Static
-export interface TableCell {
+export class TableCell {
     /* Methods of Atk.TableCell */
     get_column_header_cells(): Object[]
     get_column_span(): number
@@ -650,12 +617,9 @@ export interface TableCell {
     vfunc_get_row_header_cells(): Object[]
     vfunc_get_row_span(): number
     vfunc_get_table(): Object
+    static name: string
 }
-export interface TableCell_Static {
-    name: string
-}
-export declare var TableCell: TableCell_Static
-export interface Text {
+export class Text {
     /* Methods of Atk.Text */
     add_selection(start_offset: number, end_offset: number): boolean
     get_bounded_ranges(rect: TextRectangle, coord_type: CoordType, x_clip_type: TextClipType, y_clip_type: TextClipType): TextRange[]
@@ -709,15 +673,10 @@ export interface Text {
     connect(sigName: "text-insert", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void))
     connect(sigName: "text-remove", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void))
     connect(sigName: "text-selection-changed", callback: ((obj: Text) => void))
+    static name: string
+    static free_ranges(ranges: TextRange[]): void
 }
-export interface Text_Static {
-    name: string
-}
-export declare class Text_Static {
-    free_ranges(ranges: TextRange[]): void
-}
-export declare var Text: Text_Static
-export interface Value {
+export class Value {
     /* Methods of Atk.Value */
     get_current_value(): /* value */ any
     get_increment(): number
@@ -742,12 +701,9 @@ export interface Value {
     vfunc_set_value(new_value: number): void
     /* Signals of Atk.Value */
     connect(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void))
+    static name: string
 }
-export interface Value_Static {
-    name: string
-}
-export declare var Value: Value_Static
-export interface Window {
+export class Window {
     /* Signals of Atk.Window */
     connect(sigName: "activate", callback: ((obj: Window) => void))
     connect(sigName: "create", callback: ((obj: Window) => void))
@@ -758,14 +714,11 @@ export interface Window {
     connect(sigName: "move", callback: ((obj: Window) => void))
     connect(sigName: "resize", callback: ((obj: Window) => void))
     connect(sigName: "restore", callback: ((obj: Window) => void))
+    static name: string
 }
-export interface Window_Static {
-    name: string
-}
-export declare var Window: Window_Static
 export interface GObjectAccessible_ConstructProps extends Object_ConstructProps {
 }
-export interface GObjectAccessible {
+export class GObjectAccessible {
     /* Properties of Atk.Object */
     readonly accessible_component_layer:number
     readonly accessible_component_mdi_zorder:number
@@ -899,18 +852,13 @@ export interface GObjectAccessible {
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-value", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: GObjectAccessible_ConstructProps): GObjectAccessible
+    static for_object(obj: GObject.Object): Object
 }
-export interface GObjectAccessible_Static {
-    name: string
-    new (config?: GObjectAccessible_ConstructProps): GObjectAccessible
-}
-export declare class GObjectAccessible_Static {
-    for_object(obj: GObject.Object): Object
-}
-export declare var GObjectAccessible: GObjectAccessible_Static
 export interface Hyperlink_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Hyperlink {
+export class Hyperlink {
     /* Properties of Atk.Hyperlink */
     readonly end_index:number
     readonly number_of_anchors:number
@@ -979,15 +927,12 @@ export interface Hyperlink {
     connect(sigName: "notify::number-of-anchors", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::selected-link", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::start-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Hyperlink_ConstructProps): Hyperlink
 }
-export interface Hyperlink_Static {
-    name: string
-    new (config?: Hyperlink_ConstructProps): Hyperlink
-}
-export declare var Hyperlink: Hyperlink_Static
 export interface Misc_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Misc {
+export class Misc {
     /* Fields of Atk.Misc */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -1032,18 +977,13 @@ export interface Misc {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Misc, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Misc_ConstructProps): Misc
+    static get_instance(): Misc
 }
-export interface Misc_Static {
-    name: string
-    new (config?: Misc_ConstructProps): Misc
-}
-export declare class Misc_Static {
-    get_instance(): Misc
-}
-export declare var Misc: Misc_Static
 export interface NoOpObject_ConstructProps extends Object_ConstructProps {
 }
-export interface NoOpObject {
+export class NoOpObject {
     /* Properties of Atk.Object */
     readonly accessible_component_layer:number
     readonly accessible_component_mdi_zorder:number
@@ -1175,18 +1115,13 @@ export interface NoOpObject {
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-value", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-}
-export interface NoOpObject_Static {
-    name: string
-    new (config?: NoOpObject_ConstructProps): NoOpObject
-}
-export declare class NoOpObject_Static {
+    static name: string
+    static new (config?: NoOpObject_ConstructProps): NoOpObject
     new(obj: GObject.Object): NoOpObject
 }
-export declare var NoOpObject: NoOpObject_Static
 export interface NoOpObjectFactory_ConstructProps extends ObjectFactory_ConstructProps {
 }
-export interface NoOpObjectFactory {
+export class NoOpObjectFactory {
     /* Fields of Atk.NoOpObjectFactory */
     parent:ObjectFactory
     /* Fields of Atk.ObjectFactory */
@@ -1232,15 +1167,10 @@ export interface NoOpObjectFactory {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void))
-}
-export interface NoOpObjectFactory_Static {
-    name: string
-    new (config?: NoOpObjectFactory_ConstructProps): NoOpObjectFactory
-}
-export declare class NoOpObjectFactory_Static {
+    static name: string
+    static new (config?: NoOpObjectFactory_ConstructProps): NoOpObjectFactory
     new(): NoOpObjectFactory
 }
-export declare var NoOpObjectFactory: NoOpObjectFactory_Static
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     accessible_description?:string
     accessible_name?:string
@@ -1255,7 +1185,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     accessible_table_summary?:Object
     accessible_value?:number
 }
-export interface Object {
+export class Object {
     /* Properties of Atk.Object */
     readonly accessible_component_layer:number
     readonly accessible_component_mdi_zorder:number
@@ -1386,15 +1316,12 @@ export interface Object {
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-value", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Object_ConstructProps): Object
 }
-export interface Object_Static {
-    name: string
-    new (config?: Object_ConstructProps): Object
-}
-export declare var Object: Object_Static
 export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface ObjectFactory {
+export class ObjectFactory {
     /* Fields of Atk.ObjectFactory */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -1439,15 +1366,12 @@ export interface ObjectFactory {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ObjectFactory, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: ObjectFactory_ConstructProps): ObjectFactory
 }
-export interface ObjectFactory_Static {
-    name: string
-    new (config?: ObjectFactory_ConstructProps): ObjectFactory
-}
-export declare var ObjectFactory: ObjectFactory_Static
 export interface Plug_ConstructProps extends Object_ConstructProps {
 }
-export interface Plug {
+export class Plug {
     /* Properties of Atk.Object */
     readonly accessible_component_layer:number
     readonly accessible_component_mdi_zorder:number
@@ -1583,18 +1507,13 @@ export interface Plug {
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-value", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-}
-export interface Plug_Static {
-    name: string
-    new (config?: Plug_ConstructProps): Plug
-}
-export declare class Plug_Static {
+    static name: string
+    static new (config?: Plug_ConstructProps): Plug
     new(): Plug
 }
-export declare var Plug: Plug_Static
 export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Registry {
+export class Registry {
     /* Fields of Atk.Registry */
     parent:GObject.Object
     factory_type_registry:GLib.HashTable
@@ -1639,17 +1558,14 @@ export interface Registry {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Registry, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Registry_ConstructProps): Registry
 }
-export interface Registry_Static {
-    name: string
-    new (config?: Registry_ConstructProps): Registry
-}
-export declare var Registry: Registry_Static
 export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
     relation_type?:RelationType
     target?:GObject.ValueArray
 }
-export interface Relation {
+export class Relation {
     /* Properties of Atk.Relation */
     relation_type:RelationType
     target:GObject.ValueArray
@@ -1699,18 +1615,13 @@ export interface Relation {
     connect(sigName: "notify", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::relation-type", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::target", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Relation_ConstructProps): Relation
+    static new(targets: Object[], n_targets: number, relationship: RelationType): Relation
 }
-export interface Relation_Static {
-    name: string
-    new (config?: Relation_ConstructProps): Relation
-}
-export declare class Relation_Static {
-    new(targets: Object[], n_targets: number, relationship: RelationType): Relation
-}
-export declare var Relation: Relation_Static
 export interface RelationSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface RelationSet {
+export class RelationSet {
     /* Fields of Atk.RelationSet */
     parent:GObject.Object
     relations:object[]
@@ -1759,18 +1670,13 @@ export interface RelationSet {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: RelationSet, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: RelationSet_ConstructProps): RelationSet
+    static new(): RelationSet
 }
-export interface RelationSet_Static {
-    name: string
-    new (config?: RelationSet_ConstructProps): RelationSet
-}
-export declare class RelationSet_Static {
-    new(): RelationSet
-}
-export declare var RelationSet: RelationSet_Static
 export interface Socket_ConstructProps extends Object_ConstructProps {
 }
-export interface Socket {
+export class Socket {
     /* Properties of Atk.Object */
     readonly accessible_component_layer:number
     readonly accessible_component_mdi_zorder:number
@@ -1907,18 +1813,13 @@ export interface Socket {
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-value", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-}
-export interface Socket_Static {
-    name: string
-    new (config?: Socket_ConstructProps): Socket
-}
-export declare class Socket_Static {
+    static name: string
+    static new (config?: Socket_ConstructProps): Socket
     new(): Socket
 }
-export declare var Socket: Socket_Static
 export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface StateSet {
+export class StateSet {
     /* Fields of Atk.StateSet */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -1968,18 +1869,13 @@ export interface StateSet {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: StateSet, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: StateSet_ConstructProps): StateSet
+    static new(): StateSet
 }
-export interface StateSet_Static {
-    name: string
-    new (config?: StateSet_ConstructProps): StateSet
-}
-export declare class StateSet_Static {
-    new(): StateSet
-}
-export declare var StateSet: StateSet_Static
 export interface Util_ConstructProps extends GObject.Object_ConstructProps {
 }
-export interface Util {
+export class Util {
     /* Fields of Atk.Util */
     parent:GObject.Object
     /* Fields of GObject.Object */
@@ -2018,33 +1914,22 @@ export interface Util {
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Util, pspec: GObject.ParamSpec) => void))
+    static name: string
+    static new (config?: Util_ConstructProps): Util
 }
-export interface Util_Static {
-    name: string
-    new (config?: Util_ConstructProps): Util
-}
-export declare var Util: Util_Static
-export interface Attribute {
+export class Attribute {
     /* Fields of Atk.Attribute */
     name:string
     value:string
+    static name: string
+    static set_free(attrib_set: AttributeSet): void
 }
-export interface Attribute_Static {
-    name: string
-}
-export declare class Attribute_Static {
-    set_free(attrib_set: AttributeSet): void
-}
-export declare var Attribute: Attribute_Static
-export interface Implementor {
+export class Implementor {
     /* Methods of Atk.Implementor */
     ref_accessible(): Object
+    static name: string
 }
-export interface Implementor_Static {
-    name: string
-}
-export declare var Implementor: Implementor_Static
-export interface KeyEventStruct {
+export class KeyEventStruct {
     /* Fields of Atk.KeyEventStruct */
     type:number
     state:number
@@ -2053,69 +1938,49 @@ export interface KeyEventStruct {
     string:string
     keycode:number
     timestamp:number
+    static name: string
 }
-export interface KeyEventStruct_Static {
-    name: string
-}
-export declare var KeyEventStruct: KeyEventStruct_Static
-export interface PropertyValues {
+export class PropertyValues {
     /* Fields of Atk.PropertyValues */
     property_name:string
     old_value:any
     new_value:any
+    static name: string
 }
-export interface PropertyValues_Static {
-    name: string
-}
-export declare var PropertyValues: PropertyValues_Static
-export interface Range {
+export class Range {
     /* Methods of Atk.Range */
     copy(): Range
     free(): void
     get_description(): string
     get_lower_limit(): number
     get_upper_limit(): number
+    static name: string
+    static new(lower_limit: number, upper_limit: number, description: string): Range
+    static new(lower_limit: number, upper_limit: number, description: string): Range
 }
-export interface Range_Static {
-    name: string
-    new(lower_limit: number, upper_limit: number, description: string): Range
-}
-export declare class Range_Static {
-    new(lower_limit: number, upper_limit: number, description: string): Range
-}
-export declare var Range: Range_Static
-export interface Rectangle {
+export class Rectangle {
     /* Fields of Atk.Rectangle */
     x:number
     y:number
     width:number
     height:number
+    static name: string
 }
-export interface Rectangle_Static {
-    name: string
-}
-export declare var Rectangle: Rectangle_Static
-export interface TextRange {
+export class TextRange {
     /* Fields of Atk.TextRange */
     bounds:TextRectangle
     start_offset:number
     end_offset:number
     content:string
+    static name: string
 }
-export interface TextRange_Static {
-    name: string
-}
-export declare var TextRange: TextRange_Static
-export interface TextRectangle {
+export class TextRectangle {
     /* Fields of Atk.TextRectangle */
     x:number
     y:number
     width:number
     height:number
+    static name: string
 }
-export interface TextRectangle_Static {
-    name: string
-}
-export declare var TextRectangle: TextRectangle_Static
 type AttributeSet = GLib.SList
 type State = number

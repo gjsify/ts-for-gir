@@ -1526,16 +1526,13 @@ export interface UnixFDSourceFunc {
 export interface VoidFunc {
     (): void
 }
-export interface Array {
+export class Array {
     /* Fields of GLib.Array */
     data:string
     len:number
+    static name: string
 }
-export interface Array_Static {
-    name: string
-}
-export declare var Array: Array_Static
-export interface AsyncQueue {
+export class AsyncQueue {
     /* Methods of GLib.AsyncQueue */
     length(): number
     length_unlocked(): number
@@ -1558,12 +1555,9 @@ export interface AsyncQueue {
     unlock(): void
     unref(): void
     unref_and_unlock(): void
+    static name: string
 }
-export interface AsyncQueue_Static {
-    name: string
-}
-export declare var AsyncQueue: AsyncQueue_Static
-export interface BookmarkFile {
+export class BookmarkFile {
     /* Methods of GLib.BookmarkFile */
     add_application(uri: string, name: string | null, exec: string | null): void
     add_group(uri: string, group: string): void
@@ -1603,31 +1597,21 @@ export interface BookmarkFile {
     set_visited(uri: string, visited: number): void
     to_data(): [ /* returnType */ string, /* length */ number | null ]
     to_file(filename: string): boolean
+    static name: string
+    static error_quark(): Quark
 }
-export interface BookmarkFile_Static {
-    name: string
-}
-export declare class BookmarkFile_Static {
-    error_quark(): Quark
-}
-export declare var BookmarkFile: BookmarkFile_Static
-export interface ByteArray {
+export class ByteArray {
     /* Fields of GLib.ByteArray */
     data:number
     len:number
+    static name: string
+    static free(array: Gjs.byteArray.ByteArray, free_segment: boolean): number
+    static free_to_bytes(array: Gjs.byteArray.ByteArray): Bytes
+    static new(): Gjs.byteArray.ByteArray
+    static new_take(data: Gjs.byteArray.ByteArray): Gjs.byteArray.ByteArray
+    static unref(array: Gjs.byteArray.ByteArray): void
 }
-export interface ByteArray_Static {
-    name: string
-}
-export declare class ByteArray_Static {
-    free(array: Gjs.byteArray.ByteArray, free_segment: boolean): number
-    free_to_bytes(array: Gjs.byteArray.ByteArray): Bytes
-    new(): Gjs.byteArray.ByteArray
-    new_take(data: Gjs.byteArray.ByteArray): Gjs.byteArray.ByteArray
-    unref(array: Gjs.byteArray.ByteArray): void
-}
-export declare var ByteArray: ByteArray_Static
-export interface Bytes {
+export class Bytes {
     /* Methods of GLib.Bytes */
     compare(bytes2: Bytes): number
     equal(bytes2: Bytes): boolean
@@ -1639,34 +1623,24 @@ export interface Bytes {
     unref(): void
     unref_to_array(): Gjs.byteArray.ByteArray
     unref_to_data(): [ /* returnType */ Gjs.byteArray.ByteArray, /* size */ number ]
+    static name: string
+    static new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
+    static new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
+    static new_take(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
 }
-export interface Bytes_Static {
-    name: string
-    new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
-}
-export declare class Bytes_Static {
-    new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
-    new_take(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
-}
-export declare var Bytes: Bytes_Static
-export interface Checksum {
+export class Checksum {
     /* Methods of GLib.Checksum */
     copy(): Checksum
     free(): void
     get_string(): string
     reset(): void
     update(data: Gjs.byteArray.ByteArray): void
+    static name: string
+    static new(checksum_type: ChecksumType): Checksum
+    static new(checksum_type: ChecksumType): Checksum
+    static type_get_length(checksum_type: ChecksumType): number
 }
-export interface Checksum_Static {
-    name: string
-    new(checksum_type: ChecksumType): Checksum
-}
-export declare class Checksum_Static {
-    new(checksum_type: ChecksumType): Checksum
-    type_get_length(checksum_type: ChecksumType): number
-}
-export declare var Checksum: Checksum_Static
-export interface Cond {
+export class Cond {
     /* Fields of GLib.Cond */
     /* Methods of GLib.Cond */
     broadcast(): void
@@ -1675,18 +1649,12 @@ export interface Cond {
     signal(): void
     wait(mutex: Mutex): void
     wait_until(mutex: Mutex, end_time: number): boolean
+    static name: string
 }
-export interface Cond_Static {
-    name: string
+export class Data {
+    static name: string
 }
-export declare var Cond: Cond_Static
-export interface Data {
-}
-export interface Data_Static {
-    name: string
-}
-export declare var Data: Data_Static
-export interface Date {
+export class Date {
     /* Fields of GLib.Date */
     julian_days:number
     julian:number
@@ -1729,29 +1697,24 @@ export interface Date {
     subtract_years(n_years: number): void
     to_struct_tm(tm: object): void
     valid(): boolean
+    static name: string
+    static new(): Date
+    static new(): Date
+    static new_dmy(day: DateDay, month: DateMonth, year: DateYear): Date
+    static new_julian(julian_day: number): Date
+    static get_days_in_month(month: DateMonth, year: DateYear): number
+    static get_monday_weeks_in_year(year: DateYear): number
+    static get_sunday_weeks_in_year(year: DateYear): number
+    static is_leap_year(year: DateYear): boolean
+    static strftime(s: string, slen: number, format: string, date: Date): number
+    static valid_day(day: DateDay): boolean
+    static valid_dmy(day: DateDay, month: DateMonth, year: DateYear): boolean
+    static valid_julian(julian_date: number): boolean
+    static valid_month(month: DateMonth): boolean
+    static valid_weekday(weekday: DateWeekday): boolean
+    static valid_year(year: DateYear): boolean
 }
-export interface Date_Static {
-    name: string
-    new(): Date
-}
-export declare class Date_Static {
-    new(): Date
-    new_dmy(day: DateDay, month: DateMonth, year: DateYear): Date
-    new_julian(julian_day: number): Date
-    get_days_in_month(month: DateMonth, year: DateYear): number
-    get_monday_weeks_in_year(year: DateYear): number
-    get_sunday_weeks_in_year(year: DateYear): number
-    is_leap_year(year: DateYear): boolean
-    strftime(s: string, slen: number, format: string, date: Date): number
-    valid_day(day: DateDay): boolean
-    valid_dmy(day: DateDay, month: DateMonth, year: DateYear): boolean
-    valid_julian(julian_date: number): boolean
-    valid_month(month: DateMonth): boolean
-    valid_weekday(weekday: DateWeekday): boolean
-    valid_year(year: DateYear): boolean
-}
-export declare var Date: Date_Static
-export interface DateTime {
+export class DateTime {
     /* Methods of GLib.DateTime */
     add(timespan: TimeSpan): DateTime
     add_days(days: number): DateTime
@@ -1787,50 +1750,37 @@ export interface DateTime {
     to_unix(): number
     to_utc(): DateTime
     unref(): void
+    static name: string
+    static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    static new_from_timeval_local(tv: TimeVal): DateTime
+    static new_from_timeval_utc(tv: TimeVal): DateTime
+    static new_from_unix_local(t: number): DateTime
+    static new_from_unix_utc(t: number): DateTime
+    static new_local(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    static new_now(tz: TimeZone): DateTime
+    static new_now_local(): DateTime
+    static new_now_utc(): DateTime
+    static new_utc(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    static compare(dt1: object, dt2: object): number
+    static equal(dt1: object, dt2: object): boolean
+    static hash(datetime: object): number
 }
-export interface DateTime_Static {
-    name: string
-    new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
-}
-export declare class DateTime_Static {
-    new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
-    new_from_timeval_local(tv: TimeVal): DateTime
-    new_from_timeval_utc(tv: TimeVal): DateTime
-    new_from_unix_local(t: number): DateTime
-    new_from_unix_utc(t: number): DateTime
-    new_local(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
-    new_now(tz: TimeZone): DateTime
-    new_now_local(): DateTime
-    new_now_utc(): DateTime
-    new_utc(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
-    compare(dt1: object, dt2: object): number
-    equal(dt1: object, dt2: object): boolean
-    hash(datetime: object): number
-}
-export declare var DateTime: DateTime_Static
-export interface DebugKey {
+export class DebugKey {
     /* Fields of GLib.DebugKey */
     key:string
     value:number
+    static name: string
 }
-export interface DebugKey_Static {
-    name: string
-}
-export declare var DebugKey: DebugKey_Static
-export interface Dir {
+export class Dir {
     /* Methods of GLib.Dir */
     close(): void
     read_name(): string
     rewind(): void
+    static name: string
+    static make_tmp(tmpl: string): string
 }
-export interface Dir_Static {
-    name: string
-}
-export declare class Dir_Static {
-    make_tmp(tmpl: string): string
-}
-export declare var Dir: Dir_Static
-export interface Error {
+export class Error {
     /* Fields of GLib.Error */
     domain:Quark
     code:number
@@ -1839,36 +1789,26 @@ export interface Error {
     copy(): Error
     free(): void
     matches(domain: Quark, code: number): boolean
+    static name: string
+    static new_literal(domain: Quark, code: number, message: string): Error
 }
-export interface Error_Static {
-    name: string
+export class HashTable {
+    static name: string
+    static add(hash_table: HashTable, key: object | null): boolean
+    static contains(hash_table: HashTable, key: object | null): boolean
+    static destroy(hash_table: HashTable): void
+    static insert(hash_table: HashTable, key: object | null, value: object | null): boolean
+    static lookup(hash_table: HashTable, key: object | null): object | null
+    static lookup_extended(hash_table: HashTable, lookup_key: object | null): [ /* returnType */ boolean, /* orig_key */ object | null, /* value */ object | null ]
+    static remove(hash_table: HashTable, key: object | null): boolean
+    static remove_all(hash_table: HashTable): void
+    static replace(hash_table: HashTable, key: object | null, value: object | null): boolean
+    static size(hash_table: HashTable): number
+    static steal(hash_table: HashTable, key: object | null): boolean
+    static steal_all(hash_table: HashTable): void
+    static unref(hash_table: HashTable): void
 }
-export declare class Error_Static {
-    new_literal(domain: Quark, code: number, message: string): Error
-}
-export declare var Error: Error_Static
-export interface HashTable {
-}
-export interface HashTable_Static {
-    name: string
-}
-export declare class HashTable_Static {
-    add(hash_table: HashTable, key: object | null): boolean
-    contains(hash_table: HashTable, key: object | null): boolean
-    destroy(hash_table: HashTable): void
-    insert(hash_table: HashTable, key: object | null, value: object | null): boolean
-    lookup(hash_table: HashTable, key: object | null): object | null
-    lookup_extended(hash_table: HashTable, lookup_key: object | null): [ /* returnType */ boolean, /* orig_key */ object | null, /* value */ object | null ]
-    remove(hash_table: HashTable, key: object | null): boolean
-    remove_all(hash_table: HashTable): void
-    replace(hash_table: HashTable, key: object | null, value: object | null): boolean
-    size(hash_table: HashTable): number
-    steal(hash_table: HashTable, key: object | null): boolean
-    steal_all(hash_table: HashTable): void
-    unref(hash_table: HashTable): void
-}
-export declare var HashTable: HashTable_Static
-export interface HashTableIter {
+export class HashTableIter {
     /* Fields of GLib.HashTableIter */
     /* Methods of GLib.HashTableIter */
     init(hash_table: HashTable): void
@@ -1876,23 +1816,17 @@ export interface HashTableIter {
     remove(): void
     replace(value: object | null): void
     steal(): void
+    static name: string
 }
-export interface HashTableIter_Static {
-    name: string
-}
-export declare var HashTableIter: HashTableIter_Static
-export interface Hmac {
+export class Hmac {
     /* Methods of GLib.Hmac */
     get_digest(buffer: number, digest_len: number): void
     get_string(): string
     unref(): void
     update(data: Gjs.byteArray.ByteArray): void
+    static name: string
 }
-export interface Hmac_Static {
-    name: string
-}
-export declare var Hmac: Hmac_Static
-export interface Hook {
+export class Hook {
     /* Fields of GLib.Hook */
     data:object
     next:Hook
@@ -1904,20 +1838,15 @@ export interface Hook {
     destroy:DestroyNotify
     /* Methods of GLib.Hook */
     compare_ids(sibling: Hook): number
+    static name: string
+    static destroy(hook_list: HookList, hook_id: number): boolean
+    static destroy_link(hook_list: HookList, hook: Hook): void
+    static free(hook_list: HookList, hook: Hook): void
+    static insert_before(hook_list: HookList, sibling: Hook | null, hook: Hook): void
+    static prepend(hook_list: HookList, hook: Hook): void
+    static unref(hook_list: HookList, hook: Hook): void
 }
-export interface Hook_Static {
-    name: string
-}
-export declare class Hook_Static {
-    destroy(hook_list: HookList, hook_id: number): boolean
-    destroy_link(hook_list: HookList, hook: Hook): void
-    free(hook_list: HookList, hook: Hook): void
-    insert_before(hook_list: HookList, sibling: Hook | null, hook: Hook): void
-    prepend(hook_list: HookList, hook: Hook): void
-    unref(hook_list: HookList, hook: Hook): void
-}
-export declare var Hook: Hook_Static
-export interface HookList {
+export class HookList {
     /* Fields of GLib.HookList */
     seq_id:number
     hook_size:number
@@ -1931,20 +1860,14 @@ export interface HookList {
     init(hook_size: number): void
     invoke(may_recurse: boolean): void
     invoke_check(may_recurse: boolean): void
+    static name: string
 }
-export interface HookList_Static {
-    name: string
-}
-export declare var HookList: HookList_Static
-export interface IConv {
+export class IConv {
     /* Methods of GLib.IConv */
     close(): number
+    static name: string
 }
-export interface IConv_Static {
-    name: string
-}
-export declare var IConv: IConv_Static
-export interface IOChannel {
+export class IOChannel {
     /* Fields of GLib.IOChannel */
     /* Methods of GLib.IOChannel */
     close(): void
@@ -1978,18 +1901,13 @@ export interface IOChannel {
     write(buf: string, count: number, bytes_written: number): IOError
     write_chars(buf: Gjs.byteArray.ByteArray, count: number): [ /* returnType */ IOStatus, /* bytes_written */ number ]
     write_unichar(thechar: number): IOStatus
+    static name: string
+    static new_file(filename: string, mode: string): IOChannel
+    static unix_new(fd: number): IOChannel
+    static error_from_errno(en: number): IOChannelError
+    static error_quark(): Quark
 }
-export interface IOChannel_Static {
-    name: string
-}
-export declare class IOChannel_Static {
-    new_file(filename: string, mode: string): IOChannel
-    unix_new(fd: number): IOChannel
-    error_from_errno(en: number): IOChannelError
-    error_quark(): Quark
-}
-export declare var IOChannel: IOChannel_Static
-export interface IOFuncs {
+export class IOFuncs {
     /* Fields of GLib.IOFuncs */
     io_read:any
     io_write:any
@@ -1999,12 +1917,9 @@ export interface IOFuncs {
     io_free:any
     io_set_flags:any
     io_get_flags:any
+    static name: string
 }
-export interface IOFuncs_Static {
-    name: string
-}
-export declare var IOFuncs: IOFuncs_Static
-export interface KeyFile {
+export class KeyFile {
     /* Methods of GLib.KeyFile */
     get_boolean(group_name: string, key: string): boolean
     get_boolean_list(group_name: string, key: string): [ /* returnType */ boolean[], /* length */ number ]
@@ -2050,37 +1965,26 @@ export interface KeyFile {
     set_value(group_name: string, key: string, value: string): void
     to_data(): [ /* returnType */ string, /* length */ number | null ]
     unref(): void
+    static name: string
+    static new(): KeyFile
+    static new(): KeyFile
+    static error_quark(): Quark
 }
-export interface KeyFile_Static {
-    name: string
-    new(): KeyFile
-}
-export declare class KeyFile_Static {
-    new(): KeyFile
-    error_quark(): Quark
-}
-export declare var KeyFile: KeyFile_Static
-export interface List {
+export class List {
     /* Fields of GLib.List */
     data:object
     next:List
     prev:List
+    static name: string
 }
-export interface List_Static {
-    name: string
-}
-export declare var List: List_Static
-export interface LogField {
+export class LogField {
     /* Fields of GLib.LogField */
     key:string
     value:object
     length:number
+    static name: string
 }
-export interface LogField_Static {
-    name: string
-}
-export declare var LogField: LogField_Static
-export interface MainContext {
+export class MainContext {
     /* Methods of GLib.MainContext */
     acquire(): boolean
     add_poll(fd: PollFD, priority: number): void
@@ -2103,19 +2007,14 @@ export interface MainContext {
     unref(): void
     wait(cond: Cond, mutex: Mutex): boolean
     wakeup(): void
+    static name: string
+    static new(): MainContext
+    static new(): MainContext
+    static default(): MainContext
+    static get_thread_default(): MainContext
+    static ref_thread_default(): MainContext
 }
-export interface MainContext_Static {
-    name: string
-    new(): MainContext
-}
-export declare class MainContext_Static {
-    new(): MainContext
-    default(): MainContext
-    get_thread_default(): MainContext
-    ref_thread_default(): MainContext
-}
-export declare var MainContext: MainContext_Static
-export interface MainLoop {
+export class MainLoop {
     /* Methods of GLib.MainLoop */
     get_context(): MainContext
     is_running(): boolean
@@ -2123,16 +2022,11 @@ export interface MainLoop {
     ref(): MainLoop
     run(): void
     unref(): void
+    static name: string
+    static new(context: MainContext | null, is_running: boolean): MainLoop
+    static new(context: MainContext | null, is_running: boolean): MainLoop
 }
-export interface MainLoop_Static {
-    name: string
-    new(context: MainContext | null, is_running: boolean): MainLoop
-}
-export declare class MainLoop_Static {
-    new(context: MainContext | null, is_running: boolean): MainLoop
-}
-export declare var MainLoop: MainLoop_Static
-export interface MappedFile {
+export class MappedFile {
     /* Methods of GLib.MappedFile */
     free(): void
     get_bytes(): Bytes
@@ -2140,17 +2034,12 @@ export interface MappedFile {
     get_length(): number
     ref(): MappedFile
     unref(): void
+    static name: string
+    static new(filename: string, writable: boolean): MappedFile
+    static new(filename: string, writable: boolean): MappedFile
+    static new_from_fd(fd: number, writable: boolean): MappedFile
 }
-export interface MappedFile_Static {
-    name: string
-    new(filename: string, writable: boolean): MappedFile
-}
-export declare class MappedFile_Static {
-    new(filename: string, writable: boolean): MappedFile
-    new_from_fd(fd: number, writable: boolean): MappedFile
-}
-export declare var MappedFile: MappedFile_Static
-export interface MarkupParseContext {
+export class MarkupParseContext {
     /* Methods of GLib.MarkupParseContext */
     end_parse(): boolean
     free(): void
@@ -2162,28 +2051,20 @@ export interface MarkupParseContext {
     push(parser: MarkupParser, user_data: object | null): void
     ref(): MarkupParseContext
     unref(): void
+    static name: string
+    static new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
+    static new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
 }
-export interface MarkupParseContext_Static {
-    name: string
-    new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
-}
-export declare class MarkupParseContext_Static {
-    new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
-}
-export declare var MarkupParseContext: MarkupParseContext_Static
-export interface MarkupParser {
+export class MarkupParser {
     /* Fields of GLib.MarkupParser */
     start_element:any
     end_element:any
     text:any
     passthrough:any
     error:any
+    static name: string
 }
-export interface MarkupParser_Static {
-    name: string
-}
-export declare var MarkupParser: MarkupParser_Static
-export interface MatchInfo {
+export class MatchInfo {
     /* Methods of GLib.MatchInfo */
     expand_references(string_to_expand: string): string | null
     fetch(match_num: number): string | null
@@ -2200,12 +2081,9 @@ export interface MatchInfo {
     next(): boolean
     ref(): MatchInfo
     unref(): void
+    static name: string
 }
-export interface MatchInfo_Static {
-    name: string
-}
-export declare var MatchInfo: MatchInfo_Static
-export interface MemVTable {
+export class MemVTable {
     /* Fields of GLib.MemVTable */
     malloc:any
     realloc:any
@@ -2213,12 +2091,9 @@ export interface MemVTable {
     calloc:any
     try_malloc:any
     try_realloc:any
+    static name: string
 }
-export interface MemVTable_Static {
-    name: string
-}
-export declare var MemVTable: MemVTable_Static
-export interface Node {
+export class Node {
     /* Fields of GLib.Node */
     data:object
     next:Node
@@ -2236,26 +2111,18 @@ export interface Node {
     n_nodes(flags: TraverseFlags): number
     reverse_children(): void
     unlink(): void
+    static name: string
 }
-export interface Node_Static {
-    name: string
-}
-export declare var Node: Node_Static
-export interface Once {
+export class Once {
     /* Fields of GLib.Once */
     status:OnceStatus
     retval:object
     /* Methods of GLib.Once */
+    static name: string
+    static init_enter(location: object): boolean
+    static init_leave(location: object, result: number): void
 }
-export interface Once_Static {
-    name: string
-}
-export declare class Once_Static {
-    init_enter(location: object): boolean
-    init_leave(location: object, result: number): void
-}
-export declare var Once: Once_Static
-export interface OptionContext {
+export class OptionContext {
     /* Methods of GLib.OptionContext */
     add_group(group: OptionGroup): void
     add_main_entries(entries: OptionEntry, translation_domain: string | null): void
@@ -2277,12 +2144,9 @@ export interface OptionContext {
     set_summary(summary: string | null): void
     set_translate_func(func: TranslateFunc | null, data: object | null, destroy_notify: DestroyNotify | null): void
     set_translation_domain(domain: string): void
+    static name: string
 }
-export interface OptionContext_Static {
-    name: string
-}
-export declare var OptionContext: OptionContext_Static
-export interface OptionEntry {
+export class OptionEntry {
     /* Fields of GLib.OptionEntry */
     long_name:string
     short_name:number
@@ -2291,12 +2155,9 @@ export interface OptionEntry {
     arg_data:object
     description:string
     arg_description:string
+    static name: string
 }
-export interface OptionEntry_Static {
-    name: string
-}
-export declare var OptionEntry: OptionEntry_Static
-export interface OptionGroup {
+export class OptionGroup {
     /* Methods of GLib.OptionGroup */
     add_entries(entries: OptionEntry): void
     free(): void
@@ -2304,55 +2165,38 @@ export interface OptionGroup {
     set_translate_func(func: TranslateFunc | null, data: object | null, destroy_notify: DestroyNotify | null): void
     set_translation_domain(domain: string): void
     unref(): void
+    static name: string
+    static new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
+    static new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
 }
-export interface OptionGroup_Static {
-    name: string
-    new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
-}
-export declare class OptionGroup_Static {
-    new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
-}
-export declare var OptionGroup: OptionGroup_Static
-export interface PatternSpec {
+export class PatternSpec {
     /* Methods of GLib.PatternSpec */
     equal(pspec2: PatternSpec): boolean
     free(): void
+    static name: string
 }
-export interface PatternSpec_Static {
-    name: string
-}
-export declare var PatternSpec: PatternSpec_Static
-export interface PollFD {
+export class PollFD {
     /* Fields of GLib.PollFD */
     fd:number
     events:number
     revents:number
+    static name: string
 }
-export interface PollFD_Static {
-    name: string
-}
-export declare var PollFD: PollFD_Static
-export interface Private {
+export class Private {
     /* Fields of GLib.Private */
     /* Methods of GLib.Private */
     get(): object | null
     replace(value: object | null): void
     set(value: object | null): void
+    static name: string
 }
-export interface Private_Static {
-    name: string
-}
-export declare var Private: Private_Static
-export interface PtrArray {
+export class PtrArray {
     /* Fields of GLib.PtrArray */
     pdata:object
     len:number
+    static name: string
 }
-export interface PtrArray_Static {
-    name: string
-}
-export declare var PtrArray: PtrArray_Static
-export interface Queue {
+export class Queue {
     /* Fields of GLib.Queue */
     head:List
     tail:List
@@ -2377,12 +2221,9 @@ export interface Queue {
     remove(data: object | null): boolean
     remove_all(data: object | null): number
     reverse(): void
+    static name: string
 }
-export interface Queue_Static {
-    name: string
-}
-export declare var Queue: Queue_Static
-export interface RWLock {
+export class RWLock {
     /* Fields of GLib.RWLock */
     /* Methods of GLib.RWLock */
     clear(): void
@@ -2393,12 +2234,9 @@ export interface RWLock {
     writer_lock(): void
     writer_trylock(): boolean
     writer_unlock(): void
+    static name: string
 }
-export interface RWLock_Static {
-    name: string
-}
-export declare var RWLock: RWLock_Static
-export interface Rand {
+export class Rand {
     /* Methods of GLib.Rand */
     double(): number
     double_range(begin: number, end: number): number
@@ -2407,12 +2245,9 @@ export interface Rand {
     int_range(begin: number, end: number): number
     set_seed(seed: number): void
     set_seed_array(seed: number, seed_length: number): void
+    static name: string
 }
-export interface Rand_Static {
-    name: string
-}
-export declare var Rand: Rand_Static
-export interface RecMutex {
+export class RecMutex {
     /* Fields of GLib.RecMutex */
     /* Methods of GLib.RecMutex */
     clear(): void
@@ -2420,12 +2255,9 @@ export interface RecMutex {
     lock(): void
     trylock(): boolean
     unlock(): void
+    static name: string
 }
-export interface RecMutex_Static {
-    name: string
-}
-export declare var RecMutex: RecMutex_Static
-export interface Regex {
+export class Regex {
     /* Methods of GLib.Regex */
     get_capture_count(): number
     get_compile_flags(): RegexCompileFlags
@@ -2445,31 +2277,23 @@ export interface Regex {
     split(string: string, match_options: RegexMatchFlags): string[]
     split_full(string: string[], start_position: number, match_options: RegexMatchFlags, max_tokens: number): string[]
     unref(): void
+    static name: string
+    static new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
+    static new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
+    static check_replacement(replacement: string): [ /* returnType */ boolean, /* has_references */ boolean | null ]
+    static error_quark(): Quark
+    static escape_nul(string: string, length: number): string
+    static escape_string(string: string[]): string
+    static match_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): boolean
+    static split_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): string[]
 }
-export interface Regex_Static {
-    name: string
-    new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
-}
-export declare class Regex_Static {
-    new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
-    check_replacement(replacement: string): [ /* returnType */ boolean, /* has_references */ boolean | null ]
-    error_quark(): Quark
-    escape_nul(string: string, length: number): string
-    escape_string(string: string[]): string
-    match_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): boolean
-    split_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): string[]
-}
-export declare var Regex: Regex_Static
-export interface SList {
+export class SList {
     /* Fields of GLib.SList */
     data:object
     next:SList
+    static name: string
 }
-export interface SList_Static {
-    name: string
-}
-export declare var SList: SList_Static
-export interface Scanner {
+export class Scanner {
     /* Fields of GLib.Scanner */
     user_data:object
     max_parse_errors:number
@@ -2503,12 +2327,9 @@ export interface Scanner {
     set_scope(scope_id: number): number
     sync_file_offset(): void
     unexp_token(expected_token: TokenType, identifier_spec: string, symbol_spec: string, symbol_name: string, message: string, is_error: number): void
+    static name: string
 }
-export interface Scanner_Static {
-    name: string
-}
-export declare var Scanner: Scanner_Static
-export interface ScannerConfig {
+export class ScannerConfig {
     /* Fields of GLib.ScannerConfig */
     cset_skip_characters:string
     cset_identifier_first:string
@@ -2536,12 +2357,9 @@ export interface ScannerConfig {
     symbol_2_token:number
     scope_0_fallback:number
     store_int64:number
+    static name: string
 }
-export interface ScannerConfig_Static {
-    name: string
-}
-export declare var ScannerConfig: ScannerConfig_Static
-export interface Sequence {
+export class Sequence {
     /* Methods of GLib.Sequence */
     append(data: object | null): SequenceIter
     free(): void
@@ -2551,23 +2369,18 @@ export interface Sequence {
     get_length(): number
     is_empty(): boolean
     prepend(data: object | null): SequenceIter
+    static name: string
+    static get(iter: SequenceIter): object | null
+    static insert_before(iter: SequenceIter, data: object | null): SequenceIter
+    static move(src: SequenceIter, dest: SequenceIter): void
+    static move_range(dest: SequenceIter, begin: SequenceIter, end: SequenceIter): void
+    static range_get_midpoint(begin: SequenceIter, end: SequenceIter): SequenceIter
+    static remove(iter: SequenceIter): void
+    static remove_range(begin: SequenceIter, end: SequenceIter): void
+    static set(iter: SequenceIter, data: object | null): void
+    static swap(a: SequenceIter, b: SequenceIter): void
 }
-export interface Sequence_Static {
-    name: string
-}
-export declare class Sequence_Static {
-    get(iter: SequenceIter): object | null
-    insert_before(iter: SequenceIter, data: object | null): SequenceIter
-    move(src: SequenceIter, dest: SequenceIter): void
-    move_range(dest: SequenceIter, begin: SequenceIter, end: SequenceIter): void
-    range_get_midpoint(begin: SequenceIter, end: SequenceIter): SequenceIter
-    remove(iter: SequenceIter): void
-    remove_range(begin: SequenceIter, end: SequenceIter): void
-    set(iter: SequenceIter, data: object | null): void
-    swap(a: SequenceIter, b: SequenceIter): void
-}
-export declare var Sequence: Sequence_Static
-export interface SequenceIter {
+export class SequenceIter {
     /* Methods of GLib.SequenceIter */
     compare(b: SequenceIter): number
     get_position(): number
@@ -2577,12 +2390,9 @@ export interface SequenceIter {
     move(delta: number): SequenceIter
     next(): SequenceIter
     prev(): SequenceIter
+    static name: string
 }
-export interface SequenceIter_Static {
-    name: string
-}
-export declare var SequenceIter: SequenceIter_Static
-export interface Source {
+export class Source {
     /* Fields of GLib.Source */
     /* Methods of GLib.Source */
     add_child_source(child_source: Source): void
@@ -2613,51 +2423,34 @@ export interface Source {
     set_priority(priority: number): void
     set_ready_time(ready_time: number): void
     unref(): void
+    static name: string
+    static new(source_funcs: SourceFuncs, struct_size: number): Source
+    static new(source_funcs: SourceFuncs, struct_size: number): Source
+    static remove(tag: number): boolean
+    static remove_by_funcs_user_data(funcs: SourceFuncs, user_data: object | null): boolean
+    static remove_by_user_data(user_data: object | null): boolean
+    static set_name_by_id(tag: number, name: string): void
 }
-export interface Source_Static {
-    name: string
-    new(source_funcs: SourceFuncs, struct_size: number): Source
-}
-export declare class Source_Static {
-    new(source_funcs: SourceFuncs, struct_size: number): Source
-    remove(tag: number): boolean
-    remove_by_funcs_user_data(funcs: SourceFuncs, user_data: object | null): boolean
-    remove_by_user_data(user_data: object | null): boolean
-    set_name_by_id(tag: number, name: string): void
-}
-export declare var Source: Source_Static
-export interface SourceCallbackFuncs {
+export class SourceCallbackFuncs {
     /* Fields of GLib.SourceCallbackFuncs */
     ref:any
     unref:any
+    static name: string
 }
-export interface SourceCallbackFuncs_Static {
-    name: string
-}
-export declare var SourceCallbackFuncs: SourceCallbackFuncs_Static
-export interface SourceFuncs {
+export class SourceFuncs {
     /* Fields of GLib.SourceFuncs */
     prepare:any
     check:any
     finalize:any
+    static name: string
 }
-export interface SourceFuncs_Static {
-    name: string
+export class SourcePrivate {
+    static name: string
 }
-export declare var SourceFuncs: SourceFuncs_Static
-export interface SourcePrivate {
+export class StatBuf {
+    static name: string
 }
-export interface SourcePrivate_Static {
-    name: string
-}
-export declare var SourcePrivate: SourcePrivate_Static
-export interface StatBuf {
-}
-export interface StatBuf_Static {
-    name: string
-}
-export declare var StatBuf: StatBuf_Static
-export interface String {
+export class String {
     /* Fields of GLib.String */
     str:string
     len:number
@@ -2690,30 +2483,21 @@ export interface String {
     set_size(len: number): String
     truncate(len: number): String
     up(): String
+    static name: string
 }
-export interface String_Static {
-    name: string
-}
-export declare var String: String_Static
-export interface StringChunk {
+export class StringChunk {
     /* Methods of GLib.StringChunk */
     clear(): void
     free(): void
     insert(string: string): string
     insert_const(string: string): string
     insert_len(string: string, len: number): string
+    static name: string
 }
-export interface StringChunk_Static {
-    name: string
+export class TestCase {
+    static name: string
 }
-export declare var StringChunk: StringChunk_Static
-export interface TestCase {
-}
-export interface TestCase_Static {
-    name: string
-}
-export declare var TestCase: TestCase_Static
-export interface TestConfig {
+export class TestConfig {
     /* Fields of GLib.TestConfig */
     test_initialized:boolean
     test_quick:boolean
@@ -2721,22 +2505,16 @@ export interface TestConfig {
     test_verbose:boolean
     test_quiet:boolean
     test_undefined:boolean
+    static name: string
 }
-export interface TestConfig_Static {
-    name: string
-}
-export declare var TestConfig: TestConfig_Static
-export interface TestLogBuffer {
+export class TestLogBuffer {
     /* Fields of GLib.TestLogBuffer */
     /* Methods of GLib.TestLogBuffer */
     free(): void
     push(n_bytes: number, bytes: number): void
+    static name: string
 }
-export interface TestLogBuffer_Static {
-    name: string
-}
-export declare var TestLogBuffer: TestLogBuffer_Static
-export interface TestLogMsg {
+export class TestLogMsg {
     /* Fields of GLib.TestLogMsg */
     log_type:TestLogType
     n_strings:number
@@ -2745,37 +2523,26 @@ export interface TestLogMsg {
     nums:number
     /* Methods of GLib.TestLogMsg */
     free(): void
+    static name: string
 }
-export interface TestLogMsg_Static {
-    name: string
-}
-export declare var TestLogMsg: TestLogMsg_Static
-export interface TestSuite {
+export class TestSuite {
     /* Methods of GLib.TestSuite */
     add(test_case: TestCase): void
     add_suite(nestedsuite: TestSuite): void
+    static name: string
 }
-export interface TestSuite_Static {
-    name: string
-}
-export declare var TestSuite: TestSuite_Static
-export interface Thread {
+export class Thread {
     /* Methods of GLib.Thread */
     join(): object | null
     ref(): Thread
     unref(): void
+    static name: string
+    static error_quark(): Quark
+    static exit(retval: object | null): void
+    static self(): Thread
+    static yield(): void
 }
-export interface Thread_Static {
-    name: string
-}
-export declare class Thread_Static {
-    error_quark(): Quark
-    exit(retval: object | null): void
-    self(): Thread
-    yield(): void
-}
-export declare var Thread: Thread_Static
-export interface ThreadPool {
+export class ThreadPool {
     /* Fields of GLib.ThreadPool */
     func:Func
     user_data:object
@@ -2788,35 +2555,25 @@ export interface ThreadPool {
     push(data: object | null): boolean
     set_max_threads(max_threads: number): boolean
     unprocessed(): number
+    static name: string
+    static get_max_idle_time(): number
+    static get_max_unused_threads(): number
+    static get_num_unused_threads(): number
+    static set_max_idle_time(interval: number): void
+    static set_max_unused_threads(max_threads: number): void
+    static stop_unused_threads(): void
 }
-export interface ThreadPool_Static {
-    name: string
-}
-export declare class ThreadPool_Static {
-    get_max_idle_time(): number
-    get_max_unused_threads(): number
-    get_num_unused_threads(): number
-    set_max_idle_time(interval: number): void
-    set_max_unused_threads(max_threads: number): void
-    stop_unused_threads(): void
-}
-export declare var ThreadPool: ThreadPool_Static
-export interface TimeVal {
+export class TimeVal {
     /* Fields of GLib.TimeVal */
     tv_sec:number
     tv_usec:number
     /* Methods of GLib.TimeVal */
     add(microseconds: number): void
     to_iso8601(): string | null
+    static name: string
+    static from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
 }
-export interface TimeVal_Static {
-    name: string
-}
-export declare class TimeVal_Static {
-    from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
-}
-export declare var TimeVal: TimeVal_Static
-export interface TimeZone {
+export class TimeZone {
     /* Methods of GLib.TimeZone */
     adjust_time(type: TimeType, time_: number): number
     find_interval(type: TimeType, time_: number): number
@@ -2825,18 +2582,13 @@ export interface TimeZone {
     is_dst(interval: number): boolean
     ref(): TimeZone
     unref(): void
+    static name: string
+    static new(identifier: string | null): TimeZone
+    static new(identifier: string | null): TimeZone
+    static new_local(): TimeZone
+    static new_utc(): TimeZone
 }
-export interface TimeZone_Static {
-    name: string
-    new(identifier: string | null): TimeZone
-}
-export declare class TimeZone_Static {
-    new(identifier: string | null): TimeZone
-    new_local(): TimeZone
-    new_utc(): TimeZone
-}
-export declare var TimeZone: TimeZone_Static
-export interface Timer {
+export class Timer {
     /* Methods of GLib.Timer */
     continue(): void
     destroy(): void
@@ -2844,26 +2596,18 @@ export interface Timer {
     reset(): void
     start(): void
     stop(): void
+    static name: string
 }
-export interface Timer_Static {
-    name: string
-}
-export declare var Timer: Timer_Static
-export interface TrashStack {
+export class TrashStack {
     /* Fields of GLib.TrashStack */
     next:TrashStack
+    static name: string
+    static height(stack_p: TrashStack): number
+    static peek(stack_p: TrashStack): object | null
+    static pop(stack_p: TrashStack): object | null
+    static push(stack_p: TrashStack, data_p: object): void
 }
-export interface TrashStack_Static {
-    name: string
-}
-export declare class TrashStack_Static {
-    height(stack_p: TrashStack): number
-    peek(stack_p: TrashStack): object | null
-    pop(stack_p: TrashStack): object | null
-    push(stack_p: TrashStack, data_p: object): void
-}
-export declare var TrashStack: TrashStack_Static
-export interface Tree {
+export class Tree {
     /* Methods of GLib.Tree */
     destroy(): void
     height(): number
@@ -2875,12 +2619,9 @@ export interface Tree {
     replace(key: object | null, value: object | null): void
     steal(key: object | null): boolean
     unref(): void
+    static name: string
 }
-export interface Tree_Static {
-    name: string
-}
-export declare var Tree: Tree_Static
-export interface Variant {
+export class Variant {
     /* Methods of GLib.Variant */
     byteswap(): Variant
     check_format_string(format_string: string, copy_only: boolean): boolean
@@ -2929,45 +2670,40 @@ export interface Variant {
     store(data: object): void
     take_ref(): Variant
     unref(): void
+    static name: string
+    static new_array(child_type: VariantType | null, children: Variant[] | null, n_children: number): Variant
+    static new_boolean(value: boolean): Variant
+    static new_byte(value: number): Variant
+    static new_bytestring(string: Gjs.byteArray.ByteArray): Variant
+    static new_bytestring_array(strv: string[], length: number): Variant
+    static new_dict_entry(key: Variant, value: Variant): Variant
+    static new_double(value: number): Variant
+    static new_fixed_array(element_type: VariantType, elements: object | null, n_elements: number, element_size: number): Variant
+    static new_from_bytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
+    static new_from_data(type: VariantType, data: Gjs.byteArray.ByteArray, size: number, trusted: boolean, notify: DestroyNotify, user_data: object | null): Variant
+    static new_handle(value: number): Variant
+    static new_int16(value: number): Variant
+    static new_int32(value: number): Variant
+    static new_int64(value: number): Variant
+    static new_maybe(child_type: VariantType | null, child: Variant | null): Variant
+    static new_object_path(object_path: string): Variant
+    static new_objv(strv: string[], length: number): Variant
+    static new_signature(signature: string): Variant
+    static new_string(string: string): Variant
+    static new_strv(strv: string[], length: number): Variant
+    static new_tuple(children: Variant[], n_children: number): Variant
+    static new_uint16(value: number): Variant
+    static new_uint32(value: number): Variant
+    static new_uint64(value: number): Variant
+    static new_variant(value: Variant): Variant
+    static is_object_path(string: string): boolean
+    static is_signature(string: string): boolean
+    static parse(type: VariantType | null, text: string, limit: string | null, endptr: string | null): Variant
+    static parse_error_print_context(error: Error, source_str: string): string
+    static parse_error_quark(): Quark
+    static parser_get_error_quark(): Quark
 }
-export interface Variant_Static {
-    name: string
-}
-export declare class Variant_Static {
-    new_array(child_type: VariantType | null, children: Variant[] | null, n_children: number): Variant
-    new_boolean(value: boolean): Variant
-    new_byte(value: number): Variant
-    new_bytestring(string: Gjs.byteArray.ByteArray): Variant
-    new_bytestring_array(strv: string[], length: number): Variant
-    new_dict_entry(key: Variant, value: Variant): Variant
-    new_double(value: number): Variant
-    new_fixed_array(element_type: VariantType, elements: object | null, n_elements: number, element_size: number): Variant
-    new_from_bytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
-    new_from_data(type: VariantType, data: Gjs.byteArray.ByteArray, size: number, trusted: boolean, notify: DestroyNotify, user_data: object | null): Variant
-    new_handle(value: number): Variant
-    new_int16(value: number): Variant
-    new_int32(value: number): Variant
-    new_int64(value: number): Variant
-    new_maybe(child_type: VariantType | null, child: Variant | null): Variant
-    new_object_path(object_path: string): Variant
-    new_objv(strv: string[], length: number): Variant
-    new_signature(signature: string): Variant
-    new_string(string: string): Variant
-    new_strv(strv: string[], length: number): Variant
-    new_tuple(children: Variant[], n_children: number): Variant
-    new_uint16(value: number): Variant
-    new_uint32(value: number): Variant
-    new_uint64(value: number): Variant
-    new_variant(value: Variant): Variant
-    is_object_path(string: string): boolean
-    is_signature(string: string): boolean
-    parse(type: VariantType | null, text: string, limit: string | null, endptr: string | null): Variant
-    parse_error_print_context(error: Error, source_str: string): string
-    parse_error_quark(): Quark
-    parser_get_error_quark(): Quark
-}
-export declare var Variant: Variant_Static
-export interface VariantBuilder {
+export class VariantBuilder {
     /* Methods of GLib.VariantBuilder */
     add_value(value: Variant): void
     close(): void
@@ -2975,16 +2711,11 @@ export interface VariantBuilder {
     open(type: VariantType): void
     ref(): VariantBuilder
     unref(): void
+    static name: string
+    static new(type: VariantType): VariantBuilder
+    static new(type: VariantType): VariantBuilder
 }
-export interface VariantBuilder_Static {
-    name: string
-    new(type: VariantType): VariantBuilder
-}
-export declare class VariantBuilder_Static {
-    new(type: VariantType): VariantBuilder
-}
-export declare var VariantBuilder: VariantBuilder_Static
-export interface VariantDict {
+export class VariantDict {
     /* Methods of GLib.VariantDict */
     clear(): void
     contains(key: string): boolean
@@ -2994,27 +2725,19 @@ export interface VariantDict {
     ref(): VariantDict
     remove(key: string): boolean
     unref(): void
+    static name: string
+    static new(from_asv: Variant | null): VariantDict
+    static new(from_asv: Variant | null): VariantDict
 }
-export interface VariantDict_Static {
-    name: string
-    new(from_asv: Variant | null): VariantDict
-}
-export declare class VariantDict_Static {
-    new(from_asv: Variant | null): VariantDict
-}
-export declare var VariantDict: VariantDict_Static
-export interface VariantIter {
+export class VariantIter {
     /* Fields of GLib.VariantIter */
     /* Methods of GLib.VariantIter */
     free(): void
     n_children(): number
     next_value(): Variant | null
+    static name: string
 }
-export interface VariantIter_Static {
-    name: string
-}
-export declare var VariantIter: VariantIter_Static
-export interface VariantType {
+export class VariantType {
     /* Methods of GLib.VariantType */
     copy(): VariantType
     dup_string(): string
@@ -3037,39 +2760,28 @@ export interface VariantType {
     n_items(): number
     next(): VariantType
     value(): VariantType
+    static name: string
+    static new(type_string: string): VariantType
+    static new(type_string: string): VariantType
+    static new_array(element: VariantType): VariantType
+    static new_dict_entry(key: VariantType, value: VariantType): VariantType
+    static new_maybe(element: VariantType): VariantType
+    static new_tuple(items: VariantType[], length: number): VariantType
+    static checked_(arg0: string): VariantType
+    static string_is_valid(type_string: string): boolean
+    static string_scan(string: string, limit: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
 }
-export interface VariantType_Static {
-    name: string
-    new(type_string: string): VariantType
-}
-export declare class VariantType_Static {
-    new(type_string: string): VariantType
-    new_array(element: VariantType): VariantType
-    new_dict_entry(key: VariantType, value: VariantType): VariantType
-    new_maybe(element: VariantType): VariantType
-    new_tuple(items: VariantType[], length: number): VariantType
-    checked_(arg0: string): VariantType
-    string_is_valid(type_string: string): boolean
-    string_scan(string: string, limit: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
-}
-export declare var VariantType: VariantType_Static
-export interface DoubleIEEE754 {
+export class DoubleIEEE754 {
     /* Fields of GLib.DoubleIEEE754 */
     v_double:number
+    static name: string
 }
-export interface DoubleIEEE754_Static {
-    name: string
-}
-export declare var DoubleIEEE754: DoubleIEEE754_Static
-export interface FloatIEEE754 {
+export class FloatIEEE754 {
     /* Fields of GLib.FloatIEEE754 */
     v_float:number
+    static name: string
 }
-export interface FloatIEEE754_Static {
-    name: string
-}
-export declare var FloatIEEE754: FloatIEEE754_Static
-export interface Mutex {
+export class Mutex {
     /* Fields of GLib.Mutex */
     /* Methods of GLib.Mutex */
     clear(): void
@@ -3077,12 +2789,9 @@ export interface Mutex {
     lock(): void
     trylock(): boolean
     unlock(): void
+    static name: string
 }
-export interface Mutex_Static {
-    name: string
-}
-export declare var Mutex: Mutex_Static
-export interface TokenValue {
+export class TokenValue {
     /* Fields of GLib.TokenValue */
     v_symbol:object
     v_identifier:string
@@ -3096,11 +2805,8 @@ export interface TokenValue {
     v_comment:string
     v_char:number
     v_error:number
+    static name: string
 }
-export interface TokenValue_Static {
-    name: string
-}
-export declare var TokenValue: TokenValue_Static
 type DateDay = number
 type DateYear = number
 type MutexLocker = void

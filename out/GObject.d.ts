@@ -310,17 +310,14 @@ export interface ValueTransform {
 export interface WeakNotify {
     (data: object | null, where_the_object_was: Object): void
 }
-export interface TypePlugin {
+export class TypePlugin {
     /* Methods of GObject.TypePlugin */
     complete_interface_info(instance_type: number, interface_type: number, info: InterfaceInfo): void
     complete_type_info(g_type: number, info: TypeInfo, value_table: TypeValueTable): void
     unuse(): void
     use(): void
+    static name: string
 }
-export interface TypePlugin_Static {
-    name: string
-}
-export declare var TypePlugin: TypePlugin_Static
 export interface Binding_ConstructProps extends Object_ConstructProps {
     flags?:BindingFlags
     source?:Object
@@ -328,7 +325,7 @@ export interface Binding_ConstructProps extends Object_ConstructProps {
     target?:Object
     target_property?:string
 }
-export interface Binding {
+export class Binding {
     /* Properties of GObject.Binding */
     /* Fields of GObject.Object */
     g_type_instance:TypeInstance
@@ -373,15 +370,12 @@ export interface Binding {
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Binding, pspec: ParamSpec) => void))
+    static name: string
+    static new (config?: Binding_ConstructProps): Binding
 }
-export interface Binding_Static {
-    name: string
-    new (config?: Binding_ConstructProps): Binding
-}
-export declare var Binding: Binding_Static
 export interface InitiallyUnowned_ConstructProps extends Object_ConstructProps {
 }
-export interface InitiallyUnowned {
+export class InitiallyUnowned {
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:TypeInstance
     /* Fields of GObject.Object */
@@ -419,15 +413,12 @@ export interface InitiallyUnowned {
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: InitiallyUnowned, pspec: ParamSpec) => void))
+    static name: string
+    static new (config?: InitiallyUnowned_ConstructProps): InitiallyUnowned
 }
-export interface InitiallyUnowned_Static {
-    name: string
-    new (config?: InitiallyUnowned_ConstructProps): InitiallyUnowned
-}
-export declare var InitiallyUnowned: InitiallyUnowned_Static
 export interface Object_ConstructProps  {
 }
-export interface Object {
+export class Object {
     /* Fields of GObject.Object */
     g_type_instance:TypeInstance
     /* Methods of GObject.Object */
@@ -464,21 +455,16 @@ export interface Object {
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Object, pspec: ParamSpec) => void))
+    static name: string
+    static new (config?: Object_ConstructProps): Object
+    static new_with_properties(object_type: number, n_properties: number, names: string[], values: Value[]): Object
+    static newv(object_type: number, n_parameters: number, parameters: Parameter[]): Object
+    static compat_control(what: number, data: object | null): number
+    static interface_find_property(g_iface: TypeInterface, property_name: string): ParamSpec
+    static interface_install_property(g_iface: TypeInterface, pspec: ParamSpec): void
+    static interface_list_properties(g_iface: TypeInterface): [ /* returnType */ ParamSpec[], /* n_properties_p */ number ]
 }
-export interface Object_Static {
-    name: string
-    new (config?: Object_ConstructProps): Object
-}
-export declare class Object_Static {
-    new_with_properties(object_type: number, n_properties: number, names: string[], values: Value[]): Object
-    newv(object_type: number, n_parameters: number, parameters: Parameter[]): Object
-    compat_control(what: number, data: object | null): number
-    interface_find_property(g_iface: TypeInterface, property_name: string): ParamSpec
-    interface_install_property(g_iface: TypeInterface, pspec: ParamSpec): void
-    interface_list_properties(g_iface: TypeInterface): [ /* returnType */ ParamSpec[], /* n_properties_p */ number ]
-}
-export declare var Object: Object_Static
-export interface ParamSpec {
+export class ParamSpec {
     /* Fields of GObject.ParamSpec */
     g_type_instance:TypeInstance
     name:string
@@ -501,12 +487,9 @@ export interface ParamSpec {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpec_Static {
-    name: string
-}
-export declare var ParamSpec: ParamSpec_Static
-export interface ParamSpecBoolean {
+export class ParamSpecBoolean {
     /* Fields of GObject.ParamSpecBoolean */
     parent_instance:ParamSpec
     default_value:boolean
@@ -532,12 +515,9 @@ export interface ParamSpecBoolean {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecBoolean_Static {
-    name: string
-}
-export declare var ParamSpecBoolean: ParamSpecBoolean_Static
-export interface ParamSpecBoxed {
+export class ParamSpecBoxed {
     /* Fields of GObject.ParamSpecBoxed */
     parent_instance:ParamSpec
     /* Fields of GObject.ParamSpec */
@@ -562,12 +542,9 @@ export interface ParamSpecBoxed {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecBoxed_Static {
-    name: string
-}
-export declare var ParamSpecBoxed: ParamSpecBoxed_Static
-export interface ParamSpecChar {
+export class ParamSpecChar {
     /* Fields of GObject.ParamSpecChar */
     parent_instance:ParamSpec
     minimum:number
@@ -595,12 +572,9 @@ export interface ParamSpecChar {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecChar_Static {
-    name: string
-}
-export declare var ParamSpecChar: ParamSpecChar_Static
-export interface ParamSpecDouble {
+export class ParamSpecDouble {
     /* Fields of GObject.ParamSpecDouble */
     parent_instance:ParamSpec
     minimum:number
@@ -629,12 +603,9 @@ export interface ParamSpecDouble {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecDouble_Static {
-    name: string
-}
-export declare var ParamSpecDouble: ParamSpecDouble_Static
-export interface ParamSpecEnum {
+export class ParamSpecEnum {
     /* Fields of GObject.ParamSpecEnum */
     parent_instance:ParamSpec
     enum_class:EnumClass
@@ -661,12 +632,9 @@ export interface ParamSpecEnum {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecEnum_Static {
-    name: string
-}
-export declare var ParamSpecEnum: ParamSpecEnum_Static
-export interface ParamSpecFlags {
+export class ParamSpecFlags {
     /* Fields of GObject.ParamSpecFlags */
     parent_instance:ParamSpec
     flags_class:FlagsClass
@@ -693,12 +661,9 @@ export interface ParamSpecFlags {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecFlags_Static {
-    name: string
-}
-export declare var ParamSpecFlags: ParamSpecFlags_Static
-export interface ParamSpecFloat {
+export class ParamSpecFloat {
     /* Fields of GObject.ParamSpecFloat */
     parent_instance:ParamSpec
     minimum:number
@@ -727,12 +692,9 @@ export interface ParamSpecFloat {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecFloat_Static {
-    name: string
-}
-export declare var ParamSpecFloat: ParamSpecFloat_Static
-export interface ParamSpecGType {
+export class ParamSpecGType {
     /* Fields of GObject.ParamSpecGType */
     parent_instance:ParamSpec
     is_a_type:number
@@ -758,12 +720,9 @@ export interface ParamSpecGType {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecGType_Static {
-    name: string
-}
-export declare var ParamSpecGType: ParamSpecGType_Static
-export interface ParamSpecInt {
+export class ParamSpecInt {
     /* Fields of GObject.ParamSpecInt */
     parent_instance:ParamSpec
     minimum:number
@@ -791,12 +750,9 @@ export interface ParamSpecInt {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecInt_Static {
-    name: string
-}
-export declare var ParamSpecInt: ParamSpecInt_Static
-export interface ParamSpecInt64 {
+export class ParamSpecInt64 {
     /* Fields of GObject.ParamSpecInt64 */
     parent_instance:ParamSpec
     minimum:number
@@ -824,12 +780,9 @@ export interface ParamSpecInt64 {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecInt64_Static {
-    name: string
-}
-export declare var ParamSpecInt64: ParamSpecInt64_Static
-export interface ParamSpecLong {
+export class ParamSpecLong {
     /* Fields of GObject.ParamSpecLong */
     parent_instance:ParamSpec
     minimum:number
@@ -857,12 +810,9 @@ export interface ParamSpecLong {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecLong_Static {
-    name: string
-}
-export declare var ParamSpecLong: ParamSpecLong_Static
-export interface ParamSpecObject {
+export class ParamSpecObject {
     /* Fields of GObject.ParamSpecObject */
     parent_instance:ParamSpec
     /* Fields of GObject.ParamSpec */
@@ -887,12 +837,9 @@ export interface ParamSpecObject {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecObject_Static {
-    name: string
-}
-export declare var ParamSpecObject: ParamSpecObject_Static
-export interface ParamSpecOverride {
+export class ParamSpecOverride {
     /* Fields of GObject.ParamSpecOverride */
     /* Fields of GObject.ParamSpec */
     g_type_instance:TypeInstance
@@ -916,12 +863,9 @@ export interface ParamSpecOverride {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecOverride_Static {
-    name: string
-}
-export declare var ParamSpecOverride: ParamSpecOverride_Static
-export interface ParamSpecParam {
+export class ParamSpecParam {
     /* Fields of GObject.ParamSpecParam */
     parent_instance:ParamSpec
     /* Fields of GObject.ParamSpec */
@@ -946,12 +890,9 @@ export interface ParamSpecParam {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecParam_Static {
-    name: string
-}
-export declare var ParamSpecParam: ParamSpecParam_Static
-export interface ParamSpecPointer {
+export class ParamSpecPointer {
     /* Fields of GObject.ParamSpecPointer */
     parent_instance:ParamSpec
     /* Fields of GObject.ParamSpec */
@@ -976,12 +917,9 @@ export interface ParamSpecPointer {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecPointer_Static {
-    name: string
-}
-export declare var ParamSpecPointer: ParamSpecPointer_Static
-export interface ParamSpecString {
+export class ParamSpecString {
     /* Fields of GObject.ParamSpecString */
     parent_instance:ParamSpec
     default_value:string
@@ -1012,12 +950,9 @@ export interface ParamSpecString {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecString_Static {
-    name: string
-}
-export declare var ParamSpecString: ParamSpecString_Static
-export interface ParamSpecUChar {
+export class ParamSpecUChar {
     /* Fields of GObject.ParamSpecUChar */
     parent_instance:ParamSpec
     minimum:number
@@ -1045,12 +980,9 @@ export interface ParamSpecUChar {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecUChar_Static {
-    name: string
-}
-export declare var ParamSpecUChar: ParamSpecUChar_Static
-export interface ParamSpecUInt {
+export class ParamSpecUInt {
     /* Fields of GObject.ParamSpecUInt */
     parent_instance:ParamSpec
     minimum:number
@@ -1078,12 +1010,9 @@ export interface ParamSpecUInt {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecUInt_Static {
-    name: string
-}
-export declare var ParamSpecUInt: ParamSpecUInt_Static
-export interface ParamSpecUInt64 {
+export class ParamSpecUInt64 {
     /* Fields of GObject.ParamSpecUInt64 */
     parent_instance:ParamSpec
     minimum:number
@@ -1111,12 +1040,9 @@ export interface ParamSpecUInt64 {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecUInt64_Static {
-    name: string
-}
-export declare var ParamSpecUInt64: ParamSpecUInt64_Static
-export interface ParamSpecULong {
+export class ParamSpecULong {
     /* Fields of GObject.ParamSpecULong */
     parent_instance:ParamSpec
     minimum:number
@@ -1144,12 +1070,9 @@ export interface ParamSpecULong {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecULong_Static {
-    name: string
-}
-export declare var ParamSpecULong: ParamSpecULong_Static
-export interface ParamSpecUnichar {
+export class ParamSpecUnichar {
     /* Fields of GObject.ParamSpecUnichar */
     parent_instance:ParamSpec
     default_value:number
@@ -1175,12 +1098,9 @@ export interface ParamSpecUnichar {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecUnichar_Static {
-    name: string
-}
-export declare var ParamSpecUnichar: ParamSpecUnichar_Static
-export interface ParamSpecValueArray {
+export class ParamSpecValueArray {
     /* Fields of GObject.ParamSpecValueArray */
     parent_instance:ParamSpec
     element_spec:ParamSpec
@@ -1207,12 +1127,9 @@ export interface ParamSpecValueArray {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecValueArray_Static {
-    name: string
-}
-export declare var ParamSpecValueArray: ParamSpecValueArray_Static
-export interface ParamSpecVariant {
+export class ParamSpecVariant {
     /* Fields of GObject.ParamSpecVariant */
     parent_instance:ParamSpec
     type:GLib.VariantType
@@ -1239,14 +1156,11 @@ export interface ParamSpecVariant {
     vfunc_value_set_default(value: Value): void
     vfunc_value_validate(value: Value): boolean
     vfunc_values_cmp(value1: Value, value2: Value): number
+    static name: string
 }
-export interface ParamSpecVariant_Static {
-    name: string
-}
-export declare var ParamSpecVariant: ParamSpecVariant_Static
 export interface TypeModule_ConstructProps extends Object_ConstructProps {
 }
-export interface TypeModule {
+export class TypeModule {
     /* Fields of GObject.TypeModule */
     parent_instance:Object
     use_count:number
@@ -1300,47 +1214,39 @@ export interface TypeModule {
     vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: TypeModule, pspec: ParamSpec) => void))
+    static name: string
+    static new (config?: TypeModule_ConstructProps): TypeModule
 }
-export interface TypeModule_Static {
-    name: string
-    new (config?: TypeModule_ConstructProps): TypeModule
-}
-export declare var TypeModule: TypeModule_Static
-export interface CClosure {
+export class CClosure {
     /* Fields of GObject.CClosure */
     closure:Closure
     callback:object
+    static name: string
+    static marshal_BOOLEAN__BOXED_BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_BOOLEAN__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_STRING__OBJECT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__BOOLEAN(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__CHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__DOUBLE(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__ENUM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__FLOAT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__INT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__LONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__OBJECT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__PARAM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__STRING(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__UCHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__UINT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__UINT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__ULONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__VARIANT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_VOID__VOID(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
+    static marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
 }
-export interface CClosure_Static {
-    name: string
-}
-export declare class CClosure_Static {
-    marshal_BOOLEAN__BOXED_BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_BOOLEAN__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_STRING__OBJECT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__BOOLEAN(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__CHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__DOUBLE(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__ENUM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__FLOAT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__INT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__LONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__OBJECT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__PARAM(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__STRING(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__UCHAR(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__UINT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__UINT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__ULONG(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__VARIANT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_VOID__VOID(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-    marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint: object | null, marshal_data: object | null): void
-}
-export declare var CClosure: CClosure_Static
-export interface Closure {
+export class Closure {
     /* Fields of GObject.Closure */
     in_marshal:number
     is_invalid:number
@@ -1351,102 +1257,71 @@ export interface Closure {
     ref(): Closure
     sink(): void
     unref(): void
+    static name: string
+    static new_object(sizeof_closure: number, object: Object): Closure
+    static new_simple(sizeof_closure: number, data: object | null): Closure
 }
-export interface Closure_Static {
-    name: string
-}
-export declare class Closure_Static {
-    new_object(sizeof_closure: number, object: Object): Closure
-    new_simple(sizeof_closure: number, data: object | null): Closure
-}
-export declare var Closure: Closure_Static
-export interface ClosureNotifyData {
+export class ClosureNotifyData {
     /* Fields of GObject.ClosureNotifyData */
     data:object
     notify:ClosureNotify
+    static name: string
 }
-export interface ClosureNotifyData_Static {
-    name: string
-}
-export declare var ClosureNotifyData: ClosureNotifyData_Static
-export interface EnumClass {
+export class EnumClass {
     /* Fields of GObject.EnumClass */
     g_type_class:TypeClass
     minimum:number
     maximum:number
     n_values:number
     values:EnumValue
+    static name: string
 }
-export interface EnumClass_Static {
-    name: string
-}
-export declare var EnumClass: EnumClass_Static
-export interface EnumValue {
+export class EnumValue {
     /* Fields of GObject.EnumValue */
     value:number
     value_name:string
     value_nick:string
+    static name: string
 }
-export interface EnumValue_Static {
-    name: string
-}
-export declare var EnumValue: EnumValue_Static
-export interface FlagsClass {
+export class FlagsClass {
     /* Fields of GObject.FlagsClass */
     g_type_class:TypeClass
     mask:number
     n_values:number
     values:FlagsValue
+    static name: string
 }
-export interface FlagsClass_Static {
-    name: string
-}
-export declare var FlagsClass: FlagsClass_Static
-export interface FlagsValue {
+export class FlagsValue {
     /* Fields of GObject.FlagsValue */
     value:number
     value_name:string
     value_nick:string
+    static name: string
 }
-export interface FlagsValue_Static {
-    name: string
-}
-export declare var FlagsValue: FlagsValue_Static
-export interface InterfaceInfo {
+export class InterfaceInfo {
     /* Fields of GObject.InterfaceInfo */
     interface_init:InterfaceInitFunc
     interface_finalize:InterfaceFinalizeFunc
     interface_data:object
+    static name: string
 }
-export interface InterfaceInfo_Static {
-    name: string
-}
-export declare var InterfaceInfo: InterfaceInfo_Static
-export interface ObjectConstructParam {
+export class ObjectConstructParam {
     /* Fields of GObject.ObjectConstructParam */
     pspec:ParamSpec
     value:Value
+    static name: string
 }
-export interface ObjectConstructParam_Static {
-    name: string
-}
-export declare var ObjectConstructParam: ObjectConstructParam_Static
-export interface ParamSpecPool {
+export class ParamSpecPool {
     /* Methods of GObject.ParamSpecPool */
     insert(pspec: ParamSpec, owner_type: number): void
     list(owner_type: number): [ /* returnType */ ParamSpec[], /* n_pspecs_p */ number ]
     list_owned(owner_type: number): GLib.List
     lookup(param_name: string, owner_type: number, walk_ancestors: boolean): ParamSpec
     remove(pspec: ParamSpec): void
+    static name: string
+    static new(type_prefixing: boolean): ParamSpecPool
 }
-export interface ParamSpecPool_Static {
-    name: string
-}
-export declare class ParamSpecPool_Static {
-    new(type_prefixing: boolean): ParamSpecPool
-}
-export declare var ParamSpecPool: ParamSpecPool_Static
-export interface ParamSpecTypeInfo {
+export class ParamSpecTypeInfo {
     /* Fields of GObject.ParamSpecTypeInfo */
     instance_size:number
     n_preallocs:number
@@ -1456,31 +1331,22 @@ export interface ParamSpecTypeInfo {
     value_set_default:any
     value_validate:any
     values_cmp:any
+    static name: string
 }
-export interface ParamSpecTypeInfo_Static {
-    name: string
-}
-export declare var ParamSpecTypeInfo: ParamSpecTypeInfo_Static
-export interface Parameter {
+export class Parameter {
     /* Fields of GObject.Parameter */
     name:string
     value:Value
+    static name: string
 }
-export interface Parameter_Static {
-    name: string
-}
-export declare var Parameter: Parameter_Static
-export interface SignalInvocationHint {
+export class SignalInvocationHint {
     /* Fields of GObject.SignalInvocationHint */
     signal_id:number
     detail:GLib.Quark
     run_type:SignalFlags
+    static name: string
 }
-export interface SignalInvocationHint_Static {
-    name: string
-}
-export declare var SignalInvocationHint: SignalInvocationHint_Static
-export interface SignalQuery {
+export class SignalQuery {
     /* Fields of GObject.SignalQuery */
     signal_id:number
     signal_name:string
@@ -1489,38 +1355,27 @@ export interface SignalQuery {
     return_type:number
     n_params:number
     param_types:number
+    static name: string
 }
-export interface SignalQuery_Static {
-    name: string
-}
-export declare var SignalQuery: SignalQuery_Static
-export interface TypeClass {
+export class TypeClass {
     /* Fields of GObject.TypeClass */
     /* Methods of GObject.TypeClass */
     add_private(private_size: number): void
     get_private(private_type: number): object | null
     peek_parent(): TypeClass
     unref(): void
+    static name: string
+    static adjust_private_offset(g_class: object | null, private_size_or_offset: number): void
+    static peek(type: number): TypeClass
+    static peek_static(type: number): TypeClass
+    static ref(type: number): TypeClass
 }
-export interface TypeClass_Static {
-    name: string
-}
-export declare class TypeClass_Static {
-    adjust_private_offset(g_class: object | null, private_size_or_offset: number): void
-    peek(type: number): TypeClass
-    peek_static(type: number): TypeClass
-    ref(type: number): TypeClass
-}
-export declare var TypeClass: TypeClass_Static
-export interface TypeFundamentalInfo {
+export class TypeFundamentalInfo {
     /* Fields of GObject.TypeFundamentalInfo */
     type_flags:TypeFundamentalFlags
+    static name: string
 }
-export interface TypeFundamentalInfo_Static {
-    name: string
-}
-export declare var TypeFundamentalInfo: TypeFundamentalInfo_Static
-export interface TypeInfo {
+export class TypeInfo {
     /* Fields of GObject.TypeInfo */
     class_size:number
     base_init:BaseInitFunc
@@ -1532,58 +1387,41 @@ export interface TypeInfo {
     n_preallocs:number
     instance_init:InstanceInitFunc
     value_table:TypeValueTable
+    static name: string
 }
-export interface TypeInfo_Static {
-    name: string
-}
-export declare var TypeInfo: TypeInfo_Static
-export interface TypeInstance {
+export class TypeInstance {
     /* Fields of GObject.TypeInstance */
     /* Methods of GObject.TypeInstance */
     get_private(private_type: number): object | null
+    static name: string
 }
-export interface TypeInstance_Static {
-    name: string
-}
-export declare var TypeInstance: TypeInstance_Static
-export interface TypeInterface {
+export class TypeInterface {
     /* Fields of GObject.TypeInterface */
     /* Methods of GObject.TypeInterface */
     peek_parent(): TypeInterface
+    static name: string
+    static add_prerequisite(interface_type: number, prerequisite_type: number): void
+    static get_plugin(instance_type: number, interface_type: number): TypePlugin
+    static peek(instance_class: TypeClass, iface_type: number): TypeInterface
+    static prerequisites(interface_type: number): [ /* returnType */ number, /* n_prerequisites */ number | null ]
 }
-export interface TypeInterface_Static {
-    name: string
-}
-export declare class TypeInterface_Static {
-    add_prerequisite(interface_type: number, prerequisite_type: number): void
-    get_plugin(instance_type: number, interface_type: number): TypePlugin
-    peek(instance_class: TypeClass, iface_type: number): TypeInterface
-    prerequisites(interface_type: number): [ /* returnType */ number, /* n_prerequisites */ number | null ]
-}
-export declare var TypeInterface: TypeInterface_Static
-export interface TypePluginClass {
+export class TypePluginClass {
     /* Fields of GObject.TypePluginClass */
     use_plugin:TypePluginUse
     unuse_plugin:TypePluginUnuse
     complete_type_info:TypePluginCompleteTypeInfo
     complete_interface_info:TypePluginCompleteInterfaceInfo
+    static name: string
 }
-export interface TypePluginClass_Static {
-    name: string
-}
-export declare var TypePluginClass: TypePluginClass_Static
-export interface TypeQuery {
+export class TypeQuery {
     /* Fields of GObject.TypeQuery */
     type:number
     type_name:string
     class_size:number
     instance_size:number
+    static name: string
 }
-export interface TypeQuery_Static {
-    name: string
-}
-export declare var TypeQuery: TypeQuery_Static
-export interface TypeValueTable {
+export class TypeValueTable {
     /* Fields of GObject.TypeValueTable */
     value_init:any
     value_free:any
@@ -1593,12 +1431,9 @@ export interface TypeValueTable {
     collect_value:any
     lcopy_format:string
     lcopy_value:any
+    static name: string
 }
-export interface TypeValueTable_Static {
-    name: string
-}
-export declare var TypeValueTable: TypeValueTable_Static
-export interface Value {
+export class Value {
     /* Fields of GObject.Value */
     data:_Value__data__union[]
     /* Methods of GObject.Value */
@@ -1663,16 +1498,11 @@ export interface Value {
     take_variant(variant: GLib.Variant | null): void
     transform(dest_value: Value): boolean
     unset(): void
+    static name: string
+    static type_compatible(src_type: number, dest_type: number): boolean
+    static type_transformable(src_type: number, dest_type: number): boolean
 }
-export interface Value_Static {
-    name: string
-}
-export declare class Value_Static {
-    type_compatible(src_type: number, dest_type: number): boolean
-    type_transformable(src_type: number, dest_type: number): boolean
-}
-export declare var Value: Value_Static
-export interface ValueArray {
+export class ValueArray {
     /* Fields of GObject.ValueArray */
     n_values:number
     values:Value
@@ -1685,35 +1515,24 @@ export interface ValueArray {
     prepend(value: Value | null): ValueArray
     remove(index_: number): ValueArray
     sort_with_data(compare_func: GLib.CompareDataFunc, user_data: object | null): ValueArray
+    static name: string
+    static new(n_prealloced: number): ValueArray
+    static new(n_prealloced: number): ValueArray
 }
-export interface ValueArray_Static {
-    name: string
-    new(n_prealloced: number): ValueArray
-}
-export declare class ValueArray_Static {
-    new(n_prealloced: number): ValueArray
-}
-export declare var ValueArray: ValueArray_Static
-export interface WeakRef {
+export class WeakRef {
     /* Methods of GObject.WeakRef */
+    static name: string
 }
-export interface WeakRef_Static {
-    name: string
-}
-export declare var WeakRef: WeakRef_Static
-export interface TypeCValue {
+export class TypeCValue {
     /* Fields of GObject.TypeCValue */
     v_int:number
     v_long:number
     v_int64:number
     v_double:number
     v_pointer:object
+    static name: string
 }
-export interface TypeCValue_Static {
-    name: string
-}
-export declare var TypeCValue: TypeCValue_Static
-export interface _Value__data__union {
+export class _Value__data__union {
     /* Fields of GObject._Value__data__union */
     v_int:number
     v_uint:number
@@ -1724,11 +1543,8 @@ export interface _Value__data__union {
     v_float:number
     v_double:number
     v_pointer:object
+    static name: string
 }
-export interface _Value__data__union_Static {
-    name: string
-}
-export declare var _Value__data__union: _Value__data__union_Static
 type SignalCMarshaller = ClosureMarshal
 type SignalCVaMarshaller = any
 type Type = number

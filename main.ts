@@ -1020,7 +1020,7 @@ export class GirModule {
     }
 }
 
-function exportGjs(outDir: string|null)
+function exportGjs(outDir: string|null, girModules: { [key: string]: any })
 {
     if (!outDir)
         return
@@ -1094,13 +1094,25 @@ export namespace Mainloop {
     gettext: imports.gettext
 }`)
 
+    const keys = lodash.keys(girModules).map(key => key.split("-")[0]);
+
+    fs.createWriteStream(`${outDir}/index.js`).write("");
+
     fs.createWriteStream(`${outDir}/index.d.ts`).write(
-`declare global {
+`import * as Gjs from "./Gjs";
+${keys.map(key => `import * as ${key} from "./${key}";`).join("\n")}
+
+declare global {
     function print(...args: any[]): void
     function printerr(...args: any[]): void
     function log(exception: any, message?: string)
     function logError(exception: any, message?: string)
     const ARGV: string[]
+    const imports: typeof Gjs & {
+        gi: {
+${keys.map(key => `            ${key}: typeof ${key}`).join("\n")}
+        }
+    }
 }
 
 export { }`)
@@ -1296,7 +1308,7 @@ function main() {
     }
 
     // GJS internal stuff
-    exportGjs(commander.outdir)
+    exportGjs(commander.outdir, girModules)
     exportExtra(commander.outdir, inheritanceTable)
 
     console.log("Done.")

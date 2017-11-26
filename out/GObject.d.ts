@@ -338,7 +338,7 @@ export class Binding {
     unbind(): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
-    bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
+    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
     get_data(key: string): object | null
@@ -382,7 +382,7 @@ export class InitiallyUnowned {
     /* Fields of GObject.Object */
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
-    bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
+    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
     get_data(key: string): object | null
@@ -425,7 +425,7 @@ export class Object {
     g_type_instance:TypeInstance
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
-    bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
+    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
     get_data(key: string): object | null
@@ -460,7 +460,7 @@ export class Object {
     static name: string
     static new (config?: Object_ConstructProps): Object
     constructor (config?: Object_ConstructProps)
-    static new_with_properties(object_type: number, n_properties: number, names: string[], values: Value[]): Object
+    static new(object_type: number, n_properties: number, names: string[], values: Value[]): Object
     static newv(object_type: number, n_parameters: number, parameters: Parameter[]): Object
     static compat_control(what: number, data: object | null): number
     static interface_find_property(g_iface: TypeInterface, property_name: string): ParamSpec
@@ -1182,7 +1182,7 @@ export class TypeModule {
     use(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: Object, target_property: string, flags: BindingFlags): Binding
-    bind_property_with_closures(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
+    bind_property_full(source_property: string, target: Object, target_property: string, flags: BindingFlags, transform_to: Closure, transform_from: Closure): Binding
     force_floating(): void
     freeze_notify(): void
     get_data(key: string): object | null
@@ -1518,7 +1518,7 @@ export class ValueArray {
     insert(index_: number, value: Value | null): ValueArray
     prepend(value: Value | null): ValueArray
     remove(index_: number): ValueArray
-    sort_with_data(compare_func: GLib.CompareDataFunc, user_data: object | null): ValueArray
+    sort(compare_func: GLib.CompareDataFunc, user_data: object | null): ValueArray
     static name: string
     static new(n_prealloced: number): ValueArray
     constructor(n_prealloced: number)

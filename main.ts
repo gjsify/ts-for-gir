@@ -610,6 +610,10 @@ export class GirModule {
         let [params, outParams] = this.getParameters(e.parameters)
         let retType = this.getReturnType(e)
 
+        if (e.$["shadows"]) {
+            name = e.$["shadows"]
+        }
+
         if (funcNamePrefix)
             name = funcNamePrefix + name
 

@@ -953,7 +953,7 @@ export function byte_array_unref(array: Gjs.byteArray.ByteArray): void
 export function chdir(path: string): number
 export function check_version(required_major: number, required_minor: number, required_micro: number): string
 export function checksum_type_get_length(checksum_type: ChecksumType): number
-export function child_watch_add_full(priority: number, pid: Pid, function_: ChildWatchFunc, data: object | null, notify: DestroyNotify | null): number
+export function child_watch_add(priority: number, pid: Pid, function_: ChildWatchFunc, data: object | null, notify: DestroyNotify | null): number
 export function child_watch_source_new(pid: Pid): Source
 export function clear_error(): void
 export function close(fd: number): boolean
@@ -1077,7 +1077,7 @@ export function hostname_is_non_ascii(hostname: string): boolean
 export function hostname_to_ascii(hostname: string): string
 export function hostname_to_unicode(hostname: string): string
 export function iconv(converter: IConv, inbuf: string, inbytes_left: number, outbuf: string, outbytes_left: number): number
-export function idle_add_full(priority: number, function_: SourceFunc, data: object | null, notify: DestroyNotify | null): number
+export function idle_add(priority: number, function_: SourceFunc, data: object | null, notify: DestroyNotify | null): number
 export function idle_remove_by_data(data: object | null): boolean
 export function idle_source_new(): Source
 export function int64_equal(v1: object, v2: object): boolean
@@ -1086,7 +1086,7 @@ export function int_equal(v1: object, v2: object): boolean
 export function int_hash(v: object): number
 export function intern_static_string(string: string | null): string
 export function intern_string(string: string | null): string
-export function io_add_watch_full(channel: IOChannel, priority: number, condition: IOCondition, func: IOFunc, user_data: object | null, notify: DestroyNotify): number
+export function io_add_watch(channel: IOChannel, priority: number, condition: IOCondition, func: IOFunc, user_data: object | null, notify: DestroyNotify): number
 export function io_channel_error_from_errno(en: number): IOChannelError
 export function io_channel_error_quark(): Quark
 export function io_create_watch(channel: IOChannel, condition: IOCondition): Source
@@ -1098,7 +1098,7 @@ export function log_default_handler(log_domain: string | null, log_level: LogLev
 export function log_remove_handler(log_domain: string, handler_id: number): void
 export function log_set_always_fatal(fatal_mask: LogLevelFlags): LogLevelFlags
 export function log_set_fatal_mask(log_domain: string, fatal_mask: LogLevelFlags): LogLevelFlags
-export function log_set_handler_full(log_domain: string | null, log_levels: LogLevelFlags, log_func: LogFunc, user_data: object | null, destroy: DestroyNotify): number
+export function log_set_handler(log_domain: string | null, log_levels: LogLevelFlags, log_func: LogFunc, user_data: object | null, destroy: DestroyNotify): number
 export function log_set_writer_func(func: LogWriterFunc | null, user_data: object | null, user_data_free: DestroyNotify): void
 export function log_structured_array(log_level: LogLevelFlags, fields: LogField[]): void
 export function log_variant(log_domain: string | null, log_level: LogLevelFlags, fields: Variant): void
@@ -1285,8 +1285,8 @@ export function thread_pool_stop_unused_threads(): void
 export function thread_self(): Thread
 export function thread_yield(): void
 export function time_val_from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
-export function timeout_add_full(priority: number, interval: number, function_: SourceFunc, data: object | null, notify: DestroyNotify | null): number
-export function timeout_add_seconds_full(priority: number, interval: number, function_: SourceFunc, data: object | null, notify: DestroyNotify | null): number
+export function timeout_add(priority: number, interval: number, function_: SourceFunc, data: object | null, notify: DestroyNotify | null): number
+export function timeout_add_seconds(priority: number, interval: number, function_: SourceFunc, data: object | null, notify: DestroyNotify | null): number
 export function timeout_source_new(interval: number): Source
 export function timeout_source_new_seconds(interval: number): Source
 export function trash_stack_height(stack_p: TrashStack): number
@@ -1342,7 +1342,7 @@ export function unix_fd_add_full(priority: number, fd: number, condition: IOCond
 export function unix_fd_source_new(fd: number, condition: IOCondition): Source
 export function unix_open_pipe(fds: number, flags: number): boolean
 export function unix_set_fd_nonblocking(fd: number, nonblock: boolean): boolean
-export function unix_signal_add_full(priority: number, signum: number, handler: SourceFunc, user_data: object | null, notify: DestroyNotify): number
+export function unix_signal_add(priority: number, signum: number, handler: SourceFunc, user_data: object | null, notify: DestroyNotify): number
 export function unix_signal_source_new(signum: number): Source
 export function unlink(filename: string): number
 export function unsetenv(variable: string): void

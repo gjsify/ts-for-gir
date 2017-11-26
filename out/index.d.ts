@@ -1,3 +1,5 @@
+/// <reference path="print.d.ts" />
+
 import * as Gjs from "./Gjs";
 import * as Gtk from "./Gtk";
 import * as Atk from "./Atk";
@@ -18,9 +20,8 @@ import * as AppIndicator3 from "./AppIndicator3";
 import * as Notify from "./Notify";
 
 declare global {
-    function print(...args: any[]): void
     function printerr(...args: any[]): void
-    function log(exception: any, message?: string)
+    function log(message?: string)
     function logError(exception: any, message?: string)
     const ARGV: string[]
     const imports: typeof Gjs & {

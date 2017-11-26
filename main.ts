@@ -1136,16 +1136,22 @@ export namespace Mainloop {
 
     const keys = lodash.keys(girModules).map(key => key.split("-")[0]);
 
+    // Breaks dependent app with error TS2383 if directly in global.
+    // https://github.com/Microsoft/TypeScript/issues/16430
+    fs.createWriteStream(`${outDir}/print.d.ts`).write(
+`declare function print(...args: any[]): void`);
+
     fs.createWriteStream(`${outDir}/index.js`).write("");
 
     fs.createWriteStream(`${outDir}/index.d.ts`).write(
-`import * as Gjs from "./Gjs";
+`/// <reference path="print.d.ts" />
+
+import * as Gjs from "./Gjs";
 ${keys.map(key => `import * as ${key} from "./${key}";`).join("\n")}
 
 declare global {
-    function print(...args: any[]): void
     function printerr(...args: any[]): void
-    function log(exception: any, message?: string)
+    function log(message?: string)
     function logError(exception: any, message?: string)
     const ARGV: string[]
     const imports: typeof Gjs & {

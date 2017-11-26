@@ -9,6 +9,9 @@ export namespace byteArray {
     export function fromArray(input: number[]): ByteArray
     export function fromGBytes(input: any): ByteArray
 }
+export namespace console {
+    export function interact(): void
+}
 export namespace Lang {
     // TODO: There is a lot more in Lang
     export function Class(props: any): void

@@ -24,6 +24,7 @@ declare global {
     function logError(exception: any, message?: string)
     const ARGV: string[]
     const imports: typeof Gjs & {
+        [key: string]: any
         gi: {
             Gtk: typeof Gtk
             Atk: typeof Atk
@@ -43,6 +44,7 @@ declare global {
             AppIndicator3: typeof AppIndicator3
             Notify: typeof Notify
         }
+        searchPath: string[]
     }
 }
 

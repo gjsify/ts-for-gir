@@ -343,10 +343,10 @@ export interface FocusHandler {
     (object: Object, focus_in: boolean): void
 }
 export interface Function {
-    (user_data?: object | null): boolean
+    (): boolean
 }
 export interface KeySnoopFunc {
-    (event: KeyEventStruct, user_data?: object | null): number
+    (event: KeyEventStruct): number
 }
 export interface PropertyChangeHandler {
     (obj: Object, vals: PropertyValues): void

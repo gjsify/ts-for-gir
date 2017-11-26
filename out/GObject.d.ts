@@ -148,7 +148,7 @@ export function param_values_cmp(pspec: ParamSpec, value1: Value, value2: Value)
 export function pointer_type_register_static(name: string): number
 export function signal_accumulator_first_wins(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy?: object | null): boolean
 export function signal_accumulator_true_handled(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy?: object | null): boolean
-export function signal_add_emission_hook(signal_id: number, detail: GLib.Quark, hook_func: SignalEmissionHook, hook_data: object | null, data_destroy: GLib.DestroyNotify): number
+export function signal_add_emission_hook(signal_id: number, detail: GLib.Quark, hook_func: SignalEmissionHook, data_destroy: GLib.DestroyNotify): number
 export function signal_chain_from_overridden(instance_and_params: Value[], return_value: Value): void
 export function signal_connect_closure(instance: Object, detailed_signal: string, closure: Closure, after: boolean): number
 export function signal_connect_closure_by_id(instance: Object, signal_id: number, detail: GLib.Quark, closure: Closure, after: boolean): number
@@ -236,7 +236,7 @@ export interface BaseInitFunc {
     (g_class: TypeClass): void
 }
 export interface BindingTransformFunc {
-    (binding: Binding, from_value: Value, to_value: Value, user_data?: object | null): boolean
+    (binding: Binding, from_value: Value, to_value: Value): boolean
 }
 export interface BoxedCopyFunc {
     (boxed: object): object
@@ -1518,7 +1518,7 @@ export class ValueArray {
     insert(index_: number, value?: Value | null): ValueArray
     prepend(value?: Value | null): ValueArray
     remove(index_: number): ValueArray
-    sort(compare_func: GLib.CompareDataFunc, user_data?: object | null): ValueArray
+    sort(compare_func: GLib.CompareDataFunc): ValueArray
     static name: string
     static new(n_prealloced: number): ValueArray
     constructor(n_prealloced: number)

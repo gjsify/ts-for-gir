@@ -272,7 +272,7 @@ export function snapshot_error_quark(): GLib.Quark
 export function user_media_permission_is_for_audio_device(request: UserMediaPermissionRequest): boolean
 export function user_media_permission_is_for_video_device(request: UserMediaPermissionRequest): boolean
 export interface URISchemeRequestCallback {
-    (request: URISchemeRequest, user_data?: object | null): void
+    (request: URISchemeRequest): void
 }
 export class PermissionRequest {
     /* Methods of WebKit2.PermissionRequest */
@@ -694,9 +694,9 @@ export class CookieManager {
     /* Methods of WebKit2.CookieManager */
     delete_all_cookies(): void
     delete_cookies_for_domain(domain: string): void
-    get_accept_policy(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    get_accept_policy(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_accept_policy_finish(result: Gio.AsyncResult): CookieAcceptPolicy
-    get_domains_with_cookies(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    get_domains_with_cookies(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_domains_with_cookies_finish(result: Gio.AsyncResult): string[]
     set_accept_policy(policy: CookieAcceptPolicy): void
     set_persistent_storage(filename: string, storage: CookiePersistentStorage): void
@@ -877,7 +877,7 @@ export class FaviconDatabase {
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.FaviconDatabase */
     clear(): void
-    get_favicon(page_uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    get_favicon(page_uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_favicon_finish(result: Gio.AsyncResult): cairo.Surface
     get_favicon_uri(page_uri: string): string
     /* Methods of GObject.Object */
@@ -2433,7 +2433,7 @@ export class WebContext {
     get_cookie_manager(): CookieManager
     get_favicon_database(): FaviconDatabase
     get_favicon_database_directory(): string
-    get_plugins(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    get_plugins(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_plugins_finish(result: Gio.AsyncResult): Plugin[]
     get_process_model(): ProcessModel
     get_security_manager(): SecurityManager
@@ -2446,7 +2446,7 @@ export class WebContext {
     is_automation_allowed(): boolean
     is_ephemeral(): boolean
     prefetch_dns(hostname: string): void
-    register_uri_scheme(scheme: string, callback: URISchemeRequestCallback, user_data: object | null, user_data_destroy_func: GLib.DestroyNotify): void
+    register_uri_scheme(scheme: string, callback: URISchemeRequestCallback, user_data_destroy_func: GLib.DestroyNotify): void
     set_additional_plugins_directory(directory: string): void
     set_automation_allowed(allowed: boolean): void
     set_cache_model(cache_model: CacheModel): void
@@ -2594,7 +2594,7 @@ export class WebResource {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.WebResource */
-    get_data(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    get_data(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_data_finish(result: Gio.AsyncResult): [ /* returnType */ Gjs.byteArray.ByteArray, /* length */ number | null ]
     get_response(): URIResponse
     get_uri(): string
@@ -2719,7 +2719,7 @@ export class WebView {
     g_type_instance:GObject.TypeInstance
     /* Fields of GObject.Object */
     /* Methods of WebKit2.WebView */
-    can_execute_editing_command(command: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    can_execute_editing_command(command: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     can_execute_editing_command_finish(result: Gio.AsyncResult): boolean
     can_go_back(): boolean
     can_go_forward(): boolean
@@ -2741,7 +2741,7 @@ export class WebView {
     get_page_id(): number
     get_session_state(): WebViewSessionState
     get_settings(): Settings
-    get_snapshot(region: SnapshotRegion, options: SnapshotOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    get_snapshot(region: SnapshotRegion, options: SnapshotOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_snapshot_finish(result: Gio.AsyncResult): cairo.Surface
     get_title(): string
     get_tls_info(): [ /* returnType */ boolean, /* certificate */ Gio.TlsCertificate, /* errors */ Gio.TlsCertificateFlags ]
@@ -2765,13 +2765,13 @@ export class WebView {
     reload(): void
     reload_bypass_cache(): void
     restore_session_state(state: WebViewSessionState): void
-    run_javascript(script: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    run_javascript(script: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     run_javascript_finish(result: Gio.AsyncResult): JavascriptResult
-    run_javascript_from_gresource(resource: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    run_javascript_from_gresource(resource: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     run_javascript_from_gresource_finish(result: Gio.AsyncResult): JavascriptResult
-    save(save_mode: SaveMode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    save(save_mode: SaveMode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     save_finish(result: Gio.AsyncResult): Gio.InputStream
-    save_to_file(file: Gio.File, save_mode: SaveMode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    save_to_file(file: Gio.File, save_mode: SaveMode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     save_to_file_finish(result: Gio.AsyncResult): boolean
     set_background_color(rgba: Gdk.RGBA): void
     set_custom_charset(charset?: string | null): void
@@ -2787,8 +2787,8 @@ export class WebView {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data?: object | null): void
-    foreach(callback: Gtk.Callback, callback_data?: object | null): void
+    forall(callback: Gtk.Callback): void
+    foreach(callback: Gtk.Callback): void
     get_border_width(): number
     get_children(): Gtk.Widget[]
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
@@ -2814,7 +2814,7 @@ export class WebView {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, user_data: object | null, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback, notify: GLib.DestroyNotify): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void
@@ -3120,7 +3120,7 @@ export class WebView {
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data?: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
@@ -3443,8 +3443,8 @@ export class WebViewBase {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data?: object | null): void
-    foreach(callback: Gtk.Callback, callback_data?: object | null): void
+    forall(callback: Gtk.Callback): void
+    foreach(callback: Gtk.Callback): void
     get_border_width(): number
     get_children(): Gtk.Widget[]
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
@@ -3470,7 +3470,7 @@ export class WebViewBase {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, user_data: object | null, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback, notify: GLib.DestroyNotify): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void
@@ -3752,7 +3752,7 @@ export class WebViewBase {
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data?: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
@@ -3990,9 +3990,9 @@ export class WebsiteDataManager {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.WebsiteDataManager */
-    clear(types: WebsiteDataTypes, timespan: GLib.TimeSpan, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    clear(types: WebsiteDataTypes, timespan: GLib.TimeSpan, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     clear_finish(result: Gio.AsyncResult): boolean
-    fetch(types: WebsiteDataTypes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    fetch(types: WebsiteDataTypes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     fetch_finish(result: Gio.AsyncResult): WebsiteData[]
     get_base_cache_directory(): string | null
     get_base_data_directory(): string | null
@@ -4003,7 +4003,7 @@ export class WebsiteDataManager {
     get_offline_application_cache_directory(): string | null
     get_websql_directory(): string | null
     is_ephemeral(): boolean
-    remove(types: WebsiteDataTypes, website_data: WebsiteData[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    remove(types: WebsiteDataTypes, website_data: WebsiteData[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     remove_finish(result: Gio.AsyncResult): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding

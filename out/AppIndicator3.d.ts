@@ -117,13 +117,13 @@ export class Indicator {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of AppIndicator3.Indicator */
-    vfunc_connection_changed(connected: boolean, user_data?: object | null): void
-    vfunc_new_attention_icon(user_data?: object | null): void
-    vfunc_new_icon(user_data?: object | null): void
-    vfunc_new_icon_theme_path(icon_theme_path: string, user_data?: object | null): void
-    vfunc_new_label(label: string, guide: string, user_data?: object | null): void
-    vfunc_new_status(status: string, user_data?: object | null): void
-    vfunc_scroll_event(delta: number, direction: Gdk.ScrollDirection, user_data?: object | null): void
+    vfunc_connection_changed(connected: boolean): void
+    vfunc_new_attention_icon(): void
+    vfunc_new_icon(): void
+    vfunc_new_icon_theme_path(icon_theme_path: string): void
+    vfunc_new_label(label: string, guide: string): void
+    vfunc_new_status(status: string): void
+    vfunc_scroll_event(delta: number, direction: Gdk.ScrollDirection): void
     vfunc_unfallback(status_icon: Gtk.StatusIcon): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void

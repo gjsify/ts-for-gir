@@ -64,10 +64,10 @@ export const PIXBUF_VERSION:string
 export const PIXDATA_HEADER_LENGTH:number
 export function pixbuf_error_quark(): GLib.Quark
 export interface PixbufDestroyNotify {
-    (pixels: Gjs.byteArray.ByteArray, data?: object | null): void
+    (pixels: Gjs.byteArray.ByteArray): void
 }
 export interface PixbufSaveFunc {
-    (buf: Gjs.byteArray.ByteArray, data?: object | null): boolean
+    (buf: Gjs.byteArray.ByteArray): boolean
 }
 export interface Pixbuf_ConstructProps extends GObject.Object_ConstructProps {
     bits_per_sample?:number
@@ -113,9 +113,9 @@ export class Pixbuf {
     rotate_simple(angle: PixbufRotation): Pixbuf | null
     saturate_and_pixelate(dest: Pixbuf, saturation: number, pixelate: boolean): void
     save_to_bufferv(type: string, option_keys: string[], option_values: string[]): [ /* returnType */ boolean, /* buffer */ Gjs.byteArray.ByteArray ]
-    save_to_callbackv(save_func: PixbufSaveFunc, user_data: object | null, type: string, option_keys: string[], option_values: string[]): boolean
+    save_to_callbackv(save_func: PixbufSaveFunc, type: string, option_keys: string[], option_values: string[]): boolean
     save_to_streamv(stream: Gio.OutputStream, type: string, option_keys: string[], option_values: string[], cancellable?: Gio.Cancellable | null): boolean
-    save_to_streamv_async(stream: Gio.OutputStream, type: string, option_keys: string[], option_values: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    save_to_streamv_async(stream: Gio.OutputStream, type: string, option_keys: string[], option_values: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     savev(filename: string, type: string, option_keys: string[], option_values: string[]): boolean
     scale(dest: Pixbuf, dest_x: number, dest_y: number, dest_width: number, dest_height: number, offset_x: number, offset_y: number, scale_x: number, scale_y: number, interp_type: InterpType): void
     scale_simple(dest_width: number, dest_height: number, interp_type: InterpType): Pixbuf
@@ -173,11 +173,11 @@ export class Pixbuf {
     static calculate_rowstride(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): number
     static from_pixdata(pixdata: Pixdata, copy_pixels: boolean): Pixbuf
     static get_file_info(filename: string): [ /* returnType */ PixbufFormat | null, /* width */ number | null, /* height */ number | null ]
-    static get_file_info_async(filename: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    static get_file_info_async(filename: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static get_file_info_finish(async_result: Gio.AsyncResult): [ /* returnType */ PixbufFormat, /* width */ number, /* height */ number ]
     static get_formats(): GLib.SList
-    static new_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
-    static new_from_stream_at_scale_async(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    static new_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static new_from_stream_at_scale_async(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static save_to_stream_finish(async_result: Gio.AsyncResult): boolean
 }
 export interface PixbufAnimation_ConstructProps extends GObject.Object_ConstructProps {
@@ -232,7 +232,7 @@ export class PixbufAnimation {
     static new_from_resource(resource_path: string): PixbufAnimation
     static new_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): PixbufAnimation
     static new_from_stream_finish(async_result: Gio.AsyncResult): PixbufAnimation
-    static new_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    static new_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
 }
 export interface PixbufAnimationIter_ConstructProps extends GObject.Object_ConstructProps {
 }

@@ -2861,7 +2861,7 @@ export function error_trap_pop(): number
 export function error_trap_pop_ignored(): void
 export function error_trap_push(): void
 export function event_get(): Event | null
-export function event_handler_set(func: EventFunc, data: object | null, notify: GLib.DestroyNotify): void
+export function event_handler_set(func: EventFunc, notify: GLib.DestroyNotify): void
 export function event_peek(): Event | null
 export function event_request_motions(event: EventMotion): void
 export function events_get_angle(event1: Event, event2: Event): [ /* returnType */ boolean, /* angle */ number ]
@@ -2924,25 +2924,25 @@ export function test_render_sync(window: Window): void
 export function test_simulate_button(window: Window, x: number, y: number, button: number, modifiers: ModifierType, button_pressrelease: EventType): boolean
 export function test_simulate_key(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, key_pressrelease: EventType): boolean
 export function text_property_to_utf8_list_for_display(display: Display, encoding: Atom, format: number, text: Gjs.byteArray.ByteArray): [ /* returnType */ number, /* list */ string[] ]
-export function threads_add_idle(priority: number, function_: GLib.SourceFunc, data?: object | null, notify?: GLib.DestroyNotify | null): number
-export function threads_add_timeout(priority: number, interval: number, function_: GLib.SourceFunc, data?: object | null, notify?: GLib.DestroyNotify | null): number
-export function threads_add_timeout_seconds(priority: number, interval: number, function_: GLib.SourceFunc, data?: object | null, notify?: GLib.DestroyNotify | null): number
+export function threads_add_idle(priority: number, function_: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): number
+export function threads_add_timeout(priority: number, interval: number, function_: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): number
+export function threads_add_timeout_seconds(priority: number, interval: number, function_: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): number
 export function threads_enter(): void
 export function threads_init(): void
 export function threads_leave(): void
 export function unicode_to_keyval(wc: number): number
 export function utf8_to_string_target(str: string): string | null
 export interface EventFunc {
-    (event: Event, data?: object | null): void
+    (event: Event): void
 }
 export interface FilterFunc {
-    (xevent: XEvent, event: Event, data?: object | null): FilterReturn
+    (xevent: XEvent, event: Event): FilterReturn
 }
 export interface SeatGrabPrepareFunc {
-    (seat: Seat, window: Window, user_data?: object | null): void
+    (seat: Seat, window: Window): void
 }
 export interface WindowChildFunc {
-    (window: Window, user_data?: object | null): boolean
+    (window: Window): boolean
 }
 export interface WindowInvalidateHandlerFunc {
     (window: Window, region: cairo.Region): void
@@ -3923,7 +3923,7 @@ export class Seat {
     get_keyboard(): Device | null
     get_pointer(): Device | null
     get_slaves(capabilities: SeatCapabilities): Device[]
-    grab(window: Window, capabilities: SeatCapabilities, owner_events: boolean, cursor?: Cursor | null, event?: Event | null, prepare_func?: SeatGrabPrepareFunc | null, prepare_func_data?: object | null): GrabStatus
+    grab(window: Window, capabilities: SeatCapabilities, owner_events: boolean, cursor?: Cursor | null, event?: Event | null, prepare_func?: SeatGrabPrepareFunc | null): GrabStatus
     ungrab(): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -4115,7 +4115,7 @@ export class Window {
     hide(): void
     iconify(): void
     input_shape_combine_region(shape_region: cairo.Region, offset_x: number, offset_y: number): void
-    invalidate_maybe_recurse(region: cairo.Region, child_func?: WindowChildFunc | null, user_data?: object | null): void
+    invalidate_maybe_recurse(region: cairo.Region, child_func?: WindowChildFunc | null): void
     invalidate_rect(rect: Rectangle | null, invalidate_children: boolean): void
     invalidate_region(region: cairo.Region, invalidate_children: boolean): void
     is_destroyed(): boolean

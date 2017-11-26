@@ -522,65 +522,65 @@ export function xmlrpc_parse_response(method_response: string, length: number, s
 export function xmlrpc_variant_get_datetime(variant: GLib.Variant): Date
 export function xmlrpc_variant_new_datetime(date: Date): GLib.Variant
 export interface AddressCallback {
-    (addr: Address, status: number, user_data?: object | null): void
+    (addr: Address, status: number): void
 }
 export interface AuthDomainBasicAuthCallback {
-    (domain: AuthDomain, msg: Message, username: string, password: string, user_data?: object | null): boolean
+    (domain: AuthDomain, msg: Message, username: string, password: string): boolean
 }
 export interface AuthDomainDigestAuthCallback {
-    (domain: AuthDomain, msg: Message, username: string, user_data?: object | null): string | null
+    (domain: AuthDomain, msg: Message, username: string): string | null
 }
 export interface AuthDomainFilter {
-    (domain: AuthDomain, msg: Message, user_data?: object | null): boolean
+    (domain: AuthDomain, msg: Message): boolean
 }
 export interface AuthDomainGenericAuthCallback {
-    (domain: AuthDomain, msg: Message, username: string, user_data?: object | null): boolean
+    (domain: AuthDomain, msg: Message, username: string): boolean
 }
 export interface ChunkAllocator {
-    (msg: Message, max_len: number, user_data?: object | null): Buffer | null
+    (msg: Message, max_len: number): Buffer | null
 }
 export interface LoggerFilter {
-    (logger: Logger, msg: Message, user_data?: object | null): LoggerLogLevel
+    (logger: Logger, msg: Message): LoggerLogLevel
 }
 export interface LoggerPrinter {
-    (logger: Logger, level: LoggerLogLevel, direction: number, data: string, user_data?: object | null): void
+    (logger: Logger, level: LoggerLogLevel, direction: number, data: string): void
 }
 export interface MessageHeadersForeachFunc {
-    (name: string, value: string, user_data?: object | null): void
+    (name: string, value: string): void
 }
 export interface PasswordManagerCallback {
-    (password_manager: PasswordManager, msg: Message, auth: Auth, retrying: boolean, user_data?: object | null): void
+    (password_manager: PasswordManager, msg: Message, auth: Auth, retrying: boolean): void
 }
 export interface ProxyURIResolverCallback {
-    (resolver: ProxyURIResolver, status: number, proxy_uri: URI, user_data?: object | null): void
+    (resolver: ProxyURIResolver, status: number, proxy_uri: URI): void
 }
 export interface ServerCallback {
-    (server: Server, msg: Message, path: string, query: GLib.HashTable | null, client: ClientContext, user_data?: object | null): void
+    (server: Server, msg: Message, path: string, query: GLib.HashTable | null, client: ClientContext): void
 }
 export interface ServerWebsocketCallback {
-    (server: Server, connection: WebsocketConnection, path: string, client: ClientContext, user_data?: object | null): void
+    (server: Server, connection: WebsocketConnection, path: string, client: ClientContext): void
 }
 export interface SessionCallback {
-    (session: Session, msg: Message, user_data?: object | null): void
+    (session: Session, msg: Message): void
 }
 export interface SocketCallback {
-    (sock: Socket, status: number, user_data?: object | null): void
+    (sock: Socket, status: number): void
 }
 export class PasswordManager {
     /* Methods of Soup.PasswordManager */
-    get_passwords_async(msg: Message, auth: Auth, retrying: boolean, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: PasswordManagerCallback, user_data?: object | null): void
+    get_passwords_async(msg: Message, auth: Auth, retrying: boolean, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: PasswordManagerCallback): void
     get_passwords_sync(msg: Message, auth: Auth, cancellable?: Gio.Cancellable | null): void
     /* Virtual methods of Soup.PasswordManager */
-    vfunc_get_passwords_async(msg: Message, auth: Auth, retrying: boolean, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: PasswordManagerCallback, user_data?: object | null): void
+    vfunc_get_passwords_async(msg: Message, auth: Auth, retrying: boolean, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: PasswordManagerCallback): void
     vfunc_get_passwords_sync(msg: Message, auth: Auth, cancellable?: Gio.Cancellable | null): void
     static name: string
 }
 export class ProxyURIResolver {
     /* Methods of Soup.ProxyURIResolver */
-    get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback, user_data?: object | null): void
+    get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback): void
     get_proxy_uri_sync(uri: URI, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
     /* Virtual methods of Soup.ProxyURIResolver */
-    vfunc_get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback, user_data?: object | null): void
+    vfunc_get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback): void
     vfunc_get_proxy_uri_sync(uri: URI, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
     static name: string
 }
@@ -627,7 +627,7 @@ export class Address {
     hash_by_ip(): number
     hash_by_name(): number
     is_resolved(): boolean
-    resolve_async(async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: AddressCallback, user_data?: object | null): void
+    resolve_async(async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: AddressCallback): void
     resolve_sync(cancellable?: Gio.Cancellable | null): number
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -936,14 +936,14 @@ export class AuthDomain {
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.AuthDomain */
     accepts(msg: Message): string | null
-    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, user_data: object | null, dnotify: GLib.DestroyNotify): void
+    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, dnotify: GLib.DestroyNotify): void
     challenge(msg: Message): void
     check_password(msg: Message, username: string, password: string): boolean
     covers(msg: Message): boolean
-    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback, user_data: object | null, dnotify: GLib.DestroyNotify): void
+    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback, dnotify: GLib.DestroyNotify): void
     get_realm(): string
-    set_filter(filter: AuthDomainFilter, filter_data: object | null, dnotify: GLib.DestroyNotify): void
-    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback, auth_data: object | null, dnotify: GLib.DestroyNotify): void
+    set_filter(filter: AuthDomainFilter, dnotify: GLib.DestroyNotify): void
+    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback, dnotify: GLib.DestroyNotify): void
     try_generic_auth_callback(msg: Message, username: string): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1015,14 +1015,14 @@ export class AuthDomainBasic {
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.AuthDomain */
     accepts(msg: Message): string | null
-    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, user_data: object | null, dnotify: GLib.DestroyNotify): void
+    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, dnotify: GLib.DestroyNotify): void
     challenge(msg: Message): void
     check_password(msg: Message, username: string, password: string): boolean
     covers(msg: Message): boolean
-    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback, user_data: object | null, dnotify: GLib.DestroyNotify): void
+    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback, dnotify: GLib.DestroyNotify): void
     get_realm(): string
-    set_filter(filter: AuthDomainFilter, filter_data: object | null, dnotify: GLib.DestroyNotify): void
-    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback, auth_data: object | null, dnotify: GLib.DestroyNotify): void
+    set_filter(filter: AuthDomainFilter, dnotify: GLib.DestroyNotify): void
+    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback, dnotify: GLib.DestroyNotify): void
     try_generic_auth_callback(msg: Message, username: string): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1096,14 +1096,14 @@ export class AuthDomainDigest {
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.AuthDomain */
     accepts(msg: Message): string | null
-    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, user_data: object | null, dnotify: GLib.DestroyNotify): void
+    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, dnotify: GLib.DestroyNotify): void
     challenge(msg: Message): void
     check_password(msg: Message, username: string, password: string): boolean
     covers(msg: Message): boolean
-    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback, user_data: object | null, dnotify: GLib.DestroyNotify): void
+    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback, dnotify: GLib.DestroyNotify): void
     get_realm(): string
-    set_filter(filter: AuthDomainFilter, filter_data: object | null, dnotify: GLib.DestroyNotify): void
-    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback, auth_data: object | null, dnotify: GLib.DestroyNotify): void
+    set_filter(filter: AuthDomainFilter, dnotify: GLib.DestroyNotify): void
+    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback, dnotify: GLib.DestroyNotify): void
     try_generic_auth_callback(msg: Message, username: string): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1753,9 +1753,9 @@ export class Logger {
     /* Methods of Soup.Logger */
     attach(session: Session): void
     detach(session: Session): void
-    set_printer(printer: LoggerPrinter, printer_data: object | null, destroy: GLib.DestroyNotify): void
-    set_request_filter(request_filter: LoggerFilter, filter_data: object | null, destroy: GLib.DestroyNotify): void
-    set_response_filter(response_filter: LoggerFilter, filter_data: object | null, destroy: GLib.DestroyNotify): void
+    set_printer(printer: LoggerPrinter, destroy: GLib.DestroyNotify): void
+    set_request_filter(request_filter: LoggerFilter, destroy: GLib.DestroyNotify): void
+    set_response_filter(response_filter: LoggerFilter, destroy: GLib.DestroyNotify): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1850,7 +1850,7 @@ export class Message {
     got_informational(): void
     is_keepalive(): boolean
     restarted(): void
-    set_chunk_allocator(allocator: ChunkAllocator, user_data: object | null, destroy_notify: GLib.DestroyNotify): void
+    set_chunk_allocator(allocator: ChunkAllocator, destroy_notify: GLib.DestroyNotify): void
     set_first_party(first_party: URI): void
     set_flags(flags: MessageFlags): void
     set_http_version(version: HTTPVersion): void
@@ -1967,7 +1967,7 @@ export class MultipartInputStream {
     /* Methods of Soup.MultipartInputStream */
     get_headers(): MessageHeaders | null
     next_part(cancellable?: Gio.Cancellable | null): Gio.InputStream | null
-    next_part_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, data?: object | null): void
+    next_part_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     next_part_finish(result: Gio.AsyncResult): Gio.InputStream | null
     /* Methods of Gio.FilterInputStream */
     get_base_stream(): Gio.InputStream
@@ -1976,22 +1976,22 @@ export class MultipartInputStream {
     /* Methods of Gio.InputStream */
     clear_pending(): void
     close(cancellable?: Gio.Cancellable | null): boolean
-    close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     close_finish(result: Gio.AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
     read(buffer: Gjs.byteArray.ByteArray, cancellable?: Gio.Cancellable | null): number
     read_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    read_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     read_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    read_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     read_bytes(count: number, cancellable?: Gio.Cancellable | null): Gjs.byteArray.ByteArray
-    read_bytes_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    read_bytes_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     read_bytes_finish(result: Gio.AsyncResult): Gjs.byteArray.ByteArray
     read_finish(result: Gio.AsyncResult): number
     set_pending(): boolean
     skip(count: number, cancellable?: Gio.Cancellable | null): number
-    skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     skip_finish(result: Gio.AsyncResult): number
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2018,14 +2018,14 @@ export class MultipartInputStream {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.InputStream */
-    vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
     vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
-    vfunc_read_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    vfunc_read_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_read_finish(result: Gio.AsyncResult): number
     vfunc_read_fn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
     vfunc_skip(count: number, cancellable?: Gio.Cancellable | null): number
-    vfunc_skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    vfunc_skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_skip_finish(result: Gio.AsyncResult): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2109,7 +2109,7 @@ export class Request {
     get_session(): Session
     get_uri(): URI
     send(cancellable?: Gio.Cancellable | null): Gio.InputStream
-    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2140,7 +2140,7 @@ export class Request {
     vfunc_get_content_length(): number
     vfunc_get_content_type(): string | null
     vfunc_send(cancellable?: Gio.Cancellable | null): Gio.InputStream
-    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2172,7 +2172,7 @@ export class RequestData {
     get_session(): Session
     get_uri(): URI
     send(cancellable?: Gio.Cancellable | null): Gio.InputStream
-    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2203,7 +2203,7 @@ export class RequestData {
     vfunc_get_content_length(): number
     vfunc_get_content_type(): string | null
     vfunc_send(cancellable?: Gio.Cancellable | null): Gio.InputStream
-    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2237,7 +2237,7 @@ export class RequestFile {
     get_session(): Session
     get_uri(): URI
     send(cancellable?: Gio.Cancellable | null): Gio.InputStream
-    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2268,7 +2268,7 @@ export class RequestFile {
     vfunc_get_content_length(): number
     vfunc_get_content_type(): string | null
     vfunc_send(cancellable?: Gio.Cancellable | null): Gio.InputStream
-    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2302,7 +2302,7 @@ export class RequestHTTP {
     get_session(): Session
     get_uri(): URI
     send(cancellable?: Gio.Cancellable | null): Gio.InputStream
-    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2333,7 +2333,7 @@ export class RequestHTTP {
     vfunc_get_content_length(): number
     vfunc_get_content_type(): string | null
     vfunc_send(cancellable?: Gio.Cancellable | null): Gio.InputStream
-    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2423,9 +2423,9 @@ export class Server {
     /* Methods of Soup.Server */
     accept_iostream(stream: Gio.IOStream, local_addr?: Gio.SocketAddress | null, remote_addr?: Gio.SocketAddress | null): boolean
     add_auth_domain(auth_domain: AuthDomain): void
-    add_early_handler(path: string | null, callback: ServerCallback, user_data: object | null, destroy: GLib.DestroyNotify): void
-    add_handler(path: string | null, callback: ServerCallback, user_data: object | null, destroy: GLib.DestroyNotify): void
-    add_websocket_handler(path: string | null, origin: string | null, protocols: string[] | null, callback: ServerWebsocketCallback, user_data: object | null, destroy: GLib.DestroyNotify): void
+    add_early_handler(path: string | null, callback: ServerCallback, destroy: GLib.DestroyNotify): void
+    add_handler(path: string | null, callback: ServerCallback, destroy: GLib.DestroyNotify): void
+    add_websocket_handler(path: string | null, origin: string | null, protocols: string[] | null, callback: ServerWebsocketCallback, destroy: GLib.DestroyNotify): void
     disconnect(): void
     get_async_context(): GLib.MainContext | null
     get_listener(): Socket
@@ -2554,9 +2554,9 @@ export class Session {
     get_features(feature_type: number): GLib.SList
     has_feature(feature_type: number): boolean
     pause_message(msg: Message): void
-    prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null, user_data?: object | null): void
+    prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null): void
     prepare_for_uri(uri: URI): void
-    queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
+    queue_message(msg: Message, callback?: SessionCallback | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
     remove_feature_by_type(feature_type: number): void
@@ -2566,12 +2566,12 @@ export class Session {
     request_uri(uri: URI): Request
     requeue_message(msg: Message): void
     send(msg: Message, cancellable?: Gio.Cancellable | null): Gio.InputStream
-    send_async(msg: Message, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    send_async(msg: Message, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     send_message(msg: Message): number
     steal_connection(msg: Message): Gio.IOStream
     unpause_message(msg: Message): void
-    websocket_connect_async(msg: Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    websocket_connect_async(msg: Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     websocket_connect_finish(result: Gio.AsyncResult): WebsocketConnection
     would_redirect(msg: Message): boolean
     /* Methods of GObject.Object */
@@ -2604,7 +2604,7 @@ export class Session {
     vfunc_cancel_message(msg: Message, status_code: number): void
     vfunc_flush_queue(): void
     vfunc_kick(): void
-    vfunc_queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
+    vfunc_queue_message(msg: Message, callback?: SessionCallback | null): void
     vfunc_request_started(msg: Message, socket: Socket): void
     vfunc_requeue_message(msg: Message): void
     vfunc_send_message(msg: Message): number
@@ -2686,9 +2686,9 @@ export class SessionAsync {
     get_features(feature_type: number): GLib.SList
     has_feature(feature_type: number): boolean
     pause_message(msg: Message): void
-    prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null, user_data?: object | null): void
+    prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null): void
     prepare_for_uri(uri: URI): void
-    queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
+    queue_message(msg: Message, callback?: SessionCallback | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
     remove_feature_by_type(feature_type: number): void
@@ -2698,12 +2698,12 @@ export class SessionAsync {
     request_uri(uri: URI): Request
     requeue_message(msg: Message): void
     send(msg: Message, cancellable?: Gio.Cancellable | null): Gio.InputStream
-    send_async(msg: Message, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    send_async(msg: Message, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     send_message(msg: Message): number
     steal_connection(msg: Message): Gio.IOStream
     unpause_message(msg: Message): void
-    websocket_connect_async(msg: Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    websocket_connect_async(msg: Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     websocket_connect_finish(result: Gio.AsyncResult): WebsocketConnection
     would_redirect(msg: Message): boolean
     /* Methods of GObject.Object */
@@ -2736,7 +2736,7 @@ export class SessionAsync {
     vfunc_cancel_message(msg: Message, status_code: number): void
     vfunc_flush_queue(): void
     vfunc_kick(): void
-    vfunc_queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
+    vfunc_queue_message(msg: Message, callback?: SessionCallback | null): void
     vfunc_request_started(msg: Message, socket: Socket): void
     vfunc_requeue_message(msg: Message): void
     vfunc_send_message(msg: Message): number
@@ -2818,9 +2818,9 @@ export class SessionSync {
     get_features(feature_type: number): GLib.SList
     has_feature(feature_type: number): boolean
     pause_message(msg: Message): void
-    prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null, user_data?: object | null): void
+    prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null): void
     prepare_for_uri(uri: URI): void
-    queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
+    queue_message(msg: Message, callback?: SessionCallback | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
     remove_feature_by_type(feature_type: number): void
@@ -2830,12 +2830,12 @@ export class SessionSync {
     request_uri(uri: URI): Request
     requeue_message(msg: Message): void
     send(msg: Message, cancellable?: Gio.Cancellable | null): Gio.InputStream
-    send_async(msg: Message, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    send_async(msg: Message, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     send_message(msg: Message): number
     steal_connection(msg: Message): Gio.IOStream
     unpause_message(msg: Message): void
-    websocket_connect_async(msg: Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    websocket_connect_async(msg: Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     websocket_connect_finish(result: Gio.AsyncResult): WebsocketConnection
     would_redirect(msg: Message): boolean
     /* Methods of GObject.Object */
@@ -2868,7 +2868,7 @@ export class SessionSync {
     vfunc_cancel_message(msg: Message, status_code: number): void
     vfunc_flush_queue(): void
     vfunc_kick(): void
-    vfunc_queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
+    vfunc_queue_message(msg: Message, callback?: SessionCallback | null): void
     vfunc_request_started(msg: Message, socket: Socket): void
     vfunc_requeue_message(msg: Message): void
     vfunc_send_message(msg: Message): number
@@ -2942,7 +2942,7 @@ export class Socket {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.Socket */
-    connect_async(cancellable: Gio.Cancellable | null, callback: SocketCallback, user_data?: object | null): void
+    connect_async(cancellable: Gio.Cancellable | null, callback: SocketCallback): void
     connect_sync(cancellable?: Gio.Cancellable | null): number
     disconnect(): void
     get_fd(): number
@@ -3243,7 +3243,7 @@ export class MessageHeaders {
     append(name: string, value: string): void
     clean_connection_headers(): void
     clear(): void
-    foreach(func: MessageHeadersForeachFunc, user_data?: object | null): void
+    foreach(func: MessageHeadersForeachFunc): void
     free(): void
     free_ranges(ranges: Range): void
     get(name: string): string | null

@@ -345,13 +345,13 @@ export function version(): number
 export function version_check(required_major: number, required_minor: number, required_micro: number): string | null
 export function version_string(): string
 export interface AttrDataCopyFunc {
-    (user_data?: object | null): object | null
+    (): object | null
 }
 export interface AttrFilterFunc {
-    (attribute: Attribute, user_data?: object | null): boolean
+    (attribute: Attribute): boolean
 }
 export interface FontsetForeachFunc {
-    (fontset: Fontset, font: Font, user_data?: object | null): boolean
+    (fontset: Fontset, font: Font): boolean
 }
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -794,7 +794,7 @@ export class Fontset {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Pango.Fontset */
-    foreach(func: FontsetForeachFunc, data?: object | null): void
+    foreach(func: FontsetForeachFunc): void
     get_font(wc: number): Font
     get_metrics(): FontMetrics
     /* Methods of GObject.Object */
@@ -822,7 +822,7 @@ export class Fontset {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Fontset */
-    vfunc_foreach(func: FontsetForeachFunc, data?: object | null): void
+    vfunc_foreach(func: FontsetForeachFunc): void
     vfunc_get_font(wc: number): Font
     vfunc_get_language(): Language
     vfunc_get_metrics(): FontMetrics
@@ -851,7 +851,7 @@ export class FontsetSimple {
     append(font: Font): void
     size(): number
     /* Methods of Pango.Fontset */
-    foreach(func: FontsetForeachFunc, data?: object | null): void
+    foreach(func: FontsetForeachFunc): void
     get_font(wc: number): Font
     get_metrics(): FontMetrics
     /* Methods of GObject.Object */
@@ -879,7 +879,7 @@ export class FontsetSimple {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Fontset */
-    vfunc_foreach(func: FontsetForeachFunc, data?: object | null): void
+    vfunc_foreach(func: FontsetForeachFunc): void
     vfunc_get_font(wc: number): Font
     vfunc_get_language(): Language
     vfunc_get_metrics(): FontMetrics
@@ -1145,7 +1145,7 @@ export class AttrList {
     /* Methods of Pango.AttrList */
     change(attr: Attribute): void
     copy(): AttrList | null
-    filter(func: AttrFilterFunc, data?: object | null): AttrList | null
+    filter(func: AttrFilterFunc): AttrList | null
     insert(attr: Attribute): void
     insert_before(attr: Attribute): void
     ref(): AttrList

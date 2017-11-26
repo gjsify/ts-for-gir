@@ -953,7 +953,7 @@ export function byte_array_unref(array: Gjs.byteArray.ByteArray): void
 export function chdir(path: string): number
 export function check_version(required_major: number, required_minor: number, required_micro: number): string
 export function checksum_type_get_length(checksum_type: ChecksumType): number
-export function child_watch_add(priority: number, pid: Pid, function_: ChildWatchFunc, data?: object | null, notify?: DestroyNotify | null): number
+export function child_watch_add(priority: number, pid: Pid, function_: ChildWatchFunc, notify?: DestroyNotify | null): number
 export function child_watch_source_new(pid: Pid): Source
 export function clear_error(): void
 export function close(fd: number): boolean
@@ -1077,7 +1077,7 @@ export function hostname_is_non_ascii(hostname: string): boolean
 export function hostname_to_ascii(hostname: string): string
 export function hostname_to_unicode(hostname: string): string
 export function iconv(converter: IConv, inbuf: string, inbytes_left: number, outbuf: string, outbytes_left: number): number
-export function idle_add(priority: number, function_: SourceFunc, data?: object | null, notify?: DestroyNotify | null): number
+export function idle_add(priority: number, function_: SourceFunc, notify?: DestroyNotify | null): number
 export function idle_remove_by_data(data?: object | null): boolean
 export function idle_source_new(): Source
 export function int64_equal(v1: object, v2: object): boolean
@@ -1086,7 +1086,7 @@ export function int_equal(v1: object, v2: object): boolean
 export function int_hash(v: object): number
 export function intern_static_string(string?: string | null): string
 export function intern_string(string?: string | null): string
-export function io_add_watch(channel: IOChannel, priority: number, condition: IOCondition, func: IOFunc, user_data: object | null, notify: DestroyNotify): number
+export function io_add_watch(channel: IOChannel, priority: number, condition: IOCondition, func: IOFunc, notify: DestroyNotify): number
 export function io_channel_error_from_errno(en: number): IOChannelError
 export function io_channel_error_quark(): Quark
 export function io_create_watch(channel: IOChannel, condition: IOCondition): Source
@@ -1098,8 +1098,8 @@ export function log_default_handler(log_domain: string | null, log_level: LogLev
 export function log_remove_handler(log_domain: string, handler_id: number): void
 export function log_set_always_fatal(fatal_mask: LogLevelFlags): LogLevelFlags
 export function log_set_fatal_mask(log_domain: string, fatal_mask: LogLevelFlags): LogLevelFlags
-export function log_set_handler(log_domain: string | null, log_levels: LogLevelFlags, log_func: LogFunc, user_data: object | null, destroy: DestroyNotify): number
-export function log_set_writer_func(func: LogWriterFunc | null, user_data: object | null, user_data_free: DestroyNotify): void
+export function log_set_handler(log_domain: string | null, log_levels: LogLevelFlags, log_func: LogFunc, destroy: DestroyNotify): number
+export function log_set_writer_func(user_data_free: DestroyNotify): void
 export function log_structured_array(log_level: LogLevelFlags, fields: LogField[]): void
 export function log_variant(log_domain: string | null, log_level: LogLevelFlags, fields: Variant): void
 export function log_writer_default(log_level: LogLevelFlags, fields: LogField[], user_data?: object | null): LogWriterOutput
@@ -1193,15 +1193,15 @@ export function source_remove_by_funcs_user_data(funcs: SourceFuncs, user_data?:
 export function source_remove_by_user_data(user_data?: object | null): boolean
 export function source_set_name_by_id(tag: number, name: string): void
 export function spaced_primes_closest(num: number): number
-export function spawn_async(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null, user_data?: object | null): [ /* returnType */ boolean, /* child_pid */ Pid | null ]
-export function spawn_async_with_pipes(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null, user_data?: object | null): [ /* returnType */ boolean, /* child_pid */ Pid | null, /* standard_input */ number | null, /* standard_output */ number | null, /* standard_error */ number | null ]
+export function spawn_async(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* child_pid */ Pid | null ]
+export function spawn_async_with_pipes(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* child_pid */ Pid | null, /* standard_input */ number | null, /* standard_output */ number | null, /* standard_error */ number | null ]
 export function spawn_check_exit_status(exit_status: number): boolean
 export function spawn_close_pid(pid: Pid): void
 export function spawn_command_line_async(command_line: string): boolean
 export function spawn_command_line_sync(command_line: string): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
 export function spawn_error_quark(): Quark
 export function spawn_exit_error_quark(): Quark
-export function spawn_sync(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null, user_data?: object | null): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
+export function spawn_sync(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
 export function stpcpy(dest: string, src: string): string
 export function str_equal(v1: object, v2: object): boolean
 export function str_has_prefix(str: string, prefix: string): boolean
@@ -1285,8 +1285,8 @@ export function thread_pool_stop_unused_threads(): void
 export function thread_self(): Thread
 export function thread_yield(): void
 export function time_val_from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
-export function timeout_add(priority: number, interval: number, function_: SourceFunc, data?: object | null, notify?: DestroyNotify | null): number
-export function timeout_add_seconds(priority: number, interval: number, function_: SourceFunc, data?: object | null, notify?: DestroyNotify | null): number
+export function timeout_add(priority: number, interval: number, function_: SourceFunc, notify?: DestroyNotify | null): number
+export function timeout_add_seconds(priority: number, interval: number, function_: SourceFunc, notify?: DestroyNotify | null): number
 export function timeout_source_new(interval: number): Source
 export function timeout_source_new_seconds(interval: number): Source
 export function trash_stack_height(stack_p: TrashStack): number
@@ -1338,11 +1338,11 @@ export function unicode_canonical_ordering(string: number, len: number): void
 export function unicode_script_from_iso15924(iso15924: number): UnicodeScript
 export function unicode_script_to_iso15924(script: UnicodeScript): number
 export function unix_error_quark(): Quark
-export function unix_fd_add_full(priority: number, fd: number, condition: IOCondition, function_: UnixFDSourceFunc, user_data: object | null, notify: DestroyNotify): number
+export function unix_fd_add_full(priority: number, fd: number, condition: IOCondition, function_: UnixFDSourceFunc, notify: DestroyNotify): number
 export function unix_fd_source_new(fd: number, condition: IOCondition): Source
 export function unix_open_pipe(fds: number, flags: number): boolean
 export function unix_set_fd_nonblocking(fd: number, nonblock: boolean): boolean
-export function unix_signal_add(priority: number, signum: number, handler: SourceFunc, user_data: object | null, notify: DestroyNotify): number
+export function unix_signal_add(priority: number, signum: number, handler: SourceFunc, notify: DestroyNotify): number
 export function unix_signal_source_new(signum: number): Source
 export function unlink(filename: string): number
 export function unsetenv(variable: string): void
@@ -1392,10 +1392,10 @@ export function variant_type_checked_(arg0: string): VariantType
 export function variant_type_string_is_valid(type_string: string): boolean
 export function variant_type_string_scan(string: string, limit?: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
 export interface ChildWatchFunc {
-    (pid: Pid, status: number, user_data?: object | null): void
+    (pid: Pid, status: number): void
 }
 export interface CompareDataFunc {
-    (a?: object | null, b?: object | null, user_data?: object | null): number
+    (a?: object | null, b?: object | null): number
 }
 export interface CompareFunc {
     (a?: object | null, b?: object | null): number
@@ -1404,13 +1404,13 @@ export interface CopyFunc {
     (src: object, data?: object | null): object
 }
 export interface DataForeachFunc {
-    (key_id: Quark, data?: object | null, user_data?: object | null): void
+    (key_id: Quark, data?: object | null): void
 }
 export interface DestroyNotify {
     (data?: object | null): void
 }
 export interface DuplicateFunc {
-    (data?: object | null, user_data?: object | null): object | null
+    (data?: object | null): object | null
 }
 export interface EqualFunc {
     (a?: object | null, b?: object | null): boolean
@@ -1419,13 +1419,13 @@ export interface FreeFunc {
     (data?: object | null): void
 }
 export interface Func {
-    (data?: object | null, user_data?: object | null): void
+    (data?: object | null): void
 }
 export interface HFunc {
-    (key?: object | null, value?: object | null, user_data?: object | null): void
+    (key?: object | null, value?: object | null): void
 }
 export interface HRFunc {
-    (key?: object | null, value?: object | null, user_data?: object | null): boolean
+    (key?: object | null, value?: object | null): boolean
 }
 export interface HashFunc {
     (key?: object | null): number
@@ -1455,10 +1455,10 @@ export interface IOFunc {
     (source: IOChannel, condition: IOCondition, data?: object | null): boolean
 }
 export interface LogFunc {
-    (log_domain: string, log_level: LogLevelFlags, message: string, user_data?: object | null): void
+    (log_domain: string, log_level: LogLevelFlags, message: string): void
 }
 export interface LogWriterFunc {
-    (log_level: LogLevelFlags, fields: LogField[], user_data?: object | null): LogWriterOutput
+    (log_level: LogLevelFlags, fields: LogField[]): LogWriterOutput
 }
 export interface NodeForeachFunc {
     (node: Node, data?: object | null): void
@@ -1482,7 +1482,7 @@ export interface PrintFunc {
     (string: string): void
 }
 export interface RegexEvalCallback {
-    (match_info: MatchInfo, result: String, user_data?: object | null): boolean
+    (match_info: MatchInfo, result: String): boolean
 }
 export interface ScannerMsgFunc {
     (scanner: Scanner, message: string, error: boolean): void
@@ -1494,22 +1494,22 @@ export interface SourceDummyMarshal {
     (): void
 }
 export interface SourceFunc {
-    (user_data?: object | null): boolean
+    (): boolean
 }
 export interface SpawnChildSetupFunc {
-    (user_data?: object | null): void
+    (): void
 }
 export interface TestDataFunc {
-    (user_data?: object | null): void
+    (): void
 }
 export interface TestFixtureFunc {
-    (fixture: object, user_data?: object | null): void
+    (fixture: object): void
 }
 export interface TestFunc {
     (): void
 }
 export interface TestLogFatalFunc {
-    (log_domain: string, log_level: LogLevelFlags, message: string, user_data?: object | null): boolean
+    (log_domain: string, log_level: LogLevelFlags, message: string): boolean
 }
 export interface ThreadFunc {
     (data?: object | null): object | null
@@ -1521,7 +1521,7 @@ export interface TraverseFunc {
     (key?: object | null, value?: object | null, data?: object | null): boolean
 }
 export interface UnixFDSourceFunc {
-    (fd: number, condition: IOCondition, user_data?: object | null): boolean
+    (fd: number, condition: IOCondition): boolean
 }
 export interface VoidFunc {
     (): void
@@ -1998,7 +1998,7 @@ export class MainContext {
     find_source_by_funcs_user_data(funcs: SourceFuncs, user_data?: object | null): Source
     find_source_by_id(source_id: number): Source
     find_source_by_user_data(user_data?: object | null): Source
-    invoke_full(priority: number, function_: SourceFunc, data?: object | null, notify?: DestroyNotify | null): void
+    invoke_full(priority: number, function_: SourceFunc, notify?: DestroyNotify | null): void
     is_owner(): boolean
     iteration(may_block: boolean): boolean
     pending(): boolean
@@ -2151,7 +2151,7 @@ export class OptionContext {
     set_main_group(group: OptionGroup): void
     set_strict_posix(strict_posix: boolean): void
     set_summary(summary?: string | null): void
-    set_translate_func(func?: TranslateFunc | null, data?: object | null, destroy_notify?: DestroyNotify | null): void
+    set_translate_func(func?: TranslateFunc | null, destroy_notify?: DestroyNotify | null): void
     set_translation_domain(domain: string): void
     static name: string
 }
@@ -2171,7 +2171,7 @@ export class OptionGroup {
     add_entries(entries: OptionEntry): void
     free(): void
     ref(): OptionGroup
-    set_translate_func(func?: TranslateFunc | null, data?: object | null, destroy_notify?: DestroyNotify | null): void
+    set_translate_func(func?: TranslateFunc | null, destroy_notify?: DestroyNotify | null): void
     set_translation_domain(domain: string): void
     unref(): void
     static name: string
@@ -2426,7 +2426,7 @@ export class Source {
     remove_child_source(child_source: Source): void
     remove_poll(fd: PollFD): void
     remove_unix_fd(tag: object): void
-    set_callback(func: SourceFunc, data?: object | null, notify?: DestroyNotify | null): void
+    set_callback(func: SourceFunc, notify?: DestroyNotify | null): void
     set_callback_indirect(callback_data: object | null, callback_funcs: SourceCallbackFuncs): void
     set_can_recurse(can_recurse: boolean): void
     set_funcs(funcs: SourceFuncs): void

@@ -51,6 +51,7 @@ interface GirVariable extends TsForGjsExtended {
         "construct-only"?: string
         direction?: string
         introspectable?: string
+        closure?: string
     }
     doc?: GirDoc[]
     type?: GirType[]
@@ -483,6 +484,13 @@ export class GirModule {
         return -1
     }
 
+    private closureDataIndexLookup(param: GirVariable): number {
+        if (!param.$.closure)
+            return -1
+
+        return parseInt(param.$.closure)
+    }
+
     private getParameters(parameters): [ string, string[] ] {
         let def: string[] = []
         let outParams: string[] = []
@@ -492,16 +500,22 @@ export class GirModule {
             if (parametersArray) {
                 let skip = {}
 
-                for (let p of parametersArray) {
-                    let param: GirVariable = p
+                for (let param of parametersArray as GirVariable[]) {
                     let arrayNameIndex = this.arrayLengthIndexLookup(param)
-
-                    if (!param.array) continue
 
                     if (arrayNameIndex < 0) continue
                     if (arrayNameIndex >= parametersArray.length) continue
 
                     skip[parametersArray[arrayNameIndex]._fullSymName] = 1
+                }
+
+                for (let param of parametersArray as GirVariable[]) {
+                    let closureDataIndex = this.closureDataIndexLookup(param)
+
+                    if (closureDataIndex < 0) continue
+                    if (closureDataIndex >= parametersArray.length) continue
+
+                    skip[parametersArray[closureDataIndex]._fullSymName] = 1
                 }
 
                 for (let param of parametersArray as GirVariable[]) {

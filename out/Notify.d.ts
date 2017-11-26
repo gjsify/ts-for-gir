@@ -26,7 +26,7 @@ export function is_initted(): boolean
 export function set_app_name(app_name: string): void
 export function uninit(): void
 export interface ActionCallback {
-    (notification: Notification, action: string, user_data?: object | null): void
+    (notification: Notification, action: string): void
 }
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
     app_name?:string
@@ -47,7 +47,7 @@ export class Notification {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Notify.Notification */
-    add_action(action: string, label: string, callback: ActionCallback, user_data: object | null, free_func: GLib.DestroyNotify): void
+    add_action(action: string, label: string, callback: ActionCallback, free_func: GLib.DestroyNotify): void
     clear_actions(): void
     clear_hints(): void
     close(): boolean

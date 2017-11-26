@@ -1204,6 +1204,9 @@ export class TypeModule {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Closure): void
+    /* Methods of GObject.TypePlugin */
+    complete_interface_info(instance_type: number, interface_type: number, info: InterfaceInfo): void
+    complete_type_info(g_type: number, info: TypeInfo, value_table: TypeValueTable): void
     /* Virtual methods of GObject.TypeModule */
     vfunc_load(): boolean
     vfunc_unload(): void

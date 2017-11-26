@@ -773,6 +773,22 @@ export class GirModule {
             this.traverseInheritanceTree(parent, callback)
     }
 
+    private forEachInterface(e: GirClass, callback: ((cls: GirClass) => void)) {
+        for (const { $ } of e.implements || []) {
+            let name = $.name as string
+
+            if (name.indexOf(".") < 0) {
+                name = this.name + "." + name
+            }
+
+            const iface: GirClass | undefined = this.symTable[name]
+
+            if (iface) {
+                callback(iface)
+            }
+        }
+    }
+
     private isDerivedFromGObject(e: GirClass): boolean {
         let ret = false
         this.traverseInheritanceTree(e, (cls) => {
@@ -849,7 +865,7 @@ export class GirModule {
         let localNames = {}
         let propertyNames: string[] = []
 
-        this.traverseInheritanceTree(e, (cls) => {
+        const copyProperties = (cls: GirClass) => {
             if (cls.property) {
                 def.push(`    /* Properties of ${cls._fullSymName} */`)
                 for (let p of cls.property) {
@@ -861,7 +877,9 @@ export class GirModule {
                     def = def.concat(aDesc)
                 }
             }
-        })
+        }
+        this.traverseInheritanceTree(e, copyProperties)
+        this.forEachInterface(e, copyProperties)
 
         // Fields
         this.traverseInheritanceTree(e, (cls) => {
@@ -878,7 +896,7 @@ export class GirModule {
         })
 
         // Instance methods
-        this.traverseInheritanceTree(e, (cls) => {
+        const copyMethods = (cls: GirClass) => {
             if (cls.method) {
                 def.push(`    /* Methods of ${cls._fullSymName} */`)
                 for (let f of cls.method) {
@@ -886,7 +904,9 @@ export class GirModule {
                     def = def.concat(checkName(desc, name, localNames)[0])
                 }
             }
-        })
+        }
+        this.traverseInheritanceTree(e, copyMethods)
+        this.forEachInterface(e, copyMethods)
 
         // Instance methods, vfunc_ prefix
         this.traverseInheritanceTree(e, (cls) => {

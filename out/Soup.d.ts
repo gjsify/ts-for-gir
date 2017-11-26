@@ -653,6 +653,10 @@ export class Address {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.SocketConnectable */
+    enumerate(): Gio.SocketAddressEnumerator
+    proxy_enumerate(): Gio.SocketAddressEnumerator
+    to_string(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1191,6 +1195,12 @@ export class AuthManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    attach(session: Session): void
+    detach(session: Session): void
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of Soup.AuthManager */
     vfunc_authenticate(msg: Message, auth: Auth, retrying: boolean): void
     /* Virtual methods of GObject.Object */
@@ -1410,6 +1420,12 @@ export class Cache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    attach(session: Session): void
+    detach(session: Session): void
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of Soup.Cache */
     vfunc_get_cacheability(msg: Message): Cacheability
     /* Virtual methods of GObject.Object */
@@ -1459,6 +1475,12 @@ export class ContentDecoder {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    attach(session: Session): void
+    detach(session: Session): void
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1508,6 +1530,12 @@ export class ContentSniffer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    attach(session: Session): void
+    detach(session: Session): void
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of Soup.ContentSniffer */
     vfunc_get_buffer_size(): number
     vfunc_sniff(msg: Message, buffer: Buffer): [ /* returnType */ string, /* params */ GLib.HashTable | null ]
@@ -1574,6 +1602,12 @@ export class CookieJar {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    attach(session: Session): void
+    detach(session: Session): void
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of Soup.CookieJar */
     vfunc_changed(old_cookie: Cookie, new_cookie: Cookie): void
     vfunc_is_persistent(): boolean
@@ -1645,6 +1679,12 @@ export class CookieJarDB {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    attach(session: Session): void
+    detach(session: Session): void
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of Soup.CookieJar */
     vfunc_changed(old_cookie: Cookie, new_cookie: Cookie): void
     vfunc_is_persistent(): boolean
@@ -1716,6 +1756,12 @@ export class CookieJarText {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    attach(session: Session): void
+    detach(session: Session): void
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of Soup.CookieJar */
     vfunc_changed(old_cookie: Cookie, new_cookie: Cookie): void
     vfunc_is_persistent(): boolean
@@ -1780,6 +1826,10 @@ export class Logger {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2017,6 +2067,11 @@ export class MultipartInputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.PollableInputStream */
+    can_poll(): boolean
+    create_source(cancellable?: Gio.Cancellable | null): GLib.Source
+    is_readable(): boolean
+    read_nonblocking(buffer: Gjs.byteArray.ByteArray, cancellable?: Gio.Cancellable | null): number
     /* Virtual methods of Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
@@ -2077,6 +2132,15 @@ export class ProxyResolverDefault {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.ProxyURIResolver */
+    get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback): void
+    get_proxy_uri_sync(uri: URI, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    attach(session: Session): void
+    detach(session: Session): void
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2135,6 +2199,8 @@ export class Request {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of Soup.Request */
     vfunc_check_uri(uri: URI): boolean
     vfunc_get_content_length(): number
@@ -2198,6 +2264,8 @@ export class RequestData {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of Soup.Request */
     vfunc_check_uri(uri: URI): boolean
     vfunc_get_content_length(): number
@@ -2263,6 +2331,8 @@ export class RequestFile {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of Soup.Request */
     vfunc_check_uri(uri: URI): boolean
     vfunc_get_content_length(): number
@@ -2328,6 +2398,8 @@ export class RequestHTTP {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of Soup.Request */
     vfunc_check_uri(uri: URI): boolean
     vfunc_get_content_length(): number
@@ -2384,6 +2456,12 @@ export class Requester {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Soup.SessionFeature */
+    add_feature(type: number): boolean
+    attach(session: Session): void
+    detach(session: Session): void
+    has_feature(type: number): boolean
+    remove_feature(type: number): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2980,6 +3058,8 @@ export class Socket {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of Soup.Socket */
     vfunc_disconnected(): void
     vfunc_new_connection(new_sock: Socket): void

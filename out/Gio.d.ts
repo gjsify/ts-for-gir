@@ -1981,6 +1981,26 @@ export class Application {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.ActionGroup */
+    action_added(action_name: string): void
+    action_enabled_changed(action_name: string, enabled: boolean): void
+    action_removed(action_name: string): void
+    action_state_changed(action_name: string, state: GLib.Variant): void
+    activate_action(action_name: string, parameter?: GLib.Variant | null): void
+    change_action_state(action_name: string, value: GLib.Variant): void
+    get_action_enabled(action_name: string): boolean
+    get_action_parameter_type(action_name: string): GLib.VariantType | null
+    get_action_state(action_name: string): GLib.Variant | null
+    get_action_state_hint(action_name: string): GLib.Variant | null
+    get_action_state_type(action_name: string): GLib.VariantType | null
+    has_action(action_name: string): boolean
+    list_actions(): string[]
+    query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    /* Methods of Gio.ActionMap */
+    add_action(action: Action): void
+    add_action_entries(entries: ActionEntry[], user_data?: object | null): void
+    lookup_action(action_name: string): Action
+    remove_action(action_name: string): void
     /* Virtual methods of Gio.Application */
     vfunc_activate(): void
     vfunc_add_platform_data(builder: GLib.VariantBuilder): void
@@ -2167,6 +2187,12 @@ export class BufferedInputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Seekable */
+    can_seek(): boolean
+    can_truncate(): boolean
+    seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
+    tell(): number
+    truncate(offset: number, cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.BufferedInputStream */
     vfunc_fill(count: number, cancellable?: Cancellable | null): number
     vfunc_fill_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2273,6 +2299,12 @@ export class BufferedOutputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Seekable */
+    can_seek(): boolean
+    can_truncate(): boolean
+    seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
+    tell(): number
+    truncate(offset: number, cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -2337,6 +2369,14 @@ export class BytesIcon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Icon */
+    equal(icon2?: Icon | null): boolean
+    serialize(): GLib.Variant
+    to_string(): string | null
+    /* Methods of Gio.LoadableIcon */
+    load(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
+    load_async(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    load_finish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2453,6 +2493,11 @@ export class CharsetConverter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Converter */
+    convert(inbuf: Gjs.byteArray.ByteArray, outbuf: Gjs.byteArray.ByteArray, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    reset(): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2533,6 +2578,11 @@ export class ConverterInputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.PollableInputStream */
+    can_poll(): boolean
+    create_source(cancellable?: Cancellable | null): GLib.Source
+    is_readable(): boolean
+    read_nonblocking(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     /* Virtual methods of Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -2626,6 +2676,11 @@ export class ConverterOutputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.PollableOutputStream */
+    can_poll(): boolean
+    create_source(cancellable?: Cancellable | null): GLib.Source
+    is_writable(): boolean
+    write_nonblocking(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     /* Virtual methods of Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -2734,6 +2789,24 @@ export class DBusActionGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.ActionGroup */
+    action_added(action_name: string): void
+    action_enabled_changed(action_name: string, enabled: boolean): void
+    action_removed(action_name: string): void
+    action_state_changed(action_name: string, state: GLib.Variant): void
+    activate_action(action_name: string, parameter?: GLib.Variant | null): void
+    change_action_state(action_name: string, value: GLib.Variant): void
+    get_action_enabled(action_name: string): boolean
+    get_action_parameter_type(action_name: string): GLib.VariantType | null
+    get_action_state(action_name: string): GLib.Variant | null
+    get_action_state_hint(action_name: string): GLib.Variant | null
+    get_action_state_type(action_name: string): GLib.VariantType | null
+    has_action(action_name: string): boolean
+    list_actions(): string[]
+    query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    /* Methods of Gio.RemoteActionGroup */
+    activate_action_full(action_name: string, parameter: GLib.Variant | null, platform_data: GLib.Variant): void
+    change_action_state_full(action_name: string, value: GLib.Variant, platform_data: GLib.Variant): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2879,6 +2952,12 @@ export class DBusConnection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.AsyncInitable */
+    init_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    init_finish(res: AsyncResult): boolean
+    new_finish(res: AsyncResult): GObject.Object
+    /* Methods of Gio.Initable */
+    init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2951,6 +3030,9 @@ export class DBusInterfaceSkeleton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.DBusInterface */
+    get_object(): DBusObject
+    set_object(object?: DBusObject | null): void
     /* Virtual methods of Gio.DBusInterfaceSkeleton */
     vfunc_flush(): void
     vfunc_g_authorize_method(invocation: DBusMethodInvocation): boolean
@@ -3236,6 +3318,17 @@ export class DBusObjectManagerClient {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.AsyncInitable */
+    init_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    init_finish(res: AsyncResult): boolean
+    new_finish(res: AsyncResult): GObject.Object
+    /* Methods of Gio.DBusObjectManager */
+    get_interface(object_path: string, interface_name: string): DBusInterface
+    get_object(object_path: string): DBusObject
+    get_object_path(): string
+    get_objects(): DBusObject[]
+    /* Methods of Gio.Initable */
+    init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.DBusObjectManagerClient */
     vfunc_interface_proxy_properties_changed(object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_interface_proxy_signal(object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -3304,6 +3397,11 @@ export class DBusObjectManagerServer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.DBusObjectManager */
+    get_interface(object_path: string, interface_name: string): DBusInterface
+    get_object(object_path: string): DBusObject
+    get_object_path(): string
+    get_objects(): DBusObject[]
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3355,6 +3453,10 @@ export class DBusObjectProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.DBusObject */
+    get_interface(interface_name: string): DBusInterface
+    get_interfaces(): DBusInterface[]
+    get_object_path(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3409,6 +3511,10 @@ export class DBusObjectSkeleton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.DBusObject */
+    get_interface(interface_name: string): DBusInterface
+    get_interfaces(): DBusInterface[]
+    get_object_path(): string
     /* Virtual methods of Gio.DBusObjectSkeleton */
     vfunc_authorize_method(interface_: DBusInterfaceSkeleton, invocation: DBusMethodInvocation): boolean
     /* Virtual methods of GObject.Object */
@@ -3491,6 +3597,16 @@ export class DBusProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.AsyncInitable */
+    init_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    init_finish(res: AsyncResult): boolean
+    new_finish(res: AsyncResult): GObject.Object
+    /* Methods of Gio.DBusInterface */
+    get_object(): DBusObject
+    get_info(): DBusInterfaceInfo
+    set_object(object?: DBusObject | null): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -3563,6 +3679,8 @@ export class DBusServer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3682,6 +3800,12 @@ export class DataInputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Seekable */
+    can_seek(): boolean
+    can_truncate(): boolean
+    seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
+    tell(): number
+    truncate(offset: number, cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.BufferedInputStream */
     vfunc_fill(count: number, cancellable?: Cancellable | null): number
     vfunc_fill_async(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -3792,6 +3916,12 @@ export class DataOutputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Seekable */
+    can_seek(): boolean
+    can_truncate(): boolean
+    seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
+    tell(): number
+    truncate(offset: number, cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -3868,6 +3998,30 @@ export class DesktopAppInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.AppInfo */
+    add_supports_type(content_type: string): boolean
+    can_delete(): boolean
+    can_remove_supports_type(): boolean
+    delete(): boolean
+    dup(): AppInfo
+    equal(appinfo2: AppInfo): boolean
+    get_commandline(): string
+    get_description(): string
+    get_display_name(): string
+    get_executable(): string
+    get_icon(): Icon
+    get_id(): string
+    get_name(): string
+    get_supported_types(): string[]
+    launch(files?: File[] | null, launch_context?: AppLaunchContext | null): boolean
+    launch_uris(uris?: string[] | null, launch_context?: AppLaunchContext | null): boolean
+    remove_supports_type(content_type: string): boolean
+    set_as_default_for_extension(extension: string): boolean
+    set_as_default_for_type(content_type: string): boolean
+    set_as_last_used_for_type(content_type: string): boolean
+    should_show(): boolean
+    supports_files(): boolean
+    supports_uris(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3923,6 +4077,10 @@ export class Emblem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Icon */
+    equal(icon2?: Icon | null): boolean
+    serialize(): GLib.Variant
+    to_string(): string | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3977,6 +4135,10 @@ export class EmblemedIcon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Icon */
+    equal(icon2?: Icon | null): boolean
+    serialize(): GLib.Variant
+    to_string(): string | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4111,6 +4273,12 @@ export class FileIOStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Seekable */
+    can_seek(): boolean
+    can_truncate(): boolean
+    seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
+    tell(): number
+    truncate(offset: number, cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.FileIOStream */
     vfunc_can_seek(): boolean
     vfunc_can_truncate(): boolean
@@ -4177,6 +4345,14 @@ export class FileIcon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Icon */
+    equal(icon2?: Icon | null): boolean
+    serialize(): GLib.Variant
+    to_string(): string | null
+    /* Methods of Gio.LoadableIcon */
+    load(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
+    load_async(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    load_finish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4355,6 +4531,12 @@ export class FileInputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Seekable */
+    can_seek(): boolean
+    can_truncate(): boolean
+    seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
+    tell(): number
+    truncate(offset: number, cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.FileInputStream */
     vfunc_can_seek(): boolean
     vfunc_query_info(attributes: string, cancellable?: Cancellable | null): FileInfo
@@ -4508,6 +4690,12 @@ export class FileOutputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Seekable */
+    can_seek(): boolean
+    can_truncate(): boolean
+    seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
+    tell(): number
+    truncate(offset: number, cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.FileOutputStream */
     vfunc_can_seek(): boolean
     vfunc_can_truncate(): boolean
@@ -4820,6 +5008,9 @@ export class IOModule {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of GObject.TypePlugin */
+    complete_interface_info(instance_type: number, interface_type: number, info: GObject.InterfaceInfo): void
+    complete_type_info(g_type: number, info: GObject.TypeInfo, value_table: GObject.TypeValueTable): void
     /* Virtual methods of GObject.TypeModule */
     vfunc_load(): boolean
     vfunc_unload(): void
@@ -5042,6 +5233,8 @@ export class InetAddressMask {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5109,6 +5302,10 @@ export class InetSocketAddress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.SocketConnectable */
+    enumerate(): SocketAddressEnumerator
+    proxy_enumerate(): SocketAddressEnumerator
+    to_string(): string
     /* Virtual methods of Gio.SocketAddress */
     vfunc_get_family(): SocketFamily
     vfunc_get_native_size(): number
@@ -5244,6 +5441,11 @@ export class ListStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.ListModel */
+    get_item_type(): number
+    get_n_items(): number
+    get_item(position: number): GObject.Object | null
+    items_changed(position: number, removed: number, added: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5314,6 +5516,17 @@ export class MemoryInputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.PollableInputStream */
+    can_poll(): boolean
+    create_source(cancellable?: Cancellable | null): GLib.Source
+    is_readable(): boolean
+    read_nonblocking(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
+    /* Methods of Gio.Seekable */
+    can_seek(): boolean
+    can_truncate(): boolean
+    seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
+    tell(): number
+    truncate(offset: number, cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -5405,6 +5618,17 @@ export class MemoryOutputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.PollableOutputStream */
+    can_poll(): boolean
+    create_source(cancellable?: Cancellable | null): GLib.Source
+    is_writable(): boolean
+    write_nonblocking(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
+    /* Methods of Gio.Seekable */
+    can_seek(): boolean
+    can_truncate(): boolean
+    seek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
+    tell(): number
+    truncate(offset: number, cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -5960,6 +6184,10 @@ export class NetworkAddress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.SocketConnectable */
+    enumerate(): SocketAddressEnumerator
+    proxy_enumerate(): SocketAddressEnumerator
+    to_string(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6021,6 +6249,10 @@ export class NetworkService {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.SocketConnectable */
+    enumerate(): SocketAddressEnumerator
+    proxy_enumerate(): SocketAddressEnumerator
+    to_string(): string
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6255,6 +6487,8 @@ export class PropertyAction {
     readonly parameter_type:GLib.VariantType
     readonly state:GLib.Variant
     readonly state_type:GLib.VariantType
+    /* Properties of Gio.Action */
+    readonly name:string
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GObject.Object */
@@ -6281,6 +6515,15 @@ export class PropertyAction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Action */
+    activate(parameter?: GLib.Variant | null): void
+    change_state(value: GLib.Variant): void
+    get_enabled(): boolean
+    get_name(): string
+    get_parameter_type(): GLib.VariantType | null
+    get_state(): GLib.Variant
+    get_state_hint(): GLib.Variant | null
+    get_state_type(): GLib.VariantType | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6295,6 +6538,7 @@ export class PropertyAction {
     connect(sigName: "notify::parameter-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::state", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::state-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::name", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: PropertyAction_ConstructProps): PropertyAction
     constructor (config?: PropertyAction_ConstructProps)
@@ -6361,6 +6605,10 @@ export class ProxyAddress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.SocketConnectable */
+    enumerate(): SocketAddressEnumerator
+    proxy_enumerate(): SocketAddressEnumerator
+    to_string(): string
     /* Virtual methods of Gio.SocketAddress */
     vfunc_get_family(): SocketFamily
     vfunc_get_native_size(): number
@@ -6709,6 +6957,9 @@ export class SimpleAction {
     enabled:boolean
     state:GLib.Variant
     readonly state_type:GLib.VariantType
+    /* Properties of Gio.Action */
+    readonly name:string
+    readonly parameter_type:GLib.VariantType
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.SimpleAction */
@@ -6739,6 +6990,15 @@ export class SimpleAction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Action */
+    activate(parameter?: GLib.Variant | null): void
+    change_state(value: GLib.Variant): void
+    get_enabled(): boolean
+    get_name(): string
+    get_parameter_type(): GLib.VariantType | null
+    get_state(): GLib.Variant
+    get_state_hint(): GLib.Variant | null
+    get_state_type(): GLib.VariantType | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6755,6 +7015,8 @@ export class SimpleAction {
     connect(sigName: "notify::enabled", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::state", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::state-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::name", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::parameter-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: SimpleAction_ConstructProps): SimpleAction
     constructor (config?: SimpleAction_ConstructProps)
@@ -6796,6 +7058,26 @@ export class SimpleActionGroup {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.ActionGroup */
+    action_added(action_name: string): void
+    action_enabled_changed(action_name: string, enabled: boolean): void
+    action_removed(action_name: string): void
+    action_state_changed(action_name: string, state: GLib.Variant): void
+    activate_action(action_name: string, parameter?: GLib.Variant | null): void
+    change_action_state(action_name: string, value: GLib.Variant): void
+    get_action_enabled(action_name: string): boolean
+    get_action_parameter_type(action_name: string): GLib.VariantType | null
+    get_action_state(action_name: string): GLib.Variant | null
+    get_action_state_hint(action_name: string): GLib.Variant | null
+    get_action_state_type(action_name: string): GLib.VariantType | null
+    has_action(action_name: string): boolean
+    list_actions(): string[]
+    query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    /* Methods of Gio.ActionMap */
+    add_action(action: Action): void
+    add_action_entries(entries: ActionEntry[], user_data?: object | null): void
+    lookup_action(action_name: string): Action
+    remove_action(action_name: string): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6851,6 +7133,11 @@ export class SimpleAsyncResult {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.AsyncResult */
+    get_source_object(): GObject.Object
+    get_user_data(): object | null
+    is_tagged(source_tag?: object | null): boolean
+    legacy_propagate_error(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7052,6 +7339,11 @@ export class SimpleProxyResolver {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.ProxyResolver */
+    is_supported(): boolean
+    lookup(uri: string, cancellable?: Cancellable | null): string[]
+    lookup_async(uri: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    lookup_finish(result: AsyncResult): string[]
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7177,6 +7469,10 @@ export class Socket {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.DatagramBased */
+    create_source(condition: GLib.IOCondition, cancellable?: Cancellable | null): GLib.Source
+    /* Methods of Gio.Initable */
+    init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7240,6 +7536,10 @@ export class SocketAddress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.SocketConnectable */
+    enumerate(): SocketAddressEnumerator
+    proxy_enumerate(): SocketAddressEnumerator
+    to_string(): string
     /* Virtual methods of Gio.SocketAddress */
     vfunc_get_family(): SocketFamily
     vfunc_get_native_size(): number
@@ -7771,6 +8071,8 @@ export class Subprocess {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -7903,6 +8205,10 @@ export class Task {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.AsyncResult */
+    get_user_data(): object | null
+    is_tagged(source_tag?: object | null): boolean
+    legacy_propagate_error(): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -8193,6 +8499,10 @@ export class ThemedIcon {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Icon */
+    equal(icon2?: Icon | null): boolean
+    serialize(): GLib.Variant
+    to_string(): string | null
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9018,6 +9328,12 @@ export class UnixInputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.FileDescriptorBased */
+    /* Methods of Gio.PollableInputStream */
+    can_poll(): boolean
+    create_source(cancellable?: Cancellable | null): GLib.Source
+    is_readable(): boolean
+    read_nonblocking(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     /* Virtual methods of Gio.InputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -9158,6 +9474,12 @@ export class UnixOutputStream {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.FileDescriptorBased */
+    /* Methods of Gio.PollableOutputStream */
+    can_poll(): boolean
+    create_source(cancellable?: Cancellable | null): GLib.Source
+    is_writable(): boolean
+    write_nonblocking(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     /* Virtual methods of Gio.OutputStream */
     vfunc_close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish(result: AsyncResult): boolean
@@ -9235,6 +9557,10 @@ export class UnixSocketAddress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.SocketConnectable */
+    enumerate(): SocketAddressEnumerator
+    proxy_enumerate(): SocketAddressEnumerator
+    to_string(): string
     /* Virtual methods of Gio.SocketAddress */
     vfunc_get_family(): SocketFamily
     vfunc_get_native_size(): number
@@ -9445,6 +9771,9 @@ export class ZlibCompressor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Converter */
+    convert(inbuf: Gjs.byteArray.ByteArray, outbuf: Gjs.byteArray.ByteArray, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9495,6 +9824,9 @@ export class ZlibDecompressor {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Converter */
+    convert(inbuf: Gjs.byteArray.ByteArray, outbuf: Gjs.byteArray.ByteArray, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytes_read */ number, /* bytes_written */ number ]
+    reset(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void

@@ -1127,6 +1127,9 @@ export class GeolocationPermissionRequest {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of WebKit2.PermissionRequest */
+    allow(): void
+    deny(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1241,6 +1244,9 @@ export class InstallMissingMediaPluginsPermissionRequest {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of WebKit2.PermissionRequest */
+    allow(): void
+    deny(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1421,6 +1427,9 @@ export class NotificationPermissionRequest {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of WebKit2.PermissionRequest */
+    allow(): void
+    deny(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2399,6 +2408,9 @@ export class UserMediaPermissionRequest {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of WebKit2.PermissionRequest */
+    allow(): void
+    deny(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3090,6 +3102,15 @@ export class WebView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gtk.Buildable */
+    add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    construct_child(builder: Gtk.Builder, name: string): GObject.Object
+    custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    parser_finished(builder: Gtk.Builder): void
+    set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     /* Virtual methods of WebKit2.WebView */
     vfunc_authenticate(request: AuthenticationRequest): boolean
     vfunc_close(): void
@@ -3747,6 +3768,15 @@ export class WebViewBase {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gtk.Buildable */
+    add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    construct_child(builder: Gtk.Builder, name: string): GObject.Object
+    custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    parser_finished(builder: Gtk.Builder): void
+    set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     /* Virtual methods of Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void

@@ -144,6 +144,14 @@ export class Pixbuf {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Icon */
+    equal(icon2?: Gio.Icon | null): boolean
+    serialize(): GLib.Variant
+    to_string(): string | null
+    /* Methods of Gio.LoadableIcon */
+    load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    load_async(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    load_finish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void

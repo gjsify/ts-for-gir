@@ -902,6 +902,14 @@ export class Hyperlink {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Atk.Action */
+    do_action(i: number): boolean
+    get_description(i: number): string | null
+    get_keybinding(i: number): string | null
+    get_localized_name(i: number): string | null
+    get_n_actions(): number
+    get_name(i: number): string | null
+    set_description(i: number, desc: string): boolean
     /* Virtual methods of Atk.Hyperlink */
     vfunc_get_end_index(): number
     vfunc_get_n_anchors(): number
@@ -1061,6 +1069,124 @@ export class NoOpObject {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Atk.Action */
+    do_action(i: number): boolean
+    get_keybinding(i: number): string | null
+    get_localized_name(i: number): string | null
+    get_n_actions(): number
+    /* Methods of Atk.Component */
+    contains(x: number, y: number, coord_type: CoordType): boolean
+    get_alpha(): number
+    get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
+    get_size(): [ /* width */ number | null, /* height */ number | null ]
+    grab_focus(): boolean
+    ref_accessible_at_point(x: number, y: number, coord_type: CoordType): Object | null
+    remove_focus_handler(handler_id: number): void
+    set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
+    set_position(x: number, y: number, coord_type: CoordType): boolean
+    set_size(width: number, height: number): boolean
+    /* Methods of Atk.Document */
+    get_attribute_value(attribute_name: string): string | null
+    get_current_page_number(): number
+    get_document(): object | null
+    get_document_type(): string
+    get_locale(): string
+    get_page_count(): number
+    set_attribute_value(attribute_name: string, attribute_value: string): boolean
+    /* Methods of Atk.EditableText */
+    copy_text(start_pos: number, end_pos: number): void
+    cut_text(start_pos: number, end_pos: number): void
+    delete_text(start_pos: number, end_pos: number): void
+    insert_text(string: string, length: number, position: number): void
+    paste_text(position: number): void
+    set_run_attributes(attrib_set: AttributeSet, start_offset: number, end_offset: number): boolean
+    set_text_contents(string: string): void
+    /* Methods of Atk.Hypertext */
+    get_link(link_index: number): Hyperlink
+    get_link_index(char_index: number): number
+    get_n_links(): number
+    /* Methods of Atk.Image */
+    get_image_description(): string
+    get_image_locale(): string | null
+    get_image_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
+    get_image_size(): [ /* width */ number | null, /* height */ number | null ]
+    set_image_description(description: string): boolean
+    /* Methods of Atk.Selection */
+    add_selection(i: number): boolean
+    clear_selection(): boolean
+    get_selection_count(): number
+    is_child_selected(i: number): boolean
+    ref_selection(i: number): Object | null
+    remove_selection(i: number): boolean
+    select_all_selection(): boolean
+    /* Methods of Atk.Table */
+    add_column_selection(column: number): boolean
+    add_row_selection(row: number): boolean
+    get_caption(): Object | null
+    get_column_at_index(index_: number): number
+    get_column_description(column: number): string
+    get_column_extent_at(row: number, column: number): number
+    get_column_header(column: number): Object | null
+    get_index_at(row: number, column: number): number
+    get_n_columns(): number
+    get_n_rows(): number
+    get_row_at_index(index_: number): number
+    get_row_description(row: number): string | null
+    get_row_extent_at(row: number, column: number): number
+    get_row_header(row: number): Object | null
+    get_selected_columns(selected: number): number
+    get_selected_rows(selected: number): number
+    get_summary(): Object
+    is_column_selected(column: number): boolean
+    is_row_selected(row: number): boolean
+    is_selected(row: number, column: number): boolean
+    ref_at(row: number, column: number): Object
+    remove_column_selection(column: number): boolean
+    remove_row_selection(row: number): boolean
+    set_caption(caption: Object): void
+    set_column_description(column: number, description: string): void
+    set_column_header(column: number, header: Object): void
+    set_row_description(row: number, description: string): void
+    set_row_header(row: number, header: Object): void
+    set_summary(accessible: Object): void
+    /* Methods of Atk.TableCell */
+    get_column_header_cells(): Object[]
+    get_column_span(): number
+    get_row_column_span(): [ /* returnType */ boolean, /* row */ number, /* column */ number, /* row_span */ number, /* column_span */ number ]
+    get_row_header_cells(): Object[]
+    get_row_span(): number
+    get_table(): Object
+    /* Methods of Atk.Text */
+    get_bounded_ranges(rect: TextRectangle, coord_type: CoordType, x_clip_type: TextClipType, y_clip_type: TextClipType): TextRange[]
+    get_caret_offset(): number
+    get_character_at_offset(offset: number): number
+    get_character_count(): number
+    get_character_extents(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    get_default_attributes(): AttributeSet
+    get_n_selections(): number
+    get_offset_at_point(x: number, y: number, coords: CoordType): number
+    get_range_extents(start_offset: number, end_offset: number, coord_type: CoordType): /* rect */ TextRectangle
+    get_run_attributes(offset: number): [ /* returnType */ AttributeSet, /* start_offset */ number, /* end_offset */ number ]
+    get_selection(selection_num: number): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    get_string_at_offset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* start_offset */ number, /* end_offset */ number ]
+    get_text(start_offset: number, end_offset: number): string
+    get_text_after_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    get_text_at_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    get_text_before_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    set_caret_offset(offset: number): boolean
+    set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
+    /* Methods of Atk.Value */
+    get_current_value(): /* value */ any
+    get_increment(): number
+    get_maximum_value(): /* value */ any
+    get_minimum_increment(): /* value */ any
+    get_minimum_value(): /* value */ any
+    get_range(): Range | null
+    get_sub_ranges(): GLib.SList
+    get_value_and_text(): [ /* value */ number, /* text */ string | null ]
+    set_current_value(value: any): boolean
+    set_value(new_value: number): void
     /* Virtual methods of Atk.Object */
     vfunc_active_descendant_changed(child?: object | null): void
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
@@ -1455,6 +1581,18 @@ export class Plug {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Atk.Component */
+    contains(x: number, y: number, coord_type: CoordType): boolean
+    get_alpha(): number
+    get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
+    get_size(): [ /* width */ number | null, /* height */ number | null ]
+    grab_focus(): boolean
+    ref_accessible_at_point(x: number, y: number, coord_type: CoordType): Object | null
+    remove_focus_handler(handler_id: number): void
+    set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
+    set_position(x: number, y: number, coord_type: CoordType): boolean
+    set_size(width: number, height: number): boolean
     /* Virtual methods of Atk.Plug */
     vfunc_get_object_id(): string
     /* Virtual methods of Atk.Object */
@@ -1765,6 +1903,18 @@ export class Socket {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Atk.Component */
+    contains(x: number, y: number, coord_type: CoordType): boolean
+    get_alpha(): number
+    get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
+    get_size(): [ /* width */ number | null, /* height */ number | null ]
+    grab_focus(): boolean
+    ref_accessible_at_point(x: number, y: number, coord_type: CoordType): Object | null
+    remove_focus_handler(handler_id: number): void
+    set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
+    set_position(x: number, y: number, coord_type: CoordType): boolean
+    set_size(width: number, height: number): boolean
     /* Virtual methods of Atk.Socket */
     vfunc_embed(plug_id: string): void
     /* Virtual methods of Atk.Object */

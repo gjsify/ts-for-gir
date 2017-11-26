@@ -508,6 +508,17 @@ export class Completion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gtk.Buildable */
+    add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    construct_child(builder: Gtk.Builder, name: string): GObject.Object
+    custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    get_name(): string
+    parser_finished(builder: Gtk.Builder): void
+    set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
+    set_name(name: string): void
     /* Virtual methods of GtkSource.Completion */
     vfunc_activate_proposal(): void
     vfunc_hide(): void
@@ -1121,6 +1132,15 @@ export class CompletionInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gtk.Buildable */
+    add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    construct_child(builder: Gtk.Builder, name: string): GObject.Object
+    custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    parser_finished(builder: Gtk.Builder): void
+    set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     /* Virtual methods of GtkSource.CompletionInfo */
     vfunc_before_show(): void
     /* Virtual methods of Gtk.Window */
@@ -1450,6 +1470,17 @@ export class CompletionItem {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of GtkSource.CompletionProposal */
+    changed(): void
+    equal(other: CompletionProposal): boolean
+    get_gicon(): Gio.Icon | null
+    get_icon(): GdkPixbuf.Pixbuf | null
+    get_icon_name(): string | null
+    get_info(): string | null
+    get_label(): string
+    get_markup(): string
+    get_text(): string
+    hash(): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1527,6 +1558,20 @@ export class CompletionWords {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of GtkSource.CompletionProvider */
+    activate_proposal(proposal: CompletionProposal, iter: Gtk.TextIter): boolean
+    get_activation(): CompletionActivation
+    get_gicon(): Gio.Icon | null
+    get_icon(): GdkPixbuf.Pixbuf | null
+    get_icon_name(): string | null
+    get_info_widget(proposal: CompletionProposal): Gtk.Widget | null
+    get_interactive_delay(): number
+    get_name(): string
+    get_priority(): number
+    get_start_iter(context: CompletionContext, proposal: CompletionProposal): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
+    match(context: CompletionContext): boolean
+    populate(context: CompletionContext): void
+    update_info(proposal: CompletionProposal, info: CompletionInfo): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2419,6 +2464,11 @@ export class Map {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Properties of Gtk.Scrollable */
+    hadjustment:Gtk.Adjustment
+    hscroll_policy:Gtk.ScrollablePolicy
+    vadjustment:Gtk.Adjustment
+    vscroll_policy:Gtk.ScrollablePolicy
     /* Fields of GtkSource.Map */
     parent_instance:View
     /* Fields of GtkSource.View */
@@ -2852,6 +2902,23 @@ export class Map {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gtk.Buildable */
+    add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    construct_child(builder: Gtk.Builder, name: string): GObject.Object
+    custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    parser_finished(builder: Gtk.Builder): void
+    set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
+    /* Methods of Gtk.Scrollable */
+    get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
+    get_hscroll_policy(): Gtk.ScrollablePolicy
+    get_vscroll_policy(): Gtk.ScrollablePolicy
+    set_hadjustment(hadjustment?: Gtk.Adjustment | null): void
+    set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
+    set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
+    set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
     /* Virtual methods of GtkSource.View */
     vfunc_line_mark_activated(iter: Gtk.TextIter, event: Gdk.Event): void
     vfunc_move_lines(copy: boolean, step: number): void
@@ -3160,6 +3227,10 @@ export class Map {
     connect(sigName: "notify::visible", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::hadjustment", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::hscroll-policy", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::vadjustment", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::vscroll-policy", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: Map_ConstructProps): Map
     constructor (config?: Map_ConstructProps)
@@ -3889,6 +3960,14 @@ export class StyleSchemeChooserButton {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Properties of Gtk.Actionable */
+    action_name:string
+    action_target:GLib.Variant
+    /* Properties of Gtk.Activatable */
+    related_action:Gtk.Action
+    use_action_appearance:boolean
+    /* Properties of GtkSource.StyleSchemeChooser */
+    style_scheme:StyleScheme
     /* Fields of GtkSource.StyleSchemeChooserButton */
     /* Fields of Gtk.Button */
     /* Fields of Gtk.Bin */
@@ -4236,6 +4315,31 @@ export class StyleSchemeChooserButton {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gtk.Actionable */
+    get_action_name(): string | null
+    get_action_target_value(): GLib.Variant
+    set_action_name(action_name?: string | null): void
+    set_action_target_value(target_value: GLib.Variant): void
+    set_detailed_action_name(detailed_action_name: string): void
+    /* Methods of Gtk.Activatable */
+    do_set_related_action(action: Gtk.Action): void
+    get_related_action(): Gtk.Action
+    get_use_action_appearance(): boolean
+    set_related_action(action: Gtk.Action): void
+    set_use_action_appearance(use_appearance: boolean): void
+    sync_action_properties(action?: Gtk.Action | null): void
+    /* Methods of Gtk.Buildable */
+    add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    construct_child(builder: Gtk.Builder, name: string): GObject.Object
+    custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    parser_finished(builder: Gtk.Builder): void
+    set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
+    /* Methods of GtkSource.StyleSchemeChooser */
+    get_style_scheme(): StyleScheme
+    set_style_scheme(scheme: StyleScheme): void
     /* Virtual methods of Gtk.Button */
     vfunc_activate(): void
     vfunc_clicked(): void
@@ -4480,6 +4584,11 @@ export class StyleSchemeChooserButton {
     connect(sigName: "notify::visible", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::action-name", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::action-target", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::related-action", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::use-action-appearance", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::style-scheme", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: StyleSchemeChooserButton_ConstructProps): StyleSchemeChooserButton
     constructor (config?: StyleSchemeChooserButton_ConstructProps)
@@ -4532,6 +4641,8 @@ export class StyleSchemeChooserWidget {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Properties of GtkSource.StyleSchemeChooser */
+    style_scheme:StyleScheme
     /* Fields of GtkSource.StyleSchemeChooserWidget */
     /* Fields of Gtk.Bin */
     container:Gtk.Container
@@ -4855,6 +4966,18 @@ export class StyleSchemeChooserWidget {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gtk.Buildable */
+    add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    construct_child(builder: Gtk.Builder, name: string): GObject.Object
+    custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    parser_finished(builder: Gtk.Builder): void
+    set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
+    /* Methods of GtkSource.StyleSchemeChooser */
+    get_style_scheme(): StyleScheme
+    set_style_scheme(scheme: StyleScheme): void
     /* Virtual methods of Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
@@ -5076,6 +5199,7 @@ export class StyleSchemeChooserWidget {
     connect(sigName: "notify::visible", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::style-scheme", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: StyleSchemeChooserWidget_ConstructProps): StyleSchemeChooserWidget
     constructor (config?: StyleSchemeChooserWidget_ConstructProps)
@@ -5454,6 +5578,11 @@ export class View {
     visible:boolean
     width_request:number
     readonly window:Gdk.Window
+    /* Properties of Gtk.Scrollable */
+    hadjustment:Gtk.Adjustment
+    hscroll_policy:Gtk.ScrollablePolicy
+    vadjustment:Gtk.Adjustment
+    vscroll_policy:Gtk.ScrollablePolicy
     /* Fields of GtkSource.View */
     priv:ViewPrivate
     /* Fields of Gtk.TextView */
@@ -5883,6 +6012,23 @@ export class View {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Methods of Gtk.Buildable */
+    add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    construct_child(builder: Gtk.Builder, name: string): GObject.Object
+    custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_end(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    custom_tag_start(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
+    parser_finished(builder: Gtk.Builder): void
+    set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
+    /* Methods of Gtk.Scrollable */
+    get_border(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
+    get_hscroll_policy(): Gtk.ScrollablePolicy
+    get_vscroll_policy(): Gtk.ScrollablePolicy
+    set_hadjustment(hadjustment?: Gtk.Adjustment | null): void
+    set_hscroll_policy(policy: Gtk.ScrollablePolicy): void
+    set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
+    set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
     /* Virtual methods of GtkSource.View */
     vfunc_line_mark_activated(iter: Gtk.TextIter, event: Gdk.Event): void
     vfunc_move_lines(copy: boolean, step: number): void
@@ -6189,6 +6335,10 @@ export class View {
     connect(sigName: "notify::visible", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::width-request", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::window", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::hadjustment", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::hscroll-policy", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::vadjustment", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify::vscroll-policy", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: View_ConstructProps): View
     constructor (config?: View_ConstructProps)

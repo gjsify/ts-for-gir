@@ -617,7 +617,7 @@ export class Font {
     static name: string
     static new (config?: Font_ConstructProps): Font
     constructor (config?: Font_ConstructProps)
-    static descriptions_free(descs?: FontDescription[] | null): void
+    static descriptions_free(descs: FontDescription[] | null): void
 }
 export interface FontFace_ConstructProps extends GObject.Object_ConstructProps {
 }

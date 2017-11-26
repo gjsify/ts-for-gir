@@ -1856,8 +1856,8 @@ export class Message {
     set_http_version(version: HTTPVersion): void
     set_priority(priority: MessagePriority): void
     set_redirect(status_code: number, redirect_uri: string): void
-    set_request(content_type: string | null, req_use: MemoryUse, req_body?: Gjs.byteArray.ByteArray | null): void
-    set_response(content_type: string | null, resp_use: MemoryUse, resp_body?: Gjs.byteArray.ByteArray | null): void
+    set_request(content_type: string | null, req_use: MemoryUse, req_body: Gjs.byteArray.ByteArray | null): void
+    set_response(content_type: string | null, resp_use: MemoryUse, resp_body: Gjs.byteArray.ByteArray | null): void
     set_status(status_code: number): void
     set_status_full(status_code: number, reason_phrase: string): void
     set_uri(uri: URI): void
@@ -3116,10 +3116,10 @@ export class Buffer {
     get_owner(): object | null
     new_subbuffer(offset: number, length: number): Buffer
     static name: string
-    static new(data: Gjs.byteArray.ByteArray, length: number): Buffer
-    constructor(data: Gjs.byteArray.ByteArray, length: number)
-    static new(data: Gjs.byteArray.ByteArray, length: number): Buffer
-    static new_with_owner(data: Gjs.byteArray.ByteArray, length: number, owner?: object | null, owner_dnotify?: GLib.DestroyNotify | null): Buffer
+    static new(data: Gjs.byteArray.ByteArray): Buffer
+    constructor(data: Gjs.byteArray.ByteArray)
+    static new(data: Gjs.byteArray.ByteArray): Buffer
+    static new_with_owner(data: Gjs.byteArray.ByteArray, owner?: object | null, owner_dnotify?: GLib.DestroyNotify | null): Buffer
 }
 export class CachePrivate {
     static name: string

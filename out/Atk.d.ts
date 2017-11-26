@@ -1627,7 +1627,7 @@ export class Relation {
     static name: string
     static new (config?: Relation_ConstructProps): Relation
     constructor (config?: Relation_ConstructProps)
-    static new(targets: Object[], n_targets: number, relationship: RelationType): Relation
+    static new(targets: Object[], relationship: RelationType): Relation
 }
 export interface RelationSet_ConstructProps extends GObject.Object_ConstructProps {
 }

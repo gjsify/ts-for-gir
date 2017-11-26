@@ -498,7 +498,7 @@ export class GirModule {
         if (parameters && parameters.length > 0) {
             let parametersArray = parameters[0].parameter
             if (parametersArray) {
-                let skip = {}
+                let skip: typeof parametersArray = []
 
                 for (let param of parametersArray as GirVariable[]) {
                     let arrayNameIndex = this.arrayLengthIndexLookup(param)
@@ -506,7 +506,7 @@ export class GirModule {
                     if (arrayNameIndex < 0) continue
                     if (arrayNameIndex >= parametersArray.length) continue
 
-                    skip[parametersArray[arrayNameIndex]._fullSymName] = 1
+                    skip.push(parametersArray[arrayNameIndex])
                 }
 
                 for (let param of parametersArray as GirVariable[]) {
@@ -515,14 +515,14 @@ export class GirModule {
                     if (closureDataIndex < 0) continue
                     if (closureDataIndex >= parametersArray.length) continue
 
-                    skip[parametersArray[closureDataIndex]._fullSymName] = 1
+                    skip.push(parametersArray[closureDataIndex])
                 }
 
                 for (let param of parametersArray as GirVariable[]) {
                     let paramName = this.fixVariableName(param.$.name || '-', false)
                     let paramType = this.typeLookup(param)
 
-                    if (skip[param._fullSymName || 'NOSYMNAME']) {
+                    if (skip.indexOf(param) !== -1) {
                         continue
                     }
 
@@ -539,7 +539,7 @@ export class GirModule {
                     if (allowNone) {
                         const index = parametersArray.indexOf(param)
                         const following = (parametersArray as GirVariable[]).slice(index)
-                            .filter(p => !skip[p._fullSymName || 'NOSYMNAME'])
+                            .filter(p => skip.indexOf(param) === -1)
                             .filter(p => p.$.direction !== "out")
 
                         if (following.some(p => !p.$["allow-none"])) {

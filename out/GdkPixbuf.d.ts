@@ -159,11 +159,11 @@ export class Pixbuf {
     constructor (config?: Pixbuf_ConstructProps)
     static new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
     static new_from_bytes(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
-    static new_from_data(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn?: PixbufDestroyNotify | null, destroy_fn_data?: object | null): Pixbuf
+    static new_from_data(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn?: PixbufDestroyNotify | null): Pixbuf
     static new_from_file(filename: string): Pixbuf
     static new_from_file_at_scale(filename: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
     static new_from_file_at_size(filename: string, width: number, height: number): Pixbuf
-    static new_from_inline(data_length: number, data: Gjs.byteArray.ByteArray, copy_pixels: boolean): Pixbuf
+    static new_from_inline(data: Gjs.byteArray.ByteArray, copy_pixels: boolean): Pixbuf
     static new_from_resource(resource_path: string): Pixbuf
     static new_from_resource_at_scale(resource_path: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
     static new_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): Pixbuf

@@ -1624,10 +1624,10 @@ export class Bytes {
     unref_to_array(): Gjs.byteArray.ByteArray
     unref_to_data(): [ /* returnType */ Gjs.byteArray.ByteArray, /* size */ number ]
     static name: string
-    static new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
-    constructor(data: Gjs.byteArray.ByteArray | null, size: number)
-    static new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
-    static new_take(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
+    static new(data: Gjs.byteArray.ByteArray | null): Bytes
+    constructor(data: Gjs.byteArray.ByteArray | null)
+    static new(data: Gjs.byteArray.ByteArray | null): Bytes
+    static new_take(data: Gjs.byteArray.ByteArray | null): Bytes
 }
 export class Checksum {
     /* Methods of GLib.Checksum */
@@ -2684,27 +2684,27 @@ export class Variant {
     take_ref(): Variant
     unref(): void
     static name: string
-    static new_array(child_type: VariantType | null, children: Variant[] | null, n_children: number): Variant
+    static new_array(child_type: VariantType | null, children: Variant[] | null): Variant
     static new_boolean(value: boolean): Variant
     static new_byte(value: number): Variant
     static new_bytestring(string: Gjs.byteArray.ByteArray): Variant
-    static new_bytestring_array(strv: string[], length: number): Variant
+    static new_bytestring_array(strv: string[]): Variant
     static new_dict_entry(key: Variant, value: Variant): Variant
     static new_double(value: number): Variant
     static new_fixed_array(element_type: VariantType, elements: object | null, n_elements: number, element_size: number): Variant
     static new_from_bytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
-    static new_from_data(type: VariantType, data: Gjs.byteArray.ByteArray, size: number, trusted: boolean, notify: DestroyNotify, user_data?: object | null): Variant
+    static new_from_data(type: VariantType, data: Gjs.byteArray.ByteArray, trusted: boolean, notify: DestroyNotify, user_data?: object | null): Variant
     static new_handle(value: number): Variant
     static new_int16(value: number): Variant
     static new_int32(value: number): Variant
     static new_int64(value: number): Variant
     static new_maybe(child_type?: VariantType | null, child?: Variant | null): Variant
     static new_object_path(object_path: string): Variant
-    static new_objv(strv: string[], length: number): Variant
+    static new_objv(strv: string[]): Variant
     static new_signature(signature: string): Variant
     static new_string(string: string): Variant
-    static new_strv(strv: string[], length: number): Variant
-    static new_tuple(children: Variant[], n_children: number): Variant
+    static new_strv(strv: string[]): Variant
+    static new_tuple(children: Variant[]): Variant
     static new_uint16(value: number): Variant
     static new_uint32(value: number): Variant
     static new_uint64(value: number): Variant
@@ -2782,7 +2782,7 @@ export class VariantType {
     static new_array(element: VariantType): VariantType
     static new_dict_entry(key: VariantType, value: VariantType): VariantType
     static new_maybe(element: VariantType): VariantType
-    static new_tuple(items: VariantType[], length: number): VariantType
+    static new_tuple(items: VariantType[]): VariantType
     static checked_(arg0: string): VariantType
     static string_is_valid(type_string: string): boolean
     static string_scan(string: string, limit?: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]

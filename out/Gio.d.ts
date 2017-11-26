@@ -683,7 +683,7 @@ export function content_type_get_generic_icon_name(type: string): string | null
 export function content_type_get_icon(type: string): Icon
 export function content_type_get_mime_type(type: string): string | null
 export function content_type_get_symbolic_icon(type: string): Icon
-export function content_type_guess(filename?: string | null, data?: Gjs.byteArray.ByteArray | null): [ /* returnType */ string, /* result_uncertain */ boolean | null ]
+export function content_type_guess(filename: string | null, data: Gjs.byteArray.ByteArray | null): [ /* returnType */ string, /* result_uncertain */ boolean | null ]
 export function content_type_guess_for_tree(root: File): string[]
 export function content_type_is_a(type: string, supertype: string): boolean
 export function content_type_is_mime_type(type: string, mime_type: string): boolean
@@ -1621,7 +1621,7 @@ export class PollableInputStream {
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_readable(): boolean
-    vfunc_read_nonblocking(buffer?: Gjs.byteArray.ByteArray | null): number
+    vfunc_read_nonblocking(buffer: Gjs.byteArray.ByteArray | null): number
     static name: string
 }
 export class PollableOutputStream {
@@ -1634,7 +1634,7 @@ export class PollableOutputStream {
     vfunc_can_poll(): boolean
     vfunc_create_source(cancellable?: Cancellable | null): GLib.Source
     vfunc_is_writable(): boolean
-    vfunc_write_nonblocking(buffer?: Gjs.byteArray.ByteArray | null): number
+    vfunc_write_nonblocking(buffer: Gjs.byteArray.ByteArray | null): number
     static name: string
 }
 export class Proxy {
@@ -2285,7 +2285,7 @@ export class BufferedOutputStream {
     vfunc_splice_finish(result: AsyncResult): number
     vfunc_write_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer?: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2638,7 +2638,7 @@ export class ConverterOutputStream {
     vfunc_splice_finish(result: AsyncResult): number
     vfunc_write_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer?: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3128,7 +3128,7 @@ export class DBusMessage {
     static new (config?: DBusMessage_ConstructProps): DBusMessage
     constructor (config?: DBusMessage_ConstructProps)
     static new(): DBusMessage
-    static new_from_blob(blob: Gjs.byteArray.ByteArray, blob_len: number, capabilities: DBusCapabilityFlags): DBusMessage
+    static new_from_blob(blob: Gjs.byteArray.ByteArray, capabilities: DBusCapabilityFlags): DBusMessage
     static new_method_call(name: string | null, path: string, interface_: string | null, method: string): DBusMessage
     static new_signal(path: string, interface_: string, signal: string): DBusMessage
     static bytes_needed(blob: Gjs.byteArray.ByteArray): number
@@ -3258,8 +3258,8 @@ export class DBusObjectManagerClient {
     constructor (config?: DBusObjectManagerClient_ConstructProps)
     static new_finish(res: AsyncResult): DBusObjectManagerClient
     static new_for_bus_finish(res: AsyncResult): DBusObjectManagerClient
-    static new_for_bus_sync(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, get_proxy_type_user_data?: object | null, get_proxy_type_destroy_notify?: GLib.DestroyNotify | null, cancellable?: Cancellable | null): DBusObjectManagerClient
-    static new_sync(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string | null, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, get_proxy_type_user_data?: object | null, get_proxy_type_destroy_notify?: GLib.DestroyNotify | null, cancellable?: Cancellable | null): DBusObjectManagerClient
+    static new_for_bus_sync(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, get_proxy_type_destroy_notify?: GLib.DestroyNotify | null, cancellable?: Cancellable | null): DBusObjectManagerClient
+    static new_sync(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string | null, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, get_proxy_type_destroy_notify?: GLib.DestroyNotify | null, cancellable?: Cancellable | null): DBusObjectManagerClient
     static new(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, get_proxy_type_destroy_notify?: GLib.DestroyNotify | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     static new_for_bus(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, get_proxy_type_destroy_notify?: GLib.DestroyNotify | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 }
@@ -3804,7 +3804,7 @@ export class DataOutputStream {
     vfunc_splice_finish(result: AsyncResult): number
     vfunc_write_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer?: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4530,7 +4530,7 @@ export class FileOutputStream {
     vfunc_splice_finish(result: AsyncResult): number
     vfunc_write_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer?: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4759,7 +4759,7 @@ export class FilterOutputStream {
     vfunc_splice_finish(result: AsyncResult): number
     vfunc_write_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer?: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5339,7 +5339,7 @@ export class MemoryInputStream {
     constructor (config?: MemoryInputStream_ConstructProps)
     new(): MemoryInputStream
     new_from_bytes(bytes: Gjs.byteArray.ByteArray): MemoryInputStream
-    new_from_data(data: Gjs.byteArray.ByteArray, len: number, destroy?: GLib.DestroyNotify | null): MemoryInputStream
+    new_from_data(data: Gjs.byteArray.ByteArray, destroy?: GLib.DestroyNotify | null): MemoryInputStream
 }
 export interface MemoryOutputStream_ConstructProps extends OutputStream_ConstructProps {
     data?:object
@@ -5417,7 +5417,7 @@ export class MemoryOutputStream {
     vfunc_splice_finish(result: AsyncResult): number
     vfunc_write_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer?: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6158,7 +6158,7 @@ export class OutputStream {
     vfunc_splice_finish(result: AsyncResult): number
     vfunc_write_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer?: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -6613,7 +6613,7 @@ export class Settings {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.Settings */
-    connect(sigName: "change-event", callback: ((obj: Settings, keys?: GLib.Quark[] | null) => boolean))
+    connect(sigName: "change-event", callback: ((obj: Settings, keys: GLib.Quark[] | null) => boolean))
     connect(sigName: "changed", callback: ((obj: Settings, key: string) => void))
     connect(sigName: "writable-change-event", callback: ((obj: Settings, key: number) => boolean))
     connect(sigName: "writable-changed", callback: ((obj: Settings, key: string) => void))
@@ -6864,8 +6864,8 @@ export class SimpleAsyncResult {
     static name: string
     static new (config?: SimpleAsyncResult_ConstructProps): SimpleAsyncResult
     constructor (config?: SimpleAsyncResult_ConstructProps)
-    static new(source_object?: GObject.Object | null, callback?: AsyncReadyCallback | null, user_data?: object | null, source_tag?: object | null): SimpleAsyncResult
-    static new_from_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, user_data: object | null, error: GLib.Error): SimpleAsyncResult
+    static new(source_object?: GObject.Object | null, callback?: AsyncReadyCallback | null, source_tag?: object | null): SimpleAsyncResult
+    static new_from_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, error: GLib.Error): SimpleAsyncResult
     static is_valid(result: AsyncResult, source?: GObject.Object | null, source_tag?: object | null): boolean
 }
 export interface SimpleIOStream_ConstructProps extends IOStream_ConstructProps {
@@ -7917,7 +7917,7 @@ export class Task {
     static name: string
     static new (config?: Task_ConstructProps): Task
     constructor (config?: Task_ConstructProps)
-    static new(source_object?: GObject.Object | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null, callback_data?: object | null): Task
+    static new(source_object?: GObject.Object | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): Task
     static is_valid(result: AsyncResult, source_object?: GObject.Object | null): boolean
     static report_error(source_object: GObject.Object | null, callback: AsyncReadyCallback | null, source_tag: object | null, error: GLib.Error): void
 }
@@ -8207,7 +8207,7 @@ export class ThemedIcon {
     static new (config?: ThemedIcon_ConstructProps): ThemedIcon
     constructor (config?: ThemedIcon_ConstructProps)
     static new(iconname: string): ThemedIcon
-    static new_from_names(iconnames: string[], len: number): ThemedIcon
+    static new_from_names(iconnames: string[]): ThemedIcon
     static new_with_default_fallbacks(iconname: string): ThemedIcon
 }
 export interface ThreadedSocketService_ConstructProps extends SocketService_ConstructProps {
@@ -8891,7 +8891,7 @@ export class UnixFDList {
     static new (config?: UnixFDList_ConstructProps): UnixFDList
     constructor (config?: UnixFDList_ConstructProps)
     static new(): UnixFDList
-    static new_from_array(fds: number[], n_fds: number): UnixFDList
+    static new_from_array(fds: number[]): UnixFDList
 }
 export interface UnixFDMessage_ConstructProps extends SocketControlMessage_ConstructProps {
     fd_list?:UnixFDList
@@ -9170,7 +9170,7 @@ export class UnixOutputStream {
     vfunc_splice_finish(result: AsyncResult): number
     vfunc_write_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_write_finish(result: AsyncResult): number
-    vfunc_write_fn(buffer?: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
+    vfunc_write_fn(buffer: Gjs.byteArray.ByteArray | null, cancellable?: Cancellable | null): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9254,8 +9254,8 @@ export class UnixSocketAddress {
     static new (config?: UnixSocketAddress_ConstructProps): UnixSocketAddress
     constructor (config?: UnixSocketAddress_ConstructProps)
     new(path: string): UnixSocketAddress
-    new_abstract(path: number[], path_len: number): UnixSocketAddress
-    new_with_type(path: number[], path_len: number, type: UnixSocketAddressType): UnixSocketAddress
+    new_abstract(path: number[]): UnixSocketAddress
+    new_with_type(path: number[], type: UnixSocketAddressType): UnixSocketAddress
     static abstract_names_supported(): boolean
 }
 export interface Vfs_ConstructProps extends GObject.Object_ConstructProps {

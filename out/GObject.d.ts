@@ -460,8 +460,8 @@ export class Object {
     static name: string
     static new (config?: Object_ConstructProps): Object
     constructor (config?: Object_ConstructProps)
-    static new(object_type: number, n_properties: number, names: string[], values: Value[]): Object
-    static newv(object_type: number, n_parameters: number, parameters: Parameter[]): Object
+    static new(object_type: number, names: string[], values: Value[]): Object
+    static newv(object_type: number, parameters: Parameter[]): Object
     static compat_control(what: number, data?: object | null): number
     static interface_find_property(g_iface: TypeInterface, property_name: string): ParamSpec
     static interface_install_property(g_iface: TypeInterface, pspec: ParamSpec): void

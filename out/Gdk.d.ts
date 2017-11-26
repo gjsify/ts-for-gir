@@ -3327,7 +3327,7 @@ export class Display {
     request_selection_notification(selection: Atom): boolean
     set_double_click_distance(distance: number): void
     set_double_click_time(msec: number): void
-    store_clipboard(clipboard_window: Window, time_: number, targets?: Atom[] | null): void
+    store_clipboard(clipboard_window: Window, time_: number, targets: Atom[] | null): void
     supports_clipboard_persistence(): boolean
     supports_composite(): boolean
     supports_cursor_alpha(): boolean
@@ -4726,7 +4726,7 @@ export class Event {
     constructor(type: EventType)
     static new(type: EventType): Event
     static get(): Event | null
-    static handler_set(func: EventFunc, data: object | null, notify: GLib.DestroyNotify): void
+    static handler_set(func: EventFunc, notify: GLib.DestroyNotify): void
     static peek(): Event | null
     static request_motions(event: EventMotion): void
 }

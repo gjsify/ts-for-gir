@@ -2845,9 +2845,9 @@ export function cairo_surface_create_from_pixbuf(pixbuf: GdkPixbuf.Pixbuf, scale
 export function color_parse(spec: string): [ /* returnType */ boolean, /* color */ Color ]
 export function disable_multidevice(): void
 export function drag_abort(context: DragContext, time_: number): void
-export function drag_begin(window: Window, targets: GLib.List): DragContext
-export function drag_begin_for_device(window: Window, device: Device, targets: GLib.List): DragContext
-export function drag_begin_from_point(window: Window, device: Device, targets: GLib.List, x_root: number, y_root: number): DragContext
+export function drag_begin(window: Window, targets: Atom[]): DragContext
+export function drag_begin_for_device(window: Window, device: Device, targets: Atom[]): DragContext
+export function drag_begin_from_point(window: Window, device: Device, targets: Atom[], x_root: number, y_root: number): DragContext
 export function drag_drop(context: DragContext, time_: number): void
 export function drag_drop_done(context: DragContext, success: boolean): void
 export function drag_drop_succeeded(context: DragContext): boolean
@@ -2887,7 +2887,7 @@ export function keyval_name(keyval: number): string | null
 export function keyval_to_lower(keyval: number): number
 export function keyval_to_unicode(keyval: number): number
 export function keyval_to_upper(keyval: number): number
-export function list_visuals(): GLib.List
+export function list_visuals(): Visual[]
 export function notify_startup_complete(): void
 export function notify_startup_complete_with_id(startup_id: string): void
 export function offscreen_window_get_embedder(window: Window): Window | null
@@ -2972,9 +2972,9 @@ export class AppLaunchContext {
     set_screen(screen: Screen): void
     set_timestamp(timestamp: number): void
     /* Methods of Gio.AppLaunchContext */
-    get_display(info: Gio.AppInfo, files: GLib.List): string
+    get_display(info: Gio.AppInfo, files: Gio.File[]): string
     get_environment(): string[]
-    get_startup_notify_id(info: Gio.AppInfo, files: GLib.List): string
+    get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string
     launch_failed(startup_notify_id: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
@@ -3003,8 +3003,8 @@ export class AppLaunchContext {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.AppLaunchContext */
-    vfunc_get_display(info: Gio.AppInfo, files: GLib.List): string
-    vfunc_get_startup_notify_id(info: Gio.AppInfo, files: GLib.List): string
+    vfunc_get_display(info: Gio.AppInfo, files: Gio.File[]): string
+    vfunc_get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string
     vfunc_launch_failed(startup_notify_id: string): void
     vfunc_launched(info: Gio.AppInfo, platform_data: GLib.Variant): void
     /* Virtual methods of GObject.Object */
@@ -3126,8 +3126,8 @@ export class Device {
     get_window_at_position(): [ /* returnType */ Window | null, /* win_x */ number | null, /* win_y */ number | null ]
     get_window_at_position_double(): [ /* returnType */ Window | null, /* win_x */ number | null, /* win_y */ number | null ]
     grab(window: Window, grab_ownership: GrabOwnership, owner_events: boolean, event_mask: EventMask, cursor: Cursor | null, time_: number): GrabStatus
-    list_axes(): GLib.List
-    list_slave_devices(): GLib.List | null
+    list_axes(): Atom[]
+    list_slave_devices(): Device[] | null
     set_axis_use(index_: number, use: AxisUse): void
     set_key(index_: number, keyval: number, modifiers: ModifierType): void
     set_mode(mode: InputMode): boolean
@@ -3191,7 +3191,7 @@ export class DeviceManager {
     /* Methods of Gdk.DeviceManager */
     get_client_pointer(): Device
     get_display(): Display | null
-    list_devices(type: DeviceType): GLib.List
+    list_devices(type: DeviceType): Device[]
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3317,8 +3317,8 @@ export class Display {
     has_pending(): boolean
     is_closed(): boolean
     keyboard_ungrab(time_: number): void
-    list_devices(): GLib.List
-    list_seats(): GLib.List
+    list_devices(): Device[]
+    list_seats(): Seat[]
     notify_startup_complete(startup_id: string): void
     peek_event(): Event | null
     pointer_is_grabbed(): boolean
@@ -3454,7 +3454,7 @@ export class DragContext {
     get_selected_action(): DragAction
     get_source_window(): Window
     get_suggested_action(): DragAction
-    list_targets(): GLib.List
+    list_targets(): Atom[]
     manage_dnd(ipc_window: Window, actions: DragAction): boolean
     set_device(device: Device): void
     set_hotspot(hot_x: number, hot_y: number): void
@@ -3850,12 +3850,12 @@ export class Screen {
     get_root_window(): Window
     get_setting(name: string, value: any): boolean
     get_system_visual(): Visual
-    get_toplevel_windows(): GLib.List
+    get_toplevel_windows(): Window[]
     get_width(): number
     get_width_mm(): number
-    get_window_stack(): GLib.List | null
+    get_window_stack(): Window[] | null
     is_composited(): boolean
-    list_visuals(): GLib.List
+    list_visuals(): Visual[]
     make_display_name(): string
     set_font_options(options: cairo.FontOptions | null): void
     set_resolution(dpi: number): void
@@ -3922,7 +3922,7 @@ export class Seat {
     get_display(): Display
     get_keyboard(): Device | null
     get_pointer(): Device | null
-    get_slaves(capabilities: SeatCapabilities): GLib.List
+    get_slaves(capabilities: SeatCapabilities): Device[]
     grab(window: Window, capabilities: SeatCapabilities, owner_events: boolean, cursor: Cursor | null, event: Event | null, prepare_func: SeatGrabPrepareFunc | null, prepare_func_data: object | null): GrabStatus
     ungrab(): void
     /* Methods of GObject.Object */
@@ -4067,8 +4067,8 @@ export class Window {
     geometry_changed(): void
     get_accept_focus(): boolean
     get_background_pattern(): cairo.Pattern | null
-    get_children(): GLib.List
-    get_children_with_user_data(user_data: object | null): GLib.List
+    get_children(): Window[]
+    get_children_with_user_data(user_data: object | null): Window[]
     get_clip_region(): cairo.Region
     get_composited(): boolean
     get_cursor(): Cursor | null
@@ -4131,7 +4131,7 @@ export class Window {
     move(x: number, y: number): void
     move_region(region: cairo.Region, dx: number, dy: number): void
     move_resize(x: number, y: number, width: number, height: number): void
-    peek_children(): GLib.List
+    peek_children(): Window[]
     process_updates(update_children: boolean): void
     raise(): void
     register_dnd(): void
@@ -4157,7 +4157,7 @@ export class Window {
     set_functions(functions: WMFunction): void
     set_geometry_hints(geometry: Geometry, geom_mask: WindowHints): void
     set_group(leader: Window | null): void
-    set_icon_list(pixbufs: GLib.List): void
+    set_icon_list(pixbufs: GdkPixbuf.Pixbuf[]): void
     set_icon_name(name: string | null): void
     set_keep_above(setting: boolean): void
     set_keep_below(setting: boolean): void

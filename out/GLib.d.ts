@@ -1978,8 +1978,8 @@ export class KeyFile {
 export class List {
     /* Fields of GLib.List */
     data:object
-    next:List
-    prev:List
+    next:object[]
+    prev:object[]
     static name: string
 }
 export class LogField {
@@ -2208,8 +2208,8 @@ export class PtrArray {
 }
 export class Queue {
     /* Fields of GLib.Queue */
-    head:List
-    tail:List
+    head:object[]
+    tail:object[]
     length:number
     /* Methods of GLib.Queue */
     clear(): void

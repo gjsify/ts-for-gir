@@ -310,8 +310,8 @@ export function gravity_get_for_script(script: Script, base_gravity: Gravity, hi
 export function gravity_get_for_script_and_width(script: Script, wide: boolean, base_gravity: Gravity, hint: GravityHint): Gravity
 export function gravity_to_rotation(gravity: Gravity): number
 export function is_zero_width(ch: number): boolean
-export function itemize(context: Context, text: string, start_index: number, length: number, attrs: AttrList, cached_iter: AttrIterator | null): GLib.List
-export function itemize_with_base_dir(context: Context, base_dir: Direction, text: string, start_index: number, length: number, attrs: AttrList, cached_iter: AttrIterator | null): GLib.List
+export function itemize(context: Context, text: string, start_index: number, length: number, attrs: AttrList, cached_iter: AttrIterator | null): Item[]
+export function itemize_with_base_dir(context: Context, base_dir: Direction, text: string, start_index: number, length: number, attrs: AttrList, cached_iter: AttrIterator | null): Item[]
 export function language_from_string(language: string | null): Language | null
 export function language_get_default(): Language
 export function log2vis_get_embedding_levels(text: string, length: number, pbase_dir: Direction): number
@@ -327,7 +327,7 @@ export function parse_variant(str: string, warn: boolean): [ /* returnType */ bo
 export function parse_weight(str: string, warn: boolean): [ /* returnType */ boolean, /* weight */ Weight ]
 export function quantize_line_geometry(thickness: number, position: number): void
 export function read_line(stream: object | null): [ /* returnType */ number, /* str */ GLib.String ]
-export function reorder_items(logical_items: GLib.List): GLib.List
+export function reorder_items(logical_items: Item[]): Item[]
 export function scan_int(pos: string): [ /* returnType */ boolean, /* out */ number ]
 export function scan_string(pos: string): [ /* returnType */ boolean, /* out */ GLib.String ]
 export function scan_word(pos: string): [ /* returnType */ boolean, /* out */ GLib.String ]

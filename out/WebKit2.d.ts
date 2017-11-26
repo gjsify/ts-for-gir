@@ -405,12 +405,12 @@ export class BackForwardList {
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.BackForwardList */
     get_back_item(): BackForwardListItem
-    get_back_list(): GLib.List
-    get_back_list_with_limit(limit: number): GLib.List
+    get_back_list(): BackForwardListItem[]
+    get_back_list_with_limit(limit: number): BackForwardListItem[]
     get_current_item(): BackForwardListItem
     get_forward_item(): BackForwardListItem
-    get_forward_list(): GLib.List
-    get_forward_list_with_limit(limit: number): GLib.List
+    get_forward_list(): BackForwardListItem[]
+    get_forward_list_with_limit(limit: number): BackForwardListItem[]
     get_length(): number
     get_nth_item(index: number): BackForwardListItem
     /* Methods of GObject.Object */
@@ -573,7 +573,7 @@ export class ContextMenu {
     append(item: ContextMenuItem): void
     first(): ContextMenuItem
     get_item_at_position(position: number): ContextMenuItem
-    get_items(): GLib.List
+    get_items(): ContextMenuItem[]
     get_n_items(): number
     get_user_data(): GLib.Variant
     insert(item: ContextMenuItem, position: number): void
@@ -621,7 +621,7 @@ export class ContextMenu {
     static new (config?: ContextMenu_ConstructProps): ContextMenu
     constructor (config?: ContextMenu_ConstructProps)
     static new(): ContextMenu
-    static new_with_items(items: GLib.List): ContextMenu
+    static new_with_items(items: ContextMenuItem[]): ContextMenu
 }
 export interface ContextMenuItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
@@ -1499,7 +1499,7 @@ export class Plugin {
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.Plugin */
     get_description(): string
-    get_mime_info_list(): GLib.List
+    get_mime_info_list(): MimeInfo[]
     get_name(): string
     get_path(): string
     /* Methods of GObject.Object */
@@ -2434,7 +2434,7 @@ export class WebContext {
     get_favicon_database(): FaviconDatabase
     get_favicon_database_directory(): string
     get_plugins(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
-    get_plugins_finish(result: Gio.AsyncResult): GLib.List
+    get_plugins_finish(result: Gio.AsyncResult): Plugin[]
     get_process_model(): ProcessModel
     get_security_manager(): SecurityManager
     get_spell_checking_enabled(): boolean
@@ -2442,7 +2442,7 @@ export class WebContext {
     get_tls_errors_policy(): TLSErrorsPolicy
     get_web_process_count_limit(): number
     get_website_data_manager(): WebsiteDataManager
-    initialize_notification_permissions(allowed_origins: GLib.List, disallowed_origins: GLib.List): void
+    initialize_notification_permissions(allowed_origins: SecurityOrigin[], disallowed_origins: SecurityOrigin[]): void
     is_automation_allowed(): boolean
     is_ephemeral(): boolean
     prefetch_dns(hostname: string): void
@@ -2790,8 +2790,8 @@ export class WebView {
     forall(callback: Gtk.Callback, callback_data: object | null): void
     foreach(callback: Gtk.Callback, callback_data: object | null): void
     get_border_width(): number
-    get_children(): GLib.List
-    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
+    get_children(): Gtk.Widget[]
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
     get_focus_child(): Gtk.Widget | null
     get_focus_hadjustment(): Gtk.Adjustment | null
     get_focus_vadjustment(): Gtk.Adjustment | null
@@ -2801,7 +2801,7 @@ export class WebView {
     remove(widget: Gtk.Widget): void
     resize_children(): void
     set_border_width(border_width: number): void
-    set_focus_chain(focusable_widgets: GLib.List): void
+    set_focus_chain(focusable_widgets: Gtk.Widget[]): void
     set_focus_child(child: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
@@ -2960,9 +2960,9 @@ export class WebView {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): GLib.List
+    list_accel_closures(): Function
     list_action_prefixes(): string[]
-    list_mnemonic_labels(): GLib.List
+    list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
     modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
@@ -3446,8 +3446,8 @@ export class WebViewBase {
     forall(callback: Gtk.Callback, callback_data: object | null): void
     foreach(callback: Gtk.Callback, callback_data: object | null): void
     get_border_width(): number
-    get_children(): GLib.List
-    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
+    get_children(): Gtk.Widget[]
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
     get_focus_child(): Gtk.Widget | null
     get_focus_hadjustment(): Gtk.Adjustment | null
     get_focus_vadjustment(): Gtk.Adjustment | null
@@ -3457,7 +3457,7 @@ export class WebViewBase {
     remove(widget: Gtk.Widget): void
     resize_children(): void
     set_border_width(border_width: number): void
-    set_focus_chain(focusable_widgets: GLib.List): void
+    set_focus_chain(focusable_widgets: Gtk.Widget[]): void
     set_focus_child(child: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
@@ -3617,9 +3617,9 @@ export class WebViewBase {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): GLib.List
+    list_accel_closures(): Function
     list_action_prefixes(): string[]
-    list_mnemonic_labels(): GLib.List
+    list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
     modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
@@ -3993,7 +3993,7 @@ export class WebsiteDataManager {
     clear(types: WebsiteDataTypes, timespan: GLib.TimeSpan, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
     clear_finish(result: Gio.AsyncResult): boolean
     fetch(types: WebsiteDataTypes, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
-    fetch_finish(result: Gio.AsyncResult): GLib.List
+    fetch_finish(result: Gio.AsyncResult): WebsiteData[]
     get_base_cache_directory(): string | null
     get_base_data_directory(): string | null
     get_cookie_manager(): CookieManager
@@ -4003,7 +4003,7 @@ export class WebsiteDataManager {
     get_offline_application_cache_directory(): string | null
     get_websql_directory(): string | null
     is_ephemeral(): boolean
-    remove(types: WebsiteDataTypes, website_data: GLib.List, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    remove(types: WebsiteDataTypes, website_data: WebsiteData[], cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
     remove_finish(result: Gio.AsyncResult): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding

@@ -333,13 +333,19 @@ export class GirModule {
         let arr: string = ''
         let arrCType
         let nul: string = ''
+        const collection =
+            e.array
+                ? e.array
+                : (e.type && e.type[0].$.name === "GLib.List")
+                    ? e.type as GirArray[]
+                    : undefined
 
-        if (e.array && e.array.length > 0) {
-            let typeArray = e.array[0].type
+        if (collection && collection.length > 0) {
+            let typeArray = collection[0].type
             if (typeArray == null || typeArray.length == 0)
                 return 'any'
-            if (e.array[0].$) {
-                let ea: any = e.array[0].$
+            if (collection[0].$) {
+                let ea: any = collection[0].$
                 arrCType = ea['c:type']
             }
             type = typeArray[0]

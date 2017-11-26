@@ -19,7 +19,7 @@ export const VERSION_MAJOR:number
 export const VERSION_MICRO:number
 export const VERSION_MINOR:number
 export function get_app_name(): string
-export function get_server_caps(): GLib.List
+export function get_server_caps(): string[]
 export function get_server_info(): [ /* returnType */ boolean, /* ret_name */ string | null, /* ret_vendor */ string | null, /* ret_version */ string | null, /* ret_spec_version */ string | null ]
 export function init(app_name: string): boolean
 export function is_initted(): boolean

@@ -655,12 +655,12 @@ export function action_name_is_valid(action_name: string): boolean
 export function action_parse_detailed_name(detailed_name: string): [ /* returnType */ boolean, /* action_name */ string, /* target_value */ GLib.Variant ]
 export function action_print_detailed_name(action_name: string, target_value: GLib.Variant | null): string
 export function app_info_create_from_commandline(commandline: string, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
-export function app_info_get_all(): GLib.List
-export function app_info_get_all_for_type(content_type: string): GLib.List
+export function app_info_get_all(): AppInfo[]
+export function app_info_get_all_for_type(content_type: string): AppInfo[]
 export function app_info_get_default_for_type(content_type: string, must_support_uris: boolean): AppInfo
 export function app_info_get_default_for_uri_scheme(uri_scheme: string): AppInfo
-export function app_info_get_fallback_for_type(content_type: string): GLib.List
-export function app_info_get_recommended_for_type(content_type: string): GLib.List
+export function app_info_get_fallback_for_type(content_type: string): AppInfo[]
+export function app_info_get_recommended_for_type(content_type: string): AppInfo[]
 export function app_info_launch_default_for_uri(uri: string, launch_context: AppLaunchContext | null): boolean
 export function app_info_launch_default_for_uri_async(uri: string, launch_context: AppLaunchContext, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
 export function app_info_launch_default_for_uri_finish(result: AsyncResult): boolean
@@ -688,7 +688,7 @@ export function content_type_guess_for_tree(root: File): string[]
 export function content_type_is_a(type: string, supertype: string): boolean
 export function content_type_is_mime_type(type: string, mime_type: string): boolean
 export function content_type_is_unknown(type: string): boolean
-export function content_types_get_registered(): GLib.List
+export function content_types_get_registered(): string[]
 export function dbus_address_escape_value(string: string): string
 export function dbus_address_get_for_bus_sync(bus_type: BusType, cancellable: Cancellable | null): string
 export function dbus_address_get_stream(address: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
@@ -731,8 +731,8 @@ export function io_error_quark(): GLib.Quark
 export function io_extension_point_implement(extension_point_name: string, type: number, extension_name: string, priority: number): IOExtension
 export function io_extension_point_lookup(name: string): IOExtensionPoint
 export function io_extension_point_register(name: string): IOExtensionPoint
-export function io_modules_load_all_in_directory(dirname: string): GLib.List
-export function io_modules_load_all_in_directory_with_scope(dirname: string, scope: IOModuleScope): GLib.List
+export function io_modules_load_all_in_directory(dirname: string): IOModule[]
+export function io_modules_load_all_in_directory_with_scope(dirname: string, scope: IOModuleScope): IOModule[]
 export function io_modules_scan_all_in_directory(dirname: string): void
 export function io_modules_scan_all_in_directory_with_scope(dirname: string, scope: IOModuleScope): void
 export function io_scheduler_cancel_all_jobs(): void
@@ -782,9 +782,9 @@ export function unix_mount_guess_symbolic_icon(mount_entry: UnixMountEntry): Ico
 export function unix_mount_is_readonly(mount_entry: UnixMountEntry): boolean
 export function unix_mount_is_system_internal(mount_entry: UnixMountEntry): boolean
 export function unix_mount_points_changed_since(time: number): boolean
-export function unix_mount_points_get(): [ /* returnType */ GLib.List, /* time_read */ number | null ]
+export function unix_mount_points_get(): [ /* returnType */ UnixMountPoint[], /* time_read */ number | null ]
 export function unix_mounts_changed_since(time: number): boolean
-export function unix_mounts_get(): [ /* returnType */ GLib.List, /* time_read */ number | null ]
+export function unix_mounts_get(): [ /* returnType */ UnixMountEntry[], /* time_read */ number | null ]
 export interface AsyncReadyCallback {
     (source_object: GObject.Object, res: AsyncResult, user_data: object | null): void
 }
@@ -971,8 +971,8 @@ export class AppInfo {
     get_id(): string
     get_name(): string
     get_supported_types(): string[]
-    launch(files: GLib.List | null, launch_context: AppLaunchContext | null): boolean
-    launch_uris(uris: GLib.List | null, launch_context: AppLaunchContext | null): boolean
+    launch(files: File[] | null, launch_context: AppLaunchContext | null): boolean
+    launch_uris(uris: string[] | null, launch_context: AppLaunchContext | null): boolean
     remove_supports_type(content_type: string): boolean
     set_as_default_for_extension(extension: string): boolean
     set_as_default_for_type(content_type: string): boolean
@@ -995,8 +995,8 @@ export class AppInfo {
     vfunc_get_id(): string
     vfunc_get_name(): string
     vfunc_get_supported_types(): string[]
-    vfunc_launch(files: GLib.List | null, launch_context: AppLaunchContext | null): boolean
-    vfunc_launch_uris(uris: GLib.List | null, launch_context: AppLaunchContext | null): boolean
+    vfunc_launch(files: File[] | null, launch_context: AppLaunchContext | null): boolean
+    vfunc_launch_uris(uris: string[] | null, launch_context: AppLaunchContext | null): boolean
     vfunc_remove_supports_type(content_type: string): boolean
     vfunc_set_as_default_for_extension(extension: string): boolean
     vfunc_set_as_default_for_type(content_type: string): boolean
@@ -1006,12 +1006,12 @@ export class AppInfo {
     vfunc_supports_uris(): boolean
     static name: string
     static create_from_commandline(commandline: string, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
-    static get_all(): GLib.List
-    static get_all_for_type(content_type: string): GLib.List
+    static get_all(): AppInfo[]
+    static get_all_for_type(content_type: string): AppInfo[]
     static get_default_for_type(content_type: string, must_support_uris: boolean): AppInfo
     static get_default_for_uri_scheme(uri_scheme: string): AppInfo
-    static get_fallback_for_type(content_type: string): GLib.List
-    static get_recommended_for_type(content_type: string): GLib.List
+    static get_fallback_for_type(content_type: string): AppInfo[]
+    static get_recommended_for_type(content_type: string): AppInfo[]
     static launch_default_for_uri(uri: string, launch_context: AppLaunchContext | null): boolean
     static launch_default_for_uri_async(uri: string, launch_context: AppLaunchContext, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     static launch_default_for_uri_finish(result: AsyncResult): boolean
@@ -1063,11 +1063,11 @@ export class DBusInterface {
 export class DBusObject {
     /* Methods of Gio.DBusObject */
     get_interface(interface_name: string): DBusInterface
-    get_interfaces(): GLib.List
+    get_interfaces(): DBusInterface[]
     get_object_path(): string
     /* Virtual methods of Gio.DBusObject */
     vfunc_get_interface(interface_name: string): DBusInterface
-    vfunc_get_interfaces(): GLib.List
+    vfunc_get_interfaces(): DBusInterface[]
     vfunc_get_object_path(): string
     vfunc_interface_added(interface_: DBusInterface): void
     vfunc_interface_removed(interface_: DBusInterface): void
@@ -1081,12 +1081,12 @@ export class DBusObjectManager {
     get_interface(object_path: string, interface_name: string): DBusInterface
     get_object(object_path: string): DBusObject
     get_object_path(): string
-    get_objects(): GLib.List
+    get_objects(): DBusObject[]
     /* Virtual methods of Gio.DBusObjectManager */
     vfunc_get_interface(object_path: string, interface_name: string): DBusInterface
     vfunc_get_object(object_path: string): DBusObject
     vfunc_get_object_path(): string
-    vfunc_get_objects(): GLib.List
+    vfunc_get_objects(): DBusObject[]
     vfunc_interface_added(object: DBusObject, interface_: DBusInterface): void
     vfunc_interface_removed(object: DBusObject, interface_: DBusInterface): void
     vfunc_object_added(object: DBusObject): void
@@ -1138,7 +1138,7 @@ export class Drive {
     get_sort_key(): string
     get_start_stop_type(): DriveStartStopType
     get_symbolic_icon(): Icon
-    get_volumes(): GLib.List
+    get_volumes(): Volume[]
     has_media(): boolean
     has_volumes(): boolean
     is_media_check_automatic(): boolean
@@ -1170,7 +1170,7 @@ export class Drive {
     vfunc_get_sort_key(): string
     vfunc_get_start_stop_type(): DriveStartStopType
     vfunc_get_symbolic_icon(): Icon
-    vfunc_get_volumes(): GLib.List
+    vfunc_get_volumes(): Volume[]
     vfunc_has_media(): boolean
     vfunc_has_volumes(): boolean
     vfunc_is_media_check_automatic(): boolean
@@ -1192,11 +1192,11 @@ export class Drive {
 }
 export class DtlsClientConnection {
     /* Properties of Gio.DtlsClientConnection */
-    readonly accepted_cas:GLib.List
+    readonly accepted_cas:object[]
     server_identity:SocketConnectable
     validation_flags:TlsCertificateFlags
     /* Methods of Gio.DtlsClientConnection */
-    get_accepted_cas(): GLib.List
+    get_accepted_cas(): any
     get_server_identity(): SocketConnectable
     get_validation_flags(): TlsCertificateFlags
     set_server_identity(identity: SocketConnectable): void
@@ -1720,13 +1720,13 @@ export class TlsBackend {
 }
 export class TlsClientConnection {
     /* Properties of Gio.TlsClientConnection */
-    readonly accepted_cas:GLib.List
+    readonly accepted_cas:object[]
     server_identity:SocketConnectable
     use_ssl3:boolean
     validation_flags:TlsCertificateFlags
     /* Methods of Gio.TlsClientConnection */
     copy_session_state(source: TlsClientConnection): void
-    get_accepted_cas(): GLib.List
+    get_accepted_cas(): any
     get_server_identity(): SocketConnectable
     get_use_ssl3(): boolean
     get_validation_flags(): TlsCertificateFlags
@@ -1852,9 +1852,9 @@ export class AppLaunchContext {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.AppLaunchContext */
-    get_display(info: AppInfo, files: GLib.List): string
+    get_display(info: AppInfo, files: File[]): string
     get_environment(): string[]
-    get_startup_notify_id(info: AppInfo, files: GLib.List): string
+    get_startup_notify_id(info: AppInfo, files: File[]): string
     launch_failed(startup_notify_id: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
@@ -1883,8 +1883,8 @@ export class AppLaunchContext {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.AppLaunchContext */
-    vfunc_get_display(info: AppInfo, files: GLib.List): string
-    vfunc_get_startup_notify_id(info: AppInfo, files: GLib.List): string
+    vfunc_get_display(info: AppInfo, files: File[]): string
+    vfunc_get_startup_notify_id(info: AppInfo, files: File[]): string
     vfunc_launch_failed(startup_notify_id: string): void
     vfunc_launched(info: AppInfo, platform_data: GLib.Variant): void
     /* Virtual methods of GObject.Object */
@@ -2918,7 +2918,7 @@ export class DBusInterfaceSkeleton {
     export(connection: DBusConnection, object_path: string): boolean
     flush(): void
     get_connection(): DBusConnection
-    get_connections(): GLib.List
+    get_connections(): DBusConnection[]
     get_flags(): DBusInterfaceSkeletonFlags
     get_info(): DBusInterfaceInfo
     get_object_path(): string
@@ -3842,7 +3842,7 @@ export class DesktopAppInfo {
     get_string(key: string): string
     has_key(key: string): boolean
     launch_action(action_name: string, launch_context: AppLaunchContext | null): void
-    launch_uris_as_manager(uris: GLib.List, launch_context: AppLaunchContext | null, spawn_flags: GLib.SpawnFlags, user_setup: GLib.SpawnChildSetupFunc | null, user_setup_data: object | null, pid_callback: DesktopAppLaunchCallback | null, pid_callback_data: object | null): boolean
+    launch_uris_as_manager(uris: string[], launch_context: AppLaunchContext | null, spawn_flags: GLib.SpawnFlags, user_setup: GLib.SpawnChildSetupFunc | null, user_setup_data: object | null, pid_callback: DesktopAppLaunchCallback | null, pid_callback_data: object | null): boolean
     list_actions(): string[]
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -3884,7 +3884,7 @@ export class DesktopAppInfo {
     static new(desktop_id: string): DesktopAppInfo
     static new_from_filename(filename: string): DesktopAppInfo
     static new_from_keyfile(key_file: GLib.KeyFile): DesktopAppInfo
-    static get_implementations(interface: string): GLib.List
+    static get_implementations(interface: string): DesktopAppInfo[]
     static search(search_string: string): any
     static set_desktop_env(desktop_env: string): void
 }
@@ -3951,7 +3951,7 @@ export class EmblemedIcon {
     /* Methods of Gio.EmblemedIcon */
     add_emblem(emblem: Emblem): void
     clear_emblems(): void
-    get_emblems(): GLib.List
+    get_emblems(): Emblem[]
     get_icon(): Icon
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -4012,7 +4012,7 @@ export class FileEnumerator {
     iterate(cancellable: Cancellable | null): [ /* returnType */ boolean, /* out_info */ FileInfo | null, /* out_child */ File | null ]
     next_file(cancellable: Cancellable | null): FileInfo | null
     next_files_async(num_files: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    next_files_finish(result: AsyncResult): GLib.List
+    next_files_finish(result: AsyncResult): FileInfo[]
     set_pending(pending: boolean): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -4044,7 +4044,7 @@ export class FileEnumerator {
     vfunc_close_fn(cancellable: Cancellable | null): boolean
     vfunc_next_file(cancellable: Cancellable | null): FileInfo | null
     vfunc_next_files_async(num_files: number, io_priority: number, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    vfunc_next_files_finish(result: AsyncResult): GLib.List
+    vfunc_next_files_finish(result: AsyncResult): FileInfo[]
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5847,11 +5847,11 @@ export class NativeVolumeMonitor {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.VolumeMonitor */
-    get_connected_drives(): GLib.List
+    get_connected_drives(): Drive[]
     get_mount_for_uuid(uuid: string): Mount
-    get_mounts(): GLib.List
+    get_mounts(): Mount[]
     get_volume_for_uuid(uuid: string): Volume
-    get_volumes(): GLib.List
+    get_volumes(): Volume[]
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5882,11 +5882,11 @@ export class NativeVolumeMonitor {
     vfunc_drive_disconnected(drive: Drive): void
     vfunc_drive_eject_button(drive: Drive): void
     vfunc_drive_stop_button(drive: Drive): void
-    vfunc_get_connected_drives(): GLib.List
+    vfunc_get_connected_drives(): Drive[]
     vfunc_get_mount_for_uuid(uuid: string): Mount
-    vfunc_get_mounts(): GLib.List
+    vfunc_get_mounts(): Mount[]
     vfunc_get_volume_for_uuid(uuid: string): Volume
-    vfunc_get_volumes(): GLib.List
+    vfunc_get_volumes(): Volume[]
     vfunc_mount_added(mount: Mount): void
     vfunc_mount_changed(mount: Mount): void
     vfunc_mount_pre_unmount(mount: Mount): void
@@ -6455,15 +6455,15 @@ export class Resolver {
     lookup_by_address(address: InetAddress, cancellable: Cancellable | null): string
     lookup_by_address_async(address: InetAddress, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     lookup_by_address_finish(result: AsyncResult): string
-    lookup_by_name(hostname: string, cancellable: Cancellable | null): GLib.List
+    lookup_by_name(hostname: string, cancellable: Cancellable | null): InetAddress[]
     lookup_by_name_async(hostname: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    lookup_by_name_finish(result: AsyncResult): GLib.List
-    lookup_records(rrname: string, record_type: ResolverRecordType, cancellable: Cancellable | null): GLib.List
+    lookup_by_name_finish(result: AsyncResult): InetAddress[]
+    lookup_records(rrname: string, record_type: ResolverRecordType, cancellable: Cancellable | null): GLib.Variant[]
     lookup_records_async(rrname: string, record_type: ResolverRecordType, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    lookup_records_finish(result: AsyncResult): GLib.List
-    lookup_service(service: string, protocol: string, domain: string, cancellable: Cancellable | null): GLib.List
+    lookup_records_finish(result: AsyncResult): GLib.Variant[]
+    lookup_service(service: string, protocol: string, domain: string, cancellable: Cancellable | null): SrvTarget[]
     lookup_service_async(service: string, protocol: string, domain: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    lookup_service_finish(result: AsyncResult): GLib.List
+    lookup_service_finish(result: AsyncResult): SrvTarget[]
     set_default(): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -6493,14 +6493,14 @@ export class Resolver {
     vfunc_lookup_by_address(address: InetAddress, cancellable: Cancellable | null): string
     vfunc_lookup_by_address_async(address: InetAddress, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     vfunc_lookup_by_address_finish(result: AsyncResult): string
-    vfunc_lookup_by_name(hostname: string, cancellable: Cancellable | null): GLib.List
+    vfunc_lookup_by_name(hostname: string, cancellable: Cancellable | null): InetAddress[]
     vfunc_lookup_by_name_async(hostname: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    vfunc_lookup_by_name_finish(result: AsyncResult): GLib.List
-    vfunc_lookup_records(rrname: string, record_type: ResolverRecordType, cancellable: Cancellable | null): GLib.List
+    vfunc_lookup_by_name_finish(result: AsyncResult): InetAddress[]
+    vfunc_lookup_records(rrname: string, record_type: ResolverRecordType, cancellable: Cancellable | null): GLib.Variant[]
     vfunc_lookup_records_async(rrname: string, record_type: ResolverRecordType, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    vfunc_lookup_records_finish(result: AsyncResult): GLib.List
+    vfunc_lookup_records_finish(result: AsyncResult): GLib.Variant[]
     vfunc_lookup_service_async(rrname: string, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    vfunc_lookup_service_finish(result: AsyncResult): GLib.List
+    vfunc_lookup_service_finish(result: AsyncResult): SrvTarget[]
     vfunc_reload(): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -8357,7 +8357,7 @@ export class TlsCertificate {
     static new_from_file(file: string): TlsCertificate
     static new_from_files(cert_file: string, key_file: string): TlsCertificate
     static new_from_pem(data: string, length: number): TlsCertificate
-    static list_new_from_file(file: string): GLib.List
+    static list_new_from_file(file: string): TlsCertificate[]
 }
 export interface TlsConnection_ConstructProps extends IOStream_ConstructProps {
     base_io_stream?:IOStream
@@ -8496,9 +8496,9 @@ export class TlsDatabase {
     lookup_certificate_issuer(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null): TlsCertificate
     lookup_certificate_issuer_async(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     lookup_certificate_issuer_finish(result: AsyncResult): TlsCertificate
-    lookup_certificates_issued_by(issuer_raw_dn: Gjs.byteArray.ByteArray, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null): GLib.List
+    lookup_certificates_issued_by(issuer_raw_dn: Gjs.byteArray.ByteArray, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null): TlsCertificate[]
     lookup_certificates_issued_by_async(issuer_raw_dn: Gjs.byteArray.ByteArray, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    lookup_certificates_issued_by_finish(result: AsyncResult): GLib.List
+    lookup_certificates_issued_by_finish(result: AsyncResult): TlsCertificate[]
     verify_chain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable: Cancellable | null): TlsCertificateFlags
     verify_chain_async(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     verify_chain_finish(result: AsyncResult): TlsCertificateFlags
@@ -8534,9 +8534,9 @@ export class TlsDatabase {
     vfunc_lookup_certificate_issuer(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null): TlsCertificate
     vfunc_lookup_certificate_issuer_async(certificate: TlsCertificate, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     vfunc_lookup_certificate_issuer_finish(result: AsyncResult): TlsCertificate
-    vfunc_lookup_certificates_issued_by(issuer_raw_dn: Gjs.byteArray.ByteArray, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null): GLib.List
+    vfunc_lookup_certificates_issued_by(issuer_raw_dn: Gjs.byteArray.ByteArray, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null): TlsCertificate[]
     vfunc_lookup_certificates_issued_by_async(issuer_raw_dn: Gjs.byteArray.ByteArray, interaction: TlsInteraction | null, flags: TlsDatabaseLookupFlags, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
-    vfunc_lookup_certificates_issued_by_finish(result: AsyncResult): GLib.List
+    vfunc_lookup_certificates_issued_by_finish(result: AsyncResult): TlsCertificate[]
     vfunc_verify_chain(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable: Cancellable | null): TlsCertificateFlags
     vfunc_verify_chain_async(chain: TlsCertificate, purpose: string, identity: SocketConnectable | null, interaction: TlsInteraction | null, flags: TlsDatabaseVerifyFlags, cancellable: Cancellable | null, callback: AsyncReadyCallback | null, user_data: object | null): void
     vfunc_verify_chain_finish(result: AsyncResult): TlsCertificateFlags
@@ -9332,11 +9332,11 @@ export class VolumeMonitor {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.VolumeMonitor */
-    get_connected_drives(): GLib.List
+    get_connected_drives(): Drive[]
     get_mount_for_uuid(uuid: string): Mount
-    get_mounts(): GLib.List
+    get_mounts(): Mount[]
     get_volume_for_uuid(uuid: string): Volume
-    get_volumes(): GLib.List
+    get_volumes(): Volume[]
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9367,11 +9367,11 @@ export class VolumeMonitor {
     vfunc_drive_disconnected(drive: Drive): void
     vfunc_drive_eject_button(drive: Drive): void
     vfunc_drive_stop_button(drive: Drive): void
-    vfunc_get_connected_drives(): GLib.List
+    vfunc_get_connected_drives(): Drive[]
     vfunc_get_mount_for_uuid(uuid: string): Mount
-    vfunc_get_mounts(): GLib.List
+    vfunc_get_mounts(): Mount[]
     vfunc_get_volume_for_uuid(uuid: string): Volume
-    vfunc_get_volumes(): GLib.List
+    vfunc_get_volumes(): Volume[]
     vfunc_mount_added(mount: Mount): void
     vfunc_mount_changed(mount: Mount): void
     vfunc_mount_pre_unmount(mount: Mount): void
@@ -9744,7 +9744,7 @@ export class IOExtension {
 export class IOExtensionPoint {
     /* Methods of Gio.IOExtensionPoint */
     get_extension_by_name(name: string): IOExtension
-    get_extensions(): GLib.List
+    get_extensions(): IOExtension[]
     get_required_type(): number
     set_required_type(type: number): void
     static name: string

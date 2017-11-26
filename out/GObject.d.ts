@@ -1319,7 +1319,7 @@ export class ParamSpecPool {
     /* Methods of GObject.ParamSpecPool */
     insert(pspec: ParamSpec, owner_type: number): void
     list(owner_type: number): [ /* returnType */ ParamSpec[], /* n_pspecs_p */ number ]
-    list_owned(owner_type: number): GLib.List
+    list_owned(owner_type: number): ParamSpec[]
     lookup(param_name: string, owner_type: number, walk_ancestors: boolean): ParamSpec
     remove(pspec: ParamSpec): void
     static name: string

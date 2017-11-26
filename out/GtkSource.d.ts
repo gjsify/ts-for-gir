@@ -477,12 +477,12 @@ export class Completion {
     block_interactive(): void
     create_context(position: Gtk.TextIter | null): CompletionContext
     get_info_window(): CompletionInfo
-    get_providers(): GLib.List
+    get_providers(): CompletionProvider[]
     get_view(): View | null
     hide(): void
     move_window(iter: Gtk.TextIter): void
     remove_provider(provider: CompletionProvider): boolean
-    show(providers: GLib.List | null, context: CompletionContext): boolean
+    show(providers: CompletionProvider[] | null, context: CompletionContext): boolean
     unblock_interactive(): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -561,7 +561,7 @@ export class CompletionContext {
     g_type_instance:GObject.TypeInstance
     /* Fields of GObject.Object */
     /* Methods of GtkSource.CompletionContext */
-    add_proposals(provider: CompletionProvider, proposals: GLib.List | null, finished: boolean): void
+    add_proposals(provider: CompletionProvider, proposals: CompletionProposal[] | null, finished: boolean): void
     get_activation(): CompletionActivation
     get_iter(): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
     /* Methods of GObject.Object */
@@ -733,7 +733,7 @@ export class CompletionInfo {
     get_has_resize_grip(): boolean
     get_hide_titlebar_when_maximized(): boolean
     get_icon(): GdkPixbuf.Pixbuf
-    get_icon_list(): GLib.List
+    get_icon_list(): GdkPixbuf.Pixbuf[]
     get_icon_name(): string | null
     get_mnemonic_modifier(): Gdk.ModifierType
     get_mnemonics_visible(): boolean
@@ -787,7 +787,7 @@ export class CompletionInfo {
     set_hide_titlebar_when_maximized(setting: boolean): void
     set_icon(icon: GdkPixbuf.Pixbuf | null): void
     set_icon_from_file(filename: string): boolean
-    set_icon_list(list: GLib.List): void
+    set_icon_list(list: GdkPixbuf.Pixbuf[]): void
     set_icon_name(name: string | null): void
     set_keep_above(setting: boolean): void
     set_keep_below(setting: boolean): void
@@ -824,8 +824,8 @@ export class CompletionInfo {
     forall(callback: Gtk.Callback, callback_data: object | null): void
     foreach(callback: Gtk.Callback, callback_data: object | null): void
     get_border_width(): number
-    get_children(): GLib.List
-    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
+    get_children(): Gtk.Widget[]
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
     get_focus_child(): Gtk.Widget | null
     get_focus_hadjustment(): Gtk.Adjustment | null
     get_focus_vadjustment(): Gtk.Adjustment | null
@@ -835,7 +835,7 @@ export class CompletionInfo {
     remove(widget: Gtk.Widget): void
     resize_children(): void
     set_border_width(border_width: number): void
-    set_focus_chain(focusable_widgets: GLib.List): void
+    set_focus_chain(focusable_widgets: Gtk.Widget[]): void
     set_focus_child(child: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
@@ -993,9 +993,9 @@ export class CompletionInfo {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): GLib.List
+    list_accel_closures(): Function
     list_action_prefixes(): string[]
-    list_mnemonic_labels(): GLib.List
+    list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
     modify_bg(state: Gtk.StateType, color: Gdk.Color | null): void
@@ -2551,8 +2551,8 @@ export class Map {
     forall(callback: Gtk.Callback, callback_data: object | null): void
     foreach(callback: Gtk.Callback, callback_data: object | null): void
     get_border_width(): number
-    get_children(): GLib.List
-    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
+    get_children(): Gtk.Widget[]
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
     get_focus_child(): Gtk.Widget | null
     get_focus_hadjustment(): Gtk.Adjustment | null
     get_focus_vadjustment(): Gtk.Adjustment | null
@@ -2562,7 +2562,7 @@ export class Map {
     remove(widget: Gtk.Widget): void
     resize_children(): void
     set_border_width(border_width: number): void
-    set_focus_chain(focusable_widgets: GLib.List): void
+    set_focus_chain(focusable_widgets: Gtk.Widget[]): void
     set_focus_child(child: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
@@ -2722,9 +2722,9 @@ export class Map {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): GLib.List
+    list_accel_closures(): Function
     list_action_prefixes(): string[]
-    list_mnemonic_labels(): GLib.List
+    list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
     modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
@@ -3937,8 +3937,8 @@ export class StyleSchemeChooserButton {
     forall(callback: Gtk.Callback, callback_data: object | null): void
     foreach(callback: Gtk.Callback, callback_data: object | null): void
     get_border_width(): number
-    get_children(): GLib.List
-    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
+    get_children(): Gtk.Widget[]
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
     get_focus_child(): Gtk.Widget | null
     get_focus_hadjustment(): Gtk.Adjustment | null
     get_focus_vadjustment(): Gtk.Adjustment | null
@@ -3948,7 +3948,7 @@ export class StyleSchemeChooserButton {
     remove(widget: Gtk.Widget): void
     resize_children(): void
     set_border_width(border_width: number): void
-    set_focus_chain(focusable_widgets: GLib.List): void
+    set_focus_chain(focusable_widgets: Gtk.Widget[]): void
     set_focus_child(child: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
@@ -4107,9 +4107,9 @@ export class StyleSchemeChooserButton {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): GLib.List
+    list_accel_closures(): Function
     list_action_prefixes(): string[]
-    list_mnemonic_labels(): GLib.List
+    list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
     modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
@@ -4554,8 +4554,8 @@ export class StyleSchemeChooserWidget {
     forall(callback: Gtk.Callback, callback_data: object | null): void
     foreach(callback: Gtk.Callback, callback_data: object | null): void
     get_border_width(): number
-    get_children(): GLib.List
-    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
+    get_children(): Gtk.Widget[]
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
     get_focus_child(): Gtk.Widget | null
     get_focus_hadjustment(): Gtk.Adjustment | null
     get_focus_vadjustment(): Gtk.Adjustment | null
@@ -4565,7 +4565,7 @@ export class StyleSchemeChooserWidget {
     remove(widget: Gtk.Widget): void
     resize_children(): void
     set_border_width(border_width: number): void
-    set_focus_chain(focusable_widgets: GLib.List): void
+    set_focus_chain(focusable_widgets: Gtk.Widget[]): void
     set_focus_child(child: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
@@ -4725,9 +4725,9 @@ export class StyleSchemeChooserWidget {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): GLib.List
+    list_accel_closures(): Function
     list_action_prefixes(): string[]
-    list_mnemonic_labels(): GLib.List
+    list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
     modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
@@ -5582,8 +5582,8 @@ export class View {
     forall(callback: Gtk.Callback, callback_data: object | null): void
     foreach(callback: Gtk.Callback, callback_data: object | null): void
     get_border_width(): number
-    get_children(): GLib.List
-    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ GLib.List ]
+    get_children(): Gtk.Widget[]
+    get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
     get_focus_child(): Gtk.Widget | null
     get_focus_hadjustment(): Gtk.Adjustment | null
     get_focus_vadjustment(): Gtk.Adjustment | null
@@ -5593,7 +5593,7 @@ export class View {
     remove(widget: Gtk.Widget): void
     resize_children(): void
     set_border_width(border_width: number): void
-    set_focus_chain(focusable_widgets: GLib.List): void
+    set_focus_chain(focusable_widgets: Gtk.Widget[]): void
     set_focus_child(child: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
@@ -5753,9 +5753,9 @@ export class View {
     is_toplevel(): boolean
     is_visible(): boolean
     keynav_failed(direction: Gtk.DirectionType): boolean
-    list_accel_closures(): GLib.List
+    list_accel_closures(): Function
     list_action_prefixes(): string[]
-    list_mnemonic_labels(): GLib.List
+    list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
     modify_base(state: Gtk.StateType, color: Gdk.Color | null): void

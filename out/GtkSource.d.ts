@@ -251,21 +251,21 @@ export class Buffer {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GtkSource.Buffer */
-    backward_iter_to_source_mark(iter: Gtk.TextIter, category: string | null): boolean
+    backward_iter_to_source_mark(iter: Gtk.TextIter, category?: string | null): boolean
     begin_not_undoable_action(): void
     change_case(case_type: ChangeCaseType, start: Gtk.TextIter, end: Gtk.TextIter): void
     create_source_mark(name: string | null, category: string, where: Gtk.TextIter): Mark
     end_not_undoable_action(): void
     ensure_highlight(start: Gtk.TextIter, end: Gtk.TextIter): void
-    forward_iter_to_source_mark(iter: Gtk.TextIter, category: string | null): boolean
+    forward_iter_to_source_mark(iter: Gtk.TextIter, category?: string | null): boolean
     get_context_classes_at_iter(iter: Gtk.TextIter): string[]
     get_highlight_matching_brackets(): boolean
     get_highlight_syntax(): boolean
     get_implicit_trailing_newline(): boolean
     get_language(): Language | null
     get_max_undo_levels(): number
-    get_source_marks_at_iter(iter: Gtk.TextIter, category: string | null): GLib.SList
-    get_source_marks_at_line(line: number, category: string | null): GLib.SList
+    get_source_marks_at_iter(iter: Gtk.TextIter, category?: string | null): GLib.SList
+    get_source_marks_at_line(line: number, category?: string | null): GLib.SList
     get_style_scheme(): StyleScheme | null
     get_undo_manager(): UndoManager | null
     iter_backward_to_context_class_toggle(iter: Gtk.TextIter, context_class: string): boolean
@@ -273,14 +273,14 @@ export class Buffer {
     iter_has_context_class(iter: Gtk.TextIter, context_class: string): boolean
     join_lines(start: Gtk.TextIter, end: Gtk.TextIter): void
     redo(): void
-    remove_source_marks(start: Gtk.TextIter, end: Gtk.TextIter, category: string | null): void
+    remove_source_marks(start: Gtk.TextIter, end: Gtk.TextIter, category?: string | null): void
     set_highlight_matching_brackets(highlight: boolean): void
     set_highlight_syntax(highlight: boolean): void
     set_implicit_trailing_newline(implicit_trailing_newline: boolean): void
-    set_language(language: Language | null): void
+    set_language(language?: Language | null): void
     set_max_undo_levels(max_undo_levels: number): void
-    set_style_scheme(scheme: StyleScheme | null): void
-    set_undo_manager(manager: UndoManager | null): void
+    set_style_scheme(scheme?: StyleScheme | null): void
+    set_undo_manager(manager?: UndoManager | null): void
     sort_lines(start: Gtk.TextIter, end: Gtk.TextIter, flags: SortFlags, column: number): void
     undo(): void
     /* Methods of Gtk.TextBuffer */
@@ -341,9 +341,9 @@ export class Buffer {
     paste_clipboard(clipboard: Gtk.Clipboard, override_location: Gtk.TextIter | null, default_editable: boolean): void
     place_cursor(where: Gtk.TextIter): void
     register_deserialize_format(mime_type: string, function_: Gtk.TextBufferDeserializeFunc, user_data: object | null, user_data_destroy: GLib.DestroyNotify): Gdk.Atom
-    register_deserialize_tagset(tagset_name: string | null): Gdk.Atom
+    register_deserialize_tagset(tagset_name?: string | null): Gdk.Atom
     register_serialize_format(mime_type: string, function_: Gtk.TextBufferSerializeFunc, user_data: object | null, user_data_destroy: GLib.DestroyNotify): Gdk.Atom
-    register_serialize_tagset(tagset_name: string | null): Gdk.Atom
+    register_serialize_tagset(tagset_name?: string | null): Gdk.Atom
     remove_all_tags(start: Gtk.TextIter, end: Gtk.TextIter): void
     remove_selection_clipboard(clipboard: Gtk.Clipboard): void
     remove_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -368,10 +368,10 @@ export class Buffer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -443,7 +443,7 @@ export class Buffer {
     static name: string
     static new (config?: Buffer_ConstructProps): Buffer
     constructor (config?: Buffer_ConstructProps)
-    static new(table: Gtk.TextTagTable | null): Buffer
+    static new(table?: Gtk.TextTagTable | null): Buffer
     static new_with_language(language: Language): Buffer
 }
 export interface Completion_ConstructProps extends GObject.Object_ConstructProps {
@@ -475,7 +475,7 @@ export class Completion {
     /* Methods of GtkSource.Completion */
     add_provider(provider: CompletionProvider): boolean
     block_interactive(): void
-    create_context(position: Gtk.TextIter | null): CompletionContext
+    create_context(position?: Gtk.TextIter | null): CompletionContext
     get_info_window(): CompletionInfo
     get_providers(): CompletionProvider[]
     get_view(): View | null
@@ -498,10 +498,10 @@ export class Completion {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -578,10 +578,10 @@ export class CompletionContext {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -703,8 +703,8 @@ export class CompletionInfo {
     /* Fields of GObject.Object */
     /* Methods of GtkSource.CompletionInfo */
     get_widget(): Gtk.Widget
-    move_to_iter(view: Gtk.TextView, iter: Gtk.TextIter | null): void
-    set_widget(widget: Gtk.Widget | null): void
+    move_to_iter(view: Gtk.TextView, iter?: Gtk.TextIter | null): void
+    set_widget(widget?: Gtk.Widget | null): void
     /* Methods of Gtk.Window */
     activate_default(): boolean
     activate_focus(): boolean
@@ -769,15 +769,15 @@ export class CompletionInfo {
     resize_grip_is_visible(): boolean
     resize_to_geometry(width: number, height: number): void
     set_accept_focus(setting: boolean): void
-    set_application(application: Gtk.Application | null): void
-    set_attached_to(attach_widget: Gtk.Widget | null): void
+    set_application(application?: Gtk.Application | null): void
+    set_attached_to(attach_widget?: Gtk.Widget | null): void
     set_decorated(setting: boolean): void
-    set_default(default_widget: Gtk.Widget | null): void
+    set_default(default_widget?: Gtk.Widget | null): void
     set_default_geometry(width: number, height: number): void
     set_default_size(width: number, height: number): void
     set_deletable(setting: boolean): void
     set_destroy_with_parent(setting: boolean): void
-    set_focus(focus: Gtk.Widget | null): void
+    set_focus(focus?: Gtk.Widget | null): void
     set_focus_on_map(setting: boolean): void
     set_focus_visible(setting: boolean): void
     set_geometry_hints(geometry_widget: Gtk.Widget | null, geometry: Gdk.Geometry | null, geom_mask: Gdk.WindowHints): void
@@ -785,10 +785,10 @@ export class CompletionInfo {
     set_has_resize_grip(value: boolean): void
     set_has_user_ref_count(setting: boolean): void
     set_hide_titlebar_when_maximized(setting: boolean): void
-    set_icon(icon: GdkPixbuf.Pixbuf | null): void
+    set_icon(icon?: GdkPixbuf.Pixbuf | null): void
     set_icon_from_file(filename: string): boolean
     set_icon_list(list: GdkPixbuf.Pixbuf[]): void
-    set_icon_name(name: string | null): void
+    set_icon_name(name?: string | null): void
     set_keep_above(setting: boolean): void
     set_keep_below(setting: boolean): void
     set_mnemonic_modifier(modifier: Gdk.ModifierType): void
@@ -803,8 +803,8 @@ export class CompletionInfo {
     set_skip_taskbar_hint(setting: boolean): void
     set_startup_id(startup_id: string): void
     set_title(title: string): void
-    set_titlebar(titlebar: Gtk.Widget | null): void
-    set_transient_for(parent: Gtk.Window | null): void
+    set_titlebar(titlebar?: Gtk.Widget | null): void
+    set_transient_for(parent?: Gtk.Window | null): void
     set_type_hint(hint: Gdk.WindowTypeHint): void
     set_urgency_hint(setting: boolean): void
     set_wmclass(wmclass_name: string, wmclass_class: string): void
@@ -821,8 +821,8 @@ export class CompletionInfo {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data: object | null): void
-    foreach(callback: Gtk.Callback, callback_data: object | null): void
+    forall(callback: Gtk.Callback, callback_data?: object | null): void
+    foreach(callback: Gtk.Callback, callback_data?: object | null): void
     get_border_width(): number
     get_children(): Gtk.Widget[]
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
@@ -836,7 +836,7 @@ export class CompletionInfo {
     resize_children(): void
     set_border_width(border_width: number): void
     set_focus_chain(focusable_widgets: Gtk.Widget[]): void
-    set_focus_child(child: Gtk.Widget | null): void
+    set_focus_child(child?: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
     set_reallocate_redraws(needs_redraws: boolean): void
@@ -855,22 +855,22 @@ export class CompletionInfo {
     class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
-    create_pango_layout(text: string | null): Pango.Layout
+    create_pango_layout(text?: string | null): Pango.Layout
     destroy(): void
     destroyed(widget_pointer: Gtk.Widget): void
     device_is_shadowed(device: Gdk.Device): boolean
-    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null): Gdk.DragContext
+    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     drag_begin_with_coordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
     drag_check_threshold(start_x: number, start_y: number, current_x: number, current_y: number): boolean
     drag_dest_add_image_targets(): void
     drag_dest_add_text_targets(): void
     drag_dest_add_uri_targets(): void
-    drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
+    drag_dest_find_target(context: Gdk.DragContext, target_list?: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList | null
     drag_dest_get_track_motion(): boolean
     drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
-    drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_dest_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
     drag_dest_unset(): void
     drag_get_data(context: Gdk.DragContext, target: Gdk.Atom, time_: number): void
@@ -884,7 +884,7 @@ export class CompletionInfo {
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
     drag_source_set_icon_stock(stock_id: string): void
-    drag_source_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_source_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_source_unset(): void
     drag_unhighlight(): void
     draw(cr: cairo.Context): void
@@ -983,8 +983,8 @@ export class CompletionInfo {
     hide_on_delete(): boolean
     in_destruction(): boolean
     init_template(): void
-    input_shape_combine_region(region: cairo.Region | null): void
-    insert_action_group(name: string, group: Gio.ActionGroup | null): void
+    input_shape_combine_region(region?: cairo.Region | null): void
+    insert_action_group(name: string, group?: Gio.ActionGroup | null): void
     intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
     is_ancestor(ancestor: Gtk.Widget): boolean
     is_composited(): boolean
@@ -997,18 +997,18 @@ export class CompletionInfo {
     list_action_prefixes(): string[]
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
-    modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_bg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_cursor(primary: Gdk.Color | null, secondary: Gdk.Color | null): void
-    modify_fg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_font(font_desc: Pango.FontDescription | null): void
+    modify_base(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_bg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_cursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modify_fg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_font(font_desc?: Pango.FontDescription | null): void
     modify_style(style: Gtk.RcStyle): void
-    modify_text(state: Gtk.StateType, color: Gdk.Color | null): void
-    override_background_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
-    override_font(font_desc: Pango.FontDescription | null): void
-    override_symbolic_color(name: string, color: Gdk.RGBA | null): void
+    modify_text(state: Gtk.StateType, color?: Gdk.Color | null): void
+    override_background_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_cursor(cursor?: Gdk.RGBA | null, secondary_cursor?: Gdk.RGBA | null): void
+    override_font(font_desc?: Pango.FontDescription | null): void
+    override_symbolic_color(name: string, color?: Gdk.RGBA | null): void
     path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_allocate(): void
     queue_compute_expand(): void
@@ -1023,14 +1023,14 @@ export class CompletionInfo {
     remove_accelerator(accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType): boolean
     remove_mnemonic_label(label: Gtk.Widget): void
     remove_tick_callback(id: number): void
-    render_icon(stock_id: string, size: number, detail: string | null): GdkPixbuf.Pixbuf | null
+    render_icon(stock_id: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
     render_icon_pixbuf(stock_id: string, size: number): GdkPixbuf.Pixbuf | null
     reparent(new_parent: Gtk.Widget): void
     reset_rc_styles(): void
     reset_style(): void
     send_expose(event: Gdk.Event): number
     send_focus_change(event: Gdk.Event): boolean
-    set_accel_path(accel_path: string | null, accel_group: Gtk.AccelGroup | null): void
+    set_accel_path(accel_path?: string | null, accel_group?: Gtk.AccelGroup | null): void
     set_allocation(allocation: Gtk.Allocation): void
     set_app_paintable(app_paintable: boolean): void
     set_can_default(can_default: boolean): void
@@ -1044,8 +1044,8 @@ export class CompletionInfo {
     set_double_buffered(double_buffered: boolean): void
     set_events(events: number): void
     set_focus_on_click(focus_on_click: boolean): void
-    set_font_map(font_map: Pango.FontMap | null): void
-    set_font_options(options: cairo.FontOptions | null): void
+    set_font_map(font_map?: Pango.FontMap | null): void
+    set_font_options(options?: cairo.FontOptions | null): void
     set_halign(align: Gtk.Align): void
     set_has_tooltip(has_tooltip: boolean): void
     set_has_window(has_window: boolean): void
@@ -1069,18 +1069,18 @@ export class CompletionInfo {
     set_size_request(width: number, height: number): void
     set_state(state: Gtk.StateType): void
     set_state_flags(flags: Gtk.StateFlags, clear: boolean): void
-    set_style(style: Gtk.Style | null): void
+    set_style(style?: Gtk.Style | null): void
     set_support_multidevice(support_multidevice: boolean): void
-    set_tooltip_markup(markup: string | null): void
-    set_tooltip_text(text: string | null): void
-    set_tooltip_window(custom_window: Gtk.Window | null): void
+    set_tooltip_markup(markup?: string | null): void
+    set_tooltip_text(text?: string | null): void
+    set_tooltip_window(custom_window?: Gtk.Window | null): void
     set_valign(align: Gtk.Align): void
     set_vexpand(expand: boolean): void
     set_vexpand_set(set: boolean): void
     set_visible(visible: boolean): void
-    set_visual(visual: Gdk.Visual | null): void
+    set_visual(visual?: Gdk.Visual | null): void
     set_window(window: Gdk.Window): void
-    shape_combine_region(region: cairo.Region | null): void
+    shape_combine_region(region?: cairo.Region | null): void
     show(): void
     show_all(): void
     show_now(): void
@@ -1111,10 +1111,10 @@ export class CompletionInfo {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1128,18 +1128,18 @@ export class CompletionInfo {
     vfunc_activate_focus(): void
     vfunc_enable_debugging(toggle: boolean): boolean
     vfunc_keys_changed(): void
-    vfunc_set_focus(focus: Gtk.Widget | null): void
+    vfunc_set_focus(focus?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data?: object | null): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child: Gtk.Widget | null): void
+    vfunc_set_focus_child(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
@@ -1277,7 +1277,7 @@ export class CompletionInfo {
     connect(sigName: "grab-focus", callback: ((obj: CompletionInfo) => void))
     connect(sigName: "grab-notify", callback: ((obj: CompletionInfo, was_grabbed: boolean) => void))
     connect(sigName: "hide", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: CompletionInfo, previous_toplevel: Gtk.Widget | null) => void))
+    connect(sigName: "hierarchy-changed", callback: ((obj: CompletionInfo, previous_toplevel?: Gtk.Widget | null) => void))
     connect(sigName: "key-press-event", callback: ((obj: CompletionInfo, event: Gdk.EventKey) => boolean))
     connect(sigName: "key-release-event", callback: ((obj: CompletionInfo, event: Gdk.EventKey) => boolean))
     connect(sigName: "keynav-failed", callback: ((obj: CompletionInfo, direction: Gtk.DirectionType) => boolean))
@@ -1287,14 +1287,14 @@ export class CompletionInfo {
     connect(sigName: "mnemonic-activate", callback: ((obj: CompletionInfo, group_cycling: boolean) => boolean))
     connect(sigName: "motion-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventMotion) => boolean))
     connect(sigName: "move-focus", callback: ((obj: CompletionInfo, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: CompletionInfo, old_parent: Gtk.Widget | null) => void))
+    connect(sigName: "parent-set", callback: ((obj: CompletionInfo, old_parent?: Gtk.Widget | null) => void))
     connect(sigName: "popup-menu", callback: ((obj: CompletionInfo) => boolean))
     connect(sigName: "property-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventProperty) => boolean))
     connect(sigName: "proximity-in-event", callback: ((obj: CompletionInfo, event: Gdk.EventProximity) => boolean))
     connect(sigName: "proximity-out-event", callback: ((obj: CompletionInfo, event: Gdk.EventProximity) => boolean))
     connect(sigName: "query-tooltip", callback: ((obj: CompletionInfo, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
     connect(sigName: "realize", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "screen-changed", callback: ((obj: CompletionInfo, previous_screen: Gdk.Screen | null) => void))
+    connect(sigName: "screen-changed", callback: ((obj: CompletionInfo, previous_screen?: Gdk.Screen | null) => void))
     connect(sigName: "scroll-event", callback: ((obj: CompletionInfo, event: Gdk.EventScroll) => boolean))
     connect(sigName: "selection-clear-event", callback: ((obj: CompletionInfo, event: Gdk.EventSelection) => boolean))
     connect(sigName: "selection-get", callback: ((obj: CompletionInfo, data: Gtk.SelectionData, info: number, time: number) => void))
@@ -1306,7 +1306,7 @@ export class CompletionInfo {
     connect(sigName: "size-allocate", callback: ((obj: CompletionInfo, allocation: Gtk.Allocation) => void))
     connect(sigName: "state-changed", callback: ((obj: CompletionInfo, state: Gtk.StateType) => void))
     connect(sigName: "state-flags-changed", callback: ((obj: CompletionInfo, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: CompletionInfo, previous_style: Gtk.Style | null) => void))
+    connect(sigName: "style-set", callback: ((obj: CompletionInfo, previous_style?: Gtk.Style | null) => void))
     connect(sigName: "style-updated", callback: ((obj: CompletionInfo) => void))
     connect(sigName: "touch-event", callback: ((obj: CompletionInfo, object: Gdk.Event) => boolean))
     connect(sigName: "unmap", callback: ((obj: CompletionInfo) => void))
@@ -1419,13 +1419,13 @@ export class CompletionItem {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GtkSource.CompletionItem */
-    set_gicon(gicon: Gio.Icon | null): void
-    set_icon(icon: GdkPixbuf.Pixbuf | null): void
-    set_icon_name(icon_name: string | null): void
-    set_info(info: string | null): void
-    set_label(label: string | null): void
-    set_markup(markup: string | null): void
-    set_text(text: string | null): void
+    set_gicon(gicon?: Gio.Icon | null): void
+    set_icon(icon?: GdkPixbuf.Pixbuf | null): void
+    set_icon_name(icon_name?: string | null): void
+    set_info(info?: string | null): void
+    set_label(label?: string | null): void
+    set_markup(markup?: string | null): void
+    set_text(text?: string | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1440,10 +1440,10 @@ export class CompletionItem {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1470,9 +1470,9 @@ export class CompletionItem {
     static name: string
     static new (config?: CompletionItem_ConstructProps): CompletionItem
     constructor (config?: CompletionItem_ConstructProps)
-    static new(label: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
-    static new_from_stock(label: string | null, text: string, stock: string, info: string | null): CompletionItem
-    static new_with_markup(markup: string, text: string, icon: GdkPixbuf.Pixbuf | null, info: string | null): CompletionItem
+    static new(label: string, text: string, icon?: GdkPixbuf.Pixbuf | null, info?: string | null): CompletionItem
+    static new_from_stock(label: string | null, text: string, stock: string, info?: string | null): CompletionItem
+    static new_with_markup(markup: string, text: string, icon?: GdkPixbuf.Pixbuf | null, info?: string | null): CompletionItem
     static new2(): CompletionItem
 }
 export interface CompletionWords_ConstructProps extends GObject.Object_ConstructProps {
@@ -1517,10 +1517,10 @@ export class CompletionWords {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1548,7 +1548,7 @@ export class CompletionWords {
     static name: string
     static new (config?: CompletionWords_ConstructProps): CompletionWords
     constructor (config?: CompletionWords_ConstructProps)
-    static new(name: string | null, icon: GdkPixbuf.Pixbuf | null): CompletionWords
+    static new(name?: string | null, icon?: GdkPixbuf.Pixbuf | null): CompletionWords
 }
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
     location?:Gio.File
@@ -1575,7 +1575,7 @@ export class File {
     is_externally_modified(): boolean
     is_local(): boolean
     is_readonly(): boolean
-    set_location(location: Gio.File | null): void
+    set_location(location?: Gio.File | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1590,10 +1590,10 @@ export class File {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1641,7 +1641,7 @@ export class FileLoader {
     get_input_stream(): Gio.InputStream | null
     get_location(): Gio.File | null
     get_newline_type(): NewlineType
-    load_async(io_priority: number, cancellable: Gio.Cancellable | null, progress_callback: Gio.FileProgressCallback | null, progress_callback_data: object | null, progress_callback_notify: GLib.DestroyNotify | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    load_async(io_priority: number, cancellable?: Gio.Cancellable | null, progress_callback?: Gio.FileProgressCallback | null, progress_callback_data?: object | null, progress_callback_notify?: GLib.DestroyNotify | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     load_finish(result: Gio.AsyncResult): boolean
     set_candidate_encodings(candidate_encodings: GLib.SList): void
     /* Methods of GObject.Object */
@@ -1658,10 +1658,10 @@ export class FileLoader {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1712,10 +1712,10 @@ export class FileSaver {
     get_flags(): FileSaverFlags
     get_location(): Gio.File
     get_newline_type(): NewlineType
-    save_async(io_priority: number, cancellable: Gio.Cancellable | null, progress_callback: Gio.FileProgressCallback | null, progress_callback_data: object | null, progress_callback_notify: GLib.DestroyNotify | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    save_async(io_priority: number, cancellable?: Gio.Cancellable | null, progress_callback?: Gio.FileProgressCallback | null, progress_callback_data?: object | null, progress_callback_notify?: GLib.DestroyNotify | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     save_finish(result: Gio.AsyncResult): boolean
     set_compression_type(compression_type: CompressionType): void
-    set_encoding(encoding: Encoding | null): void
+    set_encoding(encoding?: Encoding | null): void
     set_flags(flags: FileSaverFlags): void
     set_newline_type(newline_type: NewlineType): void
     /* Methods of GObject.Object */
@@ -1732,10 +1732,10 @@ export class FileSaver {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1802,10 +1802,10 @@ export class Gutter {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1876,7 +1876,7 @@ export class GutterRenderer {
     queue_draw(): void
     set_alignment(xalign: number, yalign: number): void
     set_alignment_mode(mode: GutterRendererAlignmentMode): void
-    set_background(color: Gdk.RGBA | null): void
+    set_background(color?: Gdk.RGBA | null): void
     set_padding(xpad: number, ypad: number): void
     set_size(size: number): void
     set_visible(visible: boolean): void
@@ -1894,10 +1894,10 @@ export class GutterRenderer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1907,8 +1907,8 @@ export class GutterRenderer {
     /* Virtual methods of GtkSource.GutterRenderer */
     vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
-    vfunc_change_buffer(old_buffer: Gtk.TextBuffer | null): void
-    vfunc_change_view(old_view: Gtk.TextView | null): void
+    vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
+    vfunc_change_view(old_view?: Gtk.TextView | null): void
     vfunc_draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
     vfunc_end(): void
     vfunc_query_activatable(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): boolean
@@ -1981,10 +1981,10 @@ export class GutterRendererPixbuf {
     get_icon_name(): string
     get_pixbuf(): GdkPixbuf.Pixbuf
     get_stock_id(): string
-    set_gicon(icon: Gio.Icon | null): void
-    set_icon_name(icon_name: string | null): void
-    set_pixbuf(pixbuf: GdkPixbuf.Pixbuf | null): void
-    set_stock_id(stock_id: string | null): void
+    set_gicon(icon?: Gio.Icon | null): void
+    set_icon_name(icon_name?: string | null): void
+    set_pixbuf(pixbuf?: GdkPixbuf.Pixbuf | null): void
+    set_stock_id(stock_id?: string | null): void
     /* Methods of GtkSource.GutterRenderer */
     activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
@@ -2004,7 +2004,7 @@ export class GutterRendererPixbuf {
     queue_draw(): void
     set_alignment(xalign: number, yalign: number): void
     set_alignment_mode(mode: GutterRendererAlignmentMode): void
-    set_background(color: Gdk.RGBA | null): void
+    set_background(color?: Gdk.RGBA | null): void
     set_padding(xpad: number, ypad: number): void
     set_size(size: number): void
     set_visible(visible: boolean): void
@@ -2022,10 +2022,10 @@ export class GutterRendererPixbuf {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2035,8 +2035,8 @@ export class GutterRendererPixbuf {
     /* Virtual methods of GtkSource.GutterRenderer */
     vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
-    vfunc_change_buffer(old_buffer: Gtk.TextBuffer | null): void
-    vfunc_change_view(old_view: Gtk.TextView | null): void
+    vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
+    vfunc_change_view(old_view?: Gtk.TextView | null): void
     vfunc_draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
     vfunc_end(): void
     vfunc_query_activatable(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): boolean
@@ -2129,7 +2129,7 @@ export class GutterRendererText {
     queue_draw(): void
     set_alignment(xalign: number, yalign: number): void
     set_alignment_mode(mode: GutterRendererAlignmentMode): void
-    set_background(color: Gdk.RGBA | null): void
+    set_background(color?: Gdk.RGBA | null): void
     set_padding(xpad: number, ypad: number): void
     set_size(size: number): void
     set_visible(visible: boolean): void
@@ -2147,10 +2147,10 @@ export class GutterRendererText {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2160,8 +2160,8 @@ export class GutterRendererText {
     /* Virtual methods of GtkSource.GutterRenderer */
     vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
     vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
-    vfunc_change_buffer(old_buffer: Gtk.TextBuffer | null): void
-    vfunc_change_view(old_view: Gtk.TextView | null): void
+    vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
+    vfunc_change_view(old_view?: Gtk.TextView | null): void
     vfunc_draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
     vfunc_end(): void
     vfunc_query_activatable(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): boolean
@@ -2240,10 +2240,10 @@ export class Language {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2284,8 +2284,8 @@ export class LanguageManager {
     get_language(id: string): Language | null
     get_language_ids(): string[] | null
     get_search_path(): string[]
-    guess_language(filename: string | null, content_type: string | null): Language | null
-    set_search_path(dirs: string[] | null): void
+    guess_language(filename?: string | null, content_type?: string | null): Language | null
+    set_search_path(dirs?: string[] | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2300,10 +2300,10 @@ export class LanguageManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2482,7 +2482,7 @@ export class Map {
     get_border_window_size(type: Gtk.TextWindowType): number
     get_bottom_margin(): number
     get_buffer(): Gtk.TextBuffer
-    get_cursor_locations(iter: Gtk.TextIter | null): [ /* strong */ Gdk.Rectangle | null, /* weak */ Gdk.Rectangle | null ]
+    get_cursor_locations(iter?: Gtk.TextIter | null): [ /* strong */ Gdk.Rectangle | null, /* weak */ Gdk.Rectangle | null ]
     get_cursor_visible(): boolean
     get_default_attributes(): Gtk.TextAttributes
     get_editable(): boolean
@@ -2522,7 +2522,7 @@ export class Map {
     set_accepts_tab(accepts_tab: boolean): void
     set_border_window_size(type: Gtk.TextWindowType, size: number): void
     set_bottom_margin(bottom_margin: number): void
-    set_buffer(buffer: Gtk.TextBuffer | null): void
+    set_buffer(buffer?: Gtk.TextBuffer | null): void
     set_cursor_visible(setting: boolean): void
     set_editable(setting: boolean): void
     set_indent(indent: number): void
@@ -2548,8 +2548,8 @@ export class Map {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data: object | null): void
-    foreach(callback: Gtk.Callback, callback_data: object | null): void
+    forall(callback: Gtk.Callback, callback_data?: object | null): void
+    foreach(callback: Gtk.Callback, callback_data?: object | null): void
     get_border_width(): number
     get_children(): Gtk.Widget[]
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
@@ -2563,7 +2563,7 @@ export class Map {
     resize_children(): void
     set_border_width(border_width: number): void
     set_focus_chain(focusable_widgets: Gtk.Widget[]): void
-    set_focus_child(child: Gtk.Widget | null): void
+    set_focus_child(child?: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
     set_reallocate_redraws(needs_redraws: boolean): void
@@ -2582,22 +2582,22 @@ export class Map {
     class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
-    create_pango_layout(text: string | null): Pango.Layout
+    create_pango_layout(text?: string | null): Pango.Layout
     destroy(): void
     destroyed(widget_pointer: Gtk.Widget): void
     device_is_shadowed(device: Gdk.Device): boolean
-    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null): Gdk.DragContext
+    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     drag_begin_with_coordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
     drag_check_threshold(start_x: number, start_y: number, current_x: number, current_y: number): boolean
     drag_dest_add_image_targets(): void
     drag_dest_add_text_targets(): void
     drag_dest_add_uri_targets(): void
-    drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
+    drag_dest_find_target(context: Gdk.DragContext, target_list?: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList | null
     drag_dest_get_track_motion(): boolean
     drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
-    drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_dest_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
     drag_dest_unset(): void
     drag_get_data(context: Gdk.DragContext, target: Gdk.Atom, time_: number): void
@@ -2611,7 +2611,7 @@ export class Map {
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
     drag_source_set_icon_stock(stock_id: string): void
-    drag_source_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_source_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_source_unset(): void
     drag_unhighlight(): void
     draw(cr: cairo.Context): void
@@ -2712,8 +2712,8 @@ export class Map {
     hide_on_delete(): boolean
     in_destruction(): boolean
     init_template(): void
-    input_shape_combine_region(region: cairo.Region | null): void
-    insert_action_group(name: string, group: Gio.ActionGroup | null): void
+    input_shape_combine_region(region?: cairo.Region | null): void
+    insert_action_group(name: string, group?: Gio.ActionGroup | null): void
     intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
     is_ancestor(ancestor: Gtk.Widget): boolean
     is_composited(): boolean
@@ -2727,18 +2727,18 @@ export class Map {
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
-    modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_bg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_cursor(primary: Gdk.Color | null, secondary: Gdk.Color | null): void
-    modify_fg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_font(font_desc: Pango.FontDescription | null): void
+    modify_base(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_bg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_cursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modify_fg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_font(font_desc?: Pango.FontDescription | null): void
     modify_style(style: Gtk.RcStyle): void
-    modify_text(state: Gtk.StateType, color: Gdk.Color | null): void
-    override_background_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
-    override_font(font_desc: Pango.FontDescription | null): void
-    override_symbolic_color(name: string, color: Gdk.RGBA | null): void
+    modify_text(state: Gtk.StateType, color?: Gdk.Color | null): void
+    override_background_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_cursor(cursor?: Gdk.RGBA | null, secondary_cursor?: Gdk.RGBA | null): void
+    override_font(font_desc?: Pango.FontDescription | null): void
+    override_symbolic_color(name: string, color?: Gdk.RGBA | null): void
     path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_allocate(): void
     queue_compute_expand(): void
@@ -2753,14 +2753,14 @@ export class Map {
     remove_accelerator(accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType): boolean
     remove_mnemonic_label(label: Gtk.Widget): void
     remove_tick_callback(id: number): void
-    render_icon(stock_id: string, size: number, detail: string | null): GdkPixbuf.Pixbuf | null
+    render_icon(stock_id: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
     render_icon_pixbuf(stock_id: string, size: number): GdkPixbuf.Pixbuf | null
     reparent(new_parent: Gtk.Widget): void
     reset_rc_styles(): void
     reset_style(): void
     send_expose(event: Gdk.Event): number
     send_focus_change(event: Gdk.Event): boolean
-    set_accel_path(accel_path: string | null, accel_group: Gtk.AccelGroup | null): void
+    set_accel_path(accel_path?: string | null, accel_group?: Gtk.AccelGroup | null): void
     set_allocation(allocation: Gtk.Allocation): void
     set_app_paintable(app_paintable: boolean): void
     set_can_default(can_default: boolean): void
@@ -2774,8 +2774,8 @@ export class Map {
     set_double_buffered(double_buffered: boolean): void
     set_events(events: number): void
     set_focus_on_click(focus_on_click: boolean): void
-    set_font_map(font_map: Pango.FontMap | null): void
-    set_font_options(options: cairo.FontOptions | null): void
+    set_font_map(font_map?: Pango.FontMap | null): void
+    set_font_options(options?: cairo.FontOptions | null): void
     set_halign(align: Gtk.Align): void
     set_has_tooltip(has_tooltip: boolean): void
     set_has_window(has_window: boolean): void
@@ -2800,18 +2800,18 @@ export class Map {
     set_size_request(width: number, height: number): void
     set_state(state: Gtk.StateType): void
     set_state_flags(flags: Gtk.StateFlags, clear: boolean): void
-    set_style(style: Gtk.Style | null): void
+    set_style(style?: Gtk.Style | null): void
     set_support_multidevice(support_multidevice: boolean): void
-    set_tooltip_markup(markup: string | null): void
-    set_tooltip_text(text: string | null): void
-    set_tooltip_window(custom_window: Gtk.Window | null): void
+    set_tooltip_markup(markup?: string | null): void
+    set_tooltip_text(text?: string | null): void
+    set_tooltip_window(custom_window?: Gtk.Window | null): void
     set_valign(align: Gtk.Align): void
     set_vexpand(expand: boolean): void
     set_vexpand_set(set: boolean): void
     set_visible(visible: boolean): void
-    set_visual(visual: Gdk.Visual | null): void
+    set_visual(visual?: Gdk.Visual | null): void
     set_window(window: Gdk.Window): void
-    shape_combine_region(region: cairo.Region | null): void
+    shape_combine_region(region?: cairo.Region | null): void
     show(): void
     show_all(): void
     show_now(): void
@@ -2842,10 +2842,10 @@ export class Map {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2877,12 +2877,12 @@ export class Map {
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data?: object | null): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child: Gtk.Widget | null): void
+    vfunc_set_focus_child(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
@@ -3040,7 +3040,7 @@ export class Map {
     connect(sigName: "grab-focus", callback: ((obj: Map) => void))
     connect(sigName: "grab-notify", callback: ((obj: Map, was_grabbed: boolean) => void))
     connect(sigName: "hide", callback: ((obj: Map) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: Map, previous_toplevel: Gtk.Widget | null) => void))
+    connect(sigName: "hierarchy-changed", callback: ((obj: Map, previous_toplevel?: Gtk.Widget | null) => void))
     connect(sigName: "key-press-event", callback: ((obj: Map, event: Gdk.EventKey) => boolean))
     connect(sigName: "key-release-event", callback: ((obj: Map, event: Gdk.EventKey) => boolean))
     connect(sigName: "keynav-failed", callback: ((obj: Map, direction: Gtk.DirectionType) => boolean))
@@ -3050,14 +3050,14 @@ export class Map {
     connect(sigName: "mnemonic-activate", callback: ((obj: Map, group_cycling: boolean) => boolean))
     connect(sigName: "motion-notify-event", callback: ((obj: Map, event: Gdk.EventMotion) => boolean))
     connect(sigName: "move-focus", callback: ((obj: Map, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: Map, old_parent: Gtk.Widget | null) => void))
+    connect(sigName: "parent-set", callback: ((obj: Map, old_parent?: Gtk.Widget | null) => void))
     connect(sigName: "popup-menu", callback: ((obj: Map) => boolean))
     connect(sigName: "property-notify-event", callback: ((obj: Map, event: Gdk.EventProperty) => boolean))
     connect(sigName: "proximity-in-event", callback: ((obj: Map, event: Gdk.EventProximity) => boolean))
     connect(sigName: "proximity-out-event", callback: ((obj: Map, event: Gdk.EventProximity) => boolean))
     connect(sigName: "query-tooltip", callback: ((obj: Map, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
     connect(sigName: "realize", callback: ((obj: Map) => void))
-    connect(sigName: "screen-changed", callback: ((obj: Map, previous_screen: Gdk.Screen | null) => void))
+    connect(sigName: "screen-changed", callback: ((obj: Map, previous_screen?: Gdk.Screen | null) => void))
     connect(sigName: "scroll-event", callback: ((obj: Map, event: Gdk.EventScroll) => boolean))
     connect(sigName: "selection-clear-event", callback: ((obj: Map, event: Gdk.EventSelection) => boolean))
     connect(sigName: "selection-get", callback: ((obj: Map, data: Gtk.SelectionData, info: number, time: number) => void))
@@ -3069,7 +3069,7 @@ export class Map {
     connect(sigName: "size-allocate", callback: ((obj: Map, allocation: Gtk.Allocation) => void))
     connect(sigName: "state-changed", callback: ((obj: Map, state: Gtk.StateType) => void))
     connect(sigName: "state-flags-changed", callback: ((obj: Map, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: Map, previous_style: Gtk.Style | null) => void))
+    connect(sigName: "style-set", callback: ((obj: Map, previous_style?: Gtk.Style | null) => void))
     connect(sigName: "style-updated", callback: ((obj: Map) => void))
     connect(sigName: "touch-event", callback: ((obj: Map, object: Gdk.Event) => boolean))
     connect(sigName: "unmap", callback: ((obj: Map) => void))
@@ -3179,7 +3179,7 @@ export class Mark {
     g_type_instance:GObject.TypeInstance
     /* Methods of GtkSource.Mark */
     get_category(): string
-    next(category: string | null): Mark | null
+    next(category?: string | null): Mark | null
     prev(category: string): Mark | null
     /* Methods of Gtk.TextMark */
     get_buffer(): Gtk.TextBuffer
@@ -3202,10 +3202,10 @@ export class Mark {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3272,10 +3272,10 @@ export class MarkAttributes {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3358,13 +3358,13 @@ export class PrintCompositor {
     paginate(context: Gtk.PrintContext): boolean
     set_body_font_name(font_name: string): void
     set_bottom_margin(margin: number, unit: Gtk.Unit): void
-    set_footer_font_name(font_name: string | null): void
-    set_footer_format(separator: boolean, left: string | null, center: string | null, right: string | null): void
-    set_header_font_name(font_name: string | null): void
-    set_header_format(separator: boolean, left: string | null, center: string | null, right: string | null): void
+    set_footer_font_name(font_name?: string | null): void
+    set_footer_format(separator: boolean, left?: string | null, center?: string | null, right?: string | null): void
+    set_header_font_name(font_name?: string | null): void
+    set_header_format(separator: boolean, left?: string | null, center?: string | null, right?: string | null): void
     set_highlight_syntax(highlight: boolean): void
     set_left_margin(margin: number, unit: Gtk.Unit): void
-    set_line_numbers_font_name(font_name: string | null): void
+    set_line_numbers_font_name(font_name?: string | null): void
     set_print_footer(print: boolean): void
     set_print_header(print: boolean): void
     set_print_line_numbers(interval: number): void
@@ -3386,10 +3386,10 @@ export class PrintCompositor {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3433,15 +3433,15 @@ export class Region {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GtkSource.Region */
-    add_region(region_to_add: Region | null): void
+    add_region(region_to_add?: Region | null): void
     add_subregion(_start: Gtk.TextIter, _end: Gtk.TextIter): void
     get_bounds(): [ /* returnType */ boolean, /* start */ Gtk.TextIter | null, /* end */ Gtk.TextIter | null ]
     get_buffer(): Gtk.TextBuffer | null
     get_start_region_iter(): /* iter */ RegionIter
-    intersect_region(region2: Region | null): Region | null
+    intersect_region(region2?: Region | null): Region | null
     intersect_subregion(_start: Gtk.TextIter, _end: Gtk.TextIter): Region | null
     is_empty(): boolean
-    subtract_region(region_to_subtract: Region | null): void
+    subtract_region(region_to_subtract?: Region | null): void
     subtract_subregion(_start: Gtk.TextIter, _end: Gtk.TextIter): void
     to_string(): string | null
     /* Methods of GObject.Object */
@@ -3458,10 +3458,10 @@ export class Region {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3504,12 +3504,12 @@ export class SearchContext {
     /* Methods of GtkSource.SearchContext */
     backward(iter: Gtk.TextIter): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
     backward2(iter: Gtk.TextIter): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null, /* has_wrapped_around */ boolean | null ]
-    backward_async(iter: Gtk.TextIter, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    backward_async(iter: Gtk.TextIter, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     backward_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
     backward_finish2(result: Gio.AsyncResult): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null, /* has_wrapped_around */ boolean | null ]
     forward(iter: Gtk.TextIter): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
     forward2(iter: Gtk.TextIter): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null, /* has_wrapped_around */ boolean | null ]
-    forward_async(iter: Gtk.TextIter, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    forward_async(iter: Gtk.TextIter, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     forward_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null ]
     forward_finish2(result: Gio.AsyncResult): [ /* returnType */ boolean, /* match_start */ Gtk.TextIter | null, /* match_end */ Gtk.TextIter | null, /* has_wrapped_around */ boolean | null ]
     get_buffer(): Buffer
@@ -3523,8 +3523,8 @@ export class SearchContext {
     replace2(match_start: Gtk.TextIter, match_end: Gtk.TextIter, replace: string, replace_length: number): boolean
     replace_all(replace: string, replace_length: number): number
     set_highlight(highlight: boolean): void
-    set_match_style(match_style: Style | null): void
-    set_settings(settings: SearchSettings | null): void
+    set_match_style(match_style?: Style | null): void
+    set_settings(settings?: SearchSettings | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -3539,10 +3539,10 @@ export class SearchContext {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3567,7 +3567,7 @@ export class SearchContext {
     static name: string
     static new (config?: SearchContext_ConstructProps): SearchContext
     constructor (config?: SearchContext_ConstructProps)
-    static new(buffer: Buffer, settings: SearchSettings | null): SearchContext
+    static new(buffer: Buffer, settings?: SearchSettings | null): SearchContext
 }
 export interface SearchSettings_ConstructProps extends GObject.Object_ConstructProps {
     at_word_boundaries?:boolean
@@ -3597,7 +3597,7 @@ export class SearchSettings {
     set_at_word_boundaries(at_word_boundaries: boolean): void
     set_case_sensitive(case_sensitive: boolean): void
     set_regex_enabled(regex_enabled: boolean): void
-    set_search_text(search_text: string | null): void
+    set_search_text(search_text?: string | null): void
     set_wrap_around(wrap_around: boolean): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -3613,10 +3613,10 @@ export class SearchSettings {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3662,7 +3662,7 @@ export class SpaceDrawer {
     get_matrix(): GLib.Variant
     get_types_for_locations(locations: SpaceLocationFlags): SpaceTypeFlags
     set_enable_matrix(enable_matrix: boolean): void
-    set_matrix(matrix: GLib.Variant | null): void
+    set_matrix(matrix?: GLib.Variant | null): void
     set_types_for_locations(locations: SpaceLocationFlags, types: SpaceTypeFlags): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -3678,10 +3678,10 @@ export class SpaceDrawer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3747,10 +3747,10 @@ export class Style {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3805,10 +3805,10 @@ export class StyleScheme {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3919,7 +3919,7 @@ export class StyleSchemeChooserButton {
     set_alignment(xalign: number, yalign: number): void
     set_always_show_image(always_show: boolean): void
     set_focus_on_click(focus_on_click: boolean): void
-    set_image(image: Gtk.Widget | null): void
+    set_image(image?: Gtk.Widget | null): void
     set_image_position(position: Gtk.PositionType): void
     set_label(label: string): void
     set_relief(relief: Gtk.ReliefStyle): void
@@ -3934,8 +3934,8 @@ export class StyleSchemeChooserButton {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data: object | null): void
-    foreach(callback: Gtk.Callback, callback_data: object | null): void
+    forall(callback: Gtk.Callback, callback_data?: object | null): void
+    foreach(callback: Gtk.Callback, callback_data?: object | null): void
     get_border_width(): number
     get_children(): Gtk.Widget[]
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
@@ -3949,7 +3949,7 @@ export class StyleSchemeChooserButton {
     resize_children(): void
     set_border_width(border_width: number): void
     set_focus_chain(focusable_widgets: Gtk.Widget[]): void
-    set_focus_child(child: Gtk.Widget | null): void
+    set_focus_child(child?: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
     set_reallocate_redraws(needs_redraws: boolean): void
@@ -3968,22 +3968,22 @@ export class StyleSchemeChooserButton {
     class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
-    create_pango_layout(text: string | null): Pango.Layout
+    create_pango_layout(text?: string | null): Pango.Layout
     destroy(): void
     destroyed(widget_pointer: Gtk.Widget): void
     device_is_shadowed(device: Gdk.Device): boolean
-    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null): Gdk.DragContext
+    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     drag_begin_with_coordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
     drag_check_threshold(start_x: number, start_y: number, current_x: number, current_y: number): boolean
     drag_dest_add_image_targets(): void
     drag_dest_add_text_targets(): void
     drag_dest_add_uri_targets(): void
-    drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
+    drag_dest_find_target(context: Gdk.DragContext, target_list?: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList | null
     drag_dest_get_track_motion(): boolean
     drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
-    drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_dest_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
     drag_dest_unset(): void
     drag_get_data(context: Gdk.DragContext, target: Gdk.Atom, time_: number): void
@@ -3997,7 +3997,7 @@ export class StyleSchemeChooserButton {
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
     drag_source_set_icon_stock(stock_id: string): void
-    drag_source_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_source_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_source_unset(): void
     drag_unhighlight(): void
     draw(cr: cairo.Context): void
@@ -4097,8 +4097,8 @@ export class StyleSchemeChooserButton {
     hide_on_delete(): boolean
     in_destruction(): boolean
     init_template(): void
-    input_shape_combine_region(region: cairo.Region | null): void
-    insert_action_group(name: string, group: Gio.ActionGroup | null): void
+    input_shape_combine_region(region?: cairo.Region | null): void
+    insert_action_group(name: string, group?: Gio.ActionGroup | null): void
     intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
     is_ancestor(ancestor: Gtk.Widget): boolean
     is_composited(): boolean
@@ -4112,18 +4112,18 @@ export class StyleSchemeChooserButton {
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
-    modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_bg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_cursor(primary: Gdk.Color | null, secondary: Gdk.Color | null): void
-    modify_fg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_font(font_desc: Pango.FontDescription | null): void
+    modify_base(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_bg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_cursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modify_fg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_font(font_desc?: Pango.FontDescription | null): void
     modify_style(style: Gtk.RcStyle): void
-    modify_text(state: Gtk.StateType, color: Gdk.Color | null): void
-    override_background_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
-    override_font(font_desc: Pango.FontDescription | null): void
-    override_symbolic_color(name: string, color: Gdk.RGBA | null): void
+    modify_text(state: Gtk.StateType, color?: Gdk.Color | null): void
+    override_background_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_cursor(cursor?: Gdk.RGBA | null, secondary_cursor?: Gdk.RGBA | null): void
+    override_font(font_desc?: Pango.FontDescription | null): void
+    override_symbolic_color(name: string, color?: Gdk.RGBA | null): void
     path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_allocate(): void
     queue_compute_expand(): void
@@ -4138,14 +4138,14 @@ export class StyleSchemeChooserButton {
     remove_accelerator(accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType): boolean
     remove_mnemonic_label(label: Gtk.Widget): void
     remove_tick_callback(id: number): void
-    render_icon(stock_id: string, size: number, detail: string | null): GdkPixbuf.Pixbuf | null
+    render_icon(stock_id: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
     render_icon_pixbuf(stock_id: string, size: number): GdkPixbuf.Pixbuf | null
     reparent(new_parent: Gtk.Widget): void
     reset_rc_styles(): void
     reset_style(): void
     send_expose(event: Gdk.Event): number
     send_focus_change(event: Gdk.Event): boolean
-    set_accel_path(accel_path: string | null, accel_group: Gtk.AccelGroup | null): void
+    set_accel_path(accel_path?: string | null, accel_group?: Gtk.AccelGroup | null): void
     set_allocation(allocation: Gtk.Allocation): void
     set_app_paintable(app_paintable: boolean): void
     set_can_default(can_default: boolean): void
@@ -4158,8 +4158,8 @@ export class StyleSchemeChooserButton {
     set_direction(dir: Gtk.TextDirection): void
     set_double_buffered(double_buffered: boolean): void
     set_events(events: number): void
-    set_font_map(font_map: Pango.FontMap | null): void
-    set_font_options(options: cairo.FontOptions | null): void
+    set_font_map(font_map?: Pango.FontMap | null): void
+    set_font_options(options?: cairo.FontOptions | null): void
     set_halign(align: Gtk.Align): void
     set_has_tooltip(has_tooltip: boolean): void
     set_has_window(has_window: boolean): void
@@ -4184,18 +4184,18 @@ export class StyleSchemeChooserButton {
     set_size_request(width: number, height: number): void
     set_state(state: Gtk.StateType): void
     set_state_flags(flags: Gtk.StateFlags, clear: boolean): void
-    set_style(style: Gtk.Style | null): void
+    set_style(style?: Gtk.Style | null): void
     set_support_multidevice(support_multidevice: boolean): void
-    set_tooltip_markup(markup: string | null): void
-    set_tooltip_text(text: string | null): void
-    set_tooltip_window(custom_window: Gtk.Window | null): void
+    set_tooltip_markup(markup?: string | null): void
+    set_tooltip_text(text?: string | null): void
+    set_tooltip_window(custom_window?: Gtk.Window | null): void
     set_valign(align: Gtk.Align): void
     set_vexpand(expand: boolean): void
     set_vexpand_set(set: boolean): void
     set_visible(visible: boolean): void
-    set_visual(visual: Gdk.Visual | null): void
+    set_visual(visual?: Gdk.Visual | null): void
     set_window(window: Gdk.Window): void
-    shape_combine_region(region: cairo.Region | null): void
+    shape_combine_region(region?: cairo.Region | null): void
     show(): void
     show_all(): void
     show_now(): void
@@ -4226,10 +4226,10 @@ export class StyleSchemeChooserButton {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -4248,12 +4248,12 @@ export class StyleSchemeChooserButton {
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data?: object | null): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child: Gtk.Widget | null): void
+    vfunc_set_focus_child(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
@@ -4390,7 +4390,7 @@ export class StyleSchemeChooserButton {
     connect(sigName: "grab-focus", callback: ((obj: StyleSchemeChooserButton) => void))
     connect(sigName: "grab-notify", callback: ((obj: StyleSchemeChooserButton, was_grabbed: boolean) => void))
     connect(sigName: "hide", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: StyleSchemeChooserButton, previous_toplevel: Gtk.Widget | null) => void))
+    connect(sigName: "hierarchy-changed", callback: ((obj: StyleSchemeChooserButton, previous_toplevel?: Gtk.Widget | null) => void))
     connect(sigName: "key-press-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventKey) => boolean))
     connect(sigName: "key-release-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventKey) => boolean))
     connect(sigName: "keynav-failed", callback: ((obj: StyleSchemeChooserButton, direction: Gtk.DirectionType) => boolean))
@@ -4400,14 +4400,14 @@ export class StyleSchemeChooserButton {
     connect(sigName: "mnemonic-activate", callback: ((obj: StyleSchemeChooserButton, group_cycling: boolean) => boolean))
     connect(sigName: "motion-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventMotion) => boolean))
     connect(sigName: "move-focus", callback: ((obj: StyleSchemeChooserButton, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: StyleSchemeChooserButton, old_parent: Gtk.Widget | null) => void))
+    connect(sigName: "parent-set", callback: ((obj: StyleSchemeChooserButton, old_parent?: Gtk.Widget | null) => void))
     connect(sigName: "popup-menu", callback: ((obj: StyleSchemeChooserButton) => boolean))
     connect(sigName: "property-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventProperty) => boolean))
     connect(sigName: "proximity-in-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventProximity) => boolean))
     connect(sigName: "proximity-out-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventProximity) => boolean))
     connect(sigName: "query-tooltip", callback: ((obj: StyleSchemeChooserButton, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
     connect(sigName: "realize", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "screen-changed", callback: ((obj: StyleSchemeChooserButton, previous_screen: Gdk.Screen | null) => void))
+    connect(sigName: "screen-changed", callback: ((obj: StyleSchemeChooserButton, previous_screen?: Gdk.Screen | null) => void))
     connect(sigName: "scroll-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventScroll) => boolean))
     connect(sigName: "selection-clear-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventSelection) => boolean))
     connect(sigName: "selection-get", callback: ((obj: StyleSchemeChooserButton, data: Gtk.SelectionData, info: number, time: number) => void))
@@ -4419,7 +4419,7 @@ export class StyleSchemeChooserButton {
     connect(sigName: "size-allocate", callback: ((obj: StyleSchemeChooserButton, allocation: Gtk.Allocation) => void))
     connect(sigName: "state-changed", callback: ((obj: StyleSchemeChooserButton, state: Gtk.StateType) => void))
     connect(sigName: "state-flags-changed", callback: ((obj: StyleSchemeChooserButton, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: StyleSchemeChooserButton, previous_style: Gtk.Style | null) => void))
+    connect(sigName: "style-set", callback: ((obj: StyleSchemeChooserButton, previous_style?: Gtk.Style | null) => void))
     connect(sigName: "style-updated", callback: ((obj: StyleSchemeChooserButton) => void))
     connect(sigName: "touch-event", callback: ((obj: StyleSchemeChooserButton, object: Gdk.Event) => boolean))
     connect(sigName: "unmap", callback: ((obj: StyleSchemeChooserButton) => void))
@@ -4551,8 +4551,8 @@ export class StyleSchemeChooserWidget {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data: object | null): void
-    foreach(callback: Gtk.Callback, callback_data: object | null): void
+    forall(callback: Gtk.Callback, callback_data?: object | null): void
+    foreach(callback: Gtk.Callback, callback_data?: object | null): void
     get_border_width(): number
     get_children(): Gtk.Widget[]
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
@@ -4566,7 +4566,7 @@ export class StyleSchemeChooserWidget {
     resize_children(): void
     set_border_width(border_width: number): void
     set_focus_chain(focusable_widgets: Gtk.Widget[]): void
-    set_focus_child(child: Gtk.Widget | null): void
+    set_focus_child(child?: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
     set_reallocate_redraws(needs_redraws: boolean): void
@@ -4585,22 +4585,22 @@ export class StyleSchemeChooserWidget {
     class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
-    create_pango_layout(text: string | null): Pango.Layout
+    create_pango_layout(text?: string | null): Pango.Layout
     destroy(): void
     destroyed(widget_pointer: Gtk.Widget): void
     device_is_shadowed(device: Gdk.Device): boolean
-    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null): Gdk.DragContext
+    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     drag_begin_with_coordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
     drag_check_threshold(start_x: number, start_y: number, current_x: number, current_y: number): boolean
     drag_dest_add_image_targets(): void
     drag_dest_add_text_targets(): void
     drag_dest_add_uri_targets(): void
-    drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
+    drag_dest_find_target(context: Gdk.DragContext, target_list?: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList | null
     drag_dest_get_track_motion(): boolean
     drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
-    drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_dest_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
     drag_dest_unset(): void
     drag_get_data(context: Gdk.DragContext, target: Gdk.Atom, time_: number): void
@@ -4614,7 +4614,7 @@ export class StyleSchemeChooserWidget {
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
     drag_source_set_icon_stock(stock_id: string): void
-    drag_source_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_source_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_source_unset(): void
     drag_unhighlight(): void
     draw(cr: cairo.Context): void
@@ -4715,8 +4715,8 @@ export class StyleSchemeChooserWidget {
     hide_on_delete(): boolean
     in_destruction(): boolean
     init_template(): void
-    input_shape_combine_region(region: cairo.Region | null): void
-    insert_action_group(name: string, group: Gio.ActionGroup | null): void
+    input_shape_combine_region(region?: cairo.Region | null): void
+    insert_action_group(name: string, group?: Gio.ActionGroup | null): void
     intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
     is_ancestor(ancestor: Gtk.Widget): boolean
     is_composited(): boolean
@@ -4730,18 +4730,18 @@ export class StyleSchemeChooserWidget {
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
-    modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_bg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_cursor(primary: Gdk.Color | null, secondary: Gdk.Color | null): void
-    modify_fg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_font(font_desc: Pango.FontDescription | null): void
+    modify_base(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_bg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_cursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modify_fg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_font(font_desc?: Pango.FontDescription | null): void
     modify_style(style: Gtk.RcStyle): void
-    modify_text(state: Gtk.StateType, color: Gdk.Color | null): void
-    override_background_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
-    override_font(font_desc: Pango.FontDescription | null): void
-    override_symbolic_color(name: string, color: Gdk.RGBA | null): void
+    modify_text(state: Gtk.StateType, color?: Gdk.Color | null): void
+    override_background_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_cursor(cursor?: Gdk.RGBA | null, secondary_cursor?: Gdk.RGBA | null): void
+    override_font(font_desc?: Pango.FontDescription | null): void
+    override_symbolic_color(name: string, color?: Gdk.RGBA | null): void
     path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_allocate(): void
     queue_compute_expand(): void
@@ -4756,14 +4756,14 @@ export class StyleSchemeChooserWidget {
     remove_accelerator(accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType): boolean
     remove_mnemonic_label(label: Gtk.Widget): void
     remove_tick_callback(id: number): void
-    render_icon(stock_id: string, size: number, detail: string | null): GdkPixbuf.Pixbuf | null
+    render_icon(stock_id: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
     render_icon_pixbuf(stock_id: string, size: number): GdkPixbuf.Pixbuf | null
     reparent(new_parent: Gtk.Widget): void
     reset_rc_styles(): void
     reset_style(): void
     send_expose(event: Gdk.Event): number
     send_focus_change(event: Gdk.Event): boolean
-    set_accel_path(accel_path: string | null, accel_group: Gtk.AccelGroup | null): void
+    set_accel_path(accel_path?: string | null, accel_group?: Gtk.AccelGroup | null): void
     set_allocation(allocation: Gtk.Allocation): void
     set_app_paintable(app_paintable: boolean): void
     set_can_default(can_default: boolean): void
@@ -4777,8 +4777,8 @@ export class StyleSchemeChooserWidget {
     set_double_buffered(double_buffered: boolean): void
     set_events(events: number): void
     set_focus_on_click(focus_on_click: boolean): void
-    set_font_map(font_map: Pango.FontMap | null): void
-    set_font_options(options: cairo.FontOptions | null): void
+    set_font_map(font_map?: Pango.FontMap | null): void
+    set_font_options(options?: cairo.FontOptions | null): void
     set_halign(align: Gtk.Align): void
     set_has_tooltip(has_tooltip: boolean): void
     set_has_window(has_window: boolean): void
@@ -4803,18 +4803,18 @@ export class StyleSchemeChooserWidget {
     set_size_request(width: number, height: number): void
     set_state(state: Gtk.StateType): void
     set_state_flags(flags: Gtk.StateFlags, clear: boolean): void
-    set_style(style: Gtk.Style | null): void
+    set_style(style?: Gtk.Style | null): void
     set_support_multidevice(support_multidevice: boolean): void
-    set_tooltip_markup(markup: string | null): void
-    set_tooltip_text(text: string | null): void
-    set_tooltip_window(custom_window: Gtk.Window | null): void
+    set_tooltip_markup(markup?: string | null): void
+    set_tooltip_text(text?: string | null): void
+    set_tooltip_window(custom_window?: Gtk.Window | null): void
     set_valign(align: Gtk.Align): void
     set_vexpand(expand: boolean): void
     set_vexpand_set(set: boolean): void
     set_visible(visible: boolean): void
-    set_visual(visual: Gdk.Visual | null): void
+    set_visual(visual?: Gdk.Visual | null): void
     set_window(window: Gdk.Window): void
-    shape_combine_region(region: cairo.Region | null): void
+    shape_combine_region(region?: cairo.Region | null): void
     show(): void
     show_all(): void
     show_now(): void
@@ -4845,10 +4845,10 @@ export class StyleSchemeChooserWidget {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -4860,12 +4860,12 @@ export class StyleSchemeChooserWidget {
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data?: object | null): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child: Gtk.Widget | null): void
+    vfunc_set_focus_child(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
@@ -4995,7 +4995,7 @@ export class StyleSchemeChooserWidget {
     connect(sigName: "grab-focus", callback: ((obj: StyleSchemeChooserWidget) => void))
     connect(sigName: "grab-notify", callback: ((obj: StyleSchemeChooserWidget, was_grabbed: boolean) => void))
     connect(sigName: "hide", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: StyleSchemeChooserWidget, previous_toplevel: Gtk.Widget | null) => void))
+    connect(sigName: "hierarchy-changed", callback: ((obj: StyleSchemeChooserWidget, previous_toplevel?: Gtk.Widget | null) => void))
     connect(sigName: "key-press-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventKey) => boolean))
     connect(sigName: "key-release-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventKey) => boolean))
     connect(sigName: "keynav-failed", callback: ((obj: StyleSchemeChooserWidget, direction: Gtk.DirectionType) => boolean))
@@ -5005,14 +5005,14 @@ export class StyleSchemeChooserWidget {
     connect(sigName: "mnemonic-activate", callback: ((obj: StyleSchemeChooserWidget, group_cycling: boolean) => boolean))
     connect(sigName: "motion-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventMotion) => boolean))
     connect(sigName: "move-focus", callback: ((obj: StyleSchemeChooserWidget, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: StyleSchemeChooserWidget, old_parent: Gtk.Widget | null) => void))
+    connect(sigName: "parent-set", callback: ((obj: StyleSchemeChooserWidget, old_parent?: Gtk.Widget | null) => void))
     connect(sigName: "popup-menu", callback: ((obj: StyleSchemeChooserWidget) => boolean))
     connect(sigName: "property-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventProperty) => boolean))
     connect(sigName: "proximity-in-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventProximity) => boolean))
     connect(sigName: "proximity-out-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventProximity) => boolean))
     connect(sigName: "query-tooltip", callback: ((obj: StyleSchemeChooserWidget, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
     connect(sigName: "realize", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "screen-changed", callback: ((obj: StyleSchemeChooserWidget, previous_screen: Gdk.Screen | null) => void))
+    connect(sigName: "screen-changed", callback: ((obj: StyleSchemeChooserWidget, previous_screen?: Gdk.Screen | null) => void))
     connect(sigName: "scroll-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventScroll) => boolean))
     connect(sigName: "selection-clear-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventSelection) => boolean))
     connect(sigName: "selection-get", callback: ((obj: StyleSchemeChooserWidget, data: Gtk.SelectionData, info: number, time: number) => void))
@@ -5024,7 +5024,7 @@ export class StyleSchemeChooserWidget {
     connect(sigName: "size-allocate", callback: ((obj: StyleSchemeChooserWidget, allocation: Gtk.Allocation) => void))
     connect(sigName: "state-changed", callback: ((obj: StyleSchemeChooserWidget, state: Gtk.StateType) => void))
     connect(sigName: "state-flags-changed", callback: ((obj: StyleSchemeChooserWidget, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: StyleSchemeChooserWidget, previous_style: Gtk.Style | null) => void))
+    connect(sigName: "style-set", callback: ((obj: StyleSchemeChooserWidget, previous_style?: Gtk.Style | null) => void))
     connect(sigName: "style-updated", callback: ((obj: StyleSchemeChooserWidget) => void))
     connect(sigName: "touch-event", callback: ((obj: StyleSchemeChooserWidget, object: Gdk.Event) => boolean))
     connect(sigName: "unmap", callback: ((obj: StyleSchemeChooserWidget) => void))
@@ -5100,7 +5100,7 @@ export class StyleSchemeManager {
     get_scheme_ids(): string[] | null
     get_search_path(): string[]
     prepend_search_path(path: string): void
-    set_search_path(path: string[] | null): void
+    set_search_path(path?: string[] | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -5115,10 +5115,10 @@ export class StyleSchemeManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -5250,10 +5250,10 @@ export class Tag {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -5352,7 +5352,7 @@ export class Tag {
     static name: string
     static new (config?: Tag_ConstructProps): Tag
     constructor (config?: Tag_ConstructProps)
-    new(name: string | null): Tag
+    new(name?: string | null): Tag
 }
 export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
     auto_indent?:boolean
@@ -5513,7 +5513,7 @@ export class View {
     get_border_window_size(type: Gtk.TextWindowType): number
     get_bottom_margin(): number
     get_buffer(): Gtk.TextBuffer
-    get_cursor_locations(iter: Gtk.TextIter | null): [ /* strong */ Gdk.Rectangle | null, /* weak */ Gdk.Rectangle | null ]
+    get_cursor_locations(iter?: Gtk.TextIter | null): [ /* strong */ Gdk.Rectangle | null, /* weak */ Gdk.Rectangle | null ]
     get_cursor_visible(): boolean
     get_default_attributes(): Gtk.TextAttributes
     get_editable(): boolean
@@ -5553,7 +5553,7 @@ export class View {
     set_accepts_tab(accepts_tab: boolean): void
     set_border_window_size(type: Gtk.TextWindowType, size: number): void
     set_bottom_margin(bottom_margin: number): void
-    set_buffer(buffer: Gtk.TextBuffer | null): void
+    set_buffer(buffer?: Gtk.TextBuffer | null): void
     set_cursor_visible(setting: boolean): void
     set_editable(setting: boolean): void
     set_indent(indent: number): void
@@ -5579,8 +5579,8 @@ export class View {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data: object | null): void
-    foreach(callback: Gtk.Callback, callback_data: object | null): void
+    forall(callback: Gtk.Callback, callback_data?: object | null): void
+    foreach(callback: Gtk.Callback, callback_data?: object | null): void
     get_border_width(): number
     get_children(): Gtk.Widget[]
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
@@ -5594,7 +5594,7 @@ export class View {
     resize_children(): void
     set_border_width(border_width: number): void
     set_focus_chain(focusable_widgets: Gtk.Widget[]): void
-    set_focus_child(child: Gtk.Widget | null): void
+    set_focus_child(child?: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
     set_reallocate_redraws(needs_redraws: boolean): void
@@ -5613,22 +5613,22 @@ export class View {
     class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
-    create_pango_layout(text: string | null): Pango.Layout
+    create_pango_layout(text?: string | null): Pango.Layout
     destroy(): void
     destroyed(widget_pointer: Gtk.Widget): void
     device_is_shadowed(device: Gdk.Device): boolean
-    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null): Gdk.DragContext
+    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     drag_begin_with_coordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
     drag_check_threshold(start_x: number, start_y: number, current_x: number, current_y: number): boolean
     drag_dest_add_image_targets(): void
     drag_dest_add_text_targets(): void
     drag_dest_add_uri_targets(): void
-    drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
+    drag_dest_find_target(context: Gdk.DragContext, target_list?: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList | null
     drag_dest_get_track_motion(): boolean
     drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
-    drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_dest_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
     drag_dest_unset(): void
     drag_get_data(context: Gdk.DragContext, target: Gdk.Atom, time_: number): void
@@ -5642,7 +5642,7 @@ export class View {
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
     drag_source_set_icon_stock(stock_id: string): void
-    drag_source_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_source_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_source_unset(): void
     drag_unhighlight(): void
     draw(cr: cairo.Context): void
@@ -5743,8 +5743,8 @@ export class View {
     hide_on_delete(): boolean
     in_destruction(): boolean
     init_template(): void
-    input_shape_combine_region(region: cairo.Region | null): void
-    insert_action_group(name: string, group: Gio.ActionGroup | null): void
+    input_shape_combine_region(region?: cairo.Region | null): void
+    insert_action_group(name: string, group?: Gio.ActionGroup | null): void
     intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
     is_ancestor(ancestor: Gtk.Widget): boolean
     is_composited(): boolean
@@ -5758,18 +5758,18 @@ export class View {
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
-    modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_bg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_cursor(primary: Gdk.Color | null, secondary: Gdk.Color | null): void
-    modify_fg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_font(font_desc: Pango.FontDescription | null): void
+    modify_base(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_bg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_cursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modify_fg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_font(font_desc?: Pango.FontDescription | null): void
     modify_style(style: Gtk.RcStyle): void
-    modify_text(state: Gtk.StateType, color: Gdk.Color | null): void
-    override_background_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
-    override_font(font_desc: Pango.FontDescription | null): void
-    override_symbolic_color(name: string, color: Gdk.RGBA | null): void
+    modify_text(state: Gtk.StateType, color?: Gdk.Color | null): void
+    override_background_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_cursor(cursor?: Gdk.RGBA | null, secondary_cursor?: Gdk.RGBA | null): void
+    override_font(font_desc?: Pango.FontDescription | null): void
+    override_symbolic_color(name: string, color?: Gdk.RGBA | null): void
     path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_allocate(): void
     queue_compute_expand(): void
@@ -5784,14 +5784,14 @@ export class View {
     remove_accelerator(accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType): boolean
     remove_mnemonic_label(label: Gtk.Widget): void
     remove_tick_callback(id: number): void
-    render_icon(stock_id: string, size: number, detail: string | null): GdkPixbuf.Pixbuf | null
+    render_icon(stock_id: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
     render_icon_pixbuf(stock_id: string, size: number): GdkPixbuf.Pixbuf | null
     reparent(new_parent: Gtk.Widget): void
     reset_rc_styles(): void
     reset_style(): void
     send_expose(event: Gdk.Event): number
     send_focus_change(event: Gdk.Event): boolean
-    set_accel_path(accel_path: string | null, accel_group: Gtk.AccelGroup | null): void
+    set_accel_path(accel_path?: string | null, accel_group?: Gtk.AccelGroup | null): void
     set_allocation(allocation: Gtk.Allocation): void
     set_app_paintable(app_paintable: boolean): void
     set_can_default(can_default: boolean): void
@@ -5805,8 +5805,8 @@ export class View {
     set_double_buffered(double_buffered: boolean): void
     set_events(events: number): void
     set_focus_on_click(focus_on_click: boolean): void
-    set_font_map(font_map: Pango.FontMap | null): void
-    set_font_options(options: cairo.FontOptions | null): void
+    set_font_map(font_map?: Pango.FontMap | null): void
+    set_font_options(options?: cairo.FontOptions | null): void
     set_halign(align: Gtk.Align): void
     set_has_tooltip(has_tooltip: boolean): void
     set_has_window(has_window: boolean): void
@@ -5831,18 +5831,18 @@ export class View {
     set_size_request(width: number, height: number): void
     set_state(state: Gtk.StateType): void
     set_state_flags(flags: Gtk.StateFlags, clear: boolean): void
-    set_style(style: Gtk.Style | null): void
+    set_style(style?: Gtk.Style | null): void
     set_support_multidevice(support_multidevice: boolean): void
-    set_tooltip_markup(markup: string | null): void
-    set_tooltip_text(text: string | null): void
-    set_tooltip_window(custom_window: Gtk.Window | null): void
+    set_tooltip_markup(markup?: string | null): void
+    set_tooltip_text(text?: string | null): void
+    set_tooltip_window(custom_window?: Gtk.Window | null): void
     set_valign(align: Gtk.Align): void
     set_vexpand(expand: boolean): void
     set_vexpand_set(set: boolean): void
     set_visible(visible: boolean): void
-    set_visual(visual: Gdk.Visual | null): void
+    set_visual(visual?: Gdk.Visual | null): void
     set_window(window: Gdk.Window): void
-    shape_combine_region(region: cairo.Region | null): void
+    shape_combine_region(region?: cairo.Region | null): void
     show(): void
     show_all(): void
     show_now(): void
@@ -5873,10 +5873,10 @@ export class View {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -5908,12 +5908,12 @@ export class View {
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data?: object | null): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child: Gtk.Widget | null): void
+    vfunc_set_focus_child(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
@@ -6071,7 +6071,7 @@ export class View {
     connect(sigName: "grab-focus", callback: ((obj: View) => void))
     connect(sigName: "grab-notify", callback: ((obj: View, was_grabbed: boolean) => void))
     connect(sigName: "hide", callback: ((obj: View) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: View, previous_toplevel: Gtk.Widget | null) => void))
+    connect(sigName: "hierarchy-changed", callback: ((obj: View, previous_toplevel?: Gtk.Widget | null) => void))
     connect(sigName: "key-press-event", callback: ((obj: View, event: Gdk.EventKey) => boolean))
     connect(sigName: "key-release-event", callback: ((obj: View, event: Gdk.EventKey) => boolean))
     connect(sigName: "keynav-failed", callback: ((obj: View, direction: Gtk.DirectionType) => boolean))
@@ -6081,14 +6081,14 @@ export class View {
     connect(sigName: "mnemonic-activate", callback: ((obj: View, group_cycling: boolean) => boolean))
     connect(sigName: "motion-notify-event", callback: ((obj: View, event: Gdk.EventMotion) => boolean))
     connect(sigName: "move-focus", callback: ((obj: View, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: View, old_parent: Gtk.Widget | null) => void))
+    connect(sigName: "parent-set", callback: ((obj: View, old_parent?: Gtk.Widget | null) => void))
     connect(sigName: "popup-menu", callback: ((obj: View) => boolean))
     connect(sigName: "property-notify-event", callback: ((obj: View, event: Gdk.EventProperty) => boolean))
     connect(sigName: "proximity-in-event", callback: ((obj: View, event: Gdk.EventProximity) => boolean))
     connect(sigName: "proximity-out-event", callback: ((obj: View, event: Gdk.EventProximity) => boolean))
     connect(sigName: "query-tooltip", callback: ((obj: View, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
     connect(sigName: "realize", callback: ((obj: View) => void))
-    connect(sigName: "screen-changed", callback: ((obj: View, previous_screen: Gdk.Screen | null) => void))
+    connect(sigName: "screen-changed", callback: ((obj: View, previous_screen?: Gdk.Screen | null) => void))
     connect(sigName: "scroll-event", callback: ((obj: View, event: Gdk.EventScroll) => boolean))
     connect(sigName: "selection-clear-event", callback: ((obj: View, event: Gdk.EventSelection) => boolean))
     connect(sigName: "selection-get", callback: ((obj: View, data: Gtk.SelectionData, info: number, time: number) => void))
@@ -6100,7 +6100,7 @@ export class View {
     connect(sigName: "size-allocate", callback: ((obj: View, allocation: Gtk.Allocation) => void))
     connect(sigName: "state-changed", callback: ((obj: View, state: Gtk.StateType) => void))
     connect(sigName: "state-flags-changed", callback: ((obj: View, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: View, previous_style: Gtk.Style | null) => void))
+    connect(sigName: "style-set", callback: ((obj: View, previous_style?: Gtk.Style | null) => void))
     connect(sigName: "style-updated", callback: ((obj: View) => void))
     connect(sigName: "touch-event", callback: ((obj: View, object: Gdk.Event) => boolean))
     connect(sigName: "unmap", callback: ((obj: View) => void))

@@ -26,7 +26,7 @@ export function is_initted(): boolean
 export function set_app_name(app_name: string): void
 export function uninit(): void
 export interface ActionCallback {
-    (notification: Notification, action: string, user_data: object | null): void
+    (notification: Notification, action: string, user_data?: object | null): void
 }
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
     app_name?:string
@@ -54,7 +54,7 @@ export class Notification {
     get_closed_reason(): number
     set_app_name(app_name: string): void
     set_category(category: string): void
-    set_hint(key: string, value: GLib.Variant | null): void
+    set_hint(key: string, value?: GLib.Variant | null): void
     set_hint_byte(key: string, value: number): void
     set_hint_byte_array(key: string, value: Gjs.byteArray.ByteArray): void
     set_hint_double(key: string, value: number): void
@@ -66,7 +66,7 @@ export class Notification {
     set_timeout(timeout: number): void
     set_urgency(urgency: Urgency): void
     show(): boolean
-    update(summary: string, body: string | null, icon: string | null): boolean
+    update(summary: string, body?: string | null, icon?: string | null): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -81,10 +81,10 @@ export class Notification {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -114,7 +114,7 @@ export class Notification {
     static name: string
     static new (config?: Notification_ConstructProps): Notification
     constructor (config?: Notification_ConstructProps)
-    static new(summary: string, body: string | null, icon: string | null): Notification
+    static new(summary: string, body?: string | null, icon?: string | null): Notification
 }
 export class NotificationPrivate {
     static name: string

@@ -504,8 +504,7 @@ export class GirModule {
                     skip[parametersArray[arrayNameIndex]._fullSymName] = 1
                 }
 
-                for (let p of parametersArray) {
-                    let param: GirVariable = p
+                for (let param of parametersArray as GirVariable[]) {
                     let paramName = this.fixVariableName(param.$.name || '-', false)
                     let paramType = this.typeLookup(param)
 
@@ -520,8 +519,21 @@ export class GirModule {
                             continue
                         }
                     }
+
+                    let allowNone = param.$["allow-none"] ? "?" : ""
+
+                    if (allowNone) {
+                        const index = parametersArray.indexOf(param)
+                        const following = (parametersArray as GirVariable[]).slice(index)
+                            .filter(p => !skip[p._fullSymName || 'NOSYMNAME'])
+                            .filter(p => p.$.direction !== "out")
+
+                        if (following.some(p => !p.$["allow-none"])) {
+                            allowNone = ""
+                        }
+                    }
                     
-                    let paramDesc = `${paramName}: ${paramType}`
+                    let paramDesc = `${paramName}${allowNone}: ${paramType}`
                     def.push(paramDesc)
                 }
             }

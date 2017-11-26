@@ -272,7 +272,7 @@ export function snapshot_error_quark(): GLib.Quark
 export function user_media_permission_is_for_audio_device(request: UserMediaPermissionRequest): boolean
 export function user_media_permission_is_for_video_device(request: UserMediaPermissionRequest): boolean
 export interface URISchemeRequestCallback {
-    (request: URISchemeRequest, user_data: object | null): void
+    (request: URISchemeRequest, user_data?: object | null): void
 }
 export class PermissionRequest {
     /* Methods of WebKit2.PermissionRequest */
@@ -291,7 +291,7 @@ export class AuthenticationRequest {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.AuthenticationRequest */
-    authenticate(credential: Credential | null): void
+    authenticate(credential?: Credential | null): void
     can_save_credentials(): boolean
     cancel(): void
     get_host(): string
@@ -315,10 +315,10 @@ export class AuthenticationRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -369,10 +369,10 @@ export class AutomationSession {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -427,10 +427,10 @@ export class BackForwardList {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -446,7 +446,7 @@ export class BackForwardList {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.BackForwardList */
-    connect(sigName: "changed", callback: ((obj: BackForwardList, item_added: BackForwardListItem | null, items_removed: object | null) => void))
+    connect(sigName: "changed", callback: ((obj: BackForwardList, item_added?: BackForwardListItem | null, items_removed?: object | null) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: BackForwardList, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -480,10 +480,10 @@ export class BackForwardListItem {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -534,10 +534,10 @@ export class ColorChooserRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -597,10 +597,10 @@ export class ContextMenu {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -638,7 +638,7 @@ export class ContextMenuItem {
     get_stock_action(): ContextMenuAction
     get_submenu(): ContextMenu
     is_separator(): boolean
-    set_submenu(submenu: ContextMenu | null): void
+    set_submenu(submenu?: ContextMenu | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -653,10 +653,10 @@ export class ContextMenuItem {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -677,7 +677,7 @@ export class ContextMenuItem {
     static new (config?: ContextMenuItem_ConstructProps): ContextMenuItem
     constructor (config?: ContextMenuItem_ConstructProps)
     static new(action: Gtk.Action): ContextMenuItem
-    static new_from_gaction(action: Gio.Action, label: string, target: GLib.Variant | null): ContextMenuItem
+    static new_from_gaction(action: Gio.Action, label: string, target?: GLib.Variant | null): ContextMenuItem
     static new_from_stock_action(action: ContextMenuAction): ContextMenuItem
     static new_from_stock_action_with_label(action: ContextMenuAction, label: string): ContextMenuItem
     static new_separator(): ContextMenuItem
@@ -694,9 +694,9 @@ export class CookieManager {
     /* Methods of WebKit2.CookieManager */
     delete_all_cookies(): void
     delete_cookies_for_domain(domain: string): void
-    get_accept_policy(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    get_accept_policy(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     get_accept_policy_finish(result: Gio.AsyncResult): CookieAcceptPolicy
-    get_domains_with_cookies(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    get_domains_with_cookies(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     get_domains_with_cookies_finish(result: Gio.AsyncResult): string[]
     set_accept_policy(policy: CookieAcceptPolicy): void
     set_persistent_storage(filename: string, storage: CookiePersistentStorage): void
@@ -714,10 +714,10 @@ export class CookieManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -780,10 +780,10 @@ export class Download {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -842,10 +842,10 @@ export class EditorState {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -877,7 +877,7 @@ export class FaviconDatabase {
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.FaviconDatabase */
     clear(): void
-    get_favicon(page_uri: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    get_favicon(page_uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     get_favicon_finish(result: Gio.AsyncResult): cairo.Surface
     get_favicon_uri(page_uri: string): string
     /* Methods of GObject.Object */
@@ -894,10 +894,10 @@ export class FaviconDatabase {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -953,10 +953,10 @@ export class FileChooserRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1017,10 +1017,10 @@ export class FindController {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1072,10 +1072,10 @@ export class FormSubmissionRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1117,10 +1117,10 @@ export class GeolocationPermissionRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1183,10 +1183,10 @@ export class HitTestResult {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1231,10 +1231,10 @@ export class InstallMissingMediaPluginsPermissionRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1295,10 +1295,10 @@ export class NavigationPolicyDecision {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1359,10 +1359,10 @@ export class Notification {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1411,10 +1411,10 @@ export class NotificationPermissionRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1463,10 +1463,10 @@ export class OptionMenu {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1516,10 +1516,10 @@ export class Plugin {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1565,10 +1565,10 @@ export class PolicyDecision {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1617,10 +1617,10 @@ export class PrintCustomWidget {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1666,7 +1666,7 @@ export class PrintOperation {
     get_page_setup(): Gtk.PageSetup
     get_print_settings(): Gtk.PrintSettings
     print(): void
-    run_dialog(parent: Gtk.Window | null): PrintOperationResponse
+    run_dialog(parent?: Gtk.Window | null): PrintOperationResponse
     set_page_setup(page_setup: Gtk.PageSetup): void
     set_print_settings(print_settings: Gtk.PrintSettings): void
     /* Methods of GObject.Object */
@@ -1683,10 +1683,10 @@ export class PrintOperation {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1747,10 +1747,10 @@ export class ResponsePolicyDecision {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1808,10 +1808,10 @@ export class SecurityManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2044,8 +2044,8 @@ export class Settings {
     set_print_backgrounds(print_backgrounds: boolean): void
     set_sans_serif_font_family(sans_serif_font_family: string): void
     set_serif_font_family(serif_font_family: string): void
-    set_user_agent(user_agent: string | null): void
-    set_user_agent_with_application_details(application_name: string | null, application_version: string | null): void
+    set_user_agent(user_agent?: string | null): void
+    set_user_agent_with_application_details(application_name?: string | null, application_version?: string | null): void
     set_zoom_text_only(zoom_text_only: boolean): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2061,10 +2061,10 @@ export class Settings {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2166,10 +2166,10 @@ export class URIRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2227,10 +2227,10 @@ export class URIResponse {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2266,7 +2266,7 @@ export class URISchemeRequest {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.URISchemeRequest */
-    finish(stream: Gio.InputStream, stream_length: number, mime_type: string | null): void
+    finish(stream: Gio.InputStream, stream_length: number, mime_type?: string | null): void
     finish_error(error: GLib.Error): void
     get_path(): string
     get_scheme(): string
@@ -2286,10 +2286,10 @@ export class URISchemeRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2338,10 +2338,10 @@ export class UserContentManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2389,10 +2389,10 @@ export class UserMediaPermissionRequest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2433,7 +2433,7 @@ export class WebContext {
     get_cookie_manager(): CookieManager
     get_favicon_database(): FaviconDatabase
     get_favicon_database_directory(): string
-    get_plugins(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    get_plugins(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     get_plugins_finish(result: Gio.AsyncResult): Plugin[]
     get_process_model(): ProcessModel
     get_security_manager(): SecurityManager
@@ -2451,9 +2451,9 @@ export class WebContext {
     set_automation_allowed(allowed: boolean): void
     set_cache_model(cache_model: CacheModel): void
     set_disk_cache_directory(directory: string): void
-    set_favicon_database_directory(path: string | null): void
-    set_network_proxy_settings(proxy_mode: NetworkProxyMode, proxy_settings: NetworkProxySettings | null): void
-    set_preferred_languages(languages: string[] | null): void
+    set_favicon_database_directory(path?: string | null): void
+    set_network_proxy_settings(proxy_mode: NetworkProxyMode, proxy_settings?: NetworkProxySettings | null): void
+    set_preferred_languages(languages?: string[] | null): void
     set_process_model(process_model: ProcessModel): void
     set_spell_checking_enabled(enabled: boolean): void
     set_spell_checking_languages(languages: string[]): void
@@ -2475,10 +2475,10 @@ export class WebContext {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2549,10 +2549,10 @@ export class WebInspector {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2594,7 +2594,7 @@ export class WebResource {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.WebResource */
-    get_data(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    get_data(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     get_data_finish(result: Gio.AsyncResult): [ /* returnType */ Gjs.byteArray.ByteArray, /* length */ number | null ]
     get_response(): URIResponse
     get_uri(): string
@@ -2611,10 +2611,10 @@ export class WebResource {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2719,7 +2719,7 @@ export class WebView {
     g_type_instance:GObject.TypeInstance
     /* Fields of GObject.Object */
     /* Methods of WebKit2.WebView */
-    can_execute_editing_command(command: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    can_execute_editing_command(command: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     can_execute_editing_command_finish(result: Gio.AsyncResult): boolean
     can_go_back(): boolean
     can_go_forward(): boolean
@@ -2741,7 +2741,7 @@ export class WebView {
     get_page_id(): number
     get_session_state(): WebViewSessionState
     get_settings(): Settings
-    get_snapshot(region: SnapshotRegion, options: SnapshotOptions, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    get_snapshot(region: SnapshotRegion, options: SnapshotOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     get_snapshot_finish(result: Gio.AsyncResult): cairo.Surface
     get_title(): string
     get_tls_info(): [ /* returnType */ boolean, /* certificate */ Gio.TlsCertificate, /* errors */ Gio.TlsCertificateFlags ]
@@ -2756,25 +2756,25 @@ export class WebView {
     is_controlled_by_automation(): boolean
     is_editable(): boolean
     is_ephemeral(): boolean
-    load_alternate_html(content: string, content_uri: string, base_uri: string | null): void
-    load_bytes(bytes: Gjs.byteArray.ByteArray, mime_type: string | null, encoding: string | null, base_uri: string | null): void
-    load_html(content: string, base_uri: string | null): void
+    load_alternate_html(content: string, content_uri: string, base_uri?: string | null): void
+    load_bytes(bytes: Gjs.byteArray.ByteArray, mime_type?: string | null, encoding?: string | null, base_uri?: string | null): void
+    load_html(content: string, base_uri?: string | null): void
     load_plain_text(plain_text: string): void
     load_request(request: URIRequest): void
     load_uri(uri: string): void
     reload(): void
     reload_bypass_cache(): void
     restore_session_state(state: WebViewSessionState): void
-    run_javascript(script: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    run_javascript(script: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     run_javascript_finish(result: Gio.AsyncResult): JavascriptResult
-    run_javascript_from_gresource(resource: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    run_javascript_from_gresource(resource: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     run_javascript_from_gresource_finish(result: Gio.AsyncResult): JavascriptResult
-    save(save_mode: SaveMode, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    save(save_mode: SaveMode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     save_finish(result: Gio.AsyncResult): Gio.InputStream
-    save_to_file(file: Gio.File, save_mode: SaveMode, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    save_to_file(file: Gio.File, save_mode: SaveMode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     save_to_file_finish(result: Gio.AsyncResult): boolean
     set_background_color(rgba: Gdk.RGBA): void
-    set_custom_charset(charset: string | null): void
+    set_custom_charset(charset?: string | null): void
     set_editable(editable: boolean): void
     set_settings(settings: Settings): void
     set_zoom_level(zoom_level: number): void
@@ -2787,8 +2787,8 @@ export class WebView {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data: object | null): void
-    foreach(callback: Gtk.Callback, callback_data: object | null): void
+    forall(callback: Gtk.Callback, callback_data?: object | null): void
+    foreach(callback: Gtk.Callback, callback_data?: object | null): void
     get_border_width(): number
     get_children(): Gtk.Widget[]
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
@@ -2802,7 +2802,7 @@ export class WebView {
     resize_children(): void
     set_border_width(border_width: number): void
     set_focus_chain(focusable_widgets: Gtk.Widget[]): void
-    set_focus_child(child: Gtk.Widget | null): void
+    set_focus_child(child?: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
     set_reallocate_redraws(needs_redraws: boolean): void
@@ -2821,22 +2821,22 @@ export class WebView {
     class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
-    create_pango_layout(text: string | null): Pango.Layout
+    create_pango_layout(text?: string | null): Pango.Layout
     destroy(): void
     destroyed(widget_pointer: Gtk.Widget): void
     device_is_shadowed(device: Gdk.Device): boolean
-    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null): Gdk.DragContext
+    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     drag_begin_with_coordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
     drag_check_threshold(start_x: number, start_y: number, current_x: number, current_y: number): boolean
     drag_dest_add_image_targets(): void
     drag_dest_add_text_targets(): void
     drag_dest_add_uri_targets(): void
-    drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
+    drag_dest_find_target(context: Gdk.DragContext, target_list?: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList | null
     drag_dest_get_track_motion(): boolean
     drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
-    drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_dest_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
     drag_dest_unset(): void
     drag_get_data(context: Gdk.DragContext, target: Gdk.Atom, time_: number): void
@@ -2850,7 +2850,7 @@ export class WebView {
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
     drag_source_set_icon_stock(stock_id: string): void
-    drag_source_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_source_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_source_unset(): void
     drag_unhighlight(): void
     draw(cr: cairo.Context): void
@@ -2950,8 +2950,8 @@ export class WebView {
     hide_on_delete(): boolean
     in_destruction(): boolean
     init_template(): void
-    input_shape_combine_region(region: cairo.Region | null): void
-    insert_action_group(name: string, group: Gio.ActionGroup | null): void
+    input_shape_combine_region(region?: cairo.Region | null): void
+    insert_action_group(name: string, group?: Gio.ActionGroup | null): void
     intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
     is_ancestor(ancestor: Gtk.Widget): boolean
     is_composited(): boolean
@@ -2965,18 +2965,18 @@ export class WebView {
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
-    modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_bg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_cursor(primary: Gdk.Color | null, secondary: Gdk.Color | null): void
-    modify_fg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_font(font_desc: Pango.FontDescription | null): void
+    modify_base(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_bg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_cursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modify_fg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_font(font_desc?: Pango.FontDescription | null): void
     modify_style(style: Gtk.RcStyle): void
-    modify_text(state: Gtk.StateType, color: Gdk.Color | null): void
-    override_background_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
-    override_font(font_desc: Pango.FontDescription | null): void
-    override_symbolic_color(name: string, color: Gdk.RGBA | null): void
+    modify_text(state: Gtk.StateType, color?: Gdk.Color | null): void
+    override_background_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_cursor(cursor?: Gdk.RGBA | null, secondary_cursor?: Gdk.RGBA | null): void
+    override_font(font_desc?: Pango.FontDescription | null): void
+    override_symbolic_color(name: string, color?: Gdk.RGBA | null): void
     path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_allocate(): void
     queue_compute_expand(): void
@@ -2991,14 +2991,14 @@ export class WebView {
     remove_accelerator(accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType): boolean
     remove_mnemonic_label(label: Gtk.Widget): void
     remove_tick_callback(id: number): void
-    render_icon(stock_id: string, size: number, detail: string | null): GdkPixbuf.Pixbuf | null
+    render_icon(stock_id: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
     render_icon_pixbuf(stock_id: string, size: number): GdkPixbuf.Pixbuf | null
     reparent(new_parent: Gtk.Widget): void
     reset_rc_styles(): void
     reset_style(): void
     send_expose(event: Gdk.Event): number
     send_focus_change(event: Gdk.Event): boolean
-    set_accel_path(accel_path: string | null, accel_group: Gtk.AccelGroup | null): void
+    set_accel_path(accel_path?: string | null, accel_group?: Gtk.AccelGroup | null): void
     set_allocation(allocation: Gtk.Allocation): void
     set_app_paintable(app_paintable: boolean): void
     set_can_default(can_default: boolean): void
@@ -3012,8 +3012,8 @@ export class WebView {
     set_double_buffered(double_buffered: boolean): void
     set_events(events: number): void
     set_focus_on_click(focus_on_click: boolean): void
-    set_font_map(font_map: Pango.FontMap | null): void
-    set_font_options(options: cairo.FontOptions | null): void
+    set_font_map(font_map?: Pango.FontMap | null): void
+    set_font_options(options?: cairo.FontOptions | null): void
     set_halign(align: Gtk.Align): void
     set_has_tooltip(has_tooltip: boolean): void
     set_has_window(has_window: boolean): void
@@ -3038,18 +3038,18 @@ export class WebView {
     set_size_request(width: number, height: number): void
     set_state(state: Gtk.StateType): void
     set_state_flags(flags: Gtk.StateFlags, clear: boolean): void
-    set_style(style: Gtk.Style | null): void
+    set_style(style?: Gtk.Style | null): void
     set_support_multidevice(support_multidevice: boolean): void
-    set_tooltip_markup(markup: string | null): void
-    set_tooltip_text(text: string | null): void
-    set_tooltip_window(custom_window: Gtk.Window | null): void
+    set_tooltip_markup(markup?: string | null): void
+    set_tooltip_text(text?: string | null): void
+    set_tooltip_window(custom_window?: Gtk.Window | null): void
     set_valign(align: Gtk.Align): void
     set_vexpand(expand: boolean): void
     set_vexpand_set(set: boolean): void
     set_visible(visible: boolean): void
-    set_visual(visual: Gdk.Visual | null): void
+    set_visual(visual?: Gdk.Visual | null): void
     set_window(window: Gdk.Window): void
-    shape_combine_region(region: cairo.Region | null): void
+    shape_combine_region(region?: cairo.Region | null): void
     show(): void
     show_all(): void
     show_now(): void
@@ -3080,10 +3080,10 @@ export class WebView {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3120,12 +3120,12 @@ export class WebView {
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data?: object | null): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child: Gtk.Widget | null): void
+    vfunc_set_focus_child(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
@@ -3281,7 +3281,7 @@ export class WebView {
     connect(sigName: "grab-focus", callback: ((obj: WebView) => void))
     connect(sigName: "grab-notify", callback: ((obj: WebView, was_grabbed: boolean) => void))
     connect(sigName: "hide", callback: ((obj: WebView) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: WebView, previous_toplevel: Gtk.Widget | null) => void))
+    connect(sigName: "hierarchy-changed", callback: ((obj: WebView, previous_toplevel?: Gtk.Widget | null) => void))
     connect(sigName: "key-press-event", callback: ((obj: WebView, event: Gdk.EventKey) => boolean))
     connect(sigName: "key-release-event", callback: ((obj: WebView, event: Gdk.EventKey) => boolean))
     connect(sigName: "keynav-failed", callback: ((obj: WebView, direction: Gtk.DirectionType) => boolean))
@@ -3291,14 +3291,14 @@ export class WebView {
     connect(sigName: "mnemonic-activate", callback: ((obj: WebView, group_cycling: boolean) => boolean))
     connect(sigName: "motion-notify-event", callback: ((obj: WebView, event: Gdk.EventMotion) => boolean))
     connect(sigName: "move-focus", callback: ((obj: WebView, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: WebView, old_parent: Gtk.Widget | null) => void))
+    connect(sigName: "parent-set", callback: ((obj: WebView, old_parent?: Gtk.Widget | null) => void))
     connect(sigName: "popup-menu", callback: ((obj: WebView) => boolean))
     connect(sigName: "property-notify-event", callback: ((obj: WebView, event: Gdk.EventProperty) => boolean))
     connect(sigName: "proximity-in-event", callback: ((obj: WebView, event: Gdk.EventProximity) => boolean))
     connect(sigName: "proximity-out-event", callback: ((obj: WebView, event: Gdk.EventProximity) => boolean))
     connect(sigName: "query-tooltip", callback: ((obj: WebView, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
     connect(sigName: "realize", callback: ((obj: WebView) => void))
-    connect(sigName: "screen-changed", callback: ((obj: WebView, previous_screen: Gdk.Screen | null) => void))
+    connect(sigName: "screen-changed", callback: ((obj: WebView, previous_screen?: Gdk.Screen | null) => void))
     connect(sigName: "scroll-event", callback: ((obj: WebView, event: Gdk.EventScroll) => boolean))
     connect(sigName: "selection-clear-event", callback: ((obj: WebView, event: Gdk.EventSelection) => boolean))
     connect(sigName: "selection-get", callback: ((obj: WebView, data: Gtk.SelectionData, info: number, time: number) => void))
@@ -3310,7 +3310,7 @@ export class WebView {
     connect(sigName: "size-allocate", callback: ((obj: WebView, allocation: Gtk.Allocation) => void))
     connect(sigName: "state-changed", callback: ((obj: WebView, state: Gtk.StateType) => void))
     connect(sigName: "state-flags-changed", callback: ((obj: WebView, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: WebView, previous_style: Gtk.Style | null) => void))
+    connect(sigName: "style-set", callback: ((obj: WebView, previous_style?: Gtk.Style | null) => void))
     connect(sigName: "style-updated", callback: ((obj: WebView) => void))
     connect(sigName: "touch-event", callback: ((obj: WebView, object: Gdk.Event) => boolean))
     connect(sigName: "unmap", callback: ((obj: WebView) => void))
@@ -3443,8 +3443,8 @@ export class WebViewBase {
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): number
-    forall(callback: Gtk.Callback, callback_data: object | null): void
-    foreach(callback: Gtk.Callback, callback_data: object | null): void
+    forall(callback: Gtk.Callback, callback_data?: object | null): void
+    foreach(callback: Gtk.Callback, callback_data?: object | null): void
     get_border_width(): number
     get_children(): Gtk.Widget[]
     get_focus_chain(): [ /* returnType */ boolean, /* focusable_widgets */ Gtk.Widget[] ]
@@ -3458,7 +3458,7 @@ export class WebViewBase {
     resize_children(): void
     set_border_width(border_width: number): void
     set_focus_chain(focusable_widgets: Gtk.Widget[]): void
-    set_focus_child(child: Gtk.Widget | null): void
+    set_focus_child(child?: Gtk.Widget | null): void
     set_focus_hadjustment(adjustment: Gtk.Adjustment): void
     set_focus_vadjustment(adjustment: Gtk.Adjustment): void
     set_reallocate_redraws(needs_redraws: boolean): void
@@ -3477,22 +3477,22 @@ export class WebViewBase {
     class_path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     compute_expand(orientation: Gtk.Orientation): boolean
     create_pango_context(): Pango.Context
-    create_pango_layout(text: string | null): Pango.Layout
+    create_pango_layout(text?: string | null): Pango.Layout
     destroy(): void
     destroyed(widget_pointer: Gtk.Widget): void
     device_is_shadowed(device: Gdk.Device): boolean
-    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null): Gdk.DragContext
+    drag_begin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     drag_begin_with_coordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
     drag_check_threshold(start_x: number, start_y: number, current_x: number, current_y: number): boolean
     drag_dest_add_image_targets(): void
     drag_dest_add_text_targets(): void
     drag_dest_add_uri_targets(): void
-    drag_dest_find_target(context: Gdk.DragContext, target_list: Gtk.TargetList | null): Gdk.Atom
+    drag_dest_find_target(context: Gdk.DragContext, target_list?: Gtk.TargetList | null): Gdk.Atom
     drag_dest_get_target_list(): Gtk.TargetList | null
     drag_dest_get_track_motion(): boolean
     drag_dest_set(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
     drag_dest_set_proxy(proxy_window: Gdk.Window, protocol: Gdk.DragProtocol, use_coordinates: boolean): void
-    drag_dest_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_dest_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_dest_set_track_motion(track_motion: boolean): void
     drag_dest_unset(): void
     drag_get_data(context: Gdk.DragContext, target: Gdk.Atom, time_: number): void
@@ -3506,7 +3506,7 @@ export class WebViewBase {
     drag_source_set_icon_name(icon_name: string): void
     drag_source_set_icon_pixbuf(pixbuf: GdkPixbuf.Pixbuf): void
     drag_source_set_icon_stock(stock_id: string): void
-    drag_source_set_target_list(target_list: Gtk.TargetList | null): void
+    drag_source_set_target_list(target_list?: Gtk.TargetList | null): void
     drag_source_unset(): void
     drag_unhighlight(): void
     draw(cr: cairo.Context): void
@@ -3607,8 +3607,8 @@ export class WebViewBase {
     hide_on_delete(): boolean
     in_destruction(): boolean
     init_template(): void
-    input_shape_combine_region(region: cairo.Region | null): void
-    insert_action_group(name: string, group: Gio.ActionGroup | null): void
+    input_shape_combine_region(region?: cairo.Region | null): void
+    insert_action_group(name: string, group?: Gio.ActionGroup | null): void
     intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
     is_ancestor(ancestor: Gtk.Widget): boolean
     is_composited(): boolean
@@ -3622,18 +3622,18 @@ export class WebViewBase {
     list_mnemonic_labels(): Gtk.Widget[]
     map(): void
     mnemonic_activate(group_cycling: boolean): boolean
-    modify_base(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_bg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_cursor(primary: Gdk.Color | null, secondary: Gdk.Color | null): void
-    modify_fg(state: Gtk.StateType, color: Gdk.Color | null): void
-    modify_font(font_desc: Pango.FontDescription | null): void
+    modify_base(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_bg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_cursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modify_fg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modify_font(font_desc?: Pango.FontDescription | null): void
     modify_style(style: Gtk.RcStyle): void
-    modify_text(state: Gtk.StateType, color: Gdk.Color | null): void
-    override_background_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_color(state: Gtk.StateFlags, color: Gdk.RGBA | null): void
-    override_cursor(cursor: Gdk.RGBA | null, secondary_cursor: Gdk.RGBA | null): void
-    override_font(font_desc: Pango.FontDescription | null): void
-    override_symbolic_color(name: string, color: Gdk.RGBA | null): void
+    modify_text(state: Gtk.StateType, color?: Gdk.Color | null): void
+    override_background_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_color(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    override_cursor(cursor?: Gdk.RGBA | null, secondary_cursor?: Gdk.RGBA | null): void
+    override_font(font_desc?: Pango.FontDescription | null): void
+    override_symbolic_color(name: string, color?: Gdk.RGBA | null): void
     path(): [ /* path_length */ number | null, /* path */ string | null, /* path_reversed */ string | null ]
     queue_allocate(): void
     queue_compute_expand(): void
@@ -3648,14 +3648,14 @@ export class WebViewBase {
     remove_accelerator(accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType): boolean
     remove_mnemonic_label(label: Gtk.Widget): void
     remove_tick_callback(id: number): void
-    render_icon(stock_id: string, size: number, detail: string | null): GdkPixbuf.Pixbuf | null
+    render_icon(stock_id: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
     render_icon_pixbuf(stock_id: string, size: number): GdkPixbuf.Pixbuf | null
     reparent(new_parent: Gtk.Widget): void
     reset_rc_styles(): void
     reset_style(): void
     send_expose(event: Gdk.Event): number
     send_focus_change(event: Gdk.Event): boolean
-    set_accel_path(accel_path: string | null, accel_group: Gtk.AccelGroup | null): void
+    set_accel_path(accel_path?: string | null, accel_group?: Gtk.AccelGroup | null): void
     set_allocation(allocation: Gtk.Allocation): void
     set_app_paintable(app_paintable: boolean): void
     set_can_default(can_default: boolean): void
@@ -3669,8 +3669,8 @@ export class WebViewBase {
     set_double_buffered(double_buffered: boolean): void
     set_events(events: number): void
     set_focus_on_click(focus_on_click: boolean): void
-    set_font_map(font_map: Pango.FontMap | null): void
-    set_font_options(options: cairo.FontOptions | null): void
+    set_font_map(font_map?: Pango.FontMap | null): void
+    set_font_options(options?: cairo.FontOptions | null): void
     set_halign(align: Gtk.Align): void
     set_has_tooltip(has_tooltip: boolean): void
     set_has_window(has_window: boolean): void
@@ -3695,18 +3695,18 @@ export class WebViewBase {
     set_size_request(width: number, height: number): void
     set_state(state: Gtk.StateType): void
     set_state_flags(flags: Gtk.StateFlags, clear: boolean): void
-    set_style(style: Gtk.Style | null): void
+    set_style(style?: Gtk.Style | null): void
     set_support_multidevice(support_multidevice: boolean): void
-    set_tooltip_markup(markup: string | null): void
-    set_tooltip_text(text: string | null): void
-    set_tooltip_window(custom_window: Gtk.Window | null): void
+    set_tooltip_markup(markup?: string | null): void
+    set_tooltip_text(text?: string | null): void
+    set_tooltip_window(custom_window?: Gtk.Window | null): void
     set_valign(align: Gtk.Align): void
     set_vexpand(expand: boolean): void
     set_vexpand_set(set: boolean): void
     set_visible(visible: boolean): void
-    set_visual(visual: Gdk.Visual | null): void
+    set_visual(visual?: Gdk.Visual | null): void
     set_window(window: Gdk.Window): void
-    shape_combine_region(region: cairo.Region | null): void
+    shape_combine_region(region?: cairo.Region | null): void
     show(): void
     show_all(): void
     show_now(): void
@@ -3737,10 +3737,10 @@ export class WebViewBase {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3752,12 +3752,12 @@ export class WebViewBase {
     vfunc_check_resize(): void
     vfunc_child_type(): number
     vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data: object | null): void
+    vfunc_forall(include_internals: boolean, callback: Gtk.Callback, callback_data?: object | null): void
     vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
     vfunc_remove(widget: Gtk.Widget): void
     vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child: Gtk.Widget | null): void
+    vfunc_set_focus_child(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
@@ -3887,7 +3887,7 @@ export class WebViewBase {
     connect(sigName: "grab-focus", callback: ((obj: WebViewBase) => void))
     connect(sigName: "grab-notify", callback: ((obj: WebViewBase, was_grabbed: boolean) => void))
     connect(sigName: "hide", callback: ((obj: WebViewBase) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: WebViewBase, previous_toplevel: Gtk.Widget | null) => void))
+    connect(sigName: "hierarchy-changed", callback: ((obj: WebViewBase, previous_toplevel?: Gtk.Widget | null) => void))
     connect(sigName: "key-press-event", callback: ((obj: WebViewBase, event: Gdk.EventKey) => boolean))
     connect(sigName: "key-release-event", callback: ((obj: WebViewBase, event: Gdk.EventKey) => boolean))
     connect(sigName: "keynav-failed", callback: ((obj: WebViewBase, direction: Gtk.DirectionType) => boolean))
@@ -3897,14 +3897,14 @@ export class WebViewBase {
     connect(sigName: "mnemonic-activate", callback: ((obj: WebViewBase, group_cycling: boolean) => boolean))
     connect(sigName: "motion-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventMotion) => boolean))
     connect(sigName: "move-focus", callback: ((obj: WebViewBase, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: WebViewBase, old_parent: Gtk.Widget | null) => void))
+    connect(sigName: "parent-set", callback: ((obj: WebViewBase, old_parent?: Gtk.Widget | null) => void))
     connect(sigName: "popup-menu", callback: ((obj: WebViewBase) => boolean))
     connect(sigName: "property-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventProperty) => boolean))
     connect(sigName: "proximity-in-event", callback: ((obj: WebViewBase, event: Gdk.EventProximity) => boolean))
     connect(sigName: "proximity-out-event", callback: ((obj: WebViewBase, event: Gdk.EventProximity) => boolean))
     connect(sigName: "query-tooltip", callback: ((obj: WebViewBase, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
     connect(sigName: "realize", callback: ((obj: WebViewBase) => void))
-    connect(sigName: "screen-changed", callback: ((obj: WebViewBase, previous_screen: Gdk.Screen | null) => void))
+    connect(sigName: "screen-changed", callback: ((obj: WebViewBase, previous_screen?: Gdk.Screen | null) => void))
     connect(sigName: "scroll-event", callback: ((obj: WebViewBase, event: Gdk.EventScroll) => boolean))
     connect(sigName: "selection-clear-event", callback: ((obj: WebViewBase, event: Gdk.EventSelection) => boolean))
     connect(sigName: "selection-get", callback: ((obj: WebViewBase, data: Gtk.SelectionData, info: number, time: number) => void))
@@ -3916,7 +3916,7 @@ export class WebViewBase {
     connect(sigName: "size-allocate", callback: ((obj: WebViewBase, allocation: Gtk.Allocation) => void))
     connect(sigName: "state-changed", callback: ((obj: WebViewBase, state: Gtk.StateType) => void))
     connect(sigName: "state-flags-changed", callback: ((obj: WebViewBase, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: WebViewBase, previous_style: Gtk.Style | null) => void))
+    connect(sigName: "style-set", callback: ((obj: WebViewBase, previous_style?: Gtk.Style | null) => void))
     connect(sigName: "style-updated", callback: ((obj: WebViewBase) => void))
     connect(sigName: "touch-event", callback: ((obj: WebViewBase, object: Gdk.Event) => boolean))
     connect(sigName: "unmap", callback: ((obj: WebViewBase) => void))
@@ -3990,9 +3990,9 @@ export class WebsiteDataManager {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.WebsiteDataManager */
-    clear(types: WebsiteDataTypes, timespan: GLib.TimeSpan, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    clear(types: WebsiteDataTypes, timespan: GLib.TimeSpan, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     clear_finish(result: Gio.AsyncResult): boolean
-    fetch(types: WebsiteDataTypes, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    fetch(types: WebsiteDataTypes, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     fetch_finish(result: Gio.AsyncResult): WebsiteData[]
     get_base_cache_directory(): string | null
     get_base_data_directory(): string | null
@@ -4003,7 +4003,7 @@ export class WebsiteDataManager {
     get_offline_application_cache_directory(): string | null
     get_websql_directory(): string | null
     is_ephemeral(): boolean
-    remove(types: WebsiteDataTypes, website_data: WebsiteData[], cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    remove(types: WebsiteDataTypes, website_data: WebsiteData[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     remove_finish(result: Gio.AsyncResult): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -4019,10 +4019,10 @@ export class WebsiteDataManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -4083,10 +4083,10 @@ export class WindowProperties {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -4221,9 +4221,9 @@ export class NetworkProxySettings {
     copy(): NetworkProxySettings
     free(): void
     static name: string
-    static new(default_proxy_uri: string | null, ignore_hosts: string | null): NetworkProxySettings
-    constructor(default_proxy_uri: string | null, ignore_hosts: string | null)
-    static new(default_proxy_uri: string | null, ignore_hosts: string | null): NetworkProxySettings
+    static new(default_proxy_uri?: string | null, ignore_hosts?: string | null): NetworkProxySettings
+    constructor(default_proxy_uri?: string | null, ignore_hosts?: string | null)
+    static new(default_proxy_uri?: string | null, ignore_hosts?: string | null): NetworkProxySettings
 }
 export class NotificationPermissionRequestPrivate {
     static name: string
@@ -4311,18 +4311,18 @@ export class UserScript {
     ref(): UserScript
     unref(): void
     static name: string
-    static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null): UserScript
-    constructor(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null)
-    static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist: string[] | null, blacklist: string[] | null): UserScript
+    static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist?: string[] | null, blacklist?: string[] | null): UserScript
+    constructor(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist?: string[] | null, blacklist?: string[] | null)
+    static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist?: string[] | null, blacklist?: string[] | null): UserScript
 }
 export class UserStyleSheet {
     /* Methods of WebKit2.UserStyleSheet */
     ref(): UserStyleSheet
     unref(): void
     static name: string
-    static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null): UserStyleSheet
-    constructor(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null)
-    static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist: string[] | null, blacklist: string[] | null): UserStyleSheet
+    static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist?: string[] | null, blacklist?: string[] | null): UserStyleSheet
+    constructor(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist?: string[] | null, blacklist?: string[] | null)
+    static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist?: string[] | null, blacklist?: string[] | null): UserStyleSheet
 }
 export class WebContextPrivate {
     static name: string

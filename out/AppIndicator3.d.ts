@@ -87,11 +87,11 @@ export class Indicator {
     set_icon_full(icon_name: string, icon_desc: string): void
     set_icon_theme_path(icon_theme_path: string): void
     set_label(label: string, guide: string): void
-    set_menu(menu: Gtk.Menu | null): void
+    set_menu(menu?: Gtk.Menu | null): void
     set_ordering_index(ordering_index: number): void
-    set_secondary_activate_target(menuitem: Gtk.Widget | null): void
+    set_secondary_activate_target(menuitem?: Gtk.Widget | null): void
     set_status(status: IndicatorStatus): void
-    set_title(title: string | null): void
+    set_title(title?: string | null): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -106,10 +106,10 @@ export class Indicator {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -117,13 +117,13 @@ export class Indicator {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of AppIndicator3.Indicator */
-    vfunc_connection_changed(connected: boolean, user_data: object | null): void
-    vfunc_new_attention_icon(user_data: object | null): void
-    vfunc_new_icon(user_data: object | null): void
-    vfunc_new_icon_theme_path(icon_theme_path: string, user_data: object | null): void
-    vfunc_new_label(label: string, guide: string, user_data: object | null): void
-    vfunc_new_status(status: string, user_data: object | null): void
-    vfunc_scroll_event(delta: number, direction: Gdk.ScrollDirection, user_data: object | null): void
+    vfunc_connection_changed(connected: boolean, user_data?: object | null): void
+    vfunc_new_attention_icon(user_data?: object | null): void
+    vfunc_new_icon(user_data?: object | null): void
+    vfunc_new_icon_theme_path(icon_theme_path: string, user_data?: object | null): void
+    vfunc_new_label(label: string, guide: string, user_data?: object | null): void
+    vfunc_new_status(status: string, user_data?: object | null): void
+    vfunc_scroll_event(delta: number, direction: Gdk.ScrollDirection, user_data?: object | null): void
     vfunc_unfallback(status_icon: Gtk.StatusIcon): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void

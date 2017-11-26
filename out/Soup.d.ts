@@ -464,7 +464,7 @@ export function cookies_to_cookie_header(cookies: GLib.SList): string
 export function cookies_to_request(cookies: GLib.SList, msg: Message): void
 export function cookies_to_response(cookies: GLib.SList, msg: Message): void
 export function form_decode(encoded_form: string): GLib.HashTable
-export function form_decode_multipart(msg: Message, file_control_name: string | null): [ /* returnType */ GLib.HashTable | null, /* filename */ string | null, /* content_type */ string | null, /* file */ Buffer | null ]
+export function form_decode_multipart(msg: Message, file_control_name?: string | null): [ /* returnType */ GLib.HashTable | null, /* filename */ string | null, /* content_type */ string | null, /* file */ Buffer | null ]
 export function form_encode_datalist(form_data_set: GLib.Data): string
 export function form_encode_hash(form_data_set: GLib.HashTable): string
 export function form_request_new_from_datalist(method: string, uri: string, form_data_set: GLib.Data): Message
@@ -491,22 +491,22 @@ export function request_error_quark(): GLib.Quark
 export function requester_error_quark(): GLib.Quark
 export function status_get_phrase(status_code: number): string
 export function status_proxify(status_code: number): number
-export function str_case_equal(v1: object | null, v2: object | null): boolean
-export function str_case_hash(key: object | null): number
+export function str_case_equal(v1?: object | null, v2?: object | null): boolean
+export function str_case_hash(key?: object | null): number
 export function tld_domain_is_public_suffix(domain: string): boolean
 export function tld_error_quark(): GLib.Quark
 export function tld_get_base_domain(hostname: string): string
 export function uri_decode(part: string): string
-export function uri_encode(part: string, escape_extra: string | null): string
-export function uri_normalize(part: string, unescape_extra: string | null): string
+export function uri_encode(part: string, escape_extra?: string | null): string
+export function uri_normalize(part: string, unescape_extra?: string | null): string
 export function value_array_new(): GObject.ValueArray
 export function value_hash_insert_value(hash: GLib.HashTable, key: string, value: any): void
 export function value_hash_new(): GLib.HashTable
-export function websocket_client_prepare_handshake(msg: Message, origin: string | null, protocols: string[] | null): void
+export function websocket_client_prepare_handshake(msg: Message, origin?: string | null, protocols?: string[] | null): void
 export function websocket_client_verify_handshake(msg: Message): boolean
 export function websocket_error_get_quark(): GLib.Quark
-export function websocket_server_check_handshake(msg: Message, origin: string | null, protocols: string[] | null): boolean
-export function websocket_server_process_handshake(msg: Message, expected_origin: string | null, protocols: string[] | null): boolean
+export function websocket_server_check_handshake(msg: Message, origin?: string | null, protocols?: string[] | null): boolean
+export function websocket_server_process_handshake(msg: Message, expected_origin?: string | null, protocols?: string[] | null): boolean
 export function xmlrpc_build_method_call(method_name: string, params: any): string | null
 export function xmlrpc_build_method_response(value: any): string | null
 export function xmlrpc_build_request(method_name: string, params: GLib.Variant): string
@@ -518,70 +518,70 @@ export function xmlrpc_message_set_response(msg: Message, value: GLib.Variant): 
 export function xmlrpc_parse_method_call(method_call: string, length: number): [ /* returnType */ boolean, /* method_name */ string, /* params */ GObject.ValueArray ]
 export function xmlrpc_parse_method_response(method_response: string, length: number): [ /* returnType */ boolean, /* value */ any ]
 export function xmlrpc_parse_request(method_call: string, length: number): [ /* returnType */ string, /* params */ XMLRPCParams ]
-export function xmlrpc_parse_response(method_response: string, length: number, signature: string | null): GLib.Variant
+export function xmlrpc_parse_response(method_response: string, length: number, signature?: string | null): GLib.Variant
 export function xmlrpc_variant_get_datetime(variant: GLib.Variant): Date
 export function xmlrpc_variant_new_datetime(date: Date): GLib.Variant
 export interface AddressCallback {
-    (addr: Address, status: number, user_data: object | null): void
+    (addr: Address, status: number, user_data?: object | null): void
 }
 export interface AuthDomainBasicAuthCallback {
-    (domain: AuthDomain, msg: Message, username: string, password: string, user_data: object | null): boolean
+    (domain: AuthDomain, msg: Message, username: string, password: string, user_data?: object | null): boolean
 }
 export interface AuthDomainDigestAuthCallback {
-    (domain: AuthDomain, msg: Message, username: string, user_data: object | null): string | null
+    (domain: AuthDomain, msg: Message, username: string, user_data?: object | null): string | null
 }
 export interface AuthDomainFilter {
-    (domain: AuthDomain, msg: Message, user_data: object | null): boolean
+    (domain: AuthDomain, msg: Message, user_data?: object | null): boolean
 }
 export interface AuthDomainGenericAuthCallback {
-    (domain: AuthDomain, msg: Message, username: string, user_data: object | null): boolean
+    (domain: AuthDomain, msg: Message, username: string, user_data?: object | null): boolean
 }
 export interface ChunkAllocator {
-    (msg: Message, max_len: number, user_data: object | null): Buffer | null
+    (msg: Message, max_len: number, user_data?: object | null): Buffer | null
 }
 export interface LoggerFilter {
-    (logger: Logger, msg: Message, user_data: object | null): LoggerLogLevel
+    (logger: Logger, msg: Message, user_data?: object | null): LoggerLogLevel
 }
 export interface LoggerPrinter {
-    (logger: Logger, level: LoggerLogLevel, direction: number, data: string, user_data: object | null): void
+    (logger: Logger, level: LoggerLogLevel, direction: number, data: string, user_data?: object | null): void
 }
 export interface MessageHeadersForeachFunc {
-    (name: string, value: string, user_data: object | null): void
+    (name: string, value: string, user_data?: object | null): void
 }
 export interface PasswordManagerCallback {
-    (password_manager: PasswordManager, msg: Message, auth: Auth, retrying: boolean, user_data: object | null): void
+    (password_manager: PasswordManager, msg: Message, auth: Auth, retrying: boolean, user_data?: object | null): void
 }
 export interface ProxyURIResolverCallback {
-    (resolver: ProxyURIResolver, status: number, proxy_uri: URI, user_data: object | null): void
+    (resolver: ProxyURIResolver, status: number, proxy_uri: URI, user_data?: object | null): void
 }
 export interface ServerCallback {
-    (server: Server, msg: Message, path: string, query: GLib.HashTable | null, client: ClientContext, user_data: object | null): void
+    (server: Server, msg: Message, path: string, query: GLib.HashTable | null, client: ClientContext, user_data?: object | null): void
 }
 export interface ServerWebsocketCallback {
-    (server: Server, connection: WebsocketConnection, path: string, client: ClientContext, user_data: object | null): void
+    (server: Server, connection: WebsocketConnection, path: string, client: ClientContext, user_data?: object | null): void
 }
 export interface SessionCallback {
-    (session: Session, msg: Message, user_data: object | null): void
+    (session: Session, msg: Message, user_data?: object | null): void
 }
 export interface SocketCallback {
-    (sock: Socket, status: number, user_data: object | null): void
+    (sock: Socket, status: number, user_data?: object | null): void
 }
 export class PasswordManager {
     /* Methods of Soup.PasswordManager */
-    get_passwords_async(msg: Message, auth: Auth, retrying: boolean, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: PasswordManagerCallback, user_data: object | null): void
-    get_passwords_sync(msg: Message, auth: Auth, cancellable: Gio.Cancellable | null): void
+    get_passwords_async(msg: Message, auth: Auth, retrying: boolean, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: PasswordManagerCallback, user_data?: object | null): void
+    get_passwords_sync(msg: Message, auth: Auth, cancellable?: Gio.Cancellable | null): void
     /* Virtual methods of Soup.PasswordManager */
-    vfunc_get_passwords_async(msg: Message, auth: Auth, retrying: boolean, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: PasswordManagerCallback, user_data: object | null): void
-    vfunc_get_passwords_sync(msg: Message, auth: Auth, cancellable: Gio.Cancellable | null): void
+    vfunc_get_passwords_async(msg: Message, auth: Auth, retrying: boolean, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: PasswordManagerCallback, user_data?: object | null): void
+    vfunc_get_passwords_sync(msg: Message, auth: Auth, cancellable?: Gio.Cancellable | null): void
     static name: string
 }
 export class ProxyURIResolver {
     /* Methods of Soup.ProxyURIResolver */
-    get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback, user_data: object | null): void
-    get_proxy_uri_sync(uri: URI, cancellable: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
+    get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback, user_data?: object | null): void
+    get_proxy_uri_sync(uri: URI, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
     /* Virtual methods of Soup.ProxyURIResolver */
-    vfunc_get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback, user_data: object | null): void
-    vfunc_get_proxy_uri_sync(uri: URI, cancellable: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
+    vfunc_get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback, user_data?: object | null): void
+    vfunc_get_proxy_uri_sync(uri: URI, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
     static name: string
 }
 export class SessionFeature {
@@ -627,8 +627,8 @@ export class Address {
     hash_by_ip(): number
     hash_by_name(): number
     is_resolved(): boolean
-    resolve_async(async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: AddressCallback, user_data: object | null): void
-    resolve_sync(cancellable: Gio.Cancellable | null): number
+    resolve_async(async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: AddressCallback, user_data?: object | null): void
+    resolve_sync(cancellable?: Gio.Cancellable | null): number
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -643,10 +643,10 @@ export class Address {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -716,10 +716,10 @@ export class Auth {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -796,10 +796,10 @@ export class AuthBasic {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -875,10 +875,10 @@ export class AuthDigest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -959,10 +959,10 @@ export class AuthDomain {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1038,10 +1038,10 @@ export class AuthDomainBasic {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1119,10 +1119,10 @@ export class AuthDomainDigest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1181,10 +1181,10 @@ export class AuthManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1251,10 +1251,10 @@ export class AuthNTLM {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1330,10 +1330,10 @@ export class AuthNegotiate {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1400,10 +1400,10 @@ export class Cache {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1449,10 +1449,10 @@ export class ContentDecoder {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1498,10 +1498,10 @@ export class ContentSniffer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1564,10 +1564,10 @@ export class CookieJar {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1635,10 +1635,10 @@ export class CookieJarDB {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1706,10 +1706,10 @@ export class CookieJarText {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1770,10 +1770,10 @@ export class Logger {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1856,8 +1856,8 @@ export class Message {
     set_http_version(version: HTTPVersion): void
     set_priority(priority: MessagePriority): void
     set_redirect(status_code: number, redirect_uri: string): void
-    set_request(content_type: string | null, req_use: MemoryUse, req_body: Gjs.byteArray.ByteArray | null): void
-    set_response(content_type: string | null, resp_use: MemoryUse, resp_body: Gjs.byteArray.ByteArray | null): void
+    set_request(content_type: string | null, req_use: MemoryUse, req_body?: Gjs.byteArray.ByteArray | null): void
+    set_response(content_type: string | null, resp_use: MemoryUse, resp_body?: Gjs.byteArray.ByteArray | null): void
     set_status(status_code: number): void
     set_status_full(status_code: number, reason_phrase: string): void
     set_uri(uri: URI): void
@@ -1881,10 +1881,10 @@ export class Message {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -1966,8 +1966,8 @@ export class MultipartInputStream {
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.MultipartInputStream */
     get_headers(): MessageHeaders | null
-    next_part(cancellable: Gio.Cancellable | null): Gio.InputStream | null
-    next_part_async(io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, data: object | null): void
+    next_part(cancellable?: Gio.Cancellable | null): Gio.InputStream | null
+    next_part_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, data?: object | null): void
     next_part_finish(result: Gio.AsyncResult): Gio.InputStream | null
     /* Methods of Gio.FilterInputStream */
     get_base_stream(): Gio.InputStream
@@ -1975,23 +1975,23 @@ export class MultipartInputStream {
     set_close_base_stream(close_base: boolean): void
     /* Methods of Gio.InputStream */
     clear_pending(): void
-    close(cancellable: Gio.Cancellable | null): boolean
-    close_async(io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    close(cancellable?: Gio.Cancellable | null): boolean
+    close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     close_finish(result: Gio.AsyncResult): boolean
     has_pending(): boolean
     is_closed(): boolean
-    read(buffer: Gjs.byteArray.ByteArray, cancellable: Gio.Cancellable | null): number
-    read_all(buffer: Gjs.byteArray.ByteArray, cancellable: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    read(buffer: Gjs.byteArray.ByteArray, cancellable?: Gio.Cancellable | null): number
+    read_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* bytes_read */ number ]
+    read_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     read_all_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
-    read_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
-    read_bytes(count: number, cancellable: Gio.Cancellable | null): Gjs.byteArray.ByteArray
-    read_bytes_async(count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    read_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
+    read_bytes(count: number, cancellable?: Gio.Cancellable | null): Gjs.byteArray.ByteArray
+    read_bytes_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     read_bytes_finish(result: Gio.AsyncResult): Gjs.byteArray.ByteArray
     read_finish(result: Gio.AsyncResult): number
     set_pending(): boolean
-    skip(count: number, cancellable: Gio.Cancellable | null): number
-    skip_async(count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    skip(count: number, cancellable?: Gio.Cancellable | null): number
+    skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     skip_finish(result: Gio.AsyncResult): number
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2007,10 +2007,10 @@ export class MultipartInputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2018,14 +2018,14 @@ export class MultipartInputStream {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.InputStream */
-    vfunc_close_async(io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    vfunc_close_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     vfunc_close_finish(result: Gio.AsyncResult): boolean
-    vfunc_close_fn(cancellable: Gio.Cancellable | null): boolean
-    vfunc_read_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    vfunc_close_fn(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_read_async(buffer: Gjs.byteArray.ByteArray | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     vfunc_read_finish(result: Gio.AsyncResult): number
-    vfunc_read_fn(buffer: object | null, count: number, cancellable: Gio.Cancellable | null): number
-    vfunc_skip(count: number, cancellable: Gio.Cancellable | null): number
-    vfunc_skip_async(count: number, io_priority: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    vfunc_read_fn(buffer: object | null, count: number, cancellable?: Gio.Cancellable | null): number
+    vfunc_skip(count: number, cancellable?: Gio.Cancellable | null): number
+    vfunc_skip_async(count: number, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     vfunc_skip_finish(result: Gio.AsyncResult): number
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2067,10 +2067,10 @@ export class ProxyResolverDefault {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2108,8 +2108,8 @@ export class Request {
     get_content_type(): string | null
     get_session(): Session
     get_uri(): URI
-    send(cancellable: Gio.Cancellable | null): Gio.InputStream
-    send_async(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    send(cancellable?: Gio.Cancellable | null): Gio.InputStream
+    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2125,10 +2125,10 @@ export class Request {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2139,8 +2139,8 @@ export class Request {
     vfunc_check_uri(uri: URI): boolean
     vfunc_get_content_length(): number
     vfunc_get_content_type(): string | null
-    vfunc_send(cancellable: Gio.Cancellable | null): Gio.InputStream
-    vfunc_send_async(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    vfunc_send(cancellable?: Gio.Cancellable | null): Gio.InputStream
+    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     vfunc_send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2171,8 +2171,8 @@ export class RequestData {
     get_content_type(): string | null
     get_session(): Session
     get_uri(): URI
-    send(cancellable: Gio.Cancellable | null): Gio.InputStream
-    send_async(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    send(cancellable?: Gio.Cancellable | null): Gio.InputStream
+    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2188,10 +2188,10 @@ export class RequestData {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2202,8 +2202,8 @@ export class RequestData {
     vfunc_check_uri(uri: URI): boolean
     vfunc_get_content_length(): number
     vfunc_get_content_type(): string | null
-    vfunc_send(cancellable: Gio.Cancellable | null): Gio.InputStream
-    vfunc_send_async(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    vfunc_send(cancellable?: Gio.Cancellable | null): Gio.InputStream
+    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     vfunc_send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2236,8 +2236,8 @@ export class RequestFile {
     get_content_type(): string | null
     get_session(): Session
     get_uri(): URI
-    send(cancellable: Gio.Cancellable | null): Gio.InputStream
-    send_async(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    send(cancellable?: Gio.Cancellable | null): Gio.InputStream
+    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2253,10 +2253,10 @@ export class RequestFile {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2267,8 +2267,8 @@ export class RequestFile {
     vfunc_check_uri(uri: URI): boolean
     vfunc_get_content_length(): number
     vfunc_get_content_type(): string | null
-    vfunc_send(cancellable: Gio.Cancellable | null): Gio.InputStream
-    vfunc_send_async(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    vfunc_send(cancellable?: Gio.Cancellable | null): Gio.InputStream
+    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     vfunc_send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2301,8 +2301,8 @@ export class RequestHTTP {
     get_content_type(): string | null
     get_session(): Session
     get_uri(): URI
-    send(cancellable: Gio.Cancellable | null): Gio.InputStream
-    send_async(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    send(cancellable?: Gio.Cancellable | null): Gio.InputStream
+    send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2318,10 +2318,10 @@ export class RequestHTTP {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2332,8 +2332,8 @@ export class RequestHTTP {
     vfunc_check_uri(uri: URI): boolean
     vfunc_get_content_length(): number
     vfunc_get_content_type(): string | null
-    vfunc_send(cancellable: Gio.Cancellable | null): Gio.InputStream
-    vfunc_send_async(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    vfunc_send(cancellable?: Gio.Cancellable | null): Gio.InputStream
+    vfunc_send_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     vfunc_send_finish(result: Gio.AsyncResult): Gio.InputStream
     /* Virtual methods of GObject.Object */
     vfunc_constructed(): void
@@ -2374,10 +2374,10 @@ export class Requester {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2421,7 +2421,7 @@ export class Server {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.Server */
-    accept_iostream(stream: Gio.IOStream, local_addr: Gio.SocketAddress | null, remote_addr: Gio.SocketAddress | null): boolean
+    accept_iostream(stream: Gio.IOStream, local_addr?: Gio.SocketAddress | null, remote_addr?: Gio.SocketAddress | null): boolean
     add_auth_domain(auth_domain: AuthDomain): void
     add_early_handler(path: string | null, callback: ServerCallback, user_data: object | null, destroy: GLib.DestroyNotify): void
     add_handler(path: string | null, callback: ServerCallback, user_data: object | null, destroy: GLib.DestroyNotify): void
@@ -2460,10 +2460,10 @@ export class Server {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2554,9 +2554,9 @@ export class Session {
     get_features(feature_type: number): GLib.SList
     has_feature(feature_type: number): boolean
     pause_message(msg: Message): void
-    prefetch_dns(hostname: string, cancellable: Gio.Cancellable | null, callback: AddressCallback | null, user_data: object | null): void
+    prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null, user_data?: object | null): void
     prepare_for_uri(uri: URI): void
-    queue_message(msg: Message, callback: SessionCallback | null, user_data: object | null): void
+    queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
     remove_feature_by_type(feature_type: number): void
@@ -2565,13 +2565,13 @@ export class Session {
     request_http_uri(method: string, uri: URI): RequestHTTP
     request_uri(uri: URI): Request
     requeue_message(msg: Message): void
-    send(msg: Message, cancellable: Gio.Cancellable | null): Gio.InputStream
-    send_async(msg: Message, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    send(msg: Message, cancellable?: Gio.Cancellable | null): Gio.InputStream
+    send_async(msg: Message, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     send_message(msg: Message): number
     steal_connection(msg: Message): Gio.IOStream
     unpause_message(msg: Message): void
-    websocket_connect_async(msg: Message, origin: string | null, protocols: string[] | null, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    websocket_connect_async(msg: Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     websocket_connect_finish(result: Gio.AsyncResult): WebsocketConnection
     would_redirect(msg: Message): boolean
     /* Methods of GObject.Object */
@@ -2588,10 +2588,10 @@ export class Session {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2604,7 +2604,7 @@ export class Session {
     vfunc_cancel_message(msg: Message, status_code: number): void
     vfunc_flush_queue(): void
     vfunc_kick(): void
-    vfunc_queue_message(msg: Message, callback: SessionCallback | null, user_data: object | null): void
+    vfunc_queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
     vfunc_request_started(msg: Message, socket: Socket): void
     vfunc_requeue_message(msg: Message): void
     vfunc_send_message(msg: Message): number
@@ -2686,9 +2686,9 @@ export class SessionAsync {
     get_features(feature_type: number): GLib.SList
     has_feature(feature_type: number): boolean
     pause_message(msg: Message): void
-    prefetch_dns(hostname: string, cancellable: Gio.Cancellable | null, callback: AddressCallback | null, user_data: object | null): void
+    prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null, user_data?: object | null): void
     prepare_for_uri(uri: URI): void
-    queue_message(msg: Message, callback: SessionCallback | null, user_data: object | null): void
+    queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
     remove_feature_by_type(feature_type: number): void
@@ -2697,13 +2697,13 @@ export class SessionAsync {
     request_http_uri(method: string, uri: URI): RequestHTTP
     request_uri(uri: URI): Request
     requeue_message(msg: Message): void
-    send(msg: Message, cancellable: Gio.Cancellable | null): Gio.InputStream
-    send_async(msg: Message, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    send(msg: Message, cancellable?: Gio.Cancellable | null): Gio.InputStream
+    send_async(msg: Message, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     send_message(msg: Message): number
     steal_connection(msg: Message): Gio.IOStream
     unpause_message(msg: Message): void
-    websocket_connect_async(msg: Message, origin: string | null, protocols: string[] | null, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    websocket_connect_async(msg: Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     websocket_connect_finish(result: Gio.AsyncResult): WebsocketConnection
     would_redirect(msg: Message): boolean
     /* Methods of GObject.Object */
@@ -2720,10 +2720,10 @@ export class SessionAsync {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2736,7 +2736,7 @@ export class SessionAsync {
     vfunc_cancel_message(msg: Message, status_code: number): void
     vfunc_flush_queue(): void
     vfunc_kick(): void
-    vfunc_queue_message(msg: Message, callback: SessionCallback | null, user_data: object | null): void
+    vfunc_queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
     vfunc_request_started(msg: Message, socket: Socket): void
     vfunc_requeue_message(msg: Message): void
     vfunc_send_message(msg: Message): number
@@ -2818,9 +2818,9 @@ export class SessionSync {
     get_features(feature_type: number): GLib.SList
     has_feature(feature_type: number): boolean
     pause_message(msg: Message): void
-    prefetch_dns(hostname: string, cancellable: Gio.Cancellable | null, callback: AddressCallback | null, user_data: object | null): void
+    prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null, user_data?: object | null): void
     prepare_for_uri(uri: URI): void
-    queue_message(msg: Message, callback: SessionCallback | null, user_data: object | null): void
+    queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
     remove_feature_by_type(feature_type: number): void
@@ -2829,13 +2829,13 @@ export class SessionSync {
     request_http_uri(method: string, uri: URI): RequestHTTP
     request_uri(uri: URI): Request
     requeue_message(msg: Message): void
-    send(msg: Message, cancellable: Gio.Cancellable | null): Gio.InputStream
-    send_async(msg: Message, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    send(msg: Message, cancellable?: Gio.Cancellable | null): Gio.InputStream
+    send_async(msg: Message, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     send_finish(result: Gio.AsyncResult): Gio.InputStream
     send_message(msg: Message): number
     steal_connection(msg: Message): Gio.IOStream
     unpause_message(msg: Message): void
-    websocket_connect_async(msg: Message, origin: string | null, protocols: string[] | null, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null, user_data: object | null): void
+    websocket_connect_async(msg: Message, origin?: string | null, protocols?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null, user_data?: object | null): void
     websocket_connect_finish(result: Gio.AsyncResult): WebsocketConnection
     would_redirect(msg: Message): boolean
     /* Methods of GObject.Object */
@@ -2852,10 +2852,10 @@ export class SessionSync {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -2868,7 +2868,7 @@ export class SessionSync {
     vfunc_cancel_message(msg: Message, status_code: number): void
     vfunc_flush_queue(): void
     vfunc_kick(): void
-    vfunc_queue_message(msg: Message, callback: SessionCallback | null, user_data: object | null): void
+    vfunc_queue_message(msg: Message, callback?: SessionCallback | null, user_data?: object | null): void
     vfunc_request_started(msg: Message, socket: Socket): void
     vfunc_requeue_message(msg: Message): void
     vfunc_send_message(msg: Message): number
@@ -2942,8 +2942,8 @@ export class Socket {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.Socket */
-    connect_async(cancellable: Gio.Cancellable | null, callback: SocketCallback, user_data: object | null): void
-    connect_sync(cancellable: Gio.Cancellable | null): number
+    connect_async(cancellable: Gio.Cancellable | null, callback: SocketCallback, user_data?: object | null): void
+    connect_sync(cancellable?: Gio.Cancellable | null): number
     disconnect(): void
     get_fd(): number
     get_local_address(): Address
@@ -2951,11 +2951,11 @@ export class Socket {
     is_connected(): boolean
     is_ssl(): boolean
     listen(): boolean
-    read(buffer: Gjs.byteArray.ByteArray, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
-    read_until(buffer: Gjs.byteArray.ByteArray, boundary: object | null, boundary_len: number, got_boundary: boolean, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
-    start_proxy_ssl(ssl_host: string, cancellable: Gio.Cancellable | null): boolean
-    start_ssl(cancellable: Gio.Cancellable | null): boolean
-    write(buffer: Gjs.byteArray.ByteArray, cancellable: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
+    read(buffer: Gjs.byteArray.ByteArray, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    read_until(buffer: Gjs.byteArray.ByteArray, boundary: object | null, boundary_len: number, got_boundary: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nread */ number ]
+    start_proxy_ssl(ssl_host: string, cancellable?: Gio.Cancellable | null): boolean
+    start_ssl(cancellable?: Gio.Cancellable | null): boolean
+    write(buffer: Gjs.byteArray.ByteArray, cancellable?: Gio.Cancellable | null): [ /* returnType */ SocketIOStatus, /* nwrote */ number ]
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2970,10 +2970,10 @@ export class Socket {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3032,7 +3032,7 @@ export class WebsocketConnection {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.WebsocketConnection */
-    close(code: number, data: string | null): void
+    close(code: number, data?: string | null): void
     get_close_code(): number
     get_close_data(): string
     get_connection_type(): WebsocketConnectionType
@@ -3061,10 +3061,10 @@ export class WebsocketConnection {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval: object | null, newval: object | null, destroy: GLib.DestroyNotify | null, old_destroy: GLib.DestroyNotify | null): boolean
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data: object | null): void
+    set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -3099,7 +3099,7 @@ export class WebsocketConnection {
     static name: string
     static new (config?: WebsocketConnection_ConstructProps): WebsocketConnection
     constructor (config?: WebsocketConnection_ConstructProps)
-    static new(stream: Gio.IOStream, uri: URI, type: WebsocketConnectionType, origin: string | null, protocol: string | null): WebsocketConnection
+    static new(stream: Gio.IOStream, uri: URI, type: WebsocketConnectionType, origin?: string | null, protocol?: string | null): WebsocketConnection
 }
 export class AuthManagerPrivate {
     static name: string
@@ -3119,7 +3119,7 @@ export class Buffer {
     static new(data: Gjs.byteArray.ByteArray, length: number): Buffer
     constructor(data: Gjs.byteArray.ByteArray, length: number)
     static new(data: Gjs.byteArray.ByteArray, length: number): Buffer
-    static new_with_owner(data: Gjs.byteArray.ByteArray, length: number, owner: object | null, owner_dnotify: GLib.DestroyNotify | null): Buffer
+    static new_with_owner(data: Gjs.byteArray.ByteArray, length: number, owner?: object | null, owner_dnotify?: GLib.DestroyNotify | null): Buffer
 }
 export class CachePrivate {
     static name: string
@@ -3243,7 +3243,7 @@ export class MessageHeaders {
     append(name: string, value: string): void
     clean_connection_headers(): void
     clear(): void
-    foreach(func: MessageHeadersForeachFunc, user_data: object | null): void
+    foreach(func: MessageHeadersForeachFunc, user_data?: object | null): void
     free(): void
     free_ranges(ranges: Range): void
     get(name: string): string | null
@@ -3261,10 +3261,10 @@ export class MessageHeaders {
     header_equals(name: string, value: string): boolean
     remove(name: string): void
     replace(name: string, value: string): void
-    set_content_disposition(disposition: string, params: GLib.HashTable | null): void
+    set_content_disposition(disposition: string, params?: GLib.HashTable | null): void
     set_content_length(content_length: number): void
     set_content_range(start: number, end: number, total_length: number): void
-    set_content_type(content_type: string, params: GLib.HashTable | null): void
+    set_content_type(content_type: string, params?: GLib.HashTable | null): void
     set_encoding(encoding: Encoding): void
     set_expectations(expectations: Expectation): void
     set_range(start: number, end: number): void
@@ -3352,24 +3352,24 @@ export class URI {
     host_equal(v2: URI): boolean
     host_hash(): number
     new_with_base(uri_string: string): URI
-    set_fragment(fragment: string | null): void
-    set_host(host: string | null): void
-    set_password(password: string | null): void
+    set_fragment(fragment?: string | null): void
+    set_host(host?: string | null): void
+    set_password(password?: string | null): void
     set_path(path: string): void
     set_port(port: number): void
-    set_query(query: string | null): void
+    set_query(query?: string | null): void
     set_query_from_form(form: GLib.HashTable): void
     set_scheme(scheme: string): void
-    set_user(user: string | null): void
+    set_user(user?: string | null): void
     to_string(just_path_and_query: boolean): string
     uses_default_port(): boolean
     static name: string
-    static new(uri_string: string | null): URI | null
-    constructor(uri_string: string | null)
-    static new(uri_string: string | null): URI | null
+    static new(uri_string?: string | null): URI | null
+    constructor(uri_string?: string | null)
+    static new(uri_string?: string | null): URI | null
     static decode(part: string): string
-    static encode(part: string, escape_extra: string | null): string
-    static normalize(part: string, unescape_extra: string | null): string
+    static encode(part: string, escape_extra?: string | null): string
+    static normalize(part: string, unescape_extra?: string | null): string
 }
 export class WebsocketConnectionPrivate {
     static name: string
@@ -3377,6 +3377,6 @@ export class WebsocketConnectionPrivate {
 export class XMLRPCParams {
     /* Methods of Soup.XMLRPCParams */
     free(): void
-    parse(signature: string | null): GLib.Variant
+    parse(signature?: string | null): GLib.Variant
     static name: string
 }

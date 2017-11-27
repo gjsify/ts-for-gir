@@ -361,13 +361,13 @@ export class Binding {
     unref(): void
     watch_closure(closure: Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
-    vfunc_notify(pspec: ParamSpec): void
-    vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: Value, pspec: ParamSpec): void
+    vfunc_notify?(pspec: ParamSpec): void
+    vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Binding, pspec: ParamSpec) => void))
     static name: string
@@ -405,13 +405,13 @@ export class InitiallyUnowned {
     unref(): void
     watch_closure(closure: Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
-    vfunc_notify(pspec: ParamSpec): void
-    vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: Value, pspec: ParamSpec): void
+    vfunc_notify?(pspec: ParamSpec): void
+    vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: InitiallyUnowned, pspec: ParamSpec) => void))
     static name: string
@@ -448,13 +448,13 @@ export class Object {
     unref(): void
     watch_closure(closure: Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
-    vfunc_notify(pspec: ParamSpec): void
-    vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: Value, pspec: ParamSpec): void
+    vfunc_notify?(pspec: ParamSpec): void
+    vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Object, pspec: ParamSpec) => void))
     static name: string
@@ -486,10 +486,10 @@ export class ParamSpec {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecBoolean {
@@ -514,10 +514,10 @@ export class ParamSpecBoolean {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecBoxed {
@@ -541,10 +541,10 @@ export class ParamSpecBoxed {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecChar {
@@ -571,10 +571,10 @@ export class ParamSpecChar {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecDouble {
@@ -602,10 +602,10 @@ export class ParamSpecDouble {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecEnum {
@@ -631,10 +631,10 @@ export class ParamSpecEnum {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecFlags {
@@ -660,10 +660,10 @@ export class ParamSpecFlags {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecFloat {
@@ -691,10 +691,10 @@ export class ParamSpecFloat {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecGType {
@@ -719,10 +719,10 @@ export class ParamSpecGType {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecInt {
@@ -749,10 +749,10 @@ export class ParamSpecInt {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecInt64 {
@@ -779,10 +779,10 @@ export class ParamSpecInt64 {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecLong {
@@ -809,10 +809,10 @@ export class ParamSpecLong {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecObject {
@@ -836,10 +836,10 @@ export class ParamSpecObject {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecOverride {
@@ -862,10 +862,10 @@ export class ParamSpecOverride {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecParam {
@@ -889,10 +889,10 @@ export class ParamSpecParam {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecPointer {
@@ -916,10 +916,10 @@ export class ParamSpecPointer {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecString {
@@ -949,10 +949,10 @@ export class ParamSpecString {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecUChar {
@@ -979,10 +979,10 @@ export class ParamSpecUChar {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecUInt {
@@ -1009,10 +1009,10 @@ export class ParamSpecUInt {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecUInt64 {
@@ -1039,10 +1039,10 @@ export class ParamSpecUInt64 {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecULong {
@@ -1069,10 +1069,10 @@ export class ParamSpecULong {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecUnichar {
@@ -1097,10 +1097,10 @@ export class ParamSpecUnichar {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecValueArray {
@@ -1126,10 +1126,10 @@ export class ParamSpecValueArray {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export class ParamSpecVariant {
@@ -1155,10 +1155,10 @@ export class ParamSpecVariant {
     sink(): void
     steal_qdata(quark: GLib.Quark): object | null
     /* Virtual methods of GObject.ParamSpec */
-    vfunc_finalize(): void
-    vfunc_value_set_default(value: Value): void
-    vfunc_value_validate(value: Value): boolean
-    vfunc_values_cmp(value1: Value, value2: Value): number
+    vfunc_finalize?(): void
+    vfunc_value_set_default?(value: Value): void
+    vfunc_value_validate?(value: Value): boolean
+    vfunc_values_cmp?(value1: Value, value2: Value): number
     static name: string
 }
 export interface TypeModule_ConstructProps extends Object_ConstructProps {
@@ -1208,16 +1208,16 @@ export class TypeModule {
     complete_interface_info(instance_type: number, interface_type: number, info: InterfaceInfo): void
     complete_type_info(g_type: number, info: TypeInfo, value_table: TypeValueTable): void
     /* Virtual methods of GObject.TypeModule */
-    vfunc_load(): boolean
-    vfunc_unload(): void
+    vfunc_load?(): boolean
+    vfunc_unload?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void
-    vfunc_notify(pspec: ParamSpec): void
-    vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: Value, pspec: ParamSpec): void
+    vfunc_notify?(pspec: ParamSpec): void
+    vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: TypeModule, pspec: ParamSpec) => void))
     static name: string

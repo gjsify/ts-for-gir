@@ -915,7 +915,14 @@ export class GirModule {
                 def.push(`    /* Virtual methods of ${cls._fullSymName} */`)
                 for (let f of vmeth) {
                     let [desc, name] = this.getFunction(f, "    ", "vfunc_")
-                    def = def.concat(checkName(desc, name, localNames)[0])
+
+                    desc = checkName(desc, name, localNames)[0]
+
+                    if (desc[0]) {
+                        desc[0] = desc[0].replace("(", "?(")
+                    }
+
+                    def = def.concat(desc)
                 }
             }
         })

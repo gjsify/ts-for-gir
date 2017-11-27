@@ -279,8 +279,8 @@ export class PermissionRequest {
     allow(): void
     deny(): void
     /* Virtual methods of WebKit2.PermissionRequest */
-    vfunc_allow(): void
-    vfunc_deny(): void
+    vfunc_allow?(): void
+    vfunc_deny?(): void
     static name: string
 }
 export interface AuthenticationRequest_ConstructProps extends GObject.Object_ConstructProps {
@@ -326,13 +326,13 @@ export class AuthenticationRequest {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.AuthenticationRequest */
     connect(sigName: "cancelled", callback: ((obj: AuthenticationRequest) => void))
     /* Signals of GObject.Object */
@@ -380,13 +380,13 @@ export class AutomationSession {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.AutomationSession */
     connect(sigName: "create-web-view", callback: ((obj: AutomationSession) => WebView))
     /* Signals of GObject.Object */
@@ -438,13 +438,13 @@ export class BackForwardList {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.BackForwardList */
     connect(sigName: "changed", callback: ((obj: BackForwardList, item_added?: BackForwardListItem | null, items_removed?: object | null) => void))
     /* Signals of GObject.Object */
@@ -491,13 +491,13 @@ export class BackForwardListItem {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: BackForwardListItem, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -545,13 +545,13 @@ export class ColorChooserRequest {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.ColorChooserRequest */
     connect(sigName: "finished", callback: ((obj: ColorChooserRequest) => void))
     /* Signals of GObject.Object */
@@ -608,13 +608,13 @@ export class ContextMenu {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ContextMenu, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -664,13 +664,13 @@ export class ContextMenuItem {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ContextMenuItem, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -725,13 +725,13 @@ export class CookieManager {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.CookieManager */
     connect(sigName: "changed", callback: ((obj: CookieManager) => void))
     /* Signals of GObject.Object */
@@ -791,15 +791,15 @@ export class Download {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of WebKit2.Download */
-    vfunc_decide_destination(suggested_filename: string): boolean
+    vfunc_decide_destination?(suggested_filename: string): boolean
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.Download */
     connect(sigName: "created-destination", callback: ((obj: Download, destination: string) => void))
     connect(sigName: "decide-destination", callback: ((obj: Download, suggested_filename: string) => boolean))
@@ -853,13 +853,13 @@ export class EditorState {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: EditorState, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::typing-attributes", callback: ((obj: EditorState, pspec: GObject.ParamSpec) => void))
@@ -905,13 +905,13 @@ export class FaviconDatabase {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.FaviconDatabase */
     connect(sigName: "favicon-changed", callback: ((obj: FaviconDatabase, page_uri: string, favicon_uri: string) => void))
     /* Signals of GObject.Object */
@@ -964,13 +964,13 @@ export class FileChooserRequest {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::filter", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void))
@@ -1028,13 +1028,13 @@ export class FindController {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.FindController */
     connect(sigName: "counted-matches", callback: ((obj: FindController, match_count: number) => void))
     connect(sigName: "failed-to-find-text", callback: ((obj: FindController) => void))
@@ -1083,13 +1083,13 @@ export class FormSubmissionRequest {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1131,13 +1131,13 @@ export class GeolocationPermissionRequest {
     allow(): void
     deny(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1197,13 +1197,13 @@ export class HitTestResult {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: HitTestResult, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1248,13 +1248,13 @@ export class InstallMissingMediaPluginsPermissionRequest {
     allow(): void
     deny(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1312,13 +1312,13 @@ export class NavigationPolicyDecision {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::frame-name", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void))
@@ -1376,13 +1376,13 @@ export class Notification {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.Notification */
     connect(sigName: "clicked", callback: ((obj: Notification) => void))
     connect(sigName: "closed", callback: ((obj: Notification) => void))
@@ -1431,13 +1431,13 @@ export class NotificationPermissionRequest {
     allow(): void
     deny(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1483,13 +1483,13 @@ export class OptionMenu {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.OptionMenu */
     connect(sigName: "close", callback: ((obj: OptionMenu) => void))
     /* Signals of GObject.Object */
@@ -1536,13 +1536,13 @@ export class Plugin {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Plugin, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1585,13 +1585,13 @@ export class PolicyDecision {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PolicyDecision, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1637,16 +1637,16 @@ export class PrintCustomWidget {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of WebKit2.PrintCustomWidget */
-    vfunc_apply(widget: Gtk.Widget): void
-    vfunc_update(widget: Gtk.Widget, page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings): void
+    vfunc_apply?(widget: Gtk.Widget): void
+    vfunc_update?(widget: Gtk.Widget, page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.PrintCustomWidget */
     connect(sigName: "apply", callback: ((obj: PrintCustomWidget) => void))
     connect(sigName: "update", callback: ((obj: PrintCustomWidget, page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings) => void))
@@ -1703,13 +1703,13 @@ export class PrintOperation {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.PrintOperation */
     connect(sigName: "create-custom-widget", callback: ((obj: PrintOperation) => PrintCustomWidget))
     connect(sigName: "failed", callback: ((obj: PrintOperation, error: GLib.Error) => void))
@@ -1767,13 +1767,13 @@ export class ResponsePolicyDecision {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::request", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void))
@@ -1828,13 +1828,13 @@ export class SecurityManager {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SecurityManager, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -2081,13 +2081,13 @@ export class Settings {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::allow-file-access-from-file-urls", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void))
@@ -2186,13 +2186,13 @@ export class URIRequest {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: URIRequest, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::uri", callback: ((obj: URIRequest, pspec: GObject.ParamSpec) => void))
@@ -2247,13 +2247,13 @@ export class URIResponse {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::content-length", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void))
@@ -2306,13 +2306,13 @@ export class URISchemeRequest {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: URISchemeRequest, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -2358,13 +2358,13 @@ export class UserContentManager {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.UserContentManager */
     connect(sigName: "script-message-received", callback: ((obj: UserContentManager, js_result: JavascriptResult) => void))
     /* Signals of GObject.Object */
@@ -2412,13 +2412,13 @@ export class UserMediaPermissionRequest {
     allow(): void
     deny(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::is-for-audio-device", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void))
@@ -2498,18 +2498,18 @@ export class WebContext {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of WebKit2.WebContext */
-    vfunc_automation_started(session: AutomationSession): void
-    vfunc_download_started(download: Download): void
-    vfunc_initialize_notification_permissions(): void
-    vfunc_initialize_web_extensions(): void
+    vfunc_automation_started?(session: AutomationSession): void
+    vfunc_download_started?(download: Download): void
+    vfunc_initialize_notification_permissions?(): void
+    vfunc_initialize_web_extensions?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.WebContext */
     connect(sigName: "automation-started", callback: ((obj: WebContext, session: AutomationSession) => void))
     connect(sigName: "download-started", callback: ((obj: WebContext, download: Download) => void))
@@ -2572,13 +2572,13 @@ export class WebInspector {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.WebInspector */
     connect(sigName: "attach", callback: ((obj: WebInspector) => boolean))
     connect(sigName: "bring-to-front", callback: ((obj: WebInspector) => boolean))
@@ -2634,13 +2634,13 @@ export class WebResource {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.WebResource */
     connect(sigName: "failed", callback: ((obj: WebResource, error: GLib.Error) => void))
     connect(sigName: "failed-with-tls-errors", callback: ((obj: WebResource, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void))
@@ -3112,132 +3112,132 @@ export class WebView {
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     /* Virtual methods of WebKit2.WebView */
-    vfunc_authenticate(request: AuthenticationRequest): boolean
-    vfunc_close(): void
-    vfunc_context_menu(context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult): boolean
-    vfunc_context_menu_dismissed(): void
-    vfunc_decide_policy(decision: PolicyDecision, type: PolicyDecisionType): boolean
-    vfunc_enter_fullscreen(): boolean
-    vfunc_insecure_content_detected(event: InsecureContentEvent): void
-    vfunc_leave_fullscreen(): boolean
-    vfunc_load_changed(load_event: LoadEvent): void
-    vfunc_load_failed(load_event: LoadEvent, failing_uri: string, error: GLib.Error): boolean
-    vfunc_load_failed_with_tls_errors(failing_uri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): boolean
-    vfunc_mouse_target_changed(hit_test_result: HitTestResult, modifiers: number): void
-    vfunc_permission_request(permission_request: PermissionRequest): boolean
-    vfunc_print(print_operation: PrintOperation): boolean
-    vfunc_ready_to_show(): void
-    vfunc_resource_load_started(resource: WebResource, request: URIRequest): void
-    vfunc_run_as_modal(): void
-    vfunc_run_color_chooser(request: ColorChooserRequest): boolean
-    vfunc_run_file_chooser(request: FileChooserRequest): boolean
-    vfunc_script_dialog(dialog: ScriptDialog): boolean
-    vfunc_show_notification(notification: Notification): boolean
-    vfunc_show_option_menu(rectangle: Gdk.Rectangle, menu: OptionMenu): boolean
-    vfunc_submit_form(request: FormSubmissionRequest): void
-    vfunc_web_process_crashed(): boolean
+    vfunc_authenticate?(request: AuthenticationRequest): boolean
+    vfunc_close?(): void
+    vfunc_context_menu?(context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult): boolean
+    vfunc_context_menu_dismissed?(): void
+    vfunc_decide_policy?(decision: PolicyDecision, type: PolicyDecisionType): boolean
+    vfunc_enter_fullscreen?(): boolean
+    vfunc_insecure_content_detected?(event: InsecureContentEvent): void
+    vfunc_leave_fullscreen?(): boolean
+    vfunc_load_changed?(load_event: LoadEvent): void
+    vfunc_load_failed?(load_event: LoadEvent, failing_uri: string, error: GLib.Error): boolean
+    vfunc_load_failed_with_tls_errors?(failing_uri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): boolean
+    vfunc_mouse_target_changed?(hit_test_result: HitTestResult, modifiers: number): void
+    vfunc_permission_request?(permission_request: PermissionRequest): boolean
+    vfunc_print?(print_operation: PrintOperation): boolean
+    vfunc_ready_to_show?(): void
+    vfunc_resource_load_started?(resource: WebResource, request: URIRequest): void
+    vfunc_run_as_modal?(): void
+    vfunc_run_color_chooser?(request: ColorChooserRequest): boolean
+    vfunc_run_file_chooser?(request: FileChooserRequest): boolean
+    vfunc_script_dialog?(dialog: ScriptDialog): boolean
+    vfunc_show_notification?(notification: Notification): boolean
+    vfunc_show_option_menu?(rectangle: Gdk.Rectangle, menu: OptionMenu): boolean
+    vfunc_submit_form?(request: FormSubmissionRequest): void
+    vfunc_web_process_crashed?(): boolean
     /* Virtual methods of Gtk.Container */
-    vfunc_add(widget: Gtk.Widget): void
-    vfunc_check_resize(): void
-    vfunc_child_type(): number
-    vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
-    vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child?: Gtk.Widget | null): void
+    vfunc_add?(widget: Gtk.Widget): void
+    vfunc_check_resize?(): void
+    vfunc_child_type?(): number
+    vfunc_composite_name?(child: Gtk.Widget): string
+    vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
+    vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_get_path_for_child?(child: Gtk.Widget): Gtk.WidgetPath
+    vfunc_remove?(widget: Gtk.Widget): void
+    vfunc_set_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_set_focus_child?(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
-    vfunc_adjust_baseline_allocation(baseline: number): void
-    vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
-    vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
-    vfunc_adjust_size_request(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
-    vfunc_button_press_event(event: Gdk.EventButton): boolean
-    vfunc_button_release_event(event: Gdk.EventButton): boolean
-    vfunc_can_activate_accel(signal_id: number): boolean
-    vfunc_child_notify(child_property: GObject.ParamSpec): void
-    vfunc_composited_changed(): void
-    vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
-    vfunc_configure_event(event: Gdk.EventConfigure): boolean
-    vfunc_damage_event(event: Gdk.EventExpose): boolean
-    vfunc_delete_event(event: Gdk.EventAny): boolean
-    vfunc_destroy(): void
-    vfunc_destroy_event(event: Gdk.EventAny): boolean
-    vfunc_direction_changed(previous_direction: Gtk.TextDirection): void
-    vfunc_dispatch_child_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_drag_begin(context: Gdk.DragContext): void
-    vfunc_drag_data_delete(context: Gdk.DragContext): void
-    vfunc_drag_data_get(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_data_received(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_drop(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_drag_end(context: Gdk.DragContext): void
-    vfunc_drag_failed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfunc_drag_leave(context: Gdk.DragContext, time_: number): void
-    vfunc_drag_motion(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_draw(cr: cairo.Context): boolean
-    vfunc_enter_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_event(event: Gdk.Event): boolean
-    vfunc_focus(direction: Gtk.DirectionType): boolean
-    vfunc_focus_in_event(event: Gdk.EventFocus): boolean
-    vfunc_focus_out_event(event: Gdk.EventFocus): boolean
-    vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
-    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_request_mode(): Gtk.SizeRequestMode
-    vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
-    vfunc_grab_focus(): void
-    vfunc_grab_notify(was_grabbed: boolean): void
-    vfunc_hide(): void
-    vfunc_hierarchy_changed(previous_toplevel: Gtk.Widget): void
-    vfunc_key_press_event(event: Gdk.EventKey): boolean
-    vfunc_key_release_event(event: Gdk.EventKey): boolean
-    vfunc_keynav_failed(direction: Gtk.DirectionType): boolean
-    vfunc_leave_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_map(): void
-    vfunc_map_event(event: Gdk.EventAny): boolean
-    vfunc_mnemonic_activate(group_cycling: boolean): boolean
-    vfunc_motion_notify_event(event: Gdk.EventMotion): boolean
-    vfunc_move_focus(direction: Gtk.DirectionType): void
-    vfunc_parent_set(previous_parent: Gtk.Widget): void
-    vfunc_popup_menu(): boolean
-    vfunc_property_notify_event(event: Gdk.EventProperty): boolean
-    vfunc_proximity_in_event(event: Gdk.EventProximity): boolean
-    vfunc_proximity_out_event(event: Gdk.EventProximity): boolean
-    vfunc_query_tooltip(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw_region(region: cairo.Region): void
-    vfunc_realize(): void
-    vfunc_screen_changed(previous_screen: Gdk.Screen): void
-    vfunc_scroll_event(event: Gdk.EventScroll): boolean
-    vfunc_selection_clear_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_get(selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_selection_notify_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_received(selection_data: Gtk.SelectionData, time_: number): void
-    vfunc_selection_request_event(event: Gdk.EventSelection): boolean
-    vfunc_show(): void
-    vfunc_show_all(): void
-    vfunc_show_help(help_type: Gtk.WidgetHelpType): boolean
-    vfunc_size_allocate(allocation: Gtk.Allocation): void
-    vfunc_state_changed(previous_state: Gtk.StateType): void
-    vfunc_state_flags_changed(previous_state_flags: Gtk.StateFlags): void
-    vfunc_style_set(previous_style: Gtk.Style): void
-    vfunc_style_updated(): void
-    vfunc_touch_event(event: Gdk.EventTouch): boolean
-    vfunc_unmap(): void
-    vfunc_unmap_event(event: Gdk.EventAny): boolean
-    vfunc_unrealize(): void
-    vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
-    vfunc_window_state_event(event: Gdk.EventWindowState): boolean
+    vfunc_adjust_baseline_allocation?(baseline: number): void
+    vfunc_adjust_baseline_request?(minimum_baseline: number, natural_baseline: number): void
+    vfunc_adjust_size_allocation?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
+    vfunc_adjust_size_request?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
+    vfunc_button_press_event?(event: Gdk.EventButton): boolean
+    vfunc_button_release_event?(event: Gdk.EventButton): boolean
+    vfunc_can_activate_accel?(signal_id: number): boolean
+    vfunc_child_notify?(child_property: GObject.ParamSpec): void
+    vfunc_composited_changed?(): void
+    vfunc_compute_expand?(hexpand_p: boolean, vexpand_p: boolean): void
+    vfunc_configure_event?(event: Gdk.EventConfigure): boolean
+    vfunc_damage_event?(event: Gdk.EventExpose): boolean
+    vfunc_delete_event?(event: Gdk.EventAny): boolean
+    vfunc_destroy?(): void
+    vfunc_destroy_event?(event: Gdk.EventAny): boolean
+    vfunc_direction_changed?(previous_direction: Gtk.TextDirection): void
+    vfunc_dispatch_child_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_drag_begin?(context: Gdk.DragContext): void
+    vfunc_drag_data_delete?(context: Gdk.DragContext): void
+    vfunc_drag_data_get?(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_data_received?(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_drop?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_drag_end?(context: Gdk.DragContext): void
+    vfunc_drag_failed?(context: Gdk.DragContext, result: Gtk.DragResult): boolean
+    vfunc_drag_leave?(context: Gdk.DragContext, time_: number): void
+    vfunc_drag_motion?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_draw?(cr: cairo.Context): boolean
+    vfunc_enter_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_event?(event: Gdk.Event): boolean
+    vfunc_focus?(direction: Gtk.DirectionType): boolean
+    vfunc_focus_in_event?(event: Gdk.EventFocus): boolean
+    vfunc_focus_out_event?(event: Gdk.EventFocus): boolean
+    vfunc_get_accessible?(): Atk.Object
+    vfunc_get_preferred_height?(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width?(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height?(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_request_mode?(): Gtk.SizeRequestMode
+    vfunc_grab_broken_event?(event: Gdk.EventGrabBroken): boolean
+    vfunc_grab_focus?(): void
+    vfunc_grab_notify?(was_grabbed: boolean): void
+    vfunc_hide?(): void
+    vfunc_hierarchy_changed?(previous_toplevel: Gtk.Widget): void
+    vfunc_key_press_event?(event: Gdk.EventKey): boolean
+    vfunc_key_release_event?(event: Gdk.EventKey): boolean
+    vfunc_keynav_failed?(direction: Gtk.DirectionType): boolean
+    vfunc_leave_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_map?(): void
+    vfunc_map_event?(event: Gdk.EventAny): boolean
+    vfunc_mnemonic_activate?(group_cycling: boolean): boolean
+    vfunc_motion_notify_event?(event: Gdk.EventMotion): boolean
+    vfunc_move_focus?(direction: Gtk.DirectionType): void
+    vfunc_parent_set?(previous_parent: Gtk.Widget): void
+    vfunc_popup_menu?(): boolean
+    vfunc_property_notify_event?(event: Gdk.EventProperty): boolean
+    vfunc_proximity_in_event?(event: Gdk.EventProximity): boolean
+    vfunc_proximity_out_event?(event: Gdk.EventProximity): boolean
+    vfunc_query_tooltip?(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw_region?(region: cairo.Region): void
+    vfunc_realize?(): void
+    vfunc_screen_changed?(previous_screen: Gdk.Screen): void
+    vfunc_scroll_event?(event: Gdk.EventScroll): boolean
+    vfunc_selection_clear_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_get?(selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_selection_notify_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_received?(selection_data: Gtk.SelectionData, time_: number): void
+    vfunc_selection_request_event?(event: Gdk.EventSelection): boolean
+    vfunc_show?(): void
+    vfunc_show_all?(): void
+    vfunc_show_help?(help_type: Gtk.WidgetHelpType): boolean
+    vfunc_size_allocate?(allocation: Gtk.Allocation): void
+    vfunc_state_changed?(previous_state: Gtk.StateType): void
+    vfunc_state_flags_changed?(previous_state_flags: Gtk.StateFlags): void
+    vfunc_style_set?(previous_style: Gtk.Style): void
+    vfunc_style_updated?(): void
+    vfunc_touch_event?(event: Gdk.EventTouch): boolean
+    vfunc_unmap?(): void
+    vfunc_unmap_event?(event: Gdk.EventAny): boolean
+    vfunc_unrealize?(): void
+    vfunc_visibility_notify_event?(event: Gdk.EventVisibility): boolean
+    vfunc_window_state_event?(event: Gdk.EventWindowState): boolean
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of WebKit2.WebView */
     connect(sigName: "authenticate", callback: ((obj: WebView, request: AuthenticationRequest) => boolean))
     connect(sigName: "close", callback: ((obj: WebView) => void))
@@ -3778,107 +3778,107 @@ export class WebViewBase {
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     /* Virtual methods of Gtk.Container */
-    vfunc_add(widget: Gtk.Widget): void
-    vfunc_check_resize(): void
-    vfunc_child_type(): number
-    vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
-    vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child?: Gtk.Widget | null): void
+    vfunc_add?(widget: Gtk.Widget): void
+    vfunc_check_resize?(): void
+    vfunc_child_type?(): number
+    vfunc_composite_name?(child: Gtk.Widget): string
+    vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
+    vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_get_path_for_child?(child: Gtk.Widget): Gtk.WidgetPath
+    vfunc_remove?(widget: Gtk.Widget): void
+    vfunc_set_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_set_focus_child?(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
-    vfunc_adjust_baseline_allocation(baseline: number): void
-    vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
-    vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
-    vfunc_adjust_size_request(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
-    vfunc_button_press_event(event: Gdk.EventButton): boolean
-    vfunc_button_release_event(event: Gdk.EventButton): boolean
-    vfunc_can_activate_accel(signal_id: number): boolean
-    vfunc_child_notify(child_property: GObject.ParamSpec): void
-    vfunc_composited_changed(): void
-    vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
-    vfunc_configure_event(event: Gdk.EventConfigure): boolean
-    vfunc_damage_event(event: Gdk.EventExpose): boolean
-    vfunc_delete_event(event: Gdk.EventAny): boolean
-    vfunc_destroy(): void
-    vfunc_destroy_event(event: Gdk.EventAny): boolean
-    vfunc_direction_changed(previous_direction: Gtk.TextDirection): void
-    vfunc_dispatch_child_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_drag_begin(context: Gdk.DragContext): void
-    vfunc_drag_data_delete(context: Gdk.DragContext): void
-    vfunc_drag_data_get(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_data_received(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_drop(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_drag_end(context: Gdk.DragContext): void
-    vfunc_drag_failed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfunc_drag_leave(context: Gdk.DragContext, time_: number): void
-    vfunc_drag_motion(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_draw(cr: cairo.Context): boolean
-    vfunc_enter_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_event(event: Gdk.Event): boolean
-    vfunc_focus(direction: Gtk.DirectionType): boolean
-    vfunc_focus_in_event(event: Gdk.EventFocus): boolean
-    vfunc_focus_out_event(event: Gdk.EventFocus): boolean
-    vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
-    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_request_mode(): Gtk.SizeRequestMode
-    vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
-    vfunc_grab_focus(): void
-    vfunc_grab_notify(was_grabbed: boolean): void
-    vfunc_hide(): void
-    vfunc_hierarchy_changed(previous_toplevel: Gtk.Widget): void
-    vfunc_key_press_event(event: Gdk.EventKey): boolean
-    vfunc_key_release_event(event: Gdk.EventKey): boolean
-    vfunc_keynav_failed(direction: Gtk.DirectionType): boolean
-    vfunc_leave_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_map(): void
-    vfunc_map_event(event: Gdk.EventAny): boolean
-    vfunc_mnemonic_activate(group_cycling: boolean): boolean
-    vfunc_motion_notify_event(event: Gdk.EventMotion): boolean
-    vfunc_move_focus(direction: Gtk.DirectionType): void
-    vfunc_parent_set(previous_parent: Gtk.Widget): void
-    vfunc_popup_menu(): boolean
-    vfunc_property_notify_event(event: Gdk.EventProperty): boolean
-    vfunc_proximity_in_event(event: Gdk.EventProximity): boolean
-    vfunc_proximity_out_event(event: Gdk.EventProximity): boolean
-    vfunc_query_tooltip(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw_region(region: cairo.Region): void
-    vfunc_realize(): void
-    vfunc_screen_changed(previous_screen: Gdk.Screen): void
-    vfunc_scroll_event(event: Gdk.EventScroll): boolean
-    vfunc_selection_clear_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_get(selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_selection_notify_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_received(selection_data: Gtk.SelectionData, time_: number): void
-    vfunc_selection_request_event(event: Gdk.EventSelection): boolean
-    vfunc_show(): void
-    vfunc_show_all(): void
-    vfunc_show_help(help_type: Gtk.WidgetHelpType): boolean
-    vfunc_size_allocate(allocation: Gtk.Allocation): void
-    vfunc_state_changed(previous_state: Gtk.StateType): void
-    vfunc_state_flags_changed(previous_state_flags: Gtk.StateFlags): void
-    vfunc_style_set(previous_style: Gtk.Style): void
-    vfunc_style_updated(): void
-    vfunc_touch_event(event: Gdk.EventTouch): boolean
-    vfunc_unmap(): void
-    vfunc_unmap_event(event: Gdk.EventAny): boolean
-    vfunc_unrealize(): void
-    vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
-    vfunc_window_state_event(event: Gdk.EventWindowState): boolean
+    vfunc_adjust_baseline_allocation?(baseline: number): void
+    vfunc_adjust_baseline_request?(minimum_baseline: number, natural_baseline: number): void
+    vfunc_adjust_size_allocation?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
+    vfunc_adjust_size_request?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
+    vfunc_button_press_event?(event: Gdk.EventButton): boolean
+    vfunc_button_release_event?(event: Gdk.EventButton): boolean
+    vfunc_can_activate_accel?(signal_id: number): boolean
+    vfunc_child_notify?(child_property: GObject.ParamSpec): void
+    vfunc_composited_changed?(): void
+    vfunc_compute_expand?(hexpand_p: boolean, vexpand_p: boolean): void
+    vfunc_configure_event?(event: Gdk.EventConfigure): boolean
+    vfunc_damage_event?(event: Gdk.EventExpose): boolean
+    vfunc_delete_event?(event: Gdk.EventAny): boolean
+    vfunc_destroy?(): void
+    vfunc_destroy_event?(event: Gdk.EventAny): boolean
+    vfunc_direction_changed?(previous_direction: Gtk.TextDirection): void
+    vfunc_dispatch_child_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_drag_begin?(context: Gdk.DragContext): void
+    vfunc_drag_data_delete?(context: Gdk.DragContext): void
+    vfunc_drag_data_get?(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_data_received?(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_drop?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_drag_end?(context: Gdk.DragContext): void
+    vfunc_drag_failed?(context: Gdk.DragContext, result: Gtk.DragResult): boolean
+    vfunc_drag_leave?(context: Gdk.DragContext, time_: number): void
+    vfunc_drag_motion?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_draw?(cr: cairo.Context): boolean
+    vfunc_enter_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_event?(event: Gdk.Event): boolean
+    vfunc_focus?(direction: Gtk.DirectionType): boolean
+    vfunc_focus_in_event?(event: Gdk.EventFocus): boolean
+    vfunc_focus_out_event?(event: Gdk.EventFocus): boolean
+    vfunc_get_accessible?(): Atk.Object
+    vfunc_get_preferred_height?(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width?(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height?(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_request_mode?(): Gtk.SizeRequestMode
+    vfunc_grab_broken_event?(event: Gdk.EventGrabBroken): boolean
+    vfunc_grab_focus?(): void
+    vfunc_grab_notify?(was_grabbed: boolean): void
+    vfunc_hide?(): void
+    vfunc_hierarchy_changed?(previous_toplevel: Gtk.Widget): void
+    vfunc_key_press_event?(event: Gdk.EventKey): boolean
+    vfunc_key_release_event?(event: Gdk.EventKey): boolean
+    vfunc_keynav_failed?(direction: Gtk.DirectionType): boolean
+    vfunc_leave_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_map?(): void
+    vfunc_map_event?(event: Gdk.EventAny): boolean
+    vfunc_mnemonic_activate?(group_cycling: boolean): boolean
+    vfunc_motion_notify_event?(event: Gdk.EventMotion): boolean
+    vfunc_move_focus?(direction: Gtk.DirectionType): void
+    vfunc_parent_set?(previous_parent: Gtk.Widget): void
+    vfunc_popup_menu?(): boolean
+    vfunc_property_notify_event?(event: Gdk.EventProperty): boolean
+    vfunc_proximity_in_event?(event: Gdk.EventProximity): boolean
+    vfunc_proximity_out_event?(event: Gdk.EventProximity): boolean
+    vfunc_query_tooltip?(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw_region?(region: cairo.Region): void
+    vfunc_realize?(): void
+    vfunc_screen_changed?(previous_screen: Gdk.Screen): void
+    vfunc_scroll_event?(event: Gdk.EventScroll): boolean
+    vfunc_selection_clear_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_get?(selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_selection_notify_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_received?(selection_data: Gtk.SelectionData, time_: number): void
+    vfunc_selection_request_event?(event: Gdk.EventSelection): boolean
+    vfunc_show?(): void
+    vfunc_show_all?(): void
+    vfunc_show_help?(help_type: Gtk.WidgetHelpType): boolean
+    vfunc_size_allocate?(allocation: Gtk.Allocation): void
+    vfunc_state_changed?(previous_state: Gtk.StateType): void
+    vfunc_state_flags_changed?(previous_state_flags: Gtk.StateFlags): void
+    vfunc_style_set?(previous_style: Gtk.Style): void
+    vfunc_style_updated?(): void
+    vfunc_touch_event?(event: Gdk.EventTouch): boolean
+    vfunc_unmap?(): void
+    vfunc_unmap_event?(event: Gdk.EventAny): boolean
+    vfunc_unrealize?(): void
+    vfunc_visibility_notify_event?(event: Gdk.EventVisibility): boolean
+    vfunc_window_state_event?(event: Gdk.EventWindowState): boolean
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: ((obj: WebViewBase, object: Gtk.Widget) => void))
     connect(sigName: "check-resize", callback: ((obj: WebViewBase) => void))
@@ -4060,13 +4060,13 @@ export class WebsiteDataManager {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebsiteDataManager, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -4124,13 +4124,13 @@ export class WindowProperties {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WindowProperties, pspec: GObject.ParamSpec) => void))
     static name: string

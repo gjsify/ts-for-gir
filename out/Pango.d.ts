@@ -405,13 +405,13 @@ export class Context {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -450,13 +450,13 @@ export class Engine {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Engine, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -495,15 +495,15 @@ export class EngineLang {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.EngineLang */
-    vfunc_script_break(text: string, len: number, analysis: Analysis, attrs: LogAttr, attrs_len: number): void
+    vfunc_script_break?(text: string, len: number, analysis: Analysis, attrs: LogAttr, attrs_len: number): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: EngineLang, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -543,16 +543,16 @@ export class EngineShape {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.EngineShape */
-    vfunc_covers(font: Font, language: Language, wc: number): CoverageLevel
-    vfunc_script_shape(font: Font, item_text: string, item_length: number, analysis: Analysis, glyphs: GlyphString, paragraph_text: string, paragraph_length: number): void
+    vfunc_covers?(font: Font, language: Language, wc: number): CoverageLevel
+    vfunc_script_shape?(font: Font, item_text: string, item_length: number, analysis: Analysis, glyphs: GlyphString, paragraph_text: string, paragraph_length: number): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: EngineShape, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -598,20 +598,20 @@ export class Font {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Font */
-    vfunc_describe(): FontDescription
-    vfunc_describe_absolute(): FontDescription
-    vfunc_find_shaper(lang: Language, ch: number): EngineShape
-    vfunc_get_font_map(): FontMap | null
-    vfunc_get_glyph_extents(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
-    vfunc_get_metrics(language?: Language | null): FontMetrics
+    vfunc_describe?(): FontDescription
+    vfunc_describe_absolute?(): FontDescription
+    vfunc_find_shaper?(lang: Language, ch: number): EngineShape
+    vfunc_get_font_map?(): FontMap | null
+    vfunc_get_glyph_extents?(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
+    vfunc_get_metrics?(language?: Language | null): FontMetrics
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Font, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -656,18 +656,18 @@ export class FontFace {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.FontFace */
-    vfunc_describe(): FontDescription
-    vfunc_get_face_name(): string
-    vfunc_is_synthesized(): boolean
-    vfunc_list_sizes(): /* sizes */ number[] | null
+    vfunc_describe?(): FontDescription
+    vfunc_get_face_name?(): string
+    vfunc_is_synthesized?(): boolean
+    vfunc_list_sizes?(): /* sizes */ number[] | null
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FontFace, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -710,17 +710,17 @@ export class FontFamily {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.FontFamily */
-    vfunc_get_name(): string
-    vfunc_is_monospace(): boolean
-    vfunc_list_faces(): /* faces */ FontFace[] | null
+    vfunc_get_name?(): string
+    vfunc_is_monospace?(): boolean
+    vfunc_list_faces?(): /* faces */ FontFace[] | null
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FontFamily, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -767,19 +767,19 @@ export class FontMap {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.FontMap */
-    vfunc_changed(): void
-    vfunc_get_serial(): number
-    vfunc_list_families(): /* families */ FontFamily[]
-    vfunc_load_font(context: Context, desc: FontDescription): Font | null
-    vfunc_load_fontset(context: Context, desc: FontDescription, language: Language): Fontset | null
+    vfunc_changed?(): void
+    vfunc_get_serial?(): number
+    vfunc_list_families?(): /* families */ FontFamily[]
+    vfunc_load_font?(context: Context, desc: FontDescription): Font | null
+    vfunc_load_fontset?(context: Context, desc: FontDescription, language: Language): Fontset | null
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FontMap, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -822,18 +822,18 @@ export class Fontset {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Fontset */
-    vfunc_foreach(func: FontsetForeachFunc): void
-    vfunc_get_font(wc: number): Font
-    vfunc_get_language(): Language
-    vfunc_get_metrics(): FontMetrics
+    vfunc_foreach?(func: FontsetForeachFunc): void
+    vfunc_get_font?(wc: number): Font
+    vfunc_get_language?(): Language
+    vfunc_get_metrics?(): FontMetrics
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Fontset, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -879,18 +879,18 @@ export class FontsetSimple {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Fontset */
-    vfunc_foreach(func: FontsetForeachFunc): void
-    vfunc_get_font(wc: number): Font
-    vfunc_get_language(): Language
-    vfunc_get_metrics(): FontMetrics
+    vfunc_foreach?(func: FontsetForeachFunc): void
+    vfunc_get_font?(wc: number): Font
+    vfunc_get_language?(): Language
+    vfunc_get_metrics?(): FontMetrics
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FontsetSimple, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -985,13 +985,13 @@ export class Layout {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Layout, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1051,25 +1051,25 @@ export class Renderer {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Renderer */
-    vfunc_begin(): void
-    vfunc_draw_error_underline(x: number, y: number, width: number, height: number): void
-    vfunc_draw_glyph(font: Font, glyph: Glyph, x: number, y: number): void
-    vfunc_draw_glyph_item(text: string | null, glyph_item: GlyphItem, x: number, y: number): void
-    vfunc_draw_glyphs(font: Font, glyphs: GlyphString, x: number, y: number): void
-    vfunc_draw_rectangle(part: RenderPart, x: number, y: number, width: number, height: number): void
-    vfunc_draw_shape(attr: AttrShape, x: number, y: number): void
-    vfunc_draw_trapezoid(part: RenderPart, y1_: number, x11: number, x21: number, y2: number, x12: number, x22: number): void
-    vfunc_end(): void
-    vfunc_part_changed(part: RenderPart): void
-    vfunc_prepare_run(run: LayoutRun): void
+    vfunc_begin?(): void
+    vfunc_draw_error_underline?(x: number, y: number, width: number, height: number): void
+    vfunc_draw_glyph?(font: Font, glyph: Glyph, x: number, y: number): void
+    vfunc_draw_glyph_item?(text: string | null, glyph_item: GlyphItem, x: number, y: number): void
+    vfunc_draw_glyphs?(font: Font, glyphs: GlyphString, x: number, y: number): void
+    vfunc_draw_rectangle?(part: RenderPart, x: number, y: number, width: number, height: number): void
+    vfunc_draw_shape?(attr: AttrShape, x: number, y: number): void
+    vfunc_draw_trapezoid?(part: RenderPart, y1_: number, x11: number, x21: number, y2: number, x12: number, x22: number): void
+    vfunc_end?(): void
+    vfunc_part_changed?(part: RenderPart): void
+    vfunc_prepare_run?(run: LayoutRun): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Renderer, pspec: GObject.ParamSpec) => void))
     static name: string

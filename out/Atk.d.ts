@@ -361,13 +361,13 @@ export class Action {
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
     /* Virtual methods of Atk.Action */
-    vfunc_do_action(i: number): boolean
-    vfunc_get_description(i: number): string | null
-    vfunc_get_keybinding(i: number): string | null
-    vfunc_get_localized_name(i: number): string | null
-    vfunc_get_n_actions(): number
-    vfunc_get_name(i: number): string | null
-    vfunc_set_description(i: number, desc: string): boolean
+    vfunc_do_action?(i: number): boolean
+    vfunc_get_description?(i: number): string | null
+    vfunc_get_keybinding?(i: number): string | null
+    vfunc_get_localized_name?(i: number): string | null
+    vfunc_get_n_actions?(): number
+    vfunc_get_name?(i: number): string | null
+    vfunc_set_description?(i: number, desc: string): boolean
     static name: string
 }
 export class Component {
@@ -386,20 +386,20 @@ export class Component {
     set_position(x: number, y: number, coord_type: CoordType): boolean
     set_size(width: number, height: number): boolean
     /* Virtual methods of Atk.Component */
-    vfunc_bounds_changed(bounds: Rectangle): void
-    vfunc_contains(x: number, y: number, coord_type: CoordType): boolean
-    vfunc_get_alpha(): number
-    vfunc_get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfunc_get_layer(): Layer
-    vfunc_get_mdi_zorder(): number
-    vfunc_get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfunc_get_size(): [ /* width */ number | null, /* height */ number | null ]
-    vfunc_grab_focus(): boolean
-    vfunc_ref_accessible_at_point(x: number, y: number, coord_type: CoordType): Object | null
-    vfunc_remove_focus_handler(handler_id: number): void
-    vfunc_set_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
-    vfunc_set_position(x: number, y: number, coord_type: CoordType): boolean
-    vfunc_set_size(width: number, height: number): boolean
+    vfunc_bounds_changed?(bounds: Rectangle): void
+    vfunc_contains?(x: number, y: number, coord_type: CoordType): boolean
+    vfunc_get_alpha?(): number
+    vfunc_get_extents?(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfunc_get_layer?(): Layer
+    vfunc_get_mdi_zorder?(): number
+    vfunc_get_position?(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
+    vfunc_get_size?(): [ /* width */ number | null, /* height */ number | null ]
+    vfunc_grab_focus?(): boolean
+    vfunc_ref_accessible_at_point?(x: number, y: number, coord_type: CoordType): Object | null
+    vfunc_remove_focus_handler?(handler_id: number): void
+    vfunc_set_extents?(x: number, y: number, width: number, height: number, coord_type: CoordType): boolean
+    vfunc_set_position?(x: number, y: number, coord_type: CoordType): boolean
+    vfunc_set_size?(width: number, height: number): boolean
     /* Signals of Atk.Component */
     connect(sigName: "bounds-changed", callback: ((obj: Component, arg1: Rectangle) => void))
     static name: string
@@ -415,13 +415,13 @@ export class Document {
     get_page_count(): number
     set_attribute_value(attribute_name: string, attribute_value: string): boolean
     /* Virtual methods of Atk.Document */
-    vfunc_get_current_page_number(): number
-    vfunc_get_document(): object | null
-    vfunc_get_document_attribute_value(attribute_name: string): string
-    vfunc_get_document_locale(): string
-    vfunc_get_document_type(): string
-    vfunc_get_page_count(): number
-    vfunc_set_document_attribute(attribute_name: string, attribute_value: string): boolean
+    vfunc_get_current_page_number?(): number
+    vfunc_get_document?(): object | null
+    vfunc_get_document_attribute_value?(attribute_name: string): string
+    vfunc_get_document_locale?(): string
+    vfunc_get_document_type?(): string
+    vfunc_get_page_count?(): number
+    vfunc_set_document_attribute?(attribute_name: string, attribute_value: string): boolean
     /* Signals of Atk.Document */
     connect(sigName: "load-complete", callback: ((obj: Document) => void))
     connect(sigName: "load-stopped", callback: ((obj: Document) => void))
@@ -439,20 +439,20 @@ export class EditableText {
     set_run_attributes(attrib_set: AttributeSet, start_offset: number, end_offset: number): boolean
     set_text_contents(string: string): void
     /* Virtual methods of Atk.EditableText */
-    vfunc_copy_text(start_pos: number, end_pos: number): void
-    vfunc_cut_text(start_pos: number, end_pos: number): void
-    vfunc_delete_text(start_pos: number, end_pos: number): void
-    vfunc_insert_text(string: string, length: number, position: number): void
-    vfunc_paste_text(position: number): void
-    vfunc_set_run_attributes(attrib_set: AttributeSet, start_offset: number, end_offset: number): boolean
-    vfunc_set_text_contents(string: string): void
+    vfunc_copy_text?(start_pos: number, end_pos: number): void
+    vfunc_cut_text?(start_pos: number, end_pos: number): void
+    vfunc_delete_text?(start_pos: number, end_pos: number): void
+    vfunc_insert_text?(string: string, length: number, position: number): void
+    vfunc_paste_text?(position: number): void
+    vfunc_set_run_attributes?(attrib_set: AttributeSet, start_offset: number, end_offset: number): boolean
+    vfunc_set_text_contents?(string: string): void
     static name: string
 }
 export class HyperlinkImpl {
     /* Methods of Atk.HyperlinkImpl */
     get_hyperlink(): Hyperlink
     /* Virtual methods of Atk.HyperlinkImpl */
-    vfunc_get_hyperlink(): Hyperlink
+    vfunc_get_hyperlink?(): Hyperlink
     static name: string
 }
 export class Hypertext {
@@ -461,10 +461,10 @@ export class Hypertext {
     get_link_index(char_index: number): number
     get_n_links(): number
     /* Virtual methods of Atk.Hypertext */
-    vfunc_get_link(link_index: number): Hyperlink
-    vfunc_get_link_index(char_index: number): number
-    vfunc_get_n_links(): number
-    vfunc_link_selected(link_index: number): void
+    vfunc_get_link?(link_index: number): Hyperlink
+    vfunc_get_link_index?(char_index: number): number
+    vfunc_get_n_links?(): number
+    vfunc_link_selected?(link_index: number): void
     /* Signals of Atk.Hypertext */
     connect(sigName: "link-selected", callback: ((obj: Hypertext, arg1: number) => void))
     static name: string
@@ -477,11 +477,11 @@ export class Image {
     get_image_size(): [ /* width */ number | null, /* height */ number | null ]
     set_image_description(description: string): boolean
     /* Virtual methods of Atk.Image */
-    vfunc_get_image_description(): string
-    vfunc_get_image_locale(): string | null
-    vfunc_get_image_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfunc_get_image_size(): [ /* width */ number | null, /* height */ number | null ]
-    vfunc_set_image_description(description: string): boolean
+    vfunc_get_image_description?(): string
+    vfunc_get_image_locale?(): string | null
+    vfunc_get_image_position?(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
+    vfunc_get_image_size?(): [ /* width */ number | null, /* height */ number | null ]
+    vfunc_set_image_description?(description: string): boolean
     static name: string
 }
 export class ImplementorIface {
@@ -497,14 +497,14 @@ export class Selection {
     remove_selection(i: number): boolean
     select_all_selection(): boolean
     /* Virtual methods of Atk.Selection */
-    vfunc_add_selection(i: number): boolean
-    vfunc_clear_selection(): boolean
-    vfunc_get_selection_count(): number
-    vfunc_is_child_selected(i: number): boolean
-    vfunc_ref_selection(i: number): Object | null
-    vfunc_remove_selection(i: number): boolean
-    vfunc_select_all_selection(): boolean
-    vfunc_selection_changed(): void
+    vfunc_add_selection?(i: number): boolean
+    vfunc_clear_selection?(): boolean
+    vfunc_get_selection_count?(): number
+    vfunc_is_child_selected?(i: number): boolean
+    vfunc_ref_selection?(i: number): Object | null
+    vfunc_remove_selection?(i: number): boolean
+    vfunc_select_all_selection?(): boolean
+    vfunc_selection_changed?(): void
     /* Signals of Atk.Selection */
     connect(sigName: "selection-changed", callback: ((obj: Selection) => void))
     static name: string
@@ -516,10 +516,10 @@ export class StreamableContent {
     get_stream(mime_type: string): GLib.IOChannel
     get_uri(mime_type: string): string | null
     /* Virtual methods of Atk.StreamableContent */
-    vfunc_get_mime_type(i: number): string
-    vfunc_get_n_mime_types(): number
-    vfunc_get_stream(mime_type: string): GLib.IOChannel
-    vfunc_get_uri(mime_type: string): string | null
+    vfunc_get_mime_type?(i: number): string
+    vfunc_get_n_mime_types?(): number
+    vfunc_get_stream?(mime_type: string): GLib.IOChannel
+    vfunc_get_uri?(mime_type: string): string | null
     static name: string
 }
 export class Table {
@@ -554,42 +554,42 @@ export class Table {
     set_row_header(row: number, header: Object): void
     set_summary(accessible: Object): void
     /* Virtual methods of Atk.Table */
-    vfunc_add_column_selection(column: number): boolean
-    vfunc_add_row_selection(row: number): boolean
-    vfunc_column_deleted(column: number, num_deleted: number): void
-    vfunc_column_inserted(column: number, num_inserted: number): void
-    vfunc_column_reordered(): void
-    vfunc_get_caption(): Object | null
-    vfunc_get_column_at_index(index_: number): number
-    vfunc_get_column_description(column: number): string
-    vfunc_get_column_extent_at(row: number, column: number): number
-    vfunc_get_column_header(column: number): Object | null
-    vfunc_get_index_at(row: number, column: number): number
-    vfunc_get_n_columns(): number
-    vfunc_get_n_rows(): number
-    vfunc_get_row_at_index(index_: number): number
-    vfunc_get_row_description(row: number): string | null
-    vfunc_get_row_extent_at(row: number, column: number): number
-    vfunc_get_row_header(row: number): Object | null
-    vfunc_get_selected_columns(selected: number): number
-    vfunc_get_selected_rows(selected: number): number
-    vfunc_get_summary(): Object
-    vfunc_is_column_selected(column: number): boolean
-    vfunc_is_row_selected(row: number): boolean
-    vfunc_is_selected(row: number, column: number): boolean
-    vfunc_model_changed(): void
-    vfunc_ref_at(row: number, column: number): Object
-    vfunc_remove_column_selection(column: number): boolean
-    vfunc_remove_row_selection(row: number): boolean
-    vfunc_row_deleted(row: number, num_deleted: number): void
-    vfunc_row_inserted(row: number, num_inserted: number): void
-    vfunc_row_reordered(): void
-    vfunc_set_caption(caption: Object): void
-    vfunc_set_column_description(column: number, description: string): void
-    vfunc_set_column_header(column: number, header: Object): void
-    vfunc_set_row_description(row: number, description: string): void
-    vfunc_set_row_header(row: number, header: Object): void
-    vfunc_set_summary(accessible: Object): void
+    vfunc_add_column_selection?(column: number): boolean
+    vfunc_add_row_selection?(row: number): boolean
+    vfunc_column_deleted?(column: number, num_deleted: number): void
+    vfunc_column_inserted?(column: number, num_inserted: number): void
+    vfunc_column_reordered?(): void
+    vfunc_get_caption?(): Object | null
+    vfunc_get_column_at_index?(index_: number): number
+    vfunc_get_column_description?(column: number): string
+    vfunc_get_column_extent_at?(row: number, column: number): number
+    vfunc_get_column_header?(column: number): Object | null
+    vfunc_get_index_at?(row: number, column: number): number
+    vfunc_get_n_columns?(): number
+    vfunc_get_n_rows?(): number
+    vfunc_get_row_at_index?(index_: number): number
+    vfunc_get_row_description?(row: number): string | null
+    vfunc_get_row_extent_at?(row: number, column: number): number
+    vfunc_get_row_header?(row: number): Object | null
+    vfunc_get_selected_columns?(selected: number): number
+    vfunc_get_selected_rows?(selected: number): number
+    vfunc_get_summary?(): Object
+    vfunc_is_column_selected?(column: number): boolean
+    vfunc_is_row_selected?(row: number): boolean
+    vfunc_is_selected?(row: number, column: number): boolean
+    vfunc_model_changed?(): void
+    vfunc_ref_at?(row: number, column: number): Object
+    vfunc_remove_column_selection?(column: number): boolean
+    vfunc_remove_row_selection?(row: number): boolean
+    vfunc_row_deleted?(row: number, num_deleted: number): void
+    vfunc_row_inserted?(row: number, num_inserted: number): void
+    vfunc_row_reordered?(): void
+    vfunc_set_caption?(caption: Object): void
+    vfunc_set_column_description?(column: number, description: string): void
+    vfunc_set_column_header?(column: number, header: Object): void
+    vfunc_set_row_description?(row: number, description: string): void
+    vfunc_set_row_header?(row: number, header: Object): void
+    vfunc_set_summary?(accessible: Object): void
     /* Signals of Atk.Table */
     connect(sigName: "column-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void))
     connect(sigName: "column-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void))
@@ -610,13 +610,13 @@ export class TableCell {
     get_row_span(): number
     get_table(): Object
     /* Virtual methods of Atk.TableCell */
-    vfunc_get_column_header_cells(): Object[]
-    vfunc_get_column_span(): number
-    vfunc_get_position(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
-    vfunc_get_row_column_span(): [ /* returnType */ boolean, /* row */ number, /* column */ number, /* row_span */ number, /* column_span */ number ]
-    vfunc_get_row_header_cells(): Object[]
-    vfunc_get_row_span(): number
-    vfunc_get_table(): Object
+    vfunc_get_column_header_cells?(): Object[]
+    vfunc_get_column_span?(): number
+    vfunc_get_position?(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
+    vfunc_get_row_column_span?(): [ /* returnType */ boolean, /* row */ number, /* column */ number, /* row_span */ number, /* column_span */ number ]
+    vfunc_get_row_header_cells?(): Object[]
+    vfunc_get_row_span?(): number
+    vfunc_get_table?(): Object
     static name: string
 }
 export class Text {
@@ -642,30 +642,30 @@ export class Text {
     set_caret_offset(offset: number): boolean
     set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
     /* Virtual methods of Atk.Text */
-    vfunc_add_selection(start_offset: number, end_offset: number): boolean
-    vfunc_get_bounded_ranges(rect: TextRectangle, coord_type: CoordType, x_clip_type: TextClipType, y_clip_type: TextClipType): TextRange
-    vfunc_get_caret_offset(): number
-    vfunc_get_character_at_offset(offset: number): number
-    vfunc_get_character_count(): number
-    vfunc_get_character_extents(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    vfunc_get_default_attributes(): AttributeSet
-    vfunc_get_n_selections(): number
-    vfunc_get_offset_at_point(x: number, y: number, coords: CoordType): number
-    vfunc_get_range_extents(start_offset: number, end_offset: number, coord_type: CoordType): /* rect */ TextRectangle
-    vfunc_get_run_attributes(offset: number): [ /* returnType */ AttributeSet, /* start_offset */ number, /* end_offset */ number ]
-    vfunc_get_selection(selection_num: number): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
-    vfunc_get_string_at_offset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* start_offset */ number, /* end_offset */ number ]
-    vfunc_get_text(start_offset: number, end_offset: number): string
-    vfunc_get_text_after_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
-    vfunc_get_text_at_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
-    vfunc_get_text_before_offset(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
-    vfunc_remove_selection(selection_num: number): boolean
-    vfunc_set_caret_offset(offset: number): boolean
-    vfunc_set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
-    vfunc_text_attributes_changed(): void
-    vfunc_text_caret_moved(location: number): void
-    vfunc_text_changed(position: number, length: number): void
-    vfunc_text_selection_changed(): void
+    vfunc_add_selection?(start_offset: number, end_offset: number): boolean
+    vfunc_get_bounded_ranges?(rect: TextRectangle, coord_type: CoordType, x_clip_type: TextClipType, y_clip_type: TextClipType): TextRange
+    vfunc_get_caret_offset?(): number
+    vfunc_get_character_at_offset?(offset: number): number
+    vfunc_get_character_count?(): number
+    vfunc_get_character_extents?(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfunc_get_default_attributes?(): AttributeSet
+    vfunc_get_n_selections?(): number
+    vfunc_get_offset_at_point?(x: number, y: number, coords: CoordType): number
+    vfunc_get_range_extents?(start_offset: number, end_offset: number, coord_type: CoordType): /* rect */ TextRectangle
+    vfunc_get_run_attributes?(offset: number): [ /* returnType */ AttributeSet, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_get_selection?(selection_num: number): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_get_string_at_offset?(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_get_text?(start_offset: number, end_offset: number): string
+    vfunc_get_text_after_offset?(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_get_text_at_offset?(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_get_text_before_offset?(offset: number, boundary_type: TextBoundary): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
+    vfunc_remove_selection?(selection_num: number): boolean
+    vfunc_set_caret_offset?(offset: number): boolean
+    vfunc_set_selection?(selection_num: number, start_offset: number, end_offset: number): boolean
+    vfunc_text_attributes_changed?(): void
+    vfunc_text_caret_moved?(location: number): void
+    vfunc_text_changed?(position: number, length: number): void
+    vfunc_text_selection_changed?(): void
     /* Signals of Atk.Text */
     connect(sigName: "text-attributes-changed", callback: ((obj: Text) => void))
     connect(sigName: "text-caret-moved", callback: ((obj: Text, arg1: number) => void))
@@ -689,16 +689,16 @@ export class Value {
     set_current_value(value: any): boolean
     set_value(new_value: number): void
     /* Virtual methods of Atk.Value */
-    vfunc_get_current_value(): /* value */ any
-    vfunc_get_increment(): number
-    vfunc_get_maximum_value(): /* value */ any
-    vfunc_get_minimum_increment(): /* value */ any
-    vfunc_get_minimum_value(): /* value */ any
-    vfunc_get_range(): Range | null
-    vfunc_get_sub_ranges(): GLib.SList
-    vfunc_get_value_and_text(): [ /* value */ number, /* text */ string | null ]
-    vfunc_set_current_value(value: any): boolean
-    vfunc_set_value(new_value: number): void
+    vfunc_get_current_value?(): /* value */ any
+    vfunc_get_increment?(): number
+    vfunc_get_maximum_value?(): /* value */ any
+    vfunc_get_minimum_increment?(): /* value */ any
+    vfunc_get_minimum_value?(): /* value */ any
+    vfunc_get_range?(): Range | null
+    vfunc_get_sub_ranges?(): GLib.SList
+    vfunc_get_value_and_text?(): [ /* value */ number, /* text */ string | null ]
+    vfunc_set_current_value?(value: any): boolean
+    vfunc_set_value?(new_value: number): void
     /* Signals of Atk.Value */
     connect(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void))
     static name: string
@@ -796,38 +796,38 @@ export class GObjectAccessible {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed(child?: object | null): void
-    vfunc_children_changed(change_index: number, changed_child?: object | null): void
-    vfunc_focus_event(focus_in: boolean): void
-    vfunc_get_attributes(): AttributeSet
-    vfunc_get_description(): string
-    vfunc_get_index_in_parent(): number
-    vfunc_get_layer(): Layer
-    vfunc_get_mdi_zorder(): number
-    vfunc_get_n_children(): number
-    vfunc_get_name(): string
-    vfunc_get_object_locale(): string
-    vfunc_get_parent(): Object
-    vfunc_get_role(): Role
-    vfunc_initialize(data?: object | null): void
-    vfunc_property_change(values: PropertyValues): void
-    vfunc_ref_relation_set(): RelationSet
-    vfunc_ref_state_set(): StateSet
-    vfunc_remove_property_change_handler(handler_id: number): void
-    vfunc_set_description(description: string): void
-    vfunc_set_name(name: string): void
-    vfunc_set_parent(parent: Object): void
-    vfunc_set_role(role: Role): void
-    vfunc_state_change(name: string, state_set: boolean): void
-    vfunc_visible_data_changed(): void
+    vfunc_active_descendant_changed?(child?: object | null): void
+    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_focus_event?(focus_in: boolean): void
+    vfunc_get_attributes?(): AttributeSet
+    vfunc_get_description?(): string
+    vfunc_get_index_in_parent?(): number
+    vfunc_get_layer?(): Layer
+    vfunc_get_mdi_zorder?(): number
+    vfunc_get_n_children?(): number
+    vfunc_get_name?(): string
+    vfunc_get_object_locale?(): string
+    vfunc_get_parent?(): Object
+    vfunc_get_role?(): Role
+    vfunc_initialize?(data?: object | null): void
+    vfunc_property_change?(values: PropertyValues): void
+    vfunc_ref_relation_set?(): RelationSet
+    vfunc_ref_state_set?(): StateSet
+    vfunc_remove_property_change_handler?(handler_id: number): void
+    vfunc_set_description?(description: string): void
+    vfunc_set_name?(name: string): void
+    vfunc_set_parent?(parent: Object): void
+    vfunc_set_role?(role: Role): void
+    vfunc_state_change?(name: string, state_set: boolean): void
+    vfunc_visible_data_changed?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
     connect(sigName: "active-descendant-changed", callback: ((obj: GObjectAccessible, arg1?: object | null) => void))
     connect(sigName: "children-changed", callback: ((obj: GObjectAccessible, arg1: number, arg2?: object | null) => void))
@@ -911,23 +911,23 @@ export class Hyperlink {
     get_name(i: number): string | null
     set_description(i: number, desc: string): boolean
     /* Virtual methods of Atk.Hyperlink */
-    vfunc_get_end_index(): number
-    vfunc_get_n_anchors(): number
-    vfunc_get_object(i: number): Object
-    vfunc_get_start_index(): number
-    vfunc_get_uri(i: number): string
-    vfunc_is_selected_link(): boolean
-    vfunc_is_valid(): boolean
-    vfunc_link_activated(): void
-    vfunc_link_state(): number
+    vfunc_get_end_index?(): number
+    vfunc_get_n_anchors?(): number
+    vfunc_get_object?(i: number): Object
+    vfunc_get_start_index?(): number
+    vfunc_get_uri?(i: number): string
+    vfunc_is_selected_link?(): boolean
+    vfunc_is_valid?(): boolean
+    vfunc_link_activated?(): void
+    vfunc_link_state?(): number
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Hyperlink */
     connect(sigName: "link-activated", callback: ((obj: Hyperlink) => void))
     /* Signals of GObject.Object */
@@ -975,16 +975,16 @@ export class Misc {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.Misc */
-    vfunc_threads_enter(): void
-    vfunc_threads_leave(): void
+    vfunc_threads_enter?(): void
+    vfunc_threads_leave?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Misc, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1188,38 +1188,38 @@ export class NoOpObject {
     set_current_value(value: any): boolean
     set_value(new_value: number): void
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed(child?: object | null): void
-    vfunc_children_changed(change_index: number, changed_child?: object | null): void
-    vfunc_focus_event(focus_in: boolean): void
-    vfunc_get_attributes(): AttributeSet
-    vfunc_get_description(): string
-    vfunc_get_index_in_parent(): number
-    vfunc_get_layer(): Layer
-    vfunc_get_mdi_zorder(): number
-    vfunc_get_n_children(): number
-    vfunc_get_name(): string
-    vfunc_get_object_locale(): string
-    vfunc_get_parent(): Object
-    vfunc_get_role(): Role
-    vfunc_initialize(data?: object | null): void
-    vfunc_property_change(values: PropertyValues): void
-    vfunc_ref_relation_set(): RelationSet
-    vfunc_ref_state_set(): StateSet
-    vfunc_remove_property_change_handler(handler_id: number): void
-    vfunc_set_description(description: string): void
-    vfunc_set_name(name: string): void
-    vfunc_set_parent(parent: Object): void
-    vfunc_set_role(role: Role): void
-    vfunc_state_change(name: string, state_set: boolean): void
-    vfunc_visible_data_changed(): void
+    vfunc_active_descendant_changed?(child?: object | null): void
+    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_focus_event?(focus_in: boolean): void
+    vfunc_get_attributes?(): AttributeSet
+    vfunc_get_description?(): string
+    vfunc_get_index_in_parent?(): number
+    vfunc_get_layer?(): Layer
+    vfunc_get_mdi_zorder?(): number
+    vfunc_get_n_children?(): number
+    vfunc_get_name?(): string
+    vfunc_get_object_locale?(): string
+    vfunc_get_parent?(): Object
+    vfunc_get_role?(): Role
+    vfunc_initialize?(data?: object | null): void
+    vfunc_property_change?(values: PropertyValues): void
+    vfunc_ref_relation_set?(): RelationSet
+    vfunc_ref_state_set?(): StateSet
+    vfunc_remove_property_change_handler?(handler_id: number): void
+    vfunc_set_description?(description: string): void
+    vfunc_set_name?(name: string): void
+    vfunc_set_parent?(parent: Object): void
+    vfunc_set_role?(role: Role): void
+    vfunc_state_change?(name: string, state_set: boolean): void
+    vfunc_visible_data_changed?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
     connect(sigName: "active-descendant-changed", callback: ((obj: NoOpObject, arg1?: object | null) => void))
     connect(sigName: "children-changed", callback: ((obj: NoOpObject, arg1: number, arg2?: object | null) => void))
@@ -1286,15 +1286,15 @@ export class NoOpObjectFactory {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.ObjectFactory */
-    vfunc_invalidate(): void
+    vfunc_invalidate?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1391,38 +1391,38 @@ export class Object {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed(child?: object | null): void
-    vfunc_children_changed(change_index: number, changed_child?: object | null): void
-    vfunc_focus_event(focus_in: boolean): void
-    vfunc_get_attributes(): AttributeSet
-    vfunc_get_description(): string
-    vfunc_get_index_in_parent(): number
-    vfunc_get_layer(): Layer
-    vfunc_get_mdi_zorder(): number
-    vfunc_get_n_children(): number
-    vfunc_get_name(): string
-    vfunc_get_object_locale(): string
-    vfunc_get_parent(): Object
-    vfunc_get_role(): Role
-    vfunc_initialize(data?: object | null): void
-    vfunc_property_change(values: PropertyValues): void
-    vfunc_ref_relation_set(): RelationSet
-    vfunc_ref_state_set(): StateSet
-    vfunc_remove_property_change_handler(handler_id: number): void
-    vfunc_set_description(description: string): void
-    vfunc_set_name(name: string): void
-    vfunc_set_parent(parent: Object): void
-    vfunc_set_role(role: Role): void
-    vfunc_state_change(name: string, state_set: boolean): void
-    vfunc_visible_data_changed(): void
+    vfunc_active_descendant_changed?(child?: object | null): void
+    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_focus_event?(focus_in: boolean): void
+    vfunc_get_attributes?(): AttributeSet
+    vfunc_get_description?(): string
+    vfunc_get_index_in_parent?(): number
+    vfunc_get_layer?(): Layer
+    vfunc_get_mdi_zorder?(): number
+    vfunc_get_n_children?(): number
+    vfunc_get_name?(): string
+    vfunc_get_object_locale?(): string
+    vfunc_get_parent?(): Object
+    vfunc_get_role?(): Role
+    vfunc_initialize?(data?: object | null): void
+    vfunc_property_change?(values: PropertyValues): void
+    vfunc_ref_relation_set?(): RelationSet
+    vfunc_ref_state_set?(): StateSet
+    vfunc_remove_property_change_handler?(handler_id: number): void
+    vfunc_set_description?(description: string): void
+    vfunc_set_name?(name: string): void
+    vfunc_set_parent?(parent: Object): void
+    vfunc_set_role?(role: Role): void
+    vfunc_state_change?(name: string, state_set: boolean): void
+    vfunc_visible_data_changed?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
     connect(sigName: "active-descendant-changed", callback: ((obj: Object, arg1?: object | null) => void))
     connect(sigName: "children-changed", callback: ((obj: Object, arg1: number, arg2?: object | null) => void))
@@ -1487,15 +1487,15 @@ export class ObjectFactory {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.ObjectFactory */
-    vfunc_invalidate(): void
+    vfunc_invalidate?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ObjectFactory, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1594,40 +1594,40 @@ export class Plug {
     set_position(x: number, y: number, coord_type: CoordType): boolean
     set_size(width: number, height: number): boolean
     /* Virtual methods of Atk.Plug */
-    vfunc_get_object_id(): string
+    vfunc_get_object_id?(): string
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed(child?: object | null): void
-    vfunc_children_changed(change_index: number, changed_child?: object | null): void
-    vfunc_focus_event(focus_in: boolean): void
-    vfunc_get_attributes(): AttributeSet
-    vfunc_get_description(): string
-    vfunc_get_index_in_parent(): number
-    vfunc_get_layer(): Layer
-    vfunc_get_mdi_zorder(): number
-    vfunc_get_n_children(): number
-    vfunc_get_name(): string
-    vfunc_get_object_locale(): string
-    vfunc_get_parent(): Object
-    vfunc_get_role(): Role
-    vfunc_initialize(data?: object | null): void
-    vfunc_property_change(values: PropertyValues): void
-    vfunc_ref_relation_set(): RelationSet
-    vfunc_ref_state_set(): StateSet
-    vfunc_remove_property_change_handler(handler_id: number): void
-    vfunc_set_description(description: string): void
-    vfunc_set_name(name: string): void
-    vfunc_set_parent(parent: Object): void
-    vfunc_set_role(role: Role): void
-    vfunc_state_change(name: string, state_set: boolean): void
-    vfunc_visible_data_changed(): void
+    vfunc_active_descendant_changed?(child?: object | null): void
+    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_focus_event?(focus_in: boolean): void
+    vfunc_get_attributes?(): AttributeSet
+    vfunc_get_description?(): string
+    vfunc_get_index_in_parent?(): number
+    vfunc_get_layer?(): Layer
+    vfunc_get_mdi_zorder?(): number
+    vfunc_get_n_children?(): number
+    vfunc_get_name?(): string
+    vfunc_get_object_locale?(): string
+    vfunc_get_parent?(): Object
+    vfunc_get_role?(): Role
+    vfunc_initialize?(data?: object | null): void
+    vfunc_property_change?(values: PropertyValues): void
+    vfunc_ref_relation_set?(): RelationSet
+    vfunc_ref_state_set?(): StateSet
+    vfunc_remove_property_change_handler?(handler_id: number): void
+    vfunc_set_description?(description: string): void
+    vfunc_set_name?(name: string): void
+    vfunc_set_parent?(parent: Object): void
+    vfunc_set_role?(role: Role): void
+    vfunc_state_change?(name: string, state_set: boolean): void
+    vfunc_visible_data_changed?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
     connect(sigName: "active-descendant-changed", callback: ((obj: Plug, arg1?: object | null) => void))
     connect(sigName: "children-changed", callback: ((obj: Plug, arg1: number, arg2?: object | null) => void))
@@ -1695,13 +1695,13 @@ export class Registry {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Registry, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1751,13 +1751,13 @@ export class Relation {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::relation-type", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
@@ -1809,13 +1809,13 @@ export class RelationSet {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: RelationSet, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1916,40 +1916,40 @@ export class Socket {
     set_position(x: number, y: number, coord_type: CoordType): boolean
     set_size(width: number, height: number): boolean
     /* Virtual methods of Atk.Socket */
-    vfunc_embed(plug_id: string): void
+    vfunc_embed?(plug_id: string): void
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed(child?: object | null): void
-    vfunc_children_changed(change_index: number, changed_child?: object | null): void
-    vfunc_focus_event(focus_in: boolean): void
-    vfunc_get_attributes(): AttributeSet
-    vfunc_get_description(): string
-    vfunc_get_index_in_parent(): number
-    vfunc_get_layer(): Layer
-    vfunc_get_mdi_zorder(): number
-    vfunc_get_n_children(): number
-    vfunc_get_name(): string
-    vfunc_get_object_locale(): string
-    vfunc_get_parent(): Object
-    vfunc_get_role(): Role
-    vfunc_initialize(data?: object | null): void
-    vfunc_property_change(values: PropertyValues): void
-    vfunc_ref_relation_set(): RelationSet
-    vfunc_ref_state_set(): StateSet
-    vfunc_remove_property_change_handler(handler_id: number): void
-    vfunc_set_description(description: string): void
-    vfunc_set_name(name: string): void
-    vfunc_set_parent(parent: Object): void
-    vfunc_set_role(role: Role): void
-    vfunc_state_change(name: string, state_set: boolean): void
-    vfunc_visible_data_changed(): void
+    vfunc_active_descendant_changed?(child?: object | null): void
+    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_focus_event?(focus_in: boolean): void
+    vfunc_get_attributes?(): AttributeSet
+    vfunc_get_description?(): string
+    vfunc_get_index_in_parent?(): number
+    vfunc_get_layer?(): Layer
+    vfunc_get_mdi_zorder?(): number
+    vfunc_get_n_children?(): number
+    vfunc_get_name?(): string
+    vfunc_get_object_locale?(): string
+    vfunc_get_parent?(): Object
+    vfunc_get_role?(): Role
+    vfunc_initialize?(data?: object | null): void
+    vfunc_property_change?(values: PropertyValues): void
+    vfunc_ref_relation_set?(): RelationSet
+    vfunc_ref_state_set?(): StateSet
+    vfunc_remove_property_change_handler?(handler_id: number): void
+    vfunc_set_description?(description: string): void
+    vfunc_set_name?(name: string): void
+    vfunc_set_parent?(parent: Object): void
+    vfunc_set_role?(role: Role): void
+    vfunc_state_change?(name: string, state_set: boolean): void
+    vfunc_visible_data_changed?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
     connect(sigName: "active-descendant-changed", callback: ((obj: Socket, arg1?: object | null) => void))
     connect(sigName: "children-changed", callback: ((obj: Socket, arg1: number, arg2?: object | null) => void))
@@ -2022,13 +2022,13 @@ export class StateSet {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: StateSet, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -2068,13 +2068,13 @@ export class Util {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Util, pspec: GObject.ParamSpec) => void))
     static name: string

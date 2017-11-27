@@ -138,16 +138,16 @@ export class CompletionProposal {
     get_text(): string
     hash(): number
     /* Virtual methods of GtkSource.CompletionProposal */
-    vfunc_changed(): void
-    vfunc_equal(other: CompletionProposal): boolean
-    vfunc_get_gicon(): Gio.Icon | null
-    vfunc_get_icon(): GdkPixbuf.Pixbuf | null
-    vfunc_get_icon_name(): string | null
-    vfunc_get_info(): string | null
-    vfunc_get_label(): string
-    vfunc_get_markup(): string
-    vfunc_get_text(): string
-    vfunc_hash(): number
+    vfunc_changed?(): void
+    vfunc_equal?(other: CompletionProposal): boolean
+    vfunc_get_gicon?(): Gio.Icon | null
+    vfunc_get_icon?(): GdkPixbuf.Pixbuf | null
+    vfunc_get_icon_name?(): string | null
+    vfunc_get_info?(): string | null
+    vfunc_get_label?(): string
+    vfunc_get_markup?(): string
+    vfunc_get_text?(): string
+    vfunc_hash?(): number
     /* Signals of GtkSource.CompletionProposal */
     connect(sigName: "changed", callback: ((obj: CompletionProposal) => void))
     static name: string
@@ -168,19 +168,19 @@ export class CompletionProvider {
     populate(context: CompletionContext): void
     update_info(proposal: CompletionProposal, info: CompletionInfo): void
     /* Virtual methods of GtkSource.CompletionProvider */
-    vfunc_activate_proposal(proposal: CompletionProposal, iter: Gtk.TextIter): boolean
-    vfunc_get_activation(): CompletionActivation
-    vfunc_get_gicon(): Gio.Icon | null
-    vfunc_get_icon(): GdkPixbuf.Pixbuf | null
-    vfunc_get_icon_name(): string | null
-    vfunc_get_info_widget(proposal: CompletionProposal): Gtk.Widget | null
-    vfunc_get_interactive_delay(): number
-    vfunc_get_name(): string
-    vfunc_get_priority(): number
-    vfunc_get_start_iter(context: CompletionContext, proposal: CompletionProposal): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
-    vfunc_match(context: CompletionContext): boolean
-    vfunc_populate(context: CompletionContext): void
-    vfunc_update_info(proposal: CompletionProposal, info: CompletionInfo): void
+    vfunc_activate_proposal?(proposal: CompletionProposal, iter: Gtk.TextIter): boolean
+    vfunc_get_activation?(): CompletionActivation
+    vfunc_get_gicon?(): Gio.Icon | null
+    vfunc_get_icon?(): GdkPixbuf.Pixbuf | null
+    vfunc_get_icon_name?(): string | null
+    vfunc_get_info_widget?(proposal: CompletionProposal): Gtk.Widget | null
+    vfunc_get_interactive_delay?(): number
+    vfunc_get_name?(): string
+    vfunc_get_priority?(): number
+    vfunc_get_start_iter?(context: CompletionContext, proposal: CompletionProposal): [ /* returnType */ boolean, /* iter */ Gtk.TextIter ]
+    vfunc_match?(context: CompletionContext): boolean
+    vfunc_populate?(context: CompletionContext): void
+    vfunc_update_info?(proposal: CompletionProposal, info: CompletionInfo): void
     static name: string
 }
 export class StyleSchemeChooser {
@@ -190,8 +190,8 @@ export class StyleSchemeChooser {
     get_style_scheme(): StyleScheme
     set_style_scheme(scheme: StyleScheme): void
     /* Virtual methods of GtkSource.StyleSchemeChooser */
-    vfunc_get_style_scheme(): StyleScheme
-    vfunc_set_style_scheme(scheme: StyleScheme): void
+    vfunc_get_style_scheme?(): StyleScheme
+    vfunc_set_style_scheme?(scheme: StyleScheme): void
     static name: string
 }
 export class UndoManager {
@@ -205,14 +205,14 @@ export class UndoManager {
     redo(): void
     undo(): void
     /* Virtual methods of GtkSource.UndoManager */
-    vfunc_begin_not_undoable_action(): void
-    vfunc_can_redo(): boolean
-    vfunc_can_redo_changed(): void
-    vfunc_can_undo(): boolean
-    vfunc_can_undo_changed(): void
-    vfunc_end_not_undoable_action(): void
-    vfunc_redo(): void
-    vfunc_undo(): void
+    vfunc_begin_not_undoable_action?(): void
+    vfunc_can_redo?(): boolean
+    vfunc_can_redo_changed?(): void
+    vfunc_can_undo?(): boolean
+    vfunc_can_undo_changed?(): void
+    vfunc_end_not_undoable_action?(): void
+    vfunc_redo?(): void
+    vfunc_undo?(): void
     /* Signals of GtkSource.UndoManager */
     connect(sigName: "can-redo-changed", callback: ((obj: UndoManager) => void))
     connect(sigName: "can-undo-changed", callback: ((obj: UndoManager) => void))
@@ -379,31 +379,31 @@ export class Buffer {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GtkSource.Buffer */
-    vfunc_bracket_matched(iter: Gtk.TextIter, state: BracketMatchType): void
-    vfunc_redo(): void
-    vfunc_undo(): void
+    vfunc_bracket_matched?(iter: Gtk.TextIter, state: BracketMatchType): void
+    vfunc_redo?(): void
+    vfunc_undo?(): void
     /* Virtual methods of Gtk.TextBuffer */
-    vfunc_apply_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
-    vfunc_begin_user_action(): void
-    vfunc_changed(): void
-    vfunc_delete_range(start: Gtk.TextIter, end: Gtk.TextIter): void
-    vfunc_end_user_action(): void
-    vfunc_insert_child_anchor(iter: Gtk.TextIter, anchor: Gtk.TextChildAnchor): void
-    vfunc_insert_pixbuf(iter: Gtk.TextIter, pixbuf: GdkPixbuf.Pixbuf): void
-    vfunc_insert_text(pos: Gtk.TextIter, new_text: string, new_text_length: number): void
-    vfunc_mark_deleted(mark: Gtk.TextMark): void
-    vfunc_mark_set(location: Gtk.TextIter, mark: Gtk.TextMark): void
-    vfunc_modified_changed(): void
-    vfunc_paste_done(clipboard: Gtk.Clipboard): void
-    vfunc_remove_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
+    vfunc_apply_tag?(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
+    vfunc_begin_user_action?(): void
+    vfunc_changed?(): void
+    vfunc_delete_range?(start: Gtk.TextIter, end: Gtk.TextIter): void
+    vfunc_end_user_action?(): void
+    vfunc_insert_child_anchor?(iter: Gtk.TextIter, anchor: Gtk.TextChildAnchor): void
+    vfunc_insert_pixbuf?(iter: Gtk.TextIter, pixbuf: GdkPixbuf.Pixbuf): void
+    vfunc_insert_text?(pos: Gtk.TextIter, new_text: string, new_text_length: number): void
+    vfunc_mark_deleted?(mark: Gtk.TextMark): void
+    vfunc_mark_set?(location: Gtk.TextIter, mark: Gtk.TextMark): void
+    vfunc_modified_changed?(): void
+    vfunc_paste_done?(clipboard: Gtk.Clipboard): void
+    vfunc_remove_tag?(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.Buffer */
     connect(sigName: "bracket-matched", callback: ((obj: Buffer, iter: Gtk.TextIter, state: BracketMatchType) => void))
     connect(sigName: "highlight-updated", callback: ((obj: Buffer, start: Gtk.TextIter, end: Gtk.TextIter) => void))
@@ -520,21 +520,21 @@ export class Completion {
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     set_name(name: string): void
     /* Virtual methods of GtkSource.Completion */
-    vfunc_activate_proposal(): void
-    vfunc_hide(): void
-    vfunc_move_cursor(step: Gtk.ScrollStep, num: number): void
-    vfunc_move_page(step: Gtk.ScrollStep, num: number): void
-    vfunc_populate_context(context: CompletionContext): void
-    vfunc_proposal_activated(provider: CompletionProvider, proposal: CompletionProposal): boolean
-    vfunc_show(): void
+    vfunc_activate_proposal?(): void
+    vfunc_hide?(): void
+    vfunc_move_cursor?(step: Gtk.ScrollStep, num: number): void
+    vfunc_move_page?(step: Gtk.ScrollStep, num: number): void
+    vfunc_populate_context?(context: CompletionContext): void
+    vfunc_proposal_activated?(provider: CompletionProvider, proposal: CompletionProposal): boolean
+    vfunc_show?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.Completion */
     connect(sigName: "activate-proposal", callback: ((obj: Completion) => void))
     connect(sigName: "hide", callback: ((obj: Completion) => void))
@@ -600,15 +600,15 @@ export class CompletionContext {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GtkSource.CompletionContext */
-    vfunc_cancelled(): void
+    vfunc_cancelled?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.CompletionContext */
     connect(sigName: "cancelled", callback: ((obj: CompletionContext) => void))
     /* Signals of GObject.Object */
@@ -1142,115 +1142,115 @@ export class CompletionInfo {
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     /* Virtual methods of GtkSource.CompletionInfo */
-    vfunc_before_show(): void
+    vfunc_before_show?(): void
     /* Virtual methods of Gtk.Window */
-    vfunc_activate_default(): void
-    vfunc_activate_focus(): void
-    vfunc_enable_debugging(toggle: boolean): boolean
-    vfunc_keys_changed(): void
-    vfunc_set_focus(focus?: Gtk.Widget | null): void
+    vfunc_activate_default?(): void
+    vfunc_activate_focus?(): void
+    vfunc_enable_debugging?(toggle: boolean): boolean
+    vfunc_keys_changed?(): void
+    vfunc_set_focus?(focus?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Container */
-    vfunc_add(widget: Gtk.Widget): void
-    vfunc_check_resize(): void
-    vfunc_child_type(): number
-    vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
-    vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child?: Gtk.Widget | null): void
+    vfunc_add?(widget: Gtk.Widget): void
+    vfunc_check_resize?(): void
+    vfunc_child_type?(): number
+    vfunc_composite_name?(child: Gtk.Widget): string
+    vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
+    vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_get_path_for_child?(child: Gtk.Widget): Gtk.WidgetPath
+    vfunc_remove?(widget: Gtk.Widget): void
+    vfunc_set_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_set_focus_child?(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
-    vfunc_adjust_baseline_allocation(baseline: number): void
-    vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
-    vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
-    vfunc_adjust_size_request(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
-    vfunc_button_press_event(event: Gdk.EventButton): boolean
-    vfunc_button_release_event(event: Gdk.EventButton): boolean
-    vfunc_can_activate_accel(signal_id: number): boolean
-    vfunc_child_notify(child_property: GObject.ParamSpec): void
-    vfunc_composited_changed(): void
-    vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
-    vfunc_configure_event(event: Gdk.EventConfigure): boolean
-    vfunc_damage_event(event: Gdk.EventExpose): boolean
-    vfunc_delete_event(event: Gdk.EventAny): boolean
-    vfunc_destroy(): void
-    vfunc_destroy_event(event: Gdk.EventAny): boolean
-    vfunc_direction_changed(previous_direction: Gtk.TextDirection): void
-    vfunc_dispatch_child_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_drag_begin(context: Gdk.DragContext): void
-    vfunc_drag_data_delete(context: Gdk.DragContext): void
-    vfunc_drag_data_get(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_data_received(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_drop(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_drag_end(context: Gdk.DragContext): void
-    vfunc_drag_failed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfunc_drag_leave(context: Gdk.DragContext, time_: number): void
-    vfunc_drag_motion(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_draw(cr: cairo.Context): boolean
-    vfunc_enter_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_event(event: Gdk.Event): boolean
-    vfunc_focus(direction: Gtk.DirectionType): boolean
-    vfunc_focus_in_event(event: Gdk.EventFocus): boolean
-    vfunc_focus_out_event(event: Gdk.EventFocus): boolean
-    vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
-    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_request_mode(): Gtk.SizeRequestMode
-    vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
-    vfunc_grab_focus(): void
-    vfunc_grab_notify(was_grabbed: boolean): void
-    vfunc_hide(): void
-    vfunc_hierarchy_changed(previous_toplevel: Gtk.Widget): void
-    vfunc_key_press_event(event: Gdk.EventKey): boolean
-    vfunc_key_release_event(event: Gdk.EventKey): boolean
-    vfunc_keynav_failed(direction: Gtk.DirectionType): boolean
-    vfunc_leave_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_map(): void
-    vfunc_map_event(event: Gdk.EventAny): boolean
-    vfunc_mnemonic_activate(group_cycling: boolean): boolean
-    vfunc_motion_notify_event(event: Gdk.EventMotion): boolean
-    vfunc_move_focus(direction: Gtk.DirectionType): void
-    vfunc_parent_set(previous_parent: Gtk.Widget): void
-    vfunc_popup_menu(): boolean
-    vfunc_property_notify_event(event: Gdk.EventProperty): boolean
-    vfunc_proximity_in_event(event: Gdk.EventProximity): boolean
-    vfunc_proximity_out_event(event: Gdk.EventProximity): boolean
-    vfunc_query_tooltip(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw_region(region: cairo.Region): void
-    vfunc_realize(): void
-    vfunc_screen_changed(previous_screen: Gdk.Screen): void
-    vfunc_scroll_event(event: Gdk.EventScroll): boolean
-    vfunc_selection_clear_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_get(selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_selection_notify_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_received(selection_data: Gtk.SelectionData, time_: number): void
-    vfunc_selection_request_event(event: Gdk.EventSelection): boolean
-    vfunc_show(): void
-    vfunc_show_all(): void
-    vfunc_show_help(help_type: Gtk.WidgetHelpType): boolean
-    vfunc_size_allocate(allocation: Gtk.Allocation): void
-    vfunc_state_changed(previous_state: Gtk.StateType): void
-    vfunc_state_flags_changed(previous_state_flags: Gtk.StateFlags): void
-    vfunc_style_set(previous_style: Gtk.Style): void
-    vfunc_style_updated(): void
-    vfunc_touch_event(event: Gdk.EventTouch): boolean
-    vfunc_unmap(): void
-    vfunc_unmap_event(event: Gdk.EventAny): boolean
-    vfunc_unrealize(): void
-    vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
-    vfunc_window_state_event(event: Gdk.EventWindowState): boolean
+    vfunc_adjust_baseline_allocation?(baseline: number): void
+    vfunc_adjust_baseline_request?(minimum_baseline: number, natural_baseline: number): void
+    vfunc_adjust_size_allocation?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
+    vfunc_adjust_size_request?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
+    vfunc_button_press_event?(event: Gdk.EventButton): boolean
+    vfunc_button_release_event?(event: Gdk.EventButton): boolean
+    vfunc_can_activate_accel?(signal_id: number): boolean
+    vfunc_child_notify?(child_property: GObject.ParamSpec): void
+    vfunc_composited_changed?(): void
+    vfunc_compute_expand?(hexpand_p: boolean, vexpand_p: boolean): void
+    vfunc_configure_event?(event: Gdk.EventConfigure): boolean
+    vfunc_damage_event?(event: Gdk.EventExpose): boolean
+    vfunc_delete_event?(event: Gdk.EventAny): boolean
+    vfunc_destroy?(): void
+    vfunc_destroy_event?(event: Gdk.EventAny): boolean
+    vfunc_direction_changed?(previous_direction: Gtk.TextDirection): void
+    vfunc_dispatch_child_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_drag_begin?(context: Gdk.DragContext): void
+    vfunc_drag_data_delete?(context: Gdk.DragContext): void
+    vfunc_drag_data_get?(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_data_received?(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_drop?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_drag_end?(context: Gdk.DragContext): void
+    vfunc_drag_failed?(context: Gdk.DragContext, result: Gtk.DragResult): boolean
+    vfunc_drag_leave?(context: Gdk.DragContext, time_: number): void
+    vfunc_drag_motion?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_draw?(cr: cairo.Context): boolean
+    vfunc_enter_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_event?(event: Gdk.Event): boolean
+    vfunc_focus?(direction: Gtk.DirectionType): boolean
+    vfunc_focus_in_event?(event: Gdk.EventFocus): boolean
+    vfunc_focus_out_event?(event: Gdk.EventFocus): boolean
+    vfunc_get_accessible?(): Atk.Object
+    vfunc_get_preferred_height?(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width?(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height?(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_request_mode?(): Gtk.SizeRequestMode
+    vfunc_grab_broken_event?(event: Gdk.EventGrabBroken): boolean
+    vfunc_grab_focus?(): void
+    vfunc_grab_notify?(was_grabbed: boolean): void
+    vfunc_hide?(): void
+    vfunc_hierarchy_changed?(previous_toplevel: Gtk.Widget): void
+    vfunc_key_press_event?(event: Gdk.EventKey): boolean
+    vfunc_key_release_event?(event: Gdk.EventKey): boolean
+    vfunc_keynav_failed?(direction: Gtk.DirectionType): boolean
+    vfunc_leave_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_map?(): void
+    vfunc_map_event?(event: Gdk.EventAny): boolean
+    vfunc_mnemonic_activate?(group_cycling: boolean): boolean
+    vfunc_motion_notify_event?(event: Gdk.EventMotion): boolean
+    vfunc_move_focus?(direction: Gtk.DirectionType): void
+    vfunc_parent_set?(previous_parent: Gtk.Widget): void
+    vfunc_popup_menu?(): boolean
+    vfunc_property_notify_event?(event: Gdk.EventProperty): boolean
+    vfunc_proximity_in_event?(event: Gdk.EventProximity): boolean
+    vfunc_proximity_out_event?(event: Gdk.EventProximity): boolean
+    vfunc_query_tooltip?(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw_region?(region: cairo.Region): void
+    vfunc_realize?(): void
+    vfunc_screen_changed?(previous_screen: Gdk.Screen): void
+    vfunc_scroll_event?(event: Gdk.EventScroll): boolean
+    vfunc_selection_clear_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_get?(selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_selection_notify_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_received?(selection_data: Gtk.SelectionData, time_: number): void
+    vfunc_selection_request_event?(event: Gdk.EventSelection): boolean
+    vfunc_show?(): void
+    vfunc_show_all?(): void
+    vfunc_show_help?(help_type: Gtk.WidgetHelpType): boolean
+    vfunc_size_allocate?(allocation: Gtk.Allocation): void
+    vfunc_state_changed?(previous_state: Gtk.StateType): void
+    vfunc_state_flags_changed?(previous_state_flags: Gtk.StateFlags): void
+    vfunc_style_set?(previous_style: Gtk.Style): void
+    vfunc_style_updated?(): void
+    vfunc_touch_event?(event: Gdk.EventTouch): boolean
+    vfunc_unmap?(): void
+    vfunc_unmap_event?(event: Gdk.EventAny): boolean
+    vfunc_unrealize?(): void
+    vfunc_visibility_notify_event?(event: Gdk.EventVisibility): boolean
+    vfunc_window_state_event?(event: Gdk.EventWindowState): boolean
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.CompletionInfo */
     connect(sigName: "before-show", callback: ((obj: CompletionInfo) => void))
     /* Signals of Gtk.Window */
@@ -1482,13 +1482,13 @@ export class CompletionItem {
     get_text(): string
     hash(): number
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::gicon", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
@@ -1573,13 +1573,13 @@ export class CompletionWords {
     populate(context: CompletionContext): void
     update_info(proposal: CompletionProposal, info: CompletionInfo): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::activation", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
@@ -1646,13 +1646,13 @@ export class File {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::compression-type", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
@@ -1714,13 +1714,13 @@ export class FileLoader {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileLoader, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -1788,13 +1788,13 @@ export class FileSaver {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::compression-type", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
@@ -1858,13 +1858,13 @@ export class Gutter {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::xpad", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
@@ -1950,24 +1950,24 @@ export class GutterRenderer {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GtkSource.GutterRenderer */
-    vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
-    vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
-    vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
-    vfunc_change_view(old_view?: Gtk.TextView | null): void
-    vfunc_draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
-    vfunc_end(): void
-    vfunc_query_activatable(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): boolean
-    vfunc_query_data(start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
-    vfunc_query_tooltip(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw(): void
+    vfunc_activate?(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
+    vfunc_begin?(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
+    vfunc_change_buffer?(old_buffer?: Gtk.TextBuffer | null): void
+    vfunc_change_view?(old_view?: Gtk.TextView | null): void
+    vfunc_draw?(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
+    vfunc_end?(): void
+    vfunc_query_activatable?(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): boolean
+    vfunc_query_data?(start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
+    vfunc_query_tooltip?(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.GutterRenderer */
     connect(sigName: "activate", callback: ((obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void))
     connect(sigName: "query-activatable", callback: ((obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean))
@@ -2078,24 +2078,24 @@ export class GutterRendererPixbuf {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GtkSource.GutterRenderer */
-    vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
-    vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
-    vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
-    vfunc_change_view(old_view?: Gtk.TextView | null): void
-    vfunc_draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
-    vfunc_end(): void
-    vfunc_query_activatable(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): boolean
-    vfunc_query_data(start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
-    vfunc_query_tooltip(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw(): void
+    vfunc_activate?(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
+    vfunc_begin?(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
+    vfunc_change_buffer?(old_buffer?: Gtk.TextBuffer | null): void
+    vfunc_change_view?(old_view?: Gtk.TextView | null): void
+    vfunc_draw?(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
+    vfunc_end?(): void
+    vfunc_query_activatable?(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): boolean
+    vfunc_query_data?(start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
+    vfunc_query_tooltip?(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.GutterRenderer */
     connect(sigName: "activate", callback: ((obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void))
     connect(sigName: "query-activatable", callback: ((obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean))
@@ -2203,24 +2203,24 @@ export class GutterRendererText {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GtkSource.GutterRenderer */
-    vfunc_activate(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
-    vfunc_begin(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
-    vfunc_change_buffer(old_buffer?: Gtk.TextBuffer | null): void
-    vfunc_change_view(old_view?: Gtk.TextView | null): void
-    vfunc_draw(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
-    vfunc_end(): void
-    vfunc_query_activatable(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): boolean
-    vfunc_query_data(start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
-    vfunc_query_tooltip(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw(): void
+    vfunc_activate?(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): void
+    vfunc_begin?(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter): void
+    vfunc_change_buffer?(old_buffer?: Gtk.TextBuffer | null): void
+    vfunc_change_view?(old_view?: Gtk.TextView | null): void
+    vfunc_draw?(cr: cairo.Context, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
+    vfunc_end?(): void
+    vfunc_query_activatable?(iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event): boolean
+    vfunc_query_data?(start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState): void
+    vfunc_query_tooltip?(iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw?(): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.GutterRenderer */
     connect(sigName: "activate", callback: ((obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void))
     connect(sigName: "query-activatable", callback: ((obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean))
@@ -2296,13 +2296,13 @@ export class Language {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::hidden", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
@@ -2356,13 +2356,13 @@ export class LanguageManager {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::language-ids", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
@@ -2920,127 +2920,127 @@ export class Map {
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
     /* Virtual methods of GtkSource.View */
-    vfunc_line_mark_activated(iter: Gtk.TextIter, event: Gdk.Event): void
-    vfunc_move_lines(copy: boolean, step: number): void
-    vfunc_move_words(step: number): void
-    vfunc_redo(): void
-    vfunc_show_completion(): void
-    vfunc_undo(): void
+    vfunc_line_mark_activated?(iter: Gtk.TextIter, event: Gdk.Event): void
+    vfunc_move_lines?(copy: boolean, step: number): void
+    vfunc_move_words?(step: number): void
+    vfunc_redo?(): void
+    vfunc_show_completion?(): void
+    vfunc_undo?(): void
     /* Virtual methods of Gtk.TextView */
-    vfunc_backspace(): void
-    vfunc_copy_clipboard(): void
-    vfunc_cut_clipboard(): void
-    vfunc_delete_from_cursor(type: Gtk.DeleteType, count: number): void
-    vfunc_draw_layer(layer: Gtk.TextViewLayer, cr: cairo.Context): void
-    vfunc_extend_selection(granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter): boolean
-    vfunc_insert_at_cursor(str: string): void
-    vfunc_move_cursor(step: Gtk.MovementStep, count: number, extend_selection: boolean): void
-    vfunc_paste_clipboard(): void
-    vfunc_populate_popup(popup: Gtk.Widget): void
-    vfunc_set_anchor(): void
-    vfunc_toggle_overwrite(): void
+    vfunc_backspace?(): void
+    vfunc_copy_clipboard?(): void
+    vfunc_cut_clipboard?(): void
+    vfunc_delete_from_cursor?(type: Gtk.DeleteType, count: number): void
+    vfunc_draw_layer?(layer: Gtk.TextViewLayer, cr: cairo.Context): void
+    vfunc_extend_selection?(granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter): boolean
+    vfunc_insert_at_cursor?(str: string): void
+    vfunc_move_cursor?(step: Gtk.MovementStep, count: number, extend_selection: boolean): void
+    vfunc_paste_clipboard?(): void
+    vfunc_populate_popup?(popup: Gtk.Widget): void
+    vfunc_set_anchor?(): void
+    vfunc_toggle_overwrite?(): void
     /* Virtual methods of Gtk.Container */
-    vfunc_add(widget: Gtk.Widget): void
-    vfunc_check_resize(): void
-    vfunc_child_type(): number
-    vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
-    vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child?: Gtk.Widget | null): void
+    vfunc_add?(widget: Gtk.Widget): void
+    vfunc_check_resize?(): void
+    vfunc_child_type?(): number
+    vfunc_composite_name?(child: Gtk.Widget): string
+    vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
+    vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_get_path_for_child?(child: Gtk.Widget): Gtk.WidgetPath
+    vfunc_remove?(widget: Gtk.Widget): void
+    vfunc_set_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_set_focus_child?(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
-    vfunc_adjust_baseline_allocation(baseline: number): void
-    vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
-    vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
-    vfunc_adjust_size_request(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
-    vfunc_button_press_event(event: Gdk.EventButton): boolean
-    vfunc_button_release_event(event: Gdk.EventButton): boolean
-    vfunc_can_activate_accel(signal_id: number): boolean
-    vfunc_child_notify(child_property: GObject.ParamSpec): void
-    vfunc_composited_changed(): void
-    vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
-    vfunc_configure_event(event: Gdk.EventConfigure): boolean
-    vfunc_damage_event(event: Gdk.EventExpose): boolean
-    vfunc_delete_event(event: Gdk.EventAny): boolean
-    vfunc_destroy(): void
-    vfunc_destroy_event(event: Gdk.EventAny): boolean
-    vfunc_direction_changed(previous_direction: Gtk.TextDirection): void
-    vfunc_dispatch_child_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_drag_begin(context: Gdk.DragContext): void
-    vfunc_drag_data_delete(context: Gdk.DragContext): void
-    vfunc_drag_data_get(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_data_received(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_drop(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_drag_end(context: Gdk.DragContext): void
-    vfunc_drag_failed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfunc_drag_leave(context: Gdk.DragContext, time_: number): void
-    vfunc_drag_motion(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_draw(cr: cairo.Context): boolean
-    vfunc_enter_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_event(event: Gdk.Event): boolean
-    vfunc_focus(direction: Gtk.DirectionType): boolean
-    vfunc_focus_in_event(event: Gdk.EventFocus): boolean
-    vfunc_focus_out_event(event: Gdk.EventFocus): boolean
-    vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
-    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_request_mode(): Gtk.SizeRequestMode
-    vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
-    vfunc_grab_focus(): void
-    vfunc_grab_notify(was_grabbed: boolean): void
-    vfunc_hide(): void
-    vfunc_hierarchy_changed(previous_toplevel: Gtk.Widget): void
-    vfunc_key_press_event(event: Gdk.EventKey): boolean
-    vfunc_key_release_event(event: Gdk.EventKey): boolean
-    vfunc_keynav_failed(direction: Gtk.DirectionType): boolean
-    vfunc_leave_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_map(): void
-    vfunc_map_event(event: Gdk.EventAny): boolean
-    vfunc_mnemonic_activate(group_cycling: boolean): boolean
-    vfunc_motion_notify_event(event: Gdk.EventMotion): boolean
-    vfunc_move_focus(direction: Gtk.DirectionType): void
-    vfunc_parent_set(previous_parent: Gtk.Widget): void
-    vfunc_popup_menu(): boolean
-    vfunc_property_notify_event(event: Gdk.EventProperty): boolean
-    vfunc_proximity_in_event(event: Gdk.EventProximity): boolean
-    vfunc_proximity_out_event(event: Gdk.EventProximity): boolean
-    vfunc_query_tooltip(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw_region(region: cairo.Region): void
-    vfunc_realize(): void
-    vfunc_screen_changed(previous_screen: Gdk.Screen): void
-    vfunc_scroll_event(event: Gdk.EventScroll): boolean
-    vfunc_selection_clear_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_get(selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_selection_notify_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_received(selection_data: Gtk.SelectionData, time_: number): void
-    vfunc_selection_request_event(event: Gdk.EventSelection): boolean
-    vfunc_show(): void
-    vfunc_show_all(): void
-    vfunc_show_help(help_type: Gtk.WidgetHelpType): boolean
-    vfunc_size_allocate(allocation: Gtk.Allocation): void
-    vfunc_state_changed(previous_state: Gtk.StateType): void
-    vfunc_state_flags_changed(previous_state_flags: Gtk.StateFlags): void
-    vfunc_style_set(previous_style: Gtk.Style): void
-    vfunc_style_updated(): void
-    vfunc_touch_event(event: Gdk.EventTouch): boolean
-    vfunc_unmap(): void
-    vfunc_unmap_event(event: Gdk.EventAny): boolean
-    vfunc_unrealize(): void
-    vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
-    vfunc_window_state_event(event: Gdk.EventWindowState): boolean
+    vfunc_adjust_baseline_allocation?(baseline: number): void
+    vfunc_adjust_baseline_request?(minimum_baseline: number, natural_baseline: number): void
+    vfunc_adjust_size_allocation?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
+    vfunc_adjust_size_request?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
+    vfunc_button_press_event?(event: Gdk.EventButton): boolean
+    vfunc_button_release_event?(event: Gdk.EventButton): boolean
+    vfunc_can_activate_accel?(signal_id: number): boolean
+    vfunc_child_notify?(child_property: GObject.ParamSpec): void
+    vfunc_composited_changed?(): void
+    vfunc_compute_expand?(hexpand_p: boolean, vexpand_p: boolean): void
+    vfunc_configure_event?(event: Gdk.EventConfigure): boolean
+    vfunc_damage_event?(event: Gdk.EventExpose): boolean
+    vfunc_delete_event?(event: Gdk.EventAny): boolean
+    vfunc_destroy?(): void
+    vfunc_destroy_event?(event: Gdk.EventAny): boolean
+    vfunc_direction_changed?(previous_direction: Gtk.TextDirection): void
+    vfunc_dispatch_child_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_drag_begin?(context: Gdk.DragContext): void
+    vfunc_drag_data_delete?(context: Gdk.DragContext): void
+    vfunc_drag_data_get?(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_data_received?(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_drop?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_drag_end?(context: Gdk.DragContext): void
+    vfunc_drag_failed?(context: Gdk.DragContext, result: Gtk.DragResult): boolean
+    vfunc_drag_leave?(context: Gdk.DragContext, time_: number): void
+    vfunc_drag_motion?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_draw?(cr: cairo.Context): boolean
+    vfunc_enter_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_event?(event: Gdk.Event): boolean
+    vfunc_focus?(direction: Gtk.DirectionType): boolean
+    vfunc_focus_in_event?(event: Gdk.EventFocus): boolean
+    vfunc_focus_out_event?(event: Gdk.EventFocus): boolean
+    vfunc_get_accessible?(): Atk.Object
+    vfunc_get_preferred_height?(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width?(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height?(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_request_mode?(): Gtk.SizeRequestMode
+    vfunc_grab_broken_event?(event: Gdk.EventGrabBroken): boolean
+    vfunc_grab_focus?(): void
+    vfunc_grab_notify?(was_grabbed: boolean): void
+    vfunc_hide?(): void
+    vfunc_hierarchy_changed?(previous_toplevel: Gtk.Widget): void
+    vfunc_key_press_event?(event: Gdk.EventKey): boolean
+    vfunc_key_release_event?(event: Gdk.EventKey): boolean
+    vfunc_keynav_failed?(direction: Gtk.DirectionType): boolean
+    vfunc_leave_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_map?(): void
+    vfunc_map_event?(event: Gdk.EventAny): boolean
+    vfunc_mnemonic_activate?(group_cycling: boolean): boolean
+    vfunc_motion_notify_event?(event: Gdk.EventMotion): boolean
+    vfunc_move_focus?(direction: Gtk.DirectionType): void
+    vfunc_parent_set?(previous_parent: Gtk.Widget): void
+    vfunc_popup_menu?(): boolean
+    vfunc_property_notify_event?(event: Gdk.EventProperty): boolean
+    vfunc_proximity_in_event?(event: Gdk.EventProximity): boolean
+    vfunc_proximity_out_event?(event: Gdk.EventProximity): boolean
+    vfunc_query_tooltip?(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw_region?(region: cairo.Region): void
+    vfunc_realize?(): void
+    vfunc_screen_changed?(previous_screen: Gdk.Screen): void
+    vfunc_scroll_event?(event: Gdk.EventScroll): boolean
+    vfunc_selection_clear_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_get?(selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_selection_notify_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_received?(selection_data: Gtk.SelectionData, time_: number): void
+    vfunc_selection_request_event?(event: Gdk.EventSelection): boolean
+    vfunc_show?(): void
+    vfunc_show_all?(): void
+    vfunc_show_help?(help_type: Gtk.WidgetHelpType): boolean
+    vfunc_size_allocate?(allocation: Gtk.Allocation): void
+    vfunc_state_changed?(previous_state: Gtk.StateType): void
+    vfunc_state_flags_changed?(previous_state_flags: Gtk.StateFlags): void
+    vfunc_style_set?(previous_style: Gtk.Style): void
+    vfunc_style_updated?(): void
+    vfunc_touch_event?(event: Gdk.EventTouch): boolean
+    vfunc_unmap?(): void
+    vfunc_unmap_event?(event: Gdk.EventAny): boolean
+    vfunc_unrealize?(): void
+    vfunc_visibility_notify_event?(event: Gdk.EventVisibility): boolean
+    vfunc_window_state_event?(event: Gdk.EventWindowState): boolean
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.View */
     connect(sigName: "change-case", callback: ((obj: Map, case_type: ChangeCaseType) => void))
     connect(sigName: "change-number", callback: ((obj: Map, count: number) => void))
@@ -3284,13 +3284,13 @@ export class Mark {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Mark, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -3354,13 +3354,13 @@ export class MarkAttributes {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.MarkAttributes */
     connect(sigName: "query-tooltip-markup", callback: ((obj: MarkAttributes, mark: Mark) => string))
     connect(sigName: "query-tooltip-text", callback: ((obj: MarkAttributes, mark: Mark) => string))
@@ -3468,13 +3468,13 @@ export class PrintCompositor {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::body-font-name", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
@@ -3540,13 +3540,13 @@ export class Region {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Region, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -3621,13 +3621,13 @@ export class SearchContext {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::highlight", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
@@ -3695,13 +3695,13 @@ export class SearchSettings {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::at-word-boundaries", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
@@ -3760,13 +3760,13 @@ export class SpaceDrawer {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::enable-matrix", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void))
@@ -3829,13 +3829,13 @@ export class Style {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Style, pspec: GObject.ParamSpec) => void))
     static name: string
@@ -3887,13 +3887,13 @@ export class StyleScheme {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::description", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
@@ -4341,114 +4341,114 @@ export class StyleSchemeChooserButton {
     get_style_scheme(): StyleScheme
     set_style_scheme(scheme: StyleScheme): void
     /* Virtual methods of Gtk.Button */
-    vfunc_activate(): void
-    vfunc_clicked(): void
-    vfunc_enter(): void
-    vfunc_leave(): void
-    vfunc_pressed(): void
-    vfunc_released(): void
+    vfunc_activate?(): void
+    vfunc_clicked?(): void
+    vfunc_enter?(): void
+    vfunc_leave?(): void
+    vfunc_pressed?(): void
+    vfunc_released?(): void
     /* Virtual methods of Gtk.Container */
-    vfunc_add(widget: Gtk.Widget): void
-    vfunc_check_resize(): void
-    vfunc_child_type(): number
-    vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
-    vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child?: Gtk.Widget | null): void
+    vfunc_add?(widget: Gtk.Widget): void
+    vfunc_check_resize?(): void
+    vfunc_child_type?(): number
+    vfunc_composite_name?(child: Gtk.Widget): string
+    vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
+    vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_get_path_for_child?(child: Gtk.Widget): Gtk.WidgetPath
+    vfunc_remove?(widget: Gtk.Widget): void
+    vfunc_set_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_set_focus_child?(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
-    vfunc_adjust_baseline_allocation(baseline: number): void
-    vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
-    vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
-    vfunc_adjust_size_request(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
-    vfunc_button_press_event(event: Gdk.EventButton): boolean
-    vfunc_button_release_event(event: Gdk.EventButton): boolean
-    vfunc_can_activate_accel(signal_id: number): boolean
-    vfunc_child_notify(child_property: GObject.ParamSpec): void
-    vfunc_composited_changed(): void
-    vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
-    vfunc_configure_event(event: Gdk.EventConfigure): boolean
-    vfunc_damage_event(event: Gdk.EventExpose): boolean
-    vfunc_delete_event(event: Gdk.EventAny): boolean
-    vfunc_destroy(): void
-    vfunc_destroy_event(event: Gdk.EventAny): boolean
-    vfunc_direction_changed(previous_direction: Gtk.TextDirection): void
-    vfunc_dispatch_child_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_drag_begin(context: Gdk.DragContext): void
-    vfunc_drag_data_delete(context: Gdk.DragContext): void
-    vfunc_drag_data_get(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_data_received(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_drop(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_drag_end(context: Gdk.DragContext): void
-    vfunc_drag_failed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfunc_drag_leave(context: Gdk.DragContext, time_: number): void
-    vfunc_drag_motion(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_draw(cr: cairo.Context): boolean
-    vfunc_enter_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_event(event: Gdk.Event): boolean
-    vfunc_focus(direction: Gtk.DirectionType): boolean
-    vfunc_focus_in_event(event: Gdk.EventFocus): boolean
-    vfunc_focus_out_event(event: Gdk.EventFocus): boolean
-    vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
-    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_request_mode(): Gtk.SizeRequestMode
-    vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
-    vfunc_grab_focus(): void
-    vfunc_grab_notify(was_grabbed: boolean): void
-    vfunc_hide(): void
-    vfunc_hierarchy_changed(previous_toplevel: Gtk.Widget): void
-    vfunc_key_press_event(event: Gdk.EventKey): boolean
-    vfunc_key_release_event(event: Gdk.EventKey): boolean
-    vfunc_keynav_failed(direction: Gtk.DirectionType): boolean
-    vfunc_leave_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_map(): void
-    vfunc_map_event(event: Gdk.EventAny): boolean
-    vfunc_mnemonic_activate(group_cycling: boolean): boolean
-    vfunc_motion_notify_event(event: Gdk.EventMotion): boolean
-    vfunc_move_focus(direction: Gtk.DirectionType): void
-    vfunc_parent_set(previous_parent: Gtk.Widget): void
-    vfunc_popup_menu(): boolean
-    vfunc_property_notify_event(event: Gdk.EventProperty): boolean
-    vfunc_proximity_in_event(event: Gdk.EventProximity): boolean
-    vfunc_proximity_out_event(event: Gdk.EventProximity): boolean
-    vfunc_query_tooltip(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw_region(region: cairo.Region): void
-    vfunc_realize(): void
-    vfunc_screen_changed(previous_screen: Gdk.Screen): void
-    vfunc_scroll_event(event: Gdk.EventScroll): boolean
-    vfunc_selection_clear_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_get(selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_selection_notify_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_received(selection_data: Gtk.SelectionData, time_: number): void
-    vfunc_selection_request_event(event: Gdk.EventSelection): boolean
-    vfunc_show(): void
-    vfunc_show_all(): void
-    vfunc_show_help(help_type: Gtk.WidgetHelpType): boolean
-    vfunc_size_allocate(allocation: Gtk.Allocation): void
-    vfunc_state_changed(previous_state: Gtk.StateType): void
-    vfunc_state_flags_changed(previous_state_flags: Gtk.StateFlags): void
-    vfunc_style_set(previous_style: Gtk.Style): void
-    vfunc_style_updated(): void
-    vfunc_touch_event(event: Gdk.EventTouch): boolean
-    vfunc_unmap(): void
-    vfunc_unmap_event(event: Gdk.EventAny): boolean
-    vfunc_unrealize(): void
-    vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
-    vfunc_window_state_event(event: Gdk.EventWindowState): boolean
+    vfunc_adjust_baseline_allocation?(baseline: number): void
+    vfunc_adjust_baseline_request?(minimum_baseline: number, natural_baseline: number): void
+    vfunc_adjust_size_allocation?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
+    vfunc_adjust_size_request?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
+    vfunc_button_press_event?(event: Gdk.EventButton): boolean
+    vfunc_button_release_event?(event: Gdk.EventButton): boolean
+    vfunc_can_activate_accel?(signal_id: number): boolean
+    vfunc_child_notify?(child_property: GObject.ParamSpec): void
+    vfunc_composited_changed?(): void
+    vfunc_compute_expand?(hexpand_p: boolean, vexpand_p: boolean): void
+    vfunc_configure_event?(event: Gdk.EventConfigure): boolean
+    vfunc_damage_event?(event: Gdk.EventExpose): boolean
+    vfunc_delete_event?(event: Gdk.EventAny): boolean
+    vfunc_destroy?(): void
+    vfunc_destroy_event?(event: Gdk.EventAny): boolean
+    vfunc_direction_changed?(previous_direction: Gtk.TextDirection): void
+    vfunc_dispatch_child_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_drag_begin?(context: Gdk.DragContext): void
+    vfunc_drag_data_delete?(context: Gdk.DragContext): void
+    vfunc_drag_data_get?(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_data_received?(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_drop?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_drag_end?(context: Gdk.DragContext): void
+    vfunc_drag_failed?(context: Gdk.DragContext, result: Gtk.DragResult): boolean
+    vfunc_drag_leave?(context: Gdk.DragContext, time_: number): void
+    vfunc_drag_motion?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_draw?(cr: cairo.Context): boolean
+    vfunc_enter_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_event?(event: Gdk.Event): boolean
+    vfunc_focus?(direction: Gtk.DirectionType): boolean
+    vfunc_focus_in_event?(event: Gdk.EventFocus): boolean
+    vfunc_focus_out_event?(event: Gdk.EventFocus): boolean
+    vfunc_get_accessible?(): Atk.Object
+    vfunc_get_preferred_height?(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width?(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height?(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_request_mode?(): Gtk.SizeRequestMode
+    vfunc_grab_broken_event?(event: Gdk.EventGrabBroken): boolean
+    vfunc_grab_focus?(): void
+    vfunc_grab_notify?(was_grabbed: boolean): void
+    vfunc_hide?(): void
+    vfunc_hierarchy_changed?(previous_toplevel: Gtk.Widget): void
+    vfunc_key_press_event?(event: Gdk.EventKey): boolean
+    vfunc_key_release_event?(event: Gdk.EventKey): boolean
+    vfunc_keynav_failed?(direction: Gtk.DirectionType): boolean
+    vfunc_leave_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_map?(): void
+    vfunc_map_event?(event: Gdk.EventAny): boolean
+    vfunc_mnemonic_activate?(group_cycling: boolean): boolean
+    vfunc_motion_notify_event?(event: Gdk.EventMotion): boolean
+    vfunc_move_focus?(direction: Gtk.DirectionType): void
+    vfunc_parent_set?(previous_parent: Gtk.Widget): void
+    vfunc_popup_menu?(): boolean
+    vfunc_property_notify_event?(event: Gdk.EventProperty): boolean
+    vfunc_proximity_in_event?(event: Gdk.EventProximity): boolean
+    vfunc_proximity_out_event?(event: Gdk.EventProximity): boolean
+    vfunc_query_tooltip?(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw_region?(region: cairo.Region): void
+    vfunc_realize?(): void
+    vfunc_screen_changed?(previous_screen: Gdk.Screen): void
+    vfunc_scroll_event?(event: Gdk.EventScroll): boolean
+    vfunc_selection_clear_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_get?(selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_selection_notify_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_received?(selection_data: Gtk.SelectionData, time_: number): void
+    vfunc_selection_request_event?(event: Gdk.EventSelection): boolean
+    vfunc_show?(): void
+    vfunc_show_all?(): void
+    vfunc_show_help?(help_type: Gtk.WidgetHelpType): boolean
+    vfunc_size_allocate?(allocation: Gtk.Allocation): void
+    vfunc_state_changed?(previous_state: Gtk.StateType): void
+    vfunc_state_flags_changed?(previous_state_flags: Gtk.StateFlags): void
+    vfunc_style_set?(previous_style: Gtk.Style): void
+    vfunc_style_updated?(): void
+    vfunc_touch_event?(event: Gdk.EventTouch): boolean
+    vfunc_unmap?(): void
+    vfunc_unmap_event?(event: Gdk.EventAny): boolean
+    vfunc_unrealize?(): void
+    vfunc_visibility_notify_event?(event: Gdk.EventVisibility): boolean
+    vfunc_window_state_event?(event: Gdk.EventWindowState): boolean
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gtk.Button */
     connect(sigName: "activate", callback: ((obj: StyleSchemeChooserButton) => void))
     connect(sigName: "clicked", callback: ((obj: StyleSchemeChooserButton) => void))
@@ -4979,107 +4979,107 @@ export class StyleSchemeChooserWidget {
     get_style_scheme(): StyleScheme
     set_style_scheme(scheme: StyleScheme): void
     /* Virtual methods of Gtk.Container */
-    vfunc_add(widget: Gtk.Widget): void
-    vfunc_check_resize(): void
-    vfunc_child_type(): number
-    vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
-    vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child?: Gtk.Widget | null): void
+    vfunc_add?(widget: Gtk.Widget): void
+    vfunc_check_resize?(): void
+    vfunc_child_type?(): number
+    vfunc_composite_name?(child: Gtk.Widget): string
+    vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
+    vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_get_path_for_child?(child: Gtk.Widget): Gtk.WidgetPath
+    vfunc_remove?(widget: Gtk.Widget): void
+    vfunc_set_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_set_focus_child?(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
-    vfunc_adjust_baseline_allocation(baseline: number): void
-    vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
-    vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
-    vfunc_adjust_size_request(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
-    vfunc_button_press_event(event: Gdk.EventButton): boolean
-    vfunc_button_release_event(event: Gdk.EventButton): boolean
-    vfunc_can_activate_accel(signal_id: number): boolean
-    vfunc_child_notify(child_property: GObject.ParamSpec): void
-    vfunc_composited_changed(): void
-    vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
-    vfunc_configure_event(event: Gdk.EventConfigure): boolean
-    vfunc_damage_event(event: Gdk.EventExpose): boolean
-    vfunc_delete_event(event: Gdk.EventAny): boolean
-    vfunc_destroy(): void
-    vfunc_destroy_event(event: Gdk.EventAny): boolean
-    vfunc_direction_changed(previous_direction: Gtk.TextDirection): void
-    vfunc_dispatch_child_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_drag_begin(context: Gdk.DragContext): void
-    vfunc_drag_data_delete(context: Gdk.DragContext): void
-    vfunc_drag_data_get(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_data_received(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_drop(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_drag_end(context: Gdk.DragContext): void
-    vfunc_drag_failed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfunc_drag_leave(context: Gdk.DragContext, time_: number): void
-    vfunc_drag_motion(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_draw(cr: cairo.Context): boolean
-    vfunc_enter_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_event(event: Gdk.Event): boolean
-    vfunc_focus(direction: Gtk.DirectionType): boolean
-    vfunc_focus_in_event(event: Gdk.EventFocus): boolean
-    vfunc_focus_out_event(event: Gdk.EventFocus): boolean
-    vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
-    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_request_mode(): Gtk.SizeRequestMode
-    vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
-    vfunc_grab_focus(): void
-    vfunc_grab_notify(was_grabbed: boolean): void
-    vfunc_hide(): void
-    vfunc_hierarchy_changed(previous_toplevel: Gtk.Widget): void
-    vfunc_key_press_event(event: Gdk.EventKey): boolean
-    vfunc_key_release_event(event: Gdk.EventKey): boolean
-    vfunc_keynav_failed(direction: Gtk.DirectionType): boolean
-    vfunc_leave_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_map(): void
-    vfunc_map_event(event: Gdk.EventAny): boolean
-    vfunc_mnemonic_activate(group_cycling: boolean): boolean
-    vfunc_motion_notify_event(event: Gdk.EventMotion): boolean
-    vfunc_move_focus(direction: Gtk.DirectionType): void
-    vfunc_parent_set(previous_parent: Gtk.Widget): void
-    vfunc_popup_menu(): boolean
-    vfunc_property_notify_event(event: Gdk.EventProperty): boolean
-    vfunc_proximity_in_event(event: Gdk.EventProximity): boolean
-    vfunc_proximity_out_event(event: Gdk.EventProximity): boolean
-    vfunc_query_tooltip(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw_region(region: cairo.Region): void
-    vfunc_realize(): void
-    vfunc_screen_changed(previous_screen: Gdk.Screen): void
-    vfunc_scroll_event(event: Gdk.EventScroll): boolean
-    vfunc_selection_clear_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_get(selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_selection_notify_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_received(selection_data: Gtk.SelectionData, time_: number): void
-    vfunc_selection_request_event(event: Gdk.EventSelection): boolean
-    vfunc_show(): void
-    vfunc_show_all(): void
-    vfunc_show_help(help_type: Gtk.WidgetHelpType): boolean
-    vfunc_size_allocate(allocation: Gtk.Allocation): void
-    vfunc_state_changed(previous_state: Gtk.StateType): void
-    vfunc_state_flags_changed(previous_state_flags: Gtk.StateFlags): void
-    vfunc_style_set(previous_style: Gtk.Style): void
-    vfunc_style_updated(): void
-    vfunc_touch_event(event: Gdk.EventTouch): boolean
-    vfunc_unmap(): void
-    vfunc_unmap_event(event: Gdk.EventAny): boolean
-    vfunc_unrealize(): void
-    vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
-    vfunc_window_state_event(event: Gdk.EventWindowState): boolean
+    vfunc_adjust_baseline_allocation?(baseline: number): void
+    vfunc_adjust_baseline_request?(minimum_baseline: number, natural_baseline: number): void
+    vfunc_adjust_size_allocation?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
+    vfunc_adjust_size_request?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
+    vfunc_button_press_event?(event: Gdk.EventButton): boolean
+    vfunc_button_release_event?(event: Gdk.EventButton): boolean
+    vfunc_can_activate_accel?(signal_id: number): boolean
+    vfunc_child_notify?(child_property: GObject.ParamSpec): void
+    vfunc_composited_changed?(): void
+    vfunc_compute_expand?(hexpand_p: boolean, vexpand_p: boolean): void
+    vfunc_configure_event?(event: Gdk.EventConfigure): boolean
+    vfunc_damage_event?(event: Gdk.EventExpose): boolean
+    vfunc_delete_event?(event: Gdk.EventAny): boolean
+    vfunc_destroy?(): void
+    vfunc_destroy_event?(event: Gdk.EventAny): boolean
+    vfunc_direction_changed?(previous_direction: Gtk.TextDirection): void
+    vfunc_dispatch_child_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_drag_begin?(context: Gdk.DragContext): void
+    vfunc_drag_data_delete?(context: Gdk.DragContext): void
+    vfunc_drag_data_get?(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_data_received?(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_drop?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_drag_end?(context: Gdk.DragContext): void
+    vfunc_drag_failed?(context: Gdk.DragContext, result: Gtk.DragResult): boolean
+    vfunc_drag_leave?(context: Gdk.DragContext, time_: number): void
+    vfunc_drag_motion?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_draw?(cr: cairo.Context): boolean
+    vfunc_enter_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_event?(event: Gdk.Event): boolean
+    vfunc_focus?(direction: Gtk.DirectionType): boolean
+    vfunc_focus_in_event?(event: Gdk.EventFocus): boolean
+    vfunc_focus_out_event?(event: Gdk.EventFocus): boolean
+    vfunc_get_accessible?(): Atk.Object
+    vfunc_get_preferred_height?(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width?(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height?(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_request_mode?(): Gtk.SizeRequestMode
+    vfunc_grab_broken_event?(event: Gdk.EventGrabBroken): boolean
+    vfunc_grab_focus?(): void
+    vfunc_grab_notify?(was_grabbed: boolean): void
+    vfunc_hide?(): void
+    vfunc_hierarchy_changed?(previous_toplevel: Gtk.Widget): void
+    vfunc_key_press_event?(event: Gdk.EventKey): boolean
+    vfunc_key_release_event?(event: Gdk.EventKey): boolean
+    vfunc_keynav_failed?(direction: Gtk.DirectionType): boolean
+    vfunc_leave_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_map?(): void
+    vfunc_map_event?(event: Gdk.EventAny): boolean
+    vfunc_mnemonic_activate?(group_cycling: boolean): boolean
+    vfunc_motion_notify_event?(event: Gdk.EventMotion): boolean
+    vfunc_move_focus?(direction: Gtk.DirectionType): void
+    vfunc_parent_set?(previous_parent: Gtk.Widget): void
+    vfunc_popup_menu?(): boolean
+    vfunc_property_notify_event?(event: Gdk.EventProperty): boolean
+    vfunc_proximity_in_event?(event: Gdk.EventProximity): boolean
+    vfunc_proximity_out_event?(event: Gdk.EventProximity): boolean
+    vfunc_query_tooltip?(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw_region?(region: cairo.Region): void
+    vfunc_realize?(): void
+    vfunc_screen_changed?(previous_screen: Gdk.Screen): void
+    vfunc_scroll_event?(event: Gdk.EventScroll): boolean
+    vfunc_selection_clear_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_get?(selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_selection_notify_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_received?(selection_data: Gtk.SelectionData, time_: number): void
+    vfunc_selection_request_event?(event: Gdk.EventSelection): boolean
+    vfunc_show?(): void
+    vfunc_show_all?(): void
+    vfunc_show_help?(help_type: Gtk.WidgetHelpType): boolean
+    vfunc_size_allocate?(allocation: Gtk.Allocation): void
+    vfunc_state_changed?(previous_state: Gtk.StateType): void
+    vfunc_state_flags_changed?(previous_state_flags: Gtk.StateFlags): void
+    vfunc_style_set?(previous_style: Gtk.Style): void
+    vfunc_style_updated?(): void
+    vfunc_touch_event?(event: Gdk.EventTouch): boolean
+    vfunc_unmap?(): void
+    vfunc_unmap_event?(event: Gdk.EventAny): boolean
+    vfunc_unrealize?(): void
+    vfunc_visibility_notify_event?(event: Gdk.EventVisibility): boolean
+    vfunc_window_state_event?(event: Gdk.EventWindowState): boolean
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: ((obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void))
     connect(sigName: "check-resize", callback: ((obj: StyleSchemeChooserWidget) => void))
@@ -5250,13 +5250,13 @@ export class StyleSchemeManager {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::scheme-ids", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
@@ -5385,15 +5385,15 @@ export class Tag {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gtk.TextTag */
-    vfunc_event(event_object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter): boolean
+    vfunc_event?(event_object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter): boolean
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gtk.TextTag */
     connect(sigName: "event", callback: ((obj: Tag, object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter) => boolean))
     /* Signals of GObject.Object */
@@ -6030,127 +6030,127 @@ export class View {
     set_vadjustment(vadjustment?: Gtk.Adjustment | null): void
     set_vscroll_policy(policy: Gtk.ScrollablePolicy): void
     /* Virtual methods of GtkSource.View */
-    vfunc_line_mark_activated(iter: Gtk.TextIter, event: Gdk.Event): void
-    vfunc_move_lines(copy: boolean, step: number): void
-    vfunc_move_words(step: number): void
-    vfunc_redo(): void
-    vfunc_show_completion(): void
-    vfunc_undo(): void
+    vfunc_line_mark_activated?(iter: Gtk.TextIter, event: Gdk.Event): void
+    vfunc_move_lines?(copy: boolean, step: number): void
+    vfunc_move_words?(step: number): void
+    vfunc_redo?(): void
+    vfunc_show_completion?(): void
+    vfunc_undo?(): void
     /* Virtual methods of Gtk.TextView */
-    vfunc_backspace(): void
-    vfunc_copy_clipboard(): void
-    vfunc_cut_clipboard(): void
-    vfunc_delete_from_cursor(type: Gtk.DeleteType, count: number): void
-    vfunc_draw_layer(layer: Gtk.TextViewLayer, cr: cairo.Context): void
-    vfunc_extend_selection(granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter): boolean
-    vfunc_insert_at_cursor(str: string): void
-    vfunc_move_cursor(step: Gtk.MovementStep, count: number, extend_selection: boolean): void
-    vfunc_paste_clipboard(): void
-    vfunc_populate_popup(popup: Gtk.Widget): void
-    vfunc_set_anchor(): void
-    vfunc_toggle_overwrite(): void
+    vfunc_backspace?(): void
+    vfunc_copy_clipboard?(): void
+    vfunc_cut_clipboard?(): void
+    vfunc_delete_from_cursor?(type: Gtk.DeleteType, count: number): void
+    vfunc_draw_layer?(layer: Gtk.TextViewLayer, cr: cairo.Context): void
+    vfunc_extend_selection?(granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter): boolean
+    vfunc_insert_at_cursor?(str: string): void
+    vfunc_move_cursor?(step: Gtk.MovementStep, count: number, extend_selection: boolean): void
+    vfunc_paste_clipboard?(): void
+    vfunc_populate_popup?(popup: Gtk.Widget): void
+    vfunc_set_anchor?(): void
+    vfunc_toggle_overwrite?(): void
     /* Virtual methods of Gtk.Container */
-    vfunc_add(widget: Gtk.Widget): void
-    vfunc_check_resize(): void
-    vfunc_child_type(): number
-    vfunc_composite_name(child: Gtk.Widget): string
-    vfunc_forall(include_internals: boolean, callback: Gtk.Callback): void
-    vfunc_get_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_get_path_for_child(child: Gtk.Widget): Gtk.WidgetPath
-    vfunc_remove(widget: Gtk.Widget): void
-    vfunc_set_child_property(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_set_focus_child(child?: Gtk.Widget | null): void
+    vfunc_add?(widget: Gtk.Widget): void
+    vfunc_check_resize?(): void
+    vfunc_child_type?(): number
+    vfunc_composite_name?(child: Gtk.Widget): string
+    vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
+    vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_get_path_for_child?(child: Gtk.Widget): Gtk.WidgetPath
+    vfunc_remove?(widget: Gtk.Widget): void
+    vfunc_set_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_set_focus_child?(child?: Gtk.Widget | null): void
     /* Virtual methods of Gtk.Widget */
-    vfunc_adjust_baseline_allocation(baseline: number): void
-    vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
-    vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
-    vfunc_adjust_size_request(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
-    vfunc_button_press_event(event: Gdk.EventButton): boolean
-    vfunc_button_release_event(event: Gdk.EventButton): boolean
-    vfunc_can_activate_accel(signal_id: number): boolean
-    vfunc_child_notify(child_property: GObject.ParamSpec): void
-    vfunc_composited_changed(): void
-    vfunc_compute_expand(hexpand_p: boolean, vexpand_p: boolean): void
-    vfunc_configure_event(event: Gdk.EventConfigure): boolean
-    vfunc_damage_event(event: Gdk.EventExpose): boolean
-    vfunc_delete_event(event: Gdk.EventAny): boolean
-    vfunc_destroy(): void
-    vfunc_destroy_event(event: Gdk.EventAny): boolean
-    vfunc_direction_changed(previous_direction: Gtk.TextDirection): void
-    vfunc_dispatch_child_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_drag_begin(context: Gdk.DragContext): void
-    vfunc_drag_data_delete(context: Gdk.DragContext): void
-    vfunc_drag_data_get(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_data_received(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_drag_drop(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_drag_end(context: Gdk.DragContext): void
-    vfunc_drag_failed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfunc_drag_leave(context: Gdk.DragContext, time_: number): void
-    vfunc_drag_motion(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
-    vfunc_draw(cr: cairo.Context): boolean
-    vfunc_enter_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_event(event: Gdk.Event): boolean
-    vfunc_focus(direction: Gtk.DirectionType): boolean
-    vfunc_focus_in_event(event: Gdk.EventFocus): boolean
-    vfunc_focus_out_event(event: Gdk.EventFocus): boolean
-    vfunc_get_accessible(): Atk.Object
-    vfunc_get_preferred_height(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_height_and_baseline_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
-    vfunc_get_preferred_height_for_width(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
-    vfunc_get_preferred_width(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_preferred_width_for_height(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    vfunc_get_request_mode(): Gtk.SizeRequestMode
-    vfunc_grab_broken_event(event: Gdk.EventGrabBroken): boolean
-    vfunc_grab_focus(): void
-    vfunc_grab_notify(was_grabbed: boolean): void
-    vfunc_hide(): void
-    vfunc_hierarchy_changed(previous_toplevel: Gtk.Widget): void
-    vfunc_key_press_event(event: Gdk.EventKey): boolean
-    vfunc_key_release_event(event: Gdk.EventKey): boolean
-    vfunc_keynav_failed(direction: Gtk.DirectionType): boolean
-    vfunc_leave_notify_event(event: Gdk.EventCrossing): boolean
-    vfunc_map(): void
-    vfunc_map_event(event: Gdk.EventAny): boolean
-    vfunc_mnemonic_activate(group_cycling: boolean): boolean
-    vfunc_motion_notify_event(event: Gdk.EventMotion): boolean
-    vfunc_move_focus(direction: Gtk.DirectionType): void
-    vfunc_parent_set(previous_parent: Gtk.Widget): void
-    vfunc_popup_menu(): boolean
-    vfunc_property_notify_event(event: Gdk.EventProperty): boolean
-    vfunc_proximity_in_event(event: Gdk.EventProximity): boolean
-    vfunc_proximity_out_event(event: Gdk.EventProximity): boolean
-    vfunc_query_tooltip(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfunc_queue_draw_region(region: cairo.Region): void
-    vfunc_realize(): void
-    vfunc_screen_changed(previous_screen: Gdk.Screen): void
-    vfunc_scroll_event(event: Gdk.EventScroll): boolean
-    vfunc_selection_clear_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_get(selection_data: Gtk.SelectionData, info: number, time_: number): void
-    vfunc_selection_notify_event(event: Gdk.EventSelection): boolean
-    vfunc_selection_received(selection_data: Gtk.SelectionData, time_: number): void
-    vfunc_selection_request_event(event: Gdk.EventSelection): boolean
-    vfunc_show(): void
-    vfunc_show_all(): void
-    vfunc_show_help(help_type: Gtk.WidgetHelpType): boolean
-    vfunc_size_allocate(allocation: Gtk.Allocation): void
-    vfunc_state_changed(previous_state: Gtk.StateType): void
-    vfunc_state_flags_changed(previous_state_flags: Gtk.StateFlags): void
-    vfunc_style_set(previous_style: Gtk.Style): void
-    vfunc_style_updated(): void
-    vfunc_touch_event(event: Gdk.EventTouch): boolean
-    vfunc_unmap(): void
-    vfunc_unmap_event(event: Gdk.EventAny): boolean
-    vfunc_unrealize(): void
-    vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
-    vfunc_window_state_event(event: Gdk.EventWindowState): boolean
+    vfunc_adjust_baseline_allocation?(baseline: number): void
+    vfunc_adjust_baseline_request?(minimum_baseline: number, natural_baseline: number): void
+    vfunc_adjust_size_allocation?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
+    vfunc_adjust_size_request?(orientation: Gtk.Orientation, minimum_size: number, natural_size: number): void
+    vfunc_button_press_event?(event: Gdk.EventButton): boolean
+    vfunc_button_release_event?(event: Gdk.EventButton): boolean
+    vfunc_can_activate_accel?(signal_id: number): boolean
+    vfunc_child_notify?(child_property: GObject.ParamSpec): void
+    vfunc_composited_changed?(): void
+    vfunc_compute_expand?(hexpand_p: boolean, vexpand_p: boolean): void
+    vfunc_configure_event?(event: Gdk.EventConfigure): boolean
+    vfunc_damage_event?(event: Gdk.EventExpose): boolean
+    vfunc_delete_event?(event: Gdk.EventAny): boolean
+    vfunc_destroy?(): void
+    vfunc_destroy_event?(event: Gdk.EventAny): boolean
+    vfunc_direction_changed?(previous_direction: Gtk.TextDirection): void
+    vfunc_dispatch_child_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_drag_begin?(context: Gdk.DragContext): void
+    vfunc_drag_data_delete?(context: Gdk.DragContext): void
+    vfunc_drag_data_get?(context: Gdk.DragContext, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_data_received?(context: Gdk.DragContext, x: number, y: number, selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_drag_drop?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_drag_end?(context: Gdk.DragContext): void
+    vfunc_drag_failed?(context: Gdk.DragContext, result: Gtk.DragResult): boolean
+    vfunc_drag_leave?(context: Gdk.DragContext, time_: number): void
+    vfunc_drag_motion?(context: Gdk.DragContext, x: number, y: number, time_: number): boolean
+    vfunc_draw?(cr: cairo.Context): boolean
+    vfunc_enter_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_event?(event: Gdk.Event): boolean
+    vfunc_focus?(direction: Gtk.DirectionType): boolean
+    vfunc_focus_in_event?(event: Gdk.EventFocus): boolean
+    vfunc_focus_out_event?(event: Gdk.EventFocus): boolean
+    vfunc_get_accessible?(): Atk.Object
+    vfunc_get_preferred_height?(): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_height_and_baseline_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null, /* minimum_baseline */ number | null, /* natural_baseline */ number | null ]
+    vfunc_get_preferred_height_for_width?(width: number): [ /* minimum_height */ number | null, /* natural_height */ number | null ]
+    vfunc_get_preferred_width?(): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_preferred_width_for_height?(height: number): [ /* minimum_width */ number | null, /* natural_width */ number | null ]
+    vfunc_get_request_mode?(): Gtk.SizeRequestMode
+    vfunc_grab_broken_event?(event: Gdk.EventGrabBroken): boolean
+    vfunc_grab_focus?(): void
+    vfunc_grab_notify?(was_grabbed: boolean): void
+    vfunc_hide?(): void
+    vfunc_hierarchy_changed?(previous_toplevel: Gtk.Widget): void
+    vfunc_key_press_event?(event: Gdk.EventKey): boolean
+    vfunc_key_release_event?(event: Gdk.EventKey): boolean
+    vfunc_keynav_failed?(direction: Gtk.DirectionType): boolean
+    vfunc_leave_notify_event?(event: Gdk.EventCrossing): boolean
+    vfunc_map?(): void
+    vfunc_map_event?(event: Gdk.EventAny): boolean
+    vfunc_mnemonic_activate?(group_cycling: boolean): boolean
+    vfunc_motion_notify_event?(event: Gdk.EventMotion): boolean
+    vfunc_move_focus?(direction: Gtk.DirectionType): void
+    vfunc_parent_set?(previous_parent: Gtk.Widget): void
+    vfunc_popup_menu?(): boolean
+    vfunc_property_notify_event?(event: Gdk.EventProperty): boolean
+    vfunc_proximity_in_event?(event: Gdk.EventProximity): boolean
+    vfunc_proximity_out_event?(event: Gdk.EventProximity): boolean
+    vfunc_query_tooltip?(x: number, y: number, keyboard_tooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfunc_queue_draw_region?(region: cairo.Region): void
+    vfunc_realize?(): void
+    vfunc_screen_changed?(previous_screen: Gdk.Screen): void
+    vfunc_scroll_event?(event: Gdk.EventScroll): boolean
+    vfunc_selection_clear_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_get?(selection_data: Gtk.SelectionData, info: number, time_: number): void
+    vfunc_selection_notify_event?(event: Gdk.EventSelection): boolean
+    vfunc_selection_received?(selection_data: Gtk.SelectionData, time_: number): void
+    vfunc_selection_request_event?(event: Gdk.EventSelection): boolean
+    vfunc_show?(): void
+    vfunc_show_all?(): void
+    vfunc_show_help?(help_type: Gtk.WidgetHelpType): boolean
+    vfunc_size_allocate?(allocation: Gtk.Allocation): void
+    vfunc_state_changed?(previous_state: Gtk.StateType): void
+    vfunc_state_flags_changed?(previous_state_flags: Gtk.StateFlags): void
+    vfunc_style_set?(previous_style: Gtk.Style): void
+    vfunc_style_updated?(): void
+    vfunc_touch_event?(event: Gdk.EventTouch): boolean
+    vfunc_unmap?(): void
+    vfunc_unmap_event?(event: Gdk.EventAny): boolean
+    vfunc_unrealize?(): void
+    vfunc_visibility_notify_event?(event: Gdk.EventVisibility): boolean
+    vfunc_window_state_event?(event: Gdk.EventWindowState): boolean
     /* Virtual methods of GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_constructed?(): void
+    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose?(): void
+    vfunc_finalize?(): void
+    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify?(pspec: GObject.ParamSpec): void
+    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.View */
     connect(sigName: "change-case", callback: ((obj: View, case_type: ChangeCaseType) => void))
     connect(sigName: "change-number", callback: ((obj: View, count: number) => void))

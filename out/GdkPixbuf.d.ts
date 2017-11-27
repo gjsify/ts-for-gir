@@ -103,7 +103,7 @@ export class Pixbuf {
     get_n_channels(): number
     get_option(key: string): string
     get_options(): GLib.HashTable
-    get_pixels(): [ /* returnType */ Gjs.byteArray.ByteArray, /* length */ number ]
+    get_pixels(): Gjs.byteArray.ByteArray
     get_rowstride(): number
     get_width(): number
     new_subpixbuf(src_x: number, src_y: number, width: number, height: number): Pixbuf
@@ -489,7 +489,7 @@ export class Pixdata {
     pixel_data:Gjs.byteArray.ByteArray
     /* Methods of GdkPixbuf.Pixdata */
     deserialize(stream: Gjs.byteArray.ByteArray): boolean
-    serialize(): [ /* returnType */ Gjs.byteArray.ByteArray, /* stream_length_p */ number ]
+    serialize(): Gjs.byteArray.ByteArray
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String
     static name: string
 }

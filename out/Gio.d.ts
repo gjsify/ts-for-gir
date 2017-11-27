@@ -2066,7 +2066,7 @@ export class ApplicationCommandLine {
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.ApplicationCommandLine */
     create_file_for_arg(arg: string): File
-    get_arguments(): [ /* returnType */ string[], /* argc */ number | null ]
+    get_arguments(): string[]
     get_cwd(): string
     get_environ(): string[]
     get_exit_status(): number
@@ -2141,7 +2141,7 @@ export class BufferedInputStream {
     get_available(): number
     get_buffer_size(): number
     peek(buffer: Gjs.byteArray.ByteArray, offset: number): number
-    peek_buffer(): [ /* returnType */ Gjs.byteArray.ByteArray, /* count */ number ]
+    peek_buffer(): Gjs.byteArray.ByteArray
     read_byte(cancellable?: Cancellable | null): number
     set_buffer_size(size: number): void
     /* Methods of Gio.FilterInputStream */
@@ -3179,7 +3179,7 @@ export class DBusMessage {
     set_serial(serial: number): void
     set_signature(value: string): void
     set_unix_fd_list(fd_list?: UnixFDList | null): void
-    to_blob(capabilities: DBusCapabilityFlags): [ /* returnType */ Gjs.byteArray.ByteArray, /* out_size */ number ]
+    to_blob(capabilities: DBusCapabilityFlags): Gjs.byteArray.ByteArray
     to_gerror(): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -3776,7 +3776,7 @@ export class DataInputStream {
     get_available(): number
     get_buffer_size(): number
     peek(buffer: Gjs.byteArray.ByteArray, offset: number): number
-    peek_buffer(): [ /* returnType */ Gjs.byteArray.ByteArray, /* count */ number ]
+    peek_buffer(): Gjs.byteArray.ByteArray
     set_buffer_size(size: number): void
     /* Methods of Gio.FilterInputStream */
     get_base_stream(): InputStream
@@ -9194,8 +9194,8 @@ export class UnixFDList {
     append(fd: number): number
     get(index_: number): number
     get_length(): number
-    peek_fds(): [ /* returnType */ number[], /* length */ number | null ]
-    steal_fds(): [ /* returnType */ number[], /* length */ number | null ]
+    peek_fds(): number[]
+    steal_fds(): number[]
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -9250,7 +9250,7 @@ export class UnixFDMessage {
     /* Methods of Gio.UnixFDMessage */
     append_fd(fd: number): boolean
     get_fd_list(): UnixFDList
-    steal_fds(): [ /* returnType */ number[], /* length */ number | null ]
+    steal_fds(): number[]
     /* Methods of Gio.SocketControlMessage */
     get_level(): number
     get_msg_type(): number

@@ -929,7 +929,7 @@ export function atomic_pointer_get(atomic: object): object | null
 export function atomic_pointer_or(atomic: object, val: number): number
 export function atomic_pointer_set(atomic: object, newval?: object | null): void
 export function atomic_pointer_xor(atomic: object, val: number): number
-export function base64_decode(text: string): [ /* returnType */ Gjs.byteArray.ByteArray, /* out_len */ number ]
+export function base64_decode(text: string): Gjs.byteArray.ByteArray
 export function base64_decode_inplace(text: Gjs.byteArray.ByteArray): number
 export function base64_decode_step(in_: Gjs.byteArray.ByteArray, state: number, save: number): [ /* returnType */ number, /* out */ Gjs.byteArray.ByteArray ]
 export function base64_encode(data: Gjs.byteArray.ByteArray): string
@@ -1018,7 +1018,7 @@ export function file_test(filename: string, test: FileTest): boolean
 export function filename_display_basename(filename: string): string
 export function filename_display_name(filename: string): string
 export function filename_from_uri(uri: string): [ /* returnType */ string, /* hostname */ string | null ]
-export function filename_from_utf8(utf8string: string, len: number): [ /* returnType */ Gjs.byteArray.ByteArray, /* bytes_read */ number | null, /* bytes_written */ number ]
+export function filename_from_utf8(utf8string: string, len: number): [ /* returnType */ Gjs.byteArray.ByteArray, /* bytes_read */ number | null ]
 export function filename_to_uri(filename: string, hostname?: string | null): string
 export function filename_to_utf8(opsysstring: string, len: number): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
 export function find_program_in_path(program: string): string
@@ -1564,16 +1564,16 @@ export class BookmarkFile {
     free(): void
     get_added(uri: string): number
     get_app_info(uri: string, name: string): [ /* returnType */ boolean, /* exec */ string | null, /* count */ number | null, /* stamp */ number | null ]
-    get_applications(uri: string): [ /* returnType */ string[], /* length */ number | null ]
+    get_applications(uri: string): string[]
     get_description(uri: string): string
-    get_groups(uri: string): [ /* returnType */ string[], /* length */ number | null ]
+    get_groups(uri: string): string[]
     get_icon(uri: string): [ /* returnType */ boolean, /* href */ string | null, /* mime_type */ string | null ]
     get_is_private(uri: string): boolean
     get_mime_type(uri: string): string
     get_modified(uri: string): number
     get_size(): number
     get_title(uri?: string | null): string
-    get_uris(): [ /* returnType */ string[], /* length */ number | null ]
+    get_uris(): string[]
     get_visited(uri: string): number
     has_application(uri: string, name: string): boolean
     has_group(uri: string, group: string): boolean
@@ -1615,14 +1615,14 @@ export class Bytes {
     /* Methods of GLib.Bytes */
     compare(bytes2: Bytes): number
     equal(bytes2: Bytes): boolean
-    get_data(): [ /* returnType */ Gjs.byteArray.ByteArray | null, /* size */ number | null ]
+    get_data(): Gjs.byteArray.ByteArray | null
     get_size(): number
     hash(): number
     new_from_bytes(offset: number, length: number): Bytes
     ref(): Bytes
     unref(): void
     unref_to_array(): Gjs.byteArray.ByteArray
-    unref_to_data(): [ /* returnType */ Gjs.byteArray.ByteArray, /* size */ number ]
+    unref_to_data(): Gjs.byteArray.ByteArray
     static name: string
     static new(data: Gjs.byteArray.ByteArray | null): Bytes
     constructor(data: Gjs.byteArray.ByteArray | null)
@@ -1926,20 +1926,20 @@ export class IOFuncs {
 export class KeyFile {
     /* Methods of GLib.KeyFile */
     get_boolean(group_name: string, key: string): boolean
-    get_boolean_list(group_name: string, key: string): [ /* returnType */ boolean[], /* length */ number ]
+    get_boolean_list(group_name: string, key: string): boolean[]
     get_comment(group_name: string | null, key: string): string
     get_double(group_name: string, key: string): number
-    get_double_list(group_name: string, key: string): [ /* returnType */ number[], /* length */ number ]
+    get_double_list(group_name: string, key: string): number[]
     get_groups(): [ /* returnType */ string[], /* length */ number | null ]
     get_int64(group_name: string, key: string): number
     get_integer(group_name: string, key: string): number
-    get_integer_list(group_name: string, key: string): [ /* returnType */ number[], /* length */ number ]
+    get_integer_list(group_name: string, key: string): number[]
     get_keys(group_name: string): [ /* returnType */ string[], /* length */ number | null ]
     get_locale_string(group_name: string, key: string, locale?: string | null): string
-    get_locale_string_list(group_name: string, key: string, locale?: string | null): [ /* returnType */ string[], /* length */ number | null ]
+    get_locale_string_list(group_name: string, key: string, locale?: string | null): string[]
     get_start_group(): string
     get_string(group_name: string, key: string): string
-    get_string_list(group_name: string, key: string): [ /* returnType */ string[], /* length */ number | null ]
+    get_string_list(group_name: string, key: string): string[]
     get_uint64(group_name: string, key: string): number
     get_value(group_name: string, key: string): string
     has_group(group_name: string): boolean
@@ -2640,16 +2640,16 @@ export class Variant {
     check_format_string(format_string: string, copy_only: boolean): boolean
     classify(): VariantClass
     compare(two: Variant): number
-    dup_bytestring(): [ /* returnType */ Gjs.byteArray.ByteArray, /* length */ number | null ]
-    dup_bytestring_array(): [ /* returnType */ string[], /* length */ number | null ]
-    dup_objv(): [ /* returnType */ string[], /* length */ number | null ]
+    dup_bytestring(): Gjs.byteArray.ByteArray
+    dup_bytestring_array(): string[]
+    dup_objv(): string[]
     dup_string(): [ /* returnType */ string, /* length */ number ]
-    dup_strv(): [ /* returnType */ string[], /* length */ number | null ]
+    dup_strv(): string[]
     equal(two: Variant): boolean
     get_boolean(): boolean
     get_byte(): number
     get_bytestring(): Gjs.byteArray.ByteArray
-    get_bytestring_array(): [ /* returnType */ string[], /* length */ number | null ]
+    get_bytestring_array(): string[]
     get_child_value(index_: number): Variant
     get_data(): object | null
     get_data_as_bytes(): Bytes
@@ -2660,10 +2660,10 @@ export class Variant {
     get_int64(): number
     get_maybe(): Variant | null
     get_normal_form(): Variant
-    get_objv(): [ /* returnType */ string[], /* length */ number | null ]
+    get_objv(): string[]
     get_size(): number
     get_string(): [ /* returnType */ string, /* length */ number | null ]
-    get_strv(): [ /* returnType */ string[], /* length */ number | null ]
+    get_strv(): string[]
     get_type(): VariantType
     get_type_string(): string
     get_uint16(): number

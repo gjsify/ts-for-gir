@@ -306,7 +306,7 @@ export class Buffer {
     get_bounds(): [ /* start */ Gtk.TextIter, /* end */ Gtk.TextIter ]
     get_char_count(): number
     get_copy_target_list(): Gtk.TargetList
-    get_deserialize_formats(): [ /* returnType */ Gdk.Atom[], /* n_formats */ number ]
+    get_deserialize_formats(): Gdk.Atom[]
     get_end_iter(): /* iter */ Gtk.TextIter
     get_has_selection(): boolean
     get_insert(): Gtk.TextMark
@@ -322,7 +322,7 @@ export class Buffer {
     get_paste_target_list(): Gtk.TargetList
     get_selection_bound(): Gtk.TextMark
     get_selection_bounds(): [ /* returnType */ boolean, /* start */ Gtk.TextIter, /* end */ Gtk.TextIter ]
-    get_serialize_formats(): [ /* returnType */ Gdk.Atom[], /* n_formats */ number ]
+    get_serialize_formats(): Gdk.Atom[]
     get_slice(start: Gtk.TextIter, end: Gtk.TextIter, include_hidden_chars: boolean): string
     get_start_iter(): /* iter */ Gtk.TextIter
     get_tag_table(): Gtk.TextTagTable
@@ -349,7 +349,7 @@ export class Buffer {
     remove_tag(tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter): void
     remove_tag_by_name(name: string, start: Gtk.TextIter, end: Gtk.TextIter): void
     select_range(ins: Gtk.TextIter, bound: Gtk.TextIter): void
-    serialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter): [ /* returnType */ Gjs.byteArray.ByteArray, /* length */ number ]
+    serialize(content_buffer: Gtk.TextBuffer, format: Gdk.Atom, start: Gtk.TextIter, end: Gtk.TextIter): Gjs.byteArray.ByteArray
     set_modified(setting: boolean): void
     set_text(text: string, len: number): void
     unregister_deserialize_format(format: Gdk.Atom): void

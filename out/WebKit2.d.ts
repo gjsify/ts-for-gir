@@ -2607,7 +2607,7 @@ export class WebResource {
     g_type_instance:GObject.TypeInstance
     /* Methods of WebKit2.WebResource */
     get_data(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_data_finish(result: Gio.AsyncResult): [ /* returnType */ Gjs.byteArray.ByteArray, /* length */ number | null ]
+    get_data_finish(result: Gio.AsyncResult): Gjs.byteArray.ByteArray
     get_response(): URIResponse
     get_uri(): string
     /* Methods of GObject.Object */

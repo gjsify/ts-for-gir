@@ -926,7 +926,7 @@ export class Layout {
     get_lines(): GLib.SList
     get_lines_readonly(): GLib.SList
     get_log_attrs(): /* attrs */ LogAttr[]
-    get_log_attrs_readonly(): [ /* returnType */ LogAttr[], /* n_attrs */ number ]
+    get_log_attrs_readonly(): LogAttr[]
     get_pixel_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_pixel_size(): [ /* width */ number | null, /* height */ number | null ]
     get_serial(): number
@@ -1377,7 +1377,7 @@ export class Item {
 export class Language {
     /* Methods of Pango.Language */
     get_sample_string(): string
-    get_scripts(): [ /* returnType */ Script[] | null, /* num_scripts */ number | null ]
+    get_scripts(): Script[] | null
     includes_script(script: Script): boolean
     matches(range_list: string): boolean
     to_string(): string

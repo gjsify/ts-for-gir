@@ -164,7 +164,7 @@ export function signal_handlers_destroy(instance: Object): void
 export function signal_handlers_disconnect_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure?: Closure | null, func?: object | null, data?: object | null): number
 export function signal_handlers_unblock_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure?: Closure | null, func?: object | null, data?: object | null): number
 export function signal_has_handler_pending(instance: Object, signal_id: number, detail: GLib.Quark, may_be_blocked: boolean): boolean
-export function signal_list_ids(itype: number): [ /* returnType */ number[], /* n_ids */ number ]
+export function signal_list_ids(itype: number): number[]
 export function signal_lookup(name: string, itype: number): number
 export function signal_name(signal_id: number): string
 export function signal_override_class_closure(signal_id: number, instance_type: number, class_closure: Closure): void
@@ -189,7 +189,7 @@ export function type_check_instance_is_fundamentally_a(instance: TypeInstance, f
 export function type_check_is_value_type(type: number): boolean
 export function type_check_value(value: Value): boolean
 export function type_check_value_holds(value: Value, type: number): boolean
-export function type_children(type: number): [ /* returnType */ number, /* n_children */ number | null ]
+export function type_children(type: number): number
 export function type_class_adjust_private_offset(g_class: object | null, private_size_or_offset: number): void
 export function type_class_peek(type: number): TypeClass
 export function type_class_peek_static(type: number): TypeClass
@@ -212,8 +212,8 @@ export function type_init_with_debug_flags(debug_flags: TypeDebugFlags): void
 export function type_interface_add_prerequisite(interface_type: number, prerequisite_type: number): void
 export function type_interface_get_plugin(instance_type: number, interface_type: number): TypePlugin
 export function type_interface_peek(instance_class: TypeClass, iface_type: number): TypeInterface
-export function type_interface_prerequisites(interface_type: number): [ /* returnType */ number, /* n_prerequisites */ number | null ]
-export function type_interfaces(type: number): [ /* returnType */ number, /* n_interfaces */ number | null ]
+export function type_interface_prerequisites(interface_type: number): number
+export function type_interfaces(type: number): number
 export function type_is_a(type: number, is_a_type: number): boolean
 export function type_name(type: number): string
 export function type_name_from_class(g_class: TypeClass): string
@@ -465,7 +465,7 @@ export class Object {
     static compat_control(what: number, data?: object | null): number
     static interface_find_property(g_iface: TypeInterface, property_name: string): ParamSpec
     static interface_install_property(g_iface: TypeInterface, pspec: ParamSpec): void
-    static interface_list_properties(g_iface: TypeInterface): [ /* returnType */ ParamSpec[], /* n_properties_p */ number ]
+    static interface_list_properties(g_iface: TypeInterface): ParamSpec[]
 }
 export class ParamSpec {
     /* Fields of GObject.ParamSpec */
@@ -1321,7 +1321,7 @@ export class ObjectConstructParam {
 export class ParamSpecPool {
     /* Methods of GObject.ParamSpecPool */
     insert(pspec: ParamSpec, owner_type: number): void
-    list(owner_type: number): [ /* returnType */ ParamSpec[], /* n_pspecs_p */ number ]
+    list(owner_type: number): ParamSpec[]
     list_owned(owner_type: number): ParamSpec[]
     lookup(param_name: string, owner_type: number, walk_ancestors: boolean): ParamSpec
     remove(pspec: ParamSpec): void
@@ -1410,7 +1410,7 @@ export class TypeInterface {
     static add_prerequisite(interface_type: number, prerequisite_type: number): void
     static get_plugin(instance_type: number, interface_type: number): TypePlugin
     static peek(instance_class: TypeClass, iface_type: number): TypeInterface
-    static prerequisites(interface_type: number): [ /* returnType */ number, /* n_prerequisites */ number | null ]
+    static prerequisites(interface_type: number): number
 }
 export class TypePluginClass {
     /* Fields of GObject.TypePluginClass */

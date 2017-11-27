@@ -460,13 +460,17 @@ export class GirModule {
     private getReturnType(e) {
         let returnType
 
-        let returnVal = e["return-value"]
-        if (returnVal && returnVal.length > 0) {
-            returnType = this.typeLookup(returnVal[0])
+        let returnVal = e["return-value"] ? e["return-value"][0] : undefined
+        if (returnVal) {
+            returnType = this.typeLookup(returnVal)
         } else
             returnType = "void"
 
-        return returnType
+        let outArrayLengthIndex = returnVal.array && returnVal.array[0].$.length
+            ? Number(returnVal.array[0].$.length)
+            : -1
+
+        return [returnType, outArrayLengthIndex] as [string, number]
     }
 
     private arrayLengthIndexLookup(param: GirVariable): number {
@@ -491,14 +495,16 @@ export class GirModule {
         return parseInt(param.$.closure)
     }
 
-    private getParameters(parameters): [ string, string[] ] {
+    private getParameters(parameters, outArrayLengthIndex: number): [ string, string[] ] {
         let def: string[] = []
         let outParams: string[] = []
 
         if (parameters && parameters.length > 0) {
             let parametersArray = parameters[0].parameter
             if (parametersArray) {
-                let skip: typeof parametersArray = []
+                const skip = outArrayLengthIndex === -1
+                    ? []
+                    : [parametersArray[outArrayLengthIndex]]
 
                 for (let param of parametersArray as GirVariable[]) {
                     let arrayNameIndex = this.arrayLengthIndexLookup(param)
@@ -639,8 +645,8 @@ export class GirModule {
 
         let patch = e._fullSymName ? this.patch[e._fullSymName] : []
         let name = e.$.name
-        let [params, outParams] = this.getParameters(e.parameters)
-        let retType = this.getReturnType(e)
+        let [retType, outArrayLengthIndex] = this.getReturnType(e)
+        let [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
 
         if (e.$["shadows"]) {
             name = e.$["shadows"]
@@ -683,7 +689,7 @@ export class GirModule {
         if (!funcName)
             return [[], null]
 
-        let retType: string = this.getReturnType(e)
+        let [retType] = this.getReturnType(e)
         if (retType.split(' ')[0] != name) {
             // console.warn(`Constructor returns ${retType} should return ${name}`)
 
@@ -710,8 +716,8 @@ export class GirModule {
 
     private getSignalFunc(e: GirFunction, clsName: string) {
         let sigName = e.$.name
-        let [params, outParams] = this.getParameters(e.parameters)
-        let retType = this.getReturnType(e) 
+        let [retType, outArrayLengthIndex] = this.getReturnType(e)
+        let [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
         let paramComma = params.length > 0 ? ', ' : ''
 
         return [`    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType}))`]
@@ -726,8 +732,8 @@ export class GirModule {
             return []
 
         let name = e.$.name
-        let [params, outParams] = this.getParameters(e.parameters)
-        let retType = this.getReturnType(e)
+        let [retType, outArrayLengthIndex] = this.getReturnType(e)
+        let [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
 
         let def: string[] = []
         def.push(`export interface ${name} {`)

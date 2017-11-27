@@ -1353,6 +1353,9 @@ function main() {
         'Gtk.Container.child_notify': [
             '/* child_notify clashes with Gtk.Widget.child_notify */'
         ],
+        'Gtk.MenuItem.activate': [
+            '/* activate clashes with Gtk.Widget.activate */'
+        ],
         'Gtk.TextView.get_window': [
             '/* get_window clashes with Gtk.Widget.get_window */'
         ],

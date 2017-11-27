@@ -1491,6 +1491,8 @@ export class CompletionItem {
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
+    /* Signals of GtkSource.CompletionProposal */
+    connect(sigName: "changed", callback: ((obj: CompletionItem) => void))
     connect(sigName: "notify::gicon", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::icon", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::icon-name", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))

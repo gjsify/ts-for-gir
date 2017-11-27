@@ -2033,6 +2033,11 @@ export class Application {
     connect(sigName: "startup", callback: ((obj: Application) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
+    /* Signals of Gio.ActionGroup */
+    connect(sigName: "action-added", callback: ((obj: Application, action_name: string) => void))
+    connect(sigName: "action-enabled-changed", callback: ((obj: Application, action_name: string, enabled: boolean) => void))
+    connect(sigName: "action-removed", callback: ((obj: Application, action_name: string) => void))
+    connect(sigName: "action-state-changed", callback: ((obj: Application, action_name: string, value: GLib.Variant) => void))
     connect(sigName: "notify::action-group", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::application-id", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::flags", callback: ((obj: Application, pspec: GObject.ParamSpec) => void))
@@ -2817,6 +2822,11 @@ export class DBusActionGroup {
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusActionGroup, pspec: GObject.ParamSpec) => void))
+    /* Signals of Gio.ActionGroup */
+    connect(sigName: "action-added", callback: ((obj: DBusActionGroup, action_name: string) => void))
+    connect(sigName: "action-enabled-changed", callback: ((obj: DBusActionGroup, action_name: string, enabled: boolean) => void))
+    connect(sigName: "action-removed", callback: ((obj: DBusActionGroup, action_name: string) => void))
+    connect(sigName: "action-state-changed", callback: ((obj: DBusActionGroup, action_name: string, value: GLib.Variant) => void))
     static name: string
     static new (config?: DBusActionGroup_ConstructProps): DBusActionGroup
     constructor (config?: DBusActionGroup_ConstructProps)
@@ -3345,6 +3355,11 @@ export class DBusObjectManagerClient {
     connect(sigName: "interface-proxy-signal", callback: ((obj: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void))
+    /* Signals of Gio.DBusObjectManager */
+    connect(sigName: "interface-added", callback: ((obj: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void))
+    connect(sigName: "interface-removed", callback: ((obj: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void))
+    connect(sigName: "object-added", callback: ((obj: DBusObjectManagerClient, object: DBusObject) => void))
+    connect(sigName: "object-removed", callback: ((obj: DBusObjectManagerClient, object: DBusObject) => void))
     connect(sigName: "notify::name-owner", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusObjectManagerClient_ConstructProps): DBusObjectManagerClient
@@ -3412,6 +3427,11 @@ export class DBusObjectManagerServer {
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void))
+    /* Signals of Gio.DBusObjectManager */
+    connect(sigName: "interface-added", callback: ((obj: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void))
+    connect(sigName: "interface-removed", callback: ((obj: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void))
+    connect(sigName: "object-added", callback: ((obj: DBusObjectManagerServer, object: DBusObject) => void))
+    connect(sigName: "object-removed", callback: ((obj: DBusObjectManagerServer, object: DBusObject) => void))
     connect(sigName: "notify::connection", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusObjectManagerServer_ConstructProps): DBusObjectManagerServer
@@ -3467,6 +3487,9 @@ export class DBusObjectProxy {
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectProxy, pspec: GObject.ParamSpec) => void))
+    /* Signals of Gio.DBusObject */
+    connect(sigName: "interface-added", callback: ((obj: DBusObjectProxy, interface: DBusInterface) => void))
+    connect(sigName: "interface-removed", callback: ((obj: DBusObjectProxy, interface: DBusInterface) => void))
     static name: string
     static new (config?: DBusObjectProxy_ConstructProps): DBusObjectProxy
     constructor (config?: DBusObjectProxy_ConstructProps)
@@ -3529,6 +3552,9 @@ export class DBusObjectSkeleton {
     connect(sigName: "authorize-method", callback: ((obj: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void))
+    /* Signals of Gio.DBusObject */
+    connect(sigName: "interface-added", callback: ((obj: DBusObjectSkeleton, interface: DBusInterface) => void))
+    connect(sigName: "interface-removed", callback: ((obj: DBusObjectSkeleton, interface: DBusInterface) => void))
     connect(sigName: "notify::g-object-path", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void))
     static name: string
     static new (config?: DBusObjectSkeleton_ConstructProps): DBusObjectSkeleton
@@ -5456,6 +5482,8 @@ export class ListStore {
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ListStore, pspec: GObject.ParamSpec) => void))
+    /* Signals of Gio.ListModel */
+    connect(sigName: "items-changed", callback: ((obj: ListStore, position: number, removed: number, added: number) => void))
     static name: string
     static new (config?: ListStore_ConstructProps): ListStore
     constructor (config?: ListStore_ConstructProps)
@@ -7088,6 +7116,11 @@ export class SimpleActionGroup {
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void))
+    /* Signals of Gio.ActionGroup */
+    connect(sigName: "action-added", callback: ((obj: SimpleActionGroup, action_name: string) => void))
+    connect(sigName: "action-enabled-changed", callback: ((obj: SimpleActionGroup, action_name: string, enabled: boolean) => void))
+    connect(sigName: "action-removed", callback: ((obj: SimpleActionGroup, action_name: string) => void))
+    connect(sigName: "action-state-changed", callback: ((obj: SimpleActionGroup, action_name: string, value: GLib.Variant) => void))
     static name: string
     static new (config?: SimpleActionGroup_ConstructProps): SimpleActionGroup
     constructor (config?: SimpleActionGroup_ConstructProps)

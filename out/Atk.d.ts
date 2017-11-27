@@ -1229,6 +1229,44 @@ export class NoOpObject {
     connect(sigName: "visible-data-changed", callback: ((obj: NoOpObject) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
+    /* Signals of Atk.Component */
+    connect(sigName: "bounds-changed", callback: ((obj: NoOpObject, arg1: Rectangle) => void))
+    /* Signals of Atk.Document */
+    connect(sigName: "load-complete", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "load-stopped", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "page-changed", callback: ((obj: NoOpObject, page_number: number) => void))
+    connect(sigName: "reload", callback: ((obj: NoOpObject) => void))
+    /* Signals of Atk.Hypertext */
+    connect(sigName: "link-selected", callback: ((obj: NoOpObject, arg1: number) => void))
+    /* Signals of Atk.Selection */
+    connect(sigName: "selection-changed", callback: ((obj: NoOpObject) => void))
+    /* Signals of Atk.Table */
+    connect(sigName: "column-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
+    connect(sigName: "column-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
+    connect(sigName: "column-reordered", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "model-changed", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "row-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
+    connect(sigName: "row-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
+    connect(sigName: "row-reordered", callback: ((obj: NoOpObject) => void))
+    /* Signals of Atk.Text */
+    connect(sigName: "text-attributes-changed", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "text-caret-moved", callback: ((obj: NoOpObject, arg1: number) => void))
+    connect(sigName: "text-changed", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
+    connect(sigName: "text-insert", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void))
+    connect(sigName: "text-remove", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void))
+    connect(sigName: "text-selection-changed", callback: ((obj: NoOpObject) => void))
+    /* Signals of Atk.Value */
+    connect(sigName: "value-changed", callback: ((obj: NoOpObject, value: number, text: string) => void))
+    /* Signals of Atk.Window */
+    connect(sigName: "activate", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "create", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "deactivate", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "destroy", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "maximize", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "minimize", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "move", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "resize", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "restore", callback: ((obj: NoOpObject) => void))
     connect(sigName: "notify::accessible-component-layer", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
@@ -1637,6 +1675,8 @@ export class Plug {
     connect(sigName: "visible-data-changed", callback: ((obj: Plug) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
+    /* Signals of Atk.Component */
+    connect(sigName: "bounds-changed", callback: ((obj: Plug, arg1: Rectangle) => void))
     connect(sigName: "notify::accessible-component-layer", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
@@ -1959,6 +1999,8 @@ export class Socket {
     connect(sigName: "visible-data-changed", callback: ((obj: Socket) => void))
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    /* Signals of Atk.Component */
+    connect(sigName: "bounds-changed", callback: ((obj: Socket, arg1: Rectangle) => void))
     connect(sigName: "notify::accessible-component-layer", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::accessible-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))

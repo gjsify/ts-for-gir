@@ -927,14 +927,17 @@ export class GirModule {
             }
         })
 
-        this.traverseInheritanceTree(e, (cls) => {
+        const copySignals = (cls) => {
             let signals = cls["glib:signal"]
             if (signals) {
                 def.push(`    /* Signals of ${cls._fullSymName} */`)
                 for (let s of signals)
                     def = def.concat(this.getSignalFunc(s, name))
             }
-        })
+        }
+
+        this.traverseInheritanceTree(e, copySignals)
+        this.forEachInterface(e, copySignals)
 
         if (isDerivedFromGObject) {
             let prefix = "GObject."

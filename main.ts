@@ -162,6 +162,7 @@ export class GirModule {
     ns: GirNamespace
     symTable: { [key:string]: any } = {}
     patch: { [key:string]: string[] } = {}
+    incorrectExtends: { [key:string]: string[] } = {}
 
     constructor(xml) {
         this.repo = xml.repository
@@ -659,7 +660,7 @@ export class GirModule {
             debugger;
         }
 
-        if (patch && patch.length > 0)
+        if (patch && patch.length === 1)
             return [patch, null]    
         
         let reservedWords = {
@@ -668,6 +669,9 @@ export class GirModule {
 
         if (reservedWords[name])
             return [[`/* Function '${name}' is a reserved word */`], null]
+
+        if (patch && patch.length === 2)
+            return [[`${prefix}${funcNamePrefix}${patch[patch.length - 1]}`], name]
 
         let retTypeIsVoid = retType == 'void'
         if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
@@ -806,6 +810,7 @@ export class GirModule {
     }
 
     private exportObjectInternal(e: GirClass | GirClass) {
+        const incorrectExtends = this.incorrectExtends[e._fullSymName]
         let name = e.$.name
         let def: string[] = []
         let isDerivedFromGObject = this.isDerivedFromGObject(e)
@@ -866,7 +871,11 @@ export class GirModule {
         }
 
         // Instance side
-        def.push(`export class ${name} {`)
+        const base = !incorrectExtends && parentNameShort
+            ? ` extends ${parentNameShort}`
+            : "";
+
+        def.push(`export class ${name}${base} {`)
         
         let localNames = {}
         let propertyNames: string[] = []
@@ -884,22 +893,37 @@ export class GirModule {
                 }
             }
         }
-        this.traverseInheritanceTree(e, copyProperties)
+        if (incorrectExtends) {
+            this.traverseInheritanceTree(e, copyProperties)
+        } else {
+            copyProperties(e)
+        }
         this.forEachInterface(e, copyProperties)
 
         // Fields
-        this.traverseInheritanceTree(e, (cls) => {
+        const copyFields = (cls) => {
             if (cls.field) {
                 def.push(`    /* Fields of ${cls._fullSymName} */`)
                 for (let f of cls.field) {
                     let [desc, name] = this.getVariable(f, false, false)
+
+                    if (name === "parent") {
+                        // Many conflicts
+                        desc[0] = "parent: any"
+                    }
+
                     let [aDesc, added] = checkName(desc, name, localNames)
                     if (added) {
                         def.push(`    ${aDesc[0]}`)
                     }
                 }
             }
-        })
+        }
+        if (incorrectExtends) {
+            this.traverseInheritanceTree(e, copyFields)
+        } else {
+            copyFields(e)
+        }
 
         // Instance methods
         const copyMethods = (cls: GirClass) => {
@@ -911,7 +935,11 @@ export class GirModule {
                 }
             }
         }
-        this.traverseInheritanceTree(e, copyMethods)
+        if (incorrectExtends) {
+            this.traverseInheritanceTree(e, copyMethods)
+        } else {
+            copyMethods(e)
+        }
         this.forEachInterface(e, copyMethods)
 
         // Instance methods, vfunc_ prefix
@@ -942,7 +970,11 @@ export class GirModule {
             }
         }
 
-        this.traverseInheritanceTree(e, copySignals)
+        if (incorrectExtends) {
+            this.traverseInheritanceTree(e, copySignals)
+        } else {
+            copySignals(e)
+        }
         this.forEachInterface(e, copySignals)
 
         if (isDerivedFromGObject) {
@@ -951,6 +983,7 @@ export class GirModule {
             for (let p of propertyNames) {
                 def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void))`)
             }
+            def.push(`    connect(sigName: string, callback: any)`)
         }
 
         // TODO: Records have fields
@@ -969,7 +1002,7 @@ export class GirModule {
                         continue
                     if (funcName != "new")
                         continue
-                    
+
                     def = def.concat(desc)
 
                     const jsStyleCtor = desc[0]
@@ -991,14 +1024,21 @@ export class GirModule {
                     let [desc, funcName] = this.getConstructorFunction(name, f, "    static ")
                     if (!funcName)
                         continue
+                    if (funcName === "new")
+                        continue
                     
                     stc = stc.concat(desc)
                 }
             }
 
             if (e.function)
-                for (let f of e.function)
-                    stc = stc.concat(this.getFunction(f, "    static ")[0])
+                for (let f of e.function) {
+                    let [desc, funcName] = this.getFunction(f, "    static ")
+                    if (funcName === "new")
+                        continue
+
+                    stc = stc.concat(desc)
+                }
 
             if (stc.length > 0) {
                 def = def.concat(stc)
@@ -1356,6 +1396,18 @@ function main() {
     }
 
     let patch = {
+        "Atk.Object.get_description": [
+            "/* return type clashes with Atk.Action.get_description */",
+            "get_description(): string | null"
+        ],
+        "Atk.Object.get_name": [
+            "/* return type clashes with Atk.Action.get_name */",
+            "get_name(): string | null"
+        ],
+        "Atk.Object.set_description": [
+            "/* return type clashes with Atk.Action.set_description */",
+            "set_description(description: string): boolean | null"
+        ],
         'Gtk.Container.child_notify': [
             '/* child_notify clashes with Gtk.Widget.child_notify */'
         ],
@@ -1370,6 +1422,90 @@ function main() {
         ]
     }
 
+    let incorrectExtends = {
+        "Gio.IOModule": [
+            "/* use clashes with Gio.TypeModule.use */"
+        ],
+        "Gio.TcpConnection": [
+            "/* connect clashes with Gio.SocketConnection.connect */"
+        ],
+        "Gio.TcpWrapperConnection": [
+            "/* parent_instance clashes with Gio.TcpConnection.parent_instance */"
+        ],
+        "Gio.UnixConnection": [
+            "/* connect clashes with Gio.SocketConnection.connect */"
+        ],
+        "Gtk.AccelLabel": [
+            "/* label clashes with Gtk.Label.label */"
+        ],
+        "Gtk.AppChooserWidget": [
+            "/* show_all clashes with Gtk.Box.show_all */"
+        ],
+        "Gtk.CellAreaBox": [
+            "/* pack_end clashes with Gtk.CellArea.pack_end */"
+        ],
+        "Gtk.ComboBoxText": [
+            "/* remove clashes with Gtk.ComboBox.remove */"
+        ],
+        "Gtk.Dialog": [
+            "/* window clashes with Gtk.Window.window */"
+        ],
+        "Gtk.MenuButton": [
+            "/* get_direction clashes with Gtk.ToggleButton.get_direction */"
+        ],
+        "Gtk.Plug": [
+            "/* window clashes with Gtk.Window.window */"
+        ],
+        "Gtk.RadioButton": [
+            "/* connect clashes with Gtk.CheckButton.connect */"
+        ],
+        "Gtk.RadioMenuItem": [
+            "/* connect clashes with Gtk.CheckMenuItem.connect */"
+        ],
+        "Gtk.RadioToolButton": [
+            "/* connect clashes with Gtk.ToggleToolButton.connect */"
+        ],
+        "Gtk.SeparatorToolItem": [
+            "/* draw clashes with Gtk.ToolItem.draw */"
+        ],
+        "Gtk.ShortcutsWindow": [
+            "/* window clashes with Gtk.Window.window */"
+        ],
+        "Gtk.Statusbar": [
+            "/* remove clashes with Gtk.Box.remove */"
+        ],
+        "Gtk.StyleContext": [
+            "/* get_property clashes with GObject.Object.get_property */"
+        ],
+        "Gtk.StyleProperties": [
+            "/* get_property clashes with GObject.Object.get_property */"
+        ],
+        "Gtk.Switch": [
+            "/* get_state clashes with Gtk.Widget.get_state */"
+        ],
+        "Gtk.ThemingEngine": [
+            "/* get_property clashes with GObject.Object.get_property */"
+        ],
+        "Gtk.ToolItemGroup": [
+            "/* get_style clashes with Gtk.Container.get_style */"
+        ],
+        "Gtk.ToolPalette": [
+            "/* get_style clashes with Gtk.Container.get_style */"
+        ],
+        "Gtk.Toolbar": [
+            "/* get_style clashes with Gtk.Container.get_style */"
+        ],
+        "Gtk.Window": [
+            "/* mnemonic_activate clashes with Gtk.Bin.mnemonic_activate */"
+        ],
+        "WebKit2.WebResource": [
+            "/* get_data clashes with GObject.Object.get_data */"
+        ],
+        "WebKit2.WebView": [
+            "/* get_settings clashes with WebKit2.WebViewBase.get_settings */"
+        ],
+    }
+
     console.log("Types loaded, generating .d.ts...")
     
     for (let k of lodash.keys(girModules)) {
@@ -1382,6 +1518,7 @@ function main() {
         }
         console.log(` - ${k} ...`)
         girModules[k].patch = patch
+        girModules[k].incorrectExtends = incorrectExtends
         girModules[k].export(outf)
 
         if (commander.outdir) {

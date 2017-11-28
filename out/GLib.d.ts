@@ -1607,7 +1607,6 @@ export class ByteArray {
     static name: string
     static free(array: Gjs.byteArray.ByteArray, free_segment: boolean): number
     static free_to_bytes(array: Gjs.byteArray.ByteArray): Bytes
-    static new(): Gjs.byteArray.ByteArray
     static new_take(data: Gjs.byteArray.ByteArray): Gjs.byteArray.ByteArray
     static unref(array: Gjs.byteArray.ByteArray): void
 }
@@ -1626,7 +1625,6 @@ export class Bytes {
     static name: string
     static new(data: Gjs.byteArray.ByteArray | null): Bytes
     constructor(data: Gjs.byteArray.ByteArray | null)
-    static new(data: Gjs.byteArray.ByteArray | null): Bytes
     static new_take(data: Gjs.byteArray.ByteArray | null): Bytes
 }
 export class Checksum {
@@ -1639,7 +1637,6 @@ export class Checksum {
     static name: string
     static new(checksum_type: ChecksumType): Checksum
     constructor(checksum_type: ChecksumType)
-    static new(checksum_type: ChecksumType): Checksum
     static type_get_length(checksum_type: ChecksumType): number
 }
 export class Cond {
@@ -1702,7 +1699,6 @@ export class Date {
     static name: string
     static new(): Date
     constructor()
-    static new(): Date
     static new_dmy(day: DateDay, month: DateMonth, year: DateYear): Date
     static new_julian(julian_day: number): Date
     static get_days_in_month(month: DateMonth, year: DateYear): number
@@ -1756,7 +1752,6 @@ export class DateTime {
     static name: string
     static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
     constructor(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number)
-    static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
     static new_from_timeval_local(tv: TimeVal): DateTime
     static new_from_timeval_utc(tv: TimeVal): DateTime
     static new_from_unix_local(t: number): DateTime
@@ -1972,7 +1967,6 @@ export class KeyFile {
     static name: string
     static new(): KeyFile
     constructor()
-    static new(): KeyFile
     static error_quark(): Quark
 }
 export class List {
@@ -2015,7 +2009,6 @@ export class MainContext {
     static name: string
     static new(): MainContext
     constructor()
-    static new(): MainContext
     static default(): MainContext
     static get_thread_default(): MainContext
     static ref_thread_default(): MainContext
@@ -2031,7 +2024,6 @@ export class MainLoop {
     static name: string
     static new(context: MainContext | null, is_running: boolean): MainLoop
     constructor(context: MainContext | null, is_running: boolean)
-    static new(context: MainContext | null, is_running: boolean): MainLoop
 }
 export class MappedFile {
     /* Methods of GLib.MappedFile */
@@ -2044,7 +2036,6 @@ export class MappedFile {
     static name: string
     static new(filename: string, writable: boolean): MappedFile
     constructor(filename: string, writable: boolean)
-    static new(filename: string, writable: boolean): MappedFile
     static new_from_fd(fd: number, writable: boolean): MappedFile
 }
 export class MarkupParseContext {
@@ -2062,7 +2053,6 @@ export class MarkupParseContext {
     static name: string
     static new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
     constructor(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify)
-    static new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
 }
 export class MarkupParser {
     /* Fields of GLib.MarkupParser */
@@ -2107,7 +2097,7 @@ export class Node {
     data:object
     next:Node
     prev:Node
-    parent:Node
+    parent: any
     children:Node
     /* Methods of GLib.Node */
     child_index(data?: object | null): number
@@ -2177,7 +2167,6 @@ export class OptionGroup {
     static name: string
     static new(name: string, description: string, help_description: string, user_data?: object | null, destroy?: DestroyNotify | null): OptionGroup
     constructor(name: string, description: string, help_description: string, user_data?: object | null, destroy?: DestroyNotify | null)
-    static new(name: string, description: string, help_description: string, user_data?: object | null, destroy?: DestroyNotify | null): OptionGroup
 }
 export class PatternSpec {
     /* Methods of GLib.PatternSpec */
@@ -2290,7 +2279,6 @@ export class Regex {
     static name: string
     static new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
     constructor(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags)
-    static new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
     static check_replacement(replacement: string): [ /* returnType */ boolean, /* has_references */ boolean | null ]
     static error_quark(): Quark
     static escape_nul(string: string, length: number): string
@@ -2437,7 +2425,6 @@ export class Source {
     static name: string
     static new(source_funcs: SourceFuncs, struct_size: number): Source
     constructor(source_funcs: SourceFuncs, struct_size: number)
-    static new(source_funcs: SourceFuncs, struct_size: number): Source
     static remove(tag: number): boolean
     static remove_by_funcs_user_data(funcs: SourceFuncs, user_data?: object | null): boolean
     static remove_by_user_data(user_data?: object | null): boolean
@@ -2597,7 +2584,6 @@ export class TimeZone {
     static name: string
     static new(identifier?: string | null): TimeZone
     constructor(identifier?: string | null)
-    static new(identifier?: string | null): TimeZone
     static new_local(): TimeZone
     static new_utc(): TimeZone
 }
@@ -2727,7 +2713,6 @@ export class VariantBuilder {
     static name: string
     static new(type: VariantType): VariantBuilder
     constructor(type: VariantType)
-    static new(type: VariantType): VariantBuilder
 }
 export class VariantDict {
     /* Methods of GLib.VariantDict */
@@ -2742,7 +2727,6 @@ export class VariantDict {
     static name: string
     static new(from_asv?: Variant | null): VariantDict
     constructor(from_asv?: Variant | null)
-    static new(from_asv?: Variant | null): VariantDict
 }
 export class VariantIter {
     /* Fields of GLib.VariantIter */
@@ -2778,7 +2762,6 @@ export class VariantType {
     static name: string
     static new(type_string: string): VariantType
     constructor(type_string: string)
-    static new(type_string: string): VariantType
     static new_array(element: VariantType): VariantType
     static new_dict_entry(key: VariantType, value: VariantType): VariantType
     static new_maybe(element: VariantType): VariantType

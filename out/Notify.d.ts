@@ -35,7 +35,7 @@ export interface Notification_ConstructProps extends GObject.Object_ConstructPro
     id?:number
     summary?:string
 }
-export class Notification {
+export class Notification extends GObject.Object {
     /* Properties of Notify.Notification */
     app_name:string
     body:string
@@ -44,8 +44,6 @@ export class Notification {
     id:number
     summary:string
     /* Fields of Notify.Notification */
-    /* Fields of GObject.Object */
-    g_type_instance:GObject.TypeInstance
     /* Methods of Notify.Notification */
     add_action(action: string, label: string, callback: ActionCallback, free_func: GLib.DestroyNotify): void
     clear_actions(): void
@@ -67,30 +65,6 @@ export class Notification {
     set_urgency(urgency: Urgency): void
     show(): boolean
     update(summary: string, body?: string | null, icon?: string | null): boolean
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Notify.Notification */
     vfunc_closed?(): void
     /* Virtual methods of GObject.Object */
@@ -103,18 +77,16 @@ export class Notification {
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Notify.Notification */
     connect(sigName: "closed", callback: ((obj: Notification) => void))
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::app-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::body", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::closed-reason", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::icon-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::id", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::summary", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
+    connect(sigName: string, callback: any)
     static name: string
     static new (config?: Notification_ConstructProps): Notification
     constructor (config?: Notification_ConstructProps)
-    static new(summary: string, body?: string | null, icon?: string | null): Notification
 }
 export class NotificationPrivate {
     static name: string

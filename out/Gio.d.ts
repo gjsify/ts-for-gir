@@ -5459,21 +5459,14 @@ export class Task extends GObject.Object {
 export interface TcpConnection_ConstructProps extends SocketConnection_ConstructProps {
     graceful_disconnect?:boolean
 }
-export class TcpConnection {
+export class TcpConnection extends IOStream {
     /* Properties of Gio.TcpConnection */
     graceful_disconnect:boolean
     /* Properties of Gio.SocketConnection */
-    /* Properties of Gio.IOStream */
-    readonly closed:boolean
-    readonly input_stream:InputStream
-    readonly output_stream:OutputStream
     /* Fields of Gio.TcpConnection */
     parent_instance:SocketConnection
     priv:TcpConnectionPrivate
     /* Fields of Gio.SocketConnection */
-    /* Fields of Gio.IOStream */
-    /* Fields of GObject.Object */
-    g_type_instance:GObject.TypeInstance
     /* Methods of Gio.TcpConnection */
     get_graceful_disconnect(): boolean
     set_graceful_disconnect(graceful_disconnect: boolean): void
@@ -5485,41 +5478,6 @@ export class TcpConnection {
     get_remote_address(): SocketAddress
     get_socket(): Socket
     is_connected(): boolean
-    /* Methods of Gio.IOStream */
-    clear_pending(): void
-    close(cancellable?: Cancellable | null): boolean
-    close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    close_finish(result: AsyncResult): boolean
-    get_input_stream(): InputStream
-    get_output_stream(): OutputStream
-    has_pending(): boolean
-    is_closed(): boolean
-    set_pending(): boolean
-    splice_async(stream2: IOStream, flags: IOStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.IOStream */
     vfunc_close_async?(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish?(result: AsyncResult): boolean
@@ -5534,12 +5492,7 @@ export class TcpConnection {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::graceful-disconnect", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
     static new (config?: TcpConnection_ConstructProps): TcpConnection
@@ -5548,23 +5501,16 @@ export class TcpConnection {
 export interface TcpWrapperConnection_ConstructProps extends TcpConnection_ConstructProps {
     base_io_stream?:IOStream
 }
-export class TcpWrapperConnection {
+export class TcpWrapperConnection extends IOStream {
     /* Properties of Gio.TcpWrapperConnection */
     /* Properties of Gio.TcpConnection */
     graceful_disconnect:boolean
     /* Properties of Gio.SocketConnection */
-    /* Properties of Gio.IOStream */
-    readonly closed:boolean
-    readonly input_stream:InputStream
-    readonly output_stream:OutputStream
     /* Fields of Gio.TcpWrapperConnection */
     parent_instance:TcpConnection
     priv:TcpWrapperConnectionPrivate
     /* Fields of Gio.TcpConnection */
     /* Fields of Gio.SocketConnection */
-    /* Fields of Gio.IOStream */
-    /* Fields of GObject.Object */
-    g_type_instance:GObject.TypeInstance
     /* Methods of Gio.TcpWrapperConnection */
     get_base_io_stream(): IOStream
     /* Methods of Gio.TcpConnection */
@@ -5578,41 +5524,6 @@ export class TcpWrapperConnection {
     get_remote_address(): SocketAddress
     get_socket(): Socket
     is_connected(): boolean
-    /* Methods of Gio.IOStream */
-    clear_pending(): void
-    close(cancellable?: Cancellable | null): boolean
-    close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    close_finish(result: AsyncResult): boolean
-    get_input_stream(): InputStream
-    get_output_stream(): OutputStream
-    has_pending(): boolean
-    is_closed(): boolean
-    set_pending(): boolean
-    splice_async(stream2: IOStream, flags: IOStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.IOStream */
     vfunc_close_async?(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish?(result: AsyncResult): boolean
@@ -5627,12 +5538,7 @@ export class TcpWrapperConnection {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::graceful-disconnect", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
     static new (config?: TcpWrapperConnection_ConstructProps): TcpWrapperConnection
@@ -5959,19 +5865,12 @@ export class TlsPassword extends GObject.Object {
 }
 export interface UnixConnection_ConstructProps extends SocketConnection_ConstructProps {
 }
-export class UnixConnection {
+export class UnixConnection extends IOStream {
     /* Properties of Gio.SocketConnection */
-    /* Properties of Gio.IOStream */
-    readonly closed:boolean
-    readonly input_stream:InputStream
-    readonly output_stream:OutputStream
     /* Fields of Gio.UnixConnection */
     parent_instance:SocketConnection
     priv:UnixConnectionPrivate
     /* Fields of Gio.SocketConnection */
-    /* Fields of Gio.IOStream */
-    /* Fields of GObject.Object */
-    g_type_instance:GObject.TypeInstance
     /* Methods of Gio.UnixConnection */
     receive_credentials(cancellable?: Cancellable | null): Credentials
     receive_credentials_async(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -5989,41 +5888,6 @@ export class UnixConnection {
     get_remote_address(): SocketAddress
     get_socket(): Socket
     is_connected(): boolean
-    /* Methods of Gio.IOStream */
-    clear_pending(): void
-    close(cancellable?: Cancellable | null): boolean
-    close_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    close_finish(result: AsyncResult): boolean
-    get_input_stream(): InputStream
-    get_output_stream(): OutputStream
-    has_pending(): boolean
-    is_closed(): boolean
-    set_pending(): boolean
-    splice_async(stream2: IOStream, flags: IOStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.IOStream */
     vfunc_close_async?(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_close_finish?(result: AsyncResult): boolean
@@ -6038,11 +5902,6 @@ export class UnixConnection {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::output-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
     static new (config?: UnixConnection_ConstructProps): UnixConnection

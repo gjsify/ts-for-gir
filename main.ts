@@ -746,19 +746,23 @@ export class GirModule {
         return def
     }
 
-    private traverseInheritanceTree(e: GirClass, callback: ((cls: GirClass) => void)) {
+    private traverseInheritanceTree(e: GirClass, callback: ((cls: GirClass) => void), divergePoint?: string) {
         if (!e || !e.$)
             return;
 
         let parent: GirClass | undefined = undefined
         let parentModule: GirModule | undefined = undefined
 
-        if (e.$.parent) {
+        const mod: GirModule = e._module ? e._module : this
+        let name = e.$.name
+
+        if (name.indexOf(".") < 0) {
+            name = mod.name + "." + name
+        }
+
+        if (name !== divergePoint && e.$.parent) {
             let parentName = e.$.parent
             let origParentName = parentName
-            let mod: GirModule = this
-
-            if (e._module) mod = e._module
 
             if (parentName.indexOf(".") < 0) {
                 parentName = mod.name + "." + parentName
@@ -780,7 +784,7 @@ export class GirModule {
         callback(e)
 
         if (parent)
-            this.traverseInheritanceTree(parent, callback)
+            this.traverseInheritanceTree(parent, callback, divergePoint)
     }
 
     private forEachInterface(e: GirClass, callback: ((cls: GirClass) => void)) {
@@ -810,7 +814,11 @@ export class GirModule {
     }
 
     private exportObjectInternal(e: GirClass | GirClass) {
-        const incorrectExtends = this.incorrectExtends[e._fullSymName]
+        const incorrectExtends = this.incorrectExtends[e._fullSymName as string]
+        const divergePoint = incorrectExtends
+            ? incorrectExtends[0].replace(/.*clashes with (.+)\..*/, "$1")
+            : undefined
+
         let name = e.$.name
         let def: string[] = []
         let isDerivedFromGObject = this.isDerivedFromGObject(e)
@@ -870,8 +878,26 @@ export class GirModule {
             def.push("}")
         }
 
+        if (divergePoint) {
+            parentName = null
+            counter = 0
+            this.traverseInheritanceTree(this.symTable[divergePoint], (cls) => {
+                if (counter++ != 1)
+                    return
+                parentName = cls._fullSymName || null
+            })
+
+            parentNameShort = parentName || ''
+            if (parentNameShort && this.name) {
+                let s = parentNameShort.split(".", 2)
+                if (s[0] === this.name) {
+                    parentNameShort = s[1]
+                }
+            }
+        }
+
         // Instance side
-        const base = !incorrectExtends && parentNameShort
+        const base = parentNameShort
             ? ` extends ${parentNameShort}`
             : "";
 
@@ -894,7 +920,7 @@ export class GirModule {
             }
         }
         if (incorrectExtends) {
-            this.traverseInheritanceTree(e, copyProperties)
+            this.traverseInheritanceTree(e, copyProperties, divergePoint)
         } else {
             copyProperties(e)
         }
@@ -920,7 +946,7 @@ export class GirModule {
             }
         }
         if (incorrectExtends) {
-            this.traverseInheritanceTree(e, copyFields)
+            this.traverseInheritanceTree(e, copyFields, divergePoint)
         } else {
             copyFields(e)
         }
@@ -936,7 +962,7 @@ export class GirModule {
             }
         }
         if (incorrectExtends) {
-            this.traverseInheritanceTree(e, copyMethods)
+            this.traverseInheritanceTree(e, copyMethods, divergePoint)
         } else {
             copyMethods(e)
         }
@@ -969,9 +995,8 @@ export class GirModule {
                     def = def.concat(this.getSignalFunc(s, name))
             }
         }
-
         if (incorrectExtends) {
-            this.traverseInheritanceTree(e, copySignals)
+            this.traverseInheritanceTree(e, copySignals, divergePoint)
         } else {
             copySignals(e)
         }
@@ -1430,7 +1455,7 @@ function main() {
             "/* connect clashes with Gio.SocketConnection.connect */"
         ],
         "Gio.TcpWrapperConnection": [
-            "/* parent_instance clashes with Gio.TcpConnection.parent_instance */"
+            "/* connect clashes with Gio.SocketConnection.connect */"
         ],
         "Gio.UnixConnection": [
             "/* connect clashes with Gio.SocketConnection.connect */"
@@ -1439,40 +1464,40 @@ function main() {
             "/* label clashes with Gtk.Label.label */"
         ],
         "Gtk.AppChooserWidget": [
-            "/* show_all clashes with Gtk.Box.show_all */"
+            "/* show_all clashes with Gtk.Widget.show_all */"
         ],
         "Gtk.CellAreaBox": [
             "/* pack_end clashes with Gtk.CellArea.pack_end */"
         ],
         "Gtk.ComboBoxText": [
-            "/* remove clashes with Gtk.ComboBox.remove */"
+            "/* remove clashes with Gtk.Container.remove */"
         ],
         "Gtk.Dialog": [
-            "/* window clashes with Gtk.Window.window */"
+            "/* window clashes with Gtk.Widget.window */"
         ],
         "Gtk.MenuButton": [
-            "/* get_direction clashes with Gtk.ToggleButton.get_direction */"
+            "/* get_direction clashes with Gtk.Widget.get_direction */"
         ],
         "Gtk.Plug": [
-            "/* window clashes with Gtk.Window.window */"
+            "/* window clashes with Gtk.Widget.window */"
         ],
         "Gtk.RadioButton": [
-            "/* connect clashes with Gtk.CheckButton.connect */"
+            "/* new_with_label clashes with Gtk.Button.new_with_label */"
         ],
         "Gtk.RadioMenuItem": [
-            "/* connect clashes with Gtk.CheckMenuItem.connect */"
+            "/* new clashes with Gtk.MenuItem.new */"
         ],
         "Gtk.RadioToolButton": [
-            "/* connect clashes with Gtk.ToggleToolButton.connect */"
+            "/* new clashes with Gtk.ToolButton.new */"
         ],
         "Gtk.SeparatorToolItem": [
-            "/* draw clashes with Gtk.ToolItem.draw */"
+            "/* draw clashes with Gtk.Widget.draw */"
         ],
         "Gtk.ShortcutsWindow": [
-            "/* window clashes with Gtk.Window.window */"
+            "/* window clashes with Gtk.Widget.window */"
         ],
         "Gtk.Statusbar": [
-            "/* remove clashes with Gtk.Box.remove */"
+            "/* remove clashes with Gtk.Container.remove */"
         ],
         "Gtk.StyleContext": [
             "/* get_property clashes with GObject.Object.get_property */"
@@ -1487,22 +1512,22 @@ function main() {
             "/* get_property clashes with GObject.Object.get_property */"
         ],
         "Gtk.ToolItemGroup": [
-            "/* get_style clashes with Gtk.Container.get_style */"
+            "/* get_style clashes with Gtk.Widget.get_style */"
         ],
         "Gtk.ToolPalette": [
-            "/* get_style clashes with Gtk.Container.get_style */"
+            "/* get_style clashes with Gtk.Widget.get_style */"
         ],
         "Gtk.Toolbar": [
-            "/* get_style clashes with Gtk.Container.get_style */"
+            "/* get_style clashes with Gtk.Widget.get_style */"
         ],
         "Gtk.Window": [
-            "/* mnemonic_activate clashes with Gtk.Bin.mnemonic_activate */"
+            "/* mnemonic_activate clashes with Gtk.Widget.mnemonic_activate */"
         ],
         "WebKit2.WebResource": [
             "/* get_data clashes with GObject.Object.get_data */"
         ],
         "WebKit2.WebView": [
-            "/* get_settings clashes with WebKit2.WebViewBase.get_settings */"
+            "/* get_settings clashes with Gtk.Widget.get_settings */"
         ],
     }
 

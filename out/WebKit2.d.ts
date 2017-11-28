@@ -1701,7 +1701,7 @@ export interface WebView_ConstructProps extends WebViewBase_ConstructProps {
     web_context?:WebContext
     zoom_level?:number
 }
-export class WebView {
+export class WebView extends GObject.InitiallyUnowned {
     /* Properties of WebKit2.WebView */
     editable:boolean
     readonly estimated_load_progress:number
@@ -1763,9 +1763,6 @@ export class WebView {
     widget:Gtk.Widget
     /* Fields of Gtk.Widget */
     parent_instance:GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
-    g_type_instance:GObject.TypeInstance
-    /* Fields of GObject.Object */
     /* Methods of WebKit2.WebView */
     can_execute_editing_command(command: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     can_execute_editing_command_finish(result: Gio.AsyncResult): boolean
@@ -2114,30 +2111,6 @@ export class WebView {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
     /* Methods of Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
@@ -2375,8 +2348,6 @@ export class WebView {
     connect(sigName: "unrealize", callback: ((obj: WebView) => void))
     connect(sigName: "visibility-notify-event", callback: ((obj: WebView, event: Gdk.EventVisibility) => boolean))
     connect(sigName: "window-state-event", callback: ((obj: WebView, event: Gdk.EventWindowState) => boolean))
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::editable", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::estimated-load-progress", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))
     connect(sigName: "notify::favicon", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void))

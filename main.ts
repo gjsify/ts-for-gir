@@ -51,6 +51,7 @@ interface GirVariable extends TsForGjsExtended {
         "construct-only"?: string
         direction?: string
         introspectable?: string
+        closure?: string
     }
     doc?: GirDoc[]
     type?: GirType[]
@@ -161,6 +162,7 @@ export class GirModule {
     ns: GirNamespace
     symTable: { [key:string]: any } = {}
     patch: { [key:string]: string[] } = {}
+    incorrectExtends: { [key:string]: string[] } = {}
 
     constructor(xml) {
         this.repo = xml.repository
@@ -333,13 +335,19 @@ export class GirModule {
         let arr: string = ''
         let arrCType
         let nul: string = ''
+        const collection =
+            e.array
+                ? e.array
+                : (e.type && e.type[0].$.name === "GLib.List")
+                    ? e.type as GirArray[]
+                    : undefined
 
-        if (e.array && e.array.length > 0) {
-            let typeArray = e.array[0].type
+        if (collection && collection.length > 0) {
+            let typeArray = collection[0].type
             if (typeArray == null || typeArray.length == 0)
                 return 'any'
-            if (e.array[0].$) {
-                let ea: any = e.array[0].$
+            if (collection[0].$) {
+                let ea: any = collection[0].$
                 arrCType = ea['c:type']
             }
             type = typeArray[0]
@@ -453,13 +461,17 @@ export class GirModule {
     private getReturnType(e) {
         let returnType
 
-        let returnVal = e["return-value"]
-        if (returnVal && returnVal.length > 0) {
-            returnType = this.typeLookup(returnVal[0])
+        let returnVal = e["return-value"] ? e["return-value"][0] : undefined
+        if (returnVal) {
+            returnType = this.typeLookup(returnVal)
         } else
             returnType = "void"
 
-        return returnType
+        let outArrayLengthIndex = returnVal.array && returnVal.array[0].$.length
+            ? Number(returnVal.array[0].$.length)
+            : -1
+
+        return [returnType, outArrayLengthIndex] as [string, number]
     }
 
     private arrayLengthIndexLookup(param: GirVariable): number {
@@ -477,33 +489,47 @@ export class GirModule {
         return -1
     }
 
-    private getParameters(parameters): [ string, string[] ] {
+    private closureDataIndexLookup(param: GirVariable): number {
+        if (!param.$.closure)
+            return -1
+
+        return parseInt(param.$.closure)
+    }
+
+    private getParameters(parameters, outArrayLengthIndex: number): [ string, string[] ] {
         let def: string[] = []
         let outParams: string[] = []
 
         if (parameters && parameters.length > 0) {
             let parametersArray = parameters[0].parameter
             if (parametersArray) {
-                let skip = {}
+                const skip = outArrayLengthIndex === -1
+                    ? []
+                    : [parametersArray[outArrayLengthIndex]]
 
-                for (let p of parametersArray) {
-                    let param: GirVariable = p
+                for (let param of parametersArray as GirVariable[]) {
                     let arrayNameIndex = this.arrayLengthIndexLookup(param)
-
-                    if (!param.array) continue
 
                     if (arrayNameIndex < 0) continue
                     if (arrayNameIndex >= parametersArray.length) continue
 
-                    skip[parametersArray[arrayNameIndex]._fullSymName] = 1
+                    skip.push(parametersArray[arrayNameIndex])
                 }
 
-                for (let p of parametersArray) {
-                    let param: GirVariable = p
+                for (let param of parametersArray as GirVariable[]) {
+                    let closureDataIndex = this.closureDataIndexLookup(param)
+
+                    if (closureDataIndex < 0) continue
+                    if (closureDataIndex >= parametersArray.length) continue
+
+                    skip.push(parametersArray[closureDataIndex])
+                }
+
+                for (let param of parametersArray as GirVariable[]) {
                     let paramName = this.fixVariableName(param.$.name || '-', false)
                     let paramType = this.typeLookup(param)
 
-                    if (skip[param._fullSymName || 'NOSYMNAME']) {
+                    if (skip.indexOf(param) !== -1) {
                         continue
                     }
 
@@ -514,8 +540,21 @@ export class GirModule {
                             continue
                         }
                     }
+
+                    let allowNone = param.$["allow-none"] ? "?" : ""
+
+                    if (allowNone) {
+                        const index = parametersArray.indexOf(param)
+                        const following = (parametersArray as GirVariable[]).slice(index)
+                            .filter(p => skip.indexOf(param) === -1)
+                            .filter(p => p.$.direction !== "out")
+
+                        if (following.some(p => !p.$["allow-none"])) {
+                            allowNone = ""
+                        }
+                    }
                     
-                    let paramDesc = `${paramName}: ${paramType}`
+                    let paramDesc = `${paramName}${allowNone}: ${paramType}`
                     def.push(paramDesc)
                 }
             }
@@ -607,8 +646,12 @@ export class GirModule {
 
         let patch = e._fullSymName ? this.patch[e._fullSymName] : []
         let name = e.$.name
-        let [params, outParams] = this.getParameters(e.parameters)
-        let retType = this.getReturnType(e)
+        let [retType, outArrayLengthIndex] = this.getReturnType(e)
+        let [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
+
+        if (e.$["shadows"]) {
+            name = e.$["shadows"]
+        }
 
         if (funcNamePrefix)
             name = funcNamePrefix + name
@@ -617,7 +660,7 @@ export class GirModule {
             debugger;
         }
 
-        if (patch && patch.length > 0)
+        if (patch && patch.length === 1)
             return [patch, null]    
         
         let reservedWords = {
@@ -626,6 +669,9 @@ export class GirModule {
 
         if (reservedWords[name])
             return [[`/* Function '${name}' is a reserved word */`], null]
+
+        if (patch && patch.length === 2)
+            return [[`${prefix}${funcNamePrefix}${patch[patch.length - 1]}`], name]
 
         let retTypeIsVoid = retType == 'void'
         if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
@@ -647,7 +693,7 @@ export class GirModule {
         if (!funcName)
             return [[], null]
 
-        let retType: string = this.getReturnType(e)
+        let [retType] = this.getReturnType(e)
         if (retType.split(' ')[0] != name) {
             // console.warn(`Constructor returns ${retType} should return ${name}`)
 
@@ -674,8 +720,8 @@ export class GirModule {
 
     private getSignalFunc(e: GirFunction, clsName: string) {
         let sigName = e.$.name
-        let [params, outParams] = this.getParameters(e.parameters)
-        let retType = this.getReturnType(e) 
+        let [retType, outArrayLengthIndex] = this.getReturnType(e)
+        let [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
         let paramComma = params.length > 0 ? ', ' : ''
 
         return [`    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType}))`]
@@ -690,8 +736,8 @@ export class GirModule {
             return []
 
         let name = e.$.name
-        let [params, outParams] = this.getParameters(e.parameters)
-        let retType = this.getReturnType(e)
+        let [retType, outArrayLengthIndex] = this.getReturnType(e)
+        let [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
 
         let def: string[] = []
         def.push(`export interface ${name} {`)
@@ -700,19 +746,23 @@ export class GirModule {
         return def
     }
 
-    private traverseInheritanceTree(e: GirClass, callback: ((cls: GirClass) => void)) {
+    private traverseInheritanceTree(e: GirClass, callback: ((cls: GirClass) => void), divergePoint?: string) {
         if (!e || !e.$)
             return;
 
         let parent: GirClass | undefined = undefined
         let parentModule: GirModule | undefined = undefined
 
-        if (e.$.parent) {
+        const mod: GirModule = e._module ? e._module : this
+        let name = e.$.name
+
+        if (name.indexOf(".") < 0) {
+            name = mod.name + "." + name
+        }
+
+        if (name !== divergePoint && e.$.parent) {
             let parentName = e.$.parent
             let origParentName = parentName
-            let mod: GirModule = this
-
-            if (e._module) mod = e._module
 
             if (parentName.indexOf(".") < 0) {
                 parentName = mod.name + "." + parentName
@@ -734,7 +784,23 @@ export class GirModule {
         callback(e)
 
         if (parent)
-            this.traverseInheritanceTree(parent, callback)
+            this.traverseInheritanceTree(parent, callback, divergePoint)
+    }
+
+    private forEachInterface(e: GirClass, callback: ((cls: GirClass) => void)) {
+        for (const { $ } of e.implements || []) {
+            let name = $.name as string
+
+            if (name.indexOf(".") < 0) {
+                name = this.name + "." + name
+            }
+
+            const iface: GirClass | undefined = this.symTable[name]
+
+            if (iface) {
+                callback(iface)
+            }
+        }
     }
 
     private isDerivedFromGObject(e: GirClass): boolean {
@@ -748,6 +814,11 @@ export class GirModule {
     }
 
     private exportObjectInternal(e: GirClass | GirClass) {
+        const incorrectExtends = this.incorrectExtends[e._fullSymName as string]
+        const divergePoint = incorrectExtends
+            ? incorrectExtends[0].replace(/.*clashes with (.+)\..*/, "$1")
+            : undefined
+
         let name = e.$.name
         let def: string[] = []
         let isDerivedFromGObject = this.isDerivedFromGObject(e)
@@ -807,13 +878,35 @@ export class GirModule {
             def.push("}")
         }
 
+        if (divergePoint) {
+            parentName = null
+            counter = 0
+            this.traverseInheritanceTree(this.symTable[divergePoint], (cls) => {
+                if (counter++ != 1)
+                    return
+                parentName = cls._fullSymName || null
+            })
+
+            parentNameShort = parentName || ''
+            if (parentNameShort && this.name) {
+                let s = parentNameShort.split(".", 2)
+                if (s[0] === this.name) {
+                    parentNameShort = s[1]
+                }
+            }
+        }
+
         // Instance side
-        def.push(`export interface ${name} {`)
+        const base = parentNameShort
+            ? ` extends ${parentNameShort}`
+            : "";
+
+        def.push(`export class ${name}${base} {`)
         
         let localNames = {}
         let propertyNames: string[] = []
 
-        this.traverseInheritanceTree(e, (cls) => {
+        const copyProperties = (cls: GirClass) => {
             if (cls.property) {
                 def.push(`    /* Properties of ${cls._fullSymName} */`)
                 for (let p of cls.property) {
@@ -825,24 +918,41 @@ export class GirModule {
                     def = def.concat(aDesc)
                 }
             }
-        })
+        }
+        if (incorrectExtends) {
+            this.traverseInheritanceTree(e, copyProperties, divergePoint)
+        } else {
+            copyProperties(e)
+        }
+        this.forEachInterface(e, copyProperties)
 
         // Fields
-        this.traverseInheritanceTree(e, (cls) => {
+        const copyFields = (cls) => {
             if (cls.field) {
                 def.push(`    /* Fields of ${cls._fullSymName} */`)
                 for (let f of cls.field) {
                     let [desc, name] = this.getVariable(f, false, false)
+
+                    if (name === "parent") {
+                        // Many conflicts
+                        desc[0] = "parent: any"
+                    }
+
                     let [aDesc, added] = checkName(desc, name, localNames)
                     if (added) {
                         def.push(`    ${aDesc[0]}`)
                     }
                 }
             }
-        })
+        }
+        if (incorrectExtends) {
+            this.traverseInheritanceTree(e, copyFields, divergePoint)
+        } else {
+            copyFields(e)
+        }
 
         // Instance methods
-        this.traverseInheritanceTree(e, (cls) => {
+        const copyMethods = (cls: GirClass) => {
             if (cls.method) {
                 def.push(`    /* Methods of ${cls._fullSymName} */`)
                 for (let f of cls.method) {
@@ -850,7 +960,13 @@ export class GirModule {
                     def = def.concat(checkName(desc, name, localNames)[0])
                 }
             }
-        })
+        }
+        if (incorrectExtends) {
+            this.traverseInheritanceTree(e, copyMethods, divergePoint)
+        } else {
+            copyMethods(e)
+        }
+        this.forEachInterface(e, copyMethods)
 
         // Instance methods, vfunc_ prefix
         this.traverseInheritanceTree(e, (cls) => {
@@ -859,19 +975,32 @@ export class GirModule {
                 def.push(`    /* Virtual methods of ${cls._fullSymName} */`)
                 for (let f of vmeth) {
                     let [desc, name] = this.getFunction(f, "    ", "vfunc_")
-                    def = def.concat(checkName(desc, name, localNames)[0])
+
+                    desc = checkName(desc, name, localNames)[0]
+
+                    if (desc[0]) {
+                        desc[0] = desc[0].replace("(", "?(")
+                    }
+
+                    def = def.concat(desc)
                 }
             }
         })
 
-        this.traverseInheritanceTree(e, (cls) => {
+        const copySignals = (cls) => {
             let signals = cls["glib:signal"]
             if (signals) {
                 def.push(`    /* Signals of ${cls._fullSymName} */`)
                 for (let s of signals)
                     def = def.concat(this.getSignalFunc(s, name))
             }
-        })
+        }
+        if (incorrectExtends) {
+            this.traverseInheritanceTree(e, copySignals, divergePoint)
+        } else {
+            copySignals(e)
+        }
+        this.forEachInterface(e, copySignals)
 
         if (isDerivedFromGObject) {
             let prefix = "GObject."
@@ -879,32 +1008,36 @@ export class GirModule {
             for (let p of propertyNames) {
                 def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void))`)
             }
+            def.push(`    connect(sigName: string, callback: any)`)
         }
 
         // TODO: Records have fields
 
-        def.push("}")
-
         // Static side: default constructor
-        def.push(`export interface ${name}_Static {`)
-        def.push(`    name: string`)
+        def.push(`    static name: string`)
         if (isDerivedFromGObject) {
-            def.push(`    new (config?: ${name}_ConstructProps): ${name}`)
+            def.push(`    static new (config?: ${name}_ConstructProps): ${name}`)
+            def.push(`    constructor (config?: ${name}_ConstructProps)`)
         } else {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
                 for (let f of constructor_) {                    
-                    let [desc, funcName] = this.getConstructorFunction(name, f, "    ")
+                    let [desc, funcName] = this.getConstructorFunction(name, f, "    static ")
                     if (!funcName)
                         continue
                     if (funcName != "new")
                         continue
-                    
+
                     def = def.concat(desc)
+
+                    const jsStyleCtor = desc[0]
+                        .replace("static new", "constructor")
+                        .replace(/:[^:]+$/, "")
+
+                    def = def.concat(jsStyleCtor)
                 }
             }
         }
-        def.push("}")
 
         // Static methods
         if (true) {
@@ -913,8 +1046,10 @@ export class GirModule {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
                 for (let f of constructor_) {
-                    let [desc, funcName] = this.getConstructorFunction(name, f, "    ")
+                    let [desc, funcName] = this.getConstructorFunction(name, f, "    static ")
                     if (!funcName)
+                        continue
+                    if (funcName === "new")
                         continue
                     
                     stc = stc.concat(desc)
@@ -922,17 +1057,20 @@ export class GirModule {
             }
 
             if (e.function)
-                for (let f of e.function)
-                    stc = stc.concat(this.getFunction(f, "    ")[0])
+                for (let f of e.function) {
+                    let [desc, funcName] = this.getFunction(f, "    static ")
+                    if (funcName === "new")
+                        continue
+
+                    stc = stc.concat(desc)
+                }
 
             if (stc.length > 0) {
-                def.push(`export declare class ${name}_Static {`)
                 def = def.concat(stc)
-                def.push("}")
             }
         }
 
-        def.push(`export declare var ${name}: ${name}_Static`)
+        def.push("}")
 
         return def
     }
@@ -1020,7 +1158,7 @@ export class GirModule {
     }
 }
 
-function exportGjs(outDir: string|null)
+function exportGjs(outDir: string|null, girModules: { [key: string]: any })
 {
     if (!outDir)
         return
@@ -1036,6 +1174,9 @@ function exportGjs(outDir: string|null)
     export function fromString(input: string): ByteArray
     export function fromArray(input: number[]): ByteArray
     export function fromGBytes(input: any): ByteArray
+}
+export namespace console {
+    export function interact(): void
 }
 export namespace Lang {
     // TODO: There is a lot more in Lang
@@ -1094,13 +1235,33 @@ export namespace Mainloop {
     gettext: imports.gettext
 }`)
 
+    const keys = lodash.keys(girModules).map(key => key.split("-")[0]);
+
+    // Breaks dependent app with error TS2383 if directly in global.
+    // https://github.com/Microsoft/TypeScript/issues/16430
+    fs.createWriteStream(`${outDir}/print.d.ts`).write(
+`declare function print(...args: any[]): void`);
+
+    fs.createWriteStream(`${outDir}/index.js`).write("");
+
     fs.createWriteStream(`${outDir}/index.d.ts`).write(
-`declare global {
-    function print(...args: any[]): void
+`/// <reference path="print.d.ts" />
+
+import * as Gjs from "./Gjs";
+${keys.map(key => `import * as ${key} from "./${key}";`).join("\n")}
+
+declare global {
     function printerr(...args: any[]): void
-    function log(exception: any, message?: string)
+    function log(message?: string)
     function logError(exception: any, message?: string)
     const ARGV: string[]
+    const imports: typeof Gjs & {
+        [key: string]: any
+        gi: {
+${keys.map(key => `            ${key}: typeof ${key}`).join("\n")}
+        }
+        searchPath: string[]
+    }
 }
 
 export { }`)
@@ -1260,8 +1421,23 @@ function main() {
     }
 
     let patch = {
+        "Atk.Object.get_description": [
+            "/* return type clashes with Atk.Action.get_description */",
+            "get_description(): string | null"
+        ],
+        "Atk.Object.get_name": [
+            "/* return type clashes with Atk.Action.get_name */",
+            "get_name(): string | null"
+        ],
+        "Atk.Object.set_description": [
+            "/* return type clashes with Atk.Action.set_description */",
+            "set_description(description: string): boolean | null"
+        ],
         'Gtk.Container.child_notify': [
             '/* child_notify clashes with Gtk.Widget.child_notify */'
+        ],
+        'Gtk.MenuItem.activate': [
+            '/* activate clashes with Gtk.Widget.activate */'
         ],
         'Gtk.TextView.get_window': [
             '/* get_window clashes with Gtk.Widget.get_window */'
@@ -1269,6 +1445,90 @@ function main() {
         'WebKit.WebView.get_settings': [
             '/* get_settings clashes with Gtk.Widget.get_settings */'
         ]
+    }
+
+    let incorrectExtends = {
+        "Gio.IOModule": [
+            "/* use clashes with Gio.TypeModule.use */"
+        ],
+        "Gio.TcpConnection": [
+            "/* connect clashes with Gio.SocketConnection.connect */"
+        ],
+        "Gio.TcpWrapperConnection": [
+            "/* connect clashes with Gio.SocketConnection.connect */"
+        ],
+        "Gio.UnixConnection": [
+            "/* connect clashes with Gio.SocketConnection.connect */"
+        ],
+        "Gtk.AccelLabel": [
+            "/* label clashes with Gtk.Label.label */"
+        ],
+        "Gtk.AppChooserWidget": [
+            "/* show_all clashes with Gtk.Widget.show_all */"
+        ],
+        "Gtk.CellAreaBox": [
+            "/* pack_end clashes with Gtk.CellArea.pack_end */"
+        ],
+        "Gtk.ComboBoxText": [
+            "/* remove clashes with Gtk.Container.remove */"
+        ],
+        "Gtk.Dialog": [
+            "/* window clashes with Gtk.Widget.window */"
+        ],
+        "Gtk.MenuButton": [
+            "/* get_direction clashes with Gtk.Widget.get_direction */"
+        ],
+        "Gtk.Plug": [
+            "/* window clashes with Gtk.Widget.window */"
+        ],
+        "Gtk.RadioButton": [
+            "/* new_with_label clashes with Gtk.Button.new_with_label */"
+        ],
+        "Gtk.RadioMenuItem": [
+            "/* new clashes with Gtk.MenuItem.new */"
+        ],
+        "Gtk.RadioToolButton": [
+            "/* new clashes with Gtk.ToolButton.new */"
+        ],
+        "Gtk.SeparatorToolItem": [
+            "/* draw clashes with Gtk.Widget.draw */"
+        ],
+        "Gtk.ShortcutsWindow": [
+            "/* window clashes with Gtk.Widget.window */"
+        ],
+        "Gtk.Statusbar": [
+            "/* remove clashes with Gtk.Container.remove */"
+        ],
+        "Gtk.StyleContext": [
+            "/* get_property clashes with GObject.Object.get_property */"
+        ],
+        "Gtk.StyleProperties": [
+            "/* get_property clashes with GObject.Object.get_property */"
+        ],
+        "Gtk.Switch": [
+            "/* get_state clashes with Gtk.Widget.get_state */"
+        ],
+        "Gtk.ThemingEngine": [
+            "/* get_property clashes with GObject.Object.get_property */"
+        ],
+        "Gtk.ToolItemGroup": [
+            "/* get_style clashes with Gtk.Widget.get_style */"
+        ],
+        "Gtk.ToolPalette": [
+            "/* get_style clashes with Gtk.Widget.get_style */"
+        ],
+        "Gtk.Toolbar": [
+            "/* get_style clashes with Gtk.Widget.get_style */"
+        ],
+        "Gtk.Window": [
+            "/* mnemonic_activate clashes with Gtk.Widget.mnemonic_activate */"
+        ],
+        "WebKit2.WebResource": [
+            "/* get_data clashes with GObject.Object.get_data */"
+        ],
+        "WebKit2.WebView": [
+            "/* get_settings clashes with Gtk.Widget.get_settings */"
+        ],
     }
 
     console.log("Types loaded, generating .d.ts...")
@@ -1283,6 +1543,7 @@ function main() {
         }
         console.log(` - ${k} ...`)
         girModules[k].patch = patch
+        girModules[k].incorrectExtends = incorrectExtends
         girModules[k].export(outf)
 
         if (commander.outdir) {
@@ -1296,7 +1557,7 @@ function main() {
     }
 
     // GJS internal stuff
-    exportGjs(commander.outdir)
+    exportGjs(commander.outdir, girModules)
     exportExtra(commander.outdir, inheritanceTable)
 
     console.log("Done.")

@@ -712,7 +712,7 @@ export class GirModule {
                 } as GirVariable
             ]
 
-            desc = this.getFunction(e, "    ")[0]
+            desc = this.getFunction(e, prefix)[0]
         }
 
         return [desc, funcName]

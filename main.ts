@@ -163,6 +163,7 @@ export class GirModule {
     symTable: { [key:string]: any } = {}
     patch: { [key:string]: string[] } = {}
     incorrectExtends: { [key:string]: string[] } = {}
+    staticNew: boolean
 
     constructor(xml) {
         this.repo = xml.repository
@@ -815,7 +816,7 @@ export class GirModule {
 
     private exportObjectInternal(e: GirClass | GirClass) {
         const incorrectExtends = this.incorrectExtends[e._fullSymName as string]
-        const divergePoint = incorrectExtends
+        const divergePoint = !this.staticNew && incorrectExtends
             ? incorrectExtends[0].replace(/.*clashes with (.+)\..*/, "$1")
             : undefined
 
@@ -897,7 +898,7 @@ export class GirModule {
         }
 
         // Instance side
-        const base = parentNameShort
+        const base = !this.staticNew && parentNameShort
             ? ` extends ${parentNameShort}`
             : "";
 
@@ -919,7 +920,7 @@ export class GirModule {
                 }
             }
         }
-        if (incorrectExtends) {
+        if (this.staticNew || incorrectExtends) {
             this.traverseInheritanceTree(e, copyProperties, divergePoint)
         } else {
             copyProperties(e)
@@ -945,7 +946,7 @@ export class GirModule {
                 }
             }
         }
-        if (incorrectExtends) {
+        if (this.staticNew || incorrectExtends) {
             this.traverseInheritanceTree(e, copyFields, divergePoint)
         } else {
             copyFields(e)
@@ -961,7 +962,7 @@ export class GirModule {
                 }
             }
         }
-        if (incorrectExtends) {
+        if (this.staticNew || incorrectExtends) {
             this.traverseInheritanceTree(e, copyMethods, divergePoint)
         } else {
             copyMethods(e)
@@ -995,7 +996,7 @@ export class GirModule {
                     def = def.concat(this.getSignalFunc(s, name))
             }
         }
-        if (incorrectExtends) {
+        if (this.staticNew || incorrectExtends) {
             this.traverseInheritanceTree(e, copySignals, divergePoint)
         } else {
             copySignals(e)
@@ -1049,7 +1050,7 @@ export class GirModule {
                     let [desc, funcName] = this.getConstructorFunction(name, f, "    static ")
                     if (!funcName)
                         continue
-                    if (funcName === "new")
+                    if (!this.staticNew && funcName === "new")
                         continue
                     
                     stc = stc.concat(desc)
@@ -1344,6 +1345,8 @@ function main() {
             [])
         .option("-o --outdir [dir]",
             "Directory to output to", null)
+        .option("-s --static-new",
+            "Expose `Gtk.Paned.new(orientation)` and similar functions", false)
         .parse(process.argv)
 
     let girModules: { [key: string]: GirModule } = {}
@@ -1544,6 +1547,7 @@ function main() {
         console.log(` - ${k} ...`)
         girModules[k].patch = patch
         girModules[k].incorrectExtends = incorrectExtends
+        girModules[k].staticNew = commander.staticNew
         girModules[k].export(outf)
 
         if (commander.outdir) {

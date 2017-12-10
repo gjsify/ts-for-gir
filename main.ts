@@ -162,7 +162,6 @@ export class GirModule {
     ns: GirNamespace
     symTable: { [key:string]: any } = {}
     patch: { [key:string]: string[] } = {}
-    incorrectExtends: { [key:string]: string[] } = {}
 
     constructor(xml) {
         this.repo = xml.repository
@@ -712,7 +711,7 @@ export class GirModule {
                 } as GirVariable
             ]
 
-            desc = this.getFunction(e, "    ")[0]
+            desc = this.getFunction(e, prefix)[0]
         }
 
         return [desc, funcName]
@@ -724,7 +723,7 @@ export class GirModule {
         let [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
         let paramComma = params.length > 0 ? ', ' : ''
 
-        return [`    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType}))`]
+        return [`    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): void`]
     }
 
     exportFunction(e: GirFunction) {
@@ -746,7 +745,7 @@ export class GirModule {
         return def
     }
 
-    private traverseInheritanceTree(e: GirClass, callback: ((cls: GirClass) => void), divergePoint?: string) {
+    private traverseInheritanceTree(e: GirClass, callback: ((cls: GirClass) => void)) {
         if (!e || !e.$)
             return;
 
@@ -760,7 +759,7 @@ export class GirModule {
             name = mod.name + "." + name
         }
 
-        if (name !== divergePoint && e.$.parent) {
+        if (e.$.parent) {
             let parentName = e.$.parent
             let origParentName = parentName
 
@@ -782,9 +781,9 @@ export class GirModule {
         // console.log(`${e.$.name} : ${parent && parent.$ ? parent.$.name : 'none'} : ${parentModule ? parentModule.name : 'none'}`)
 
         callback(e)
-
+        
         if (parent)
-            this.traverseInheritanceTree(parent, callback, divergePoint)
+            this.traverseInheritanceTree(parent, callback)
     }
 
     private forEachInterface(e: GirClass, callback: ((cls: GirClass) => void)) {
@@ -814,11 +813,6 @@ export class GirModule {
     }
 
     private exportObjectInternal(e: GirClass | GirClass) {
-        const incorrectExtends = this.incorrectExtends[e._fullSymName as string]
-        const divergePoint = incorrectExtends
-            ? incorrectExtends[0].replace(/.*clashes with (.+)\..*/, "$1")
-            : undefined
-
         let name = e.$.name
         let def: string[] = []
         let isDerivedFromGObject = this.isDerivedFromGObject(e)
@@ -878,30 +872,8 @@ export class GirModule {
             def.push("}")
         }
 
-        if (divergePoint) {
-            parentName = null
-            counter = 0
-            this.traverseInheritanceTree(this.symTable[divergePoint], (cls) => {
-                if (counter++ != 1)
-                    return
-                parentName = cls._fullSymName || null
-            })
-
-            parentNameShort = parentName || ''
-            if (parentNameShort && this.name) {
-                let s = parentNameShort.split(".", 2)
-                if (s[0] === this.name) {
-                    parentNameShort = s[1]
-                }
-            }
-        }
-
         // Instance side
-        const base = parentNameShort
-            ? ` extends ${parentNameShort}`
-            : "";
-
-        def.push(`export class ${name}${base} {`)
+        def.push(`export class ${name} {`)
         
         let localNames = {}
         let propertyNames: string[] = []
@@ -919,11 +891,7 @@ export class GirModule {
                 }
             }
         }
-        if (incorrectExtends) {
-            this.traverseInheritanceTree(e, copyProperties, divergePoint)
-        } else {
-            copyProperties(e)
-        }
+        this.traverseInheritanceTree(e, copyProperties)
         this.forEachInterface(e, copyProperties)
 
         // Fields
@@ -933,11 +901,6 @@ export class GirModule {
                 for (let f of cls.field) {
                     let [desc, name] = this.getVariable(f, false, false)
 
-                    if (name === "parent") {
-                        // Many conflicts
-                        desc[0] = "parent: any"
-                    }
-
                     let [aDesc, added] = checkName(desc, name, localNames)
                     if (added) {
                         def.push(`    ${aDesc[0]}`)
@@ -945,11 +908,7 @@ export class GirModule {
                 }
             }
         }
-        if (incorrectExtends) {
-            this.traverseInheritanceTree(e, copyFields, divergePoint)
-        } else {
-            copyFields(e)
-        }
+        this.traverseInheritanceTree(e, copyFields)
 
         // Instance methods
         const copyMethods = (cls: GirClass) => {
@@ -961,11 +920,7 @@ export class GirModule {
                 }
             }
         }
-        if (incorrectExtends) {
-            this.traverseInheritanceTree(e, copyMethods, divergePoint)
-        } else {
-            copyMethods(e)
-        }
+        this.traverseInheritanceTree(e, copyMethods)
         this.forEachInterface(e, copyMethods)
 
         // Instance methods, vfunc_ prefix
@@ -995,20 +950,16 @@ export class GirModule {
                     def = def.concat(this.getSignalFunc(s, name))
             }
         }
-        if (incorrectExtends) {
-            this.traverseInheritanceTree(e, copySignals, divergePoint)
-        } else {
-            copySignals(e)
-        }
+        this.traverseInheritanceTree(e, copySignals)
         this.forEachInterface(e, copySignals)
 
         if (isDerivedFromGObject) {
             let prefix = "GObject."
             if (this.name == "GObject") prefix = ""
             for (let p of propertyNames) {
-                def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void))`)
+                def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void)): void`)
             }
-            def.push(`    connect(sigName: string, callback: any)`)
+            def.push(`    connect(sigName: string, callback: any): void`)
         }
 
         // TODO: Records have fields
@@ -1016,7 +967,6 @@ export class GirModule {
         // Static side: default constructor
         def.push(`    static name: string`)
         if (isDerivedFromGObject) {
-            def.push(`    static new (config?: ${name}_ConstructProps): ${name}`)
             def.push(`    constructor (config?: ${name}_ConstructProps)`)
         } else {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
@@ -1048,8 +998,6 @@ export class GirModule {
                 for (let f of constructor_) {
                     let [desc, funcName] = this.getConstructorFunction(name, f, "    static ")
                     if (!funcName)
-                        continue
-                    if (funcName === "new")
                         continue
                     
                     stc = stc.concat(desc)
@@ -1447,90 +1395,6 @@ function main() {
         ]
     }
 
-    let incorrectExtends = {
-        "Gio.IOModule": [
-            "/* use clashes with Gio.TypeModule.use */"
-        ],
-        "Gio.TcpConnection": [
-            "/* connect clashes with Gio.SocketConnection.connect */"
-        ],
-        "Gio.TcpWrapperConnection": [
-            "/* connect clashes with Gio.SocketConnection.connect */"
-        ],
-        "Gio.UnixConnection": [
-            "/* connect clashes with Gio.SocketConnection.connect */"
-        ],
-        "Gtk.AccelLabel": [
-            "/* label clashes with Gtk.Label.label */"
-        ],
-        "Gtk.AppChooserWidget": [
-            "/* show_all clashes with Gtk.Widget.show_all */"
-        ],
-        "Gtk.CellAreaBox": [
-            "/* pack_end clashes with Gtk.CellArea.pack_end */"
-        ],
-        "Gtk.ComboBoxText": [
-            "/* remove clashes with Gtk.Container.remove */"
-        ],
-        "Gtk.Dialog": [
-            "/* window clashes with Gtk.Widget.window */"
-        ],
-        "Gtk.MenuButton": [
-            "/* get_direction clashes with Gtk.Widget.get_direction */"
-        ],
-        "Gtk.Plug": [
-            "/* window clashes with Gtk.Widget.window */"
-        ],
-        "Gtk.RadioButton": [
-            "/* new_with_label clashes with Gtk.Button.new_with_label */"
-        ],
-        "Gtk.RadioMenuItem": [
-            "/* new clashes with Gtk.MenuItem.new */"
-        ],
-        "Gtk.RadioToolButton": [
-            "/* new clashes with Gtk.ToolButton.new */"
-        ],
-        "Gtk.SeparatorToolItem": [
-            "/* draw clashes with Gtk.Widget.draw */"
-        ],
-        "Gtk.ShortcutsWindow": [
-            "/* window clashes with Gtk.Widget.window */"
-        ],
-        "Gtk.Statusbar": [
-            "/* remove clashes with Gtk.Container.remove */"
-        ],
-        "Gtk.StyleContext": [
-            "/* get_property clashes with GObject.Object.get_property */"
-        ],
-        "Gtk.StyleProperties": [
-            "/* get_property clashes with GObject.Object.get_property */"
-        ],
-        "Gtk.Switch": [
-            "/* get_state clashes with Gtk.Widget.get_state */"
-        ],
-        "Gtk.ThemingEngine": [
-            "/* get_property clashes with GObject.Object.get_property */"
-        ],
-        "Gtk.ToolItemGroup": [
-            "/* get_style clashes with Gtk.Widget.get_style */"
-        ],
-        "Gtk.ToolPalette": [
-            "/* get_style clashes with Gtk.Widget.get_style */"
-        ],
-        "Gtk.Toolbar": [
-            "/* get_style clashes with Gtk.Widget.get_style */"
-        ],
-        "Gtk.Window": [
-            "/* mnemonic_activate clashes with Gtk.Widget.mnemonic_activate */"
-        ],
-        "WebKit2.WebResource": [
-            "/* get_data clashes with GObject.Object.get_data */"
-        ],
-        "WebKit2.WebView": [
-            "/* get_settings clashes with Gtk.Widget.get_settings */"
-        ],
-    }
-
     console.log("Types loaded, generating .d.ts...")
     
     for (let k of lodash.keys(girModules)) {
@@ -1543,7 +1407,6 @@ function main() {
         }
         console.log(` - ${k} ...`)
         girModules[k].patch = patch
-        girModules[k].incorrectExtends = incorrectExtends
         girModules[k].export(outf)
 
         if (commander.outdir) {

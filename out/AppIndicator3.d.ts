@@ -47,7 +47,7 @@ export interface Indicator_ConstructProps extends GObject.Object_ConstructProps 
     status?:string
     title?:string
 }
-export class Indicator extends GObject.Object {
+export class Indicator {
     /* Properties of AppIndicator3.Indicator */
     attention_icon_desc:string
     attention_icon_name:string
@@ -61,8 +61,10 @@ export class Indicator extends GObject.Object {
     status:string
     title:string
     /* Fields of AppIndicator3.Indicator */
-    parent: any
+    parent:GObject.Object
     priv:IndicatorPrivate
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of AppIndicator3.Indicator */
     build_menu_from_desktop(desktop_file: string, desktop_profile: string): void
     get_attention_icon(): string
@@ -90,6 +92,30 @@ export class Indicator extends GObject.Object {
     set_secondary_activate_target(menuitem?: Gtk.Widget | null): void
     set_status(status: IndicatorStatus): void
     set_title(title?: string | null): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of AppIndicator3.Indicator */
     vfunc_connection_changed?(connected: boolean): void
     vfunc_new_attention_icon?(): void
@@ -108,28 +134,30 @@ export class Indicator extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of AppIndicator3.Indicator */
-    connect(sigName: "connection-changed", callback: ((obj: Indicator, arg1: boolean) => void))
-    connect(sigName: "new-attention-icon", callback: ((obj: Indicator) => void))
-    connect(sigName: "new-icon", callback: ((obj: Indicator) => void))
-    connect(sigName: "new-icon-theme-path", callback: ((obj: Indicator, object: string) => void))
-    connect(sigName: "new-label", callback: ((obj: Indicator, object: string, p0: string) => void))
-    connect(sigName: "new-status", callback: ((obj: Indicator, arg1: string) => void))
-    connect(sigName: "scroll-event", callback: ((obj: Indicator, arg1: number, arg2: Gdk.ScrollDirection) => void))
-    connect(sigName: "notify::attention-icon-desc", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::attention-icon-name", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::connected", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-desc", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-name", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-theme-path", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::label", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::label-guide", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ordering-index", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::status", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::title", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "connection-changed", callback: ((obj: Indicator, arg1: boolean) => void)): void
+    connect(sigName: "new-attention-icon", callback: ((obj: Indicator) => void)): void
+    connect(sigName: "new-icon", callback: ((obj: Indicator) => void)): void
+    connect(sigName: "new-icon-theme-path", callback: ((obj: Indicator, object: string) => void)): void
+    connect(sigName: "new-label", callback: ((obj: Indicator, object: string, p0: string) => void)): void
+    connect(sigName: "new-status", callback: ((obj: Indicator, arg1: string) => void)): void
+    connect(sigName: "scroll-event", callback: ((obj: Indicator, arg1: number, arg2: Gdk.ScrollDirection) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::attention-icon-desc", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::attention-icon-name", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::connected", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-desc", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-name", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-theme-path", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::label", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::label-guide", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::ordering-index", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::status", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::title", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Indicator_ConstructProps): Indicator
     constructor (config?: Indicator_ConstructProps)
+    static new(id: string, icon_name: string, category: IndicatorCategory): Indicator
     static new_with_path(id: string, icon_name: string, category: IndicatorCategory, icon_theme_path: string): Indicator
 }
 export class IndicatorPrivate {

@@ -161,8 +161,8 @@ export class Pixbuf {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Pixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Pixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Pixbuf_ConstructProps)
     static new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
@@ -232,8 +232,8 @@ export class PixbufAnimation {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: PixbufAnimation, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: PixbufAnimation, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: PixbufAnimation_ConstructProps)
     static new_from_file(filename: string): PixbufAnimation
@@ -285,8 +285,8 @@ export class PixbufAnimationIter {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: PixbufAnimationIter_ConstructProps)
 }
@@ -343,13 +343,13 @@ export class PixbufLoader {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GdkPixbuf.PixbufLoader */
-    connect(sigName: "area-prepared", callback: ((obj: PixbufLoader) => void))
-    connect(sigName: "area-updated", callback: ((obj: PixbufLoader, x: number, y: number, width: number, height: number) => void))
-    connect(sigName: "closed", callback: ((obj: PixbufLoader) => void))
-    connect(sigName: "size-prepared", callback: ((obj: PixbufLoader, width: number, height: number) => void))
+    connect(sigName: "area-prepared", callback: ((obj: PixbufLoader) => void)): void
+    connect(sigName: "area-updated", callback: ((obj: PixbufLoader, x: number, y: number, width: number, height: number) => void)): void
+    connect(sigName: "closed", callback: ((obj: PixbufLoader) => void)): void
+    connect(sigName: "size-prepared", callback: ((obj: PixbufLoader, width: number, height: number) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: PixbufLoader, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: PixbufLoader, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: PixbufLoader_ConstructProps)
     static new(): PixbufLoader
@@ -407,9 +407,9 @@ export class PixbufSimpleAnim {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: PixbufSimpleAnim_ConstructProps)
     static new(width: number, height: number, rate: number): PixbufSimpleAnim
@@ -457,8 +457,8 @@ export class PixbufSimpleAnimIter {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: PixbufSimpleAnimIter_ConstructProps)
 }

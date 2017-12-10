@@ -2106,7 +2106,7 @@ export class Node {
     data:object
     next:Node
     prev:Node
-    parent: any
+    parent:Node
     children:Node
     /* Methods of GLib.Node */
     child_index(data?: object | null): number

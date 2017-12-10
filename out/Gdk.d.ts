@@ -3016,11 +3016,11 @@ export class AppLaunchContext {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gio.AppLaunchContext */
-    connect(sigName: "launch-failed", callback: ((obj: AppLaunchContext, startup_notify_id: string) => void))
-    connect(sigName: "launched", callback: ((obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void))
+    connect(sigName: "launch-failed", callback: ((obj: AppLaunchContext, startup_notify_id: string) => void)): void
+    connect(sigName: "launched", callback: ((obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: AppLaunchContext_ConstructProps)
     static new(): AppLaunchContext
@@ -3071,8 +3071,8 @@ export class Cursor {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Cursor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Cursor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Cursor_ConstructProps)
     static new(cursor_type: CursorType): Cursor
@@ -3166,17 +3166,17 @@ export class Device {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Device */
-    connect(sigName: "changed", callback: ((obj: Device) => void))
-    connect(sigName: "tool-changed", callback: ((obj: Device, tool: DeviceTool) => void))
+    connect(sigName: "changed", callback: ((obj: Device) => void)): void
+    connect(sigName: "tool-changed", callback: ((obj: Device, tool: DeviceTool) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::associated-device", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-mode", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::n-axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::seat", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tool", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::associated-device", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::input-mode", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::n-axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::seat", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tool", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Device_ConstructProps)
     static grab_info_libgtk_only(display: Display, device: Device): [ /* returnType */ boolean, /* grab_window */ Window, /* owner_events */ boolean ]
@@ -3225,12 +3225,12 @@ export class DeviceManager {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.DeviceManager */
-    connect(sigName: "device-added", callback: ((obj: DeviceManager, device: Device) => void))
-    connect(sigName: "device-changed", callback: ((obj: DeviceManager, device: Device) => void))
-    connect(sigName: "device-removed", callback: ((obj: DeviceManager, device: Device) => void))
+    connect(sigName: "device-added", callback: ((obj: DeviceManager, device: Device) => void)): void
+    connect(sigName: "device-changed", callback: ((obj: DeviceManager, device: Device) => void)): void
+    connect(sigName: "device-removed", callback: ((obj: DeviceManager, device: Device) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: DeviceManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: DeviceManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: DeviceManager_ConstructProps)
 }
@@ -3281,8 +3281,8 @@ export class DeviceTool {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: DeviceTool, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: DeviceTool, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: DeviceTool_ConstructProps)
 }
@@ -3370,15 +3370,15 @@ export class Display {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Display */
-    connect(sigName: "closed", callback: ((obj: Display, is_error: boolean) => void))
-    connect(sigName: "monitor-added", callback: ((obj: Display, monitor: Monitor) => void))
-    connect(sigName: "monitor-removed", callback: ((obj: Display, monitor: Monitor) => void))
-    connect(sigName: "opened", callback: ((obj: Display) => void))
-    connect(sigName: "seat-added", callback: ((obj: Display, seat: Seat) => void))
-    connect(sigName: "seat-removed", callback: ((obj: Display, seat: Seat) => void))
+    connect(sigName: "closed", callback: ((obj: Display, is_error: boolean) => void)): void
+    connect(sigName: "monitor-added", callback: ((obj: Display, monitor: Monitor) => void)): void
+    connect(sigName: "monitor-removed", callback: ((obj: Display, monitor: Monitor) => void)): void
+    connect(sigName: "opened", callback: ((obj: Display) => void)): void
+    connect(sigName: "seat-added", callback: ((obj: Display, seat: Seat) => void)): void
+    connect(sigName: "seat-removed", callback: ((obj: Display, seat: Seat) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Display, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Display, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Display_ConstructProps)
     static get_default(): Display | null
@@ -3431,11 +3431,11 @@ export class DisplayManager {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.DisplayManager */
-    connect(sigName: "display-opened", callback: ((obj: DisplayManager, display: Display) => void))
+    connect(sigName: "display-opened", callback: ((obj: DisplayManager, display: Display) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::default-display", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::default-display", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: DisplayManager_ConstructProps)
     static get(): DisplayManager
@@ -3491,13 +3491,13 @@ export class DragContext {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.DragContext */
-    connect(sigName: "action-changed", callback: ((obj: DragContext, action: DragAction) => void))
-    connect(sigName: "cancel", callback: ((obj: DragContext, reason: DragCancelReason) => void))
-    connect(sigName: "dnd-finished", callback: ((obj: DragContext) => void))
-    connect(sigName: "drop-performed", callback: ((obj: DragContext, time: number) => void))
+    connect(sigName: "action-changed", callback: ((obj: DragContext, action: DragAction) => void)): void
+    connect(sigName: "cancel", callback: ((obj: DragContext, reason: DragCancelReason) => void)): void
+    connect(sigName: "dnd-finished", callback: ((obj: DragContext) => void)): void
+    connect(sigName: "drop-performed", callback: ((obj: DragContext, time: number) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: DragContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: DragContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: DragContext_ConstructProps)
 }
@@ -3547,8 +3547,8 @@ export class DrawingContext {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: DrawingContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: DrawingContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: DrawingContext_ConstructProps)
 }
@@ -3600,16 +3600,16 @@ export class FrameClock {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.FrameClock */
-    connect(sigName: "after-paint", callback: ((obj: FrameClock) => void))
-    connect(sigName: "before-paint", callback: ((obj: FrameClock) => void))
-    connect(sigName: "flush-events", callback: ((obj: FrameClock) => void))
-    connect(sigName: "layout", callback: ((obj: FrameClock) => void))
-    connect(sigName: "paint", callback: ((obj: FrameClock) => void))
-    connect(sigName: "resume-events", callback: ((obj: FrameClock) => void))
-    connect(sigName: "update", callback: ((obj: FrameClock) => void))
+    connect(sigName: "after-paint", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "before-paint", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "flush-events", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "layout", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "paint", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "resume-events", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "update", callback: ((obj: FrameClock) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: FrameClock, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: FrameClock, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: FrameClock_ConstructProps)
 }
@@ -3671,8 +3671,8 @@ export class GLContext {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: GLContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: GLContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: GLContext_ConstructProps)
     static clear_current(): void
@@ -3730,12 +3730,12 @@ export class Keymap {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Keymap */
-    connect(sigName: "direction-changed", callback: ((obj: Keymap) => void))
-    connect(sigName: "keys-changed", callback: ((obj: Keymap) => void))
-    connect(sigName: "state-changed", callback: ((obj: Keymap) => void))
+    connect(sigName: "direction-changed", callback: ((obj: Keymap) => void)): void
+    connect(sigName: "keys-changed", callback: ((obj: Keymap) => void)): void
+    connect(sigName: "state-changed", callback: ((obj: Keymap) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Keymap, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Keymap, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Keymap_ConstructProps)
     static get_default(): Keymap
@@ -3802,19 +3802,19 @@ export class Monitor {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Monitor */
-    connect(sigName: "invalidate", callback: ((obj: Monitor) => void))
+    connect(sigName: "invalidate", callback: ((obj: Monitor) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::geometry", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::height-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::manufacturer", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::model", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::refresh-rate", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scale-factor", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::subpixel-layout", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::width-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::workarea", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::geometry", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::height-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::manufacturer", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::model", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::refresh-rate", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scale-factor", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::subpixel-layout", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::width-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::workarea", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Monitor_ConstructProps)
 }
@@ -3892,14 +3892,14 @@ export class Screen {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Screen */
-    connect(sigName: "composited-changed", callback: ((obj: Screen) => void))
-    connect(sigName: "monitors-changed", callback: ((obj: Screen) => void))
-    connect(sigName: "size-changed", callback: ((obj: Screen) => void))
+    connect(sigName: "composited-changed", callback: ((obj: Screen) => void)): void
+    connect(sigName: "monitors-changed", callback: ((obj: Screen) => void)): void
+    connect(sigName: "size-changed", callback: ((obj: Screen) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::font-options", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resolution", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::font-options", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::resolution", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Screen_ConstructProps)
     static get_default(): Screen | null
@@ -3958,13 +3958,13 @@ export class Seat {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Seat */
-    connect(sigName: "device-added", callback: ((obj: Seat, device: Device) => void))
-    connect(sigName: "device-removed", callback: ((obj: Seat, device: Device) => void))
-    connect(sigName: "tool-added", callback: ((obj: Seat, tool: DeviceTool) => void))
-    connect(sigName: "tool-removed", callback: ((obj: Seat, tool: DeviceTool) => void))
+    connect(sigName: "device-added", callback: ((obj: Seat, device: Device) => void)): void
+    connect(sigName: "device-removed", callback: ((obj: Seat, device: Device) => void)): void
+    connect(sigName: "tool-added", callback: ((obj: Seat, tool: DeviceTool) => void)): void
+    connect(sigName: "tool-removed", callback: ((obj: Seat, tool: DeviceTool) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Seat, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Seat, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Seat_ConstructProps)
 }
@@ -4016,8 +4016,8 @@ export class Visual {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Visual, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Visual, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Visual_ConstructProps)
     static get_best(): Visual
@@ -4227,15 +4227,15 @@ export class Window {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Window */
-    connect(sigName: "create-surface", callback: ((obj: Window, width: number, height: number) => cairo.Surface))
-    connect(sigName: "from-embedder", callback: ((obj: Window, embedder_x: number, embedder_y: number) => void))
-    connect(sigName: "moved-to-rect", callback: ((obj: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void))
-    connect(sigName: "pick-embedded-child", callback: ((obj: Window, x: number, y: number) => Window | null))
-    connect(sigName: "to-embedder", callback: ((obj: Window, offscreen_x: number, offscreen_y: number) => void))
+    connect(sigName: "create-surface", callback: ((obj: Window, width: number, height: number) => cairo.Surface)): void
+    connect(sigName: "from-embedder", callback: ((obj: Window, embedder_x: number, embedder_y: number) => void)): void
+    connect(sigName: "moved-to-rect", callback: ((obj: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void)): void
+    connect(sigName: "pick-embedded-child", callback: ((obj: Window, x: number, y: number) => Window | null)): void
+    connect(sigName: "to-embedder", callback: ((obj: Window, offscreen_x: number, offscreen_y: number) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Window, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::cursor", callback: ((obj: Window, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Window, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::cursor", callback: ((obj: Window, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Window_ConstructProps)
     static new(parent: Window | null, attributes: WindowAttr, attributes_mask: WindowAttributesType): Window

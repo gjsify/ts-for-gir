@@ -401,7 +401,7 @@ export class Component {
     vfunc_set_position?(x: number, y: number, coord_type: CoordType): boolean
     vfunc_set_size?(width: number, height: number): boolean
     /* Signals of Atk.Component */
-    connect(sigName: "bounds-changed", callback: ((obj: Component, arg1: Rectangle) => void))
+    connect(sigName: "bounds-changed", callback: ((obj: Component, arg1: Rectangle) => void)): void
     static name: string
 }
 export class Document {
@@ -423,10 +423,10 @@ export class Document {
     vfunc_get_page_count?(): number
     vfunc_set_document_attribute?(attribute_name: string, attribute_value: string): boolean
     /* Signals of Atk.Document */
-    connect(sigName: "load-complete", callback: ((obj: Document) => void))
-    connect(sigName: "load-stopped", callback: ((obj: Document) => void))
-    connect(sigName: "page-changed", callback: ((obj: Document, page_number: number) => void))
-    connect(sigName: "reload", callback: ((obj: Document) => void))
+    connect(sigName: "load-complete", callback: ((obj: Document) => void)): void
+    connect(sigName: "load-stopped", callback: ((obj: Document) => void)): void
+    connect(sigName: "page-changed", callback: ((obj: Document, page_number: number) => void)): void
+    connect(sigName: "reload", callback: ((obj: Document) => void)): void
     static name: string
 }
 export class EditableText {
@@ -466,7 +466,7 @@ export class Hypertext {
     vfunc_get_n_links?(): number
     vfunc_link_selected?(link_index: number): void
     /* Signals of Atk.Hypertext */
-    connect(sigName: "link-selected", callback: ((obj: Hypertext, arg1: number) => void))
+    connect(sigName: "link-selected", callback: ((obj: Hypertext, arg1: number) => void)): void
     static name: string
 }
 export class Image {
@@ -506,7 +506,7 @@ export class Selection {
     vfunc_select_all_selection?(): boolean
     vfunc_selection_changed?(): void
     /* Signals of Atk.Selection */
-    connect(sigName: "selection-changed", callback: ((obj: Selection) => void))
+    connect(sigName: "selection-changed", callback: ((obj: Selection) => void)): void
     static name: string
 }
 export class StreamableContent {
@@ -591,13 +591,13 @@ export class Table {
     vfunc_set_row_header?(row: number, header: Object): void
     vfunc_set_summary?(accessible: Object): void
     /* Signals of Atk.Table */
-    connect(sigName: "column-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void))
-    connect(sigName: "column-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void))
-    connect(sigName: "column-reordered", callback: ((obj: Table) => void))
-    connect(sigName: "model-changed", callback: ((obj: Table) => void))
-    connect(sigName: "row-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void))
-    connect(sigName: "row-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void))
-    connect(sigName: "row-reordered", callback: ((obj: Table) => void))
+    connect(sigName: "column-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void)): void
+    connect(sigName: "column-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void)): void
+    connect(sigName: "column-reordered", callback: ((obj: Table) => void)): void
+    connect(sigName: "model-changed", callback: ((obj: Table) => void)): void
+    connect(sigName: "row-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void)): void
+    connect(sigName: "row-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void)): void
+    connect(sigName: "row-reordered", callback: ((obj: Table) => void)): void
     static name: string
 }
 export class TableCell {
@@ -667,12 +667,12 @@ export class Text {
     vfunc_text_changed?(position: number, length: number): void
     vfunc_text_selection_changed?(): void
     /* Signals of Atk.Text */
-    connect(sigName: "text-attributes-changed", callback: ((obj: Text) => void))
-    connect(sigName: "text-caret-moved", callback: ((obj: Text, arg1: number) => void))
-    connect(sigName: "text-changed", callback: ((obj: Text, arg1: number, arg2: number) => void))
-    connect(sigName: "text-insert", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void))
-    connect(sigName: "text-remove", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void))
-    connect(sigName: "text-selection-changed", callback: ((obj: Text) => void))
+    connect(sigName: "text-attributes-changed", callback: ((obj: Text) => void)): void
+    connect(sigName: "text-caret-moved", callback: ((obj: Text, arg1: number) => void)): void
+    connect(sigName: "text-changed", callback: ((obj: Text, arg1: number, arg2: number) => void)): void
+    connect(sigName: "text-insert", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void)): void
+    connect(sigName: "text-remove", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void)): void
+    connect(sigName: "text-selection-changed", callback: ((obj: Text) => void)): void
     static name: string
     static free_ranges(ranges: TextRange[]): void
 }
@@ -700,20 +700,20 @@ export class Value {
     vfunc_set_current_value?(value: any): boolean
     vfunc_set_value?(new_value: number): void
     /* Signals of Atk.Value */
-    connect(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void))
+    connect(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void)): void
     static name: string
 }
 export class Window {
     /* Signals of Atk.Window */
-    connect(sigName: "activate", callback: ((obj: Window) => void))
-    connect(sigName: "create", callback: ((obj: Window) => void))
-    connect(sigName: "deactivate", callback: ((obj: Window) => void))
-    connect(sigName: "destroy", callback: ((obj: Window) => void))
-    connect(sigName: "maximize", callback: ((obj: Window) => void))
-    connect(sigName: "minimize", callback: ((obj: Window) => void))
-    connect(sigName: "move", callback: ((obj: Window) => void))
-    connect(sigName: "resize", callback: ((obj: Window) => void))
-    connect(sigName: "restore", callback: ((obj: Window) => void))
+    connect(sigName: "activate", callback: ((obj: Window) => void)): void
+    connect(sigName: "create", callback: ((obj: Window) => void)): void
+    connect(sigName: "deactivate", callback: ((obj: Window) => void)): void
+    connect(sigName: "destroy", callback: ((obj: Window) => void)): void
+    connect(sigName: "maximize", callback: ((obj: Window) => void)): void
+    connect(sigName: "minimize", callback: ((obj: Window) => void)): void
+    connect(sigName: "move", callback: ((obj: Window) => void)): void
+    connect(sigName: "resize", callback: ((obj: Window) => void)): void
+    connect(sigName: "restore", callback: ((obj: Window) => void)): void
     static name: string
 }
 export interface GObjectAccessible_ConstructProps extends Object_ConstructProps {
@@ -736,7 +736,7 @@ export class GObjectAccessible {
     accessible_table_summary:Object
     accessible_value:number
     /* Fields of Atk.GObjectAccessible */
-    parent: any
+    parent:Object
     /* Fields of Atk.Object */
     description:string
     name:string
@@ -829,30 +829,30 @@ export class GObjectAccessible {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: GObjectAccessible, arg1?: object | null) => void))
-    connect(sigName: "children-changed", callback: ((obj: GObjectAccessible, arg1: number, arg2?: object | null) => void))
-    connect(sigName: "focus-event", callback: ((obj: GObjectAccessible, arg1: boolean) => void))
-    connect(sigName: "property-change", callback: ((obj: GObjectAccessible, arg1?: object | null) => void))
-    connect(sigName: "state-change", callback: ((obj: GObjectAccessible, arg1: string, arg2: boolean) => void))
-    connect(sigName: "visible-data-changed", callback: ((obj: GObjectAccessible) => void))
+    connect(sigName: "active-descendant-changed", callback: ((obj: GObjectAccessible, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: GObjectAccessible, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: GObjectAccessible, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: GObjectAccessible, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: GObjectAccessible, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: GObjectAccessible) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-component-layer", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-name", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-parent", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-role", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-summary", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-value", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: GObjectAccessible_ConstructProps)
     static for_object(obj: GObject.Object): Object
@@ -866,7 +866,7 @@ export class Hyperlink {
     readonly selected_link:boolean
     readonly start_index:number
     /* Fields of Atk.Hyperlink */
-    parent: any
+    parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Atk.Hyperlink */
@@ -929,14 +929,14 @@ export class Hyperlink {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Hyperlink */
-    connect(sigName: "link-activated", callback: ((obj: Hyperlink) => void))
+    connect(sigName: "link-activated", callback: ((obj: Hyperlink) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::end-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::number-of-anchors", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::selected-link", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::start-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::end-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::number-of-anchors", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::selected-link", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::start-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Hyperlink_ConstructProps)
 }
@@ -944,7 +944,7 @@ export interface Misc_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Misc {
     /* Fields of Atk.Misc */
-    parent: any
+    parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Atk.Misc */
@@ -986,8 +986,8 @@ export class Misc {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Misc, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Misc, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Misc_ConstructProps)
     static get_instance(): Misc
@@ -1012,7 +1012,7 @@ export class NoOpObject {
     accessible_table_summary:Object
     accessible_value:number
     /* Fields of Atk.NoOpObject */
-    parent: any
+    parent:Object
     /* Fields of Atk.Object */
     description:string
     name:string
@@ -1221,68 +1221,68 @@ export class NoOpObject {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: NoOpObject, arg1?: object | null) => void))
-    connect(sigName: "children-changed", callback: ((obj: NoOpObject, arg1: number, arg2?: object | null) => void))
-    connect(sigName: "focus-event", callback: ((obj: NoOpObject, arg1: boolean) => void))
-    connect(sigName: "property-change", callback: ((obj: NoOpObject, arg1?: object | null) => void))
-    connect(sigName: "state-change", callback: ((obj: NoOpObject, arg1: string, arg2: boolean) => void))
-    connect(sigName: "visible-data-changed", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "active-descendant-changed", callback: ((obj: NoOpObject, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: NoOpObject, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: NoOpObject, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: NoOpObject, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: NoOpObject, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: NoOpObject) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
     /* Signals of Atk.Component */
-    connect(sigName: "bounds-changed", callback: ((obj: NoOpObject, arg1: Rectangle) => void))
+    connect(sigName: "bounds-changed", callback: ((obj: NoOpObject, arg1: Rectangle) => void)): void
     /* Signals of Atk.Document */
-    connect(sigName: "load-complete", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "load-stopped", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "page-changed", callback: ((obj: NoOpObject, page_number: number) => void))
-    connect(sigName: "reload", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "load-complete", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "load-stopped", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "page-changed", callback: ((obj: NoOpObject, page_number: number) => void)): void
+    connect(sigName: "reload", callback: ((obj: NoOpObject) => void)): void
     /* Signals of Atk.Hypertext */
-    connect(sigName: "link-selected", callback: ((obj: NoOpObject, arg1: number) => void))
+    connect(sigName: "link-selected", callback: ((obj: NoOpObject, arg1: number) => void)): void
     /* Signals of Atk.Selection */
-    connect(sigName: "selection-changed", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "selection-changed", callback: ((obj: NoOpObject) => void)): void
     /* Signals of Atk.Table */
-    connect(sigName: "column-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "column-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "column-reordered", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "model-changed", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "row-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "row-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "row-reordered", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "column-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "column-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "column-reordered", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "model-changed", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "row-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "row-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "row-reordered", callback: ((obj: NoOpObject) => void)): void
     /* Signals of Atk.Text */
-    connect(sigName: "text-attributes-changed", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "text-caret-moved", callback: ((obj: NoOpObject, arg1: number) => void))
-    connect(sigName: "text-changed", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "text-insert", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void))
-    connect(sigName: "text-remove", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void))
-    connect(sigName: "text-selection-changed", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "text-attributes-changed", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "text-caret-moved", callback: ((obj: NoOpObject, arg1: number) => void)): void
+    connect(sigName: "text-changed", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "text-insert", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): void
+    connect(sigName: "text-remove", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): void
+    connect(sigName: "text-selection-changed", callback: ((obj: NoOpObject) => void)): void
     /* Signals of Atk.Value */
-    connect(sigName: "value-changed", callback: ((obj: NoOpObject, value: number, text: string) => void))
+    connect(sigName: "value-changed", callback: ((obj: NoOpObject, value: number, text: string) => void)): void
     /* Signals of Atk.Window */
-    connect(sigName: "activate", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "create", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "deactivate", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "destroy", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "maximize", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "minimize", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "move", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "resize", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "restore", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "notify::accessible-component-layer", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-name", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-parent", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-role", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-summary", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-value", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "activate", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "create", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "deactivate", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "destroy", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "maximize", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "minimize", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "move", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "resize", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "restore", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: NoOpObject_ConstructProps)
     static new(obj: GObject.Object): NoOpObject
@@ -1291,7 +1291,7 @@ export interface NoOpObjectFactory_ConstructProps extends ObjectFactory_Construc
 }
 export class NoOpObjectFactory {
     /* Fields of Atk.NoOpObjectFactory */
-    parent: any
+    parent:ObjectFactory
     /* Fields of Atk.ObjectFactory */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -1334,8 +1334,8 @@ export class NoOpObjectFactory {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: NoOpObjectFactory_ConstructProps)
     static new(): NoOpObjectFactory
@@ -1372,7 +1372,7 @@ export class Object {
     accessible_table_summary:Object
     accessible_value:number
     /* Fields of Atk.Object */
-    parent: any
+    parent:GObject.Object
     description:string
     name:string
     role:Role
@@ -1462,30 +1462,30 @@ export class Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: Object, arg1?: object | null) => void))
-    connect(sigName: "children-changed", callback: ((obj: Object, arg1: number, arg2?: object | null) => void))
-    connect(sigName: "focus-event", callback: ((obj: Object, arg1: boolean) => void))
-    connect(sigName: "property-change", callback: ((obj: Object, arg1?: object | null) => void))
-    connect(sigName: "state-change", callback: ((obj: Object, arg1: string, arg2: boolean) => void))
-    connect(sigName: "visible-data-changed", callback: ((obj: Object) => void))
+    connect(sigName: "active-descendant-changed", callback: ((obj: Object, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: Object, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: Object, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: Object, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: Object, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: Object) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-name", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-parent", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-role", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-value", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Object_ConstructProps)
 }
@@ -1493,7 +1493,7 @@ export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructPr
 }
 export class ObjectFactory {
     /* Fields of Atk.ObjectFactory */
-    parent: any
+    parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Atk.ObjectFactory */
@@ -1535,8 +1535,8 @@ export class ObjectFactory {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: ObjectFactory, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: ObjectFactory_ConstructProps)
 }
@@ -1560,7 +1560,7 @@ export class Plug {
     accessible_table_summary:Object
     accessible_value:number
     /* Fields of Atk.Plug */
-    parent: any
+    parent:Object
     /* Fields of Atk.Object */
     description:string
     name:string
@@ -1667,32 +1667,32 @@ export class Plug {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: Plug, arg1?: object | null) => void))
-    connect(sigName: "children-changed", callback: ((obj: Plug, arg1: number, arg2?: object | null) => void))
-    connect(sigName: "focus-event", callback: ((obj: Plug, arg1: boolean) => void))
-    connect(sigName: "property-change", callback: ((obj: Plug, arg1?: object | null) => void))
-    connect(sigName: "state-change", callback: ((obj: Plug, arg1: string, arg2: boolean) => void))
-    connect(sigName: "visible-data-changed", callback: ((obj: Plug) => void))
+    connect(sigName: "active-descendant-changed", callback: ((obj: Plug, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: Plug, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: Plug, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: Plug, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: Plug, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: Plug) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
     /* Signals of Atk.Component */
-    connect(sigName: "bounds-changed", callback: ((obj: Plug, arg1: Rectangle) => void))
-    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-name", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-parent", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-role", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-value", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "bounds-changed", callback: ((obj: Plug, arg1: Rectangle) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Plug_ConstructProps)
     static new(): Plug
@@ -1701,7 +1701,7 @@ export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Registry {
     /* Fields of Atk.Registry */
-    parent: any
+    parent:GObject.Object
     factory_type_registry:GLib.HashTable
     factory_singleton_cache:GLib.HashTable
     /* Fields of GObject.Object */
@@ -1743,8 +1743,8 @@ export class Registry {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Registry, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Registry, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Registry_ConstructProps)
 }
@@ -1757,7 +1757,7 @@ export class Relation {
     relation_type:RelationType
     target:GObject.ValueArray
     /* Fields of Atk.Relation */
-    parent: any
+    parent:GObject.Object
     relationship:RelationType
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -1799,10 +1799,10 @@ export class Relation {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::relation-type", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::target", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::relation-type", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::target", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Relation_ConstructProps)
     static new(targets: Object[], relationship: RelationType): Relation
@@ -1811,7 +1811,7 @@ export interface RelationSet_ConstructProps extends GObject.Object_ConstructProp
 }
 export class RelationSet {
     /* Fields of Atk.RelationSet */
-    parent: any
+    parent:GObject.Object
     relations:object[]
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -1857,8 +1857,8 @@ export class RelationSet {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: RelationSet, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: RelationSet, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: RelationSet_ConstructProps)
     static new(): RelationSet
@@ -1883,7 +1883,7 @@ export class Socket {
     accessible_table_summary:Object
     accessible_value:number
     /* Fields of Atk.Socket */
-    parent: any
+    parent:Object
     /* Fields of Atk.Object */
     description:string
     name:string
@@ -1991,32 +1991,32 @@ export class Socket {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: Socket, arg1?: object | null) => void))
-    connect(sigName: "children-changed", callback: ((obj: Socket, arg1: number, arg2?: object | null) => void))
-    connect(sigName: "focus-event", callback: ((obj: Socket, arg1: boolean) => void))
-    connect(sigName: "property-change", callback: ((obj: Socket, arg1?: object | null) => void))
-    connect(sigName: "state-change", callback: ((obj: Socket, arg1: string, arg2: boolean) => void))
-    connect(sigName: "visible-data-changed", callback: ((obj: Socket) => void))
+    connect(sigName: "active-descendant-changed", callback: ((obj: Socket, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: Socket, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: Socket, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: Socket, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: Socket, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: Socket) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
     /* Signals of Atk.Component */
-    connect(sigName: "bounds-changed", callback: ((obj: Socket, arg1: Rectangle) => void))
-    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-name", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-parent", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-role", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-value", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "bounds-changed", callback: ((obj: Socket, arg1: Rectangle) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Socket_ConstructProps)
     static new(): Socket
@@ -2025,7 +2025,7 @@ export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class StateSet {
     /* Fields of Atk.StateSet */
-    parent: any
+    parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Atk.StateSet */
@@ -2072,8 +2072,8 @@ export class StateSet {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: StateSet, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: StateSet, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: StateSet_ConstructProps)
     static new(): StateSet
@@ -2082,7 +2082,7 @@ export interface Util_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Util {
     /* Fields of Atk.Util */
-    parent: any
+    parent:GObject.Object
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of GObject.Object */
@@ -2118,8 +2118,8 @@ export class Util {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Util, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Util, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Util_ConstructProps)
 }

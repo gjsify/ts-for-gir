@@ -413,8 +413,8 @@ export class Context {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Context_ConstructProps)
     static new(): Context
@@ -458,8 +458,8 @@ export class Engine {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Engine, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Engine, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Engine_ConstructProps)
 }
@@ -505,8 +505,8 @@ export class EngineLang {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: EngineLang, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: EngineLang, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: EngineLang_ConstructProps)
 }
@@ -554,8 +554,8 @@ export class EngineShape {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: EngineShape, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: EngineShape, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: EngineShape_ConstructProps)
 }
@@ -613,8 +613,8 @@ export class Font {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Font, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Font, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Font_ConstructProps)
     static descriptions_free(descs: FontDescription[] | null): void
@@ -669,8 +669,8 @@ export class FontFace {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: FontFace, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: FontFace, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: FontFace_ConstructProps)
 }
@@ -722,8 +722,8 @@ export class FontFamily {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: FontFamily, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: FontFamily, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: FontFamily_ConstructProps)
 }
@@ -781,8 +781,8 @@ export class FontMap {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: FontMap, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: FontMap, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: FontMap_ConstructProps)
 }
@@ -835,8 +835,8 @@ export class Fontset {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Fontset, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Fontset, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Fontset_ConstructProps)
 }
@@ -892,8 +892,8 @@ export class FontsetSimple {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: FontsetSimple, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: FontsetSimple, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: FontsetSimple_ConstructProps)
     static new(language: Language): FontsetSimple
@@ -993,8 +993,8 @@ export class Layout {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Layout, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Layout, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Layout_ConstructProps)
     static new(context: Context): Layout
@@ -1071,8 +1071,8 @@ export class Renderer {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Renderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Renderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Renderer_ConstructProps)
 }

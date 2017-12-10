@@ -102,16 +102,16 @@ export class Notification {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Notify.Notification */
-    connect(sigName: "closed", callback: ((obj: Notification) => void))
+    connect(sigName: "closed", callback: ((obj: Notification) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::app-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::body", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::closed-reason", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::id", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::summary", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::app-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::body", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::closed-reason", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::id", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::summary", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Notification_ConstructProps)
     static new(summary: string, body?: string | null, icon?: string | null): Notification

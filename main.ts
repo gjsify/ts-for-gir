@@ -723,7 +723,7 @@ export class GirModule {
         let [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
         let paramComma = params.length > 0 ? ', ' : ''
 
-        return [`    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType}))`]
+        return [`    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): void`]
     }
 
     exportFunction(e: GirFunction) {
@@ -957,9 +957,9 @@ export class GirModule {
             let prefix = "GObject."
             if (this.name == "GObject") prefix = ""
             for (let p of propertyNames) {
-                def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void))`)
+                def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void)): void`)
             }
-            def.push(`    connect(sigName: string, callback: any)`)
+            def.push(`    connect(sigName: string, callback: any): void`)
         }
 
         // TODO: Records have fields

@@ -149,7 +149,7 @@ export class CompletionProposal {
     vfunc_get_text?(): string
     vfunc_hash?(): number
     /* Signals of GtkSource.CompletionProposal */
-    connect(sigName: "changed", callback: ((obj: CompletionProposal) => void))
+    connect(sigName: "changed", callback: ((obj: CompletionProposal) => void)): void
     static name: string
 }
 export class CompletionProvider {
@@ -214,8 +214,8 @@ export class UndoManager {
     vfunc_redo?(): void
     vfunc_undo?(): void
     /* Signals of GtkSource.UndoManager */
-    connect(sigName: "can-redo-changed", callback: ((obj: UndoManager) => void))
-    connect(sigName: "can-undo-changed", callback: ((obj: UndoManager) => void))
+    connect(sigName: "can-redo-changed", callback: ((obj: UndoManager) => void)): void
+    connect(sigName: "can-undo-changed", callback: ((obj: UndoManager) => void)): void
     static name: string
 }
 export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
@@ -405,42 +405,42 @@ export class Buffer {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.Buffer */
-    connect(sigName: "bracket-matched", callback: ((obj: Buffer, iter: Gtk.TextIter, state: BracketMatchType) => void))
-    connect(sigName: "highlight-updated", callback: ((obj: Buffer, start: Gtk.TextIter, end: Gtk.TextIter) => void))
-    connect(sigName: "redo", callback: ((obj: Buffer) => void))
-    connect(sigName: "source-mark-updated", callback: ((obj: Buffer, mark: Gtk.TextMark) => void))
-    connect(sigName: "undo", callback: ((obj: Buffer) => void))
+    connect(sigName: "bracket-matched", callback: ((obj: Buffer, iter: Gtk.TextIter, state: BracketMatchType) => void)): void
+    connect(sigName: "highlight-updated", callback: ((obj: Buffer, start: Gtk.TextIter, end: Gtk.TextIter) => void)): void
+    connect(sigName: "redo", callback: ((obj: Buffer) => void)): void
+    connect(sigName: "source-mark-updated", callback: ((obj: Buffer, mark: Gtk.TextMark) => void)): void
+    connect(sigName: "undo", callback: ((obj: Buffer) => void)): void
     /* Signals of Gtk.TextBuffer */
-    connect(sigName: "apply-tag", callback: ((obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void))
-    connect(sigName: "begin-user-action", callback: ((obj: Buffer) => void))
-    connect(sigName: "changed", callback: ((obj: Buffer) => void))
-    connect(sigName: "delete-range", callback: ((obj: Buffer, start: Gtk.TextIter, end: Gtk.TextIter) => void))
-    connect(sigName: "end-user-action", callback: ((obj: Buffer) => void))
-    connect(sigName: "insert-child-anchor", callback: ((obj: Buffer, location: Gtk.TextIter, anchor: Gtk.TextChildAnchor) => void))
-    connect(sigName: "insert-pixbuf", callback: ((obj: Buffer, location: Gtk.TextIter, pixbuf: GdkPixbuf.Pixbuf) => void))
-    connect(sigName: "insert-text", callback: ((obj: Buffer, location: Gtk.TextIter, text: string, len: number) => void))
-    connect(sigName: "mark-deleted", callback: ((obj: Buffer, mark: Gtk.TextMark) => void))
-    connect(sigName: "mark-set", callback: ((obj: Buffer, location: Gtk.TextIter, mark: Gtk.TextMark) => void))
-    connect(sigName: "modified-changed", callback: ((obj: Buffer) => void))
-    connect(sigName: "paste-done", callback: ((obj: Buffer, clipboard: Gtk.Clipboard) => void))
-    connect(sigName: "remove-tag", callback: ((obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void))
+    connect(sigName: "apply-tag", callback: ((obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): void
+    connect(sigName: "begin-user-action", callback: ((obj: Buffer) => void)): void
+    connect(sigName: "changed", callback: ((obj: Buffer) => void)): void
+    connect(sigName: "delete-range", callback: ((obj: Buffer, start: Gtk.TextIter, end: Gtk.TextIter) => void)): void
+    connect(sigName: "end-user-action", callback: ((obj: Buffer) => void)): void
+    connect(sigName: "insert-child-anchor", callback: ((obj: Buffer, location: Gtk.TextIter, anchor: Gtk.TextChildAnchor) => void)): void
+    connect(sigName: "insert-pixbuf", callback: ((obj: Buffer, location: Gtk.TextIter, pixbuf: GdkPixbuf.Pixbuf) => void)): void
+    connect(sigName: "insert-text", callback: ((obj: Buffer, location: Gtk.TextIter, text: string, len: number) => void)): void
+    connect(sigName: "mark-deleted", callback: ((obj: Buffer, mark: Gtk.TextMark) => void)): void
+    connect(sigName: "mark-set", callback: ((obj: Buffer, location: Gtk.TextIter, mark: Gtk.TextMark) => void)): void
+    connect(sigName: "modified-changed", callback: ((obj: Buffer) => void)): void
+    connect(sigName: "paste-done", callback: ((obj: Buffer, clipboard: Gtk.Clipboard) => void)): void
+    connect(sigName: "remove-tag", callback: ((obj: Buffer, tag: Gtk.TextTag, start: Gtk.TextIter, end: Gtk.TextIter) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-redo", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-undo", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::highlight-matching-brackets", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::highlight-syntax", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::implicit-trailing-newline", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::language", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::max-undo-levels", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style-scheme", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::undo-manager", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::copy-target-list", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::cursor-position", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-selection", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::paste-target-list", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::text", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-redo", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-undo", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::highlight-matching-brackets", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::highlight-syntax", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::implicit-trailing-newline", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::language", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::max-undo-levels", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style-scheme", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::undo-manager", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::copy-target-list", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::cursor-position", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-selection", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::paste-target-list", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::text", callback: ((obj: Buffer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Buffer_ConstructProps)
     static new(table?: Gtk.TextTagTable | null): Buffer
@@ -536,23 +536,23 @@ export class Completion {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.Completion */
-    connect(sigName: "activate-proposal", callback: ((obj: Completion) => void))
-    connect(sigName: "hide", callback: ((obj: Completion) => void))
-    connect(sigName: "move-cursor", callback: ((obj: Completion, step: Gtk.ScrollStep, num: number) => void))
-    connect(sigName: "move-page", callback: ((obj: Completion, step: Gtk.ScrollStep, num: number) => void))
-    connect(sigName: "populate-context", callback: ((obj: Completion, context: CompletionContext) => void))
-    connect(sigName: "show", callback: ((obj: Completion) => void))
+    connect(sigName: "activate-proposal", callback: ((obj: Completion) => void)): void
+    connect(sigName: "hide", callback: ((obj: Completion) => void)): void
+    connect(sigName: "move-cursor", callback: ((obj: Completion, step: Gtk.ScrollStep, num: number) => void)): void
+    connect(sigName: "move-page", callback: ((obj: Completion, step: Gtk.ScrollStep, num: number) => void)): void
+    connect(sigName: "populate-context", callback: ((obj: Completion, context: CompletionContext) => void)): void
+    connect(sigName: "show", callback: ((obj: Completion) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accelerators", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::auto-complete-delay", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proposal-page-size", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::provider-page-size", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::remember-info-visibility", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::select-on-show", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::show-headers", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::show-icons", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accelerators", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::auto-complete-delay", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::proposal-page-size", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::provider-page-size", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::remember-info-visibility", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::select-on-show", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::show-headers", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::show-icons", callback: ((obj: Completion, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Completion_ConstructProps)
 }
@@ -566,7 +566,7 @@ export class CompletionContext {
     activation:CompletionActivation
     iter:Gtk.TextIter
     /* Fields of GtkSource.CompletionContext */
-    parent: any
+    parent:GObject.InitiallyUnowned
     priv:CompletionContextPrivate
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
@@ -610,12 +610,12 @@ export class CompletionContext {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.CompletionContext */
-    connect(sigName: "cancelled", callback: ((obj: CompletionContext) => void))
+    connect(sigName: "cancelled", callback: ((obj: CompletionContext) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::activation", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::iter", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::activation", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::iter", callback: ((obj: CompletionContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: CompletionContext_ConstructProps)
 }
@@ -1252,165 +1252,165 @@ export class CompletionInfo {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.CompletionInfo */
-    connect(sigName: "before-show", callback: ((obj: CompletionInfo) => void))
+    connect(sigName: "before-show", callback: ((obj: CompletionInfo) => void)): void
     /* Signals of Gtk.Window */
-    connect(sigName: "activate-default", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "activate-focus", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "enable-debugging", callback: ((obj: CompletionInfo, toggle: boolean) => boolean))
-    connect(sigName: "keys-changed", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "set-focus", callback: ((obj: CompletionInfo, object: Gtk.Widget) => void))
+    connect(sigName: "activate-default", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "activate-focus", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "enable-debugging", callback: ((obj: CompletionInfo, toggle: boolean) => boolean)): void
+    connect(sigName: "keys-changed", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "set-focus", callback: ((obj: CompletionInfo, object: Gtk.Widget) => void)): void
     /* Signals of Gtk.Container */
-    connect(sigName: "add", callback: ((obj: CompletionInfo, object: Gtk.Widget) => void))
-    connect(sigName: "check-resize", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "remove", callback: ((obj: CompletionInfo, object: Gtk.Widget) => void))
-    connect(sigName: "set-focus-child", callback: ((obj: CompletionInfo, object: Gtk.Widget) => void))
+    connect(sigName: "add", callback: ((obj: CompletionInfo, object: Gtk.Widget) => void)): void
+    connect(sigName: "check-resize", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "remove", callback: ((obj: CompletionInfo, object: Gtk.Widget) => void)): void
+    connect(sigName: "set-focus-child", callback: ((obj: CompletionInfo, object: Gtk.Widget) => void)): void
     /* Signals of Gtk.Widget */
-    connect(sigName: "accel-closures-changed", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "button-press-event", callback: ((obj: CompletionInfo, event: Gdk.EventButton) => boolean))
-    connect(sigName: "button-release-event", callback: ((obj: CompletionInfo, event: Gdk.EventButton) => boolean))
-    connect(sigName: "can-activate-accel", callback: ((obj: CompletionInfo, signal_id: number) => boolean))
-    connect(sigName: "child-notify", callback: ((obj: CompletionInfo, child_property: GObject.ParamSpec) => void))
-    connect(sigName: "composited-changed", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "configure-event", callback: ((obj: CompletionInfo, event: Gdk.EventConfigure) => boolean))
-    connect(sigName: "damage-event", callback: ((obj: CompletionInfo, event: Gdk.EventExpose) => boolean))
-    connect(sigName: "delete-event", callback: ((obj: CompletionInfo, event: Gdk.Event) => boolean))
-    connect(sigName: "destroy", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "destroy-event", callback: ((obj: CompletionInfo, event: Gdk.Event) => boolean))
-    connect(sigName: "direction-changed", callback: ((obj: CompletionInfo, previous_direction: Gtk.TextDirection) => void))
-    connect(sigName: "drag-begin", callback: ((obj: CompletionInfo, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-delete", callback: ((obj: CompletionInfo, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-get", callback: ((obj: CompletionInfo, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-data-received", callback: ((obj: CompletionInfo, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-drop", callback: ((obj: CompletionInfo, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "drag-end", callback: ((obj: CompletionInfo, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-failed", callback: ((obj: CompletionInfo, context: Gdk.DragContext, result: Gtk.DragResult) => boolean))
-    connect(sigName: "drag-leave", callback: ((obj: CompletionInfo, context: Gdk.DragContext, time: number) => void))
-    connect(sigName: "drag-motion", callback: ((obj: CompletionInfo, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "draw", callback: ((obj: CompletionInfo, cr: cairo.Context) => boolean))
-    connect(sigName: "enter-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "event", callback: ((obj: CompletionInfo, event: Gdk.Event) => boolean))
-    connect(sigName: "event-after", callback: ((obj: CompletionInfo, event: Gdk.Event) => void))
-    connect(sigName: "focus", callback: ((obj: CompletionInfo, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "focus-in-event", callback: ((obj: CompletionInfo, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "focus-out-event", callback: ((obj: CompletionInfo, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "grab-broken-event", callback: ((obj: CompletionInfo, event: Gdk.EventGrabBroken) => boolean))
-    connect(sigName: "grab-focus", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "grab-notify", callback: ((obj: CompletionInfo, was_grabbed: boolean) => void))
-    connect(sigName: "hide", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: CompletionInfo, previous_toplevel?: Gtk.Widget | null) => void))
-    connect(sigName: "key-press-event", callback: ((obj: CompletionInfo, event: Gdk.EventKey) => boolean))
-    connect(sigName: "key-release-event", callback: ((obj: CompletionInfo, event: Gdk.EventKey) => boolean))
-    connect(sigName: "keynav-failed", callback: ((obj: CompletionInfo, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "leave-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "map", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "map-event", callback: ((obj: CompletionInfo, event: Gdk.EventAny) => boolean))
-    connect(sigName: "mnemonic-activate", callback: ((obj: CompletionInfo, group_cycling: boolean) => boolean))
-    connect(sigName: "motion-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventMotion) => boolean))
-    connect(sigName: "move-focus", callback: ((obj: CompletionInfo, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: CompletionInfo, old_parent?: Gtk.Widget | null) => void))
-    connect(sigName: "popup-menu", callback: ((obj: CompletionInfo) => boolean))
-    connect(sigName: "property-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventProperty) => boolean))
-    connect(sigName: "proximity-in-event", callback: ((obj: CompletionInfo, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "proximity-out-event", callback: ((obj: CompletionInfo, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "query-tooltip", callback: ((obj: CompletionInfo, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
-    connect(sigName: "realize", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "screen-changed", callback: ((obj: CompletionInfo, previous_screen?: Gdk.Screen | null) => void))
-    connect(sigName: "scroll-event", callback: ((obj: CompletionInfo, event: Gdk.EventScroll) => boolean))
-    connect(sigName: "selection-clear-event", callback: ((obj: CompletionInfo, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-get", callback: ((obj: CompletionInfo, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "selection-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-received", callback: ((obj: CompletionInfo, data: Gtk.SelectionData, time: number) => void))
-    connect(sigName: "selection-request-event", callback: ((obj: CompletionInfo, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "show", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "show-help", callback: ((obj: CompletionInfo, help_type: Gtk.WidgetHelpType) => boolean))
-    connect(sigName: "size-allocate", callback: ((obj: CompletionInfo, allocation: Gtk.Allocation) => void))
-    connect(sigName: "state-changed", callback: ((obj: CompletionInfo, state: Gtk.StateType) => void))
-    connect(sigName: "state-flags-changed", callback: ((obj: CompletionInfo, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: CompletionInfo, previous_style?: Gtk.Style | null) => void))
-    connect(sigName: "style-updated", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "touch-event", callback: ((obj: CompletionInfo, object: Gdk.Event) => boolean))
-    connect(sigName: "unmap", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "unmap-event", callback: ((obj: CompletionInfo, event: Gdk.EventAny) => boolean))
-    connect(sigName: "unrealize", callback: ((obj: CompletionInfo) => void))
-    connect(sigName: "visibility-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventVisibility) => boolean))
-    connect(sigName: "window-state-event", callback: ((obj: CompletionInfo, event: Gdk.EventWindowState) => boolean))
+    connect(sigName: "accel-closures-changed", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "button-press-event", callback: ((obj: CompletionInfo, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "button-release-event", callback: ((obj: CompletionInfo, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "can-activate-accel", callback: ((obj: CompletionInfo, signal_id: number) => boolean)): void
+    connect(sigName: "child-notify", callback: ((obj: CompletionInfo, child_property: GObject.ParamSpec) => void)): void
+    connect(sigName: "composited-changed", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "configure-event", callback: ((obj: CompletionInfo, event: Gdk.EventConfigure) => boolean)): void
+    connect(sigName: "damage-event", callback: ((obj: CompletionInfo, event: Gdk.EventExpose) => boolean)): void
+    connect(sigName: "delete-event", callback: ((obj: CompletionInfo, event: Gdk.Event) => boolean)): void
+    connect(sigName: "destroy", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "destroy-event", callback: ((obj: CompletionInfo, event: Gdk.Event) => boolean)): void
+    connect(sigName: "direction-changed", callback: ((obj: CompletionInfo, previous_direction: Gtk.TextDirection) => void)): void
+    connect(sigName: "drag-begin", callback: ((obj: CompletionInfo, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-delete", callback: ((obj: CompletionInfo, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-get", callback: ((obj: CompletionInfo, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-data-received", callback: ((obj: CompletionInfo, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-drop", callback: ((obj: CompletionInfo, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "drag-end", callback: ((obj: CompletionInfo, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-failed", callback: ((obj: CompletionInfo, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): void
+    connect(sigName: "drag-leave", callback: ((obj: CompletionInfo, context: Gdk.DragContext, time: number) => void)): void
+    connect(sigName: "drag-motion", callback: ((obj: CompletionInfo, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "draw", callback: ((obj: CompletionInfo, cr: cairo.Context) => boolean)): void
+    connect(sigName: "enter-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "event", callback: ((obj: CompletionInfo, event: Gdk.Event) => boolean)): void
+    connect(sigName: "event-after", callback: ((obj: CompletionInfo, event: Gdk.Event) => void)): void
+    connect(sigName: "focus", callback: ((obj: CompletionInfo, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "focus-in-event", callback: ((obj: CompletionInfo, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "focus-out-event", callback: ((obj: CompletionInfo, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "grab-broken-event", callback: ((obj: CompletionInfo, event: Gdk.EventGrabBroken) => boolean)): void
+    connect(sigName: "grab-focus", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "grab-notify", callback: ((obj: CompletionInfo, was_grabbed: boolean) => void)): void
+    connect(sigName: "hide", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "hierarchy-changed", callback: ((obj: CompletionInfo, previous_toplevel?: Gtk.Widget | null) => void)): void
+    connect(sigName: "key-press-event", callback: ((obj: CompletionInfo, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "key-release-event", callback: ((obj: CompletionInfo, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "keynav-failed", callback: ((obj: CompletionInfo, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "leave-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "map", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "map-event", callback: ((obj: CompletionInfo, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "mnemonic-activate", callback: ((obj: CompletionInfo, group_cycling: boolean) => boolean)): void
+    connect(sigName: "motion-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventMotion) => boolean)): void
+    connect(sigName: "move-focus", callback: ((obj: CompletionInfo, direction: Gtk.DirectionType) => void)): void
+    connect(sigName: "parent-set", callback: ((obj: CompletionInfo, old_parent?: Gtk.Widget | null) => void)): void
+    connect(sigName: "popup-menu", callback: ((obj: CompletionInfo) => boolean)): void
+    connect(sigName: "property-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventProperty) => boolean)): void
+    connect(sigName: "proximity-in-event", callback: ((obj: CompletionInfo, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "proximity-out-event", callback: ((obj: CompletionInfo, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "query-tooltip", callback: ((obj: CompletionInfo, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): void
+    connect(sigName: "realize", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "screen-changed", callback: ((obj: CompletionInfo, previous_screen?: Gdk.Screen | null) => void)): void
+    connect(sigName: "scroll-event", callback: ((obj: CompletionInfo, event: Gdk.EventScroll) => boolean)): void
+    connect(sigName: "selection-clear-event", callback: ((obj: CompletionInfo, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-get", callback: ((obj: CompletionInfo, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "selection-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-received", callback: ((obj: CompletionInfo, data: Gtk.SelectionData, time: number) => void)): void
+    connect(sigName: "selection-request-event", callback: ((obj: CompletionInfo, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "show", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "show-help", callback: ((obj: CompletionInfo, help_type: Gtk.WidgetHelpType) => boolean)): void
+    connect(sigName: "size-allocate", callback: ((obj: CompletionInfo, allocation: Gtk.Allocation) => void)): void
+    connect(sigName: "state-changed", callback: ((obj: CompletionInfo, state: Gtk.StateType) => void)): void
+    connect(sigName: "state-flags-changed", callback: ((obj: CompletionInfo, flags: Gtk.StateFlags) => void)): void
+    connect(sigName: "style-set", callback: ((obj: CompletionInfo, previous_style?: Gtk.Style | null) => void)): void
+    connect(sigName: "style-updated", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "touch-event", callback: ((obj: CompletionInfo, object: Gdk.Event) => boolean)): void
+    connect(sigName: "unmap", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "unmap-event", callback: ((obj: CompletionInfo, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "unrealize", callback: ((obj: CompletionInfo) => void)): void
+    connect(sigName: "visibility-notify-event", callback: ((obj: CompletionInfo, event: Gdk.EventVisibility) => boolean)): void
+    connect(sigName: "window-state-event", callback: ((obj: CompletionInfo, event: Gdk.EventWindowState) => boolean)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accept-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::application", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::attached-to", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::decorated", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::default-height", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::default-width", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::deletable", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::destroy-with-parent", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::focus-on-map", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::focus-visible", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::gravity", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-resize-grip", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-toplevel-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hide-titlebar-when-maximized", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-name", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-active", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-maximized", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::mnemonics-visible", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::modal", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resizable", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resize-grip-visible", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::role", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::screen", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::skip-pager-hint", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::skip-taskbar-hint", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::startup-id", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::title", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::transient-for", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::type-hint", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::urgency-hint", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::window-position", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::border-width", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::child", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resize-mode", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::app-paintable", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-default", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::composite-child", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::double-buffered", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::events", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::expand", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::focus-on-click", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::halign", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-default", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-tooltip", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::height-request", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand-set", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-bottom", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-end", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-left", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-right", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-start", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-top", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::name", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::no-show-all", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::opacity", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::parent", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::receives-default", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scale-factor", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::sensitive", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-markup", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-text", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::valign", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand-set", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::visible", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::width-request", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::window", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accept-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::application", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::attached-to", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::decorated", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::default-height", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::default-width", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::deletable", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::destroy-with-parent", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::focus-on-map", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::focus-visible", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::gravity", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-resize-grip", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-toplevel-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hide-titlebar-when-maximized", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-name", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::is-active", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::is-maximized", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::mnemonics-visible", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::modal", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::resizable", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::resize-grip-visible", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::role", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::screen", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::skip-pager-hint", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::skip-taskbar-hint", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::startup-id", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::title", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::transient-for", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::type-hint", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::urgency-hint", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::window-position", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::border-width", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::child", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::resize-mode", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::app-paintable", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-default", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::composite-child", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::double-buffered", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::events", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::expand", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::focus-on-click", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::halign", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-default", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-tooltip", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::height-request", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand-set", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::is-focus", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-bottom", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-end", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-left", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-right", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-start", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-top", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::name", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::no-show-all", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::opacity", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::parent", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::receives-default", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scale-factor", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::sensitive", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-markup", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-text", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::valign", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand-set", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::visible", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::width-request", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::window", callback: ((obj: CompletionInfo, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: CompletionInfo_ConstructProps)
     static new(): CompletionInfo
@@ -1434,7 +1434,7 @@ export class CompletionItem {
     markup:string
     text:string
     /* Fields of GtkSource.CompletionItem */
-    parent: any
+    parent:GObject.Object
     priv:CompletionItemPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -1490,17 +1490,17 @@ export class CompletionItem {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
+    connect(sigName: "notify", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void)): void
     /* Signals of GtkSource.CompletionProposal */
-    connect(sigName: "changed", callback: ((obj: CompletionItem) => void))
-    connect(sigName: "notify::gicon", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-name", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::info", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::label", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::markup", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::text", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "changed", callback: ((obj: CompletionItem) => void)): void
+    connect(sigName: "notify::gicon", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-name", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::info", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::label", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::markup", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::text", callback: ((obj: CompletionItem, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: CompletionItem_ConstructProps)
     static new(label: string, text: string, icon?: GdkPixbuf.Pixbuf | null, info?: string | null): CompletionItem
@@ -1529,7 +1529,7 @@ export class CompletionWords {
     proposals_batch_size:number
     scan_batch_size:number
     /* Fields of GtkSource.CompletionWords */
-    parent: any
+    parent:GObject.Object
     priv:CompletionWordsPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -1583,16 +1583,16 @@ export class CompletionWords {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::activation", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::interactive-delay", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::minimum-word-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::name", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::priority", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::proposals-batch-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scan-batch-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::activation", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::interactive-delay", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::minimum-word-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::name", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::priority", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::proposals-batch-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scan-batch-size", callback: ((obj: CompletionWords, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: CompletionWords_ConstructProps)
     static new(name?: string | null, icon?: GdkPixbuf.Pixbuf | null): CompletionWords
@@ -1608,7 +1608,7 @@ export class File {
     readonly newline_type:NewlineType
     readonly read_only:boolean
     /* Fields of GtkSource.File */
-    parent: any
+    parent:GObject.Object
     priv:FilePrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -1656,13 +1656,13 @@ export class File {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::compression-type", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::encoding", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::location", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::newline-type", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::read-only", callback: ((obj: File, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: File, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::compression-type", callback: ((obj: File, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::encoding", callback: ((obj: File, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::location", callback: ((obj: File, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::newline-type", callback: ((obj: File, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::read-only", callback: ((obj: File, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: File_ConstructProps)
     static new(): File
@@ -1676,7 +1676,7 @@ export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps
 export class FileLoader {
     /* Properties of GtkSource.FileLoader */
     /* Fields of GtkSource.FileLoader */
-    parent: any
+    parent:GObject.Object
     priv:FileLoaderPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -1724,8 +1724,8 @@ export class FileLoader {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: FileLoader, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: FileLoader, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: FileLoader_ConstructProps)
     static new(buffer: Buffer, file: File): FileLoader
@@ -1798,12 +1798,12 @@ export class FileSaver {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::compression-type", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::encoding", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::flags", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::newline-type", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::compression-type", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::encoding", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::flags", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::newline-type", callback: ((obj: FileSaver, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: FileSaver_ConstructProps)
     static new(buffer: Buffer, file: File): FileSaver
@@ -1820,7 +1820,7 @@ export class Gutter {
     xpad:number
     ypad:number
     /* Fields of GtkSource.Gutter */
-    parent: any
+    parent:GObject.Object
     priv:GutterPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -1868,10 +1868,10 @@ export class Gutter {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::xpad", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ypad", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::xpad", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::ypad", callback: ((obj: Gutter, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Gutter_ConstructProps)
 }
@@ -1900,7 +1900,7 @@ export class GutterRenderer {
     yalign:number
     ypad:number
     /* Fields of GtkSource.GutterRenderer */
-    parent: any
+    parent:GObject.InitiallyUnowned
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
     /* Fields of GObject.Object */
@@ -1971,25 +1971,25 @@ export class GutterRenderer {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.GutterRenderer */
-    connect(sigName: "activate", callback: ((obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void))
-    connect(sigName: "query-activatable", callback: ((obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean))
-    connect(sigName: "query-data", callback: ((obj: GutterRenderer, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState) => void))
-    connect(sigName: "query-tooltip", callback: ((obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip) => boolean))
-    connect(sigName: "queue-draw", callback: ((obj: GutterRenderer) => void))
+    connect(sigName: "activate", callback: ((obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): void
+    connect(sigName: "query-activatable", callback: ((obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean)): void
+    connect(sigName: "query-data", callback: ((obj: GutterRenderer, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState) => void)): void
+    connect(sigName: "query-tooltip", callback: ((obj: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip) => boolean)): void
+    connect(sigName: "queue-draw", callback: ((obj: GutterRenderer) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::alignment-mode", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-rgba", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-set", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::size", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::view", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::visible", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::window-type", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::xalign", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::xpad", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::yalign", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ypad", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::alignment-mode", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-rgba", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-set", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::size", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::view", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::visible", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::window-type", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::xalign", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::xpad", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::yalign", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::ypad", callback: ((obj: GutterRenderer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: GutterRenderer_ConstructProps)
 }
@@ -2019,7 +2019,7 @@ export class GutterRendererPixbuf {
     ypad:number
     /* Fields of GtkSource.GutterRendererPixbuf */
     /* Fields of GtkSource.GutterRenderer */
-    parent: any
+    parent:GObject.InitiallyUnowned
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
     /* Fields of GObject.Object */
@@ -2099,29 +2099,29 @@ export class GutterRendererPixbuf {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.GutterRenderer */
-    connect(sigName: "activate", callback: ((obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void))
-    connect(sigName: "query-activatable", callback: ((obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean))
-    connect(sigName: "query-data", callback: ((obj: GutterRendererPixbuf, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState) => void))
-    connect(sigName: "query-tooltip", callback: ((obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip) => boolean))
-    connect(sigName: "queue-draw", callback: ((obj: GutterRendererPixbuf) => void))
+    connect(sigName: "activate", callback: ((obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): void
+    connect(sigName: "query-activatable", callback: ((obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean)): void
+    connect(sigName: "query-data", callback: ((obj: GutterRendererPixbuf, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState) => void)): void
+    connect(sigName: "query-tooltip", callback: ((obj: GutterRendererPixbuf, iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip) => boolean)): void
+    connect(sigName: "queue-draw", callback: ((obj: GutterRendererPixbuf) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::gicon", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-name", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixbuf", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::stock-id", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::alignment-mode", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-rgba", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-set", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::size", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::view", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::visible", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::window-type", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::xalign", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::xpad", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::yalign", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ypad", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::gicon", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-name", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixbuf", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::stock-id", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::alignment-mode", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-rgba", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-set", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::size", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::view", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::visible", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::window-type", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::xalign", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::xpad", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::yalign", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::ypad", callback: ((obj: GutterRendererPixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: GutterRendererPixbuf_ConstructProps)
     static new(): GutterRendererPixbuf
@@ -2148,7 +2148,7 @@ export class GutterRendererText {
     ypad:number
     /* Fields of GtkSource.GutterRendererText */
     /* Fields of GtkSource.GutterRenderer */
-    parent: any
+    parent:GObject.InitiallyUnowned
     /* Fields of GObject.InitiallyUnowned */
     g_type_instance:GObject.TypeInstance
     /* Fields of GObject.Object */
@@ -2224,27 +2224,27 @@ export class GutterRendererText {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.GutterRenderer */
-    connect(sigName: "activate", callback: ((obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void))
-    connect(sigName: "query-activatable", callback: ((obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean))
-    connect(sigName: "query-data", callback: ((obj: GutterRendererText, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState) => void))
-    connect(sigName: "query-tooltip", callback: ((obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip) => boolean))
-    connect(sigName: "queue-draw", callback: ((obj: GutterRendererText) => void))
+    connect(sigName: "activate", callback: ((obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void)): void
+    connect(sigName: "query-activatable", callback: ((obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean)): void
+    connect(sigName: "query-data", callback: ((obj: GutterRendererText, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState) => void)): void
+    connect(sigName: "query-tooltip", callback: ((obj: GutterRendererText, iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip) => boolean)): void
+    connect(sigName: "queue-draw", callback: ((obj: GutterRendererText) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::markup", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::text", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::alignment-mode", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-rgba", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-set", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::size", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::view", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::visible", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::window-type", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::xalign", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::xpad", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::yalign", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ypad", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::markup", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::text", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::alignment-mode", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-rgba", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-set", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::size", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::view", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::visible", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::window-type", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::xalign", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::xpad", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::yalign", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::ypad", callback: ((obj: GutterRendererText, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: GutterRendererText_ConstructProps)
     static new(): GutterRendererText
@@ -2306,12 +2306,12 @@ export class Language {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hidden", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::id", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::name", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::section", callback: ((obj: Language, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Language, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hidden", callback: ((obj: Language, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::id", callback: ((obj: Language, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::name", callback: ((obj: Language, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::section", callback: ((obj: Language, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Language_ConstructProps)
 }
@@ -2366,10 +2366,10 @@ export class LanguageManager {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::language-ids", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::search-path", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::language-ids", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::search-path", callback: ((obj: LanguageManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: LanguageManager_ConstructProps)
     static new(): LanguageManager
@@ -3044,196 +3044,196 @@ export class Map {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.View */
-    connect(sigName: "change-case", callback: ((obj: Map, case_type: ChangeCaseType) => void))
-    connect(sigName: "change-number", callback: ((obj: Map, count: number) => void))
-    connect(sigName: "join-lines", callback: ((obj: Map) => void))
-    connect(sigName: "line-mark-activated", callback: ((obj: Map, iter: Gtk.TextIter, event: Gdk.Event) => void))
-    connect(sigName: "move-lines", callback: ((obj: Map, copy: boolean, count: number) => void))
-    connect(sigName: "move-to-matching-bracket", callback: ((obj: Map, extend_selection: boolean) => void))
-    connect(sigName: "move-words", callback: ((obj: Map, count: number) => void))
-    connect(sigName: "redo", callback: ((obj: Map) => void))
-    connect(sigName: "show-completion", callback: ((obj: Map) => void))
-    connect(sigName: "smart-home-end", callback: ((obj: Map, iter: Gtk.TextIter, count: number) => void))
-    connect(sigName: "undo", callback: ((obj: Map) => void))
+    connect(sigName: "change-case", callback: ((obj: Map, case_type: ChangeCaseType) => void)): void
+    connect(sigName: "change-number", callback: ((obj: Map, count: number) => void)): void
+    connect(sigName: "join-lines", callback: ((obj: Map) => void)): void
+    connect(sigName: "line-mark-activated", callback: ((obj: Map, iter: Gtk.TextIter, event: Gdk.Event) => void)): void
+    connect(sigName: "move-lines", callback: ((obj: Map, copy: boolean, count: number) => void)): void
+    connect(sigName: "move-to-matching-bracket", callback: ((obj: Map, extend_selection: boolean) => void)): void
+    connect(sigName: "move-words", callback: ((obj: Map, count: number) => void)): void
+    connect(sigName: "redo", callback: ((obj: Map) => void)): void
+    connect(sigName: "show-completion", callback: ((obj: Map) => void)): void
+    connect(sigName: "smart-home-end", callback: ((obj: Map, iter: Gtk.TextIter, count: number) => void)): void
+    connect(sigName: "undo", callback: ((obj: Map) => void)): void
     /* Signals of Gtk.TextView */
-    connect(sigName: "backspace", callback: ((obj: Map) => void))
-    connect(sigName: "copy-clipboard", callback: ((obj: Map) => void))
-    connect(sigName: "cut-clipboard", callback: ((obj: Map) => void))
-    connect(sigName: "delete-from-cursor", callback: ((obj: Map, type: Gtk.DeleteType, count: number) => void))
-    connect(sigName: "extend-selection", callback: ((obj: Map, granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => boolean))
-    connect(sigName: "insert-at-cursor", callback: ((obj: Map, string: string) => void))
-    connect(sigName: "move-cursor", callback: ((obj: Map, step: Gtk.MovementStep, count: number, extend_selection: boolean) => void))
-    connect(sigName: "move-viewport", callback: ((obj: Map, step: Gtk.ScrollStep, count: number) => void))
-    connect(sigName: "paste-clipboard", callback: ((obj: Map) => void))
-    connect(sigName: "populate-popup", callback: ((obj: Map, popup: Gtk.Widget) => void))
-    connect(sigName: "preedit-changed", callback: ((obj: Map, preedit: string) => void))
-    connect(sigName: "select-all", callback: ((obj: Map, select: boolean) => void))
-    connect(sigName: "set-anchor", callback: ((obj: Map) => void))
-    connect(sigName: "toggle-cursor-visible", callback: ((obj: Map) => void))
-    connect(sigName: "toggle-overwrite", callback: ((obj: Map) => void))
+    connect(sigName: "backspace", callback: ((obj: Map) => void)): void
+    connect(sigName: "copy-clipboard", callback: ((obj: Map) => void)): void
+    connect(sigName: "cut-clipboard", callback: ((obj: Map) => void)): void
+    connect(sigName: "delete-from-cursor", callback: ((obj: Map, type: Gtk.DeleteType, count: number) => void)): void
+    connect(sigName: "extend-selection", callback: ((obj: Map, granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => boolean)): void
+    connect(sigName: "insert-at-cursor", callback: ((obj: Map, string: string) => void)): void
+    connect(sigName: "move-cursor", callback: ((obj: Map, step: Gtk.MovementStep, count: number, extend_selection: boolean) => void)): void
+    connect(sigName: "move-viewport", callback: ((obj: Map, step: Gtk.ScrollStep, count: number) => void)): void
+    connect(sigName: "paste-clipboard", callback: ((obj: Map) => void)): void
+    connect(sigName: "populate-popup", callback: ((obj: Map, popup: Gtk.Widget) => void)): void
+    connect(sigName: "preedit-changed", callback: ((obj: Map, preedit: string) => void)): void
+    connect(sigName: "select-all", callback: ((obj: Map, select: boolean) => void)): void
+    connect(sigName: "set-anchor", callback: ((obj: Map) => void)): void
+    connect(sigName: "toggle-cursor-visible", callback: ((obj: Map) => void)): void
+    connect(sigName: "toggle-overwrite", callback: ((obj: Map) => void)): void
     /* Signals of Gtk.Container */
-    connect(sigName: "add", callback: ((obj: Map, object: Gtk.Widget) => void))
-    connect(sigName: "check-resize", callback: ((obj: Map) => void))
-    connect(sigName: "remove", callback: ((obj: Map, object: Gtk.Widget) => void))
-    connect(sigName: "set-focus-child", callback: ((obj: Map, object: Gtk.Widget) => void))
+    connect(sigName: "add", callback: ((obj: Map, object: Gtk.Widget) => void)): void
+    connect(sigName: "check-resize", callback: ((obj: Map) => void)): void
+    connect(sigName: "remove", callback: ((obj: Map, object: Gtk.Widget) => void)): void
+    connect(sigName: "set-focus-child", callback: ((obj: Map, object: Gtk.Widget) => void)): void
     /* Signals of Gtk.Widget */
-    connect(sigName: "accel-closures-changed", callback: ((obj: Map) => void))
-    connect(sigName: "button-press-event", callback: ((obj: Map, event: Gdk.EventButton) => boolean))
-    connect(sigName: "button-release-event", callback: ((obj: Map, event: Gdk.EventButton) => boolean))
-    connect(sigName: "can-activate-accel", callback: ((obj: Map, signal_id: number) => boolean))
-    connect(sigName: "child-notify", callback: ((obj: Map, child_property: GObject.ParamSpec) => void))
-    connect(sigName: "composited-changed", callback: ((obj: Map) => void))
-    connect(sigName: "configure-event", callback: ((obj: Map, event: Gdk.EventConfigure) => boolean))
-    connect(sigName: "damage-event", callback: ((obj: Map, event: Gdk.EventExpose) => boolean))
-    connect(sigName: "delete-event", callback: ((obj: Map, event: Gdk.Event) => boolean))
-    connect(sigName: "destroy", callback: ((obj: Map) => void))
-    connect(sigName: "destroy-event", callback: ((obj: Map, event: Gdk.Event) => boolean))
-    connect(sigName: "direction-changed", callback: ((obj: Map, previous_direction: Gtk.TextDirection) => void))
-    connect(sigName: "drag-begin", callback: ((obj: Map, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-delete", callback: ((obj: Map, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-get", callback: ((obj: Map, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-data-received", callback: ((obj: Map, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-drop", callback: ((obj: Map, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "drag-end", callback: ((obj: Map, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-failed", callback: ((obj: Map, context: Gdk.DragContext, result: Gtk.DragResult) => boolean))
-    connect(sigName: "drag-leave", callback: ((obj: Map, context: Gdk.DragContext, time: number) => void))
-    connect(sigName: "drag-motion", callback: ((obj: Map, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "draw", callback: ((obj: Map, cr: cairo.Context) => boolean))
-    connect(sigName: "enter-notify-event", callback: ((obj: Map, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "event", callback: ((obj: Map, event: Gdk.Event) => boolean))
-    connect(sigName: "event-after", callback: ((obj: Map, event: Gdk.Event) => void))
-    connect(sigName: "focus", callback: ((obj: Map, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "focus-in-event", callback: ((obj: Map, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "focus-out-event", callback: ((obj: Map, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "grab-broken-event", callback: ((obj: Map, event: Gdk.EventGrabBroken) => boolean))
-    connect(sigName: "grab-focus", callback: ((obj: Map) => void))
-    connect(sigName: "grab-notify", callback: ((obj: Map, was_grabbed: boolean) => void))
-    connect(sigName: "hide", callback: ((obj: Map) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: Map, previous_toplevel?: Gtk.Widget | null) => void))
-    connect(sigName: "key-press-event", callback: ((obj: Map, event: Gdk.EventKey) => boolean))
-    connect(sigName: "key-release-event", callback: ((obj: Map, event: Gdk.EventKey) => boolean))
-    connect(sigName: "keynav-failed", callback: ((obj: Map, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "leave-notify-event", callback: ((obj: Map, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "map", callback: ((obj: Map) => void))
-    connect(sigName: "map-event", callback: ((obj: Map, event: Gdk.EventAny) => boolean))
-    connect(sigName: "mnemonic-activate", callback: ((obj: Map, group_cycling: boolean) => boolean))
-    connect(sigName: "motion-notify-event", callback: ((obj: Map, event: Gdk.EventMotion) => boolean))
-    connect(sigName: "move-focus", callback: ((obj: Map, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: Map, old_parent?: Gtk.Widget | null) => void))
-    connect(sigName: "popup-menu", callback: ((obj: Map) => boolean))
-    connect(sigName: "property-notify-event", callback: ((obj: Map, event: Gdk.EventProperty) => boolean))
-    connect(sigName: "proximity-in-event", callback: ((obj: Map, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "proximity-out-event", callback: ((obj: Map, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "query-tooltip", callback: ((obj: Map, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
-    connect(sigName: "realize", callback: ((obj: Map) => void))
-    connect(sigName: "screen-changed", callback: ((obj: Map, previous_screen?: Gdk.Screen | null) => void))
-    connect(sigName: "scroll-event", callback: ((obj: Map, event: Gdk.EventScroll) => boolean))
-    connect(sigName: "selection-clear-event", callback: ((obj: Map, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-get", callback: ((obj: Map, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "selection-notify-event", callback: ((obj: Map, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-received", callback: ((obj: Map, data: Gtk.SelectionData, time: number) => void))
-    connect(sigName: "selection-request-event", callback: ((obj: Map, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "show", callback: ((obj: Map) => void))
-    connect(sigName: "show-help", callback: ((obj: Map, help_type: Gtk.WidgetHelpType) => boolean))
-    connect(sigName: "size-allocate", callback: ((obj: Map, allocation: Gtk.Allocation) => void))
-    connect(sigName: "state-changed", callback: ((obj: Map, state: Gtk.StateType) => void))
-    connect(sigName: "state-flags-changed", callback: ((obj: Map, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: Map, previous_style?: Gtk.Style | null) => void))
-    connect(sigName: "style-updated", callback: ((obj: Map) => void))
-    connect(sigName: "touch-event", callback: ((obj: Map, object: Gdk.Event) => boolean))
-    connect(sigName: "unmap", callback: ((obj: Map) => void))
-    connect(sigName: "unmap-event", callback: ((obj: Map, event: Gdk.EventAny) => boolean))
-    connect(sigName: "unrealize", callback: ((obj: Map) => void))
-    connect(sigName: "visibility-notify-event", callback: ((obj: Map, event: Gdk.EventVisibility) => boolean))
-    connect(sigName: "window-state-event", callback: ((obj: Map, event: Gdk.EventWindowState) => boolean))
+    connect(sigName: "accel-closures-changed", callback: ((obj: Map) => void)): void
+    connect(sigName: "button-press-event", callback: ((obj: Map, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "button-release-event", callback: ((obj: Map, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "can-activate-accel", callback: ((obj: Map, signal_id: number) => boolean)): void
+    connect(sigName: "child-notify", callback: ((obj: Map, child_property: GObject.ParamSpec) => void)): void
+    connect(sigName: "composited-changed", callback: ((obj: Map) => void)): void
+    connect(sigName: "configure-event", callback: ((obj: Map, event: Gdk.EventConfigure) => boolean)): void
+    connect(sigName: "damage-event", callback: ((obj: Map, event: Gdk.EventExpose) => boolean)): void
+    connect(sigName: "delete-event", callback: ((obj: Map, event: Gdk.Event) => boolean)): void
+    connect(sigName: "destroy", callback: ((obj: Map) => void)): void
+    connect(sigName: "destroy-event", callback: ((obj: Map, event: Gdk.Event) => boolean)): void
+    connect(sigName: "direction-changed", callback: ((obj: Map, previous_direction: Gtk.TextDirection) => void)): void
+    connect(sigName: "drag-begin", callback: ((obj: Map, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-delete", callback: ((obj: Map, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-get", callback: ((obj: Map, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-data-received", callback: ((obj: Map, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-drop", callback: ((obj: Map, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "drag-end", callback: ((obj: Map, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-failed", callback: ((obj: Map, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): void
+    connect(sigName: "drag-leave", callback: ((obj: Map, context: Gdk.DragContext, time: number) => void)): void
+    connect(sigName: "drag-motion", callback: ((obj: Map, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "draw", callback: ((obj: Map, cr: cairo.Context) => boolean)): void
+    connect(sigName: "enter-notify-event", callback: ((obj: Map, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "event", callback: ((obj: Map, event: Gdk.Event) => boolean)): void
+    connect(sigName: "event-after", callback: ((obj: Map, event: Gdk.Event) => void)): void
+    connect(sigName: "focus", callback: ((obj: Map, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "focus-in-event", callback: ((obj: Map, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "focus-out-event", callback: ((obj: Map, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "grab-broken-event", callback: ((obj: Map, event: Gdk.EventGrabBroken) => boolean)): void
+    connect(sigName: "grab-focus", callback: ((obj: Map) => void)): void
+    connect(sigName: "grab-notify", callback: ((obj: Map, was_grabbed: boolean) => void)): void
+    connect(sigName: "hide", callback: ((obj: Map) => void)): void
+    connect(sigName: "hierarchy-changed", callback: ((obj: Map, previous_toplevel?: Gtk.Widget | null) => void)): void
+    connect(sigName: "key-press-event", callback: ((obj: Map, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "key-release-event", callback: ((obj: Map, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "keynav-failed", callback: ((obj: Map, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "leave-notify-event", callback: ((obj: Map, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "map", callback: ((obj: Map) => void)): void
+    connect(sigName: "map-event", callback: ((obj: Map, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "mnemonic-activate", callback: ((obj: Map, group_cycling: boolean) => boolean)): void
+    connect(sigName: "motion-notify-event", callback: ((obj: Map, event: Gdk.EventMotion) => boolean)): void
+    connect(sigName: "move-focus", callback: ((obj: Map, direction: Gtk.DirectionType) => void)): void
+    connect(sigName: "parent-set", callback: ((obj: Map, old_parent?: Gtk.Widget | null) => void)): void
+    connect(sigName: "popup-menu", callback: ((obj: Map) => boolean)): void
+    connect(sigName: "property-notify-event", callback: ((obj: Map, event: Gdk.EventProperty) => boolean)): void
+    connect(sigName: "proximity-in-event", callback: ((obj: Map, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "proximity-out-event", callback: ((obj: Map, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "query-tooltip", callback: ((obj: Map, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): void
+    connect(sigName: "realize", callback: ((obj: Map) => void)): void
+    connect(sigName: "screen-changed", callback: ((obj: Map, previous_screen?: Gdk.Screen | null) => void)): void
+    connect(sigName: "scroll-event", callback: ((obj: Map, event: Gdk.EventScroll) => boolean)): void
+    connect(sigName: "selection-clear-event", callback: ((obj: Map, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-get", callback: ((obj: Map, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "selection-notify-event", callback: ((obj: Map, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-received", callback: ((obj: Map, data: Gtk.SelectionData, time: number) => void)): void
+    connect(sigName: "selection-request-event", callback: ((obj: Map, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "show", callback: ((obj: Map) => void)): void
+    connect(sigName: "show-help", callback: ((obj: Map, help_type: Gtk.WidgetHelpType) => boolean)): void
+    connect(sigName: "size-allocate", callback: ((obj: Map, allocation: Gtk.Allocation) => void)): void
+    connect(sigName: "state-changed", callback: ((obj: Map, state: Gtk.StateType) => void)): void
+    connect(sigName: "state-flags-changed", callback: ((obj: Map, flags: Gtk.StateFlags) => void)): void
+    connect(sigName: "style-set", callback: ((obj: Map, previous_style?: Gtk.Style | null) => void)): void
+    connect(sigName: "style-updated", callback: ((obj: Map) => void)): void
+    connect(sigName: "touch-event", callback: ((obj: Map, object: Gdk.Event) => boolean)): void
+    connect(sigName: "unmap", callback: ((obj: Map) => void)): void
+    connect(sigName: "unmap-event", callback: ((obj: Map, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "unrealize", callback: ((obj: Map) => void)): void
+    connect(sigName: "visibility-notify-event", callback: ((obj: Map, event: Gdk.EventVisibility) => boolean)): void
+    connect(sigName: "window-state-event", callback: ((obj: Map, event: Gdk.EventWindowState) => boolean)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::font-desc", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::view", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::auto-indent", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-pattern", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::completion", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::draw-spaces", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::highlight-current-line", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::indent-on-tab", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::indent-width", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::insert-spaces-instead-of-tabs", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::right-margin-position", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::show-line-marks", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::show-line-numbers", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::show-right-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::smart-backspace", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::smart-home-end", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::space-drawer", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tab-width", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accepts-tab", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::bottom-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::buffer", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::cursor-visible", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::editable", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::im-module", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::indent", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-hints", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-purpose", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::justification", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::left-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::monospace", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::overwrite", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-above-lines", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-below-lines", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-inside-wrap", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::populate-all", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::right-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tabs", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::top-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::wrap-mode", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::border-width", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::child", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resize-mode", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::app-paintable", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-default", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-focus", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::composite-child", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::double-buffered", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::events", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::expand", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::focus-on-click", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::halign", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-default", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-focus", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-tooltip", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::height-request", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand-set", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-focus", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-bottom", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-end", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-left", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-right", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-start", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-top", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::name", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::no-show-all", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::opacity", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::parent", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::receives-default", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scale-factor", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::sensitive", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-markup", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-text", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::valign", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand-set", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::visible", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::width-request", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::window", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hadjustment", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hscroll-policy", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vadjustment", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vscroll-policy", callback: ((obj: Map, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::font-desc", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::view", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::auto-indent", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-pattern", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::completion", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::draw-spaces", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::highlight-current-line", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::indent-on-tab", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::indent-width", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::insert-spaces-instead-of-tabs", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::right-margin-position", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::show-line-marks", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::show-line-numbers", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::show-right-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::smart-backspace", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::smart-home-end", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::space-drawer", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tab-width", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accepts-tab", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::bottom-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::buffer", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::cursor-visible", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::editable", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::im-module", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::indent", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::input-hints", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::input-purpose", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::justification", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::left-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::monospace", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::overwrite", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-above-lines", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-below-lines", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-inside-wrap", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::populate-all", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::right-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tabs", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::top-margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::wrap-mode", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::border-width", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::child", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::resize-mode", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::app-paintable", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-default", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-focus", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::composite-child", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::double-buffered", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::events", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::expand", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::focus-on-click", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::halign", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-default", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-focus", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-tooltip", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::height-request", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand-set", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::is-focus", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-bottom", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-end", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-left", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-right", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-start", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-top", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::name", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::no-show-all", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::opacity", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::parent", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::receives-default", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scale-factor", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::sensitive", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-markup", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-text", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::valign", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand-set", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::visible", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::width-request", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::window", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hadjustment", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hscroll-policy", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vadjustment", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vscroll-policy", callback: ((obj: Map, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Map_ConstructProps)
     static new(): Map
@@ -3294,8 +3294,8 @@ export class Mark {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Mark, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Mark, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Mark_ConstructProps)
     static new(name: string, category: string): Mark
@@ -3364,16 +3364,16 @@ export class MarkAttributes {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.MarkAttributes */
-    connect(sigName: "query-tooltip-markup", callback: ((obj: MarkAttributes, mark: Mark) => string))
-    connect(sigName: "query-tooltip-text", callback: ((obj: MarkAttributes, mark: Mark) => string))
+    connect(sigName: "query-tooltip-markup", callback: ((obj: MarkAttributes, mark: Mark) => string)): void
+    connect(sigName: "query-tooltip-text", callback: ((obj: MarkAttributes, mark: Mark) => string)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::gicon", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-name", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixbuf", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::stock-id", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::gicon", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-name", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixbuf", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::stock-id", callback: ((obj: MarkAttributes, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: MarkAttributes_ConstructProps)
     static new(): MarkAttributes
@@ -3478,19 +3478,19 @@ export class PrintCompositor {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::body-font-name", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::footer-font-name", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::header-font-name", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::highlight-syntax", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::line-numbers-font-name", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::n-pages", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::print-footer", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::print-header", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::print-line-numbers", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tab-width", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::wrap-mode", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::body-font-name", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::footer-font-name", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::header-font-name", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::highlight-syntax", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::line-numbers-font-name", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::n-pages", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::print-footer", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::print-header", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::print-line-numbers", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tab-width", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::wrap-mode", callback: ((obj: PrintCompositor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: PrintCompositor_ConstructProps)
     static new(buffer: Buffer): PrintCompositor
@@ -3550,8 +3550,8 @@ export class Region {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Region, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Region, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Region_ConstructProps)
     static new(buffer: Gtk.TextBuffer): Region
@@ -3570,7 +3570,7 @@ export class SearchContext {
     readonly regex_error:object
     settings:SearchSettings
     /* Fields of GtkSource.SearchContext */
-    parent: any
+    parent:GObject.Object
     priv:SearchContextPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -3631,13 +3631,13 @@ export class SearchContext {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::highlight", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::match-style", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::occurrences-count", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::regex-error", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::settings", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::highlight", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::match-style", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::occurrences-count", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::regex-error", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::settings", callback: ((obj: SearchContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: SearchContext_ConstructProps)
     static new(buffer: Buffer, settings?: SearchSettings | null): SearchContext
@@ -3657,7 +3657,7 @@ export class SearchSettings {
     search_text:string
     wrap_around:boolean
     /* Fields of GtkSource.SearchSettings */
-    parent: any
+    parent:GObject.Object
     priv:SearchSettingsPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -3705,13 +3705,13 @@ export class SearchSettings {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::at-word-boundaries", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::case-sensitive", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::regex-enabled", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::search-text", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::wrap-around", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::at-word-boundaries", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::case-sensitive", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::regex-enabled", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::search-text", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::wrap-around", callback: ((obj: SearchSettings, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: SearchSettings_ConstructProps)
     static new(): SearchSettings
@@ -3725,7 +3725,7 @@ export class SpaceDrawer {
     enable_matrix:boolean
     matrix:GLib.Variant
     /* Fields of GtkSource.SpaceDrawer */
-    parent: any
+    parent:GObject.Object
     priv:SpaceDrawerPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -3770,10 +3770,10 @@ export class SpaceDrawer {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::enable-matrix", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::matrix", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::enable-matrix", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::matrix", callback: ((obj: SpaceDrawer, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: SpaceDrawer_ConstructProps)
     static new(): SpaceDrawer
@@ -3839,8 +3839,8 @@ export class Style {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Style, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Style, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Style_ConstructProps)
 }
@@ -3897,11 +3897,11 @@ export class StyleScheme {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::description", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::filename", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::name", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::description", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::filename", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::name", callback: ((obj: StyleScheme, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: StyleScheme_ConstructProps)
 }
@@ -4452,146 +4452,146 @@ export class StyleSchemeChooserButton {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gtk.Button */
-    connect(sigName: "activate", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "clicked", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "enter", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "leave", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "pressed", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "released", callback: ((obj: StyleSchemeChooserButton) => void))
+    connect(sigName: "activate", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "clicked", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "enter", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "leave", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "pressed", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "released", callback: ((obj: StyleSchemeChooserButton) => void)): void
     /* Signals of Gtk.Container */
-    connect(sigName: "add", callback: ((obj: StyleSchemeChooserButton, object: Gtk.Widget) => void))
-    connect(sigName: "check-resize", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "remove", callback: ((obj: StyleSchemeChooserButton, object: Gtk.Widget) => void))
-    connect(sigName: "set-focus-child", callback: ((obj: StyleSchemeChooserButton, object: Gtk.Widget) => void))
+    connect(sigName: "add", callback: ((obj: StyleSchemeChooserButton, object: Gtk.Widget) => void)): void
+    connect(sigName: "check-resize", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "remove", callback: ((obj: StyleSchemeChooserButton, object: Gtk.Widget) => void)): void
+    connect(sigName: "set-focus-child", callback: ((obj: StyleSchemeChooserButton, object: Gtk.Widget) => void)): void
     /* Signals of Gtk.Widget */
-    connect(sigName: "accel-closures-changed", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "button-press-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventButton) => boolean))
-    connect(sigName: "button-release-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventButton) => boolean))
-    connect(sigName: "can-activate-accel", callback: ((obj: StyleSchemeChooserButton, signal_id: number) => boolean))
-    connect(sigName: "child-notify", callback: ((obj: StyleSchemeChooserButton, child_property: GObject.ParamSpec) => void))
-    connect(sigName: "composited-changed", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "configure-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventConfigure) => boolean))
-    connect(sigName: "damage-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventExpose) => boolean))
-    connect(sigName: "delete-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.Event) => boolean))
-    connect(sigName: "destroy", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "destroy-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.Event) => boolean))
-    connect(sigName: "direction-changed", callback: ((obj: StyleSchemeChooserButton, previous_direction: Gtk.TextDirection) => void))
-    connect(sigName: "drag-begin", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-delete", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-get", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-data-received", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-drop", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "drag-end", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-failed", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, result: Gtk.DragResult) => boolean))
-    connect(sigName: "drag-leave", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, time: number) => void))
-    connect(sigName: "drag-motion", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "draw", callback: ((obj: StyleSchemeChooserButton, cr: cairo.Context) => boolean))
-    connect(sigName: "enter-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.Event) => boolean))
-    connect(sigName: "event-after", callback: ((obj: StyleSchemeChooserButton, event: Gdk.Event) => void))
-    connect(sigName: "focus", callback: ((obj: StyleSchemeChooserButton, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "focus-in-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "focus-out-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "grab-broken-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventGrabBroken) => boolean))
-    connect(sigName: "grab-focus", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "grab-notify", callback: ((obj: StyleSchemeChooserButton, was_grabbed: boolean) => void))
-    connect(sigName: "hide", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: StyleSchemeChooserButton, previous_toplevel?: Gtk.Widget | null) => void))
-    connect(sigName: "key-press-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventKey) => boolean))
-    connect(sigName: "key-release-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventKey) => boolean))
-    connect(sigName: "keynav-failed", callback: ((obj: StyleSchemeChooserButton, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "leave-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "map", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "map-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventAny) => boolean))
-    connect(sigName: "mnemonic-activate", callback: ((obj: StyleSchemeChooserButton, group_cycling: boolean) => boolean))
-    connect(sigName: "motion-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventMotion) => boolean))
-    connect(sigName: "move-focus", callback: ((obj: StyleSchemeChooserButton, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: StyleSchemeChooserButton, old_parent?: Gtk.Widget | null) => void))
-    connect(sigName: "popup-menu", callback: ((obj: StyleSchemeChooserButton) => boolean))
-    connect(sigName: "property-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventProperty) => boolean))
-    connect(sigName: "proximity-in-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "proximity-out-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "query-tooltip", callback: ((obj: StyleSchemeChooserButton, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
-    connect(sigName: "realize", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "screen-changed", callback: ((obj: StyleSchemeChooserButton, previous_screen?: Gdk.Screen | null) => void))
-    connect(sigName: "scroll-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventScroll) => boolean))
-    connect(sigName: "selection-clear-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-get", callback: ((obj: StyleSchemeChooserButton, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "selection-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-received", callback: ((obj: StyleSchemeChooserButton, data: Gtk.SelectionData, time: number) => void))
-    connect(sigName: "selection-request-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "show", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "show-help", callback: ((obj: StyleSchemeChooserButton, help_type: Gtk.WidgetHelpType) => boolean))
-    connect(sigName: "size-allocate", callback: ((obj: StyleSchemeChooserButton, allocation: Gtk.Allocation) => void))
-    connect(sigName: "state-changed", callback: ((obj: StyleSchemeChooserButton, state: Gtk.StateType) => void))
-    connect(sigName: "state-flags-changed", callback: ((obj: StyleSchemeChooserButton, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: StyleSchemeChooserButton, previous_style?: Gtk.Style | null) => void))
-    connect(sigName: "style-updated", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "touch-event", callback: ((obj: StyleSchemeChooserButton, object: Gdk.Event) => boolean))
-    connect(sigName: "unmap", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "unmap-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventAny) => boolean))
-    connect(sigName: "unrealize", callback: ((obj: StyleSchemeChooserButton) => void))
-    connect(sigName: "visibility-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventVisibility) => boolean))
-    connect(sigName: "window-state-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventWindowState) => boolean))
+    connect(sigName: "accel-closures-changed", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "button-press-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "button-release-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "can-activate-accel", callback: ((obj: StyleSchemeChooserButton, signal_id: number) => boolean)): void
+    connect(sigName: "child-notify", callback: ((obj: StyleSchemeChooserButton, child_property: GObject.ParamSpec) => void)): void
+    connect(sigName: "composited-changed", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "configure-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventConfigure) => boolean)): void
+    connect(sigName: "damage-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventExpose) => boolean)): void
+    connect(sigName: "delete-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.Event) => boolean)): void
+    connect(sigName: "destroy", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "destroy-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.Event) => boolean)): void
+    connect(sigName: "direction-changed", callback: ((obj: StyleSchemeChooserButton, previous_direction: Gtk.TextDirection) => void)): void
+    connect(sigName: "drag-begin", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-delete", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-get", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-data-received", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-drop", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "drag-end", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-failed", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): void
+    connect(sigName: "drag-leave", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, time: number) => void)): void
+    connect(sigName: "drag-motion", callback: ((obj: StyleSchemeChooserButton, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "draw", callback: ((obj: StyleSchemeChooserButton, cr: cairo.Context) => boolean)): void
+    connect(sigName: "enter-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.Event) => boolean)): void
+    connect(sigName: "event-after", callback: ((obj: StyleSchemeChooserButton, event: Gdk.Event) => void)): void
+    connect(sigName: "focus", callback: ((obj: StyleSchemeChooserButton, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "focus-in-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "focus-out-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "grab-broken-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventGrabBroken) => boolean)): void
+    connect(sigName: "grab-focus", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "grab-notify", callback: ((obj: StyleSchemeChooserButton, was_grabbed: boolean) => void)): void
+    connect(sigName: "hide", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "hierarchy-changed", callback: ((obj: StyleSchemeChooserButton, previous_toplevel?: Gtk.Widget | null) => void)): void
+    connect(sigName: "key-press-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "key-release-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "keynav-failed", callback: ((obj: StyleSchemeChooserButton, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "leave-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "map", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "map-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "mnemonic-activate", callback: ((obj: StyleSchemeChooserButton, group_cycling: boolean) => boolean)): void
+    connect(sigName: "motion-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventMotion) => boolean)): void
+    connect(sigName: "move-focus", callback: ((obj: StyleSchemeChooserButton, direction: Gtk.DirectionType) => void)): void
+    connect(sigName: "parent-set", callback: ((obj: StyleSchemeChooserButton, old_parent?: Gtk.Widget | null) => void)): void
+    connect(sigName: "popup-menu", callback: ((obj: StyleSchemeChooserButton) => boolean)): void
+    connect(sigName: "property-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventProperty) => boolean)): void
+    connect(sigName: "proximity-in-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "proximity-out-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "query-tooltip", callback: ((obj: StyleSchemeChooserButton, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): void
+    connect(sigName: "realize", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "screen-changed", callback: ((obj: StyleSchemeChooserButton, previous_screen?: Gdk.Screen | null) => void)): void
+    connect(sigName: "scroll-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventScroll) => boolean)): void
+    connect(sigName: "selection-clear-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-get", callback: ((obj: StyleSchemeChooserButton, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "selection-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-received", callback: ((obj: StyleSchemeChooserButton, data: Gtk.SelectionData, time: number) => void)): void
+    connect(sigName: "selection-request-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "show", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "show-help", callback: ((obj: StyleSchemeChooserButton, help_type: Gtk.WidgetHelpType) => boolean)): void
+    connect(sigName: "size-allocate", callback: ((obj: StyleSchemeChooserButton, allocation: Gtk.Allocation) => void)): void
+    connect(sigName: "state-changed", callback: ((obj: StyleSchemeChooserButton, state: Gtk.StateType) => void)): void
+    connect(sigName: "state-flags-changed", callback: ((obj: StyleSchemeChooserButton, flags: Gtk.StateFlags) => void)): void
+    connect(sigName: "style-set", callback: ((obj: StyleSchemeChooserButton, previous_style?: Gtk.Style | null) => void)): void
+    connect(sigName: "style-updated", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "touch-event", callback: ((obj: StyleSchemeChooserButton, object: Gdk.Event) => boolean)): void
+    connect(sigName: "unmap", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "unmap-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "unrealize", callback: ((obj: StyleSchemeChooserButton) => void)): void
+    connect(sigName: "visibility-notify-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventVisibility) => boolean)): void
+    connect(sigName: "window-state-event", callback: ((obj: StyleSchemeChooserButton, event: Gdk.EventWindowState) => boolean)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::always-show-image", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::image", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::image-position", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::label", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::relief", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-stock", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-underline", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::xalign", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::yalign", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::border-width", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::child", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resize-mode", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::app-paintable", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-default", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-focus", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::composite-child", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::double-buffered", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::events", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::expand", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::focus-on-click", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::halign", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-default", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-focus", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-tooltip", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::height-request", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand-set", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-focus", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-bottom", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-end", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-left", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-right", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-start", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-top", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::name", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::no-show-all", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::opacity", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::parent", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::receives-default", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scale-factor", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::sensitive", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-markup", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-text", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::valign", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand-set", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::visible", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::width-request", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::action-name", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::action-target", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::related-action", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::use-action-appearance", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style-scheme", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::always-show-image", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::image", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::image-position", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::label", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::relief", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::use-stock", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::use-underline", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::xalign", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::yalign", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::border-width", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::child", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::resize-mode", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::app-paintable", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-default", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-focus", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::composite-child", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::double-buffered", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::events", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::expand", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::focus-on-click", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::halign", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-default", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-focus", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-tooltip", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::height-request", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand-set", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::is-focus", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-bottom", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-end", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-left", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-right", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-start", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-top", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::name", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::no-show-all", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::opacity", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::parent", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::receives-default", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scale-factor", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::sensitive", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-markup", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-text", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::valign", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand-set", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::visible", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::width-request", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::action-name", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::action-target", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::related-action", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::use-action-appearance", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style-scheme", callback: ((obj: StyleSchemeChooserButton, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: StyleSchemeChooserButton_ConstructProps)
     static new(): StyleSchemeChooserButton
@@ -5083,126 +5083,126 @@ export class StyleSchemeChooserWidget {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gtk.Container */
-    connect(sigName: "add", callback: ((obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void))
-    connect(sigName: "check-resize", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "remove", callback: ((obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void))
-    connect(sigName: "set-focus-child", callback: ((obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void))
+    connect(sigName: "add", callback: ((obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): void
+    connect(sigName: "check-resize", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "remove", callback: ((obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): void
+    connect(sigName: "set-focus-child", callback: ((obj: StyleSchemeChooserWidget, object: Gtk.Widget) => void)): void
     /* Signals of Gtk.Widget */
-    connect(sigName: "accel-closures-changed", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "button-press-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventButton) => boolean))
-    connect(sigName: "button-release-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventButton) => boolean))
-    connect(sigName: "can-activate-accel", callback: ((obj: StyleSchemeChooserWidget, signal_id: number) => boolean))
-    connect(sigName: "child-notify", callback: ((obj: StyleSchemeChooserWidget, child_property: GObject.ParamSpec) => void))
-    connect(sigName: "composited-changed", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "configure-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventConfigure) => boolean))
-    connect(sigName: "damage-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventExpose) => boolean))
-    connect(sigName: "delete-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.Event) => boolean))
-    connect(sigName: "destroy", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "destroy-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.Event) => boolean))
-    connect(sigName: "direction-changed", callback: ((obj: StyleSchemeChooserWidget, previous_direction: Gtk.TextDirection) => void))
-    connect(sigName: "drag-begin", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-delete", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-get", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-data-received", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-drop", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "drag-end", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-failed", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, result: Gtk.DragResult) => boolean))
-    connect(sigName: "drag-leave", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, time: number) => void))
-    connect(sigName: "drag-motion", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "draw", callback: ((obj: StyleSchemeChooserWidget, cr: cairo.Context) => boolean))
-    connect(sigName: "enter-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.Event) => boolean))
-    connect(sigName: "event-after", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.Event) => void))
-    connect(sigName: "focus", callback: ((obj: StyleSchemeChooserWidget, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "focus-in-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "focus-out-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "grab-broken-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventGrabBroken) => boolean))
-    connect(sigName: "grab-focus", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "grab-notify", callback: ((obj: StyleSchemeChooserWidget, was_grabbed: boolean) => void))
-    connect(sigName: "hide", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: StyleSchemeChooserWidget, previous_toplevel?: Gtk.Widget | null) => void))
-    connect(sigName: "key-press-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventKey) => boolean))
-    connect(sigName: "key-release-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventKey) => boolean))
-    connect(sigName: "keynav-failed", callback: ((obj: StyleSchemeChooserWidget, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "leave-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "map", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "map-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventAny) => boolean))
-    connect(sigName: "mnemonic-activate", callback: ((obj: StyleSchemeChooserWidget, group_cycling: boolean) => boolean))
-    connect(sigName: "motion-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventMotion) => boolean))
-    connect(sigName: "move-focus", callback: ((obj: StyleSchemeChooserWidget, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: StyleSchemeChooserWidget, old_parent?: Gtk.Widget | null) => void))
-    connect(sigName: "popup-menu", callback: ((obj: StyleSchemeChooserWidget) => boolean))
-    connect(sigName: "property-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventProperty) => boolean))
-    connect(sigName: "proximity-in-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "proximity-out-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "query-tooltip", callback: ((obj: StyleSchemeChooserWidget, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
-    connect(sigName: "realize", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "screen-changed", callback: ((obj: StyleSchemeChooserWidget, previous_screen?: Gdk.Screen | null) => void))
-    connect(sigName: "scroll-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventScroll) => boolean))
-    connect(sigName: "selection-clear-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-get", callback: ((obj: StyleSchemeChooserWidget, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "selection-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-received", callback: ((obj: StyleSchemeChooserWidget, data: Gtk.SelectionData, time: number) => void))
-    connect(sigName: "selection-request-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "show", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "show-help", callback: ((obj: StyleSchemeChooserWidget, help_type: Gtk.WidgetHelpType) => boolean))
-    connect(sigName: "size-allocate", callback: ((obj: StyleSchemeChooserWidget, allocation: Gtk.Allocation) => void))
-    connect(sigName: "state-changed", callback: ((obj: StyleSchemeChooserWidget, state: Gtk.StateType) => void))
-    connect(sigName: "state-flags-changed", callback: ((obj: StyleSchemeChooserWidget, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: StyleSchemeChooserWidget, previous_style?: Gtk.Style | null) => void))
-    connect(sigName: "style-updated", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "touch-event", callback: ((obj: StyleSchemeChooserWidget, object: Gdk.Event) => boolean))
-    connect(sigName: "unmap", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "unmap-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventAny) => boolean))
-    connect(sigName: "unrealize", callback: ((obj: StyleSchemeChooserWidget) => void))
-    connect(sigName: "visibility-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventVisibility) => boolean))
-    connect(sigName: "window-state-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventWindowState) => boolean))
+    connect(sigName: "accel-closures-changed", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "button-press-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "button-release-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "can-activate-accel", callback: ((obj: StyleSchemeChooserWidget, signal_id: number) => boolean)): void
+    connect(sigName: "child-notify", callback: ((obj: StyleSchemeChooserWidget, child_property: GObject.ParamSpec) => void)): void
+    connect(sigName: "composited-changed", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "configure-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventConfigure) => boolean)): void
+    connect(sigName: "damage-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventExpose) => boolean)): void
+    connect(sigName: "delete-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.Event) => boolean)): void
+    connect(sigName: "destroy", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "destroy-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.Event) => boolean)): void
+    connect(sigName: "direction-changed", callback: ((obj: StyleSchemeChooserWidget, previous_direction: Gtk.TextDirection) => void)): void
+    connect(sigName: "drag-begin", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-delete", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-get", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-data-received", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-drop", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "drag-end", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-failed", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): void
+    connect(sigName: "drag-leave", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, time: number) => void)): void
+    connect(sigName: "drag-motion", callback: ((obj: StyleSchemeChooserWidget, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "draw", callback: ((obj: StyleSchemeChooserWidget, cr: cairo.Context) => boolean)): void
+    connect(sigName: "enter-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.Event) => boolean)): void
+    connect(sigName: "event-after", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.Event) => void)): void
+    connect(sigName: "focus", callback: ((obj: StyleSchemeChooserWidget, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "focus-in-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "focus-out-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "grab-broken-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventGrabBroken) => boolean)): void
+    connect(sigName: "grab-focus", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "grab-notify", callback: ((obj: StyleSchemeChooserWidget, was_grabbed: boolean) => void)): void
+    connect(sigName: "hide", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "hierarchy-changed", callback: ((obj: StyleSchemeChooserWidget, previous_toplevel?: Gtk.Widget | null) => void)): void
+    connect(sigName: "key-press-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "key-release-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "keynav-failed", callback: ((obj: StyleSchemeChooserWidget, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "leave-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "map", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "map-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "mnemonic-activate", callback: ((obj: StyleSchemeChooserWidget, group_cycling: boolean) => boolean)): void
+    connect(sigName: "motion-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventMotion) => boolean)): void
+    connect(sigName: "move-focus", callback: ((obj: StyleSchemeChooserWidget, direction: Gtk.DirectionType) => void)): void
+    connect(sigName: "parent-set", callback: ((obj: StyleSchemeChooserWidget, old_parent?: Gtk.Widget | null) => void)): void
+    connect(sigName: "popup-menu", callback: ((obj: StyleSchemeChooserWidget) => boolean)): void
+    connect(sigName: "property-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventProperty) => boolean)): void
+    connect(sigName: "proximity-in-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "proximity-out-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "query-tooltip", callback: ((obj: StyleSchemeChooserWidget, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): void
+    connect(sigName: "realize", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "screen-changed", callback: ((obj: StyleSchemeChooserWidget, previous_screen?: Gdk.Screen | null) => void)): void
+    connect(sigName: "scroll-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventScroll) => boolean)): void
+    connect(sigName: "selection-clear-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-get", callback: ((obj: StyleSchemeChooserWidget, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "selection-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-received", callback: ((obj: StyleSchemeChooserWidget, data: Gtk.SelectionData, time: number) => void)): void
+    connect(sigName: "selection-request-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "show", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "show-help", callback: ((obj: StyleSchemeChooserWidget, help_type: Gtk.WidgetHelpType) => boolean)): void
+    connect(sigName: "size-allocate", callback: ((obj: StyleSchemeChooserWidget, allocation: Gtk.Allocation) => void)): void
+    connect(sigName: "state-changed", callback: ((obj: StyleSchemeChooserWidget, state: Gtk.StateType) => void)): void
+    connect(sigName: "state-flags-changed", callback: ((obj: StyleSchemeChooserWidget, flags: Gtk.StateFlags) => void)): void
+    connect(sigName: "style-set", callback: ((obj: StyleSchemeChooserWidget, previous_style?: Gtk.Style | null) => void)): void
+    connect(sigName: "style-updated", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "touch-event", callback: ((obj: StyleSchemeChooserWidget, object: Gdk.Event) => boolean)): void
+    connect(sigName: "unmap", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "unmap-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "unrealize", callback: ((obj: StyleSchemeChooserWidget) => void)): void
+    connect(sigName: "visibility-notify-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventVisibility) => boolean)): void
+    connect(sigName: "window-state-event", callback: ((obj: StyleSchemeChooserWidget, event: Gdk.EventWindowState) => boolean)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::border-width", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::child", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resize-mode", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::app-paintable", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-default", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-focus", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::composite-child", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::double-buffered", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::events", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::expand", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::focus-on-click", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::halign", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-default", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-focus", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-tooltip", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::height-request", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand-set", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-focus", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-bottom", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-end", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-left", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-right", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-start", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-top", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::name", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::no-show-all", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::opacity", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::parent", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::receives-default", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scale-factor", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::sensitive", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-markup", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-text", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::valign", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand-set", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::visible", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::width-request", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style-scheme", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::border-width", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::child", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::resize-mode", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::app-paintable", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-default", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-focus", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::composite-child", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::double-buffered", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::events", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::expand", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::focus-on-click", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::halign", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-default", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-focus", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-tooltip", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::height-request", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand-set", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::is-focus", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-bottom", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-end", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-left", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-right", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-start", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-top", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::name", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::no-show-all", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::opacity", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::parent", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::receives-default", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scale-factor", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::sensitive", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-markup", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-text", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::valign", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand-set", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::visible", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::width-request", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::window", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style-scheme", callback: ((obj: StyleSchemeChooserWidget, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: StyleSchemeChooserWidget_ConstructProps)
     static new(): StyleSchemeChooserWidget
@@ -5215,7 +5215,7 @@ export class StyleSchemeManager {
     readonly scheme_ids:string[]
     search_path:string[]
     /* Fields of GtkSource.StyleSchemeManager */
-    parent: any
+    parent:GObject.Object
     priv:StyleSchemeManagerPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -5260,10 +5260,10 @@ export class StyleSchemeManager {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scheme-ids", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::search-path", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scheme-ids", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::search-path", callback: ((obj: StyleSchemeManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: StyleSchemeManager_ConstructProps)
     static new(): StyleSchemeManager
@@ -5397,85 +5397,85 @@ export class Tag {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gtk.TextTag */
-    connect(sigName: "event", callback: ((obj: Tag, object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter) => boolean))
+    connect(sigName: "event", callback: ((obj: Tag, object: GObject.Object, event: Gdk.Event, iter: Gtk.TextIter) => boolean)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::draw-spaces", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::draw-spaces-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accumulative-margin", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-full-height", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-full-height-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-gdk", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::direction", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::editable", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::editable-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::fallback", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::fallback-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::family", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::family-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::font", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::font-desc", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::font-features", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::font-features-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::foreground", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::foreground-gdk", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::foreground-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::foreground-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::indent", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::indent-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::invisible", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::invisible-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::justification", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::justification-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::language", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::language-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::left-margin", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::left-margin-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::letter-spacing", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::letter-spacing-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::paragraph-background", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::paragraph-background-gdk", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::paragraph-background-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::paragraph-background-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-above-lines", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-above-lines-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-below-lines", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-below-lines-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-inside-wrap", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-inside-wrap-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::right-margin", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::right-margin-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::rise", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::rise-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scale", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scale-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::size", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::size-points", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::size-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::stretch", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::stretch-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::strikethrough", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::strikethrough-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::strikethrough-rgba-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::strikethrough-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tabs", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tabs-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::underline", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::underline-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::underline-rgba-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::underline-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::variant", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::variant-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::weight", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::weight-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::wrap-mode", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::wrap-mode-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::draw-spaces", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::draw-spaces-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accumulative-margin", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-full-height", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-full-height-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-gdk", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::direction", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::editable", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::editable-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::fallback", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::fallback-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::family", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::family-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::font", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::font-desc", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::font-features", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::font-features-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::foreground", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::foreground-gdk", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::foreground-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::foreground-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::indent", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::indent-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::invisible", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::invisible-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::justification", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::justification-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::language", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::language-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::left-margin", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::left-margin-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::letter-spacing", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::letter-spacing-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::paragraph-background", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::paragraph-background-gdk", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::paragraph-background-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::paragraph-background-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-above-lines", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-above-lines-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-below-lines", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-below-lines-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-inside-wrap", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-inside-wrap-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::right-margin", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::right-margin-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::rise", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::rise-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scale", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scale-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::size", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::size-points", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::size-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::stretch", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::stretch-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::strikethrough", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::strikethrough-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::strikethrough-rgba-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::strikethrough-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tabs", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tabs-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::underline", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::underline-rgba", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::underline-rgba-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::underline-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::variant", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::variant-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::weight", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::weight-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::wrap-mode", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::wrap-mode-set", callback: ((obj: Tag, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Tag_ConstructProps)
     static new(name?: string | null): Tag
@@ -6154,194 +6154,194 @@ export class View {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GtkSource.View */
-    connect(sigName: "change-case", callback: ((obj: View, case_type: ChangeCaseType) => void))
-    connect(sigName: "change-number", callback: ((obj: View, count: number) => void))
-    connect(sigName: "join-lines", callback: ((obj: View) => void))
-    connect(sigName: "line-mark-activated", callback: ((obj: View, iter: Gtk.TextIter, event: Gdk.Event) => void))
-    connect(sigName: "move-lines", callback: ((obj: View, copy: boolean, count: number) => void))
-    connect(sigName: "move-to-matching-bracket", callback: ((obj: View, extend_selection: boolean) => void))
-    connect(sigName: "move-words", callback: ((obj: View, count: number) => void))
-    connect(sigName: "redo", callback: ((obj: View) => void))
-    connect(sigName: "show-completion", callback: ((obj: View) => void))
-    connect(sigName: "smart-home-end", callback: ((obj: View, iter: Gtk.TextIter, count: number) => void))
-    connect(sigName: "undo", callback: ((obj: View) => void))
+    connect(sigName: "change-case", callback: ((obj: View, case_type: ChangeCaseType) => void)): void
+    connect(sigName: "change-number", callback: ((obj: View, count: number) => void)): void
+    connect(sigName: "join-lines", callback: ((obj: View) => void)): void
+    connect(sigName: "line-mark-activated", callback: ((obj: View, iter: Gtk.TextIter, event: Gdk.Event) => void)): void
+    connect(sigName: "move-lines", callback: ((obj: View, copy: boolean, count: number) => void)): void
+    connect(sigName: "move-to-matching-bracket", callback: ((obj: View, extend_selection: boolean) => void)): void
+    connect(sigName: "move-words", callback: ((obj: View, count: number) => void)): void
+    connect(sigName: "redo", callback: ((obj: View) => void)): void
+    connect(sigName: "show-completion", callback: ((obj: View) => void)): void
+    connect(sigName: "smart-home-end", callback: ((obj: View, iter: Gtk.TextIter, count: number) => void)): void
+    connect(sigName: "undo", callback: ((obj: View) => void)): void
     /* Signals of Gtk.TextView */
-    connect(sigName: "backspace", callback: ((obj: View) => void))
-    connect(sigName: "copy-clipboard", callback: ((obj: View) => void))
-    connect(sigName: "cut-clipboard", callback: ((obj: View) => void))
-    connect(sigName: "delete-from-cursor", callback: ((obj: View, type: Gtk.DeleteType, count: number) => void))
-    connect(sigName: "extend-selection", callback: ((obj: View, granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => boolean))
-    connect(sigName: "insert-at-cursor", callback: ((obj: View, string: string) => void))
-    connect(sigName: "move-cursor", callback: ((obj: View, step: Gtk.MovementStep, count: number, extend_selection: boolean) => void))
-    connect(sigName: "move-viewport", callback: ((obj: View, step: Gtk.ScrollStep, count: number) => void))
-    connect(sigName: "paste-clipboard", callback: ((obj: View) => void))
-    connect(sigName: "populate-popup", callback: ((obj: View, popup: Gtk.Widget) => void))
-    connect(sigName: "preedit-changed", callback: ((obj: View, preedit: string) => void))
-    connect(sigName: "select-all", callback: ((obj: View, select: boolean) => void))
-    connect(sigName: "set-anchor", callback: ((obj: View) => void))
-    connect(sigName: "toggle-cursor-visible", callback: ((obj: View) => void))
-    connect(sigName: "toggle-overwrite", callback: ((obj: View) => void))
+    connect(sigName: "backspace", callback: ((obj: View) => void)): void
+    connect(sigName: "copy-clipboard", callback: ((obj: View) => void)): void
+    connect(sigName: "cut-clipboard", callback: ((obj: View) => void)): void
+    connect(sigName: "delete-from-cursor", callback: ((obj: View, type: Gtk.DeleteType, count: number) => void)): void
+    connect(sigName: "extend-selection", callback: ((obj: View, granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => boolean)): void
+    connect(sigName: "insert-at-cursor", callback: ((obj: View, string: string) => void)): void
+    connect(sigName: "move-cursor", callback: ((obj: View, step: Gtk.MovementStep, count: number, extend_selection: boolean) => void)): void
+    connect(sigName: "move-viewport", callback: ((obj: View, step: Gtk.ScrollStep, count: number) => void)): void
+    connect(sigName: "paste-clipboard", callback: ((obj: View) => void)): void
+    connect(sigName: "populate-popup", callback: ((obj: View, popup: Gtk.Widget) => void)): void
+    connect(sigName: "preedit-changed", callback: ((obj: View, preedit: string) => void)): void
+    connect(sigName: "select-all", callback: ((obj: View, select: boolean) => void)): void
+    connect(sigName: "set-anchor", callback: ((obj: View) => void)): void
+    connect(sigName: "toggle-cursor-visible", callback: ((obj: View) => void)): void
+    connect(sigName: "toggle-overwrite", callback: ((obj: View) => void)): void
     /* Signals of Gtk.Container */
-    connect(sigName: "add", callback: ((obj: View, object: Gtk.Widget) => void))
-    connect(sigName: "check-resize", callback: ((obj: View) => void))
-    connect(sigName: "remove", callback: ((obj: View, object: Gtk.Widget) => void))
-    connect(sigName: "set-focus-child", callback: ((obj: View, object: Gtk.Widget) => void))
+    connect(sigName: "add", callback: ((obj: View, object: Gtk.Widget) => void)): void
+    connect(sigName: "check-resize", callback: ((obj: View) => void)): void
+    connect(sigName: "remove", callback: ((obj: View, object: Gtk.Widget) => void)): void
+    connect(sigName: "set-focus-child", callback: ((obj: View, object: Gtk.Widget) => void)): void
     /* Signals of Gtk.Widget */
-    connect(sigName: "accel-closures-changed", callback: ((obj: View) => void))
-    connect(sigName: "button-press-event", callback: ((obj: View, event: Gdk.EventButton) => boolean))
-    connect(sigName: "button-release-event", callback: ((obj: View, event: Gdk.EventButton) => boolean))
-    connect(sigName: "can-activate-accel", callback: ((obj: View, signal_id: number) => boolean))
-    connect(sigName: "child-notify", callback: ((obj: View, child_property: GObject.ParamSpec) => void))
-    connect(sigName: "composited-changed", callback: ((obj: View) => void))
-    connect(sigName: "configure-event", callback: ((obj: View, event: Gdk.EventConfigure) => boolean))
-    connect(sigName: "damage-event", callback: ((obj: View, event: Gdk.EventExpose) => boolean))
-    connect(sigName: "delete-event", callback: ((obj: View, event: Gdk.Event) => boolean))
-    connect(sigName: "destroy", callback: ((obj: View) => void))
-    connect(sigName: "destroy-event", callback: ((obj: View, event: Gdk.Event) => boolean))
-    connect(sigName: "direction-changed", callback: ((obj: View, previous_direction: Gtk.TextDirection) => void))
-    connect(sigName: "drag-begin", callback: ((obj: View, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-delete", callback: ((obj: View, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-data-get", callback: ((obj: View, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-data-received", callback: ((obj: View, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "drag-drop", callback: ((obj: View, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "drag-end", callback: ((obj: View, context: Gdk.DragContext) => void))
-    connect(sigName: "drag-failed", callback: ((obj: View, context: Gdk.DragContext, result: Gtk.DragResult) => boolean))
-    connect(sigName: "drag-leave", callback: ((obj: View, context: Gdk.DragContext, time: number) => void))
-    connect(sigName: "drag-motion", callback: ((obj: View, context: Gdk.DragContext, x: number, y: number, time: number) => boolean))
-    connect(sigName: "draw", callback: ((obj: View, cr: cairo.Context) => boolean))
-    connect(sigName: "enter-notify-event", callback: ((obj: View, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "event", callback: ((obj: View, event: Gdk.Event) => boolean))
-    connect(sigName: "event-after", callback: ((obj: View, event: Gdk.Event) => void))
-    connect(sigName: "focus", callback: ((obj: View, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "focus-in-event", callback: ((obj: View, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "focus-out-event", callback: ((obj: View, event: Gdk.EventFocus) => boolean))
-    connect(sigName: "grab-broken-event", callback: ((obj: View, event: Gdk.EventGrabBroken) => boolean))
-    connect(sigName: "grab-focus", callback: ((obj: View) => void))
-    connect(sigName: "grab-notify", callback: ((obj: View, was_grabbed: boolean) => void))
-    connect(sigName: "hide", callback: ((obj: View) => void))
-    connect(sigName: "hierarchy-changed", callback: ((obj: View, previous_toplevel?: Gtk.Widget | null) => void))
-    connect(sigName: "key-press-event", callback: ((obj: View, event: Gdk.EventKey) => boolean))
-    connect(sigName: "key-release-event", callback: ((obj: View, event: Gdk.EventKey) => boolean))
-    connect(sigName: "keynav-failed", callback: ((obj: View, direction: Gtk.DirectionType) => boolean))
-    connect(sigName: "leave-notify-event", callback: ((obj: View, event: Gdk.EventCrossing) => boolean))
-    connect(sigName: "map", callback: ((obj: View) => void))
-    connect(sigName: "map-event", callback: ((obj: View, event: Gdk.EventAny) => boolean))
-    connect(sigName: "mnemonic-activate", callback: ((obj: View, group_cycling: boolean) => boolean))
-    connect(sigName: "motion-notify-event", callback: ((obj: View, event: Gdk.EventMotion) => boolean))
-    connect(sigName: "move-focus", callback: ((obj: View, direction: Gtk.DirectionType) => void))
-    connect(sigName: "parent-set", callback: ((obj: View, old_parent?: Gtk.Widget | null) => void))
-    connect(sigName: "popup-menu", callback: ((obj: View) => boolean))
-    connect(sigName: "property-notify-event", callback: ((obj: View, event: Gdk.EventProperty) => boolean))
-    connect(sigName: "proximity-in-event", callback: ((obj: View, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "proximity-out-event", callback: ((obj: View, event: Gdk.EventProximity) => boolean))
-    connect(sigName: "query-tooltip", callback: ((obj: View, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean))
-    connect(sigName: "realize", callback: ((obj: View) => void))
-    connect(sigName: "screen-changed", callback: ((obj: View, previous_screen?: Gdk.Screen | null) => void))
-    connect(sigName: "scroll-event", callback: ((obj: View, event: Gdk.EventScroll) => boolean))
-    connect(sigName: "selection-clear-event", callback: ((obj: View, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-get", callback: ((obj: View, data: Gtk.SelectionData, info: number, time: number) => void))
-    connect(sigName: "selection-notify-event", callback: ((obj: View, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "selection-received", callback: ((obj: View, data: Gtk.SelectionData, time: number) => void))
-    connect(sigName: "selection-request-event", callback: ((obj: View, event: Gdk.EventSelection) => boolean))
-    connect(sigName: "show", callback: ((obj: View) => void))
-    connect(sigName: "show-help", callback: ((obj: View, help_type: Gtk.WidgetHelpType) => boolean))
-    connect(sigName: "size-allocate", callback: ((obj: View, allocation: Gtk.Allocation) => void))
-    connect(sigName: "state-changed", callback: ((obj: View, state: Gtk.StateType) => void))
-    connect(sigName: "state-flags-changed", callback: ((obj: View, flags: Gtk.StateFlags) => void))
-    connect(sigName: "style-set", callback: ((obj: View, previous_style?: Gtk.Style | null) => void))
-    connect(sigName: "style-updated", callback: ((obj: View) => void))
-    connect(sigName: "touch-event", callback: ((obj: View, object: Gdk.Event) => boolean))
-    connect(sigName: "unmap", callback: ((obj: View) => void))
-    connect(sigName: "unmap-event", callback: ((obj: View, event: Gdk.EventAny) => boolean))
-    connect(sigName: "unrealize", callback: ((obj: View) => void))
-    connect(sigName: "visibility-notify-event", callback: ((obj: View, event: Gdk.EventVisibility) => boolean))
-    connect(sigName: "window-state-event", callback: ((obj: View, event: Gdk.EventWindowState) => boolean))
+    connect(sigName: "accel-closures-changed", callback: ((obj: View) => void)): void
+    connect(sigName: "button-press-event", callback: ((obj: View, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "button-release-event", callback: ((obj: View, event: Gdk.EventButton) => boolean)): void
+    connect(sigName: "can-activate-accel", callback: ((obj: View, signal_id: number) => boolean)): void
+    connect(sigName: "child-notify", callback: ((obj: View, child_property: GObject.ParamSpec) => void)): void
+    connect(sigName: "composited-changed", callback: ((obj: View) => void)): void
+    connect(sigName: "configure-event", callback: ((obj: View, event: Gdk.EventConfigure) => boolean)): void
+    connect(sigName: "damage-event", callback: ((obj: View, event: Gdk.EventExpose) => boolean)): void
+    connect(sigName: "delete-event", callback: ((obj: View, event: Gdk.Event) => boolean)): void
+    connect(sigName: "destroy", callback: ((obj: View) => void)): void
+    connect(sigName: "destroy-event", callback: ((obj: View, event: Gdk.Event) => boolean)): void
+    connect(sigName: "direction-changed", callback: ((obj: View, previous_direction: Gtk.TextDirection) => void)): void
+    connect(sigName: "drag-begin", callback: ((obj: View, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-delete", callback: ((obj: View, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-data-get", callback: ((obj: View, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-data-received", callback: ((obj: View, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "drag-drop", callback: ((obj: View, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "drag-end", callback: ((obj: View, context: Gdk.DragContext) => void)): void
+    connect(sigName: "drag-failed", callback: ((obj: View, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): void
+    connect(sigName: "drag-leave", callback: ((obj: View, context: Gdk.DragContext, time: number) => void)): void
+    connect(sigName: "drag-motion", callback: ((obj: View, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): void
+    connect(sigName: "draw", callback: ((obj: View, cr: cairo.Context) => boolean)): void
+    connect(sigName: "enter-notify-event", callback: ((obj: View, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "event", callback: ((obj: View, event: Gdk.Event) => boolean)): void
+    connect(sigName: "event-after", callback: ((obj: View, event: Gdk.Event) => void)): void
+    connect(sigName: "focus", callback: ((obj: View, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "focus-in-event", callback: ((obj: View, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "focus-out-event", callback: ((obj: View, event: Gdk.EventFocus) => boolean)): void
+    connect(sigName: "grab-broken-event", callback: ((obj: View, event: Gdk.EventGrabBroken) => boolean)): void
+    connect(sigName: "grab-focus", callback: ((obj: View) => void)): void
+    connect(sigName: "grab-notify", callback: ((obj: View, was_grabbed: boolean) => void)): void
+    connect(sigName: "hide", callback: ((obj: View) => void)): void
+    connect(sigName: "hierarchy-changed", callback: ((obj: View, previous_toplevel?: Gtk.Widget | null) => void)): void
+    connect(sigName: "key-press-event", callback: ((obj: View, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "key-release-event", callback: ((obj: View, event: Gdk.EventKey) => boolean)): void
+    connect(sigName: "keynav-failed", callback: ((obj: View, direction: Gtk.DirectionType) => boolean)): void
+    connect(sigName: "leave-notify-event", callback: ((obj: View, event: Gdk.EventCrossing) => boolean)): void
+    connect(sigName: "map", callback: ((obj: View) => void)): void
+    connect(sigName: "map-event", callback: ((obj: View, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "mnemonic-activate", callback: ((obj: View, group_cycling: boolean) => boolean)): void
+    connect(sigName: "motion-notify-event", callback: ((obj: View, event: Gdk.EventMotion) => boolean)): void
+    connect(sigName: "move-focus", callback: ((obj: View, direction: Gtk.DirectionType) => void)): void
+    connect(sigName: "parent-set", callback: ((obj: View, old_parent?: Gtk.Widget | null) => void)): void
+    connect(sigName: "popup-menu", callback: ((obj: View) => boolean)): void
+    connect(sigName: "property-notify-event", callback: ((obj: View, event: Gdk.EventProperty) => boolean)): void
+    connect(sigName: "proximity-in-event", callback: ((obj: View, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "proximity-out-event", callback: ((obj: View, event: Gdk.EventProximity) => boolean)): void
+    connect(sigName: "query-tooltip", callback: ((obj: View, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): void
+    connect(sigName: "realize", callback: ((obj: View) => void)): void
+    connect(sigName: "screen-changed", callback: ((obj: View, previous_screen?: Gdk.Screen | null) => void)): void
+    connect(sigName: "scroll-event", callback: ((obj: View, event: Gdk.EventScroll) => boolean)): void
+    connect(sigName: "selection-clear-event", callback: ((obj: View, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-get", callback: ((obj: View, data: Gtk.SelectionData, info: number, time: number) => void)): void
+    connect(sigName: "selection-notify-event", callback: ((obj: View, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "selection-received", callback: ((obj: View, data: Gtk.SelectionData, time: number) => void)): void
+    connect(sigName: "selection-request-event", callback: ((obj: View, event: Gdk.EventSelection) => boolean)): void
+    connect(sigName: "show", callback: ((obj: View) => void)): void
+    connect(sigName: "show-help", callback: ((obj: View, help_type: Gtk.WidgetHelpType) => boolean)): void
+    connect(sigName: "size-allocate", callback: ((obj: View, allocation: Gtk.Allocation) => void)): void
+    connect(sigName: "state-changed", callback: ((obj: View, state: Gtk.StateType) => void)): void
+    connect(sigName: "state-flags-changed", callback: ((obj: View, flags: Gtk.StateFlags) => void)): void
+    connect(sigName: "style-set", callback: ((obj: View, previous_style?: Gtk.Style | null) => void)): void
+    connect(sigName: "style-updated", callback: ((obj: View) => void)): void
+    connect(sigName: "touch-event", callback: ((obj: View, object: Gdk.Event) => boolean)): void
+    connect(sigName: "unmap", callback: ((obj: View) => void)): void
+    connect(sigName: "unmap-event", callback: ((obj: View, event: Gdk.EventAny) => boolean)): void
+    connect(sigName: "unrealize", callback: ((obj: View) => void)): void
+    connect(sigName: "visibility-notify-event", callback: ((obj: View, event: Gdk.EventVisibility) => boolean)): void
+    connect(sigName: "window-state-event", callback: ((obj: View, event: Gdk.EventWindowState) => boolean)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::auto-indent", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::background-pattern", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::completion", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::draw-spaces", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::highlight-current-line", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::indent-on-tab", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::indent-width", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::insert-spaces-instead-of-tabs", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::right-margin-position", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::show-line-marks", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::show-line-numbers", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::show-right-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::smart-backspace", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::smart-home-end", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::space-drawer", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tab-width", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accepts-tab", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::bottom-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::buffer", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::cursor-visible", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::editable", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::im-module", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::indent", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-hints", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-purpose", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::justification", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::left-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::monospace", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::overwrite", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-above-lines", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-below-lines", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::pixels-inside-wrap", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::populate-all", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::right-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tabs", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::top-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::wrap-mode", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::border-width", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::child", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resize-mode", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::app-paintable", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-default", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::can-focus", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::composite-child", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::double-buffered", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::events", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::expand", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::focus-on-click", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::halign", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-default", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-focus", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::has-tooltip", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::height-request", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hexpand-set", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::is-focus", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-bottom", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-end", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-left", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-right", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-start", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::margin-top", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::name", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::no-show-all", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::opacity", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::parent", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::receives-default", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scale-factor", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::sensitive", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::style", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-markup", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tooltip-text", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::valign", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vexpand-set", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::visible", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::width-request", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::window", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hadjustment", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::hscroll-policy", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vadjustment", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::vscroll-policy", callback: ((obj: View, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::auto-indent", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::background-pattern", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::completion", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::draw-spaces", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::highlight-current-line", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::indent-on-tab", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::indent-width", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::insert-spaces-instead-of-tabs", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::right-margin-position", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::show-line-marks", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::show-line-numbers", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::show-right-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::smart-backspace", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::smart-home-end", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::space-drawer", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tab-width", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accepts-tab", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::bottom-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::buffer", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::cursor-visible", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::editable", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::im-module", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::indent", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::input-hints", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::input-purpose", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::justification", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::left-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::monospace", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::overwrite", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-above-lines", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-below-lines", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::pixels-inside-wrap", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::populate-all", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::right-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tabs", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::top-margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::wrap-mode", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::border-width", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::child", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::resize-mode", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::app-paintable", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-default", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::can-focus", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::composite-child", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::double-buffered", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::events", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::expand", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::focus-on-click", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::halign", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-default", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-focus", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::has-tooltip", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::height-request", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hexpand-set", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::is-focus", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-bottom", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-end", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-left", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-right", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-start", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::margin-top", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::name", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::no-show-all", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::opacity", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::parent", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::receives-default", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scale-factor", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::sensitive", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::style", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-markup", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tooltip-text", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::valign", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vexpand-set", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::visible", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::width-request", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::window", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hadjustment", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::hscroll-policy", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vadjustment", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::vscroll-policy", callback: ((obj: View, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: View_ConstructProps)
     static new(): View

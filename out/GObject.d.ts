@@ -369,8 +369,8 @@ export class Binding {
     vfunc_notify?(pspec: ParamSpec): void
     vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Binding, pspec: ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Binding, pspec: ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Binding_ConstructProps)
 }
@@ -413,8 +413,8 @@ export class InitiallyUnowned {
     vfunc_notify?(pspec: ParamSpec): void
     vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: InitiallyUnowned, pspec: ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: InitiallyUnowned, pspec: ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: InitiallyUnowned_ConstructProps)
 }
@@ -456,8 +456,8 @@ export class Object {
     vfunc_notify?(pspec: ParamSpec): void
     vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Object, pspec: ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Object, pspec: ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Object_ConstructProps)
     static new(object_type: number, names: string[], values: Value[]): Object
@@ -1219,8 +1219,8 @@ export class TypeModule {
     vfunc_notify?(pspec: ParamSpec): void
     vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: TypeModule, pspec: ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: TypeModule, pspec: ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: TypeModule_ConstructProps)
 }

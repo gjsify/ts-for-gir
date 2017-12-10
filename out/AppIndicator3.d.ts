@@ -61,7 +61,7 @@ export class Indicator {
     status:string
     title:string
     /* Fields of AppIndicator3.Indicator */
-    parent: any
+    parent:GObject.Object
     priv:IndicatorPrivate
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
@@ -134,27 +134,27 @@ export class Indicator {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of AppIndicator3.Indicator */
-    connect(sigName: "connection-changed", callback: ((obj: Indicator, arg1: boolean) => void))
-    connect(sigName: "new-attention-icon", callback: ((obj: Indicator) => void))
-    connect(sigName: "new-icon", callback: ((obj: Indicator) => void))
-    connect(sigName: "new-icon-theme-path", callback: ((obj: Indicator, object: string) => void))
-    connect(sigName: "new-label", callback: ((obj: Indicator, object: string, p0: string) => void))
-    connect(sigName: "new-status", callback: ((obj: Indicator, arg1: string) => void))
-    connect(sigName: "scroll-event", callback: ((obj: Indicator, arg1: number, arg2: Gdk.ScrollDirection) => void))
+    connect(sigName: "connection-changed", callback: ((obj: Indicator, arg1: boolean) => void)): void
+    connect(sigName: "new-attention-icon", callback: ((obj: Indicator) => void)): void
+    connect(sigName: "new-icon", callback: ((obj: Indicator) => void)): void
+    connect(sigName: "new-icon-theme-path", callback: ((obj: Indicator, object: string) => void)): void
+    connect(sigName: "new-label", callback: ((obj: Indicator, object: string, p0: string) => void)): void
+    connect(sigName: "new-status", callback: ((obj: Indicator, arg1: string) => void)): void
+    connect(sigName: "scroll-event", callback: ((obj: Indicator, arg1: number, arg2: Gdk.ScrollDirection) => void)): void
     /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::attention-icon-desc", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::attention-icon-name", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::connected", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-desc", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-name", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::icon-theme-path", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::label", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::label-guide", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::ordering-index", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::status", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::title", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "notify", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::attention-icon-desc", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::attention-icon-name", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::connected", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-desc", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-name", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::icon-theme-path", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::label", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::label-guide", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::ordering-index", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::status", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::title", callback: ((obj: Indicator, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Indicator_ConstructProps)
     static new(id: string, icon_name: string, category: IndicatorCategory): Indicator

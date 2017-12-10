@@ -401,7 +401,7 @@ export class Component {
     vfunc_set_position?(x: number, y: number, coord_type: CoordType): boolean
     vfunc_set_size?(width: number, height: number): boolean
     /* Signals of Atk.Component */
-    connect(sigName: "bounds-changed", callback: ((obj: Component, arg1: Rectangle) => void))
+    connect(sigName: "bounds-changed", callback: ((obj: Component, arg1: Rectangle) => void)): void
     static name: string
 }
 export class Document {
@@ -423,10 +423,10 @@ export class Document {
     vfunc_get_page_count?(): number
     vfunc_set_document_attribute?(attribute_name: string, attribute_value: string): boolean
     /* Signals of Atk.Document */
-    connect(sigName: "load-complete", callback: ((obj: Document) => void))
-    connect(sigName: "load-stopped", callback: ((obj: Document) => void))
-    connect(sigName: "page-changed", callback: ((obj: Document, page_number: number) => void))
-    connect(sigName: "reload", callback: ((obj: Document) => void))
+    connect(sigName: "load-complete", callback: ((obj: Document) => void)): void
+    connect(sigName: "load-stopped", callback: ((obj: Document) => void)): void
+    connect(sigName: "page-changed", callback: ((obj: Document, page_number: number) => void)): void
+    connect(sigName: "reload", callback: ((obj: Document) => void)): void
     static name: string
 }
 export class EditableText {
@@ -466,7 +466,7 @@ export class Hypertext {
     vfunc_get_n_links?(): number
     vfunc_link_selected?(link_index: number): void
     /* Signals of Atk.Hypertext */
-    connect(sigName: "link-selected", callback: ((obj: Hypertext, arg1: number) => void))
+    connect(sigName: "link-selected", callback: ((obj: Hypertext, arg1: number) => void)): void
     static name: string
 }
 export class Image {
@@ -506,7 +506,7 @@ export class Selection {
     vfunc_select_all_selection?(): boolean
     vfunc_selection_changed?(): void
     /* Signals of Atk.Selection */
-    connect(sigName: "selection-changed", callback: ((obj: Selection) => void))
+    connect(sigName: "selection-changed", callback: ((obj: Selection) => void)): void
     static name: string
 }
 export class StreamableContent {
@@ -591,13 +591,13 @@ export class Table {
     vfunc_set_row_header?(row: number, header: Object): void
     vfunc_set_summary?(accessible: Object): void
     /* Signals of Atk.Table */
-    connect(sigName: "column-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void))
-    connect(sigName: "column-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void))
-    connect(sigName: "column-reordered", callback: ((obj: Table) => void))
-    connect(sigName: "model-changed", callback: ((obj: Table) => void))
-    connect(sigName: "row-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void))
-    connect(sigName: "row-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void))
-    connect(sigName: "row-reordered", callback: ((obj: Table) => void))
+    connect(sigName: "column-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void)): void
+    connect(sigName: "column-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void)): void
+    connect(sigName: "column-reordered", callback: ((obj: Table) => void)): void
+    connect(sigName: "model-changed", callback: ((obj: Table) => void)): void
+    connect(sigName: "row-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void)): void
+    connect(sigName: "row-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void)): void
+    connect(sigName: "row-reordered", callback: ((obj: Table) => void)): void
     static name: string
 }
 export class TableCell {
@@ -667,12 +667,12 @@ export class Text {
     vfunc_text_changed?(position: number, length: number): void
     vfunc_text_selection_changed?(): void
     /* Signals of Atk.Text */
-    connect(sigName: "text-attributes-changed", callback: ((obj: Text) => void))
-    connect(sigName: "text-caret-moved", callback: ((obj: Text, arg1: number) => void))
-    connect(sigName: "text-changed", callback: ((obj: Text, arg1: number, arg2: number) => void))
-    connect(sigName: "text-insert", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void))
-    connect(sigName: "text-remove", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void))
-    connect(sigName: "text-selection-changed", callback: ((obj: Text) => void))
+    connect(sigName: "text-attributes-changed", callback: ((obj: Text) => void)): void
+    connect(sigName: "text-caret-moved", callback: ((obj: Text, arg1: number) => void)): void
+    connect(sigName: "text-changed", callback: ((obj: Text, arg1: number, arg2: number) => void)): void
+    connect(sigName: "text-insert", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void)): void
+    connect(sigName: "text-remove", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void)): void
+    connect(sigName: "text-selection-changed", callback: ((obj: Text) => void)): void
     static name: string
     static free_ranges(ranges: TextRange[]): void
 }
@@ -700,29 +700,101 @@ export class Value {
     vfunc_set_current_value?(value: any): boolean
     vfunc_set_value?(new_value: number): void
     /* Signals of Atk.Value */
-    connect(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void))
+    connect(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void)): void
     static name: string
 }
 export class Window {
     /* Signals of Atk.Window */
-    connect(sigName: "activate", callback: ((obj: Window) => void))
-    connect(sigName: "create", callback: ((obj: Window) => void))
-    connect(sigName: "deactivate", callback: ((obj: Window) => void))
-    connect(sigName: "destroy", callback: ((obj: Window) => void))
-    connect(sigName: "maximize", callback: ((obj: Window) => void))
-    connect(sigName: "minimize", callback: ((obj: Window) => void))
-    connect(sigName: "move", callback: ((obj: Window) => void))
-    connect(sigName: "resize", callback: ((obj: Window) => void))
-    connect(sigName: "restore", callback: ((obj: Window) => void))
+    connect(sigName: "activate", callback: ((obj: Window) => void)): void
+    connect(sigName: "create", callback: ((obj: Window) => void)): void
+    connect(sigName: "deactivate", callback: ((obj: Window) => void)): void
+    connect(sigName: "destroy", callback: ((obj: Window) => void)): void
+    connect(sigName: "maximize", callback: ((obj: Window) => void)): void
+    connect(sigName: "minimize", callback: ((obj: Window) => void)): void
+    connect(sigName: "move", callback: ((obj: Window) => void)): void
+    connect(sigName: "resize", callback: ((obj: Window) => void)): void
+    connect(sigName: "restore", callback: ((obj: Window) => void)): void
     static name: string
 }
 export interface GObjectAccessible_ConstructProps extends Object_ConstructProps {
 }
-export class GObjectAccessible extends Object {
+export class GObjectAccessible {
+    /* Properties of Atk.Object */
+    readonly accessible_component_layer:number
+    readonly accessible_component_mdi_zorder:number
+    accessible_description:string
+    readonly accessible_hypertext_nlinks:number
+    accessible_name:string
+    accessible_parent:Object
+    accessible_role:number
+    accessible_table_caption:string
+    accessible_table_caption_object:Object
+    accessible_table_column_description:string
+    accessible_table_column_header:Object
+    accessible_table_row_description:string
+    accessible_table_row_header:Object
+    accessible_table_summary:Object
+    accessible_value:number
     /* Fields of Atk.GObjectAccessible */
-    parent: any
+    parent:Object
+    /* Fields of Atk.Object */
+    description:string
+    name:string
+    role:Role
+    relation_set:RelationSet
+    layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.GObjectAccessible */
     get_object(): GObject.Object
+    /* Methods of Atk.Object */
+    add_relationship(relationship: RelationType, target: Object): boolean
+    get_attributes(): AttributeSet
+    nullget_description(): string | null
+    get_index_in_parent(): number
+    get_layer(): Layer
+    get_mdi_zorder(): number
+    get_n_accessible_children(): number
+    nullget_name(): string | null
+    get_object_locale(): string
+    get_parent(): Object
+    get_role(): Role
+    initialize(data?: object | null): void
+    notify_state_change(state: State, value: boolean): void
+    peek_parent(): Object
+    ref_accessible_child(i: number): Object
+    ref_relation_set(): RelationSet
+    ref_state_set(): StateSet
+    remove_property_change_handler(handler_id: number): void
+    remove_relationship(relationship: RelationType, target: Object): boolean
+    nullset_description(description: string): boolean | null
+    set_name(name: string): void
+    set_parent(parent: Object): void
+    set_role(role: Role): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.Object */
     vfunc_active_descendant_changed?(child?: object | null): void
     vfunc_children_changed?(change_index: number, changed_child?: object | null): void
@@ -756,22 +828,47 @@ export class GObjectAccessible extends Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of Atk.Object */
+    connect(sigName: "active-descendant-changed", callback: ((obj: GObjectAccessible, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: GObjectAccessible, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: GObjectAccessible, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: GObjectAccessible, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: GObjectAccessible, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: GObjectAccessible) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: GObjectAccessible_ConstructProps): GObjectAccessible
     constructor (config?: GObjectAccessible_ConstructProps)
     static for_object(obj: GObject.Object): Object
 }
 export interface Hyperlink_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Hyperlink extends GObject.Object {
+export class Hyperlink {
     /* Properties of Atk.Hyperlink */
     readonly end_index:number
     readonly number_of_anchors:number
     readonly selected_link:boolean
     readonly start_index:number
     /* Fields of Atk.Hyperlink */
-    parent: any
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.Hyperlink */
     get_end_index(): number
     get_n_anchors(): number
@@ -781,6 +878,30 @@ export class Hyperlink extends GObject.Object {
     is_inline(): boolean
     is_selected_link(): boolean
     is_valid(): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Methods of Atk.Action */
     do_action(i: number): boolean
     get_description(i: number): string | null
@@ -808,24 +929,51 @@ export class Hyperlink extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Hyperlink */
-    connect(sigName: "link-activated", callback: ((obj: Hyperlink) => void))
-    connect(sigName: "notify::end-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::number-of-anchors", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::selected-link", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::start-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "link-activated", callback: ((obj: Hyperlink) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::end-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::number-of-anchors", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::selected-link", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::start-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Hyperlink_ConstructProps): Hyperlink
     constructor (config?: Hyperlink_ConstructProps)
 }
 export interface Misc_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Misc extends GObject.Object {
+export class Misc {
     /* Fields of Atk.Misc */
-    parent: any
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.Misc */
     threads_enter(): void
     threads_leave(): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.Misc */
     vfunc_threads_enter?(): void
     vfunc_threads_leave?(): void
@@ -837,31 +985,99 @@ export class Misc extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Misc, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Misc_ConstructProps): Misc
     constructor (config?: Misc_ConstructProps)
     static get_instance(): Misc
 }
 export interface NoOpObject_ConstructProps extends Object_ConstructProps {
 }
-export class NoOpObject extends Object {
+export class NoOpObject {
+    /* Properties of Atk.Object */
+    readonly accessible_component_layer:number
+    readonly accessible_component_mdi_zorder:number
+    accessible_description:string
+    readonly accessible_hypertext_nlinks:number
+    accessible_name:string
+    accessible_parent:Object
+    accessible_role:number
+    accessible_table_caption:string
+    accessible_table_caption_object:Object
+    accessible_table_column_description:string
+    accessible_table_column_header:Object
+    accessible_table_row_description:string
+    accessible_table_row_header:Object
+    accessible_table_summary:Object
+    accessible_value:number
     /* Fields of Atk.NoOpObject */
-    parent: any
+    parent:Object
+    /* Fields of Atk.Object */
+    description:string
+    name:string
+    role:Role
+    relation_set:RelationSet
+    layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    /* Methods of Atk.Object */
+    add_relationship(relationship: RelationType, target: Object): boolean
+    get_attributes(): AttributeSet
+    nullget_description(): string | null
+    get_index_in_parent(): number
+    get_layer(): Layer
+    get_mdi_zorder(): number
+    get_n_accessible_children(): number
+    nullget_name(): string | null
+    get_object_locale(): string
+    get_parent(): Object
+    get_role(): Role
+    initialize(data?: object | null): void
+    notify_state_change(state: State, value: boolean): void
+    peek_parent(): Object
+    ref_accessible_child(i: number): Object
+    ref_relation_set(): RelationSet
+    ref_state_set(): StateSet
+    remove_property_change_handler(handler_id: number): void
+    remove_relationship(relationship: RelationType, target: Object): boolean
+    nullset_description(description: string): boolean | null
+    set_name(name: string): void
+    set_parent(parent: Object): void
+    set_role(role: Role): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Methods of Atk.Action */
     do_action(i: number): boolean
-    get_description(i: number): string | null
     get_keybinding(i: number): string | null
     get_localized_name(i: number): string | null
     get_n_actions(): number
-    get_name(i: number): string | null
-    set_description(i: number, desc: string): boolean
     /* Methods of Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    get_layer(): Layer
-    get_mdi_zorder(): number
     get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
     get_size(): [ /* width */ number | null, /* height */ number | null ]
     grab_focus(): boolean
@@ -872,7 +1088,6 @@ export class NoOpObject extends Object {
     set_size(width: number, height: number): boolean
     /* Methods of Atk.Document */
     get_attribute_value(attribute_name: string): string | null
-    get_attributes(): AttributeSet
     get_current_page_number(): number
     get_document(): object | null
     get_document_type(): string
@@ -1005,54 +1220,109 @@ export class NoOpObject extends Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of Atk.Object */
+    connect(sigName: "active-descendant-changed", callback: ((obj: NoOpObject, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: NoOpObject, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: NoOpObject, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: NoOpObject, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: NoOpObject, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: NoOpObject) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
     /* Signals of Atk.Component */
-    connect(sigName: "bounds-changed", callback: ((obj: NoOpObject, arg1: Rectangle) => void))
+    connect(sigName: "bounds-changed", callback: ((obj: NoOpObject, arg1: Rectangle) => void)): void
     /* Signals of Atk.Document */
-    connect(sigName: "load-complete", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "load-stopped", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "page-changed", callback: ((obj: NoOpObject, page_number: number) => void))
-    connect(sigName: "reload", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "load-complete", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "load-stopped", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "page-changed", callback: ((obj: NoOpObject, page_number: number) => void)): void
+    connect(sigName: "reload", callback: ((obj: NoOpObject) => void)): void
     /* Signals of Atk.Hypertext */
-    connect(sigName: "link-selected", callback: ((obj: NoOpObject, arg1: number) => void))
+    connect(sigName: "link-selected", callback: ((obj: NoOpObject, arg1: number) => void)): void
     /* Signals of Atk.Selection */
-    connect(sigName: "selection-changed", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "selection-changed", callback: ((obj: NoOpObject) => void)): void
     /* Signals of Atk.Table */
-    connect(sigName: "column-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "column-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "column-reordered", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "model-changed", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "row-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "row-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "row-reordered", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "column-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "column-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "column-reordered", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "model-changed", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "row-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "row-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "row-reordered", callback: ((obj: NoOpObject) => void)): void
     /* Signals of Atk.Text */
-    connect(sigName: "text-attributes-changed", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "text-caret-moved", callback: ((obj: NoOpObject, arg1: number) => void))
-    connect(sigName: "text-changed", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void))
-    connect(sigName: "text-insert", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void))
-    connect(sigName: "text-remove", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void))
-    connect(sigName: "text-selection-changed", callback: ((obj: NoOpObject) => void))
+    connect(sigName: "text-attributes-changed", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "text-caret-moved", callback: ((obj: NoOpObject, arg1: number) => void)): void
+    connect(sigName: "text-changed", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): void
+    connect(sigName: "text-insert", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): void
+    connect(sigName: "text-remove", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): void
+    connect(sigName: "text-selection-changed", callback: ((obj: NoOpObject) => void)): void
     /* Signals of Atk.Value */
-    connect(sigName: "value-changed", callback: ((obj: NoOpObject, value: number, text: string) => void))
+    connect(sigName: "value-changed", callback: ((obj: NoOpObject, value: number, text: string) => void)): void
     /* Signals of Atk.Window */
-    connect(sigName: "activate", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "create", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "deactivate", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "destroy", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "maximize", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "minimize", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "move", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "resize", callback: ((obj: NoOpObject) => void))
-    connect(sigName: "restore", callback: ((obj: NoOpObject) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "activate", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "create", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "deactivate", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "destroy", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "maximize", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "minimize", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "move", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "resize", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "restore", callback: ((obj: NoOpObject) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: NoOpObject_ConstructProps): NoOpObject
     constructor (config?: NoOpObject_ConstructProps)
+    static new(obj: GObject.Object): NoOpObject
 }
 export interface NoOpObjectFactory_ConstructProps extends ObjectFactory_ConstructProps {
 }
-export class NoOpObjectFactory extends ObjectFactory {
+export class NoOpObjectFactory {
     /* Fields of Atk.NoOpObjectFactory */
-    parent: any
+    parent:ObjectFactory
+    /* Fields of Atk.ObjectFactory */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    /* Methods of Atk.ObjectFactory */
+    create_accessible(obj: GObject.Object): Object
+    get_accessible_type(): number
+    invalidate(): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.ObjectFactory */
     vfunc_invalidate?(): void
     /* Virtual methods of GObject.Object */
@@ -1063,10 +1333,12 @@ export class NoOpObjectFactory extends ObjectFactory {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: NoOpObjectFactory_ConstructProps): NoOpObjectFactory
     constructor (config?: NoOpObjectFactory_ConstructProps)
+    static new(): NoOpObjectFactory
 }
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     accessible_description?:string
@@ -1082,7 +1354,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
     accessible_table_summary?:Object
     accessible_value?:number
 }
-export class Object extends GObject.Object {
+export class Object {
     /* Properties of Atk.Object */
     readonly accessible_component_layer:number
     readonly accessible_component_mdi_zorder:number
@@ -1100,12 +1372,14 @@ export class Object extends GObject.Object {
     accessible_table_summary:Object
     accessible_value:number
     /* Fields of Atk.Object */
-    parent: any
+    parent:GObject.Object
     description:string
     name:string
     role:Role
     relation_set:RelationSet
     layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.Object */
     add_relationship(relationship: RelationType, target: Object): boolean
     get_attributes(): AttributeSet
@@ -1130,6 +1404,30 @@ export class Object extends GObject.Object {
     set_name(name: string): void
     set_parent(parent: Object): void
     set_role(role: Role): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.Object */
     vfunc_active_descendant_changed?(child?: object | null): void
     vfunc_children_changed?(change_index: number, changed_child?: object | null): void
@@ -1164,41 +1462,68 @@ export class Object extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: Object, arg1?: object | null) => void))
-    connect(sigName: "children-changed", callback: ((obj: Object, arg1: number, arg2?: object | null) => void))
-    connect(sigName: "focus-event", callback: ((obj: Object, arg1: boolean) => void))
-    connect(sigName: "property-change", callback: ((obj: Object, arg1?: object | null) => void))
-    connect(sigName: "state-change", callback: ((obj: Object, arg1: string, arg2: boolean) => void))
-    connect(sigName: "visible-data-changed", callback: ((obj: Object) => void))
-    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-name", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-parent", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-role", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::accessible-value", callback: ((obj: Object, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "active-descendant-changed", callback: ((obj: Object, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: Object, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: Object, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: Object, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: Object, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: Object) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Object_ConstructProps): Object
     constructor (config?: Object_ConstructProps)
 }
 export interface ObjectFactory_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class ObjectFactory extends GObject.Object {
+export class ObjectFactory {
     /* Fields of Atk.ObjectFactory */
-    parent: any
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.ObjectFactory */
     create_accessible(obj: GObject.Object): Object
     get_accessible_type(): number
     invalidate(): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.ObjectFactory */
     vfunc_invalidate?(): void
     /* Virtual methods of GObject.Object */
@@ -1209,24 +1534,95 @@ export class ObjectFactory extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: ObjectFactory_ConstructProps): ObjectFactory
     constructor (config?: ObjectFactory_ConstructProps)
 }
 export interface Plug_ConstructProps extends Object_ConstructProps {
 }
-export class Plug extends Object {
+export class Plug {
+    /* Properties of Atk.Object */
+    readonly accessible_component_layer:number
+    readonly accessible_component_mdi_zorder:number
+    accessible_description:string
+    readonly accessible_hypertext_nlinks:number
+    accessible_name:string
+    accessible_parent:Object
+    accessible_role:number
+    accessible_table_caption:string
+    accessible_table_caption_object:Object
+    accessible_table_column_description:string
+    accessible_table_column_header:Object
+    accessible_table_row_description:string
+    accessible_table_row_header:Object
+    accessible_table_summary:Object
+    accessible_value:number
     /* Fields of Atk.Plug */
-    parent: any
+    parent:Object
+    /* Fields of Atk.Object */
+    description:string
+    name:string
+    role:Role
+    relation_set:RelationSet
+    layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.Plug */
     get_id(): string
+    /* Methods of Atk.Object */
+    add_relationship(relationship: RelationType, target: Object): boolean
+    get_attributes(): AttributeSet
+    nullget_description(): string | null
+    get_index_in_parent(): number
+    get_layer(): Layer
+    get_mdi_zorder(): number
+    get_n_accessible_children(): number
+    nullget_name(): string | null
+    get_object_locale(): string
+    get_parent(): Object
+    get_role(): Role
+    initialize(data?: object | null): void
+    notify_state_change(state: State, value: boolean): void
+    peek_parent(): Object
+    ref_accessible_child(i: number): Object
+    ref_relation_set(): RelationSet
+    ref_state_set(): StateSet
+    remove_property_change_handler(handler_id: number): void
+    remove_relationship(relationship: RelationType, target: Object): boolean
+    nullset_description(description: string): boolean | null
+    set_name(name: string): void
+    set_parent(parent: Object): void
+    set_role(role: Role): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Methods of Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    get_layer(): Layer
-    get_mdi_zorder(): number
     get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
     get_size(): [ /* width */ number | null, /* height */ number | null ]
     grab_focus(): boolean
@@ -1270,24 +1666,74 @@ export class Plug extends Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of Atk.Object */
+    connect(sigName: "active-descendant-changed", callback: ((obj: Plug, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: Plug, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: Plug, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: Plug, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: Plug, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: Plug) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
     /* Signals of Atk.Component */
-    connect(sigName: "bounds-changed", callback: ((obj: Plug, arg1: Rectangle) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "bounds-changed", callback: ((obj: Plug, arg1: Rectangle) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Plug_ConstructProps): Plug
     constructor (config?: Plug_ConstructProps)
+    static new(): Plug
 }
 export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Registry extends GObject.Object {
+export class Registry {
     /* Fields of Atk.Registry */
-    parent: any
+    parent:GObject.Object
     factory_type_registry:GLib.HashTable
     factory_singleton_cache:GLib.HashTable
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.Registry */
     get_factory(type: number): ObjectFactory
     get_factory_type(type: number): number
     set_factory_type(type: number, factory_type: number): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1296,27 +1742,54 @@ export class Registry extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Registry, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Registry_ConstructProps): Registry
     constructor (config?: Registry_ConstructProps)
 }
 export interface Relation_ConstructProps extends GObject.Object_ConstructProps {
     relation_type?:RelationType
     target?:GObject.ValueArray
 }
-export class Relation extends GObject.Object {
+export class Relation {
     /* Properties of Atk.Relation */
     relation_type:RelationType
     target:GObject.ValueArray
     /* Fields of Atk.Relation */
-    parent: any
+    parent:GObject.Object
     relationship:RelationType
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.Relation */
     add_target(target: Object): void
     get_relation_type(): RelationType
     get_target(): Object[]
     remove_target(target: Object): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1325,19 +1798,23 @@ export class Relation extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::relation-type", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::target", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::relation-type", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::target", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Relation_ConstructProps): Relation
     constructor (config?: Relation_ConstructProps)
+    static new(targets: Object[], relationship: RelationType): Relation
 }
 export interface RelationSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class RelationSet extends GObject.Object {
+export class RelationSet {
     /* Fields of Atk.RelationSet */
-    parent: any
+    parent:GObject.Object
     relations:object[]
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.RelationSet */
     add(relation: Relation): void
     add_relation_by_type(relationship: RelationType, target: Object): void
@@ -1347,6 +1824,30 @@ export class RelationSet extends GObject.Object {
     get_relation(i: number): Relation
     get_relation_by_type(relationship: RelationType): Relation
     remove(relation: Relation): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1355,25 +1856,97 @@ export class RelationSet extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: RelationSet, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: RelationSet_ConstructProps): RelationSet
     constructor (config?: RelationSet_ConstructProps)
+    static new(): RelationSet
 }
 export interface Socket_ConstructProps extends Object_ConstructProps {
 }
-export class Socket extends Object {
+export class Socket {
+    /* Properties of Atk.Object */
+    readonly accessible_component_layer:number
+    readonly accessible_component_mdi_zorder:number
+    accessible_description:string
+    readonly accessible_hypertext_nlinks:number
+    accessible_name:string
+    accessible_parent:Object
+    accessible_role:number
+    accessible_table_caption:string
+    accessible_table_caption_object:Object
+    accessible_table_column_description:string
+    accessible_table_column_header:Object
+    accessible_table_row_description:string
+    accessible_table_row_header:Object
+    accessible_table_summary:Object
+    accessible_value:number
     /* Fields of Atk.Socket */
-    parent: any
+    parent:Object
+    /* Fields of Atk.Object */
+    description:string
+    name:string
+    role:Role
+    relation_set:RelationSet
+    layer:Layer
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.Socket */
     embed(plug_id: string): void
     is_occupied(): boolean
+    /* Methods of Atk.Object */
+    add_relationship(relationship: RelationType, target: Object): boolean
+    get_attributes(): AttributeSet
+    nullget_description(): string | null
+    get_index_in_parent(): number
+    get_layer(): Layer
+    get_mdi_zorder(): number
+    get_n_accessible_children(): number
+    nullget_name(): string | null
+    get_object_locale(): string
+    get_parent(): Object
+    get_role(): Role
+    initialize(data?: object | null): void
+    notify_state_change(state: State, value: boolean): void
+    peek_parent(): Object
+    ref_accessible_child(i: number): Object
+    ref_relation_set(): RelationSet
+    ref_state_set(): StateSet
+    remove_property_change_handler(handler_id: number): void
+    remove_relationship(relationship: RelationType, target: Object): boolean
+    nullset_description(description: string): boolean | null
+    set_name(name: string): void
+    set_parent(parent: Object): void
+    set_role(role: Role): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Methods of Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
     get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    get_layer(): Layer
-    get_mdi_zorder(): number
     get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
     get_size(): [ /* width */ number | null, /* height */ number | null ]
     grab_focus(): boolean
@@ -1417,18 +1990,44 @@ export class Socket extends Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of Atk.Object */
+    connect(sigName: "active-descendant-changed", callback: ((obj: Socket, arg1?: object | null) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: Socket, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "focus-event", callback: ((obj: Socket, arg1: boolean) => void)): void
+    connect(sigName: "property-change", callback: ((obj: Socket, arg1?: object | null) => void)): void
+    connect(sigName: "state-change", callback: ((obj: Socket, arg1: string, arg2: boolean) => void)): void
+    connect(sigName: "visible-data-changed", callback: ((obj: Socket) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
     /* Signals of Atk.Component */
-    connect(sigName: "bounds-changed", callback: ((obj: Socket, arg1: Rectangle) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "bounds-changed", callback: ((obj: Socket, arg1: Rectangle) => void)): void
+    connect(sigName: "notify::accessible-component-layer", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-name", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-parent", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-role", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-table-summary", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::accessible-value", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Socket_ConstructProps): Socket
     constructor (config?: Socket_ConstructProps)
+    static new(): Socket
 }
 export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class StateSet extends GObject.Object {
+export class StateSet {
     /* Fields of Atk.StateSet */
-    parent: any
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Atk.StateSet */
     add_state(type: StateType): boolean
     add_states(types: StateType[]): void
@@ -1440,6 +2039,30 @@ export class StateSet extends GObject.Object {
     or_sets(compare_set: StateSet): StateSet | null
     remove_state(type: StateType): boolean
     xor_sets(compare_set: StateSet): StateSet
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1448,16 +2071,44 @@ export class StateSet extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: StateSet, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: StateSet_ConstructProps): StateSet
     constructor (config?: StateSet_ConstructProps)
+    static new(): StateSet
 }
 export interface Util_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Util extends GObject.Object {
+export class Util {
     /* Fields of Atk.Util */
-    parent: any
+    parent:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1466,9 +2117,10 @@ export class Util extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Util, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Util_ConstructProps): Util
     constructor (config?: Util_ConstructProps)
 }
 export class Attribute {
@@ -1511,6 +2163,7 @@ export class Range {
     static name: string
     static new(lower_limit: number, upper_limit: number, description: string): Range
     constructor(lower_limit: number, upper_limit: number, description: string)
+    static new(lower_limit: number, upper_limit: number, description: string): Range
 }
 export class Rectangle {
     /* Fields of Atk.Rectangle */

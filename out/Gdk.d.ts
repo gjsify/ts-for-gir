@@ -2958,8 +2958,12 @@ export class DevicePad {
 export interface AppLaunchContext_ConstructProps extends Gio.AppLaunchContext_ConstructProps {
     display?:Display
 }
-export class AppLaunchContext extends Gio.AppLaunchContext {
+export class AppLaunchContext {
     /* Properties of Gdk.AppLaunchContext */
+    /* Fields of Gio.AppLaunchContext */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.AppLaunchContext */
     set_desktop(desktop: number): void
     set_display(display: Display): void
@@ -2967,6 +2971,37 @@ export class AppLaunchContext extends Gio.AppLaunchContext {
     set_icon_name(icon_name?: string | null): void
     set_screen(screen: Screen): void
     set_timestamp(timestamp: number): void
+    /* Methods of Gio.AppLaunchContext */
+    get_display(info: Gio.AppInfo, files: Gio.File[]): string
+    get_environment(): string[]
+    get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string
+    launch_failed(startup_notify_id: string): void
+    setenv(variable: string, value: string): void
+    unsetenv(variable: string): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio.AppLaunchContext */
     vfunc_get_display?(info: Gio.AppInfo, files: Gio.File[]): string
     vfunc_get_startup_notify_id?(info: Gio.AppInfo, files: Gio.File[]): string
@@ -2980,17 +3015,24 @@ export class AppLaunchContext extends Gio.AppLaunchContext {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of Gio.AppLaunchContext */
+    connect(sigName: "launch-failed", callback: ((obj: AppLaunchContext, startup_notify_id: string) => void)): void
+    connect(sigName: "launched", callback: ((obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: AppLaunchContext_ConstructProps): AppLaunchContext
     constructor (config?: AppLaunchContext_ConstructProps)
+    static new(): AppLaunchContext
 }
 export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
     cursor_type?:CursorType
     display?:Display
 }
-export class Cursor extends GObject.Object {
+export class Cursor {
     /* Properties of Gdk.Cursor */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Cursor */
     get_cursor_type(): CursorType
     get_display(): Display
@@ -2998,6 +3040,28 @@ export class Cursor extends GObject.Object {
     get_surface(): [ /* returnType */ cairo.Surface | null, /* x_hot */ number | null, /* y_hot */ number | null ]
     ref(): Cursor
     unref(): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3006,10 +3070,12 @@ export class Cursor extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Cursor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Cursor_ConstructProps): Cursor
     constructor (config?: Cursor_ConstructProps)
+    static new(cursor_type: CursorType): Cursor
     static new_for_display(display: Display, cursor_type: CursorType): Cursor
     static new_from_name(display: Display, name: string): Cursor | null
     static new_from_pixbuf(display: Display, pixbuf: GdkPixbuf.Pixbuf, x: number, y: number): Cursor
@@ -3028,7 +3094,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     type?:DeviceType
     vendor_id?:string
 }
-export class Device extends GObject.Object {
+export class Device {
     /* Properties of Gdk.Device */
     readonly associated_device:Device
     readonly axes:AxisFlags
@@ -3036,6 +3102,8 @@ export class Device extends GObject.Object {
     readonly n_axes:number
     seat:Seat
     readonly tool:DeviceTool
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Device */
     get_associated_device(): Device | null
     get_axes(): AxisFlags
@@ -3065,6 +3133,30 @@ export class Device extends GObject.Object {
     set_mode(mode: InputMode): boolean
     ungrab(time_: number): void
     warp(screen: Screen, x: number, y: number): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3074,29 +3166,56 @@ export class Device extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Device */
-    connect(sigName: "changed", callback: ((obj: Device) => void))
-    connect(sigName: "tool-changed", callback: ((obj: Device, tool: DeviceTool) => void))
-    connect(sigName: "notify::associated-device", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::input-mode", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::n-axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::seat", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::tool", callback: ((obj: Device, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "changed", callback: ((obj: Device) => void)): void
+    connect(sigName: "tool-changed", callback: ((obj: Device, tool: DeviceTool) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::associated-device", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::input-mode", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::n-axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::seat", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::tool", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Device_ConstructProps): Device
     constructor (config?: Device_ConstructProps)
     static grab_info_libgtk_only(display: Display, device: Device): [ /* returnType */ boolean, /* grab_window */ Window, /* owner_events */ boolean ]
 }
 export interface DeviceManager_ConstructProps extends GObject.Object_ConstructProps {
     display?:Display
 }
-export class DeviceManager extends GObject.Object {
+export class DeviceManager {
     /* Properties of Gdk.DeviceManager */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.DeviceManager */
     get_client_pointer(): Device
     get_display(): Display | null
     list_devices(type: DeviceType): Device[]
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3106,12 +3225,13 @@ export class DeviceManager extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.DeviceManager */
-    connect(sigName: "device-added", callback: ((obj: DeviceManager, device: Device) => void))
-    connect(sigName: "device-changed", callback: ((obj: DeviceManager, device: Device) => void))
-    connect(sigName: "device-removed", callback: ((obj: DeviceManager, device: Device) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "device-added", callback: ((obj: DeviceManager, device: Device) => void)): void
+    connect(sigName: "device-changed", callback: ((obj: DeviceManager, device: Device) => void)): void
+    connect(sigName: "device-removed", callback: ((obj: DeviceManager, device: Device) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: DeviceManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: DeviceManager_ConstructProps): DeviceManager
     constructor (config?: DeviceManager_ConstructProps)
 }
 export interface DeviceTool_ConstructProps extends GObject.Object_ConstructProps {
@@ -3120,12 +3240,38 @@ export interface DeviceTool_ConstructProps extends GObject.Object_ConstructProps
     serial?:number
     tool_type?:DeviceToolType
 }
-export class DeviceTool extends GObject.Object {
+export class DeviceTool {
     /* Properties of Gdk.DeviceTool */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.DeviceTool */
     get_hardware_id(): number
     get_serial(): number
     get_tool_type(): DeviceToolType
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3134,14 +3280,17 @@ export class DeviceTool extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: DeviceTool, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: DeviceTool_ConstructProps): DeviceTool
     constructor (config?: DeviceTool_ConstructProps)
 }
 export interface Display_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Display extends GObject.Object {
+export class Display {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Display */
     beep(): void
     close(): void
@@ -3188,6 +3337,30 @@ export class Display extends GObject.Object {
     supports_shapes(): boolean
     sync(): void
     warp_pointer(screen: Screen, x: number, y: number): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3197,15 +3370,16 @@ export class Display extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Display */
-    connect(sigName: "closed", callback: ((obj: Display, is_error: boolean) => void))
-    connect(sigName: "monitor-added", callback: ((obj: Display, monitor: Monitor) => void))
-    connect(sigName: "monitor-removed", callback: ((obj: Display, monitor: Monitor) => void))
-    connect(sigName: "opened", callback: ((obj: Display) => void))
-    connect(sigName: "seat-added", callback: ((obj: Display, seat: Seat) => void))
-    connect(sigName: "seat-removed", callback: ((obj: Display, seat: Seat) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "closed", callback: ((obj: Display, is_error: boolean) => void)): void
+    connect(sigName: "monitor-added", callback: ((obj: Display, monitor: Monitor) => void)): void
+    connect(sigName: "monitor-removed", callback: ((obj: Display, monitor: Monitor) => void)): void
+    connect(sigName: "opened", callback: ((obj: Display) => void)): void
+    connect(sigName: "seat-added", callback: ((obj: Display, seat: Seat) => void)): void
+    connect(sigName: "seat-removed", callback: ((obj: Display, seat: Seat) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Display, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Display_ConstructProps): Display
     constructor (config?: Display_ConstructProps)
     static get_default(): Display | null
     static open(display_name: string): Display | null
@@ -3214,14 +3388,40 @@ export class Display extends GObject.Object {
 export interface DisplayManager_ConstructProps extends GObject.Object_ConstructProps {
     default_display?:Display
 }
-export class DisplayManager extends GObject.Object {
+export class DisplayManager {
     /* Properties of Gdk.DisplayManager */
     default_display:Display
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.DisplayManager */
     get_default_display(): Display | null
     list_displays(): GLib.SList
     open_display(name: string): Display | null
     set_default_display(display: Display): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3231,17 +3431,20 @@ export class DisplayManager extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.DisplayManager */
-    connect(sigName: "display-opened", callback: ((obj: DisplayManager, display: Display) => void))
-    connect(sigName: "notify::default-display", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "display-opened", callback: ((obj: DisplayManager, display: Display) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::default-display", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: DisplayManager_ConstructProps): DisplayManager
     constructor (config?: DisplayManager_ConstructProps)
     static get(): DisplayManager
 }
 export interface DragContext_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class DragContext extends GObject.Object {
+export class DragContext {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.DragContext */
     get_actions(): DragAction
     get_dest_window(): Window
@@ -3255,6 +3458,30 @@ export class DragContext extends GObject.Object {
     manage_dnd(ipc_window: Window, actions: DragAction): boolean
     set_device(device: Device): void
     set_hotspot(hot_x: number, hot_y: number): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3264,26 +3491,53 @@ export class DragContext extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.DragContext */
-    connect(sigName: "action-changed", callback: ((obj: DragContext, action: DragAction) => void))
-    connect(sigName: "cancel", callback: ((obj: DragContext, reason: DragCancelReason) => void))
-    connect(sigName: "dnd-finished", callback: ((obj: DragContext) => void))
-    connect(sigName: "drop-performed", callback: ((obj: DragContext, time: number) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "action-changed", callback: ((obj: DragContext, action: DragAction) => void)): void
+    connect(sigName: "cancel", callback: ((obj: DragContext, reason: DragCancelReason) => void)): void
+    connect(sigName: "dnd-finished", callback: ((obj: DragContext) => void)): void
+    connect(sigName: "drop-performed", callback: ((obj: DragContext, time: number) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: DragContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: DragContext_ConstructProps): DragContext
     constructor (config?: DragContext_ConstructProps)
 }
 export interface DrawingContext_ConstructProps extends GObject.Object_ConstructProps {
     clip?:cairo.Region
     window?:Window
 }
-export class DrawingContext extends GObject.Object {
+export class DrawingContext {
     /* Properties of Gdk.DrawingContext */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.DrawingContext */
     get_cairo_context(): cairo.Context
     get_clip(): cairo.Region | null
     get_window(): Window
     is_valid(): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3292,14 +3546,17 @@ export class DrawingContext extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: DrawingContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: DrawingContext_ConstructProps): DrawingContext
     constructor (config?: DrawingContext_ConstructProps)
 }
 export interface FrameClock_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FrameClock extends GObject.Object {
+export class FrameClock {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.FrameClock */
     begin_updating(): void
     end_updating(): void
@@ -3310,6 +3567,30 @@ export class FrameClock extends GObject.Object {
     get_refresh_info(base_time: number, refresh_interval_return: number, presentation_time_return: number): void
     get_timings(frame_counter: number): FrameTimings | null
     request_phase(phase: FrameClockPhase): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3319,16 +3600,17 @@ export class FrameClock extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.FrameClock */
-    connect(sigName: "after-paint", callback: ((obj: FrameClock) => void))
-    connect(sigName: "before-paint", callback: ((obj: FrameClock) => void))
-    connect(sigName: "flush-events", callback: ((obj: FrameClock) => void))
-    connect(sigName: "layout", callback: ((obj: FrameClock) => void))
-    connect(sigName: "paint", callback: ((obj: FrameClock) => void))
-    connect(sigName: "resume-events", callback: ((obj: FrameClock) => void))
-    connect(sigName: "update", callback: ((obj: FrameClock) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "after-paint", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "before-paint", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "flush-events", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "layout", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "paint", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "resume-events", callback: ((obj: FrameClock) => void)): void
+    connect(sigName: "update", callback: ((obj: FrameClock) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: FrameClock, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: FrameClock_ConstructProps): FrameClock
     constructor (config?: FrameClock_ConstructProps)
 }
 export interface GLContext_ConstructProps extends GObject.Object_ConstructProps {
@@ -3336,8 +3618,10 @@ export interface GLContext_ConstructProps extends GObject.Object_ConstructProps 
     shared_context?:GLContext
     window?:Window
 }
-export class GLContext extends GObject.Object {
+export class GLContext {
     /* Properties of Gdk.GLContext */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.GLContext */
     get_debug_enabled(): boolean
     get_display(): Display | null
@@ -3354,6 +3638,30 @@ export class GLContext extends GObject.Object {
     set_forward_compatible(compatible: boolean): void
     set_required_version(major: number, minor: number): void
     set_use_es(use_es: number): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3362,16 +3670,19 @@ export class GLContext extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: GLContext, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: GLContext_ConstructProps): GLContext
     constructor (config?: GLContext_ConstructProps)
     static clear_current(): void
     static get_current(): GLContext | null
 }
 export interface Keymap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Keymap extends GObject.Object {
+export class Keymap {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Keymap */
     add_virtual_modifiers(state: ModifierType): void
     get_caps_lock_state(): boolean
@@ -3386,6 +3697,30 @@ export class Keymap extends GObject.Object {
     lookup_key(key: KeymapKey): number
     map_virtual_modifiers(state: ModifierType): boolean
     translate_keyboard_state(hardware_keycode: number, state: ModifierType, group: number): [ /* returnType */ boolean, /* keyval */ number | null, /* effective_group */ number | null, /* level */ number | null, /* consumed_modifiers */ ModifierType | null ]
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3395,12 +3730,13 @@ export class Keymap extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Keymap */
-    connect(sigName: "direction-changed", callback: ((obj: Keymap) => void))
-    connect(sigName: "keys-changed", callback: ((obj: Keymap) => void))
-    connect(sigName: "state-changed", callback: ((obj: Keymap) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "direction-changed", callback: ((obj: Keymap) => void)): void
+    connect(sigName: "keys-changed", callback: ((obj: Keymap) => void)): void
+    connect(sigName: "state-changed", callback: ((obj: Keymap) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Keymap, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Keymap_ConstructProps): Keymap
     constructor (config?: Keymap_ConstructProps)
     static get_default(): Keymap
     static get_for_display(display: Display): Keymap
@@ -3408,7 +3744,7 @@ export class Keymap extends GObject.Object {
 export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
     display?:Display
 }
-export class Monitor extends GObject.Object {
+export class Monitor {
     /* Properties of Gdk.Monitor */
     readonly geometry:Rectangle
     readonly height_mm:number
@@ -3419,6 +3755,8 @@ export class Monitor extends GObject.Object {
     readonly subpixel_layout:SubpixelLayout
     readonly width_mm:number
     readonly workarea:Rectangle
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Monitor */
     get_display(): Display
     get_geometry(): /* geometry */ Rectangle
@@ -3431,6 +3769,30 @@ export class Monitor extends GObject.Object {
     get_width_mm(): number
     get_workarea(): /* workarea */ Rectangle
     is_primary(): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3440,29 +3802,32 @@ export class Monitor extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Monitor */
-    connect(sigName: "invalidate", callback: ((obj: Monitor) => void))
-    connect(sigName: "notify::geometry", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::height-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::manufacturer", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::model", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::refresh-rate", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::scale-factor", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::subpixel-layout", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::width-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::workarea", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "invalidate", callback: ((obj: Monitor) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::geometry", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::height-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::manufacturer", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::model", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::refresh-rate", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::scale-factor", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::subpixel-layout", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::width-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::workarea", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Monitor_ConstructProps): Monitor
     constructor (config?: Monitor_ConstructProps)
 }
 export interface Screen_ConstructProps extends GObject.Object_ConstructProps {
     font_options?:object
     resolution?:number
 }
-export class Screen extends GObject.Object {
+export class Screen {
     /* Properties of Gdk.Screen */
     font_options:object
     resolution:number
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Screen */
     get_active_window(): Window | null
     get_display(): Display
@@ -3494,6 +3859,30 @@ export class Screen extends GObject.Object {
     make_display_name(): string
     set_font_options(options?: cairo.FontOptions | null): void
     set_resolution(dpi: number): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3503,14 +3892,15 @@ export class Screen extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Screen */
-    connect(sigName: "composited-changed", callback: ((obj: Screen) => void))
-    connect(sigName: "monitors-changed", callback: ((obj: Screen) => void))
-    connect(sigName: "size-changed", callback: ((obj: Screen) => void))
-    connect(sigName: "notify::font-options", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
-    connect(sigName: "notify::resolution", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "composited-changed", callback: ((obj: Screen) => void)): void
+    connect(sigName: "monitors-changed", callback: ((obj: Screen) => void)): void
+    connect(sigName: "size-changed", callback: ((obj: Screen) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::font-options", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::resolution", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Screen_ConstructProps): Screen
     constructor (config?: Screen_ConstructProps)
     static get_default(): Screen | null
     static height(): number
@@ -3521,10 +3911,12 @@ export class Screen extends GObject.Object {
 export interface Seat_ConstructProps extends GObject.Object_ConstructProps {
     display?:Display
 }
-export class Seat extends GObject.Object {
+export class Seat {
     /* Properties of Gdk.Seat */
     /* Fields of Gdk.Seat */
     parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Seat */
     get_capabilities(): SeatCapabilities
     get_display(): Display
@@ -3533,6 +3925,30 @@ export class Seat extends GObject.Object {
     get_slaves(capabilities: SeatCapabilities): Device[]
     grab(window: Window, capabilities: SeatCapabilities, owner_events: boolean, cursor?: Cursor | null, event?: Event | null, prepare_func?: SeatGrabPrepareFunc | null): GrabStatus
     ungrab(): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3542,18 +3958,21 @@ export class Seat extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Seat */
-    connect(sigName: "device-added", callback: ((obj: Seat, device: Device) => void))
-    connect(sigName: "device-removed", callback: ((obj: Seat, device: Device) => void))
-    connect(sigName: "tool-added", callback: ((obj: Seat, tool: DeviceTool) => void))
-    connect(sigName: "tool-removed", callback: ((obj: Seat, tool: DeviceTool) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "device-added", callback: ((obj: Seat, device: Device) => void)): void
+    connect(sigName: "device-removed", callback: ((obj: Seat, device: Device) => void)): void
+    connect(sigName: "tool-added", callback: ((obj: Seat, tool: DeviceTool) => void)): void
+    connect(sigName: "tool-removed", callback: ((obj: Seat, tool: DeviceTool) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Seat, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Seat_ConstructProps): Seat
     constructor (config?: Seat_ConstructProps)
 }
 export interface Visual_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Visual extends GObject.Object {
+export class Visual {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Visual */
     get_bits_per_rgb(): number
     get_blue_pixel_details(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
@@ -3564,6 +3983,30 @@ export class Visual extends GObject.Object {
     get_red_pixel_details(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
     get_screen(): Screen
     get_visual_type(): VisualType
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -3572,9 +4015,10 @@ export class Visual extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Visual, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Visual_ConstructProps): Visual
     constructor (config?: Visual_ConstructProps)
     static get_best(): Visual
     static get_best_depth(): number
@@ -3587,9 +4031,11 @@ export class Visual extends GObject.Object {
 export interface Window_ConstructProps extends GObject.Object_ConstructProps {
     cursor?:Cursor
 }
-export class Window extends GObject.Object {
+export class Window {
     /* Properties of Gdk.Window */
     cursor:Cursor
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Window */
     beep(): void
     begin_draw_frame(region: cairo.Region): DrawingContext
@@ -3744,6 +4190,30 @@ export class Window extends GObject.Object {
     unmaximize(): void
     unstick(): void
     withdraw(): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gdk.Window */
     vfunc_create_surface?(width: number, height: number): cairo.Surface
     vfunc_from_embedder?(embedder_x: number, embedder_y: number, offscreen_x: number, offscreen_y: number): void
@@ -3757,16 +4227,18 @@ export class Window extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Window */
-    connect(sigName: "create-surface", callback: ((obj: Window, width: number, height: number) => cairo.Surface))
-    connect(sigName: "from-embedder", callback: ((obj: Window, embedder_x: number, embedder_y: number) => void))
-    connect(sigName: "moved-to-rect", callback: ((obj: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void))
-    connect(sigName: "pick-embedded-child", callback: ((obj: Window, x: number, y: number) => Window | null))
-    connect(sigName: "to-embedder", callback: ((obj: Window, offscreen_x: number, offscreen_y: number) => void))
-    connect(sigName: "notify::cursor", callback: ((obj: Window, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "create-surface", callback: ((obj: Window, width: number, height: number) => cairo.Surface)): void
+    connect(sigName: "from-embedder", callback: ((obj: Window, embedder_x: number, embedder_y: number) => void)): void
+    connect(sigName: "moved-to-rect", callback: ((obj: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void)): void
+    connect(sigName: "pick-embedded-child", callback: ((obj: Window, x: number, y: number) => Window | null)): void
+    connect(sigName: "to-embedder", callback: ((obj: Window, offscreen_x: number, offscreen_y: number) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Window, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::cursor", callback: ((obj: Window, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Window_ConstructProps): Window
     constructor (config?: Window_ConstructProps)
+    static new(parent: Window | null, attributes: WindowAttr, attributes_mask: WindowAttributesType): Window
     static at_pointer(): [ /* returnType */ Window, /* win_x */ number | null, /* win_y */ number | null ]
     static constrain_size(geometry: Geometry, flags: WindowHints, width: number, height: number): [ /* new_width */ number, /* new_height */ number ]
     static process_all_updates(): void
@@ -4252,6 +4724,7 @@ export class Event {
     static name: string
     static new(type: EventType): Event
     constructor(type: EventType)
+    static new(type: EventType): Event
     static get(): Event | null
     static handler_set(func: EventFunc, notify: GLib.DestroyNotify): void
     static peek(): Event | null

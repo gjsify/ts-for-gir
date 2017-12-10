@@ -80,8 +80,10 @@ export interface Pixbuf_ConstructProps extends GObject.Object_ConstructProps {
     rowstride?:number
     width?:number
 }
-export class Pixbuf extends GObject.Object {
+export class Pixbuf {
     /* Properties of GdkPixbuf.Pixbuf */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of GdkPixbuf.Pixbuf */
     add_alpha(substitute_color: boolean, r: number, g: number, b: number): Pixbuf
     apply_embedded_orientation(): Pixbuf
@@ -118,6 +120,30 @@ export class Pixbuf extends GObject.Object {
     scale(dest: Pixbuf, dest_x: number, dest_y: number, dest_width: number, dest_height: number, offset_x: number, offset_y: number, scale_x: number, scale_y: number, interp_type: InterpType): void
     scale_simple(dest_width: number, dest_height: number, interp_type: InterpType): Pixbuf
     set_option(key: string, value: string): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Methods of Gio.Icon */
     equal(icon2?: Gio.Icon | null): boolean
     serialize(): GLib.Variant
@@ -134,10 +160,12 @@ export class Pixbuf extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Pixbuf, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: Pixbuf_ConstructProps): Pixbuf
     constructor (config?: Pixbuf_ConstructProps)
+    static new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
     static new_from_bytes(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
     static new_from_data(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn?: PixbufDestroyNotify | null): Pixbuf
     static new_from_file(filename: string): Pixbuf
@@ -162,13 +190,39 @@ export class Pixbuf extends GObject.Object {
 }
 export interface PixbufAnimation_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PixbufAnimation extends GObject.Object {
+export class PixbufAnimation {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of GdkPixbuf.PixbufAnimation */
     get_height(): number
     get_iter(start_time?: GLib.TimeVal | null): PixbufAnimationIter
     get_static_image(): Pixbuf
     get_width(): number
     is_static_image(): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -177,9 +231,10 @@ export class PixbufAnimation extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: PixbufAnimation, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: PixbufAnimation_ConstructProps): PixbufAnimation
     constructor (config?: PixbufAnimation_ConstructProps)
     static new_from_file(filename: string): PixbufAnimation
     static new_from_resource(resource_path: string): PixbufAnimation
@@ -189,12 +244,38 @@ export class PixbufAnimation extends GObject.Object {
 }
 export interface PixbufAnimationIter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PixbufAnimationIter extends GObject.Object {
+export class PixbufAnimationIter {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of GdkPixbuf.PixbufAnimationIter */
     advance(current_time?: GLib.TimeVal | null): boolean
     get_delay_time(): number
     get_pixbuf(): Pixbuf
     on_currently_loading_frame(): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -203,16 +284,19 @@ export class PixbufAnimationIter extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: PixbufAnimationIter_ConstructProps): PixbufAnimationIter
     constructor (config?: PixbufAnimationIter_ConstructProps)
 }
 export interface PixbufLoader_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class PixbufLoader extends GObject.Object {
+export class PixbufLoader {
     /* Fields of GdkPixbuf.PixbufLoader */
     parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of GdkPixbuf.PixbufLoader */
     close(): boolean
     get_animation(): PixbufAnimation
@@ -221,6 +305,30 @@ export class PixbufLoader extends GObject.Object {
     set_size(width: number, height: number): void
     write(buf: Gjs.byteArray.ByteArray): boolean
     write_bytes(buffer: Gjs.byteArray.ByteArray): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GdkPixbuf.PixbufLoader */
     vfunc_area_prepared?(): void
     vfunc_area_updated?(x: number, y: number, width: number, height: number): void
@@ -235,27 +343,61 @@ export class PixbufLoader extends GObject.Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of GdkPixbuf.PixbufLoader */
-    connect(sigName: "area-prepared", callback: ((obj: PixbufLoader) => void))
-    connect(sigName: "area-updated", callback: ((obj: PixbufLoader, x: number, y: number, width: number, height: number) => void))
-    connect(sigName: "closed", callback: ((obj: PixbufLoader) => void))
-    connect(sigName: "size-prepared", callback: ((obj: PixbufLoader, width: number, height: number) => void))
-    connect(sigName: string, callback: any)
+    connect(sigName: "area-prepared", callback: ((obj: PixbufLoader) => void)): void
+    connect(sigName: "area-updated", callback: ((obj: PixbufLoader, x: number, y: number, width: number, height: number) => void)): void
+    connect(sigName: "closed", callback: ((obj: PixbufLoader) => void)): void
+    connect(sigName: "size-prepared", callback: ((obj: PixbufLoader, width: number, height: number) => void)): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: PixbufLoader, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: PixbufLoader_ConstructProps): PixbufLoader
     constructor (config?: PixbufLoader_ConstructProps)
+    static new(): PixbufLoader
     static new_with_mime_type(mime_type: string): PixbufLoader
     static new_with_type(image_type: string): PixbufLoader
 }
 export interface PixbufSimpleAnim_ConstructProps extends PixbufAnimation_ConstructProps {
     loop?:boolean
 }
-export class PixbufSimpleAnim extends PixbufAnimation {
+export class PixbufSimpleAnim {
     /* Properties of GdkPixbuf.PixbufSimpleAnim */
     loop:boolean
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of GdkPixbuf.PixbufSimpleAnim */
     add_frame(pixbuf: Pixbuf): void
     get_loop(): boolean
     set_loop(loop: boolean): void
+    /* Methods of GdkPixbuf.PixbufAnimation */
+    get_height(): number
+    get_iter(start_time?: GLib.TimeVal | null): PixbufAnimationIter
+    get_static_image(): Pixbuf
+    get_width(): number
+    is_static_image(): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -264,15 +406,48 @@ export class PixbufSimpleAnim extends PixbufAnimation {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void))
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: PixbufSimpleAnim_ConstructProps): PixbufSimpleAnim
     constructor (config?: PixbufSimpleAnim_ConstructProps)
+    static new(width: number, height: number, rate: number): PixbufSimpleAnim
 }
 export interface PixbufSimpleAnimIter_ConstructProps extends PixbufAnimationIter_ConstructProps {
 }
-export class PixbufSimpleAnimIter extends PixbufAnimationIter {
+export class PixbufSimpleAnimIter {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    /* Methods of GdkPixbuf.PixbufAnimationIter */
+    advance(current_time?: GLib.TimeVal | null): boolean
+    get_delay_time(): number
+    get_pixbuf(): Pixbuf
+    on_currently_loading_frame(): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -281,9 +456,10 @@ export class PixbufSimpleAnimIter extends PixbufAnimationIter {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any)
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: string, callback: any): void
     static name: string
-    static new (config?: PixbufSimpleAnimIter_ConstructProps): PixbufSimpleAnimIter
     constructor (config?: PixbufSimpleAnimIter_ConstructProps)
 }
 export class PixbufFormat {

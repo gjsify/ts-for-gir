@@ -355,7 +355,9 @@ export interface FontsetForeachFunc {
 }
 export interface Context_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Context extends GObject.Object {
+export class Context {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Pango.Context */
     changed(): void
     get_base_dir(): Direction
@@ -378,6 +380,30 @@ export class Context extends GObject.Object {
     set_gravity_hint(hint: GravityHint): void
     set_language(language: Language): void
     set_matrix(matrix?: Matrix | null): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -386,15 +412,43 @@ export class Context extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: Context_ConstructProps): Context
     constructor (config?: Context_ConstructProps)
+    static new(): Context
 }
 export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Engine extends GObject.Object {
+export class Engine {
     /* Fields of Pango.Engine */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -403,15 +457,43 @@ export class Engine extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Engine, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: Engine_ConstructProps): Engine
     constructor (config?: Engine_ConstructProps)
 }
 export interface EngineLang_ConstructProps extends Engine_ConstructProps {
 }
-export class EngineLang extends Engine {
+export class EngineLang {
     /* Fields of Pango.EngineLang */
+    /* Fields of Pango.Engine */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.EngineLang */
     vfunc_script_break?(text: string, len: number, analysis: Analysis, attrs: LogAttr, attrs_len: number): void
     /* Virtual methods of GObject.Object */
@@ -422,16 +504,44 @@ export class EngineLang extends Engine {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: EngineLang, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: EngineLang_ConstructProps): EngineLang
     constructor (config?: EngineLang_ConstructProps)
 }
 export interface EngineShape_ConstructProps extends Engine_ConstructProps {
 }
-export class EngineShape extends Engine {
+export class EngineShape {
     /* Fields of Pango.EngineShape */
     parent_instance:Engine
+    /* Fields of Pango.Engine */
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.EngineShape */
     vfunc_covers?(font: Font, language: Language, wc: number): CoverageLevel
     vfunc_script_shape?(font: Font, item_text: string, item_length: number, analysis: Analysis, glyphs: GlyphString, paragraph_text: string, paragraph_length: number): void
@@ -443,16 +553,19 @@ export class EngineShape extends Engine {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: EngineShape, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: EngineShape_ConstructProps): EngineShape
     constructor (config?: EngineShape_ConstructProps)
 }
 export interface Font_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Font extends GObject.Object {
+export class Font {
     /* Fields of Pango.Font */
     parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Pango.Font */
     describe(): FontDescription
     describe_with_absolute_size(): FontDescription
@@ -460,6 +573,30 @@ export class Font extends GObject.Object {
     get_font_map(): FontMap | null
     get_glyph_extents(glyph: Glyph): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
     get_metrics(language?: Language | null): FontMetrics
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Font */
     vfunc_describe?(): FontDescription
     vfunc_describe_absolute?(): FontDescription
@@ -475,22 +612,49 @@ export class Font extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Font, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: Font_ConstructProps): Font
     constructor (config?: Font_ConstructProps)
     static descriptions_free(descs: FontDescription[] | null): void
 }
 export interface FontFace_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FontFace extends GObject.Object {
+export class FontFace {
     /* Fields of Pango.FontFace */
     parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Pango.FontFace */
     describe(): FontDescription
     get_face_name(): string
     is_synthesized(): boolean
     list_sizes(): /* sizes */ number[] | null
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.FontFace */
     vfunc_describe?(): FontDescription
     vfunc_get_face_name?(): string
@@ -504,20 +668,47 @@ export class FontFace extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: FontFace, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: FontFace_ConstructProps): FontFace
     constructor (config?: FontFace_ConstructProps)
 }
 export interface FontFamily_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FontFamily extends GObject.Object {
+export class FontFamily {
     /* Fields of Pango.FontFamily */
     parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Pango.FontFamily */
     get_name(): string
     is_monospace(): boolean
     list_faces(): /* faces */ FontFace[] | null
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.FontFamily */
     vfunc_get_name?(): string
     vfunc_is_monospace?(): boolean
@@ -530,16 +721,19 @@ export class FontFamily extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: FontFamily, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: FontFamily_ConstructProps): FontFamily
     constructor (config?: FontFamily_ConstructProps)
 }
 export interface FontMap_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class FontMap extends GObject.Object {
+export class FontMap {
     /* Fields of Pango.FontMap */
     parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Pango.FontMap */
     changed(): void
     create_context(): Context
@@ -548,6 +742,30 @@ export class FontMap extends GObject.Object {
     list_families(): /* families */ FontFamily[]
     load_font(context: Context, desc: FontDescription): Font | null
     load_fontset(context: Context, desc: FontDescription, language: Language): Fontset | null
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.FontMap */
     vfunc_changed?(): void
     vfunc_get_serial?(): number
@@ -562,20 +780,47 @@ export class FontMap extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: FontMap, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: FontMap_ConstructProps): FontMap
     constructor (config?: FontMap_ConstructProps)
 }
 export interface Fontset_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Fontset extends GObject.Object {
+export class Fontset {
     /* Fields of Pango.Fontset */
     parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Pango.Fontset */
     foreach(func: FontsetForeachFunc): void
     get_font(wc: number): Font
     get_metrics(): FontMetrics
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Fontset */
     vfunc_foreach?(func: FontsetForeachFunc): void
     vfunc_get_font?(wc: number): Font
@@ -589,17 +834,50 @@ export class Fontset extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Fontset, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: Fontset_ConstructProps): Fontset
     constructor (config?: Fontset_ConstructProps)
 }
 export interface FontsetSimple_ConstructProps extends Fontset_ConstructProps {
 }
-export class FontsetSimple extends Fontset {
+export class FontsetSimple {
+    /* Fields of Pango.Fontset */
+    parent_instance:GObject.Object
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Pango.FontsetSimple */
     append(font: Font): void
     size(): number
+    /* Methods of Pango.Fontset */
+    foreach(func: FontsetForeachFunc): void
+    get_font(wc: number): Font
+    get_metrics(): FontMetrics
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Fontset */
     vfunc_foreach?(func: FontsetForeachFunc): void
     vfunc_get_font?(wc: number): Font
@@ -613,14 +891,18 @@ export class FontsetSimple extends Fontset {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: FontsetSimple, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: FontsetSimple_ConstructProps): FontsetSimple
     constructor (config?: FontsetSimple_ConstructProps)
+    static new(language: Language): FontsetSimple
 }
 export interface Layout_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Layout extends GObject.Object {
+export class Layout {
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Pango.Layout */
     context_changed(): void
     copy(): Layout
@@ -678,6 +960,30 @@ export class Layout extends GObject.Object {
     set_width(width: number): void
     set_wrap(wrap: WrapMode): void
     xy_to_index(x: number, y: number): [ /* returnType */ boolean, /* index_ */ number, /* trailing */ number ]
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -686,16 +992,20 @@ export class Layout extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Layout, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: Layout_ConstructProps): Layout
     constructor (config?: Layout_ConstructProps)
+    static new(context: Context): Layout
 }
 export interface Renderer_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class Renderer extends GObject.Object {
+export class Renderer {
     /* Fields of Pango.Renderer */
     matrix:Matrix
+    /* Fields of GObject.Object */
+    g_type_instance:GObject.TypeInstance
     /* Methods of Pango.Renderer */
     activate(): void
     deactivate(): void
@@ -716,6 +1026,30 @@ export class Renderer extends GObject.Object {
     set_alpha(part: RenderPart, alpha: number): void
     set_color(part: RenderPart, color?: Color | null): void
     set_matrix(matrix?: Matrix | null): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Pango.Renderer */
     vfunc_begin?(): void
     vfunc_draw_error_underline?(x: number, y: number, width: number, height: number): void
@@ -736,9 +1070,10 @@ export class Renderer extends GObject.Object {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: ((obj: Renderer, pspec: GObject.ParamSpec) => void))
     connect(sigName: string, callback: any)
     static name: string
-    static new (config?: Renderer_ConstructProps): Renderer
     constructor (config?: Renderer_ConstructProps)
 }
 export class Analysis {
@@ -819,6 +1154,7 @@ export class AttrList {
     static name: string
     static new(): AttrList
     constructor()
+    static new(): AttrList
 }
 export class AttrShape {
     /* Fields of Pango.AttrShape */
@@ -924,6 +1260,7 @@ export class FontDescription {
     static name: string
     static new(): FontDescription
     constructor()
+    static new(): FontDescription
     static from_string(str: string): FontDescription
 }
 export class FontMetrics {
@@ -942,6 +1279,7 @@ export class FontMetrics {
     static name: string
     static new(): FontMetrics
     constructor()
+    static new(): FontMetrics
 }
 export class GlyphGeometry {
     /* Fields of Pango.GlyphGeometry */
@@ -1007,6 +1345,7 @@ export class GlyphString {
     static name: string
     static new(): GlyphString
     constructor()
+    static new(): GlyphString
 }
 export class GlyphVisAttr {
     /* Fields of Pango.GlyphVisAttr */
@@ -1033,6 +1372,7 @@ export class Item {
     static name: string
     static new(): Item
     constructor()
+    static new(): Item
 }
 export class Language {
     /* Methods of Pango.Language */
@@ -1171,6 +1511,7 @@ export class TabArray {
     static name: string
     static new(initial_size: number, positions_in_pixels: boolean): TabArray
     constructor(initial_size: number, positions_in_pixels: boolean)
+    static new(initial_size: number, positions_in_pixels: boolean): TabArray
 }
 type Glyph = number
 type GlyphUnit = number

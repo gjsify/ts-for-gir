@@ -3500,7 +3500,7 @@ export class AppChooserDialog extends Dialog {
     static name: string
     static new (config?: AppChooserDialog_ConstructProps): AppChooserDialog
     constructor (config?: AppChooserDialog_ConstructProps)
-    new_for_content_type(parent: Window | null, flags: DialogFlags, content_type: string): AppChooserDialog
+    static new_for_content_type(parent: Window | null, flags: DialogFlags, content_type: string): AppChooserDialog
 }
 export interface AppChooserWidget_ConstructProps extends Box_ConstructProps {
     default_text?:string
@@ -5521,10 +5521,10 @@ export class Button extends Bin {
     static name: string
     static new (config?: Button_ConstructProps): Button
     constructor (config?: Button_ConstructProps)
-    new_from_icon_name(icon_name: string | null, size: number): Button
-    new_from_stock(stock_id: string): Button
-    new_with_label(label: string): Button
-    new_with_mnemonic(label: string): Button
+    static new_from_icon_name(icon_name: string | null, size: number): Button
+    static new_from_stock(stock_id: string): Button
+    static new_with_label(label: string): Button
+    static new_with_mnemonic(label: string): Button
 }
 export interface ButtonAccessible_ConstructProps extends ContainerAccessible_ConstructProps {
 }
@@ -7080,10 +7080,10 @@ export class CellView extends Widget {
     static name: string
     static new (config?: CellView_ConstructProps): CellView
     constructor (config?: CellView_ConstructProps)
-    new_with_context(area: CellArea, context: CellAreaContext): CellView
-    new_with_markup(markup: string): CellView
-    new_with_pixbuf(pixbuf: GdkPixbuf.Pixbuf): CellView
-    new_with_text(text: string): CellView
+    static new_with_context(area: CellArea, context: CellAreaContext): CellView
+    static new_with_markup(markup: string): CellView
+    static new_with_pixbuf(pixbuf: GdkPixbuf.Pixbuf): CellView
+    static new_with_text(text: string): CellView
 }
 export interface CheckButton_ConstructProps extends ToggleButton_ConstructProps {
 }
@@ -7241,8 +7241,8 @@ export class CheckButton extends ToggleButton {
     static name: string
     static new (config?: CheckButton_ConstructProps): CheckButton
     constructor (config?: CheckButton_ConstructProps)
-    new_with_label(label: string): CheckButton
-    new_with_mnemonic(label: string): CheckButton
+    static new_with_label(label: string): CheckButton
+    static new_with_mnemonic(label: string): CheckButton
 }
 export interface CheckMenuItem_ConstructProps extends MenuItem_ConstructProps {
     active?:boolean
@@ -7420,8 +7420,8 @@ export class CheckMenuItem extends MenuItem {
     static name: string
     static new (config?: CheckMenuItem_ConstructProps): CheckMenuItem
     constructor (config?: CheckMenuItem_ConstructProps)
-    new_with_label(label: string): CheckMenuItem
-    new_with_mnemonic(label: string): CheckMenuItem
+    static new_with_label(label: string): CheckMenuItem
+    static new_with_mnemonic(label: string): CheckMenuItem
 }
 export interface CheckMenuItemAccessible_ConstructProps extends MenuItemAccessible_ConstructProps {
 }
@@ -7742,8 +7742,8 @@ export class ColorButton extends Button {
     static name: string
     static new (config?: ColorButton_ConstructProps): ColorButton
     constructor (config?: ColorButton_ConstructProps)
-    new_with_color(color: Gdk.Color): ColorButton
-    new_with_rgba(rgba: Gdk.RGBA): ColorButton
+    static new_with_color(color: Gdk.Color): ColorButton
+    static new_with_rgba(rgba: Gdk.RGBA): ColorButton
 }
 export interface ColorChooserDialog_ConstructProps extends Dialog_ConstructProps {
     show_editor?:boolean
@@ -8582,11 +8582,11 @@ export class ComboBox extends Bin {
     static name: string
     static new (config?: ComboBox_ConstructProps): ComboBox
     constructor (config?: ComboBox_ConstructProps)
-    new_with_area(area: CellArea): ComboBox
-    new_with_area_and_entry(area: CellArea): ComboBox
-    new_with_entry(): ComboBox
-    new_with_model(model: TreeModel): ComboBox
-    new_with_model_and_entry(model: TreeModel): ComboBox
+    static new_with_area(area: CellArea): ComboBox
+    static new_with_area_and_entry(area: CellArea): ComboBox
+    static new_with_entry(): ComboBox
+    static new_with_model(model: TreeModel): ComboBox
+    static new_with_model_and_entry(model: TreeModel): ComboBox
 }
 export interface ComboBoxAccessible_ConstructProps extends ContainerAccessible_ConstructProps {
 }
@@ -8941,7 +8941,7 @@ export class ComboBoxText extends Widget {
     static name: string
     static new (config?: ComboBoxText_ConstructProps): ComboBoxText
     constructor (config?: ComboBoxText_ConstructProps)
-    new_with_entry(): ComboBoxText
+    static new_with_entry(): ComboBoxText
 }
 export interface Container_ConstructProps extends Widget_ConstructProps {
     border_width?:number
@@ -10563,7 +10563,7 @@ export class Entry extends Widget {
     static name: string
     static new (config?: Entry_ConstructProps): Entry
     constructor (config?: Entry_ConstructProps)
-    new_with_buffer(buffer: EntryBuffer): Entry
+    static new_with_buffer(buffer: EntryBuffer): Entry
 }
 export interface EntryAccessible_ConstructProps extends WidgetAccessible_ConstructProps {
 }
@@ -11221,7 +11221,7 @@ export class Expander extends Bin {
     static name: string
     static new (config?: Expander_ConstructProps): Expander
     constructor (config?: Expander_ConstructProps)
-    new_with_mnemonic(label?: string | null): Expander
+    static new_with_mnemonic(label?: string | null): Expander
 }
 export interface ExpanderAccessible_ConstructProps extends ContainerAccessible_ConstructProps {
 }
@@ -11535,7 +11535,7 @@ export class FileChooserButton extends Box {
     static name: string
     static new (config?: FileChooserButton_ConstructProps): FileChooserButton
     constructor (config?: FileChooserButton_ConstructProps)
-    new_with_dialog(dialog: Dialog): FileChooserButton
+    static new_with_dialog(dialog: Dialog): FileChooserButton
 }
 export interface FileChooserDialog_ConstructProps extends Dialog_ConstructProps {
 }
@@ -12972,7 +12972,7 @@ export class FontButton extends Button {
     static name: string
     static new (config?: FontButton_ConstructProps): FontButton
     constructor (config?: FontButton_ConstructProps)
-    new_with_font(fontname: string): FontButton
+    static new_with_font(fontname: string): FontButton
 }
 export interface FontChooserDialog_ConstructProps extends Dialog_ConstructProps {
 }
@@ -14993,7 +14993,7 @@ export class HScale extends Scale {
     static name: string
     static new (config?: HScale_ConstructProps): HScale
     constructor (config?: HScale_ConstructProps)
-    new_with_range(min: number, max: number, step: number): HScale
+    static new_with_range(min: number, max: number, step: number): HScale
 }
 export interface HScrollbar_ConstructProps extends Scrollbar_ConstructProps {
 }
@@ -16091,8 +16091,8 @@ export class IconView extends Container {
     static name: string
     static new (config?: IconView_ConstructProps): IconView
     constructor (config?: IconView_ConstructProps)
-    new_with_area(area: CellArea): IconView
-    new_with_model(model: TreeModel): IconView
+    static new_with_area(area: CellArea): IconView
+    static new_with_model(model: TreeModel): IconView
 }
 export interface IconViewAccessible_ConstructProps extends ContainerAccessible_ConstructProps {
 }
@@ -16338,15 +16338,15 @@ export class Image extends Misc {
     static name: string
     static new (config?: Image_ConstructProps): Image
     constructor (config?: Image_ConstructProps)
-    new_from_animation(animation: GdkPixbuf.PixbufAnimation): Image
-    new_from_file(filename: string): Image
-    new_from_gicon(icon: Gio.Icon, size: number): Image
-    new_from_icon_name(icon_name: string | null, size: number): Image
-    new_from_icon_set(icon_set: IconSet, size: number): Image
-    new_from_pixbuf(pixbuf?: GdkPixbuf.Pixbuf | null): Image
-    new_from_resource(resource_path: string): Image
-    new_from_stock(stock_id: string, size: number): Image
-    new_from_surface(surface?: cairo.Surface | null): Image
+    static new_from_animation(animation: GdkPixbuf.PixbufAnimation): Image
+    static new_from_file(filename: string): Image
+    static new_from_gicon(icon: Gio.Icon, size: number): Image
+    static new_from_icon_name(icon_name: string | null, size: number): Image
+    static new_from_icon_set(icon_set: IconSet, size: number): Image
+    static new_from_pixbuf(pixbuf?: GdkPixbuf.Pixbuf | null): Image
+    static new_from_resource(resource_path: string): Image
+    static new_from_stock(stock_id: string, size: number): Image
+    static new_from_surface(surface?: cairo.Surface | null): Image
 }
 export interface ImageAccessible_ConstructProps extends WidgetAccessible_ConstructProps {
 }
@@ -16672,9 +16672,9 @@ export class ImageMenuItem extends MenuItem {
     static name: string
     static new (config?: ImageMenuItem_ConstructProps): ImageMenuItem
     constructor (config?: ImageMenuItem_ConstructProps)
-    new_from_stock(stock_id: string, accel_group?: AccelGroup | null): ImageMenuItem
-    new_with_label(label: string): ImageMenuItem
-    new_with_mnemonic(label: string): ImageMenuItem
+    static new_from_stock(stock_id: string, accel_group?: AccelGroup | null): ImageMenuItem
+    static new_with_label(label: string): ImageMenuItem
+    static new_with_mnemonic(label: string): ImageMenuItem
 }
 export interface InfoBar_ConstructProps extends Box_ConstructProps {
     message_type?:MessageType
@@ -16948,7 +16948,7 @@ export class Invisible extends Widget {
     static name: string
     static new (config?: Invisible_ConstructProps): Invisible
     constructor (config?: Invisible_ConstructProps)
-    new_for_screen(screen: Gdk.Screen): Invisible
+    static new_for_screen(screen: Gdk.Screen): Invisible
 }
 export interface Label_ConstructProps extends Misc_ConstructProps {
     angle?:number
@@ -17185,7 +17185,7 @@ export class Label extends Misc {
     static name: string
     static new (config?: Label_ConstructProps): Label
     constructor (config?: Label_ConstructProps)
-    new_with_mnemonic(str?: string | null): Label
+    static new_with_mnemonic(str?: string | null): Label
 }
 export interface LabelAccessible_ConstructProps extends WidgetAccessible_ConstructProps {
 }
@@ -17590,7 +17590,7 @@ export class LevelBar extends Widget {
     static name: string
     static new (config?: LevelBar_ConstructProps): LevelBar
     constructor (config?: LevelBar_ConstructProps)
-    new_for_interval(min_value: number, max_value: number): LevelBar
+    static new_for_interval(min_value: number, max_value: number): LevelBar
 }
 export interface LevelBarAccessible_ConstructProps extends WidgetAccessible_ConstructProps {
 }
@@ -17836,7 +17836,7 @@ export class LinkButton extends Button {
     static name: string
     static new (config?: LinkButton_ConstructProps): LinkButton
     constructor (config?: LinkButton_ConstructProps)
-    new_with_label(uri: string, label?: string | null): LinkButton
+    static new_with_label(uri: string, label?: string | null): LinkButton
 }
 export interface LinkButtonAccessible_ConstructProps extends ButtonAccessible_ConstructProps {
 }
@@ -18925,7 +18925,7 @@ export class Menu extends MenuShell {
     static name: string
     static new (config?: Menu_ConstructProps): Menu
     constructor (config?: Menu_ConstructProps)
-    new_from_model(model: Gio.MenuModel): Menu
+    static new_from_model(model: Gio.MenuModel): Menu
     static get_for_attach_widget(widget: Widget): Widget[]
 }
 export interface MenuAccessible_ConstructProps extends MenuShellAccessible_ConstructProps {
@@ -19146,7 +19146,7 @@ export class MenuBar extends MenuShell {
     static name: string
     static new (config?: MenuBar_ConstructProps): MenuBar
     constructor (config?: MenuBar_ConstructProps)
-    new_from_model(model: Gio.MenuModel): MenuBar
+    static new_from_model(model: Gio.MenuModel): MenuBar
 }
 export interface MenuButton_ConstructProps extends ToggleButton_ConstructProps {
     align_widget?:Container
@@ -20125,8 +20125,8 @@ export class MenuItem extends Bin {
     static name: string
     static new (config?: MenuItem_ConstructProps): MenuItem
     constructor (config?: MenuItem_ConstructProps)
-    new_with_label(label: string): MenuItem
-    new_with_mnemonic(label: string): MenuItem
+    static new_with_label(label: string): MenuItem
+    static new_with_mnemonic(label: string): MenuItem
 }
 export interface MenuItemAccessible_ConstructProps extends ContainerAccessible_ConstructProps {
 }
@@ -20608,7 +20608,7 @@ export class MenuToolButton extends ToolButton {
     static name: string
     static new (config?: MenuToolButton_ConstructProps): MenuToolButton
     constructor (config?: MenuToolButton_ConstructProps)
-    new_from_stock(stock_id: string): MenuToolButton
+    static new_from_stock(stock_id: string): MenuToolButton
 }
 export interface MessageDialog_ConstructProps extends Dialog_ConstructProps {
     buttons?:ButtonsType
@@ -23101,7 +23101,7 @@ export class Plug extends GObject.InitiallyUnowned {
     static name: string
     static new (config?: Plug_ConstructProps): Plug
     constructor (config?: Plug_ConstructProps)
-    new_for_display(display: Gdk.Display, socket_id: xlib.Window): Plug
+    static new_for_display(display: Gdk.Display, socket_id: xlib.Window): Plug
 }
 export interface Popover_ConstructProps extends Bin_ConstructProps {
     constrain_to?:PopoverConstraint
@@ -23266,7 +23266,7 @@ export class Popover extends Bin {
     static name: string
     static new (config?: Popover_ConstructProps): Popover
     constructor (config?: Popover_ConstructProps)
-    new_from_model(relative_to: Widget | null, model: Gio.MenuModel): Popover
+    static new_from_model(relative_to: Widget | null, model: Gio.MenuModel): Popover
 }
 export interface PopoverAccessible_ConstructProps extends ContainerAccessible_ConstructProps {
 }
@@ -24236,11 +24236,11 @@ export class RadioButton extends Bin {
     static name: string
     static new (config?: RadioButton_ConstructProps): RadioButton
     constructor (config?: RadioButton_ConstructProps)
-    new_from_widget(radio_group_member?: RadioButton | null): RadioButton
-    new_with_label(group: GLib.SList | null, label: string): RadioButton
-    new_with_label_from_widget(radio_group_member: RadioButton | null, label: string): RadioButton
-    new_with_mnemonic(group: GLib.SList | null, label: string): RadioButton
-    new_with_mnemonic_from_widget(radio_group_member: RadioButton | null, label: string): RadioButton
+    static new_from_widget(radio_group_member?: RadioButton | null): RadioButton
+    static new_with_label(group: GLib.SList | null, label: string): RadioButton
+    static new_with_label_from_widget(radio_group_member: RadioButton | null, label: string): RadioButton
+    static new_with_mnemonic(group: GLib.SList | null, label: string): RadioButton
+    static new_with_mnemonic_from_widget(radio_group_member: RadioButton | null, label: string): RadioButton
 }
 export interface RadioButtonAccessible_ConstructProps extends ToggleButtonAccessible_ConstructProps {
 }
@@ -24544,11 +24544,11 @@ export class RadioMenuItem extends Bin {
     static name: string
     static new (config?: RadioMenuItem_ConstructProps): RadioMenuItem
     constructor (config?: RadioMenuItem_ConstructProps)
-    new_from_widget(group?: RadioMenuItem | null): RadioMenuItem
-    new_with_label(group: GLib.SList | null, label: string): RadioMenuItem
-    new_with_label_from_widget(group?: RadioMenuItem | null, label?: string | null): RadioMenuItem
-    new_with_mnemonic(group: GLib.SList | null, label: string): RadioMenuItem
-    new_with_mnemonic_from_widget(group?: RadioMenuItem | null, label?: string | null): RadioMenuItem
+    static new_from_widget(group?: RadioMenuItem | null): RadioMenuItem
+    static new_with_label(group: GLib.SList | null, label: string): RadioMenuItem
+    static new_with_label_from_widget(group?: RadioMenuItem | null, label?: string | null): RadioMenuItem
+    static new_with_mnemonic(group: GLib.SList | null, label: string): RadioMenuItem
+    static new_with_mnemonic_from_widget(group?: RadioMenuItem | null, label?: string | null): RadioMenuItem
 }
 export interface RadioMenuItemAccessible_ConstructProps extends CheckMenuItemAccessible_ConstructProps {
 }
@@ -24829,9 +24829,9 @@ export class RadioToolButton extends ToolItem {
     static name: string
     static new (config?: RadioToolButton_ConstructProps): RadioToolButton
     constructor (config?: RadioToolButton_ConstructProps)
-    new_from_stock(group: GLib.SList | null, stock_id: string): RadioToolButton
-    new_from_widget(group?: RadioToolButton | null): RadioToolButton
-    new_with_stock_from_widget(group: RadioToolButton | null, stock_id: string): RadioToolButton
+    static new_from_stock(group: GLib.SList | null, stock_id: string): RadioToolButton
+    static new_from_widget(group?: RadioToolButton | null): RadioToolButton
+    static new_with_stock_from_widget(group: RadioToolButton | null, stock_id: string): RadioToolButton
 }
 export interface Range_ConstructProps extends Widget_ConstructProps {
     adjustment?:Adjustment
@@ -25224,7 +25224,7 @@ export class RecentAction extends Action {
     static name: string
     static new (config?: RecentAction_ConstructProps): RecentAction
     constructor (config?: RecentAction_ConstructProps)
-    new_for_manager(name: string, label?: string | null, tooltip?: string | null, stock_id?: string | null, manager?: RecentManager | null): RecentAction
+    static new_for_manager(name: string, label?: string | null, tooltip?: string | null, stock_id?: string | null, manager?: RecentManager | null): RecentAction
 }
 export interface RecentChooserDialog_ConstructProps extends Dialog_ConstructProps {
 }
@@ -25617,7 +25617,7 @@ export class RecentChooserMenu extends Menu {
     static name: string
     static new (config?: RecentChooserMenu_ConstructProps): RecentChooserMenu
     constructor (config?: RecentChooserMenu_ConstructProps)
-    new_for_manager(manager: RecentManager): RecentChooserMenu
+    static new_for_manager(manager: RecentManager): RecentChooserMenu
 }
 export interface RecentChooserWidget_ConstructProps extends Box_ConstructProps {
 }
@@ -25801,7 +25801,7 @@ export class RecentChooserWidget extends Box {
     static name: string
     static new (config?: RecentChooserWidget_ConstructProps): RecentChooserWidget
     constructor (config?: RecentChooserWidget_ConstructProps)
-    new_for_manager(manager: RecentManager): RecentChooserWidget
+    static new_for_manager(manager: RecentManager): RecentChooserWidget
 }
 export interface RecentFilter_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
@@ -26250,7 +26250,7 @@ export class Scale extends Range {
     static name: string
     static new (config?: Scale_ConstructProps): Scale
     constructor (config?: Scale_ConstructProps)
-    new_with_range(orientation: Orientation, min: number, max: number, step: number): Scale
+    static new_with_range(orientation: Orientation, min: number, max: number, step: number): Scale
 }
 export interface ScaleAccessible_ConstructProps extends RangeAccessible_ConstructProps {
 }
@@ -30248,7 +30248,7 @@ export class SpinButton extends Entry {
     static name: string
     static new (config?: SpinButton_ConstructProps): SpinButton
     constructor (config?: SpinButton_ConstructProps)
-    new_with_range(min: number, max: number, step: number): SpinButton
+    static new_with_range(min: number, max: number, step: number): SpinButton
 }
 export interface SpinButtonAccessible_ConstructProps extends EntryAccessible_ConstructProps {
 }
@@ -33505,7 +33505,7 @@ export class TextView extends Container {
     static name: string
     static new (config?: TextView_ConstructProps): TextView
     constructor (config?: TextView_ConstructProps)
-    new_with_buffer(buffer: TextBuffer): TextView
+    static new_with_buffer(buffer: TextBuffer): TextView
 }
 export interface TextViewAccessible_ConstructProps extends ContainerAccessible_ConstructProps {
 }
@@ -33923,8 +33923,8 @@ export class ToggleButton extends Button {
     static name: string
     static new (config?: ToggleButton_ConstructProps): ToggleButton
     constructor (config?: ToggleButton_ConstructProps)
-    new_with_label(label: string): ToggleButton
-    new_with_mnemonic(label: string): ToggleButton
+    static new_with_label(label: string): ToggleButton
+    static new_with_mnemonic(label: string): ToggleButton
 }
 export interface ToggleButtonAccessible_ConstructProps extends ButtonAccessible_ConstructProps {
 }
@@ -34165,7 +34165,7 @@ export class ToggleToolButton extends ToolButton {
     static name: string
     static new (config?: ToggleToolButton_ConstructProps): ToggleToolButton
     constructor (config?: ToggleToolButton_ConstructProps)
-    new_from_stock(stock_id: string): ToggleToolButton
+    static new_from_stock(stock_id: string): ToggleToolButton
 }
 export interface ToolButton_ConstructProps extends ToolItem_ConstructProps {
     icon_name?:string
@@ -34351,7 +34351,7 @@ export class ToolButton extends ToolItem {
     static name: string
     static new (config?: ToolButton_ConstructProps): ToolButton
     constructor (config?: ToolButton_ConstructProps)
-    new_from_stock(stock_id: string): ToolButton
+    static new_from_stock(stock_id: string): ToolButton
 }
 export interface ToolItem_ConstructProps extends Bin_ConstructProps {
     is_important?:boolean
@@ -37078,7 +37078,7 @@ export class TreeView extends Container {
     static name: string
     static new (config?: TreeView_ConstructProps): TreeView
     constructor (config?: TreeView_ConstructProps)
-    new_with_model(model: TreeModel): TreeView
+    static new_with_model(model: TreeModel): TreeView
 }
 export interface TreeViewAccessible_ConstructProps extends ContainerAccessible_ConstructProps {
 }
@@ -37935,7 +37935,7 @@ export class VScale extends Scale {
     static name: string
     static new (config?: VScale_ConstructProps): VScale
     constructor (config?: VScale_ConstructProps)
-    new_with_range(min: number, max: number, step: number): VScale
+    static new_with_range(min: number, max: number, step: number): VScale
 }
 export interface VScrollbar_ConstructProps extends Scrollbar_ConstructProps {
 }

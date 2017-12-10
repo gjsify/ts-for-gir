@@ -2055,7 +2055,7 @@ export class BufferedInputStream extends FilterInputStream {
     static name: string
     static new (config?: BufferedInputStream_ConstructProps): BufferedInputStream
     constructor (config?: BufferedInputStream_ConstructProps)
-    new_sized(base_stream: InputStream, size: number): BufferedInputStream
+    static new_sized(base_stream: InputStream, size: number): BufferedInputStream
 }
 export interface BufferedOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
     auto_grow?:boolean
@@ -2106,7 +2106,7 @@ export class BufferedOutputStream extends FilterOutputStream {
     static name: string
     static new (config?: BufferedOutputStream_ConstructProps): BufferedOutputStream
     constructor (config?: BufferedOutputStream_ConstructProps)
-    new_sized(base_stream: OutputStream, size: number): BufferedOutputStream
+    static new_sized(base_stream: OutputStream, size: number): BufferedOutputStream
 }
 export interface BytesIcon_ConstructProps extends GObject.Object_ConstructProps {
     bytes?:Gjs.byteArray.ByteArray
@@ -3799,7 +3799,7 @@ export class InetSocketAddress extends SocketAddress {
     static name: string
     static new (config?: InetSocketAddress_ConstructProps): InetSocketAddress
     constructor (config?: InetSocketAddress_ConstructProps)
-    new_from_string(address: string, port: number): InetSocketAddress
+    static new_from_string(address: string, port: number): InetSocketAddress
 }
 export interface InputStream_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -3923,8 +3923,8 @@ export class MemoryInputStream extends InputStream {
     static name: string
     static new (config?: MemoryInputStream_ConstructProps): MemoryInputStream
     constructor (config?: MemoryInputStream_ConstructProps)
-    new_from_bytes(bytes: Gjs.byteArray.ByteArray): MemoryInputStream
-    new_from_data(data: Gjs.byteArray.ByteArray, destroy?: GLib.DestroyNotify | null): MemoryInputStream
+    static new_from_bytes(bytes: Gjs.byteArray.ByteArray): MemoryInputStream
+    static new_from_data(data: Gjs.byteArray.ByteArray, destroy?: GLib.DestroyNotify | null): MemoryInputStream
 }
 export interface MemoryOutputStream_ConstructProps extends OutputStream_ConstructProps {
     data?:object
@@ -3978,7 +3978,7 @@ export class MemoryOutputStream extends OutputStream {
     static name: string
     static new (config?: MemoryOutputStream_ConstructProps): MemoryOutputStream
     constructor (config?: MemoryOutputStream_ConstructProps)
-    new_resizable(): MemoryOutputStream
+    static new_resizable(): MemoryOutputStream
 }
 export interface Menu_ConstructProps extends MenuModel_ConstructProps {
 }
@@ -5934,7 +5934,7 @@ export class UnixCredentialsMessage extends SocketControlMessage {
     static name: string
     static new (config?: UnixCredentialsMessage_ConstructProps): UnixCredentialsMessage
     constructor (config?: UnixCredentialsMessage_ConstructProps)
-    new_with_credentials(credentials: Credentials): UnixCredentialsMessage
+    static new_with_credentials(credentials: Credentials): UnixCredentialsMessage
     static is_supported(): boolean
 }
 export interface UnixFDList_ConstructProps extends GObject.Object_ConstructProps {
@@ -5992,7 +5992,7 @@ export class UnixFDMessage extends SocketControlMessage {
     static name: string
     static new (config?: UnixFDMessage_ConstructProps): UnixFDMessage
     constructor (config?: UnixFDMessage_ConstructProps)
-    new_with_fd_list(fd_list: UnixFDList): UnixFDMessage
+    static new_with_fd_list(fd_list: UnixFDList): UnixFDMessage
 }
 export interface UnixInputStream_ConstructProps extends InputStream_ConstructProps {
     close_fd?:boolean
@@ -6140,8 +6140,8 @@ export class UnixSocketAddress extends SocketAddress {
     static name: string
     static new (config?: UnixSocketAddress_ConstructProps): UnixSocketAddress
     constructor (config?: UnixSocketAddress_ConstructProps)
-    new_abstract(path: number[]): UnixSocketAddress
-    new_with_type(path: number[], type: UnixSocketAddressType): UnixSocketAddress
+    static new_abstract(path: number[]): UnixSocketAddress
+    static new_with_type(path: number[], type: UnixSocketAddressType): UnixSocketAddress
     static abstract_names_supported(): boolean
 }
 export interface Vfs_ConstructProps extends GObject.Object_ConstructProps {

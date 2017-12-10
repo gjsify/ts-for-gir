@@ -2403,10 +2403,10 @@ export class WebView extends GObject.InitiallyUnowned {
     static name: string
     static new (config?: WebView_ConstructProps): WebView
     constructor (config?: WebView_ConstructProps)
-    new_with_context(context: WebContext): WebView
-    new_with_related_view(web_view: WebView): WebView
-    new_with_settings(settings: Settings): WebView
-    new_with_user_content_manager(user_content_manager: UserContentManager): WebView
+    static new_with_context(context: WebContext): WebView
+    static new_with_related_view(web_view: WebView): WebView
+    static new_with_settings(settings: Settings): WebView
+    static new_with_user_content_manager(user_content_manager: UserContentManager): WebView
 }
 export interface WebViewBase_ConstructProps extends Gtk.Container_ConstructProps {
 }

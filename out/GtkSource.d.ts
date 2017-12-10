@@ -2308,7 +2308,7 @@ export class View extends Gtk.TextView {
     static name: string
     static new (config?: View_ConstructProps): View
     constructor (config?: View_ConstructProps)
-    new_with_buffer(buffer: Buffer): View
+    static new_with_buffer(buffer: Buffer): View
 }
 export class BufferPrivate {
     static name: string

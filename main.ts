@@ -1210,8 +1210,8 @@ ${keys.map(key => `import * as ${key} from "./${key}";`).join("\n")}
 
 declare global {
     function printerr(...args: any[]): void
-    function log(message?: string)
-    function logError(exception: any, message?: string)
+    function log(message?: string): void
+    function logError(exception: any, message?: string): void
     const ARGV: string[]
     const imports: typeof Gjs & {
         [key: string]: any

@@ -1,17 +1,11 @@
 /**
- * JavaScriptCore-3.0
+ * JavaScriptCore-4.0
  */
 
 import * as Gjs from './Gjs'
-export interface GlobalContext {
+export class GlobalContext {
+    static name: string
 }
-export interface GlobalContext_Static {
-    name: string
+export class Value {
+    static name: string
 }
-export declare var GlobalContext: GlobalContext_Static
-export interface Value {
-}
-export interface Value_Static {
-    name: string
-}
-export declare var Value: Value_Static

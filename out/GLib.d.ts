@@ -18,6 +18,7 @@ export enum ChecksumType {
     SHA1,
     SHA256,
     SHA512,
+    SHA384,
 }
 export enum ConvertError {
     NO_CONVERSION,
@@ -126,6 +127,10 @@ export enum KeyFileError {
     GROUP_NOT_FOUND,
     INVALID_VALUE,
 }
+export enum LogWriterOutput {
+    HANDLED,
+    UNHANDLED,
+}
 export enum MarkupError {
     BAD_UTF8,
     EMPTY,
@@ -144,6 +149,10 @@ export enum NormalizeMode {
     NFKD,
     ALL_COMPOSE,
     NFKC,
+}
+export enum NumberParserError {
+    INVALID,
+    OUT_OF_BOUNDS,
 }
 export enum OnceStatus {
     NOTCALLED,
@@ -364,6 +373,9 @@ export enum UnicodeBreakType {
     CONDITIONAL_JAPANESE_STARTER,
     HEBREW_LETTER,
     REGIONAL_INDICATOR,
+    EMOJI_BASE,
+    EMOJI_MODIFIER,
+    ZERO_WIDTH_JOINER,
 }
 export enum UnicodeScript {
     INVALID_CODE,
@@ -499,6 +511,16 @@ export enum UnicodeScript {
     MULTANI,
     OLD_HUNGARIAN,
     SIGNWRITING,
+    ADLAM,
+    BHAIKSUKI,
+    MARCHEN,
+    NEWA,
+    OSAGE,
+    TANGUT,
+    MASARAM_GONDI,
+    NUSHU,
+    SOYOMBO,
+    ZANABAZAR_SQUARE,
 }
 export enum UnicodeType {
     CONTROL,
@@ -832,6 +854,7 @@ export const MODULE_SUFFIX:string
 export const OPTION_REMAINING:string
 export const PDP_ENDIAN:number
 export const PI:number
+export const PID_FORMAT:string
 export const PI_2:number
 export const PI_4:number
 export const POLLFD_FORMAT:string
@@ -874,10 +897,12 @@ export function ascii_dtostr(buffer: string, buf_len: number, d: number): string
 export function ascii_formatd(buffer: string, buf_len: number, format: string, d: number): string
 export function ascii_strcasecmp(s1: string, s2: string): number
 export function ascii_strdown(str: string, len: number): string
+export function ascii_string_to_signed(str: string, base: number, min: number, max: number): [ /* returnType */ boolean, /* out_num */ number | null ]
+export function ascii_string_to_unsigned(str: string, base: number, min: number, max: number): [ /* returnType */ boolean, /* out_num */ number | null ]
 export function ascii_strncasecmp(s1: string, s2: string, n: number): number
-export function ascii_strtod(nptr: string, endptr: string): number
-export function ascii_strtoll(nptr: string, endptr: string, base: number): number
-export function ascii_strtoull(nptr: string, endptr: string, base: number): number
+export function ascii_strtod(nptr: string): [ /* returnType */ number, /* endptr */ string | null ]
+export function ascii_strtoll(nptr: string, base: number): [ /* returnType */ number, /* endptr */ string | null ]
+export function ascii_strtoull(nptr: string, base: number): [ /* returnType */ number, /* endptr */ string | null ]
 export function ascii_strup(str: string, len: number): string
 export function ascii_tolower(c: number): number
 export function ascii_toupper(c: number): number
@@ -886,7 +911,6 @@ export function assert_warning(log_domain: string, file: string, line: number, p
 export function assertion_message(domain: string, file: string, line: number, func: string, message: string): void
 export function assertion_message_cmpstr(domain: string, file: string, line: number, func: string, expr: string, arg1: string, cmp: string, arg2: string): void
 export function assertion_message_error(domain: string, file: string, line: number, func: string, expr: string, error: Error, error_domain: Quark, error_code: number): void
-export function assertion_message_expr(domain: string, file: string, line: number, func: string, expr: string): void
 export function atexit(func: VoidFunc): void
 export function atomic_int_add(atomic: number, val: number): number
 export function atomic_int_and(atomic: number, val: number): number
@@ -900,11 +924,12 @@ export function atomic_int_set(atomic: number, newval: number): void
 export function atomic_int_xor(atomic: number, val: number): number
 export function atomic_pointer_add(atomic: object, val: number): number
 export function atomic_pointer_and(atomic: object, val: number): number
-export function atomic_pointer_compare_and_exchange(atomic: object, oldval: object, newval: object): boolean
+export function atomic_pointer_compare_and_exchange(atomic: object, oldval?: object | null, newval?: object | null): boolean
+export function atomic_pointer_get(atomic: object): object | null
 export function atomic_pointer_or(atomic: object, val: number): number
-export function atomic_pointer_set(atomic: object, newval: object): void
+export function atomic_pointer_set(atomic: object, newval?: object | null): void
 export function atomic_pointer_xor(atomic: object, val: number): number
-export function base64_decode(text: string): [ /* returnType */ Gjs.byteArray.ByteArray, /* out_len */ number ]
+export function base64_decode(text: string): Gjs.byteArray.ByteArray
 export function base64_decode_inplace(text: Gjs.byteArray.ByteArray): number
 export function base64_decode_step(in_: Gjs.byteArray.ByteArray, state: number, save: number): [ /* returnType */ number, /* out */ Gjs.byteArray.ByteArray ]
 export function base64_encode(data: Gjs.byteArray.ByteArray): string
@@ -918,8 +943,8 @@ export function bit_storage(number: number): number
 export function bit_trylock(address: number, lock_bit: number): boolean
 export function bit_unlock(address: number, lock_bit: number): void
 export function bookmark_file_error_quark(): Quark
-export function build_filenamev(args: string[]): string
-export function build_pathv(separator: string, args: string[]): string
+export function build_filenamev(args: any): string
+export function build_pathv(separator: string, args: any): string
 export function byte_array_free(array: Gjs.byteArray.ByteArray, free_segment: boolean): number
 export function byte_array_free_to_bytes(array: Gjs.byteArray.ByteArray): Bytes
 export function byte_array_new(): Gjs.byteArray.ByteArray
@@ -928,28 +953,34 @@ export function byte_array_unref(array: Gjs.byteArray.ByteArray): void
 export function chdir(path: string): number
 export function check_version(required_major: number, required_minor: number, required_micro: number): string
 export function checksum_type_get_length(checksum_type: ChecksumType): number
-export function child_watch_add_full(priority: number, pid: Pid, function_: ChildWatchFunc, data: object, notify: DestroyNotify | null): number
+export function child_watch_add(priority: number, pid: Pid, function_: ChildWatchFunc, notify?: DestroyNotify | null): number
 export function child_watch_source_new(pid: Pid): Source
 export function clear_error(): void
 export function close(fd: number): boolean
 export function compute_checksum_for_bytes(checksum_type: ChecksumType, data: Bytes): string
 export function compute_checksum_for_data(checksum_type: ChecksumType, data: Gjs.byteArray.ByteArray): string
 export function compute_checksum_for_string(checksum_type: ChecksumType, str: string, length: number): string
-export function compute_hmac_for_data(digest_type: ChecksumType, key: Gjs.byteArray.ByteArray, data: number, length: number): string
+export function compute_hmac_for_bytes(digest_type: ChecksumType, key: Bytes, data: Bytes): string
+export function compute_hmac_for_data(digest_type: ChecksumType, key: Gjs.byteArray.ByteArray, data: Gjs.byteArray.ByteArray): string
 export function compute_hmac_for_string(digest_type: ChecksumType, key: Gjs.byteArray.ByteArray, str: string, length: number): string
 export function convert(str: string, len: number, to_codeset: string, from_codeset: string): [ /* returnType */ string, /* bytes_read */ number, /* bytes_written */ number ]
 export function convert_error_quark(): Quark
 export function convert_with_fallback(str: string, len: number, to_codeset: string, from_codeset: string, fallback: string, bytes_read: number, bytes_written: number): string
 export function convert_with_iconv(str: string, len: number, converter: IConv, bytes_read: number, bytes_written: number): string
 export function datalist_clear(datalist: Data): void
+export function datalist_get_data(datalist: Data, key: string): object | null
 export function datalist_get_flags(datalist: Data): number
-export function datalist_id_replace_data(datalist: Data, key_id: Quark, oldval: object | null, newval: object | null, destroy: DestroyNotify | null, old_destroy: DestroyNotify | null): boolean
+export function datalist_id_get_data(datalist: Data, key_id: Quark): object | null
+export function datalist_id_remove_no_notify(datalist: Data, key_id: Quark): object | null
+export function datalist_id_replace_data(datalist: Data, key_id: Quark, oldval?: object | null, newval?: object | null, destroy?: DestroyNotify | null, old_destroy?: DestroyNotify | null): boolean
 export function datalist_id_set_data_full(datalist: Data, key_id: Quark, data: object | null, destroy_func: DestroyNotify): void
 export function datalist_init(datalist: Data): void
 export function datalist_set_flags(datalist: Data, flags: number): void
 export function datalist_unset_flags(datalist: Data, flags: number): void
 export function dataset_destroy(dataset_location: object): void
-export function dataset_id_set_data_full(dataset_location: object, key_id: Quark, data: object, destroy_func: DestroyNotify): void
+export function dataset_id_get_data(dataset_location: object, key_id: Quark): object | null
+export function dataset_id_remove_no_notify(dataset_location: object, key_id: Quark): object | null
+export function dataset_id_set_data_full(dataset_location: object, key_id: Quark, data: object | null, destroy_func: DestroyNotify): void
 export function date_get_days_in_month(month: DateMonth, year: DateYear): number
 export function date_get_monday_weeks_in_year(year: DateYear): number
 export function date_get_sunday_weeks_in_year(year: DateYear): number
@@ -966,9 +997,9 @@ export function date_valid_weekday(weekday: DateWeekday): boolean
 export function date_valid_year(year: DateYear): boolean
 export function dcgettext(domain: string | null, msgid: string, category: number): string
 export function dgettext(domain: string | null, msgid: string): string
-export function dir_make_tmp(tmpl: string): string
-export function direct_equal(v1: object | null, v2: object | null): boolean
-export function direct_hash(v: object | null): number
+export function dir_make_tmp(tmpl?: string): string
+export function direct_equal(v1?: object | null, v2?: object | null): boolean
+export function direct_hash(v?: object | null): number
 export function dngettext(domain: string | null, msgid: string, msgid_plural: string, n: number): string
 export function double_equal(v1: object, v2: object): boolean
 export function double_hash(v: object): number
@@ -980,21 +1011,21 @@ export function environ_unsetenv(envp: string[] | null, variable: string): strin
 export function file_error_from_errno(err_no: number): FileError
 export function file_error_quark(): Quark
 export function file_get_contents(filename: string): [ /* returnType */ boolean, /* contents */ Gjs.byteArray.ByteArray ]
-export function file_open_tmp(tmpl: string): [ /* returnType */ number, /* name_used */ any ]
+export function file_open_tmp(tmpl?: string): [ /* returnType */ number, /* name_used */ any ]
 export function file_read_link(filename: string): string
 export function file_set_contents(filename: string, contents: Gjs.byteArray.ByteArray): boolean
 export function file_test(filename: string, test: FileTest): boolean
 export function filename_display_basename(filename: string): string
 export function filename_display_name(filename: string): string
 export function filename_from_uri(uri: string): [ /* returnType */ string, /* hostname */ string | null ]
-export function filename_from_utf8(utf8string: string, len: number): [ /* returnType */ Gjs.byteArray.ByteArray, /* bytes_read */ number | null, /* bytes_written */ number ]
-export function filename_to_uri(filename: string, hostname: string | null): string
-export function filename_to_utf8(opsysstring: string, len: number, bytes_read: number, bytes_written: number): string
+export function filename_from_utf8(utf8string: string, len: number): [ /* returnType */ Gjs.byteArray.ByteArray, /* bytes_read */ number | null ]
+export function filename_to_uri(filename: string, hostname?: string | null): string
+export function filename_to_utf8(opsysstring: string, len: number): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
 export function find_program_in_path(program: string): string
 export function format_size(size: number): string
 export function format_size_for_display(size: number): string
 export function format_size_full(size: number, flags: FormatSizeFlags): string
-export function free(mem: object | null): void
+export function free(mem?: object | null): void
 export function get_application_name(): string
 export function get_charset(): [ /* returnType */ boolean, /* charset */ string | null ]
 export function get_codeset(): string
@@ -1011,8 +1042,8 @@ export function get_num_processors(): number
 export function get_prgname(): string
 export function get_real_name(): string
 export function get_real_time(): number
-export function get_system_config_dirs(): string[]
-export function get_system_data_dirs(): string[]
+export function get_system_config_dirs(): any
+export function get_system_data_dirs(): any
 export function get_tmp_dir(): string
 export function get_user_cache_dir(): string
 export function get_user_config_dir(): string
@@ -1021,22 +1052,23 @@ export function get_user_name(): string
 export function get_user_runtime_dir(): string
 export function get_user_special_dir(directory: UserDirectory): string
 export function getenv(variable: string): string
-export function hash_table_add(hash_table: HashTable, key: object): boolean
-export function hash_table_contains(hash_table: HashTable, key: object): boolean
+export function hash_table_add(hash_table: HashTable, key?: object | null): boolean
+export function hash_table_contains(hash_table: HashTable, key?: object | null): boolean
 export function hash_table_destroy(hash_table: HashTable): void
-export function hash_table_insert(hash_table: HashTable, key: object, value: object): boolean
-export function hash_table_lookup_extended(hash_table: HashTable, lookup_key: object, orig_key: object | null, value: object | null): boolean
-export function hash_table_remove(hash_table: HashTable, key: object): boolean
+export function hash_table_insert(hash_table: HashTable, key?: object | null, value?: object | null): boolean
+export function hash_table_lookup(hash_table: HashTable, key?: object | null): object | null
+export function hash_table_lookup_extended(hash_table: HashTable, lookup_key?: object | null): [ /* returnType */ boolean, /* orig_key */ object | null, /* value */ object | null ]
+export function hash_table_remove(hash_table: HashTable, key?: object | null): boolean
 export function hash_table_remove_all(hash_table: HashTable): void
-export function hash_table_replace(hash_table: HashTable, key: object, value: object): boolean
+export function hash_table_replace(hash_table: HashTable, key?: object | null, value?: object | null): boolean
 export function hash_table_size(hash_table: HashTable): number
-export function hash_table_steal(hash_table: HashTable, key: object): boolean
+export function hash_table_steal(hash_table: HashTable, key?: object | null): boolean
 export function hash_table_steal_all(hash_table: HashTable): void
 export function hash_table_unref(hash_table: HashTable): void
 export function hook_destroy(hook_list: HookList, hook_id: number): boolean
 export function hook_destroy_link(hook_list: HookList, hook: Hook): void
 export function hook_free(hook_list: HookList, hook: Hook): void
-export function hook_insert_before(hook_list: HookList, sibling: Hook, hook: Hook): void
+export function hook_insert_before(hook_list: HookList, sibling: Hook | null, hook: Hook): void
 export function hook_prepend(hook_list: HookList, hook: Hook): void
 export function hook_unref(hook_list: HookList, hook: Hook): void
 export function hostname_is_ascii_encoded(hostname: string): boolean
@@ -1045,44 +1077,55 @@ export function hostname_is_non_ascii(hostname: string): boolean
 export function hostname_to_ascii(hostname: string): string
 export function hostname_to_unicode(hostname: string): string
 export function iconv(converter: IConv, inbuf: string, inbytes_left: number, outbuf: string, outbytes_left: number): number
-export function idle_add_full(priority: number, function_: SourceFunc, data: object, notify: DestroyNotify | null): number
-export function idle_remove_by_data(data: object): boolean
+export function idle_add(priority: number, function_: SourceFunc, notify?: DestroyNotify | null): number
+export function idle_remove_by_data(data?: object | null): boolean
 export function idle_source_new(): Source
 export function int64_equal(v1: object, v2: object): boolean
 export function int64_hash(v: object): number
 export function int_equal(v1: object, v2: object): boolean
 export function int_hash(v: object): number
-export function intern_static_string(string: string | null): string
-export function intern_string(string: string | null): string
-export function io_add_watch_full(channel: IOChannel, priority: number, condition: IOCondition, func: IOFunc, user_data: object, notify: DestroyNotify): number
+export function intern_static_string(string?: string | null): string
+export function intern_string(string?: string | null): string
+export function io_add_watch(channel: IOChannel, priority: number, condition: IOCondition, func: IOFunc, notify: DestroyNotify): number
 export function io_channel_error_from_errno(en: number): IOChannelError
 export function io_channel_error_quark(): Quark
 export function io_create_watch(channel: IOChannel, condition: IOCondition): Source
 export function key_file_error_quark(): Quark
 export function listenv(): string[]
-export function locale_from_utf8(utf8string: string, len: number, bytes_read: number, bytes_written: number): string
-export function locale_to_utf8(opsysstring: string, len: number, bytes_read: number, bytes_written: number): string
-export function log_default_handler(log_domain: string, log_level: LogLevelFlags, message: string, unused_data: object): void
+export function locale_from_utf8(utf8string: string, len: number): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
+export function locale_to_utf8(opsysstring: string, len: number): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
+export function log_default_handler(log_domain: string | null, log_level: LogLevelFlags, message?: string | null, unused_data?: object | null): void
 export function log_remove_handler(log_domain: string, handler_id: number): void
 export function log_set_always_fatal(fatal_mask: LogLevelFlags): LogLevelFlags
 export function log_set_fatal_mask(log_domain: string, fatal_mask: LogLevelFlags): LogLevelFlags
-export function log_set_handler_full(log_domain: string | null, log_levels: LogLevelFlags, log_func: LogFunc, user_data: object, destroy: DestroyNotify): number
+export function log_set_handler(log_domain: string | null, log_levels: LogLevelFlags, log_func: LogFunc, destroy: DestroyNotify): number
+export function log_set_writer_func(user_data_free: DestroyNotify): void
+export function log_structured_array(log_level: LogLevelFlags, fields: LogField[]): void
+export function log_variant(log_domain: string | null, log_level: LogLevelFlags, fields: Variant): void
+export function log_writer_default(log_level: LogLevelFlags, fields: LogField[], user_data?: object | null): LogWriterOutput
+export function log_writer_format_fields(log_level: LogLevelFlags, fields: LogField[], use_color: boolean): string
+export function log_writer_is_journald(output_fd: number): boolean
+export function log_writer_journald(log_level: LogLevelFlags, fields: LogField[], user_data?: object | null): LogWriterOutput
+export function log_writer_standard_streams(log_level: LogLevelFlags, fields: LogField[], user_data?: object | null): LogWriterOutput
+export function log_writer_supports_color(output_fd: number): boolean
 export function main_context_default(): MainContext
 export function main_context_get_thread_default(): MainContext
 export function main_context_ref_thread_default(): MainContext
 export function main_current_source(): Source
 export function main_depth(): number
+export function malloc(n_bytes: number): object | null
+export function malloc0(n_bytes: number): object | null
+export function malloc0_n(n_blocks: number, n_block_bytes: number): object | null
+export function malloc_n(n_blocks: number, n_block_bytes: number): object | null
 export function markup_error_quark(): Quark
 export function markup_escape_text(text: string, length: number): string
 export function mem_is_system_malloc(): boolean
 export function mem_profile(): void
 export function mem_set_vtable(vtable: MemVTable): void
+export function memdup(mem: object | null, byte_size: number): object | null
 export function mkdir_with_parents(pathname: string, mode: number): number
-export function mkdtemp(tmpl: string): string
-export function mkdtemp_full(tmpl: string, mode: number): string
-export function mkstemp(tmpl: string): number
-export function mkstemp_full(tmpl: string, flags: number, mode: number): number
 export function nullify_pointer(nullify_location: object): void
+export function number_parser_error_quark(): Quark
 export function on_error_query(prg_name: string): void
 export function on_error_stack_trace(prg_name: string): void
 export function once_init_enter(location: object): boolean
@@ -1092,24 +1135,26 @@ export function parse_debug_string(string: string | null, keys: DebugKey[]): num
 export function path_get_basename(file_name: string): string
 export function path_get_dirname(file_name: string): string
 export function path_is_absolute(file_name: string): boolean
-export function path_skip_root(file_name: string): string | null
-export function pattern_match(pspec: PatternSpec, string_length: number, string: string, string_reversed: string | null): boolean
+export function path_skip_root(file_name: string): string
+export function pattern_match(pspec: PatternSpec, string_length: number, string: string, string_reversed?: string | null): boolean
 export function pattern_match_simple(pattern: string, string: string): boolean
 export function pattern_match_string(pspec: PatternSpec, string: string): boolean
 export function pointer_bit_lock(address: object, lock_bit: number): void
 export function pointer_bit_trylock(address: object, lock_bit: number): boolean
 export function pointer_bit_unlock(address: object, lock_bit: number): void
 export function poll(fds: PollFD, nfds: number, timeout: number): number
-export function propagate_error(dest: Error, src: Error): void
-export function quark_from_static_string(string: string | null): Quark
-export function quark_from_string(string: string | null): Quark
+export function propagate_error(src: Error): /* dest */ Error | null
+export function quark_from_static_string(string?: string | null): Quark
+export function quark_from_string(string?: string | null): Quark
 export function quark_to_string(quark: Quark): string
-export function quark_try_string(string: string | null): Quark
+export function quark_try_string(string?: string | null): Quark
 export function random_double(): number
 export function random_double_range(begin: number, end: number): number
 export function random_int(): number
 export function random_int_range(begin: number, end: number): number
 export function random_set_seed(seed: number): void
+export function realloc(mem: object | null, n_bytes: number): object | null
+export function realloc_n(mem: object | null, n_blocks: number, n_block_bytes: number): object | null
 export function regex_check_replacement(replacement: string): [ /* returnType */ boolean, /* has_references */ boolean | null ]
 export function regex_error_quark(): Quark
 export function regex_escape_nul(string: string, length: number): string
@@ -1117,41 +1162,46 @@ export function regex_escape_string(string: string[]): string
 export function regex_match_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): boolean
 export function regex_split_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): string[]
 export function reload_user_special_dirs_cache(): void
-export function return_if_fail_warning(log_domain: string, pretty_function: string, expression: string): void
 export function rmdir(filename: string): number
+export function sequence_get(iter: SequenceIter): object | null
+export function sequence_insert_before(iter: SequenceIter, data?: object | null): SequenceIter
 export function sequence_move(src: SequenceIter, dest: SequenceIter): void
 export function sequence_move_range(dest: SequenceIter, begin: SequenceIter, end: SequenceIter): void
+export function sequence_range_get_midpoint(begin: SequenceIter, end: SequenceIter): SequenceIter
 export function sequence_remove(iter: SequenceIter): void
 export function sequence_remove_range(begin: SequenceIter, end: SequenceIter): void
-export function sequence_set(iter: SequenceIter, data: object): void
+export function sequence_set(iter: SequenceIter, data?: object | null): void
 export function sequence_swap(a: SequenceIter, b: SequenceIter): void
 export function set_application_name(application_name: string): void
-export function set_error_literal(err: Error | null, domain: Quark, code: number, message: string): void
+export function set_error_literal(domain: Quark, code: number, message: string): /* err */ Error | null
 export function set_prgname(prgname: string): void
 export function setenv(variable: string, value: string, overwrite: boolean): boolean
 export function shell_error_quark(): Quark
 export function shell_parse_argv(command_line: string): [ /* returnType */ boolean, /* argvp */ string[] | null ]
 export function shell_quote(unquoted_string: string): string
 export function shell_unquote(quoted_string: string): string
-export function slice_free1(block_size: number, mem_block: object): void
-export function slice_free_chain_with_offset(block_size: number, mem_chain: object, next_offset: number): void
+export function slice_alloc(block_size: number): object | null
+export function slice_alloc0(block_size: number): object | null
+export function slice_copy(block_size: number, mem_block?: object | null): object | null
+export function slice_free1(block_size: number, mem_block?: object | null): void
+export function slice_free_chain_with_offset(block_size: number, mem_chain: object | null, next_offset: number): void
 export function slice_get_config(ckey: SliceConfig): number
 export function slice_get_config_state(ckey: SliceConfig, address: number, n_values: number): number
 export function slice_set_config(ckey: SliceConfig, value: number): void
 export function source_remove(tag: number): boolean
-export function source_remove_by_funcs_user_data(funcs: SourceFuncs, user_data: object): boolean
-export function source_remove_by_user_data(user_data: object): boolean
+export function source_remove_by_funcs_user_data(funcs: SourceFuncs, user_data?: object | null): boolean
+export function source_remove_by_user_data(user_data?: object | null): boolean
 export function source_set_name_by_id(tag: number, name: string): void
 export function spaced_primes_closest(num: number): number
-export function spawn_async(working_directory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup: SpawnChildSetupFunc | null, user_data: object): [ /* returnType */ boolean, /* child_pid */ Pid | null ]
-export function spawn_async_with_pipes(working_directory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup: SpawnChildSetupFunc | null, user_data: object): [ /* returnType */ boolean, /* child_pid */ Pid | null, /* standard_input */ number | null, /* standard_output */ number | null, /* standard_error */ number | null ]
+export function spawn_async(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* child_pid */ Pid | null ]
+export function spawn_async_with_pipes(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* child_pid */ Pid | null, /* standard_input */ number | null, /* standard_output */ number | null, /* standard_error */ number | null ]
 export function spawn_check_exit_status(exit_status: number): boolean
 export function spawn_close_pid(pid: Pid): void
 export function spawn_command_line_async(command_line: string): boolean
 export function spawn_command_line_sync(command_line: string): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
 export function spawn_error_quark(): Quark
 export function spawn_exit_error_quark(): Quark
-export function spawn_sync(working_directory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup: SpawnChildSetupFunc | null, user_data: object): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
+export function spawn_sync(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
 export function stpcpy(dest: string, src: string): string
 export function str_equal(v1: object, v2: object): boolean
 export function str_has_prefix(str: string, prefix: string): boolean
@@ -1159,21 +1209,21 @@ export function str_has_suffix(str: string, suffix: string): boolean
 export function str_hash(v: object): number
 export function str_is_ascii(str: string): boolean
 export function str_match_string(search_term: string, potential_hit: string, accept_alternates: boolean): boolean
-export function str_to_ascii(str: string, from_locale: string | null): string
-export function str_tokenize_and_fold(string: string, translit_locale: string | null): [ /* returnType */ string[], /* ascii_alternates */ string[] ]
+export function str_to_ascii(str: string, from_locale?: string | null): string
+export function str_tokenize_and_fold(string: string, translit_locale?: string | null): [ /* returnType */ string[], /* ascii_alternates */ string[] ]
 export function strcanon(string: string, valid_chars: string, substitutor: number): string
 export function strcasecmp(s1: string, s2: string): number
 export function strchomp(string: string): string
 export function strchug(string: string): string
-export function strcmp0(str1: string | null, str2: string | null): number
+export function strcmp0(str1?: string | null, str2?: string | null): number
 export function strcompress(source: string): string
 export function strdelimit(string: string, delimiters: string | null, new_delimiter: number): string
 export function strdown(string: string): string
-export function strdup(str: string): string
+export function strdup(str?: string | null): string
 export function strerror(errnum: number): string
-export function strescape(source: string, exceptions: string): string
-export function strfreev(str_array: string): void
-export function string_new(init: string | null): String
+export function strescape(source: string, exceptions?: string | null): string
+export function strfreev(str_array?: string | null): void
+export function string_new(init?: string | null): String
 export function string_new_len(init: string, len: number): String
 export function string_sized_new(dfl_size: number): String
 export function strip_context(msgid: string, msgval: string): string
@@ -1188,13 +1238,13 @@ export function strrstr(haystack: string, needle: string): string
 export function strrstr_len(haystack: string, haystack_len: number, needle: string): string
 export function strsignal(signum: number): string
 export function strstr_len(haystack: string, haystack_len: number, needle: string): string
-export function strtod(nptr: string, endptr: string): number
+export function strtod(nptr: string): [ /* returnType */ number, /* endptr */ string | null ]
 export function strup(string: string): string
 export function strv_contains(strv: string, str: string): boolean
 export function strv_get_type(): number
 export function strv_length(str_array: string): number
-export function test_add_data_func(testpath: string, test_data: object, test_func: TestDataFunc): void
-export function test_add_data_func_full(testpath: string, test_data: object, test_func: TestDataFunc, data_free_func: DestroyNotify): void
+export function test_add_data_func(testpath: string, test_data: object | null, test_func: TestDataFunc): void
+export function test_add_data_func_full(testpath: string, test_data: object | null, test_func: TestDataFunc, data_free_func: DestroyNotify): void
 export function test_add_func(testpath: string, test_func: TestFunc): void
 export function test_assert_expected_messages_internal(domain: string, file: string, line: number, func: string): void
 export function test_bug(bug_uri_snippet: string): void
@@ -1203,10 +1253,10 @@ export function test_expect_message(log_domain: string | null, log_level: LogLev
 export function test_fail(): void
 export function test_failed(): boolean
 export function test_get_dir(file_type: TestFileType): string
-export function test_incomplete(msg: string | null): void
+export function test_incomplete(msg?: string | null): void
 export function test_log_type_name(log_type: TestLogType): string
-export function test_queue_destroy(destroy_func: DestroyNotify, destroy_data: object): void
-export function test_queue_free(gfree_pointer: object): void
+export function test_queue_destroy(destroy_func: DestroyNotify, destroy_data?: object | null): void
+export function test_queue_free(gfree_pointer?: object | null): void
 export function test_rand_double(): number
 export function test_rand_double_range(range_start: number, range_end: number): number
 export function test_rand_int(): number
@@ -1214,7 +1264,7 @@ export function test_rand_int_range(begin: number, end: number): number
 export function test_run(): number
 export function test_run_suite(suite: TestSuite): number
 export function test_set_nonfatal_assertions(): void
-export function test_skip(msg: string | null): void
+export function test_skip(msg?: string | null): void
 export function test_subprocess(): boolean
 export function test_timer_elapsed(): number
 export function test_timer_last(): number
@@ -1225,7 +1275,7 @@ export function test_trap_has_passed(): boolean
 export function test_trap_reached_timeout(): boolean
 export function test_trap_subprocess(test_path: string | null, usec_timeout: number, test_flags: TestSubprocessFlags): void
 export function thread_error_quark(): Quark
-export function thread_exit(retval: object): void
+export function thread_exit(retval?: object | null): void
 export function thread_pool_get_max_idle_time(): number
 export function thread_pool_get_max_unused_threads(): number
 export function thread_pool_get_num_unused_threads(): number
@@ -1235,14 +1285,22 @@ export function thread_pool_stop_unused_threads(): void
 export function thread_self(): Thread
 export function thread_yield(): void
 export function time_val_from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
-export function timeout_add_full(priority: number, interval: number, function_: SourceFunc, data: object, notify: DestroyNotify | null): number
-export function timeout_add_seconds_full(priority: number, interval: number, function_: SourceFunc, data: object, notify: DestroyNotify | null): number
+export function timeout_add(priority: number, interval: number, function_: SourceFunc, notify?: DestroyNotify | null): number
+export function timeout_add_seconds(priority: number, interval: number, function_: SourceFunc, notify?: DestroyNotify | null): number
 export function timeout_source_new(interval: number): Source
 export function timeout_source_new_seconds(interval: number): Source
 export function trash_stack_height(stack_p: TrashStack): number
+export function trash_stack_peek(stack_p: TrashStack): object | null
+export function trash_stack_pop(stack_p: TrashStack): object | null
 export function trash_stack_push(stack_p: TrashStack, data_p: object): void
-export function ucs4_to_utf16(str: number, len: number, items_read: number | null, items_written: number | null): number
-export function ucs4_to_utf8(str: number, len: number, items_read: number | null, items_written: number | null): string
+export function try_malloc(n_bytes: number): object | null
+export function try_malloc0(n_bytes: number): object | null
+export function try_malloc0_n(n_blocks: number, n_block_bytes: number): object | null
+export function try_malloc_n(n_blocks: number, n_block_bytes: number): object | null
+export function try_realloc(mem: object | null, n_bytes: number): object | null
+export function try_realloc_n(mem: object | null, n_blocks: number, n_block_bytes: number): object | null
+export function ucs4_to_utf16(str: number, len: number): [ /* returnType */ number, /* items_read */ number | null, /* items_written */ number | null ]
+export function ucs4_to_utf8(str: number, len: number): [ /* returnType */ string, /* items_read */ number | null, /* items_written */ number | null ]
 export function unichar_break_type(c: number): UnicodeBreakType
 export function unichar_combining_class(uc: number): number
 export function unichar_compose(a: number, b: number, ch: number): boolean
@@ -1268,7 +1326,7 @@ export function unichar_iswide(c: number): boolean
 export function unichar_iswide_cjk(c: number): boolean
 export function unichar_isxdigit(c: number): boolean
 export function unichar_iszerowidth(c: number): boolean
-export function unichar_to_utf8(c: number, outbuf: string): number
+export function unichar_to_utf8(c: number): [ /* returnType */ number, /* outbuf */ string | null ]
 export function unichar_tolower(c: number): number
 export function unichar_totitle(c: number): number
 export function unichar_toupper(c: number): number
@@ -1280,30 +1338,31 @@ export function unicode_canonical_ordering(string: number, len: number): void
 export function unicode_script_from_iso15924(iso15924: number): UnicodeScript
 export function unicode_script_to_iso15924(script: UnicodeScript): number
 export function unix_error_quark(): Quark
-export function unix_fd_add_full(priority: number, fd: number, condition: IOCondition, function_: UnixFDSourceFunc, user_data: object, notify: DestroyNotify): number
+export function unix_fd_add_full(priority: number, fd: number, condition: IOCondition, function_: UnixFDSourceFunc, notify: DestroyNotify): number
 export function unix_fd_source_new(fd: number, condition: IOCondition): Source
 export function unix_open_pipe(fds: number, flags: number): boolean
 export function unix_set_fd_nonblocking(fd: number, nonblock: boolean): boolean
-export function unix_signal_add_full(priority: number, signum: number, handler: SourceFunc, user_data: object, notify: DestroyNotify): number
+export function unix_signal_add(priority: number, signum: number, handler: SourceFunc, notify: DestroyNotify): number
 export function unix_signal_source_new(signum: number): Source
 export function unlink(filename: string): number
 export function unsetenv(variable: string): void
 export function uri_escape_string(unescaped: string, reserved_chars_allowed: string | null, allow_utf8: boolean): string
 export function uri_list_extract_uris(uri_list: string): string[]
 export function uri_parse_scheme(uri: string): string
-export function uri_unescape_segment(escaped_string: string | null, escaped_string_end: string | null, illegal_characters: string | null): string
-export function uri_unescape_string(escaped_string: string, illegal_characters: string | null): string
+export function uri_unescape_segment(escaped_string?: string | null, escaped_string_end?: string | null, illegal_characters?: string | null): string
+export function uri_unescape_string(escaped_string: string, illegal_characters?: string | null): string
 export function usleep(microseconds: number): void
-export function utf16_to_ucs4(str: number, len: number, items_read: number | null, items_written: number | null): number
-export function utf16_to_utf8(str: number, len: number, items_read: number | null, items_written: number | null): string
+export function utf16_to_ucs4(str: number, len: number): [ /* returnType */ number, /* items_read */ number | null, /* items_written */ number | null ]
+export function utf16_to_utf8(str: number, len: number): [ /* returnType */ string, /* items_read */ number | null, /* items_written */ number | null ]
 export function utf8_casefold(str: string, len: number): string
 export function utf8_collate(str1: string, str2: string): number
 export function utf8_collate_key(str: string, len: number): string
 export function utf8_collate_key_for_filename(str: string, len: number): string
-export function utf8_find_next_char(p: string, end: string): string
+export function utf8_find_next_char(p: string, end?: string | null): string | null
 export function utf8_find_prev_char(str: string, p: string): string
 export function utf8_get_char(p: string): number
 export function utf8_get_char_validated(p: string, max_len: number): number
+export function utf8_make_valid(str: string, len: number): string
 export function utf8_normalize(str: string, len: number, mode: NormalizeMode): string
 export function utf8_offset_to_pointer(str: string, offset: number): string
 export function utf8_pointer_to_offset(str: string, pos: string): number
@@ -1316,59 +1375,66 @@ export function utf8_strrchr(p: string, len: number, c: number): string
 export function utf8_strreverse(str: string, len: number): string
 export function utf8_strup(str: string, len: number): string
 export function utf8_substring(str: string, start_pos: number, end_pos: number): string
-export function utf8_to_ucs4(str: string, len: number, items_read: number | null, items_written: number | null): number
-export function utf8_to_ucs4_fast(str: string, len: number, items_written: number | null): number
-export function utf8_to_utf16(str: string, len: number, items_read: number | null, items_written: number | null): number
+export function utf8_to_ucs4(str: string, len: number): [ /* returnType */ number, /* items_read */ number | null, /* items_written */ number | null ]
+export function utf8_to_ucs4_fast(str: string, len: number): [ /* returnType */ number, /* items_written */ number | null ]
+export function utf8_to_utf16(str: string, len: number): [ /* returnType */ number, /* items_read */ number | null, /* items_written */ number | null ]
 export function utf8_validate(str: Gjs.byteArray.ByteArray): [ /* returnType */ boolean, /* end */ string | null ]
+export function uuid_string_is_valid(str: string): boolean
+export function uuid_string_random(): string
 export function variant_get_gtype(): number
 export function variant_is_object_path(string: string): boolean
 export function variant_is_signature(string: string): boolean
-export function variant_parse(type: VariantType | null, text: string, limit: string | null, endptr: string | null): Variant
+export function variant_parse(type: VariantType | null, text: string, limit?: string | null, endptr?: string | null): Variant
 export function variant_parse_error_print_context(error: Error, source_str: string): string
 export function variant_parse_error_quark(): Quark
 export function variant_parser_get_error_quark(): Quark
 export function variant_type_checked_(arg0: string): VariantType
 export function variant_type_string_is_valid(type_string: string): boolean
-export function variant_type_string_scan(string: string, limit: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
-export function warn_message(domain: string, file: string, line: number, func: string, warnexpr: string): void
+export function variant_type_string_scan(string: string, limit?: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
 export interface ChildWatchFunc {
-    (pid: Pid, status: number, user_data: object): void
+    (pid: Pid, status: number): void
 }
 export interface CompareDataFunc {
-    (a: object, b: object, user_data: object): number
+    (a?: object | null, b?: object | null): number
 }
 export interface CompareFunc {
-    (a: object, b: object): number
+    (a?: object | null, b?: object | null): number
+}
+export interface CopyFunc {
+    (src: object, data?: object | null): object
 }
 export interface DataForeachFunc {
-    (key_id: Quark, data: object, user_data: object): void
+    (key_id: Quark, data?: object | null): void
 }
 export interface DestroyNotify {
-    (data: object): void
+    (data?: object | null): void
+}
+export interface DuplicateFunc {
+    (data?: object | null): object | null
 }
 export interface EqualFunc {
-    (a: object, b: object): boolean
+    (a?: object | null, b?: object | null): boolean
 }
 export interface FreeFunc {
-    (data: object): void
+    (data?: object | null): void
 }
 export interface Func {
-    (data: object, user_data: object): void
+    (data?: object | null): void
 }
 export interface HFunc {
-    (key: object, value: object, user_data: object): void
+    (key?: object | null, value?: object | null): void
 }
 export interface HRFunc {
-    (key: object, value: object, user_data: object): boolean
+    (key?: object | null, value?: object | null): boolean
 }
 export interface HashFunc {
-    (key: object): number
+    (key?: object | null): number
 }
 export interface HookCheckFunc {
-    (data: object): boolean
+    (data?: object | null): boolean
 }
 export interface HookCheckMarshaller {
-    (hook: Hook, marshal_data: object): boolean
+    (hook: Hook, marshal_data?: object | null): boolean
 }
 export interface HookCompareFunc {
     (new_hook: Hook, sibling: Hook): number
@@ -1377,34 +1443,37 @@ export interface HookFinalizeFunc {
     (hook_list: HookList, hook: Hook): void
 }
 export interface HookFindFunc {
-    (hook: Hook, data: object): boolean
+    (hook: Hook, data?: object | null): boolean
 }
 export interface HookFunc {
-    (data: object): void
+    (data?: object | null): void
 }
 export interface HookMarshaller {
-    (hook: Hook, marshal_data: object): void
+    (hook: Hook, marshal_data?: object | null): void
 }
 export interface IOFunc {
-    (source: IOChannel, condition: IOCondition, data: object): boolean
+    (source: IOChannel, condition: IOCondition, data?: object | null): boolean
 }
 export interface LogFunc {
-    (log_domain: string, log_level: LogLevelFlags, message: string, user_data: object): void
+    (log_domain: string, log_level: LogLevelFlags, message: string): void
+}
+export interface LogWriterFunc {
+    (log_level: LogLevelFlags, fields: LogField[]): LogWriterOutput
 }
 export interface NodeForeachFunc {
-    (node: Node, data: object): void
+    (node: Node, data?: object | null): void
 }
 export interface NodeTraverseFunc {
-    (node: Node, data: object): boolean
+    (node: Node, data?: object | null): boolean
 }
 export interface OptionArgFunc {
-    (option_name: string, value: string, data: object): boolean
+    (option_name: string, value: string, data?: object | null): boolean
 }
 export interface OptionErrorFunc {
-    (context: OptionContext, group: OptionGroup, data: object): void
+    (context: OptionContext, group: OptionGroup, data?: object | null): void
 }
 export interface OptionParseFunc {
-    (context: OptionContext, group: OptionGroup, data: object): boolean
+    (context: OptionContext, group: OptionGroup, data?: object | null): boolean
 }
 export interface PollFunc {
     (ufds: PollFD, nfsd: number, timeout_: number): number
@@ -1413,101 +1482,106 @@ export interface PrintFunc {
     (string: string): void
 }
 export interface RegexEvalCallback {
-    (match_info: MatchInfo, result: String, user_data: object): boolean
+    (match_info: MatchInfo, result: String): boolean
 }
 export interface ScannerMsgFunc {
     (scanner: Scanner, message: string, error: boolean): void
 }
 export interface SequenceIterCompareFunc {
-    (a: SequenceIter, b: SequenceIter, data: object): number
+    (a: SequenceIter, b: SequenceIter, data?: object | null): number
 }
 export interface SourceDummyMarshal {
     (): void
 }
 export interface SourceFunc {
-    (user_data: object): boolean
+    (): boolean
 }
 export interface SpawnChildSetupFunc {
-    (user_data: object): void
+    (): void
 }
 export interface TestDataFunc {
-    (user_data: object): void
+    (): void
 }
 export interface TestFixtureFunc {
-    (fixture: object, user_data: object): void
+    (fixture: object): void
 }
 export interface TestFunc {
     (): void
 }
 export interface TestLogFatalFunc {
-    (log_domain: string, log_level: LogLevelFlags, message: string, user_data: object): boolean
+    (log_domain: string, log_level: LogLevelFlags, message: string): boolean
+}
+export interface ThreadFunc {
+    (data?: object | null): object | null
 }
 export interface TranslateFunc {
-    (str: string, data: object): string
+    (str: string, data?: object | null): string
 }
 export interface TraverseFunc {
-    (key: object, value: object, data: object): boolean
+    (key?: object | null, value?: object | null, data?: object | null): boolean
 }
 export interface UnixFDSourceFunc {
-    (fd: number, condition: IOCondition, user_data: object): boolean
+    (fd: number, condition: IOCondition): boolean
 }
 export interface VoidFunc {
     (): void
 }
-export interface Array {
+export class Array {
     /* Fields of GLib.Array */
     data:string
     len:number
+    static name: string
 }
-export interface Array_Static {
-    name: string
-}
-export declare var Array: Array_Static
-export interface AsyncQueue {
+export class AsyncQueue {
     /* Methods of GLib.AsyncQueue */
     length(): number
     length_unlocked(): number
     lock(): void
-    push(data: object): void
-    push_front(item: object): void
-    push_front_unlocked(item: object): void
-    push_unlocked(data: object): void
+    pop(): object | null
+    pop_unlocked(): object | null
+    push(data?: object | null): void
+    push_front(item?: object | null): void
+    push_front_unlocked(item?: object | null): void
+    push_unlocked(data?: object | null): void
     ref_unlocked(): void
-    remove(item: object): boolean
-    remove_unlocked(item: object): boolean
+    remove(item?: object | null): boolean
+    remove_unlocked(item?: object | null): boolean
+    timed_pop(end_time: TimeVal): object | null
+    timed_pop_unlocked(end_time: TimeVal): object | null
+    timeout_pop(timeout: number): object | null
+    timeout_pop_unlocked(timeout: number): object | null
+    try_pop(): object | null
+    try_pop_unlocked(): object | null
     unlock(): void
     unref(): void
     unref_and_unlock(): void
+    static name: string
 }
-export interface AsyncQueue_Static {
-    name: string
-}
-export declare var AsyncQueue: AsyncQueue_Static
-export interface BookmarkFile {
+export class BookmarkFile {
     /* Methods of GLib.BookmarkFile */
-    add_application(uri: string, name: string | null, exec: string | null): void
+    add_application(uri: string, name?: string | null, exec?: string | null): void
     add_group(uri: string, group: string): void
     free(): void
     get_added(uri: string): number
     get_app_info(uri: string, name: string): [ /* returnType */ boolean, /* exec */ string | null, /* count */ number | null, /* stamp */ number | null ]
-    get_applications(uri: string): [ /* returnType */ string[], /* length */ number | null ]
+    get_applications(uri: string): string[]
     get_description(uri: string): string
-    get_groups(uri: string): [ /* returnType */ string[], /* length */ number | null ]
+    get_groups(uri: string): string[]
     get_icon(uri: string): [ /* returnType */ boolean, /* href */ string | null, /* mime_type */ string | null ]
     get_is_private(uri: string): boolean
     get_mime_type(uri: string): string
     get_modified(uri: string): number
     get_size(): number
-    get_title(uri: string | null): string
-    get_uris(): [ /* returnType */ string[], /* length */ number | null ]
+    get_title(uri?: string | null): string
+    get_uris(): string[]
     get_visited(uri: string): number
     has_application(uri: string, name: string): boolean
     has_group(uri: string, group: string): boolean
     has_item(uri: string): boolean
     load_from_data(data: string, length: number): boolean
-    load_from_data_dirs(file: string, full_path: string | null): boolean
+    load_from_data_dirs(file: string, full_path?: any): boolean
     load_from_file(filename: string): boolean
-    move_item(old_uri: string, new_uri: string | null): boolean
+    move_item(old_uri: string, new_uri?: string | null): boolean
     remove_application(uri: string, name: string): boolean
     remove_group(uri: string, group: string): boolean
     remove_item(uri: string): boolean
@@ -1523,70 +1597,51 @@ export interface BookmarkFile {
     set_visited(uri: string, visited: number): void
     to_data(): [ /* returnType */ string, /* length */ number | null ]
     to_file(filename: string): boolean
+    static name: string
+    static error_quark(): Quark
 }
-export interface BookmarkFile_Static {
-    name: string
-}
-export declare class BookmarkFile_Static {
-    error_quark(): Quark
-}
-export declare var BookmarkFile: BookmarkFile_Static
-export interface ByteArray {
+export class ByteArray {
     /* Fields of GLib.ByteArray */
     data:number
     len:number
+    static name: string
+    static free(array: Gjs.byteArray.ByteArray, free_segment: boolean): number
+    static free_to_bytes(array: Gjs.byteArray.ByteArray): Bytes
+    static new_take(data: Gjs.byteArray.ByteArray): Gjs.byteArray.ByteArray
+    static unref(array: Gjs.byteArray.ByteArray): void
 }
-export interface ByteArray_Static {
-    name: string
-}
-export declare class ByteArray_Static {
-    free(array: Gjs.byteArray.ByteArray, free_segment: boolean): number
-    free_to_bytes(array: Gjs.byteArray.ByteArray): Bytes
-    new(): Gjs.byteArray.ByteArray
-    new_take(data: Gjs.byteArray.ByteArray): Gjs.byteArray.ByteArray
-    unref(array: Gjs.byteArray.ByteArray): void
-}
-export declare var ByteArray: ByteArray_Static
-export interface Bytes {
+export class Bytes {
     /* Methods of GLib.Bytes */
     compare(bytes2: Bytes): number
     equal(bytes2: Bytes): boolean
-    get_data(): [ /* returnType */ Gjs.byteArray.ByteArray, /* size */ number | null ]
+    get_data(): Gjs.byteArray.ByteArray | null
     get_size(): number
     hash(): number
     new_from_bytes(offset: number, length: number): Bytes
     ref(): Bytes
     unref(): void
     unref_to_array(): Gjs.byteArray.ByteArray
-    unref_to_data(size: number): object
+    unref_to_data(): Gjs.byteArray.ByteArray
+    static name: string
+    static new(data: Gjs.byteArray.ByteArray | null): Bytes
+    constructor(data: Gjs.byteArray.ByteArray | null)
+    static new(data: Gjs.byteArray.ByteArray | null): Bytes
+    static new_take(data: Gjs.byteArray.ByteArray | null): Bytes
 }
-export interface Bytes_Static {
-    name: string
-    new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
-}
-export declare class Bytes_Static {
-    new(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
-    new_take(data: Gjs.byteArray.ByteArray | null, size: number): Bytes
-}
-export declare var Bytes: Bytes_Static
-export interface Checksum {
+export class Checksum {
     /* Methods of GLib.Checksum */
     copy(): Checksum
     free(): void
     get_string(): string
     reset(): void
     update(data: Gjs.byteArray.ByteArray): void
+    static name: string
+    static new(checksum_type: ChecksumType): Checksum
+    constructor(checksum_type: ChecksumType)
+    static new(checksum_type: ChecksumType): Checksum
+    static type_get_length(checksum_type: ChecksumType): number
 }
-export interface Checksum_Static {
-    name: string
-    new(checksum_type: ChecksumType): Checksum
-}
-export declare class Checksum_Static {
-    new(checksum_type: ChecksumType): Checksum
-    type_get_length(checksum_type: ChecksumType): number
-}
-export declare var Checksum: Checksum_Static
-export interface Cond {
+export class Cond {
     /* Fields of GLib.Cond */
     /* Methods of GLib.Cond */
     broadcast(): void
@@ -1595,18 +1650,12 @@ export interface Cond {
     signal(): void
     wait(mutex: Mutex): void
     wait_until(mutex: Mutex, end_time: number): boolean
+    static name: string
 }
-export interface Cond_Static {
-    name: string
+export class Data {
+    static name: string
 }
-export declare var Cond: Cond_Static
-export interface Data {
-}
-export interface Data_Static {
-    name: string
-}
-export declare var Data: Data_Static
-export interface Date {
+export class Date {
     /* Fields of GLib.Date */
     julian_days:number
     julian:number
@@ -1649,29 +1698,25 @@ export interface Date {
     subtract_years(n_years: number): void
     to_struct_tm(tm: object): void
     valid(): boolean
+    static name: string
+    static new(): Date
+    constructor()
+    static new(): Date
+    static new_dmy(day: DateDay, month: DateMonth, year: DateYear): Date
+    static new_julian(julian_day: number): Date
+    static get_days_in_month(month: DateMonth, year: DateYear): number
+    static get_monday_weeks_in_year(year: DateYear): number
+    static get_sunday_weeks_in_year(year: DateYear): number
+    static is_leap_year(year: DateYear): boolean
+    static strftime(s: string, slen: number, format: string, date: Date): number
+    static valid_day(day: DateDay): boolean
+    static valid_dmy(day: DateDay, month: DateMonth, year: DateYear): boolean
+    static valid_julian(julian_date: number): boolean
+    static valid_month(month: DateMonth): boolean
+    static valid_weekday(weekday: DateWeekday): boolean
+    static valid_year(year: DateYear): boolean
 }
-export interface Date_Static {
-    name: string
-    new(): Date
-}
-export declare class Date_Static {
-    new(): Date
-    new_dmy(day: DateDay, month: DateMonth, year: DateYear): Date
-    new_julian(julian_day: number): Date
-    get_days_in_month(month: DateMonth, year: DateYear): number
-    get_monday_weeks_in_year(year: DateYear): number
-    get_sunday_weeks_in_year(year: DateYear): number
-    is_leap_year(year: DateYear): boolean
-    strftime(s: string, slen: number, format: string, date: Date): number
-    valid_day(day: DateDay): boolean
-    valid_dmy(day: DateDay, month: DateMonth, year: DateYear): boolean
-    valid_julian(julian_date: number): boolean
-    valid_month(month: DateMonth): boolean
-    valid_weekday(weekday: DateWeekday): boolean
-    valid_year(year: DateYear): boolean
-}
-export declare var Date: Date_Static
-export interface DateTime {
+export class DateTime {
     /* Methods of GLib.DateTime */
     add(timespan: TimeSpan): DateTime
     add_days(days: number): DateTime
@@ -1707,50 +1752,38 @@ export interface DateTime {
     to_unix(): number
     to_utc(): DateTime
     unref(): void
+    static name: string
+    static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    constructor(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number)
+    static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    static new_from_timeval_local(tv: TimeVal): DateTime
+    static new_from_timeval_utc(tv: TimeVal): DateTime
+    static new_from_unix_local(t: number): DateTime
+    static new_from_unix_utc(t: number): DateTime
+    static new_local(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    static new_now(tz: TimeZone): DateTime
+    static new_now_local(): DateTime
+    static new_now_utc(): DateTime
+    static new_utc(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    static compare(dt1: object, dt2: object): number
+    static equal(dt1: object, dt2: object): boolean
+    static hash(datetime: object): number
 }
-export interface DateTime_Static {
-    name: string
-    new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
-}
-export declare class DateTime_Static {
-    new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
-    new_from_timeval_local(tv: TimeVal): DateTime
-    new_from_timeval_utc(tv: TimeVal): DateTime
-    new_from_unix_local(t: number): DateTime
-    new_from_unix_utc(t: number): DateTime
-    new_local(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
-    new_now(tz: TimeZone): DateTime
-    new_now_local(): DateTime
-    new_now_utc(): DateTime
-    new_utc(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
-    compare(dt1: object, dt2: object): number
-    equal(dt1: object, dt2: object): boolean
-    hash(datetime: object): number
-}
-export declare var DateTime: DateTime_Static
-export interface DebugKey {
+export class DebugKey {
     /* Fields of GLib.DebugKey */
     key:string
     value:number
+    static name: string
 }
-export interface DebugKey_Static {
-    name: string
-}
-export declare var DebugKey: DebugKey_Static
-export interface Dir {
+export class Dir {
     /* Methods of GLib.Dir */
     close(): void
     read_name(): string
     rewind(): void
+    static name: string
+    static make_tmp(tmpl?: string): string
 }
-export interface Dir_Static {
-    name: string
-}
-export declare class Dir_Static {
-    make_tmp(tmpl: string): string
-}
-export declare var Dir: Dir_Static
-export interface Error {
+export class Error {
     /* Fields of GLib.Error */
     domain:Quark
     code:number
@@ -1759,59 +1792,44 @@ export interface Error {
     copy(): Error
     free(): void
     matches(domain: Quark, code: number): boolean
+    static name: string
+    static new_literal(domain: Quark, code: number, message: string): Error
 }
-export interface Error_Static {
-    name: string
+export class HashTable {
+    static name: string
+    static add(hash_table: HashTable, key?: object | null): boolean
+    static contains(hash_table: HashTable, key?: object | null): boolean
+    static destroy(hash_table: HashTable): void
+    static insert(hash_table: HashTable, key?: object | null, value?: object | null): boolean
+    static lookup(hash_table: HashTable, key?: object | null): object | null
+    static lookup_extended(hash_table: HashTable, lookup_key?: object | null): [ /* returnType */ boolean, /* orig_key */ object | null, /* value */ object | null ]
+    static remove(hash_table: HashTable, key?: object | null): boolean
+    static remove_all(hash_table: HashTable): void
+    static replace(hash_table: HashTable, key?: object | null, value?: object | null): boolean
+    static size(hash_table: HashTable): number
+    static steal(hash_table: HashTable, key?: object | null): boolean
+    static steal_all(hash_table: HashTable): void
+    static unref(hash_table: HashTable): void
 }
-export declare class Error_Static {
-    new_literal(domain: Quark, code: number, message: string): Error
-}
-export declare var Error: Error_Static
-export interface HashTable {
-}
-export interface HashTable_Static {
-    name: string
-}
-export declare class HashTable_Static {
-    add(hash_table: HashTable, key: object): boolean
-    contains(hash_table: HashTable, key: object): boolean
-    destroy(hash_table: HashTable): void
-    insert(hash_table: HashTable, key: object, value: object): boolean
-    lookup_extended(hash_table: HashTable, lookup_key: object, orig_key: object | null, value: object | null): boolean
-    remove(hash_table: HashTable, key: object): boolean
-    remove_all(hash_table: HashTable): void
-    replace(hash_table: HashTable, key: object, value: object): boolean
-    size(hash_table: HashTable): number
-    steal(hash_table: HashTable, key: object): boolean
-    steal_all(hash_table: HashTable): void
-    unref(hash_table: HashTable): void
-}
-export declare var HashTable: HashTable_Static
-export interface HashTableIter {
+export class HashTableIter {
     /* Fields of GLib.HashTableIter */
     /* Methods of GLib.HashTableIter */
     init(hash_table: HashTable): void
-    next(key: object | null, value: object | null): boolean
+    next(): [ /* returnType */ boolean, /* key */ object | null, /* value */ object | null ]
     remove(): void
-    replace(value: object): void
+    replace(value?: object | null): void
     steal(): void
+    static name: string
 }
-export interface HashTableIter_Static {
-    name: string
-}
-export declare var HashTableIter: HashTableIter_Static
-export interface Hmac {
+export class Hmac {
     /* Methods of GLib.Hmac */
     get_digest(buffer: number, digest_len: number): void
     get_string(): string
     unref(): void
     update(data: Gjs.byteArray.ByteArray): void
+    static name: string
 }
-export interface Hmac_Static {
-    name: string
-}
-export declare var Hmac: Hmac_Static
-export interface Hook {
+export class Hook {
     /* Fields of GLib.Hook */
     data:object
     next:Hook
@@ -1823,20 +1841,15 @@ export interface Hook {
     destroy:DestroyNotify
     /* Methods of GLib.Hook */
     compare_ids(sibling: Hook): number
+    static name: string
+    static destroy(hook_list: HookList, hook_id: number): boolean
+    static destroy_link(hook_list: HookList, hook: Hook): void
+    static free(hook_list: HookList, hook: Hook): void
+    static insert_before(hook_list: HookList, sibling: Hook | null, hook: Hook): void
+    static prepend(hook_list: HookList, hook: Hook): void
+    static unref(hook_list: HookList, hook: Hook): void
 }
-export interface Hook_Static {
-    name: string
-}
-export declare class Hook_Static {
-    destroy(hook_list: HookList, hook_id: number): boolean
-    destroy_link(hook_list: HookList, hook: Hook): void
-    free(hook_list: HookList, hook: Hook): void
-    insert_before(hook_list: HookList, sibling: Hook, hook: Hook): void
-    prepend(hook_list: HookList, hook: Hook): void
-    unref(hook_list: HookList, hook: Hook): void
-}
-export declare var Hook: Hook_Static
-export interface HookList {
+export class HookList {
     /* Fields of GLib.HookList */
     seq_id:number
     hook_size:number
@@ -1850,20 +1863,14 @@ export interface HookList {
     init(hook_size: number): void
     invoke(may_recurse: boolean): void
     invoke_check(may_recurse: boolean): void
+    static name: string
 }
-export interface HookList_Static {
-    name: string
-}
-export declare var HookList: HookList_Static
-export interface IConv {
+export class IConv {
     /* Methods of GLib.IConv */
     close(): number
+    static name: string
 }
-export interface IConv_Static {
-    name: string
-}
-export declare var IConv: IConv_Static
-export interface IOChannel {
+export class IOChannel {
     /* Fields of GLib.IOChannel */
     /* Methods of GLib.IOChannel */
     close(): void
@@ -1879,7 +1886,7 @@ export interface IOChannel {
     read(buf: string, count: number, bytes_read: number): IOError
     read_chars(): [ /* returnType */ IOStatus, /* buf */ Gjs.byteArray.ByteArray, /* bytes_read */ number | null ]
     read_line(): [ /* returnType */ IOStatus, /* str_return */ string, /* length */ number | null, /* terminator_pos */ number | null ]
-    read_line_string(buffer: String, terminator_pos: number | null): IOStatus
+    read_line_string(buffer: String, terminator_pos?: number | null): IOStatus
     read_to_end(): [ /* returnType */ IOStatus, /* str_return */ Gjs.byteArray.ByteArray ]
     read_unichar(): [ /* returnType */ IOStatus, /* thechar */ number ]
     ref(): IOChannel
@@ -1888,7 +1895,7 @@ export interface IOChannel {
     set_buffer_size(size: number): void
     set_buffered(buffered: boolean): void
     set_close_on_unref(do_close: boolean): void
-    set_encoding(encoding: string | null): IOStatus
+    set_encoding(encoding?: string | null): IOStatus
     set_flags(flags: IOFlags): IOStatus
     set_line_term(line_term: string | null, length: number): void
     shutdown(flush: boolean): IOStatus
@@ -1897,18 +1904,13 @@ export interface IOChannel {
     write(buf: string, count: number, bytes_written: number): IOError
     write_chars(buf: Gjs.byteArray.ByteArray, count: number): [ /* returnType */ IOStatus, /* bytes_written */ number ]
     write_unichar(thechar: number): IOStatus
+    static name: string
+    static new_file(filename: string, mode: string): IOChannel
+    static unix_new(fd: number): IOChannel
+    static error_from_errno(en: number): IOChannelError
+    static error_quark(): Quark
 }
-export interface IOChannel_Static {
-    name: string
-}
-export declare class IOChannel_Static {
-    new_file(filename: string, mode: string): IOChannel
-    unix_new(fd: number): IOChannel
-    error_from_errno(en: number): IOChannelError
-    error_quark(): Quark
-}
-export declare var IOChannel: IOChannel_Static
-export interface IOFuncs {
+export class IOFuncs {
     /* Fields of GLib.IOFuncs */
     io_read:any
     io_write:any
@@ -1918,36 +1920,34 @@ export interface IOFuncs {
     io_free:any
     io_set_flags:any
     io_get_flags:any
+    static name: string
 }
-export interface IOFuncs_Static {
-    name: string
-}
-export declare var IOFuncs: IOFuncs_Static
-export interface KeyFile {
+export class KeyFile {
     /* Methods of GLib.KeyFile */
     get_boolean(group_name: string, key: string): boolean
-    get_boolean_list(group_name: string, key: string): [ /* returnType */ boolean[], /* length */ number ]
+    get_boolean_list(group_name: string, key: string): boolean[]
     get_comment(group_name: string | null, key: string): string
     get_double(group_name: string, key: string): number
-    get_double_list(group_name: string, key: string): [ /* returnType */ number[], /* length */ number ]
+    get_double_list(group_name: string, key: string): number[]
     get_groups(): [ /* returnType */ string[], /* length */ number | null ]
     get_int64(group_name: string, key: string): number
     get_integer(group_name: string, key: string): number
-    get_integer_list(group_name: string, key: string): [ /* returnType */ number[], /* length */ number ]
+    get_integer_list(group_name: string, key: string): number[]
     get_keys(group_name: string): [ /* returnType */ string[], /* length */ number | null ]
-    get_locale_string(group_name: string, key: string, locale: string | null): string
-    get_locale_string_list(group_name: string, key: string, locale: string | null): [ /* returnType */ string[], /* length */ number | null ]
+    get_locale_string(group_name: string, key: string, locale?: string | null): string
+    get_locale_string_list(group_name: string, key: string, locale?: string | null): string[]
     get_start_group(): string
     get_string(group_name: string, key: string): string
-    get_string_list(group_name: string, key: string): [ /* returnType */ string[], /* length */ number | null ]
+    get_string_list(group_name: string, key: string): string[]
     get_uint64(group_name: string, key: string): number
     get_value(group_name: string, key: string): string
     has_group(group_name: string): boolean
+    load_from_bytes(bytes: Bytes, flags: KeyFileFlags): boolean
     load_from_data(data: string, length: number, flags: KeyFileFlags): boolean
     load_from_data_dirs(file: string, flags: KeyFileFlags): [ /* returnType */ boolean, /* full_path */ any ]
     load_from_dirs(file: string, search_dirs: any, flags: KeyFileFlags): [ /* returnType */ boolean, /* full_path */ any ]
     load_from_file(file: string, flags: KeyFileFlags): boolean
-    remove_comment(group_name: string | null, key: string | null): boolean
+    remove_comment(group_name?: string | null, key?: string | null): boolean
     remove_group(group_name: string): boolean
     remove_key(group_name: string, key: string): boolean
     save_to_file(filename: string): boolean
@@ -1968,36 +1968,36 @@ export interface KeyFile {
     set_value(group_name: string, key: string, value: string): void
     to_data(): [ /* returnType */ string, /* length */ number | null ]
     unref(): void
+    static name: string
+    static new(): KeyFile
+    constructor()
+    static new(): KeyFile
+    static error_quark(): Quark
 }
-export interface KeyFile_Static {
-    name: string
-    new(): KeyFile
-}
-export declare class KeyFile_Static {
-    new(): KeyFile
-    error_quark(): Quark
-}
-export declare var KeyFile: KeyFile_Static
-export interface List {
+export class List {
     /* Fields of GLib.List */
     data:object
-    next:List
-    prev:List
+    next:object[]
+    prev:object[]
+    static name: string
 }
-export interface List_Static {
-    name: string
+export class LogField {
+    /* Fields of GLib.LogField */
+    key:string
+    value:object
+    length:number
+    static name: string
 }
-export declare var List: List_Static
-export interface MainContext {
+export class MainContext {
     /* Methods of GLib.MainContext */
     acquire(): boolean
     add_poll(fd: PollFD, priority: number): void
-    check(max_priority: number, fds: PollFD[]): number
+    check(max_priority: number, fds: PollFD[]): boolean
     dispatch(): void
-    find_source_by_funcs_user_data(funcs: SourceFuncs, user_data: object): Source
+    find_source_by_funcs_user_data(funcs: SourceFuncs, user_data?: object | null): Source
     find_source_by_id(source_id: number): Source
-    find_source_by_user_data(user_data: object): Source
-    invoke_full(priority: number, function_: SourceFunc, data: object, notify: DestroyNotify | null): void
+    find_source_by_user_data(user_data?: object | null): Source
+    invoke_full(priority: number, function_: SourceFunc, notify?: DestroyNotify | null): void
     is_owner(): boolean
     iteration(may_block: boolean): boolean
     pending(): boolean
@@ -2011,19 +2011,15 @@ export interface MainContext {
     unref(): void
     wait(cond: Cond, mutex: Mutex): boolean
     wakeup(): void
+    static name: string
+    static new(): MainContext
+    constructor()
+    static new(): MainContext
+    static default(): MainContext
+    static get_thread_default(): MainContext
+    static ref_thread_default(): MainContext
 }
-export interface MainContext_Static {
-    name: string
-    new(): MainContext
-}
-export declare class MainContext_Static {
-    new(): MainContext
-    default(): MainContext
-    get_thread_default(): MainContext
-    ref_thread_default(): MainContext
-}
-export declare var MainContext: MainContext_Static
-export interface MainLoop {
+export class MainLoop {
     /* Methods of GLib.MainLoop */
     get_context(): MainContext
     is_running(): boolean
@@ -2031,16 +2027,12 @@ export interface MainLoop {
     ref(): MainLoop
     run(): void
     unref(): void
+    static name: string
+    static new(context: MainContext | null, is_running: boolean): MainLoop
+    constructor(context: MainContext | null, is_running: boolean)
+    static new(context: MainContext | null, is_running: boolean): MainLoop
 }
-export interface MainLoop_Static {
-    name: string
-    new(context: MainContext | null, is_running: boolean): MainLoop
-}
-export declare class MainLoop_Static {
-    new(context: MainContext | null, is_running: boolean): MainLoop
-}
-export declare var MainLoop: MainLoop_Static
-export interface MappedFile {
+export class MappedFile {
     /* Methods of GLib.MappedFile */
     free(): void
     get_bytes(): Bytes
@@ -2048,53 +2040,44 @@ export interface MappedFile {
     get_length(): number
     ref(): MappedFile
     unref(): void
+    static name: string
+    static new(filename: string, writable: boolean): MappedFile
+    constructor(filename: string, writable: boolean)
+    static new(filename: string, writable: boolean): MappedFile
+    static new_from_fd(fd: number, writable: boolean): MappedFile
 }
-export interface MappedFile_Static {
-    name: string
-    new(filename: string, writable: boolean): MappedFile
-}
-export declare class MappedFile_Static {
-    new(filename: string, writable: boolean): MappedFile
-    new_from_fd(fd: number, writable: boolean): MappedFile
-}
-export declare var MappedFile: MappedFile_Static
-export interface MarkupParseContext {
+export class MarkupParseContext {
     /* Methods of GLib.MarkupParseContext */
     end_parse(): boolean
     free(): void
     get_element(): string
-    get_position(line_number: number | null, char_number: number | null): void
+    get_position(line_number?: number | null, char_number?: number | null): void
+    get_user_data(): object | null
     parse(text: string, text_len: number): boolean
-    push(parser: MarkupParser, user_data: object): void
+    pop(): object | null
+    push(parser: MarkupParser, user_data?: object | null): void
     ref(): MarkupParseContext
     unref(): void
+    static name: string
+    static new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
+    constructor(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify)
+    static new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object | null, user_data_dnotify: DestroyNotify): MarkupParseContext
 }
-export interface MarkupParseContext_Static {
-    name: string
-    new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object, user_data_dnotify: DestroyNotify): MarkupParseContext
-}
-export declare class MarkupParseContext_Static {
-    new(parser: MarkupParser, flags: MarkupParseFlags, user_data: object, user_data_dnotify: DestroyNotify): MarkupParseContext
-}
-export declare var MarkupParseContext: MarkupParseContext_Static
-export interface MarkupParser {
+export class MarkupParser {
     /* Fields of GLib.MarkupParser */
     start_element:any
     end_element:any
     text:any
     passthrough:any
     error:any
+    static name: string
 }
-export interface MarkupParser_Static {
-    name: string
-}
-export declare var MarkupParser: MarkupParser_Static
-export interface MatchInfo {
+export class MatchInfo {
     /* Methods of GLib.MatchInfo */
-    expand_references(string_to_expand: string): string
-    fetch(match_num: number): string
+    expand_references(string_to_expand: string): string | null
+    fetch(match_num: number): string | null
     fetch_all(): string[]
-    fetch_named(name: string): string
+    fetch_named(name: string): string | null
     fetch_named_pos(name: string): [ /* returnType */ boolean, /* start_pos */ number | null, /* end_pos */ number | null ]
     fetch_pos(match_num: number): [ /* returnType */ boolean, /* start_pos */ number | null, /* end_pos */ number | null ]
     free(): void
@@ -2106,20 +2089,19 @@ export interface MatchInfo {
     next(): boolean
     ref(): MatchInfo
     unref(): void
+    static name: string
 }
-export interface MatchInfo_Static {
-    name: string
-}
-export declare var MatchInfo: MatchInfo_Static
-export interface MemVTable {
+export class MemVTable {
     /* Fields of GLib.MemVTable */
+    malloc:any
+    realloc:any
     free:any
+    calloc:any
+    try_malloc:any
+    try_realloc:any
+    static name: string
 }
-export interface MemVTable_Static {
-    name: string
-}
-export declare var MemVTable: MemVTable_Static
-export interface Node {
+export class Node {
     /* Fields of GLib.Node */
     data:object
     next:Node
@@ -2127,7 +2109,7 @@ export interface Node {
     parent:Node
     children:Node
     /* Methods of GLib.Node */
-    child_index(data: object): number
+    child_index(data?: object | null): number
     child_position(child: Node): number
     depth(): number
     destroy(): void
@@ -2137,53 +2119,42 @@ export interface Node {
     n_nodes(flags: TraverseFlags): number
     reverse_children(): void
     unlink(): void
+    static name: string
 }
-export interface Node_Static {
-    name: string
-}
-export declare var Node: Node_Static
-export interface Once {
+export class Once {
     /* Fields of GLib.Once */
     status:OnceStatus
     retval:object
     /* Methods of GLib.Once */
+    static name: string
+    static init_enter(location: object): boolean
+    static init_leave(location: object, result: number): void
 }
-export interface Once_Static {
-    name: string
-}
-export declare class Once_Static {
-    init_enter(location: object): boolean
-    init_leave(location: object, result: number): void
-}
-export declare var Once: Once_Static
-export interface OptionContext {
+export class OptionContext {
     /* Methods of GLib.OptionContext */
     add_group(group: OptionGroup): void
-    add_main_entries(entries: OptionEntry, translation_domain: string | null): void
+    add_main_entries(entries: OptionEntry, translation_domain?: string | null): void
     free(): void
     get_description(): string
-    get_help(main_help: boolean, group: OptionGroup | null): string
+    get_help(main_help: boolean, group?: OptionGroup | null): string
     get_help_enabled(): boolean
     get_ignore_unknown_options(): boolean
     get_main_group(): OptionGroup
     get_strict_posix(): boolean
     get_summary(): string
-    parse(argv: string[] | null): boolean
+    parse(argv: string[]): boolean
     parse_strv(arguments_: string[]): boolean
-    set_description(description: string | null): void
+    set_description(description?: string | null): void
     set_help_enabled(help_enabled: boolean): void
     set_ignore_unknown_options(ignore_unknown: boolean): void
     set_main_group(group: OptionGroup): void
     set_strict_posix(strict_posix: boolean): void
-    set_summary(summary: string | null): void
-    set_translate_func(func: TranslateFunc | null, data: object | null, destroy_notify: DestroyNotify | null): void
+    set_summary(summary?: string | null): void
+    set_translate_func(func?: TranslateFunc | null, destroy_notify?: DestroyNotify | null): void
     set_translation_domain(domain: string): void
+    static name: string
 }
-export interface OptionContext_Static {
-    name: string
-}
-export declare var OptionContext: OptionContext_Static
-export interface OptionEntry {
+export class OptionEntry {
     /* Fields of GLib.OptionEntry */
     long_name:string
     short_name:number
@@ -2192,91 +2163,76 @@ export interface OptionEntry {
     arg_data:object
     description:string
     arg_description:string
+    static name: string
 }
-export interface OptionEntry_Static {
-    name: string
-}
-export declare var OptionEntry: OptionEntry_Static
-export interface OptionGroup {
+export class OptionGroup {
     /* Methods of GLib.OptionGroup */
     add_entries(entries: OptionEntry): void
     free(): void
     ref(): OptionGroup
-    set_translate_func(func: TranslateFunc | null, data: object | null, destroy_notify: DestroyNotify | null): void
+    set_translate_func(func?: TranslateFunc | null, destroy_notify?: DestroyNotify | null): void
     set_translation_domain(domain: string): void
     unref(): void
+    static name: string
+    static new(name: string, description: string, help_description: string, user_data?: object | null, destroy?: DestroyNotify | null): OptionGroup
+    constructor(name: string, description: string, help_description: string, user_data?: object | null, destroy?: DestroyNotify | null)
+    static new(name: string, description: string, help_description: string, user_data?: object | null, destroy?: DestroyNotify | null): OptionGroup
 }
-export interface OptionGroup_Static {
-    name: string
-    new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
-}
-export declare class OptionGroup_Static {
-    new(name: string, description: string, help_description: string, user_data: object | null, destroy: DestroyNotify | null): OptionGroup
-}
-export declare var OptionGroup: OptionGroup_Static
-export interface PatternSpec {
+export class PatternSpec {
     /* Methods of GLib.PatternSpec */
     equal(pspec2: PatternSpec): boolean
     free(): void
+    static name: string
 }
-export interface PatternSpec_Static {
-    name: string
-}
-export declare var PatternSpec: PatternSpec_Static
-export interface PollFD {
+export class PollFD {
     /* Fields of GLib.PollFD */
     fd:number
     events:number
     revents:number
+    static name: string
 }
-export interface PollFD_Static {
-    name: string
-}
-export declare var PollFD: PollFD_Static
-export interface Private {
+export class Private {
     /* Fields of GLib.Private */
     /* Methods of GLib.Private */
-    replace(value: object): void
-    set(value: object): void
+    get(): object | null
+    replace(value?: object | null): void
+    set(value?: object | null): void
+    static name: string
 }
-export interface Private_Static {
-    name: string
-}
-export declare var Private: Private_Static
-export interface PtrArray {
+export class PtrArray {
     /* Fields of GLib.PtrArray */
     pdata:object
     len:number
+    static name: string
 }
-export interface PtrArray_Static {
-    name: string
-}
-export declare var PtrArray: PtrArray_Static
-export interface Queue {
+export class Queue {
     /* Fields of GLib.Queue */
-    head:List
-    tail:List
+    head:object[]
+    tail:object[]
     length:number
     /* Methods of GLib.Queue */
     clear(): void
     free(): void
     free_full(free_func: DestroyNotify): void
     get_length(): number
-    index(data: object): number
+    index(data?: object | null): number
     init(): void
     is_empty(): boolean
-    push_head(data: object): void
-    push_nth(data: object, n: number): void
-    push_tail(data: object): void
-    remove(data: object): boolean
-    remove_all(data: object): number
+    peek_head(): object | null
+    peek_nth(n: number): object | null
+    peek_tail(): object | null
+    pop_head(): object | null
+    pop_nth(n: number): object | null
+    pop_tail(): object | null
+    push_head(data?: object | null): void
+    push_nth(data: object | null, n: number): void
+    push_tail(data?: object | null): void
+    remove(data?: object | null): boolean
+    remove_all(data?: object | null): number
     reverse(): void
+    static name: string
 }
-export interface Queue_Static {
-    name: string
-}
-export declare var Queue: Queue_Static
-export interface RWLock {
+export class RWLock {
     /* Fields of GLib.RWLock */
     /* Methods of GLib.RWLock */
     clear(): void
@@ -2287,12 +2243,9 @@ export interface RWLock {
     writer_lock(): void
     writer_trylock(): boolean
     writer_unlock(): void
+    static name: string
 }
-export interface RWLock_Static {
-    name: string
-}
-export declare var RWLock: RWLock_Static
-export interface Rand {
+export class Rand {
     /* Methods of GLib.Rand */
     double(): number
     double_range(begin: number, end: number): number
@@ -2301,12 +2254,9 @@ export interface Rand {
     int_range(begin: number, end: number): number
     set_seed(seed: number): void
     set_seed_array(seed: number, seed_length: number): void
+    static name: string
 }
-export interface Rand_Static {
-    name: string
-}
-export declare var Rand: Rand_Static
-export interface RecMutex {
+export class RecMutex {
     /* Fields of GLib.RecMutex */
     /* Methods of GLib.RecMutex */
     clear(): void
@@ -2314,12 +2264,9 @@ export interface RecMutex {
     lock(): void
     trylock(): boolean
     unlock(): void
+    static name: string
 }
-export interface RecMutex_Static {
-    name: string
-}
-export declare var RecMutex: RecMutex_Static
-export interface Regex {
+export class Regex {
     /* Methods of GLib.Regex */
     get_capture_count(): number
     get_compile_flags(): RegexCompileFlags
@@ -2339,31 +2286,24 @@ export interface Regex {
     split(string: string, match_options: RegexMatchFlags): string[]
     split_full(string: string[], start_position: number, match_options: RegexMatchFlags, max_tokens: number): string[]
     unref(): void
+    static name: string
+    static new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
+    constructor(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags)
+    static new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex | null
+    static check_replacement(replacement: string): [ /* returnType */ boolean, /* has_references */ boolean | null ]
+    static error_quark(): Quark
+    static escape_nul(string: string, length: number): string
+    static escape_string(string: string[]): string
+    static match_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): boolean
+    static split_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): string[]
 }
-export interface Regex_Static {
-    name: string
-    new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex
-}
-export declare class Regex_Static {
-    new(pattern: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): Regex
-    check_replacement(replacement: string): [ /* returnType */ boolean, /* has_references */ boolean | null ]
-    error_quark(): Quark
-    escape_nul(string: string, length: number): string
-    escape_string(string: string[]): string
-    match_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): boolean
-    split_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): string[]
-}
-export declare var Regex: Regex_Static
-export interface SList {
+export class SList {
     /* Fields of GLib.SList */
     data:object
     next:SList
+    static name: string
 }
-export interface SList_Static {
-    name: string
-}
-export declare var SList: SList_Static
-export interface Scanner {
+export class Scanner {
     /* Fields of GLib.Scanner */
     user_data:object
     max_parse_errors:number
@@ -2389,18 +2329,17 @@ export interface Scanner {
     get_next_token(): TokenType
     input_file(input_fd: number): void
     input_text(text: string, text_len: number): void
+    lookup_symbol(symbol: string): object | null
     peek_next_token(): TokenType
-    scope_add_symbol(scope_id: number, symbol: string, value: object): void
+    scope_add_symbol(scope_id: number, symbol: string, value?: object | null): void
+    scope_lookup_symbol(scope_id: number, symbol: string): object | null
     scope_remove_symbol(scope_id: number, symbol: string): void
     set_scope(scope_id: number): number
     sync_file_offset(): void
     unexp_token(expected_token: TokenType, identifier_spec: string, symbol_spec: string, symbol_name: string, message: string, is_error: number): void
+    static name: string
 }
-export interface Scanner_Static {
-    name: string
-}
-export declare var Scanner: Scanner_Static
-export interface ScannerConfig {
+export class ScannerConfig {
     /* Fields of GLib.ScannerConfig */
     cset_skip_characters:string
     cset_identifier_first:string
@@ -2428,49 +2367,51 @@ export interface ScannerConfig {
     symbol_2_token:number
     scope_0_fallback:number
     store_int64:number
+    static name: string
 }
-export interface ScannerConfig_Static {
-    name: string
-}
-export declare var ScannerConfig: ScannerConfig_Static
-export interface Sequence {
+export class Sequence {
     /* Methods of GLib.Sequence */
+    append(data?: object | null): SequenceIter
     free(): void
+    get_begin_iter(): SequenceIter
+    get_end_iter(): SequenceIter
+    get_iter_at_pos(pos: number): SequenceIter
     get_length(): number
     is_empty(): boolean
+    prepend(data?: object | null): SequenceIter
+    static name: string
+    static get(iter: SequenceIter): object | null
+    static insert_before(iter: SequenceIter, data?: object | null): SequenceIter
+    static move(src: SequenceIter, dest: SequenceIter): void
+    static move_range(dest: SequenceIter, begin: SequenceIter, end: SequenceIter): void
+    static range_get_midpoint(begin: SequenceIter, end: SequenceIter): SequenceIter
+    static remove(iter: SequenceIter): void
+    static remove_range(begin: SequenceIter, end: SequenceIter): void
+    static set(iter: SequenceIter, data?: object | null): void
+    static swap(a: SequenceIter, b: SequenceIter): void
 }
-export interface Sequence_Static {
-    name: string
-}
-export declare class Sequence_Static {
-    move(src: SequenceIter, dest: SequenceIter): void
-    move_range(dest: SequenceIter, begin: SequenceIter, end: SequenceIter): void
-    remove(iter: SequenceIter): void
-    remove_range(begin: SequenceIter, end: SequenceIter): void
-    set(iter: SequenceIter, data: object): void
-    swap(a: SequenceIter, b: SequenceIter): void
-}
-export declare var Sequence: Sequence_Static
-export interface SequenceIter {
+export class SequenceIter {
     /* Methods of GLib.SequenceIter */
     compare(b: SequenceIter): number
     get_position(): number
+    get_sequence(): Sequence
     is_begin(): boolean
     is_end(): boolean
+    move(delta: number): SequenceIter
+    next(): SequenceIter
+    prev(): SequenceIter
+    static name: string
 }
-export interface SequenceIter_Static {
-    name: string
-}
-export declare var SequenceIter: SequenceIter_Static
-export interface Source {
+export class Source {
     /* Fields of GLib.Source */
     /* Methods of GLib.Source */
     add_child_source(child_source: Source): void
     add_poll(fd: PollFD): void
-    attach(context: MainContext | null): number
+    add_unix_fd(fd: number, events: IOCondition): object
+    attach(context?: MainContext | null): number
     destroy(): void
     get_can_recurse(): boolean
-    get_context(): MainContext
+    get_context(): MainContext | null
     get_current_time(timeval: TimeVal): void
     get_id(): number
     get_name(): string
@@ -2484,59 +2425,43 @@ export interface Source {
     remove_child_source(child_source: Source): void
     remove_poll(fd: PollFD): void
     remove_unix_fd(tag: object): void
-    set_callback(func: SourceFunc, data: object, notify: DestroyNotify | null): void
-    set_callback_indirect(callback_data: object, callback_funcs: SourceCallbackFuncs): void
+    set_callback(func: SourceFunc, notify?: DestroyNotify | null): void
+    set_callback_indirect(callback_data: object | null, callback_funcs: SourceCallbackFuncs): void
     set_can_recurse(can_recurse: boolean): void
     set_funcs(funcs: SourceFuncs): void
     set_name(name: string): void
     set_priority(priority: number): void
     set_ready_time(ready_time: number): void
     unref(): void
+    static name: string
+    static new(source_funcs: SourceFuncs, struct_size: number): Source
+    constructor(source_funcs: SourceFuncs, struct_size: number)
+    static new(source_funcs: SourceFuncs, struct_size: number): Source
+    static remove(tag: number): boolean
+    static remove_by_funcs_user_data(funcs: SourceFuncs, user_data?: object | null): boolean
+    static remove_by_user_data(user_data?: object | null): boolean
+    static set_name_by_id(tag: number, name: string): void
 }
-export interface Source_Static {
-    name: string
-    new(source_funcs: SourceFuncs, struct_size: number): Source
-}
-export declare class Source_Static {
-    new(source_funcs: SourceFuncs, struct_size: number): Source
-    remove(tag: number): boolean
-    remove_by_funcs_user_data(funcs: SourceFuncs, user_data: object): boolean
-    remove_by_user_data(user_data: object): boolean
-    set_name_by_id(tag: number, name: string): void
-}
-export declare var Source: Source_Static
-export interface SourceCallbackFuncs {
+export class SourceCallbackFuncs {
     /* Fields of GLib.SourceCallbackFuncs */
     ref:any
     unref:any
+    static name: string
 }
-export interface SourceCallbackFuncs_Static {
-    name: string
-}
-export declare var SourceCallbackFuncs: SourceCallbackFuncs_Static
-export interface SourceFuncs {
+export class SourceFuncs {
     /* Fields of GLib.SourceFuncs */
     prepare:any
     check:any
     finalize:any
+    static name: string
 }
-export interface SourceFuncs_Static {
-    name: string
+export class SourcePrivate {
+    static name: string
 }
-export declare var SourceFuncs: SourceFuncs_Static
-export interface SourcePrivate {
+export class StatBuf {
+    static name: string
 }
-export interface SourcePrivate_Static {
-    name: string
-}
-export declare var SourcePrivate: SourcePrivate_Static
-export interface StatBuf {
-}
-export interface StatBuf_Static {
-    name: string
-}
-export declare var StatBuf: StatBuf_Static
-export interface String {
+export class String {
     /* Fields of GLib.String */
     str:string
     len:number
@@ -2569,30 +2494,21 @@ export interface String {
     set_size(len: number): String
     truncate(len: number): String
     up(): String
+    static name: string
 }
-export interface String_Static {
-    name: string
-}
-export declare var String: String_Static
-export interface StringChunk {
+export class StringChunk {
     /* Methods of GLib.StringChunk */
     clear(): void
     free(): void
     insert(string: string): string
     insert_const(string: string): string
     insert_len(string: string, len: number): string
+    static name: string
 }
-export interface StringChunk_Static {
-    name: string
+export class TestCase {
+    static name: string
 }
-export declare var StringChunk: StringChunk_Static
-export interface TestCase {
-}
-export interface TestCase_Static {
-    name: string
-}
-export declare var TestCase: TestCase_Static
-export interface TestConfig {
+export class TestConfig {
     /* Fields of GLib.TestConfig */
     test_initialized:boolean
     test_quick:boolean
@@ -2600,22 +2516,16 @@ export interface TestConfig {
     test_verbose:boolean
     test_quiet:boolean
     test_undefined:boolean
+    static name: string
 }
-export interface TestConfig_Static {
-    name: string
-}
-export declare var TestConfig: TestConfig_Static
-export interface TestLogBuffer {
+export class TestLogBuffer {
     /* Fields of GLib.TestLogBuffer */
     /* Methods of GLib.TestLogBuffer */
     free(): void
     push(n_bytes: number, bytes: number): void
+    static name: string
 }
-export interface TestLogBuffer_Static {
-    name: string
-}
-export declare var TestLogBuffer: TestLogBuffer_Static
-export interface TestLogMsg {
+export class TestLogMsg {
     /* Fields of GLib.TestLogMsg */
     log_type:TestLogType
     n_strings:number
@@ -2624,36 +2534,26 @@ export interface TestLogMsg {
     nums:number
     /* Methods of GLib.TestLogMsg */
     free(): void
+    static name: string
 }
-export interface TestLogMsg_Static {
-    name: string
-}
-export declare var TestLogMsg: TestLogMsg_Static
-export interface TestSuite {
+export class TestSuite {
     /* Methods of GLib.TestSuite */
     add(test_case: TestCase): void
     add_suite(nestedsuite: TestSuite): void
+    static name: string
 }
-export interface TestSuite_Static {
-    name: string
-}
-export declare var TestSuite: TestSuite_Static
-export interface Thread {
+export class Thread {
     /* Methods of GLib.Thread */
+    join(): object | null
     ref(): Thread
     unref(): void
+    static name: string
+    static error_quark(): Quark
+    static exit(retval?: object | null): void
+    static self(): Thread
+    static yield(): void
 }
-export interface Thread_Static {
-    name: string
-}
-export declare class Thread_Static {
-    error_quark(): Quark
-    exit(retval: object): void
-    self(): Thread
-    yield(): void
-}
-export declare var Thread: Thread_Static
-export interface ThreadPool {
+export class ThreadPool {
     /* Fields of GLib.ThreadPool */
     func:Func
     user_data:object
@@ -2662,39 +2562,29 @@ export interface ThreadPool {
     free(immediate: boolean, wait_: boolean): void
     get_max_threads(): number
     get_num_threads(): number
-    move_to_front(data: object): boolean
-    push(data: object): boolean
+    move_to_front(data?: object | null): boolean
+    push(data?: object | null): boolean
     set_max_threads(max_threads: number): boolean
     unprocessed(): number
+    static name: string
+    static get_max_idle_time(): number
+    static get_max_unused_threads(): number
+    static get_num_unused_threads(): number
+    static set_max_idle_time(interval: number): void
+    static set_max_unused_threads(max_threads: number): void
+    static stop_unused_threads(): void
 }
-export interface ThreadPool_Static {
-    name: string
-}
-export declare class ThreadPool_Static {
-    get_max_idle_time(): number
-    get_max_unused_threads(): number
-    get_num_unused_threads(): number
-    set_max_idle_time(interval: number): void
-    set_max_unused_threads(max_threads: number): void
-    stop_unused_threads(): void
-}
-export declare var ThreadPool: ThreadPool_Static
-export interface TimeVal {
+export class TimeVal {
     /* Fields of GLib.TimeVal */
     tv_sec:number
     tv_usec:number
     /* Methods of GLib.TimeVal */
     add(microseconds: number): void
-    to_iso8601(): string
+    to_iso8601(): string | null
+    static name: string
+    static from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
 }
-export interface TimeVal_Static {
-    name: string
-}
-export declare class TimeVal_Static {
-    from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
-}
-export declare var TimeVal: TimeVal_Static
-export interface TimeZone {
+export class TimeZone {
     /* Methods of GLib.TimeZone */
     adjust_time(type: TimeType, time_: number): number
     find_interval(type: TimeType, time_: number): number
@@ -2703,18 +2593,14 @@ export interface TimeZone {
     is_dst(interval: number): boolean
     ref(): TimeZone
     unref(): void
+    static name: string
+    static new(identifier?: string | null): TimeZone
+    constructor(identifier?: string | null)
+    static new(identifier?: string | null): TimeZone
+    static new_local(): TimeZone
+    static new_utc(): TimeZone
 }
-export interface TimeZone_Static {
-    name: string
-    new(identifier: string | null): TimeZone
-}
-export declare class TimeZone_Static {
-    new(identifier: string | null): TimeZone
-    new_local(): TimeZone
-    new_utc(): TimeZone
-}
-export declare var TimeZone: TimeZone_Static
-export interface Timer {
+export class Timer {
     /* Methods of GLib.Timer */
     continue(): void
     destroy(): void
@@ -2722,69 +2608,61 @@ export interface Timer {
     reset(): void
     start(): void
     stop(): void
+    static name: string
 }
-export interface Timer_Static {
-    name: string
-}
-export declare var Timer: Timer_Static
-export interface TrashStack {
+export class TrashStack {
     /* Fields of GLib.TrashStack */
     next:TrashStack
+    static name: string
+    static height(stack_p: TrashStack): number
+    static peek(stack_p: TrashStack): object | null
+    static pop(stack_p: TrashStack): object | null
+    static push(stack_p: TrashStack, data_p: object): void
 }
-export interface TrashStack_Static {
-    name: string
-}
-export declare class TrashStack_Static {
-    height(stack_p: TrashStack): number
-    push(stack_p: TrashStack, data_p: object): void
-}
-export declare var TrashStack: TrashStack_Static
-export interface Tree {
+export class Tree {
     /* Methods of GLib.Tree */
     destroy(): void
     height(): number
-    insert(key: object, value: object): void
-    lookup_extended(lookup_key: object, orig_key: object, value: object): boolean
+    insert(key?: object | null, value?: object | null): void
+    lookup(key?: object | null): object | null
+    lookup_extended(lookup_key?: object | null, orig_key?: object | null, value?: object | null): boolean
     nnodes(): number
-    remove(key: object): boolean
-    replace(key: object, value: object): void
-    steal(key: object): boolean
+    remove(key?: object | null): boolean
+    replace(key?: object | null, value?: object | null): void
+    steal(key?: object | null): boolean
     unref(): void
+    static name: string
 }
-export interface Tree_Static {
-    name: string
-}
-export declare var Tree: Tree_Static
-export interface Variant {
+export class Variant {
     /* Methods of GLib.Variant */
     byteswap(): Variant
     check_format_string(format_string: string, copy_only: boolean): boolean
     classify(): VariantClass
     compare(two: Variant): number
-    dup_bytestring(): [ /* returnType */ Gjs.byteArray.ByteArray, /* length */ number | null ]
-    dup_bytestring_array(): [ /* returnType */ string[], /* length */ number | null ]
-    dup_objv(): [ /* returnType */ string[], /* length */ number | null ]
+    dup_bytestring(): Gjs.byteArray.ByteArray
+    dup_bytestring_array(): string[]
+    dup_objv(): string[]
     dup_string(): [ /* returnType */ string, /* length */ number ]
-    dup_strv(): [ /* returnType */ string[], /* length */ number | null ]
+    dup_strv(): string[]
     equal(two: Variant): boolean
     get_boolean(): boolean
     get_byte(): number
     get_bytestring(): Gjs.byteArray.ByteArray
-    get_bytestring_array(): [ /* returnType */ string[], /* length */ number | null ]
+    get_bytestring_array(): string[]
     get_child_value(index_: number): Variant
-    get_data(): object
+    get_data(): object | null
     get_data_as_bytes(): Bytes
     get_double(): number
     get_handle(): number
     get_int16(): number
     get_int32(): number
     get_int64(): number
-    get_maybe(): Variant
+    get_maybe(): Variant | null
     get_normal_form(): Variant
-    get_objv(): [ /* returnType */ string[], /* length */ number | null ]
+    get_objv(): string[]
     get_size(): number
     get_string(): [ /* returnType */ string, /* length */ number | null ]
-    get_strv(): [ /* returnType */ string[], /* length */ number | null ]
+    get_strv(): string[]
     get_type(): VariantType
     get_type_string(): string
     get_uint16(): number
@@ -2796,7 +2674,7 @@ export interface Variant {
     is_floating(): boolean
     is_normal_form(): boolean
     is_of_type(type: VariantType): boolean
-    lookup_value(key: string, expected_type: VariantType | null): Variant
+    lookup_value(key: string, expected_type?: VariantType | null): Variant
     n_children(): number
     print(type_annotate: boolean): string
     ref(): Variant
@@ -2804,46 +2682,40 @@ export interface Variant {
     store(data: object): void
     take_ref(): Variant
     unref(): void
+    static name: string
+    static new_array(child_type: VariantType | null, children: Variant[] | null): Variant
+    static new_boolean(value: boolean): Variant
+    static new_byte(value: number): Variant
+    static new_bytestring(string: Gjs.byteArray.ByteArray): Variant
+    static new_bytestring_array(strv: string[]): Variant
+    static new_dict_entry(key: Variant, value: Variant): Variant
+    static new_double(value: number): Variant
+    static new_fixed_array(element_type: VariantType, elements: object | null, n_elements: number, element_size: number): Variant
+    static new_from_bytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
+    static new_from_data(type: VariantType, data: Gjs.byteArray.ByteArray, trusted: boolean, notify: DestroyNotify, user_data?: object | null): Variant
+    static new_handle(value: number): Variant
+    static new_int16(value: number): Variant
+    static new_int32(value: number): Variant
+    static new_int64(value: number): Variant
+    static new_maybe(child_type?: VariantType | null, child?: Variant | null): Variant
+    static new_object_path(object_path: string): Variant
+    static new_objv(strv: string[]): Variant
+    static new_signature(signature: string): Variant
+    static new_string(string: string): Variant
+    static new_strv(strv: string[]): Variant
+    static new_tuple(children: Variant[]): Variant
+    static new_uint16(value: number): Variant
+    static new_uint32(value: number): Variant
+    static new_uint64(value: number): Variant
+    static new_variant(value: Variant): Variant
+    static is_object_path(string: string): boolean
+    static is_signature(string: string): boolean
+    static parse(type: VariantType | null, text: string, limit?: string | null, endptr?: string | null): Variant
+    static parse_error_print_context(error: Error, source_str: string): string
+    static parse_error_quark(): Quark
+    static parser_get_error_quark(): Quark
 }
-export interface Variant_Static {
-    name: string
-}
-export declare class Variant_Static {
-    new_array(child_type: VariantType | null, children: Variant[] | null, n_children: number): Variant
-    new_boolean(value: boolean): Variant
-    new_byte(value: number): Variant
-    new_bytestring(string: Gjs.byteArray.ByteArray): Variant
-    new_bytestring_array(strv: string[], length: number): Variant
-    new_dict_entry(key: Variant, value: Variant): Variant
-    new_double(value: number): Variant
-    new_fixed_array(element_type: VariantType, elements: object, n_elements: number, element_size: number): Variant
-    new_from_bytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
-    new_from_data(type: VariantType, data: Gjs.byteArray.ByteArray, size: number, trusted: boolean, notify: DestroyNotify, user_data: object): Variant
-    new_handle(value: number): Variant
-    new_int16(value: number): Variant
-    new_int32(value: number): Variant
-    new_int64(value: number): Variant
-    new_maybe(child_type: VariantType | null, child: Variant | null): Variant
-    new_object_path(object_path: string): Variant
-    new_objv(strv: string[], length: number): Variant
-    new_signature(signature: string): Variant
-    new_string(string: string): Variant
-    new_strv(strv: string[], length: number): Variant
-    new_tuple(children: Variant[], n_children: number): Variant
-    new_uint16(value: number): Variant
-    new_uint32(value: number): Variant
-    new_uint64(value: number): Variant
-    new_variant(value: Variant): Variant
-    is_object_path(string: string): boolean
-    is_signature(string: string): boolean
-    parse(type: VariantType | null, text: string, limit: string | null, endptr: string | null): Variant
-    parse_error_print_context(error: Error, source_str: string): string
-    parse_error_quark(): Quark
-    parser_get_error_quark(): Quark
-}
-export declare var Variant: Variant_Static
-export interface VariantBuilder {
-    /* Fields of GLib.VariantBuilder */
+export class VariantBuilder {
     /* Methods of GLib.VariantBuilder */
     add_value(value: Variant): void
     close(): void
@@ -2851,47 +2723,35 @@ export interface VariantBuilder {
     open(type: VariantType): void
     ref(): VariantBuilder
     unref(): void
+    static name: string
+    static new(type: VariantType): VariantBuilder
+    constructor(type: VariantType)
+    static new(type: VariantType): VariantBuilder
 }
-export interface VariantBuilder_Static {
-    name: string
-    new(type: VariantType): VariantBuilder
-}
-export declare class VariantBuilder_Static {
-    new(type: VariantType): VariantBuilder
-}
-export declare var VariantBuilder: VariantBuilder_Static
-export interface VariantDict {
-    /* Fields of GLib.VariantDict */
+export class VariantDict {
     /* Methods of GLib.VariantDict */
     clear(): void
     contains(key: string): boolean
     end(): Variant
     insert_value(key: string, value: Variant): void
-    lookup_value(key: string, expected_type: VariantType | null): Variant
+    lookup_value(key: string, expected_type?: VariantType | null): Variant
     ref(): VariantDict
     remove(key: string): boolean
     unref(): void
+    static name: string
+    static new(from_asv?: Variant | null): VariantDict
+    constructor(from_asv?: Variant | null)
+    static new(from_asv?: Variant | null): VariantDict
 }
-export interface VariantDict_Static {
-    name: string
-    new(from_asv: Variant | null): VariantDict
-}
-export declare class VariantDict_Static {
-    new(from_asv: Variant | null): VariantDict
-}
-export declare var VariantDict: VariantDict_Static
-export interface VariantIter {
+export class VariantIter {
     /* Fields of GLib.VariantIter */
     /* Methods of GLib.VariantIter */
     free(): void
     n_children(): number
-    next_value(): Variant
+    next_value(): Variant | null
+    static name: string
 }
-export interface VariantIter_Static {
-    name: string
-}
-export declare var VariantIter: VariantIter_Static
-export interface VariantType {
+export class VariantType {
     /* Methods of GLib.VariantType */
     copy(): VariantType
     dup_string(): string
@@ -2914,39 +2774,29 @@ export interface VariantType {
     n_items(): number
     next(): VariantType
     value(): VariantType
+    static name: string
+    static new(type_string: string): VariantType
+    constructor(type_string: string)
+    static new(type_string: string): VariantType
+    static new_array(element: VariantType): VariantType
+    static new_dict_entry(key: VariantType, value: VariantType): VariantType
+    static new_maybe(element: VariantType): VariantType
+    static new_tuple(items: VariantType[]): VariantType
+    static checked_(arg0: string): VariantType
+    static string_is_valid(type_string: string): boolean
+    static string_scan(string: string, limit?: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
 }
-export interface VariantType_Static {
-    name: string
-    new(type_string: string): VariantType
-}
-export declare class VariantType_Static {
-    new(type_string: string): VariantType
-    new_array(element: VariantType): VariantType
-    new_dict_entry(key: VariantType, value: VariantType): VariantType
-    new_maybe(element: VariantType): VariantType
-    new_tuple(items: VariantType[], length: number): VariantType
-    checked_(arg0: string): VariantType
-    string_is_valid(type_string: string): boolean
-    string_scan(string: string, limit: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
-}
-export declare var VariantType: VariantType_Static
-export interface DoubleIEEE754 {
+export class DoubleIEEE754 {
     /* Fields of GLib.DoubleIEEE754 */
     v_double:number
+    static name: string
 }
-export interface DoubleIEEE754_Static {
-    name: string
-}
-export declare var DoubleIEEE754: DoubleIEEE754_Static
-export interface FloatIEEE754 {
+export class FloatIEEE754 {
     /* Fields of GLib.FloatIEEE754 */
     v_float:number
+    static name: string
 }
-export interface FloatIEEE754_Static {
-    name: string
-}
-export declare var FloatIEEE754: FloatIEEE754_Static
-export interface Mutex {
+export class Mutex {
     /* Fields of GLib.Mutex */
     /* Methods of GLib.Mutex */
     clear(): void
@@ -2954,12 +2804,9 @@ export interface Mutex {
     lock(): void
     trylock(): boolean
     unlock(): void
+    static name: string
 }
-export interface Mutex_Static {
-    name: string
-}
-export declare var Mutex: Mutex_Static
-export interface TokenValue {
+export class TokenValue {
     /* Fields of GLib.TokenValue */
     v_symbol:object
     v_identifier:string
@@ -2973,60 +2820,14 @@ export interface TokenValue {
     v_comment:string
     v_char:number
     v_error:number
+    static name: string
 }
-export interface TokenValue_Static {
-    name: string
-}
-export declare var TokenValue: TokenValue_Static
-type Array_autoptr = object
-type AsyncQueue_autoptr = object
-type BookmarkFile_autoptr = object
-type ByteArray_autoptr = object
-type Bytes_autoptr = object
-type Checksum_autoptr = object
 type DateDay = number
-type DateTime_autoptr = object
 type DateYear = number
-type Dir_autoptr = object
-type Error_autoptr = object
-type HashTable_autoptr = object
-type Hmac_autoptr = object
-type IOChannel_autoptr = object
-type KeyFile_autoptr = object
-type List_autoptr = object
-type MainContext_autoptr = object
-type MainLoop_autoptr = object
-type MappedFile_autoptr = object
-type MarkupParseContext_autoptr = object
-type MatchInfo_autoptr = object
-type MutexLocker = object
-type MutexLocker_autoptr = object
-type Node_autoptr = object
-type OptionContext_autoptr = object
-type OptionGroup_autoptr = object
-type PatternSpec_autoptr = object
+type MutexLocker = void
 type Pid = number
-type PtrArray_autoptr = object
 type Quark = number
-type Queue_autoptr = object
-type Rand_autoptr = object
-type Regex_autoptr = object
-type SList_autoptr = object
-type Scanner_autoptr = object
-type Sequence_autoptr = object
-type Source_autoptr = object
-type StringChunk_autoptr = object
-type String_autoptr = object
-type Strv = object
-type Thread_autoptr = object
+type Strv = string
 type Time = number
 type TimeSpan = number
-type TimeZone_autoptr = object
-type Timer_autoptr = object
-type Tree_autoptr = object
 type Type = number
-type VariantBuilder_autoptr = object
-type VariantDict_autoptr = object
-type VariantIter_autoptr = object
-type VariantType_autoptr = object
-type Variant_autoptr = object

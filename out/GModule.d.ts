@@ -18,19 +18,14 @@ export interface ModuleCheckInit {
 export interface ModuleUnload {
     (module: Module): void
 }
-export interface Module {
+export class Module {
     /* Methods of GModule.Module */
     close(): boolean
     make_resident(): void
     name(): string
-    symbol(symbol_name: string): [ /* returnType */ boolean, /* symbol */ object ]
+    symbol(symbol_name: string): [ /* returnType */ boolean, /* symbol */ object | null ]
+    static name: string
+    static build_path(directory: string | null, module_name: string): string
+    static error(): string
+    static supported(): boolean
 }
-export interface Module_Static {
-    name: string
-}
-export declare class Module_Static {
-    build_path(directory: string | null, module_name: string): string
-    error(): string
-    supported(): boolean
-}
-export declare var Module: Module_Static

@@ -3383,7 +3383,7 @@ export class DisplayManager {
     g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.DisplayManager */
     get_default_display(): Display | null
-    list_displays(): GLib.SList
+    list_displays(): Display[]
     open_display(name: string): Display | null
     set_default_display(display: Display): void
     /* Methods of GObject.Object */

@@ -338,7 +338,7 @@ export class GirModule {
         const collection =
             e.array
                 ? e.array
-                : (e.type && e.type[0].$.name === "GLib.List")
+                : (e.type && /^GLib.S?List$/.test(e.type[0].$.name))
                     ? e.type as GirArray[]
                     : undefined
 
@@ -412,7 +412,7 @@ export class GirModule {
             }
         }
 
-        let fullTypeName: string = type.$.name
+        let fullTypeName: string | null = type.$.name
 
         let fullTypeMap = {
             'GObject.Value': 'any',
@@ -421,18 +421,18 @@ export class GirModule {
             'GLib.Bytes': 'Gjs.byteArray.ByteArray'
         }
 
-        if (fullTypeMap[fullTypeName]) {
+        if (fullTypeName && fullTypeMap[fullTypeName]) {
             return fullTypeMap[fullTypeName]
         }
         
         // Fully qualify our type name if need be
-        if (fullTypeName.indexOf(".") < 0) {
+        if (fullTypeName && fullTypeName.indexOf(".") < 0) {
             let mod: GirModule = this
             if (e._module) mod = e._module
             fullTypeName = `${mod.name}.${type.$.name}`
         }
 
-        if (this.symTable[fullTypeName] == null) {
+        if (!fullTypeName || this.symTable[fullTypeName] == null) {
             console.warn(`Could not find type ${fullTypeName} for ${e.$.name}`)
             return "any" + arr
         }

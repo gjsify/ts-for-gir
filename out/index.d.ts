@@ -17,6 +17,8 @@ import * as GtkSource from "./GtkSource";
 import * as WebKit2 from "./WebKit2";
 import * as JavaScriptCore from "./JavaScriptCore";
 import * as AppIndicator3 from "./AppIndicator3";
+import * as Gda from "./Gda";
+import * as libxml2 from "./libxml2";
 import * as Notify from "./Notify";
 
 declare global {
@@ -43,6 +45,8 @@ declare global {
             WebKit2: typeof WebKit2
             JavaScriptCore: typeof JavaScriptCore
             AppIndicator3: typeof AppIndicator3
+            Gda: typeof Gda
+            libxml2: typeof libxml2
             Notify: typeof Notify
         }
         searchPath: string[]

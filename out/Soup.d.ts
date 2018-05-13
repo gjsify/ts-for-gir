@@ -458,11 +458,11 @@ export const XMLRPC_H:number
 export const XMLRPC_OLD_H:number
 export function check_version(major: number, minor: number, micro: number): boolean
 export function cookie_parse(header: string, origin: URI): Cookie | null
-export function cookies_from_request(msg: Message): GLib.SList
-export function cookies_from_response(msg: Message): GLib.SList
-export function cookies_to_cookie_header(cookies: GLib.SList): string
-export function cookies_to_request(cookies: GLib.SList, msg: Message): void
-export function cookies_to_response(cookies: GLib.SList, msg: Message): void
+export function cookies_from_request(msg: Message): Cookie[]
+export function cookies_from_response(msg: Message): Cookie[]
+export function cookies_to_cookie_header(cookies: Cookie[]): string
+export function cookies_to_request(cookies: Cookie[], msg: Message): void
+export function cookies_to_response(cookies: Cookie[], msg: Message): void
 export function form_decode(encoded_form: string): GLib.HashTable
 export function form_decode_multipart(msg: Message, file_control_name?: string | null): [ /* returnType */ GLib.HashTable | null, /* filename */ string | null, /* content_type */ string | null, /* file */ Buffer | null ]
 export function form_encode_datalist(form_data_set: GLib.Data): string
@@ -477,9 +477,9 @@ export function header_contains(header: string, token: string): boolean
 export function header_free_param_list(param_list: GLib.HashTable): void
 export function header_g_string_append_param(string: GLib.String, name: string, value: string): void
 export function header_g_string_append_param_quoted(string: GLib.String, name: string, value: string): void
-export function header_parse_list(header: string): GLib.SList
+export function header_parse_list(header: string): string[]
 export function header_parse_param_list(header: string): GLib.HashTable
-export function header_parse_quality_list(header: string): [ /* returnType */ GLib.SList, /* unacceptable */ GLib.SList | null ]
+export function header_parse_quality_list(header: string): [ /* returnType */ string[], /* unacceptable */ string[] | null ]
 export function header_parse_semi_param_list(header: string): GLib.HashTable
 export function headers_parse(str: string, len: number, dest: MessageHeaders): boolean
 export function headers_parse_request(str: string, len: number, req_headers: MessageHeaders): [ /* returnType */ number, /* req_method */ string | null, /* req_path */ string | null, /* ver */ HTTPVersion | null ]
@@ -698,10 +698,10 @@ export class Auth {
     get_authorization(msg: Message): string
     get_host(): string
     get_info(): string
-    get_protection_space(source_uri: URI): GLib.SList
+    get_protection_space(source_uri: URI): string[]
     get_realm(): string
     get_saved_password(user: string): string
-    get_saved_users(): GLib.SList
+    get_saved_users(): string[]
     get_scheme_name(): string
     has_saved_password(username: string, password: string): void
     is_ready(msg: Message): boolean
@@ -733,7 +733,7 @@ export class Auth {
     vfunc_authenticate?(username: string, password: string): void
     vfunc_can_authenticate?(): boolean
     vfunc_get_authorization?(msg: Message): string
-    vfunc_get_protection_space?(source_uri: URI): GLib.SList
+    vfunc_get_protection_space?(source_uri: URI): string[]
     vfunc_is_authenticated?(): boolean
     vfunc_is_ready?(msg: Message): boolean
     vfunc_update?(msg: Message, auth_header: GLib.HashTable): boolean
@@ -776,10 +776,10 @@ export class AuthBasic {
     get_authorization(msg: Message): string
     get_host(): string
     get_info(): string
-    get_protection_space(source_uri: URI): GLib.SList
+    get_protection_space(source_uri: URI): string[]
     get_realm(): string
     get_saved_password(user: string): string
-    get_saved_users(): GLib.SList
+    get_saved_users(): string[]
     get_scheme_name(): string
     has_saved_password(username: string, password: string): void
     is_ready(msg: Message): boolean
@@ -811,7 +811,7 @@ export class AuthBasic {
     vfunc_authenticate?(username: string, password: string): void
     vfunc_can_authenticate?(): boolean
     vfunc_get_authorization?(msg: Message): string
-    vfunc_get_protection_space?(source_uri: URI): GLib.SList
+    vfunc_get_protection_space?(source_uri: URI): string[]
     vfunc_is_authenticated?(): boolean
     vfunc_is_ready?(msg: Message): boolean
     vfunc_update?(msg: Message, auth_header: GLib.HashTable): boolean
@@ -853,10 +853,10 @@ export class AuthDigest {
     get_authorization(msg: Message): string
     get_host(): string
     get_info(): string
-    get_protection_space(source_uri: URI): GLib.SList
+    get_protection_space(source_uri: URI): string[]
     get_realm(): string
     get_saved_password(user: string): string
-    get_saved_users(): GLib.SList
+    get_saved_users(): string[]
     get_scheme_name(): string
     has_saved_password(username: string, password: string): void
     is_ready(msg: Message): boolean
@@ -888,7 +888,7 @@ export class AuthDigest {
     vfunc_authenticate?(username: string, password: string): void
     vfunc_can_authenticate?(): boolean
     vfunc_get_authorization?(msg: Message): string
-    vfunc_get_protection_space?(source_uri: URI): GLib.SList
+    vfunc_get_protection_space?(source_uri: URI): string[]
     vfunc_is_authenticated?(): boolean
     vfunc_is_ready?(msg: Message): boolean
     vfunc_update?(msg: Message, auth_header: GLib.HashTable): boolean
@@ -1225,10 +1225,10 @@ export class AuthNTLM {
     get_authorization(msg: Message): string
     get_host(): string
     get_info(): string
-    get_protection_space(source_uri: URI): GLib.SList
+    get_protection_space(source_uri: URI): string[]
     get_realm(): string
     get_saved_password(user: string): string
-    get_saved_users(): GLib.SList
+    get_saved_users(): string[]
     get_scheme_name(): string
     has_saved_password(username: string, password: string): void
     is_ready(msg: Message): boolean
@@ -1260,7 +1260,7 @@ export class AuthNTLM {
     vfunc_authenticate?(username: string, password: string): void
     vfunc_can_authenticate?(): boolean
     vfunc_get_authorization?(msg: Message): string
-    vfunc_get_protection_space?(source_uri: URI): GLib.SList
+    vfunc_get_protection_space?(source_uri: URI): string[]
     vfunc_is_authenticated?(): boolean
     vfunc_is_ready?(msg: Message): boolean
     vfunc_update?(msg: Message, auth_header: GLib.HashTable): boolean
@@ -1302,10 +1302,10 @@ export class AuthNegotiate {
     get_authorization(msg: Message): string
     get_host(): string
     get_info(): string
-    get_protection_space(source_uri: URI): GLib.SList
+    get_protection_space(source_uri: URI): string[]
     get_realm(): string
     get_saved_password(user: string): string
-    get_saved_users(): GLib.SList
+    get_saved_users(): string[]
     get_scheme_name(): string
     has_saved_password(username: string, password: string): void
     is_ready(msg: Message): boolean
@@ -1337,7 +1337,7 @@ export class AuthNegotiate {
     vfunc_authenticate?(username: string, password: string): void
     vfunc_can_authenticate?(): boolean
     vfunc_get_authorization?(msg: Message): string
-    vfunc_get_protection_space?(source_uri: URI): GLib.SList
+    vfunc_get_protection_space?(source_uri: URI): string[]
     vfunc_is_authenticated?(): boolean
     vfunc_is_ready?(msg: Message): boolean
     vfunc_update?(msg: Message, auth_header: GLib.HashTable): boolean
@@ -1545,10 +1545,10 @@ export class CookieJar {
     /* Methods of Soup.CookieJar */
     add_cookie(cookie: Cookie): void
     add_cookie_with_first_party(first_party: URI, cookie: Cookie): void
-    all_cookies(): GLib.SList
+    all_cookies(): Cookie[]
     delete_cookie(cookie: Cookie): void
     get_accept_policy(): CookieJarAcceptPolicy
-    get_cookie_list(uri: URI, for_http: boolean): GLib.SList
+    get_cookie_list(uri: URI, for_http: boolean): Cookie[]
     get_cookies(uri: URI, for_http: boolean): string | null
     is_persistent(): boolean
     save(): void
@@ -1620,10 +1620,10 @@ export class CookieJarDB {
     /* Methods of Soup.CookieJar */
     add_cookie(cookie: Cookie): void
     add_cookie_with_first_party(first_party: URI, cookie: Cookie): void
-    all_cookies(): GLib.SList
+    all_cookies(): Cookie[]
     delete_cookie(cookie: Cookie): void
     get_accept_policy(): CookieJarAcceptPolicy
-    get_cookie_list(uri: URI, for_http: boolean): GLib.SList
+    get_cookie_list(uri: URI, for_http: boolean): Cookie[]
     get_cookies(uri: URI, for_http: boolean): string | null
     is_persistent(): boolean
     save(): void
@@ -1695,10 +1695,10 @@ export class CookieJarText {
     /* Methods of Soup.CookieJar */
     add_cookie(cookie: Cookie): void
     add_cookie_with_first_party(first_party: URI, cookie: Cookie): void
-    all_cookies(): GLib.SList
+    all_cookies(): Cookie[]
     delete_cookie(cookie: Cookie): void
     get_accept_policy(): CookieJarAcceptPolicy
-    get_cookie_list(uri: URI, for_http: boolean): GLib.SList
+    get_cookie_list(uri: URI, for_http: boolean): Cookie[]
     get_cookies(uri: URI, for_http: boolean): string | null
     is_persistent(): boolean
     save(): void
@@ -2460,9 +2460,9 @@ export class Server {
     disconnect(): void
     get_async_context(): GLib.MainContext | null
     get_listener(): Socket
-    get_listeners(): GLib.SList
+    get_listeners(): Gio.Socket[]
     get_port(): number
-    get_uris(): GLib.SList
+    get_uris(): URI[]
     is_https(): boolean
     listen(address: Gio.SocketAddress, options: ServerListenOptions): boolean
     listen_all(port: number, options: ServerListenOptions): boolean
@@ -2582,7 +2582,7 @@ export class Session {
     get_async_context(): GLib.MainContext | null
     get_feature(feature_type: GObject.Type): SessionFeature | null
     get_feature_for_message(feature_type: GObject.Type, msg: Message): SessionFeature | null
-    get_features(feature_type: GObject.Type): GLib.SList
+    get_features(feature_type: GObject.Type): SessionFeature[]
     has_feature(feature_type: GObject.Type): boolean
     pause_message(msg: Message): void
     prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null): void
@@ -2714,7 +2714,7 @@ export class SessionAsync {
     get_async_context(): GLib.MainContext | null
     get_feature(feature_type: GObject.Type): SessionFeature | null
     get_feature_for_message(feature_type: GObject.Type, msg: Message): SessionFeature | null
-    get_features(feature_type: GObject.Type): GLib.SList
+    get_features(feature_type: GObject.Type): SessionFeature[]
     has_feature(feature_type: GObject.Type): boolean
     pause_message(msg: Message): void
     prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null): void
@@ -2846,7 +2846,7 @@ export class SessionSync {
     get_async_context(): GLib.MainContext | null
     get_feature(feature_type: GObject.Type): SessionFeature | null
     get_feature_for_message(feature_type: GObject.Type, msg: Message): SessionFeature | null
-    get_features(feature_type: GObject.Type): GLib.SList
+    get_features(feature_type: GObject.Type): SessionFeature[]
     has_feature(feature_type: GObject.Type): boolean
     pause_message(msg: Message): void
     prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null): void

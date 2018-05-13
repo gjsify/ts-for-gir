@@ -2307,7 +2307,7 @@ export class Regex {
 export class SList {
     /* Fields of GLib.SList */
     data:object
-    next:SList
+    next:object[]
     static name: string
 }
 export class Scanner {

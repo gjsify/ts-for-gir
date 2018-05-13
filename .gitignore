@@ -1,1 +1,4 @@
+*.lock
+*-lock*
+main.js
 node_modules/

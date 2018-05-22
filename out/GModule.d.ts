@@ -23,7 +23,7 @@ export class Module {
     close(): boolean
     make_resident(): void
     name(): string
-    symbol(symbol_name: string): [ /* returnType */ boolean, /* symbol */ object | null ]
+    symbol(symbol_name: string): [ /* returnType */ boolean, /* symbol */ object ]
     static name: string
     static build_path(directory: string | null, module_name: string): string
     static error(): string

@@ -27,7 +27,6 @@ export enum PixbufError {
     UNKNOWN_TYPE,
     UNSUPPORTED_OPERATION,
     FAILED,
-    INCOMPLETE_ANIMATION,
 }
 export enum PixbufRotation {
     NONE,
@@ -92,7 +91,6 @@ export class Pixbuf {
     composite_color_simple(dest_width: number, dest_height: number, interp_type: InterpType, overall_alpha: number, check_size: number, color1: number, color2: number): Pixbuf
     copy(): Pixbuf
     copy_area(src_x: number, src_y: number, width: number, height: number, dest_pixbuf: Pixbuf, dest_x: number, dest_y: number): void
-    copy_options(dest_pixbuf: Pixbuf): boolean
     fill(pixel: number): void
     flip(horizontal: boolean): Pixbuf | null
     get_bits_per_sample(): number
@@ -109,26 +107,21 @@ export class Pixbuf {
     new_subpixbuf(src_x: number, src_y: number, width: number, height: number): Pixbuf
     read_pixel_bytes(): Gjs.byteArray.ByteArray
     read_pixels(): number
-    remove_option(key: string): boolean
     rotate_simple(angle: PixbufRotation): Pixbuf | null
     saturate_and_pixelate(dest: Pixbuf, saturation: number, pixelate: boolean): void
     save_to_bufferv(type: string, option_keys: string[], option_values: string[]): [ /* returnType */ boolean, /* buffer */ Gjs.byteArray.ByteArray ]
     save_to_callbackv(save_func: PixbufSaveFunc, type: string, option_keys: string[], option_values: string[]): boolean
-    save_to_streamv(stream: Gio.OutputStream, type: string, option_keys: string[], option_values: string[], cancellable?: Gio.Cancellable | null): boolean
-    save_to_streamv_async(stream: Gio.OutputStream, type: string, option_keys: string[], option_values: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     savev(filename: string, type: string, option_keys: string[], option_values: string[]): boolean
     scale(dest: Pixbuf, dest_x: number, dest_y: number, dest_width: number, dest_height: number, offset_x: number, offset_y: number, scale_x: number, scale_y: number, interp_type: InterpType): void
     scale_simple(dest_width: number, dest_height: number, interp_type: InterpType): Pixbuf
-    set_option(key: string, value: string): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -137,10 +130,10 @@ export class Pixbuf {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -150,7 +143,7 @@ export class Pixbuf {
     to_string(): string | null
     /* Methods of Gio.LoadableIcon */
     load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
-    load_async(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    load_async(size: number, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     load_finish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
@@ -167,7 +160,7 @@ export class Pixbuf {
     constructor (config?: Pixbuf_ConstructProps)
     static new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf
     static new_from_bytes(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
-    static new_from_data(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn?: PixbufDestroyNotify | null): Pixbuf
+    static new_from_data(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn: PixbufDestroyNotify | null): Pixbuf
     static new_from_file(filename: string): Pixbuf
     static new_from_file_at_scale(filename: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
     static new_from_file_at_size(filename: string, width: number, height: number): Pixbuf
@@ -178,14 +171,13 @@ export class Pixbuf {
     static new_from_stream_at_scale(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable?: Gio.Cancellable | null): Pixbuf
     static new_from_stream_finish(async_result: Gio.AsyncResult): Pixbuf
     static new_from_xpm_data(data: string[]): Pixbuf
-    static calculate_rowstride(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): number
     static from_pixdata(pixdata: Pixdata, copy_pixels: boolean): Pixbuf
     static get_file_info(filename: string): [ /* returnType */ PixbufFormat | null, /* width */ number | null, /* height */ number | null ]
-    static get_file_info_async(filename: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static get_file_info_async(filename: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     static get_file_info_finish(async_result: Gio.AsyncResult): [ /* returnType */ PixbufFormat, /* width */ number, /* height */ number ]
     static get_formats(): GLib.SList
-    static new_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    static new_from_stream_at_scale_async(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static new_from_stream_async(stream: Gio.InputStream, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
+    static new_from_stream_at_scale_async(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     static save_to_stream_finish(async_result: Gio.AsyncResult): boolean
 }
 export interface PixbufAnimation_ConstructProps extends GObject.Object_ConstructProps {
@@ -204,10 +196,9 @@ export class PixbufAnimation {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -216,10 +207,10 @@ export class PixbufAnimation {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -240,7 +231,7 @@ export class PixbufAnimation {
     static new_from_resource(resource_path: string): PixbufAnimation
     static new_from_stream(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): PixbufAnimation
     static new_from_stream_finish(async_result: Gio.AsyncResult): PixbufAnimation
-    static new_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static new_from_stream_async(stream: Gio.InputStream, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
 }
 export interface PixbufAnimationIter_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -257,10 +248,9 @@ export class PixbufAnimationIter {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -269,10 +259,10 @@ export class PixbufAnimationIter {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -310,10 +300,9 @@ export class PixbufLoader {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -322,10 +311,10 @@ export class PixbufLoader {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -379,10 +368,9 @@ export class PixbufSimpleAnim {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -391,10 +379,10 @@ export class PixbufSimpleAnim {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -429,10 +417,9 @@ export class PixbufSimpleAnimIter {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -441,10 +428,10 @@ export class PixbufSimpleAnimIter {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -472,7 +459,6 @@ export class PixbufFormat {
     get_mime_types(): string[]
     get_name(): string
     is_disabled(): boolean
-    is_save_option_supported(option_key: string): boolean
     is_scalable(): boolean
     is_writable(): boolean
     set_disabled(disabled: boolean): void
@@ -493,3 +479,8 @@ export class Pixdata {
     to_csource(name: string, dump_type: PixdataDumpType): GLib.String
     static name: string
 }
+type PixbufAnimationIter_autoptr = object
+type PixbufAnimation_autoptr = object
+type PixbufLoader_autoptr = object
+type PixbufSimpleAnim_autoptr = object
+type Pixbuf_autoptr = object

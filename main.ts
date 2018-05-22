@@ -52,6 +52,7 @@ interface GirVariable extends TsForGjsExtended {
         direction?: string
         introspectable?: string
         closure?: string
+        destroy?: string
     }
     doc?: GirDoc[]
     type?: GirType[]
@@ -495,6 +496,13 @@ export class GirModule {
         return parseInt(param.$.closure)
     }
 
+    private destroyDataIndexLookup(param: GirVariable): number {
+        if (!param.$.destroy)
+            return -1
+
+        return parseInt(param.$.destroy)
+    }
+
     private getParameters(parameters, outArrayLengthIndex: number): [ string, string[] ] {
         let def: string[] = []
         let outParams: string[] = []
@@ -506,23 +514,18 @@ export class GirModule {
                     ? []
                     : [parametersArray[outArrayLengthIndex]]
 
-                for (let param of parametersArray as GirVariable[]) {
-                    let arrayNameIndex = this.arrayLengthIndexLookup(param)
-
-                    if (arrayNameIndex < 0) continue
-                    if (arrayNameIndex >= parametersArray.length) continue
-
-                    skip.push(parametersArray[arrayNameIndex])
+                let processParams = (getIndex) => {
+                    for (let param of parametersArray as GirVariable[]) {
+                        let index = getIndex(param)
+                        if (index < 0) continue
+                        if (index >= parametersArray.length) continue
+                        skip.push(parametersArray[index])
+                    }
                 }
-
-                for (let param of parametersArray as GirVariable[]) {
-                    let closureDataIndex = this.closureDataIndexLookup(param)
-
-                    if (closureDataIndex < 0) continue
-                    if (closureDataIndex >= parametersArray.length) continue
-
-                    skip.push(parametersArray[closureDataIndex])
-                }
+  
+                processParams(this.arrayLengthIndexLookup)
+                processParams(this.closureDataIndexLookup)
+                processParams(this.destroyDataIndexLookup)
 
                 for (let param of parametersArray as GirVariable[]) {
                     let paramName = this.fixVariableName(param.$.name || '-', false)

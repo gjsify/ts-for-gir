@@ -18,9 +18,6 @@ export enum AxisUse {
     XTILT,
     YTILT,
     WHEEL,
-    DISTANCE,
-    ROTATION,
-    SLIDER,
     LAST,
 }
 export enum ByteOrder {
@@ -120,30 +117,10 @@ export enum CursorType {
     BLANK_CURSOR,
     CURSOR_IS_PIXMAP,
 }
-export enum DevicePadFeature {
-    BUTTON,
-    RING,
-    STRIP,
-}
-export enum DeviceToolType {
-    UNKNOWN,
-    PEN,
-    ERASER,
-    BRUSH,
-    PENCIL,
-    AIRBRUSH,
-    MOUSE,
-    LENS,
-}
 export enum DeviceType {
     MASTER,
     SLAVE,
     FLOATING,
-}
-export enum DragCancelReason {
-    NO_TARGET,
-    USER_CANCELLED,
-    ERROR,
 }
 export enum DragProtocol {
     NONE,
@@ -201,11 +178,6 @@ export enum EventType {
     TOUCH_CANCEL,
     TOUCHPAD_SWIPE,
     TOUCHPAD_PINCH,
-    PAD_BUTTON_PRESS,
-    PAD_BUTTON_RELEASE,
-    PAD_RING,
-    PAD_STRIP,
-    PAD_GROUP_MODE,
     EVENT_LAST,
 }
 export enum FilterReturn {
@@ -260,8 +232,6 @@ export enum InputSource {
     KEYBOARD,
     TOUCHSCREEN,
     TOUCHPAD,
-    TRACKPOINT,
-    TABLET_PAD,
 }
 export enum ModifierIntent {
     PRIMARY_ACCELERATOR,
@@ -312,14 +282,6 @@ export enum Status {
     ERROR_PARAM,
     ERROR_FILE,
     ERROR_MEM,
-}
-export enum SubpixelLayout {
-    UNKNOWN,
-    NONE,
-    HORIZONTAL_RGB,
-    HORIZONTAL_BGR,
-    VERTICAL_RGB,
-    VERTICAL_BGR,
 }
 export enum TouchpadGesturePhase {
     BEGIN,
@@ -379,28 +341,6 @@ export enum WindowWindowClass {
     INPUT_OUTPUT,
     INPUT_ONLY,
 }
-export enum AnchorHints {
-    FLIP_X,
-    FLIP_Y,
-    SLIDE_X,
-    SLIDE_Y,
-    RESIZE_X,
-    RESIZE_Y,
-    FLIP,
-    SLIDE,
-    RESIZE,
-}
-export enum AxisFlags {
-    X,
-    Y,
-    PRESSURE,
-    XTILT,
-    YTILT,
-    WHEEL,
-    DISTANCE,
-    ROTATION,
-    SLIDER,
-}
 export enum DragAction {
     DEFAULT,
     COPY,
@@ -434,7 +374,6 @@ export enum EventMask {
     TOUCH_MASK,
     SMOOTH_SCROLL_MASK,
     TOUCHPAD_GESTURE_MASK,
-    TABLET_PAD_MASK,
     ALL_EVENTS_MASK,
 }
 export enum FrameClockPhase {
@@ -480,15 +419,6 @@ export enum ModifierType {
     MODIFIER_RESERVED_29_MASK,
     RELEASE_MASK,
     MODIFIER_MASK,
-}
-export enum SeatCapabilities {
-    NONE,
-    POINTER,
-    TOUCH,
-    TABLET_STYLUS,
-    KEYBOARD,
-    ALL_POINTING,
-    ALL,
 }
 export enum WMDecoration {
     ALL,
@@ -538,14 +468,6 @@ export enum WindowState {
     BELOW,
     FOCUSED,
     TILED,
-    TOP_TILED,
-    TOP_RESIZABLE,
-    RIGHT_TILED,
-    RIGHT_RESIZABLE,
-    BOTTOM_TILED,
-    BOTTOM_RESIZABLE,
-    LEFT_TILED,
-    LEFT_RESIZABLE,
 }
 export const BUTTON_MIDDLE:number
 export const BUTTON_PRIMARY:number
@@ -2833,7 +2755,6 @@ export function beep(): void
 export function cairo_create(window: Window): cairo.Context
 export function cairo_draw_from_gl(cr: cairo.Context, window: Window, source: number, source_type: number, buffer_scale: number, x: number, y: number, width: number, height: number): void
 export function cairo_get_clip_rectangle(cr: cairo.Context): [ /* returnType */ boolean, /* rect */ Rectangle | null ]
-export function cairo_get_drawing_context(cr: cairo.Context): DrawingContext | null
 export function cairo_rectangle(cr: cairo.Context, rectangle: Rectangle): void
 export function cairo_region(cr: cairo.Context, region: cairo.Region): void
 export function cairo_region_create_from_surface(surface: cairo.Surface): cairo.Region
@@ -2847,9 +2768,7 @@ export function disable_multidevice(): void
 export function drag_abort(context: DragContext, time_: number): void
 export function drag_begin(window: Window, targets: Atom[]): DragContext
 export function drag_begin_for_device(window: Window, device: Device, targets: Atom[]): DragContext
-export function drag_begin_from_point(window: Window, device: Device, targets: Atom[], x_root: number, y_root: number): DragContext
 export function drag_drop(context: DragContext, time_: number): void
-export function drag_drop_done(context: DragContext, success: boolean): void
 export function drag_drop_succeeded(context: DragContext): boolean
 export function drag_find_window_for_screen(context: DragContext, drag_window: Window, screen: Screen, x_root: number, y_root: number): [ /* dest_window */ Window, /* protocol */ DragProtocol ]
 export function drag_get_selection(context: DragContext): Atom
@@ -2861,7 +2780,7 @@ export function error_trap_pop(): number
 export function error_trap_pop_ignored(): void
 export function error_trap_push(): void
 export function event_get(): Event | null
-export function event_handler_set(func: EventFunc, notify: GLib.DestroyNotify): void
+export function event_handler_set(func: EventFunc): void
 export function event_peek(): Event | null
 export function event_request_motions(event: EventMotion): void
 export function events_get_angle(event1: Event, event2: Event): [ /* returnType */ boolean, /* angle */ number ]
@@ -2894,7 +2813,6 @@ export function offscreen_window_get_embedder(window: Window): Window | null
 export function offscreen_window_get_surface(window: Window): cairo.Surface | null
 export function offscreen_window_set_embedder(window: Window, embedder: Window): void
 export function pango_context_get(): Pango.Context
-export function pango_context_get_for_display(display: Display): Pango.Context
 export function pango_context_get_for_screen(screen: Screen): Pango.Context
 export function parse_args(argv: string[]): void
 export function pixbuf_get_from_surface(surface: cairo.Surface, src_x: number, src_y: number, width: number, height: number): GdkPixbuf.Pixbuf | null
@@ -2924,9 +2842,9 @@ export function test_render_sync(window: Window): void
 export function test_simulate_button(window: Window, x: number, y: number, button: number, modifiers: ModifierType, button_pressrelease: EventType): boolean
 export function test_simulate_key(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, key_pressrelease: EventType): boolean
 export function text_property_to_utf8_list_for_display(display: Display, encoding: Atom, format: number, text: Gjs.byteArray.ByteArray): [ /* returnType */ number, /* list */ string[] ]
-export function threads_add_idle(priority: number, function_: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): number
-export function threads_add_timeout(priority: number, interval: number, function_: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): number
-export function threads_add_timeout_seconds(priority: number, interval: number, function_: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): number
+export function threads_add_idle(priority: number, function_: GLib.SourceFunc): number
+export function threads_add_timeout(priority: number, interval: number, function_: GLib.SourceFunc): number
+export function threads_add_timeout_seconds(priority: number, interval: number, function_: GLib.SourceFunc): number
 export function threads_enter(): void
 export function threads_init(): void
 export function threads_leave(): void
@@ -2938,22 +2856,11 @@ export interface EventFunc {
 export interface FilterFunc {
     (xevent: XEvent, event: Event): FilterReturn
 }
-export interface SeatGrabPrepareFunc {
-    (seat: Seat, window: Window): void
-}
 export interface WindowChildFunc {
     (window: Window): boolean
 }
 export interface WindowInvalidateHandlerFunc {
     (window: Window, region: cairo.Region): void
-}
-export class DevicePad {
-    /* Methods of Gdk.DevicePad */
-    get_feature_group(feature: DevicePadFeature, feature_idx: number): number
-    get_group_n_modes(group_idx: number): number
-    get_n_features(feature: DevicePadFeature): number
-    get_n_groups(): number
-    static name: string
 }
 export interface AppLaunchContext_ConstructProps extends Gio.AppLaunchContext_ConstructProps {
     display?:Display
@@ -2983,10 +2890,9 @@ export class AppLaunchContext {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2995,10 +2901,10 @@ export class AppLaunchContext {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3045,10 +2951,9 @@ export class Cursor {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3056,10 +2961,10 @@ export class Cursor {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of GObject.Object */
@@ -3088,31 +2993,25 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     input_mode?:InputMode
     input_source?:InputSource
     name?:string
-    num_touches?:number
     product_id?:string
-    seat?:Seat
     type?:DeviceType
     vendor_id?:string
 }
 export class Device {
     /* Properties of Gdk.Device */
     readonly associated_device:Device
-    readonly axes:AxisFlags
     input_mode:InputMode
     readonly n_axes:number
-    seat:Seat
-    readonly tool:DeviceTool
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Device */
     get_associated_device(): Device | null
-    get_axes(): AxisFlags
     get_axis_use(index_: number): AxisUse
     get_device_type(): DeviceType
     get_display(): Display
     get_has_cursor(): boolean
     get_key(index_: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ ModifierType ]
-    get_last_event_window(): Window | null
+    get_last_event_window(): Window
     get_mode(): InputMode
     get_n_axes(): number
     get_n_keys(): number
@@ -3120,7 +3019,6 @@ export class Device {
     get_position(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
     get_position_double(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
     get_product_id(): string | null
-    get_seat(): Seat
     get_source(): InputSource
     get_vendor_id(): string | null
     get_window_at_position(): [ /* returnType */ Window | null, /* win_x */ number | null, /* win_y */ number | null ]
@@ -3138,10 +3036,9 @@ export class Device {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3150,10 +3047,10 @@ export class Device {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3167,15 +3064,11 @@ export class Device {
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Device */
     connect(sigName: "changed", callback: ((obj: Device) => void)): void
-    connect(sigName: "tool-changed", callback: ((obj: Device, tool: DeviceTool) => void)): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: "notify::associated-device", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: "notify::input-mode", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: "notify::n-axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::seat", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::tool", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Device_ConstructProps)
@@ -3197,10 +3090,9 @@ export class DeviceManager {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3209,10 +3101,10 @@ export class DeviceManager {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3234,58 +3126,6 @@ export class DeviceManager {
     static name: string
     constructor (config?: DeviceManager_ConstructProps)
 }
-export interface DeviceTool_ConstructProps extends GObject.Object_ConstructProps {
-    axes?:AxisFlags
-    hardware_id?:number
-    serial?:number
-    tool_type?:DeviceToolType
-}
-export class DeviceTool {
-    /* Properties of Gdk.DeviceTool */
-    /* Fields of GObject.Object */
-    g_type_instance:GObject.TypeInstance
-    /* Methods of Gdk.DeviceTool */
-    get_hardware_id(): number
-    get_serial(): number
-    get_tool_type(): DeviceToolType
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed?(): void
-    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose?(): void
-    vfunc_finalize?(): void
-    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify?(pspec: GObject.ParamSpec): void
-    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: DeviceTool, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: string, callback: any): void
-    static name: string
-    constructor (config?: DeviceTool_ConstructProps)
-}
 export interface Display_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Display {
@@ -3300,25 +3140,18 @@ export class Display {
     get_default_cursor_size(): number
     get_default_group(): Window
     get_default_screen(): Screen
-    get_default_seat(): Seat
     get_device_manager(): DeviceManager | null
     get_event(): Event | null
     get_maximal_cursor_size(): [ /* width */ number, /* height */ number ]
-    get_monitor(monitor_num: number): Monitor | null
-    get_monitor_at_point(x: number, y: number): Monitor
-    get_monitor_at_window(window: Window): Monitor
-    get_n_monitors(): number
     get_n_screens(): number
     get_name(): string
     get_pointer(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null, /* mask */ ModifierType | null ]
-    get_primary_monitor(): Monitor | null
     get_screen(screen_num: number): Screen
     get_window_at_pointer(): [ /* returnType */ Window | null, /* win_x */ number | null, /* win_y */ number | null ]
     has_pending(): boolean
     is_closed(): boolean
     keyboard_ungrab(time_: number): void
     list_devices(): Device[]
-    list_seats(): Seat[]
     notify_startup_complete(startup_id: string): void
     peek_event(): Event | null
     pointer_is_grabbed(): boolean
@@ -3327,7 +3160,7 @@ export class Display {
     request_selection_notification(selection: Atom): boolean
     set_double_click_distance(distance: number): void
     set_double_click_time(msec: number): void
-    store_clipboard(clipboard_window: Window, time_: number, targets: Atom[] | null): void
+    store_clipboard(clipboard_window: Window, time_: number, targets: Atom[]): void
     supports_clipboard_persistence(): boolean
     supports_composite(): boolean
     supports_cursor_alpha(): boolean
@@ -3342,10 +3175,9 @@ export class Display {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3354,10 +3186,10 @@ export class Display {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3371,11 +3203,7 @@ export class Display {
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gdk.Display */
     connect(sigName: "closed", callback: ((obj: Display, is_error: boolean) => void)): void
-    connect(sigName: "monitor-added", callback: ((obj: Display, monitor: Monitor) => void)): void
-    connect(sigName: "monitor-removed", callback: ((obj: Display, monitor: Monitor) => void)): void
     connect(sigName: "opened", callback: ((obj: Display) => void)): void
-    connect(sigName: "seat-added", callback: ((obj: Display, seat: Seat) => void)): void
-    connect(sigName: "seat-removed", callback: ((obj: Display, seat: Seat) => void)): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Display, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: string, callback: any): void
@@ -3403,10 +3231,9 @@ export class DisplayManager {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3415,10 +3242,10 @@ export class DisplayManager {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3449,24 +3276,20 @@ export class DragContext {
     get_actions(): DragAction
     get_dest_window(): Window
     get_device(): Device
-    get_drag_window(): Window | null
     get_protocol(): DragProtocol
     get_selected_action(): DragAction
     get_source_window(): Window
     get_suggested_action(): DragAction
     list_targets(): Atom[]
-    manage_dnd(ipc_window: Window, actions: DragAction): boolean
     set_device(device: Device): void
-    set_hotspot(hot_x: number, hot_y: number): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3475,10 +3298,10 @@ export class DragContext {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3490,67 +3313,11 @@ export class DragContext {
     vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.DragContext */
-    connect(sigName: "action-changed", callback: ((obj: DragContext, action: DragAction) => void)): void
-    connect(sigName: "cancel", callback: ((obj: DragContext, reason: DragCancelReason) => void)): void
-    connect(sigName: "dnd-finished", callback: ((obj: DragContext) => void)): void
-    connect(sigName: "drop-performed", callback: ((obj: DragContext, time: number) => void)): void
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DragContext, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: DragContext_ConstructProps)
-}
-export interface DrawingContext_ConstructProps extends GObject.Object_ConstructProps {
-    clip?:cairo.Region
-    window?:Window
-}
-export class DrawingContext {
-    /* Properties of Gdk.DrawingContext */
-    /* Fields of GObject.Object */
-    g_type_instance:GObject.TypeInstance
-    /* Methods of Gdk.DrawingContext */
-    get_cairo_context(): cairo.Context
-    get_clip(): cairo.Region | null
-    get_window(): Window
-    is_valid(): boolean
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed?(): void
-    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose?(): void
-    vfunc_finalize?(): void
-    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify?(pspec: GObject.ParamSpec): void
-    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: DrawingContext, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: string, callback: any): void
-    static name: string
-    constructor (config?: DrawingContext_ConstructProps)
 }
 export interface FrameClock_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -3572,10 +3339,9 @@ export class FrameClock {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3584,10 +3350,10 @@ export class FrameClock {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3624,29 +3390,25 @@ export class GLContext {
     g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.GLContext */
     get_debug_enabled(): boolean
-    get_display(): Display | null
+    get_display(): Display
     get_forward_compatible(): boolean
     get_required_version(): [ /* major */ number | null, /* minor */ number | null ]
-    get_shared_context(): GLContext | null
-    get_use_es(): boolean
+    get_shared_context(): GLContext
     get_version(): [ /* major */ number, /* minor */ number ]
-    get_window(): Window | null
-    is_legacy(): boolean
+    get_window(): Window
     make_current(): void
     realize(): boolean
     set_debug_enabled(enabled: boolean): void
     set_forward_compatible(compatible: boolean): void
     set_required_version(major: number, minor: number): void
-    set_use_es(use_es: number): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3655,10 +3417,10 @@ export class GLContext {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3676,7 +3438,7 @@ export class GLContext {
     static name: string
     constructor (config?: GLContext_ConstructProps)
     static clear_current(): void
-    static get_current(): GLContext | null
+    static get_current(): GLContext
 }
 export interface Keymap_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -3687,7 +3449,7 @@ export class Keymap {
     add_virtual_modifiers(state: ModifierType): void
     get_caps_lock_state(): boolean
     get_direction(): Pango.Direction
-    get_entries_for_keycode(hardware_keycode: number): [ /* returnType */ boolean, /* keys */ KeymapKey[] | null, /* keyvals */ number[] | null ]
+    get_entries_for_keycode(hardware_keycode: number): [ /* returnType */ boolean, /* keys */ KeymapKey[], /* keyvals */ number[] ]
     get_entries_for_keyval(keyval: number): [ /* returnType */ boolean, /* keys */ KeymapKey[] ]
     get_modifier_mask(intent: ModifierIntent): ModifierType
     get_modifier_state(): number
@@ -3702,10 +3464,9 @@ export class Keymap {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3714,10 +3475,10 @@ export class Keymap {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3740,83 +3501,6 @@ export class Keymap {
     constructor (config?: Keymap_ConstructProps)
     static get_default(): Keymap
     static get_for_display(display: Display): Keymap
-}
-export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
-    display?:Display
-}
-export class Monitor {
-    /* Properties of Gdk.Monitor */
-    readonly geometry:Rectangle
-    readonly height_mm:number
-    readonly manufacturer:string
-    readonly model:string
-    readonly refresh_rate:number
-    readonly scale_factor:number
-    readonly subpixel_layout:SubpixelLayout
-    readonly width_mm:number
-    readonly workarea:Rectangle
-    /* Fields of GObject.Object */
-    g_type_instance:GObject.TypeInstance
-    /* Methods of Gdk.Monitor */
-    get_display(): Display
-    get_geometry(): /* geometry */ Rectangle
-    get_height_mm(): number
-    get_manufacturer(): string | null
-    get_model(): string | null
-    get_refresh_rate(): number
-    get_scale_factor(): number
-    get_subpixel_layout(): SubpixelLayout
-    get_width_mm(): number
-    get_workarea(): /* workarea */ Rectangle
-    is_primary(): boolean
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed?(): void
-    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose?(): void
-    vfunc_finalize?(): void
-    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify?(pspec: GObject.ParamSpec): void
-    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Monitor */
-    connect(sigName: "invalidate", callback: ((obj: Monitor) => void)): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::geometry", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::height-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::manufacturer", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::model", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::refresh-rate", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::scale-factor", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::subpixel-layout", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::width-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: "notify::workarea", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: string, callback: any): void
-    static name: string
-    constructor (config?: Monitor_ConstructProps)
 }
 export interface Screen_ConstructProps extends GObject.Object_ConstructProps {
     font_options?:object
@@ -3864,10 +3548,9 @@ export class Screen {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3876,10 +3559,10 @@ export class Screen {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -3908,66 +3591,6 @@ export class Screen {
     static width(): number
     static width_mm(): number
 }
-export interface Seat_ConstructProps extends GObject.Object_ConstructProps {
-    display?:Display
-}
-export class Seat {
-    /* Properties of Gdk.Seat */
-    /* Fields of Gdk.Seat */
-    parent_instance:GObject.Object
-    /* Fields of GObject.Object */
-    g_type_instance:GObject.TypeInstance
-    /* Methods of Gdk.Seat */
-    get_capabilities(): SeatCapabilities
-    get_display(): Display
-    get_keyboard(): Device | null
-    get_pointer(): Device | null
-    get_slaves(capabilities: SeatCapabilities): Device[]
-    grab(window: Window, capabilities: SeatCapabilities, owner_events: boolean, cursor?: Cursor | null, event?: Event | null, prepare_func?: SeatGrabPrepareFunc | null): GrabStatus
-    ungrab(): void
-    /* Methods of GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfunc_constructed?(): void
-    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose?(): void
-    vfunc_finalize?(): void
-    vfunc_get_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify?(pspec: GObject.ParamSpec): void
-    vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gdk.Seat */
-    connect(sigName: "device-added", callback: ((obj: Seat, device: Device) => void)): void
-    connect(sigName: "device-removed", callback: ((obj: Seat, device: Device) => void)): void
-    connect(sigName: "tool-added", callback: ((obj: Seat, tool: DeviceTool) => void)): void
-    connect(sigName: "tool-removed", callback: ((obj: Seat, tool: DeviceTool) => void)): void
-    /* Signals of GObject.Object */
-    connect(sigName: "notify", callback: ((obj: Seat, pspec: GObject.ParamSpec) => void)): void
-    connect(sigName: string, callback: any): void
-    static name: string
-    constructor (config?: Seat_ConstructProps)
-}
 export interface Visual_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Visual {
@@ -3988,10 +3611,9 @@ export class Visual {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4000,10 +3622,10 @@ export class Visual {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -4038,7 +3660,6 @@ export class Window {
     g_type_instance:GObject.TypeInstance
     /* Methods of Gdk.Window */
     beep(): void
-    begin_draw_frame(region: cairo.Region): DrawingContext
     begin_move_drag(button: number, root_x: number, root_y: number, timestamp: number): void
     begin_move_drag_for_device(device: Device, button: number, root_x: number, root_y: number, timestamp: number): void
     begin_paint_rect(rectangle: Rectangle): void
@@ -4055,7 +3676,6 @@ export class Window {
     destroy(): void
     destroy_notify(): void
     enable_synchronized_configure(): void
-    end_draw_frame(context: DrawingContext): void
     end_paint(): void
     ensure_native(): boolean
     flush(): void
@@ -4068,7 +3688,7 @@ export class Window {
     get_accept_focus(): boolean
     get_background_pattern(): cairo.Pattern | null
     get_children(): Window[]
-    get_children_with_user_data(user_data?: object | null): Window[]
+    get_children_with_user_data(user_data: object): Window[]
     get_clip_region(): cairo.Region
     get_composited(): boolean
     get_cursor(): Cursor | null
@@ -4106,7 +3726,7 @@ export class Window {
     get_toplevel(): Window
     get_type_hint(): WindowTypeHint
     get_update_area(): cairo.Region
-    get_user_data(): /* data */ object | null
+    get_user_data(): /* data */ object
     get_visible_region(): cairo.Region
     get_visual(): Visual
     get_width(): number
@@ -4115,7 +3735,7 @@ export class Window {
     hide(): void
     iconify(): void
     input_shape_combine_region(shape_region: cairo.Region, offset_x: number, offset_y: number): void
-    invalidate_maybe_recurse(region: cairo.Region, child_func?: WindowChildFunc | null): void
+    invalidate_maybe_recurse(region: cairo.Region, child_func: WindowChildFunc | null): void
     invalidate_rect(rect: Rectangle | null, invalidate_children: boolean): void
     invalidate_region(region: cairo.Region, invalidate_children: boolean): void
     is_destroyed(): boolean
@@ -4195,10 +3815,9 @@ export class Window {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4207,10 +3826,10 @@ export class Window {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -4229,7 +3848,6 @@ export class Window {
     /* Signals of Gdk.Window */
     connect(sigName: "create-surface", callback: ((obj: Window, width: number, height: number) => cairo.Surface)): void
     connect(sigName: "from-embedder", callback: ((obj: Window, embedder_x: number, embedder_y: number) => void)): void
-    connect(sigName: "moved-to-rect", callback: ((obj: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void)): void
     connect(sigName: "pick-embedded-child", callback: ((obj: Window, x: number, y: number) => Window | null)): void
     connect(sigName: "to-embedder", callback: ((obj: Window, offscreen_x: number, offscreen_y: number) => void)): void
     /* Signals of GObject.Object */
@@ -4399,39 +4017,6 @@ export class EventOwnerChange {
     selection_time:number
     static name: string
 }
-export class EventPadAxis {
-    /* Fields of Gdk.EventPadAxis */
-    type:EventType
-    window:Window
-    send_event:number
-    time:number
-    group:number
-    index:number
-    mode:number
-    value:number
-    static name: string
-}
-export class EventPadButton {
-    /* Fields of Gdk.EventPadButton */
-    type:EventType
-    window:Window
-    send_event:number
-    time:number
-    group:number
-    button:number
-    mode:number
-    static name: string
-}
-export class EventPadGroupMode {
-    /* Fields of Gdk.EventPadGroupMode */
-    type:EventType
-    window:Window
-    send_event:number
-    time:number
-    group:number
-    mode:number
-    static name: string
-}
 export class EventProperty {
     /* Fields of Gdk.EventProperty */
     type:EventType
@@ -4466,7 +4051,6 @@ export class EventScroll {
     y_root:number
     delta_x:number
     delta_y:number
-    is_stop:number
     static name: string
 }
 export class EventSelection {
@@ -4628,7 +4212,6 @@ export class Rectangle {
     width:number
     height:number
     /* Methods of Gdk.Rectangle */
-    equal(rect2: Rectangle): boolean
     intersect(src2: Rectangle): [ /* returnType */ boolean, /* dest */ Rectangle | null ]
     union(src2: Rectangle): /* dest */ Rectangle
     static name: string
@@ -4684,9 +4267,6 @@ export class Event {
     grab_broken:EventGrabBroken
     touchpad_swipe:EventTouchpadSwipe
     touchpad_pinch:EventTouchpadPinch
-    pad_button:EventPadButton
-    pad_axis:EventPadAxis
-    pad_group_mode:EventPadGroupMode
     /* Methods of Gdk.Event */
     _get_angle(event2: Event): [ /* returnType */ boolean, /* angle */ number ]
     _get_center(event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
@@ -4698,26 +4278,20 @@ export class Event {
     get_click_count(): [ /* returnType */ boolean, /* click_count */ number ]
     get_coords(): [ /* returnType */ boolean, /* x_win */ number | null, /* y_win */ number | null ]
     get_device(): Device | null
-    get_device_tool(): DeviceTool
     get_event_sequence(): EventSequence
     get_event_type(): EventType
     get_keycode(): [ /* returnType */ boolean, /* keycode */ number ]
     get_keyval(): [ /* returnType */ boolean, /* keyval */ number ]
-    get_pointer_emulated(): boolean
     get_root_coords(): [ /* returnType */ boolean, /* x_root */ number | null, /* y_root */ number | null ]
-    get_scancode(): number
     get_screen(): Screen
     get_scroll_deltas(): [ /* returnType */ boolean, /* delta_x */ number, /* delta_y */ number ]
     get_scroll_direction(): [ /* returnType */ boolean, /* direction */ ScrollDirection ]
-    get_seat(): Seat
     get_source_device(): Device | null
     get_state(): [ /* returnType */ boolean, /* state */ ModifierType ]
     get_time(): number
     get_window(): Window
-    is_scroll_stop_event(): boolean
     put(): void
     set_device(device: Device): void
-    set_device_tool(tool?: DeviceTool | null): void
     set_screen(screen: Screen): void
     set_source_device(device: Device): void
     triggers_context_menu(): boolean
@@ -4726,8 +4300,8 @@ export class Event {
     constructor(type: EventType)
     static new(type: EventType): Event
     static get(): Event | null
-    static handler_set(func: EventFunc, notify: GLib.DestroyNotify): void
+    static handler_set(func: EventFunc): void
     static peek(): Event | null
     static request_motions(event: EventMotion): void
 }
-type XEvent = void
+type XEvent = object

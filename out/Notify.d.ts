@@ -47,7 +47,7 @@ export class Notification {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Notify.Notification */
-    add_action(action: string, label: string, callback: ActionCallback, free_func: GLib.DestroyNotify): void
+    add_action(action: string, label: string, callback: ActionCallback): void
     clear_actions(): void
     clear_hints(): void
     close(): boolean
@@ -56,7 +56,7 @@ export class Notification {
     set_category(category: string): void
     set_hint(key: string, value?: GLib.Variant | null): void
     set_hint_byte(key: string, value: number): void
-    set_hint_byte_array(key: string, value: Gjs.byteArray.ByteArray): void
+    set_hint_byte_array(key: string, value: number, len: number): void
     set_hint_double(key: string, value: number): void
     set_hint_int32(key: string, value: number): void
     set_hint_string(key: string, value: string): void
@@ -72,10 +72,9 @@ export class Notification {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -84,10 +83,10 @@ export class Notification {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void

@@ -42,10 +42,6 @@ export enum RelationType {
     DESCRIBED_BY,
     DESCRIPTION_FOR,
     NODE_PARENT_OF,
-    DETAILS,
-    DETAILS_FOR,
-    ERROR_MESSAGE,
-    ERROR_FOR,
     LAST_DEFINED,
 }
 export enum Role {
@@ -171,7 +167,6 @@ export enum Role {
     MATH_ROOT,
     SUBSCRIPT,
     SUPERSCRIPT,
-    FOOTNOTE,
     LAST_DEFINED,
 }
 export enum StateType {
@@ -374,11 +369,11 @@ export class Component {
     /* Methods of Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
-    get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    get_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): void
     get_layer(): Layer
     get_mdi_zorder(): number
-    get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    get_size(): [ /* width */ number | null, /* height */ number | null ]
+    get_position(x: number, y: number, coord_type: CoordType): void
+    get_size(width: number, height: number): void
     grab_focus(): boolean
     ref_accessible_at_point(x: number, y: number, coord_type: CoordType): Object | null
     remove_focus_handler(handler_id: number): void
@@ -389,11 +384,11 @@ export class Component {
     vfunc_bounds_changed?(bounds: Rectangle): void
     vfunc_contains?(x: number, y: number, coord_type: CoordType): boolean
     vfunc_get_alpha?(): number
-    vfunc_get_extents?(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfunc_get_extents?(x: number, y: number, width: number, height: number, coord_type: CoordType): void
     vfunc_get_layer?(): Layer
     vfunc_get_mdi_zorder?(): number
-    vfunc_get_position?(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfunc_get_size?(): [ /* width */ number | null, /* height */ number | null ]
+    vfunc_get_position?(x: number, y: number, coord_type: CoordType): void
+    vfunc_get_size?(width: number, height: number): void
     vfunc_grab_focus?(): boolean
     vfunc_ref_accessible_at_point?(x: number, y: number, coord_type: CoordType): Object | null
     vfunc_remove_focus_handler?(handler_id: number): void
@@ -409,14 +404,14 @@ export class Document {
     get_attribute_value(attribute_name: string): string | null
     get_attributes(): AttributeSet
     get_current_page_number(): number
-    get_document(): object | null
+    get_document(): object
     get_document_type(): string
     get_locale(): string
     get_page_count(): number
     set_attribute_value(attribute_name: string, attribute_value: string): boolean
     /* Virtual methods of Atk.Document */
     vfunc_get_current_page_number?(): number
-    vfunc_get_document?(): object | null
+    vfunc_get_document?(): object
     vfunc_get_document_attribute_value?(attribute_name: string): string
     vfunc_get_document_locale?(): string
     vfunc_get_document_type?(): string
@@ -473,14 +468,14 @@ export class Image {
     /* Methods of Atk.Image */
     get_image_description(): string
     get_image_locale(): string | null
-    get_image_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    get_image_size(): [ /* width */ number | null, /* height */ number | null ]
+    get_image_position(x: number, y: number, coord_type: CoordType): void
+    get_image_size(width: number, height: number): void
     set_image_description(description: string): boolean
     /* Virtual methods of Atk.Image */
     vfunc_get_image_description?(): string
     vfunc_get_image_locale?(): string | null
-    vfunc_get_image_position?(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfunc_get_image_size?(): [ /* width */ number | null, /* height */ number | null ]
+    vfunc_get_image_position?(x: number, y: number, coord_type: CoordType): void
+    vfunc_get_image_size?(width: number, height: number): void
     vfunc_set_image_description?(description: string): boolean
     static name: string
 }
@@ -626,11 +621,11 @@ export class Text {
     get_caret_offset(): number
     get_character_at_offset(offset: number): number
     get_character_count(): number
-    get_character_extents(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    get_character_extents(offset: number, x: number, y: number, width: number, height: number, coords: CoordType): void
     get_default_attributes(): AttributeSet
     get_n_selections(): number
     get_offset_at_point(x: number, y: number, coords: CoordType): number
-    get_range_extents(start_offset: number, end_offset: number, coord_type: CoordType): /* rect */ TextRectangle
+    get_range_extents(start_offset: number, end_offset: number, coord_type: CoordType, rect: TextRectangle): void
     get_run_attributes(offset: number): [ /* returnType */ AttributeSet, /* start_offset */ number, /* end_offset */ number ]
     get_selection(selection_num: number): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
     get_string_at_offset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* start_offset */ number, /* end_offset */ number ]
@@ -647,11 +642,11 @@ export class Text {
     vfunc_get_caret_offset?(): number
     vfunc_get_character_at_offset?(offset: number): number
     vfunc_get_character_count?(): number
-    vfunc_get_character_extents?(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfunc_get_character_extents?(offset: number, x: number, y: number, width: number, height: number, coords: CoordType): void
     vfunc_get_default_attributes?(): AttributeSet
     vfunc_get_n_selections?(): number
     vfunc_get_offset_at_point?(x: number, y: number, coords: CoordType): number
-    vfunc_get_range_extents?(start_offset: number, end_offset: number, coord_type: CoordType): /* rect */ TextRectangle
+    vfunc_get_range_extents?(start_offset: number, end_offset: number, coord_type: CoordType, rect: TextRectangle): void
     vfunc_get_run_attributes?(offset: number): [ /* returnType */ AttributeSet, /* start_offset */ number, /* end_offset */ number ]
     vfunc_get_selection?(selection_num: number): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
     vfunc_get_string_at_offset?(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* start_offset */ number, /* end_offset */ number ]
@@ -678,22 +673,22 @@ export class Text {
 }
 export class Value {
     /* Methods of Atk.Value */
-    get_current_value(): /* value */ any
+    get_current_value(value: any): void
     get_increment(): number
-    get_maximum_value(): /* value */ any
-    get_minimum_increment(): /* value */ any
-    get_minimum_value(): /* value */ any
+    get_maximum_value(value: any): void
+    get_minimum_increment(value: any): void
+    get_minimum_value(value: any): void
     get_range(): Range | null
     get_sub_ranges(): GLib.SList
     get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     set_current_value(value: any): boolean
     set_value(new_value: number): void
     /* Virtual methods of Atk.Value */
-    vfunc_get_current_value?(): /* value */ any
+    vfunc_get_current_value?(value: any): void
     vfunc_get_increment?(): number
-    vfunc_get_maximum_value?(): /* value */ any
-    vfunc_get_minimum_increment?(): /* value */ any
-    vfunc_get_minimum_value?(): /* value */ any
+    vfunc_get_maximum_value?(value: any): void
+    vfunc_get_minimum_increment?(value: any): void
+    vfunc_get_minimum_value?(value: any): void
     vfunc_get_range?(): Range | null
     vfunc_get_sub_ranges?(): GLib.SList
     vfunc_get_value_and_text?(): [ /* value */ number, /* text */ string | null ]
@@ -759,7 +754,7 @@ export class GObjectAccessible {
     get_object_locale(): string
     get_parent(): Object
     get_role(): Role
-    initialize(data?: object | null): void
+    initialize(data: object): void
     notify_state_change(state: State, value: boolean): void
     peek_parent(): Object
     ref_accessible_child(i: number): Object
@@ -776,10 +771,9 @@ export class GObjectAccessible {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -788,16 +782,16 @@ export class GObjectAccessible {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed?(child?: object | null): void
-    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_active_descendant_changed?(child: object): void
+    vfunc_children_changed?(change_index: number, changed_child: object): void
     vfunc_focus_event?(focus_in: boolean): void
     vfunc_get_attributes?(): AttributeSet
     vfunc_get_description?(): string | null
@@ -809,7 +803,7 @@ export class GObjectAccessible {
     vfunc_get_object_locale?(): string
     vfunc_get_parent?(): Object
     vfunc_get_role?(): Role
-    vfunc_initialize?(data?: object | null): void
+    vfunc_initialize?(data: object): void
     vfunc_property_change?(values: PropertyValues): void
     vfunc_ref_relation_set?(): RelationSet
     vfunc_ref_state_set?(): StateSet
@@ -829,10 +823,10 @@ export class GObjectAccessible {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: GObjectAccessible, arg1?: object | null) => void)): void
-    connect(sigName: "children-changed", callback: ((obj: GObjectAccessible, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "active-descendant-changed", callback: ((obj: GObjectAccessible, arg1: object) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: GObjectAccessible, arg1: number, arg2: object) => void)): void
     connect(sigName: "focus-event", callback: ((obj: GObjectAccessible, arg1: boolean) => void)): void
-    connect(sigName: "property-change", callback: ((obj: GObjectAccessible, arg1?: object | null) => void)): void
+    connect(sigName: "property-change", callback: ((obj: GObjectAccessible, arg1: object) => void)): void
     connect(sigName: "state-change", callback: ((obj: GObjectAccessible, arg1: string, arg2: boolean) => void)): void
     connect(sigName: "visible-data-changed", callback: ((obj: GObjectAccessible) => void)): void
     /* Signals of GObject.Object */
@@ -883,10 +877,9 @@ export class Hyperlink {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -895,10 +888,10 @@ export class Hyperlink {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -955,10 +948,9 @@ export class Misc {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -967,10 +959,10 @@ export class Misc {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1033,7 +1025,7 @@ export class NoOpObject {
     get_object_locale(): string
     get_parent(): Object
     get_role(): Role
-    initialize(data?: object | null): void
+    initialize(data: object): void
     notify_state_change(state: State, value: boolean): void
     peek_parent(): Object
     ref_accessible_child(i: number): Object
@@ -1050,10 +1042,9 @@ export class NoOpObject {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1062,10 +1053,10 @@ export class NoOpObject {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1077,9 +1068,9 @@ export class NoOpObject {
     /* Methods of Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
-    get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    get_size(): [ /* width */ number | null, /* height */ number | null ]
+    get_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): void
+    get_position(x: number, y: number, coord_type: CoordType): void
+    get_size(width: number, height: number): void
     grab_focus(): boolean
     ref_accessible_at_point(x: number, y: number, coord_type: CoordType): Object | null
     remove_focus_handler(handler_id: number): void
@@ -1089,7 +1080,7 @@ export class NoOpObject {
     /* Methods of Atk.Document */
     get_attribute_value(attribute_name: string): string | null
     get_current_page_number(): number
-    get_document(): object | null
+    get_document(): object
     get_document_type(): string
     get_locale(): string
     get_page_count(): number
@@ -1109,8 +1100,8 @@ export class NoOpObject {
     /* Methods of Atk.Image */
     get_image_description(): string
     get_image_locale(): string | null
-    get_image_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    get_image_size(): [ /* width */ number | null, /* height */ number | null ]
+    get_image_position(x: number, y: number, coord_type: CoordType): void
+    get_image_size(width: number, height: number): void
     set_image_description(description: string): boolean
     /* Methods of Atk.Selection */
     add_selection(i: number): boolean
@@ -1162,11 +1153,11 @@ export class NoOpObject {
     get_caret_offset(): number
     get_character_at_offset(offset: number): number
     get_character_count(): number
-    get_character_extents(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    get_character_extents(offset: number, x: number, y: number, width: number, height: number, coords: CoordType): void
     get_default_attributes(): AttributeSet
     get_n_selections(): number
     get_offset_at_point(x: number, y: number, coords: CoordType): number
-    get_range_extents(start_offset: number, end_offset: number, coord_type: CoordType): /* rect */ TextRectangle
+    get_range_extents(start_offset: number, end_offset: number, coord_type: CoordType, rect: TextRectangle): void
     get_run_attributes(offset: number): [ /* returnType */ AttributeSet, /* start_offset */ number, /* end_offset */ number ]
     get_selection(selection_num: number): [ /* returnType */ string, /* start_offset */ number, /* end_offset */ number ]
     get_string_at_offset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* start_offset */ number, /* end_offset */ number ]
@@ -1177,19 +1168,19 @@ export class NoOpObject {
     set_caret_offset(offset: number): boolean
     set_selection(selection_num: number, start_offset: number, end_offset: number): boolean
     /* Methods of Atk.Value */
-    get_current_value(): /* value */ any
+    get_current_value(value: any): void
     get_increment(): number
-    get_maximum_value(): /* value */ any
-    get_minimum_increment(): /* value */ any
-    get_minimum_value(): /* value */ any
+    get_maximum_value(value: any): void
+    get_minimum_increment(value: any): void
+    get_minimum_value(value: any): void
     get_range(): Range | null
     get_sub_ranges(): GLib.SList
     get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     set_current_value(value: any): boolean
     set_value(new_value: number): void
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed?(child?: object | null): void
-    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_active_descendant_changed?(child: object): void
+    vfunc_children_changed?(change_index: number, changed_child: object): void
     vfunc_focus_event?(focus_in: boolean): void
     vfunc_get_attributes?(): AttributeSet
     vfunc_get_description?(): string | null
@@ -1201,7 +1192,7 @@ export class NoOpObject {
     vfunc_get_object_locale?(): string
     vfunc_get_parent?(): Object
     vfunc_get_role?(): Role
-    vfunc_initialize?(data?: object | null): void
+    vfunc_initialize?(data: object): void
     vfunc_property_change?(values: PropertyValues): void
     vfunc_ref_relation_set?(): RelationSet
     vfunc_ref_state_set?(): StateSet
@@ -1221,10 +1212,10 @@ export class NoOpObject {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: NoOpObject, arg1?: object | null) => void)): void
-    connect(sigName: "children-changed", callback: ((obj: NoOpObject, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "active-descendant-changed", callback: ((obj: NoOpObject, arg1: object) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: NoOpObject, arg1: number, arg2: object) => void)): void
     connect(sigName: "focus-event", callback: ((obj: NoOpObject, arg1: boolean) => void)): void
-    connect(sigName: "property-change", callback: ((obj: NoOpObject, arg1?: object | null) => void)): void
+    connect(sigName: "property-change", callback: ((obj: NoOpObject, arg1: object) => void)): void
     connect(sigName: "state-change", callback: ((obj: NoOpObject, arg1: string, arg2: boolean) => void)): void
     connect(sigName: "visible-data-changed", callback: ((obj: NoOpObject) => void)): void
     /* Signals of GObject.Object */
@@ -1304,10 +1295,9 @@ export class NoOpObjectFactory {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1316,10 +1306,10 @@ export class NoOpObjectFactory {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1392,7 +1382,7 @@ export class Object {
     get_object_locale(): string
     get_parent(): Object
     get_role(): Role
-    initialize(data?: object | null): void
+    initialize(data: object): void
     notify_state_change(state: State, value: boolean): void
     peek_parent(): Object
     ref_accessible_child(i: number): Object
@@ -1409,10 +1399,9 @@ export class Object {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1421,16 +1410,16 @@ export class Object {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed?(child?: object | null): void
-    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_active_descendant_changed?(child: object): void
+    vfunc_children_changed?(change_index: number, changed_child: object): void
     vfunc_focus_event?(focus_in: boolean): void
     vfunc_get_attributes?(): AttributeSet
     vfunc_get_description?(): string | null
@@ -1442,7 +1431,7 @@ export class Object {
     vfunc_get_object_locale?(): string
     vfunc_get_parent?(): Object
     vfunc_get_role?(): Role
-    vfunc_initialize?(data?: object | null): void
+    vfunc_initialize?(data: object): void
     vfunc_property_change?(values: PropertyValues): void
     vfunc_ref_relation_set?(): RelationSet
     vfunc_ref_state_set?(): StateSet
@@ -1462,10 +1451,10 @@ export class Object {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: Object, arg1?: object | null) => void)): void
-    connect(sigName: "children-changed", callback: ((obj: Object, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "active-descendant-changed", callback: ((obj: Object, arg1: object) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: Object, arg1: number, arg2: object) => void)): void
     connect(sigName: "focus-event", callback: ((obj: Object, arg1: boolean) => void)): void
-    connect(sigName: "property-change", callback: ((obj: Object, arg1?: object | null) => void)): void
+    connect(sigName: "property-change", callback: ((obj: Object, arg1: object) => void)): void
     connect(sigName: "state-change", callback: ((obj: Object, arg1: string, arg2: boolean) => void)): void
     connect(sigName: "visible-data-changed", callback: ((obj: Object) => void)): void
     /* Signals of GObject.Object */
@@ -1505,10 +1494,9 @@ export class ObjectFactory {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1517,10 +1505,10 @@ export class ObjectFactory {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1583,7 +1571,7 @@ export class Plug {
     get_object_locale(): string
     get_parent(): Object
     get_role(): Role
-    initialize(data?: object | null): void
+    initialize(data: object): void
     notify_state_change(state: State, value: boolean): void
     peek_parent(): Object
     ref_accessible_child(i: number): Object
@@ -1600,10 +1588,9 @@ export class Plug {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1612,19 +1599,19 @@ export class Plug {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
-    get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    get_size(): [ /* width */ number | null, /* height */ number | null ]
+    get_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): void
+    get_position(x: number, y: number, coord_type: CoordType): void
+    get_size(width: number, height: number): void
     grab_focus(): boolean
     ref_accessible_at_point(x: number, y: number, coord_type: CoordType): Object | null
     remove_focus_handler(handler_id: number): void
@@ -1634,8 +1621,8 @@ export class Plug {
     /* Virtual methods of Atk.Plug */
     vfunc_get_object_id?(): string
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed?(child?: object | null): void
-    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_active_descendant_changed?(child: object): void
+    vfunc_children_changed?(change_index: number, changed_child: object): void
     vfunc_focus_event?(focus_in: boolean): void
     vfunc_get_attributes?(): AttributeSet
     vfunc_get_description?(): string | null
@@ -1647,7 +1634,7 @@ export class Plug {
     vfunc_get_object_locale?(): string
     vfunc_get_parent?(): Object
     vfunc_get_role?(): Role
-    vfunc_initialize?(data?: object | null): void
+    vfunc_initialize?(data: object): void
     vfunc_property_change?(values: PropertyValues): void
     vfunc_ref_relation_set?(): RelationSet
     vfunc_ref_state_set?(): StateSet
@@ -1667,10 +1654,10 @@ export class Plug {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: Plug, arg1?: object | null) => void)): void
-    connect(sigName: "children-changed", callback: ((obj: Plug, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "active-descendant-changed", callback: ((obj: Plug, arg1: object) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: Plug, arg1: number, arg2: object) => void)): void
     connect(sigName: "focus-event", callback: ((obj: Plug, arg1: boolean) => void)): void
-    connect(sigName: "property-change", callback: ((obj: Plug, arg1?: object | null) => void)): void
+    connect(sigName: "property-change", callback: ((obj: Plug, arg1: object) => void)): void
     connect(sigName: "state-change", callback: ((obj: Plug, arg1: string, arg2: boolean) => void)): void
     connect(sigName: "visible-data-changed", callback: ((obj: Plug) => void)): void
     /* Signals of GObject.Object */
@@ -1715,10 +1702,9 @@ export class Registry {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1727,10 +1713,10 @@ export class Registry {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1771,10 +1757,9 @@ export class Relation {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1783,10 +1768,10 @@ export class Relation {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1829,10 +1814,9 @@ export class RelationSet {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1841,10 +1825,10 @@ export class RelationSet {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -1907,7 +1891,7 @@ export class Socket {
     get_object_locale(): string
     get_parent(): Object
     get_role(): Role
-    initialize(data?: object | null): void
+    initialize(data: object): void
     notify_state_change(state: State, value: boolean): void
     peek_parent(): Object
     ref_accessible_child(i: number): Object
@@ -1924,10 +1908,9 @@ export class Socket {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1936,19 +1919,19 @@ export class Socket {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Atk.Component */
     contains(x: number, y: number, coord_type: CoordType): boolean
     get_alpha(): number
-    get_extents(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    get_position(coord_type: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    get_size(): [ /* width */ number | null, /* height */ number | null ]
+    get_extents(x: number, y: number, width: number, height: number, coord_type: CoordType): void
+    get_position(x: number, y: number, coord_type: CoordType): void
+    get_size(width: number, height: number): void
     grab_focus(): boolean
     ref_accessible_at_point(x: number, y: number, coord_type: CoordType): Object | null
     remove_focus_handler(handler_id: number): void
@@ -1958,8 +1941,8 @@ export class Socket {
     /* Virtual methods of Atk.Socket */
     vfunc_embed?(plug_id: string): void
     /* Virtual methods of Atk.Object */
-    vfunc_active_descendant_changed?(child?: object | null): void
-    vfunc_children_changed?(change_index: number, changed_child?: object | null): void
+    vfunc_active_descendant_changed?(child: object): void
+    vfunc_children_changed?(change_index: number, changed_child: object): void
     vfunc_focus_event?(focus_in: boolean): void
     vfunc_get_attributes?(): AttributeSet
     vfunc_get_description?(): string | null
@@ -1971,7 +1954,7 @@ export class Socket {
     vfunc_get_object_locale?(): string
     vfunc_get_parent?(): Object
     vfunc_get_role?(): Role
-    vfunc_initialize?(data?: object | null): void
+    vfunc_initialize?(data: object): void
     vfunc_property_change?(values: PropertyValues): void
     vfunc_ref_relation_set?(): RelationSet
     vfunc_ref_state_set?(): StateSet
@@ -1991,10 +1974,10 @@ export class Socket {
     vfunc_notify?(pspec: GObject.ParamSpec): void
     vfunc_set_property?(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Atk.Object */
-    connect(sigName: "active-descendant-changed", callback: ((obj: Socket, arg1?: object | null) => void)): void
-    connect(sigName: "children-changed", callback: ((obj: Socket, arg1: number, arg2?: object | null) => void)): void
+    connect(sigName: "active-descendant-changed", callback: ((obj: Socket, arg1: object) => void)): void
+    connect(sigName: "children-changed", callback: ((obj: Socket, arg1: number, arg2: object) => void)): void
     connect(sigName: "focus-event", callback: ((obj: Socket, arg1: boolean) => void)): void
-    connect(sigName: "property-change", callback: ((obj: Socket, arg1?: object | null) => void)): void
+    connect(sigName: "property-change", callback: ((obj: Socket, arg1: object) => void)): void
     connect(sigName: "state-change", callback: ((obj: Socket, arg1: string, arg2: boolean) => void)): void
     connect(sigName: "visible-data-changed", callback: ((obj: Socket) => void)): void
     /* Signals of GObject.Object */
@@ -2044,10 +2027,9 @@ export class StateSet {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2056,10 +2038,10 @@ export class StateSet {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
@@ -2090,10 +2072,9 @@ export class Util {
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
     freeze_notify(): void
-    get_data(key: string): object | null
+    get_data(key: string): object
     get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    get_qdata(quark: GLib.Quark): object
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2102,10 +2083,10 @@ export class Util {
     replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
-    set_data(key: string, data?: object | null): void
+    set_data(key: string, data: object): void
     set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
+    steal_data(key: string): object
+    steal_qdata(quark: GLib.Quark): object
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void

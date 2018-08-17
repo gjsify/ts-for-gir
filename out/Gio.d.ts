@@ -654,18 +654,18 @@ export const VOLUME_MONITOR_EXTENSION_POINT_NAME:string
 export function action_name_is_valid(action_name: string): boolean
 export function action_parse_detailed_name(detailed_name: string): [ /* returnType */ boolean, /* action_name */ string, /* target_value */ GLib.Variant ]
 export function action_print_detailed_name(action_name: string, target_value?: GLib.Variant | null): string
-export function app_info_create_from_commandline(commandline: string, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
+export function app_info_create_from_commandline(commandline: any, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
 export function app_info_get_all(): AppInfo[]
 export function app_info_get_all_for_type(content_type: string): AppInfo[]
 export function app_info_get_default_for_type(content_type: string, must_support_uris: boolean): AppInfo
 export function app_info_get_default_for_uri_scheme(uri_scheme: string): AppInfo
 export function app_info_get_fallback_for_type(content_type: string): AppInfo[]
 export function app_info_get_recommended_for_type(content_type: string): AppInfo[]
-export function app_info_launch_default_for_uri(uri: string, launch_context?: AppLaunchContext | null): boolean
-export function app_info_launch_default_for_uri_async(uri: string, launch_context: AppLaunchContext, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+export function app_info_launch_default_for_uri(uri: string, context?: AppLaunchContext | null): boolean
+export function app_info_launch_default_for_uri_async(uri: string, context?: AppLaunchContext | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 export function app_info_launch_default_for_uri_finish(result: AsyncResult): boolean
 export function app_info_reset_type_associations(content_type: string): void
-export function async_initable_newv_async(object_type: number, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+export function async_initable_newv_async(object_type: GObject.Type, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 export function bus_get(bus_type: BusType, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 export function bus_get_finish(res: AsyncResult): DBusConnection
 export function bus_get_sync(bus_type: BusType, cancellable?: Cancellable | null): DBusConnection
@@ -701,7 +701,7 @@ export function dbus_error_is_remote_error(error: GLib.Error): boolean
 export function dbus_error_new_for_dbus_error(dbus_error_name: string, dbus_error_message: string): GLib.Error
 export function dbus_error_quark(): GLib.Quark
 export function dbus_error_register_error(error_domain: GLib.Quark, error_code: number, dbus_error_name: string): boolean
-export function dbus_error_register_error_domain(error_domain_quark_name: string, quark_volatile: number, entries: DBusErrorEntry, num_entries: number): void
+export function dbus_error_register_error_domain(error_domain_quark_name: string, quark_volatile: number, entries: DBusErrorEntry[]): void
 export function dbus_error_strip_remote_error(error: GLib.Error): boolean
 export function dbus_error_unregister_error(error_domain: GLib.Quark, error_code: number, dbus_error_name: string): boolean
 export function dbus_generate_guid(): string
@@ -716,25 +716,25 @@ export function dbus_is_supported_address(string: string): boolean
 export function dbus_is_unique_name(string: string): boolean
 export function dtls_client_connection_new(base_socket: DatagramBased, server_identity?: SocketConnectable | null): DtlsClientConnection
 export function dtls_server_connection_new(base_socket: DatagramBased, certificate?: TlsCertificate | null): DtlsServerConnection
-export function file_new_for_commandline_arg(arg: string): File
-export function file_new_for_commandline_arg_and_cwd(arg: string, cwd: string): File
-export function file_new_for_path(path: string): File
+export function file_new_for_commandline_arg(arg: any): File
+export function file_new_for_commandline_arg_and_cwd(arg: any, cwd: any): File
+export function file_new_for_path(path: any): File
 export function file_new_for_uri(uri: string): File
-export function file_new_tmp(tmpl?: string): [ /* returnType */ File, /* iostream */ FileIOStream ]
+export function file_new_tmp(tmpl?: any): [ /* returnType */ File, /* iostream */ FileIOStream ]
 export function file_parse_name(parse_name: string): File
 export function icon_deserialize(value: GLib.Variant): Icon
 export function icon_hash(icon: object): number
 export function icon_new_for_string(str: string): Icon
-export function initable_newv(object_type: number, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
+export function initable_newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
 export function io_error_from_errno(err_no: number): IOErrorEnum
 export function io_error_quark(): GLib.Quark
-export function io_extension_point_implement(extension_point_name: string, type: number, extension_name: string, priority: number): IOExtension
+export function io_extension_point_implement(extension_point_name: string, type: GObject.Type, extension_name: string, priority: number): IOExtension
 export function io_extension_point_lookup(name: string): IOExtensionPoint
 export function io_extension_point_register(name: string): IOExtensionPoint
-export function io_modules_load_all_in_directory(dirname: string): IOModule[]
-export function io_modules_load_all_in_directory_with_scope(dirname: string, scope: IOModuleScope): IOModule[]
-export function io_modules_scan_all_in_directory(dirname: string): void
-export function io_modules_scan_all_in_directory_with_scope(dirname: string, scope: IOModuleScope): void
+export function io_modules_load_all_in_directory(dirname: any): IOModule[]
+export function io_modules_load_all_in_directory_with_scope(dirname: any, scope: IOModuleScope): IOModule[]
+export function io_modules_scan_all_in_directory(dirname: any): void
+export function io_modules_scan_all_in_directory_with_scope(dirname: any, scope: IOModuleScope): void
 export function io_scheduler_cancel_all_jobs(): void
 export function io_scheduler_push_job(job_func: IOSchedulerJobFunc, notify: GLib.DestroyNotify | null, io_priority: number, cancellable?: Cancellable | null): void
 export function keyfile_settings_backend_new(filename: string, root_path: string, root_group?: string | null): SettingsBackend
@@ -751,29 +751,31 @@ export function proxy_get_default_for_protocol(protocol: string): Proxy
 export function proxy_resolver_get_default(): ProxyResolver
 export function resolver_error_quark(): GLib.Quark
 export function resource_error_quark(): GLib.Quark
-export function resource_load(filename: string): Resource
+export function resource_load(filename: any): Resource
 export function resources_enumerate_children(path: string, lookup_flags: ResourceLookupFlags): string[]
 export function resources_get_info(path: string, lookup_flags: ResourceLookupFlags): [ /* returnType */ boolean, /* size */ number | null, /* flags */ number | null ]
 export function resources_lookup_data(path: string, lookup_flags: ResourceLookupFlags): Gjs.byteArray.ByteArray
 export function resources_open_stream(path: string, lookup_flags: ResourceLookupFlags): InputStream
 export function resources_register(resource: Resource): void
 export function resources_unregister(resource: Resource): void
-export function settings_schema_source_get_default(): SettingsSchemaSource
+export function settings_schema_source_get_default(): SettingsSchemaSource | null
 export function simple_async_report_gerror_in_idle(object: GObject.Object | null, callback: AsyncReadyCallback | null, error: GLib.Error): void
 export function tls_backend_get_default(): TlsBackend
 export function tls_client_connection_new(base_io_stream: IOStream, server_identity?: SocketConnectable | null): TlsClientConnection
 export function tls_error_quark(): GLib.Quark
-export function tls_file_database_new(anchors: string): TlsFileDatabase
+export function tls_file_database_new(anchors: any): TlsFileDatabase
 export function tls_server_connection_new(base_io_stream: IOStream, certificate?: TlsCertificate | null): TlsServerConnection
-export function unix_is_mount_path_system_internal(mount_path: string): boolean
-export function unix_mount_at(mount_path: string): [ /* returnType */ UnixMountEntry, /* time_read */ number | null ]
+export function unix_is_mount_path_system_internal(mount_path: any): boolean
+export function unix_is_system_device_path(device_path: string): boolean
+export function unix_is_system_fs_type(fs_type: string): boolean
+export function unix_mount_at(mount_path: any): [ /* returnType */ UnixMountEntry, /* time_read */ number | null ]
 export function unix_mount_compare(mount1: UnixMountEntry, mount2: UnixMountEntry): number
 export function unix_mount_copy(mount_entry: UnixMountEntry): UnixMountEntry
-export function unix_mount_for(file_path: string): [ /* returnType */ UnixMountEntry, /* time_read */ number | null ]
+export function unix_mount_for(file_path: any): [ /* returnType */ UnixMountEntry, /* time_read */ number | null ]
 export function unix_mount_free(mount_entry: UnixMountEntry): void
-export function unix_mount_get_device_path(mount_entry: UnixMountEntry): string
+export function unix_mount_get_device_path(mount_entry: UnixMountEntry): any
 export function unix_mount_get_fs_type(mount_entry: UnixMountEntry): string
-export function unix_mount_get_mount_path(mount_entry: UnixMountEntry): string
+export function unix_mount_get_mount_path(mount_entry: UnixMountEntry): any
 export function unix_mount_guess_can_eject(mount_entry: UnixMountEntry): boolean
 export function unix_mount_guess_icon(mount_entry: UnixMountEntry): Icon
 export function unix_mount_guess_name(mount_entry: UnixMountEntry): string
@@ -786,7 +788,7 @@ export function unix_mount_points_get(): [ /* returnType */ UnixMountPoint[], /*
 export function unix_mounts_changed_since(time: number): boolean
 export function unix_mounts_get(): [ /* returnType */ UnixMountEntry[], /* time_read */ number | null ]
 export interface AsyncReadyCallback {
-    (source_object: GObject.Object, res: AsyncResult): void
+    (source_object: GObject.Object | null, res: AsyncResult): void
 }
 export interface BusAcquiredCallback {
     (connection: DBusConnection, name: string): void
@@ -819,7 +821,7 @@ export interface DBusMessageFilterFunction {
     (connection: DBusConnection, message: DBusMessage, incoming: boolean): DBusMessage | null
 }
 export interface DBusProxyTypeFunc {
-    (manager: DBusObjectManagerClient, object_path: string, interface_name?: string | null): number
+    (manager: DBusObjectManagerClient, object_path: string, interface_name?: string | null): GObject.Type
 }
 export interface DBusSignalCallback {
     (connection: DBusConnection, sender_name: string, object_path: string, interface_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -843,7 +845,7 @@ export interface FileProgressCallback {
     (current_num_bytes: number, total_num_bytes: number): void
 }
 export interface FileReadMoreCallback {
-    (file_contents: string, file_size: number, callback_data?: object | null): boolean
+    (file_contents: string, file_size: number): boolean
 }
 export interface IOSchedulerJobFunc {
     (job: IOSchedulerJob, cancellable?: Cancellable | null): boolean
@@ -963,18 +965,18 @@ export class AppInfo {
     delete(): boolean
     dup(): AppInfo
     equal(appinfo2: AppInfo): boolean
-    get_commandline(): string
+    get_commandline(): any
     get_description(): string
     get_display_name(): string
-    get_executable(): string
+    get_executable(): any
     get_icon(): Icon
     get_id(): string
     get_name(): string
     get_supported_types(): string[]
-    launch(files?: File[] | null, launch_context?: AppLaunchContext | null): boolean
-    launch_uris(uris?: string[] | null, launch_context?: AppLaunchContext | null): boolean
+    launch(files?: File[] | null, context?: AppLaunchContext | null): boolean
+    launch_uris(uris?: string[] | null, context?: AppLaunchContext | null): boolean
     remove_supports_type(content_type: string): boolean
-    set_as_default_for_extension(extension: string): boolean
+    set_as_default_for_extension(extension: any): boolean
     set_as_default_for_type(content_type: string): boolean
     set_as_last_used_for_type(content_type: string): boolean
     should_show(): boolean
@@ -995,25 +997,25 @@ export class AppInfo {
     vfunc_get_id?(): string
     vfunc_get_name?(): string
     vfunc_get_supported_types?(): string[]
-    vfunc_launch?(files?: File[] | null, launch_context?: AppLaunchContext | null): boolean
-    vfunc_launch_uris?(uris?: string[] | null, launch_context?: AppLaunchContext | null): boolean
+    vfunc_launch?(files?: File[] | null, context?: AppLaunchContext | null): boolean
+    vfunc_launch_uris?(uris?: string[] | null, context?: AppLaunchContext | null): boolean
     vfunc_remove_supports_type?(content_type: string): boolean
-    vfunc_set_as_default_for_extension?(extension: string): boolean
+    vfunc_set_as_default_for_extension?(extension: any): boolean
     vfunc_set_as_default_for_type?(content_type: string): boolean
     vfunc_set_as_last_used_for_type?(content_type: string): boolean
     vfunc_should_show?(): boolean
     vfunc_supports_files?(): boolean
     vfunc_supports_uris?(): boolean
     static name: string
-    static create_from_commandline(commandline: string, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
+    static create_from_commandline(commandline: any, application_name: string | null, flags: AppInfoCreateFlags): AppInfo
     static get_all(): AppInfo[]
     static get_all_for_type(content_type: string): AppInfo[]
     static get_default_for_type(content_type: string, must_support_uris: boolean): AppInfo
     static get_default_for_uri_scheme(uri_scheme: string): AppInfo
     static get_fallback_for_type(content_type: string): AppInfo[]
     static get_recommended_for_type(content_type: string): AppInfo[]
-    static launch_default_for_uri(uri: string, launch_context?: AppLaunchContext | null): boolean
-    static launch_default_for_uri_async(uri: string, launch_context: AppLaunchContext, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    static launch_default_for_uri(uri: string, context?: AppLaunchContext | null): boolean
+    static launch_default_for_uri_async(uri: string, context?: AppLaunchContext | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     static launch_default_for_uri_finish(result: AsyncResult): boolean
     static reset_type_associations(content_type: string): void
 }
@@ -1026,16 +1028,16 @@ export class AsyncInitable {
     vfunc_init_async?(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_init_finish?(res: AsyncResult): boolean
     static name: string
-    static newv_async(object_type: number, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    static newv_async(object_type: GObject.Type, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 }
 export class AsyncResult {
     /* Methods of Gio.AsyncResult */
-    get_source_object(): GObject.Object
+    get_source_object(): GObject.Object | null
     get_user_data(): object | null
     is_tagged(source_tag?: object | null): boolean
     legacy_propagate_error(): boolean
     /* Virtual methods of Gio.AsyncResult */
-    vfunc_get_source_object?(): GObject.Object
+    vfunc_get_source_object?(): GObject.Object | null
     vfunc_get_user_data?(): object | null
     vfunc_is_tagged?(source_tag?: object | null): boolean
     static name: string
@@ -1283,7 +1285,7 @@ export class File {
     find_enclosing_mount_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     find_enclosing_mount_finish(res: AsyncResult): Mount
     get_basename(): string
-    get_child(name: string): File
+    get_child(name: any): File
     get_child_for_display_name(display_name: string): File
     get_parent(): File | null
     get_parse_name(): string
@@ -1296,6 +1298,9 @@ export class File {
     has_uri_scheme(uri_scheme: string): boolean
     hash(): number
     is_native(): boolean
+    load_bytes(cancellable?: Cancellable | null): [ /* returnType */ Gjs.byteArray.ByteArray, /* etag_out */ string | null ]
+    load_bytes_async(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    load_bytes_finish(result: AsyncResult): [ /* returnType */ Gjs.byteArray.ByteArray, /* etag_out */ string | null ]
     load_contents(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* contents */ Gjs.byteArray.ByteArray, /* etag_out */ string | null ]
     load_contents_async(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     load_contents_finish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ Gjs.byteArray.ByteArray, /* etag_out */ string | null ]
@@ -1304,7 +1309,7 @@ export class File {
     make_directory_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     make_directory_finish(result: AsyncResult): boolean
     make_directory_with_parents(cancellable?: Cancellable | null): boolean
-    make_symbolic_link(symlink_value: string, cancellable?: Cancellable | null): boolean
+    make_symbolic_link(symlink_value: any, cancellable?: Cancellable | null): boolean
     measure_disk_usage_finish(result: AsyncResult): [ /* returnType */ boolean, /* disk_usage */ number | null, /* num_dirs */ number | null, /* num_files */ number | null ]
     monitor(flags: FileMonitorFlags, cancellable?: Cancellable | null): FileMonitor
     monitor_directory(flags: FileMonitorFlags, cancellable?: Cancellable | null): FileMonitor
@@ -1317,6 +1322,7 @@ export class File {
     open_readwrite(cancellable?: Cancellable | null): FileIOStream
     open_readwrite_async(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     open_readwrite_finish(res: AsyncResult): FileIOStream
+    peek_path(): any
     poll_mountable(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     poll_mountable_finish(result: AsyncResult): boolean
     query_default_handler(cancellable?: Cancellable | null): AppInfo
@@ -1343,7 +1349,7 @@ export class File {
     replace_readwrite(etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): FileIOStream
     replace_readwrite_async(etag: string | null, make_backup: boolean, flags: FileCreateFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     replace_readwrite_finish(res: AsyncResult): FileIOStream
-    resolve_relative_path(relative_path: string): File
+    resolve_relative_path(relative_path: any): File
     set_attribute(attribute: string, type: FileAttributeType, value_p: object | null, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     set_attribute_byte_string(attribute: string, value: string, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     set_attribute_int32(attribute: string, value: number, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
@@ -1411,7 +1417,7 @@ export class File {
     vfunc_make_directory?(cancellable?: Cancellable | null): boolean
     vfunc_make_directory_async?(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_make_directory_finish?(result: AsyncResult): boolean
-    vfunc_make_symbolic_link?(symlink_value: string, cancellable?: Cancellable | null): boolean
+    vfunc_make_symbolic_link?(symlink_value: any, cancellable?: Cancellable | null): boolean
     vfunc_measure_disk_usage_finish?(result: AsyncResult): [ /* returnType */ boolean, /* disk_usage */ number | null, /* num_dirs */ number | null, /* num_files */ number | null ]
     vfunc_monitor_dir?(flags: FileMonitorFlags, cancellable?: Cancellable | null): FileMonitor
     vfunc_monitor_file?(flags: FileMonitorFlags, cancellable?: Cancellable | null): FileMonitor
@@ -1443,7 +1449,7 @@ export class File {
     vfunc_replace_readwrite?(etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): FileIOStream
     vfunc_replace_readwrite_async?(etag: string | null, make_backup: boolean, flags: FileCreateFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_replace_readwrite_finish?(res: AsyncResult): FileIOStream
-    vfunc_resolve_relative_path?(relative_path: string): File
+    vfunc_resolve_relative_path?(relative_path: any): File
     vfunc_set_attribute?(attribute: string, type: FileAttributeType, value_p: object | null, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     vfunc_set_attributes_async?(info: FileInfo, flags: FileQueryInfoFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_set_attributes_finish?(result: AsyncResult): [ /* returnType */ boolean, /* info */ FileInfo ]
@@ -1463,11 +1469,11 @@ export class File {
     vfunc_unmount_mountable_with_operation?(flags: MountUnmountFlags, mount_operation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_unmount_mountable_with_operation_finish?(result: AsyncResult): boolean
     static name: string
-    static new_for_commandline_arg(arg: string): File
-    static new_for_commandline_arg_and_cwd(arg: string, cwd: string): File
-    static new_for_path(path: string): File
+    static new_for_commandline_arg(arg: any): File
+    static new_for_commandline_arg_and_cwd(arg: any, cwd: any): File
+    static new_for_path(path: any): File
     static new_for_uri(uri: string): File
-    static new_tmp(tmpl?: string): [ /* returnType */ File, /* iostream */ FileIOStream ]
+    static new_tmp(tmpl?: any): [ /* returnType */ File, /* iostream */ FileIOStream ]
     static parse_name(parse_name: string): File
 }
 export class FileDescriptorBased {
@@ -1497,17 +1503,17 @@ export class Initable {
     /* Virtual methods of Gio.Initable */
     vfunc_init?(cancellable?: Cancellable | null): boolean
     static name: string
-    static newv(object_type: number, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
+    static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
 }
 export class ListModel {
     /* Methods of Gio.ListModel */
-    get_item_type(): number
+    get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
     /* Virtual methods of Gio.ListModel */
-    vfunc_get_item?(position: number): object | null
-    vfunc_get_item_type?(): number
+    vfunc_get_item?(position: number): GObject.Object | null
+    vfunc_get_item_type?(): GObject.Type
     vfunc_get_n_items?(): number
     /* Signals of Gio.ListModel */
     connect(sigName: "items-changed", callback: ((obj: ListModel, position: number, removed: number, added: number) => void)): void
@@ -1603,9 +1609,9 @@ export class NetworkMonitor {
     vfunc_can_reach?(connectable: SocketConnectable, cancellable?: Cancellable | null): boolean
     vfunc_can_reach_async?(connectable: SocketConnectable, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfunc_can_reach_finish?(result: AsyncResult): boolean
-    vfunc_network_changed?(available: boolean): void
+    vfunc_network_changed?(network_available: boolean): void
     /* Signals of Gio.NetworkMonitor */
-    connect(sigName: "network-changed", callback: ((obj: NetworkMonitor, available: boolean) => void)): void
+    connect(sigName: "network-changed", callback: ((obj: NetworkMonitor, network_available: boolean) => void)): void
     static name: string
     static get_default(): NetworkMonitor
 }
@@ -1700,13 +1706,13 @@ export class SocketConnectable {
 }
 export class TlsBackend {
     /* Methods of Gio.TlsBackend */
-    get_certificate_type(): number
-    get_client_connection_type(): number
+    get_certificate_type(): GObject.Type
+    get_client_connection_type(): GObject.Type
     get_default_database(): TlsDatabase
-    get_dtls_client_connection_type(): number
-    get_dtls_server_connection_type(): number
-    get_file_database_type(): number
-    get_server_connection_type(): number
+    get_dtls_client_connection_type(): GObject.Type
+    get_dtls_server_connection_type(): GObject.Type
+    get_file_database_type(): GObject.Type
+    get_server_connection_type(): GObject.Type
     supports_dtls(): boolean
     supports_tls(): boolean
     /* Virtual methods of Gio.TlsBackend */
@@ -1812,8 +1818,6 @@ export class AppInfoMonitor {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1848,11 +1852,11 @@ export class AppLaunchContext {
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.AppLaunchContext */
     get_display(info: AppInfo, files: File[]): string
-    get_environment(): string[]
+    get_environment(): any[]
     get_startup_notify_id(info: AppInfo, files: File[]): string
     launch_failed(startup_notify_id: string): void
-    setenv(variable: string, value: string): void
-    unsetenv(variable: string): void
+    setenv(variable: any, value: any): void
+    unsetenv(variable: any): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1867,8 +1871,6 @@ export class AppLaunchContext {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1941,13 +1943,16 @@ export class Application {
     quit(): void
     register(cancellable?: Cancellable | null): boolean
     release(): void
-    run(argv?: string[] | null): number
+    run(argv?: any[]): number
     send_notification(id: string | null, notification: Notification): void
     set_action_group(action_group?: ActionGroup | null): void
     set_application_id(application_id?: string | null): void
     set_default(): void
     set_flags(flags: ApplicationFlags): void
     set_inactivity_timeout(inactivity_timeout: number): void
+    set_option_context_description(description?: string | null): void
+    set_option_context_parameter_string(parameter_string?: string | null): void
+    set_option_context_summary(summary?: string | null): void
     set_resource_base_path(resource_path?: string | null): void
     unbind_busy_property(object: GObject.Object, property: string): void
     unmark_busy(): void
@@ -1966,8 +1971,6 @@ export class Application {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2060,16 +2063,16 @@ export class ApplicationCommandLine {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.ApplicationCommandLine */
-    create_file_for_arg(arg: string): File
-    get_arguments(): string[]
-    get_cwd(): string
-    get_environ(): string[]
+    create_file_for_arg(arg: any): File
+    get_arguments(): any
+    get_cwd(): any
+    get_environ(): any
     get_exit_status(): number
     get_is_remote(): boolean
     get_options_dict(): GLib.VariantDict
     get_platform_data(): GLib.Variant | null
     get_stdin(): InputStream
-    getenv(name: string): string
+    getenv(name: any): string
     set_exit_status(exit_status: number): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2085,8 +2088,6 @@ export class ApplicationCommandLine {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2177,8 +2178,6 @@ export class BufferedInputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2267,9 +2266,9 @@ export class BufferedOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
     write(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2289,8 +2288,6 @@ export class BufferedOutputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2359,8 +2356,6 @@ export class BytesIcon {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2425,8 +2420,6 @@ export class Cancellable {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2483,8 +2476,6 @@ export class CharsetConverter {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2568,8 +2559,6 @@ export class ConverterInputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2644,9 +2633,9 @@ export class ConverterOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
     write(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -2666,8 +2655,6 @@ export class ConverterOutputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2735,8 +2722,6 @@ export class Credentials {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2779,8 +2764,6 @@ export class DBusActionGroup {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2825,7 +2808,7 @@ export class DBusActionGroup {
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: DBusActionGroup_ConstructProps)
-    static get(connection: DBusConnection, bus_name: string, object_path: string): DBusActionGroup
+    static get(connection: DBusConnection, bus_name: string | null, object_path: string): DBusActionGroup
 }
 export interface DBusAuthObserver_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -2849,8 +2832,6 @@ export class DBusAuthObserver {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2947,8 +2928,6 @@ export class DBusConnection {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3024,8 +3003,6 @@ export class DBusInterfaceSkeleton {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3089,8 +3066,6 @@ export class DBusMenuModel {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3123,7 +3098,7 @@ export class DBusMenuModel {
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: DBusMenuModel_ConstructProps)
-    static get(connection: DBusConnection, bus_name: string, object_path: string): DBusMenuModel
+    static get(connection: DBusConnection, bus_name: string | null, object_path: string): DBusMenuModel
 }
 export interface DBusMessage_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -3189,8 +3164,6 @@ export class DBusMessage {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3253,8 +3226,6 @@ export class DBusMethodInvocation {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3312,8 +3283,6 @@ export class DBusObjectManagerClient {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3395,8 +3364,6 @@ export class DBusObjectManagerServer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3456,8 +3423,6 @@ export class DBusObjectProxy {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3517,8 +3482,6 @@ export class DBusObjectSkeleton {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3579,15 +3542,15 @@ export class DBusProxy {
     call_with_unix_fd_list(method_name: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeout_msec: number, fd_list?: UnixFDList | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     call_with_unix_fd_list_finish(res: AsyncResult): [ /* returnType */ GLib.Variant, /* out_fd_list */ UnixFDList | null ]
     call_with_unix_fd_list_sync(method_name: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeout_msec: number, fd_list?: UnixFDList | null, cancellable?: Cancellable | null): [ /* returnType */ GLib.Variant, /* out_fd_list */ UnixFDList | null ]
-    get_cached_property(property_name: string): GLib.Variant
-    get_cached_property_names(): string[]
+    get_cached_property(property_name: string): GLib.Variant | null
+    get_cached_property_names(): string[] | null
     get_connection(): DBusConnection
     get_default_timeout(): number
     get_flags(): DBusProxyFlags
-    get_interface_info(): DBusInterfaceInfo
+    get_interface_info(): DBusInterfaceInfo | null
     get_interface_name(): string
     get_name(): string
-    get_name_owner(): string
+    get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
     set_default_timeout(timeout_msec: number): void
@@ -3606,8 +3569,6 @@ export class DBusProxy {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3687,8 +3648,6 @@ export class DBusServer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3808,8 +3767,6 @@ export class DataInputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3902,9 +3859,9 @@ export class DataOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
     write(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -3924,8 +3881,6 @@ export class DataOutputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3980,10 +3935,11 @@ export class DesktopAppInfo {
     get_action_name(action_name: string): string
     get_boolean(key: string): boolean
     get_categories(): string
-    get_filename(): string
+    get_filename(): any
     get_generic_name(): string
     get_is_hidden(): boolean
     get_keywords(): string[]
+    get_locale_string(key: string): string | null
     get_nodisplay(): boolean
     get_show_in(desktop_env?: string | null): boolean
     get_startup_wm_class(): string
@@ -4006,8 +3962,6 @@ export class DesktopAppInfo {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4023,18 +3977,18 @@ export class DesktopAppInfo {
     delete(): boolean
     dup(): AppInfo
     equal(appinfo2: AppInfo): boolean
-    get_commandline(): string
+    get_commandline(): any
     get_description(): string
     get_display_name(): string
-    get_executable(): string
+    get_executable(): any
     get_icon(): Icon
     get_id(): string
     get_name(): string
     get_supported_types(): string[]
-    launch(files?: File[] | null, launch_context?: AppLaunchContext | null): boolean
-    launch_uris(uris?: string[] | null, launch_context?: AppLaunchContext | null): boolean
+    launch(files?: File[] | null, context?: AppLaunchContext | null): boolean
+    launch_uris(uris?: string[] | null, context?: AppLaunchContext | null): boolean
     remove_supports_type(content_type: string): boolean
-    set_as_default_for_extension(extension: string): boolean
+    set_as_default_for_extension(extension: any): boolean
     set_as_default_for_type(content_type: string): boolean
     set_as_last_used_for_type(content_type: string): boolean
     should_show(): boolean
@@ -4054,7 +4008,7 @@ export class DesktopAppInfo {
     static name: string
     constructor (config?: DesktopAppInfo_ConstructProps)
     static new(desktop_id: string): DesktopAppInfo
-    static new_from_filename(filename: string): DesktopAppInfo
+    static new_from_filename(filename: any): DesktopAppInfo
     static new_from_keyfile(key_file: GLib.KeyFile): DesktopAppInfo
     static get_implementations(interface: string): DesktopAppInfo[]
     static search(search_string: string): any
@@ -4085,8 +4039,6 @@ export class Emblem {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4143,8 +4095,6 @@ export class EmblemedIcon {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4208,8 +4158,6 @@ export class FileEnumerator {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4281,8 +4229,6 @@ export class FileIOStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4353,8 +4299,6 @@ export class FileIcon {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4419,7 +4363,7 @@ export class FileInfo {
     get_is_hidden(): boolean
     get_is_symlink(): boolean
     get_modification_time(): /* result */ GLib.TimeVal
-    get_name(): string
+    get_name(): any
     get_size(): number
     get_sort_order(): number
     get_symbolic_icon(): Icon
@@ -4448,7 +4392,7 @@ export class FileInfo {
     set_is_hidden(is_hidden: boolean): void
     set_is_symlink(is_symlink: boolean): void
     set_modification_time(mtime: GLib.TimeVal): void
-    set_name(name: string): void
+    set_name(name: any): void
     set_size(size: number): void
     set_sort_order(sort_order: number): void
     set_symbolic_icon(icon: Icon): void
@@ -4468,8 +4412,6 @@ export class FileInfo {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4539,8 +4481,6 @@ export class FileInputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4616,8 +4556,6 @@ export class FileMonitor {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4676,9 +4614,9 @@ export class FileOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
     write(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -4698,8 +4636,6 @@ export class FileOutputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4774,8 +4710,6 @@ export class FilenameCompleter {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4854,8 +4788,6 @@ export class FilterInputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4921,9 +4853,9 @@ export class FilterOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
     write(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -4943,8 +4875,6 @@ export class FilterOutputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4995,10 +4925,10 @@ export class IOModule {
     load(): void
     unload(): void
     /* Methods of GObject.TypeModule */
-    add_interface(instance_type: number, interface_type: number, interface_info: GObject.InterfaceInfo): void
-    register_enum(name: string, const_static_values: GObject.EnumValue): number
-    register_flags(name: string, const_static_values: GObject.FlagsValue): number
-    register_type(parent_type: number, type_name: string, type_info: GObject.TypeInfo, flags: GObject.TypeFlags): number
+    add_interface(instance_type: GObject.Type, interface_type: GObject.Type, interface_info: GObject.InterfaceInfo): void
+    register_enum(name: string, const_static_values: GObject.EnumValue): GObject.Type
+    register_flags(name: string, const_static_values: GObject.FlagsValue): GObject.Type
+    register_type(parent_type: GObject.Type, type_name: string, type_info: GObject.TypeInfo, flags: GObject.TypeFlags): GObject.Type
     set_name(name: string): void
     unuse(): void
     use(): boolean
@@ -5016,8 +4946,6 @@ export class IOModule {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5027,8 +4955,8 @@ export class IOModule {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of GObject.TypePlugin */
-    complete_interface_info(instance_type: number, interface_type: number, info: GObject.InterfaceInfo): void
-    complete_type_info(g_type: number, info: GObject.TypeInfo, value_table: GObject.TypeValueTable): void
+    complete_interface_info(instance_type: GObject.Type, interface_type: GObject.Type, info: GObject.InterfaceInfo): void
+    complete_type_info(g_type: GObject.Type, info: GObject.TypeInfo, value_table: GObject.TypeValueTable): void
     /* Virtual methods of GObject.TypeModule */
     vfunc_load?(): boolean
     vfunc_unload?(): void
@@ -5045,7 +4973,7 @@ export class IOModule {
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: IOModule_ConstructProps)
-    static new(filename: string): IOModule
+    static new(filename: any): IOModule
     static query(): string[]
 }
 export interface IOStream_ConstructProps extends GObject.Object_ConstructProps {
@@ -5084,8 +5012,6 @@ export class IOStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5167,8 +5093,6 @@ export class InetAddress {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5241,8 +5165,6 @@ export class InetAddressMask {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5310,8 +5232,6 @@ export class InetSocketAddress {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5386,8 +5306,6 @@ export class InputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5421,7 +5339,7 @@ export class InputStream {
     constructor (config?: InputStream_ConstructProps)
 }
 export interface ListStore_ConstructProps extends GObject.Object_ConstructProps {
-    item_type?:number
+    item_type?:GObject.Type
 }
 export class ListStore {
     /* Properties of Gio.ListStore */
@@ -5449,8 +5367,6 @@ export class ListStore {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5460,7 +5376,7 @@ export class ListStore {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gio.ListModel */
-    get_item_type(): number
+    get_item_type(): GObject.Type
     get_n_items(): number
     get_item(position: number): GObject.Object | null
     items_changed(position: number, removed: number, added: number): void
@@ -5479,7 +5395,7 @@ export class ListStore {
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: ListStore_ConstructProps)
-    static new(item_type: number): ListStore
+    static new(item_type: GObject.Type): ListStore
 }
 export interface MemoryInputStream_ConstructProps extends InputStream_ConstructProps {
 }
@@ -5526,8 +5442,6 @@ export class MemoryInputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5608,9 +5522,9 @@ export class MemoryOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
     write(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -5629,8 +5543,6 @@ export class MemoryOutputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5724,8 +5636,6 @@ export class Menu {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5787,8 +5697,6 @@ export class MenuAttributeIter {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5843,8 +5751,6 @@ export class MenuItem {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5898,8 +5804,6 @@ export class MenuLinkIter {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5954,8 +5858,6 @@ export class MenuModel {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6038,8 +5940,6 @@ export class MountOperation {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6051,8 +5951,9 @@ export class MountOperation {
     /* Virtual methods of Gio.MountOperation */
     vfunc_aborted?(): void
     vfunc_ask_password?(message: string, default_user: string, default_domain: string, flags: AskPasswordFlags): void
-    vfunc_ask_question?(message: string, choices: string): void
+    vfunc_ask_question?(message: string, choices: string[]): void
     vfunc_reply?(result: MountOperationResult): void
+    vfunc_show_processes?(message: string, processes: GLib.Pid[], choices: string[]): void
     vfunc_show_unmount_progress?(message: string, time_left: number, bytes_left: number): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
@@ -6110,8 +6011,6 @@ export class NativeVolumeMonitor {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6194,8 +6093,6 @@ export class NetworkAddress {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6259,8 +6156,6 @@ export class NetworkService {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6318,8 +6213,6 @@ export class Notification {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6366,9 +6259,9 @@ export class OutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
     write(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -6388,8 +6281,6 @@ export class OutputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6461,8 +6352,6 @@ export class Permission {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6525,8 +6414,6 @@ export class PropertyAction {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6615,8 +6502,6 @@ export class ProxyAddress {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6682,8 +6567,6 @@ export class ProxyAddressEnumerator {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6747,8 +6630,6 @@ export class Resolver {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6857,8 +6738,6 @@ export class Settings {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6930,8 +6809,6 @@ export class SettingsBackend {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7000,8 +6877,6 @@ export class SimpleAction {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7068,8 +6943,6 @@ export class SimpleActionGroup {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7148,8 +7021,6 @@ export class SimpleAsyncResult {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7159,7 +7030,7 @@ export class SimpleAsyncResult {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gio.AsyncResult */
-    get_source_object(): GObject.Object
+    get_source_object(): GObject.Object | null
     get_user_data(): object | null
     is_tagged(source_tag?: object | null): boolean
     legacy_propagate_error(): boolean
@@ -7219,8 +7090,6 @@ export class SimpleIOStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7289,8 +7158,6 @@ export class SimplePermission {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7354,8 +7221,6 @@ export class SimpleProxyResolver {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7446,7 +7311,9 @@ export class Socket {
     is_closed(): boolean
     is_connected(): boolean
     join_multicast_group(group: InetAddress, source_specific: boolean, iface?: string | null): boolean
+    join_multicast_group_ssm(group: InetAddress, source_specific?: InetAddress | null, iface?: string | null): boolean
     leave_multicast_group(group: InetAddress, source_specific: boolean, iface?: string | null): boolean
+    leave_multicast_group_ssm(group: InetAddress, source_specific?: InetAddress | null, iface?: string | null): boolean
     listen(): boolean
     receive(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     receive_from(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ number, /* address */ SocketAddress | null ]
@@ -7483,8 +7350,6 @@ export class Socket {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7550,8 +7415,6 @@ export class SocketAddress {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7609,8 +7472,6 @@ export class SocketAddressEnumerator {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7710,8 +7571,6 @@ export class SocketClient {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7796,8 +7655,6 @@ export class SocketConnection {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7828,8 +7685,8 @@ export class SocketConnection {
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: SocketConnection_ConstructProps)
-    static factory_lookup_type(family: SocketFamily, type: SocketType, protocol_id: number): number
-    static factory_register_type(g_type: number, family: SocketFamily, type: SocketType, protocol: number): void
+    static factory_lookup_type(family: SocketFamily, type: SocketType, protocol_id: number): GObject.Type
+    static factory_register_type(g_type: GObject.Type, family: SocketFamily, type: SocketType, protocol: number): void
 }
 export interface SocketControlMessage_ConstructProps extends GObject.Object_ConstructProps {
 }
@@ -7858,8 +7715,6 @@ export class SocketControlMessage {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -7926,8 +7781,6 @@ export class SocketListener {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8002,8 +7855,6 @@ export class SocketService {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8050,9 +7901,9 @@ export class Subprocess {
     communicate(stdin_buf?: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ Gjs.byteArray.ByteArray, /* stderr_buf */ Gjs.byteArray.ByteArray ]
     communicate_async(stdin_buf?: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     communicate_finish(result: AsyncResult): [ /* returnType */ boolean, /* stdout_buf */ Gjs.byteArray.ByteArray, /* stderr_buf */ Gjs.byteArray.ByteArray ]
-    communicate_utf8(stdin_buf?: string | null, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ string, /* stderr_buf */ string ]
+    communicate_utf8(stdin_buf?: string | null, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ string | null, /* stderr_buf */ string | null ]
     communicate_utf8_async(stdin_buf?: string | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    communicate_utf8_finish(result: AsyncResult): [ /* returnType */ boolean, /* stdout_buf */ string, /* stderr_buf */ string ]
+    communicate_utf8_finish(result: AsyncResult): [ /* returnType */ boolean, /* stdout_buf */ string | null, /* stderr_buf */ string | null ]
     force_exit(): void
     get_exit_status(): number
     get_identifier(): string
@@ -8085,8 +7936,6 @@ export class Subprocess {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8110,7 +7959,7 @@ export class Subprocess {
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Subprocess_ConstructProps)
-    static new(argv: string[], flags: SubprocessFlags): Subprocess
+    static new(argv: any, flags: SubprocessFlags): Subprocess
 }
 export interface SubprocessLauncher_ConstructProps extends GObject.Object_ConstructProps {
     flags?:SubprocessFlags
@@ -8120,21 +7969,20 @@ export class SubprocessLauncher {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.SubprocessLauncher */
-    getenv(variable: string): string
-    set_child_setup(child_setup: GLib.SpawnChildSetupFunc, destroy_notify: GLib.DestroyNotify): void
-    set_cwd(cwd: string): void
-    set_environ(env: string[]): void
+    getenv(variable: any): any
+    set_cwd(cwd: any): void
+    set_environ(env: any): void
     set_flags(flags: SubprocessFlags): void
-    set_stderr_file_path(path?: string): void
+    set_stderr_file_path(path?: any): void
     set_stdin_file_path(path: string): void
-    set_stdout_file_path(path?: string): void
-    setenv(variable: string, value: string, overwrite: boolean): void
-    spawnv(argv: string[]): Subprocess
+    set_stdout_file_path(path?: any): void
+    setenv(variable: any, value: any, overwrite: boolean): void
+    spawnv(argv: any): Subprocess
     take_fd(source_fd: number, target_fd: number): void
     take_stderr_fd(fd: number): void
     take_stdin_fd(fd: number): void
     take_stdout_fd(fd: number): void
-    unsetenv(variable: string): void
+    unsetenv(variable: any): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -8149,8 +7997,6 @@ export class SubprocessLauncher {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8188,7 +8034,7 @@ export class Task {
     get_context(): GLib.MainContext
     get_priority(): number
     get_return_on_cancel(): boolean
-    get_source_object(): GObject.Object
+    get_source_object(): GObject.Object | null
     get_source_tag(): object | null
     get_task_data(): object | null
     had_error(): boolean
@@ -8219,8 +8065,6 @@ export class Task {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8305,8 +8149,6 @@ export class TcpConnection {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8397,8 +8239,6 @@ export class TcpWrapperConnection {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8460,8 +8300,6 @@ export class TestDBus {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8513,8 +8351,6 @@ export class ThemedIcon {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8591,8 +8427,6 @@ export class ThreadedSocketService {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8663,8 +8497,6 @@ export class TlsCertificate {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8688,10 +8520,10 @@ export class TlsCertificate {
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: TlsCertificate_ConstructProps)
-    static new_from_file(file: string): TlsCertificate
-    static new_from_files(cert_file: string, key_file: string): TlsCertificate
+    static new_from_file(file: any): TlsCertificate
+    static new_from_files(cert_file: any, key_file: any): TlsCertificate
     static new_from_pem(data: string, length: number): TlsCertificate
-    static list_new_from_file(file: string): TlsCertificate[]
+    static list_new_from_file(file: any): TlsCertificate[]
 }
 export interface TlsConnection_ConstructProps extends IOStream_ConstructProps {
     base_io_stream?:IOStream
@@ -8766,8 +8598,6 @@ export class TlsConnection {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8850,8 +8680,6 @@ export class TlsDatabase {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8917,8 +8745,6 @@ export class TlsInteraction {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -8970,8 +8796,8 @@ export class TlsPassword {
     get_warning(): string
     set_description(description: string): void
     set_flags(flags: TlsPasswordFlags): void
-    set_value(value: number, length: number): void
-    set_value_full(value: number, length: number, destroy?: GLib.DestroyNotify | null): void
+    set_value(value: Gjs.byteArray.ByteArray): void
+    set_value_full(value: Gjs.byteArray.ByteArray, destroy?: GLib.DestroyNotify | null): void
     set_warning(warning: string): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -8987,8 +8813,6 @@ export class TlsPassword {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9000,7 +8824,7 @@ export class TlsPassword {
     /* Virtual methods of Gio.TlsPassword */
     vfunc_get_default_warning?(): string
     vfunc_get_value?(length?: number | null): number
-    vfunc_set_value?(value: number, length: number, destroy?: GLib.DestroyNotify | null): void
+    vfunc_set_value?(value: Gjs.byteArray.ByteArray, destroy?: GLib.DestroyNotify | null): void
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9076,8 +8900,6 @@ export class UnixConnection {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9141,8 +8963,6 @@ export class UnixCredentialsMessage {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9201,8 +9021,6 @@ export class UnixFDList {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9261,8 +9079,6 @@ export class UnixFDMessage {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9342,8 +9158,6 @@ export class UnixInputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9405,8 +9219,6 @@ export class UnixMountMonitor {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9466,9 +9278,9 @@ export class UnixOutputStream {
     splice_async(source: InputStream, flags: OutputStreamSpliceFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     splice_finish(result: AsyncResult): number
     write(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all(buffer: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_all_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number ]
+    write_all_finish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     write_async(buffer: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     write_bytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
     write_bytes_async(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -9488,8 +9300,6 @@ export class UnixOutputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9571,8 +9381,6 @@ export class UnixSocketAddress {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9637,8 +9445,6 @@ export class Vfs {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9701,8 +9507,6 @@ export class VolumeMonitor {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9785,8 +9589,6 @@ export class ZlibCompressor {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -9838,8 +9640,6 @@ export class ZlibDecompressor {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -10094,17 +9894,17 @@ export class IOExtension {
     /* Methods of Gio.IOExtension */
     get_name(): string
     get_priority(): number
-    get_type(): number
+    get_type(): GObject.Type
     static name: string
 }
 export class IOExtensionPoint {
     /* Methods of Gio.IOExtensionPoint */
     get_extension_by_name(name: string): IOExtension
     get_extensions(): IOExtension[]
-    get_required_type(): number
-    set_required_type(type: number): void
+    get_required_type(): GObject.Type
+    set_required_type(type: GObject.Type): void
     static name: string
-    static implement(extension_point_name: string, type: number, extension_name: string, priority: number): IOExtension
+    static implement(extension_point_name: string, type: GObject.Type, extension_name: string, priority: number): IOExtension
     static lookup(name: string): IOExtensionPoint
     static register(name: string): IOExtensionPoint
 }
@@ -10225,7 +10025,7 @@ export class Resource {
     unref(): void
     static name: string
     static new_from_data(data: Gjs.byteArray.ByteArray): Resource
-    static load(filename: string): Resource
+    static load(filename: any): Resource
 }
 export class SettingsBackendPrivate {
     static name: string
@@ -10265,8 +10065,8 @@ export class SettingsSchemaSource {
     ref(): SettingsSchemaSource
     unref(): void
     static name: string
-    static new_from_directory(directory: string, parent: SettingsSchemaSource | null, trusted: boolean): SettingsSchemaSource
-    static get_default(): SettingsSchemaSource
+    static new_from_directory(directory: any, parent: SettingsSchemaSource | null, trusted: boolean): SettingsSchemaSource
+    static get_default(): SettingsSchemaSource | null
 }
 export class SimpleActionGroupPrivate {
     static name: string
@@ -10360,9 +10160,9 @@ export class UnixMountPoint {
     compare(mount2: UnixMountPoint): number
     copy(): UnixMountPoint
     free(): void
-    get_device_path(): string
+    get_device_path(): any
     get_fs_type(): string
-    get_mount_path(): string
+    get_mount_path(): any
     get_options(): string
     guess_can_eject(): boolean
     guess_icon(): Icon

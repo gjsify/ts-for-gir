@@ -3,6 +3,7 @@
  */
 
 import * as Gjs from './Gjs'
+import * as GObject from './GObject'
 export enum Status {
     SUCCESS,
     NO_MEMORY,

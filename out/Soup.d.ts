@@ -563,6 +563,9 @@ export interface ServerWebsocketCallback {
 export interface SessionCallback {
     (session: Session, msg: Message): void
 }
+export interface SessionConnectProgressCallback {
+    (session: Session, event: Gio.SocketClientEvent, connection: Gio.IOStream): void
+}
 export interface SocketCallback {
     (sock: Socket, status: number): void
 }
@@ -586,17 +589,17 @@ export class ProxyURIResolver {
 }
 export class SessionFeature {
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of Soup.SessionFeature */
-    vfunc_add_feature?(type: number): boolean
+    vfunc_add_feature?(type: GObject.Type): boolean
     vfunc_attach?(session: Session): void
     vfunc_detach?(session: Session): void
-    vfunc_has_feature?(type: number): boolean
-    vfunc_remove_feature?(type: number): boolean
+    vfunc_has_feature?(type: GObject.Type): boolean
+    vfunc_remove_feature?(type: GObject.Type): boolean
     vfunc_request_queued?(session: Session, msg: Message): void
     vfunc_request_started?(session: Session, msg: Message, socket: Socket): void
     vfunc_request_unqueued?(session: Session, msg: Message): void
@@ -643,8 +646,6 @@ export class Address {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -720,8 +721,6 @@ export class Auth {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -756,7 +755,7 @@ export class Auth {
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Auth_ConstructProps)
-    static new(type: number, msg: Message, auth_header: string): Auth | null
+    static new(type: GObject.Type, msg: Message, auth_header: string): Auth | null
 }
 export interface AuthBasic_ConstructProps extends Auth_ConstructProps {
 }
@@ -800,8 +799,6 @@ export class AuthBasic {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -879,8 +876,6 @@ export class AuthDigest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -963,8 +958,6 @@ export class AuthDomain {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1042,8 +1035,6 @@ export class AuthDomainBasic {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1123,8 +1114,6 @@ export class AuthDomainDigest {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1185,8 +1174,6 @@ export class AuthManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1196,11 +1183,11 @@ export class AuthManager {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of Soup.AuthManager */
     vfunc_authenticate?(msg: Message, auth: Auth, retrying: boolean): void
     /* Virtual methods of GObject.Object */
@@ -1261,8 +1248,6 @@ export class AuthNTLM {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1340,8 +1325,6 @@ export class AuthNegotiate {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1410,8 +1393,6 @@ export class Cache {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1421,11 +1402,11 @@ export class Cache {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of Soup.Cache */
     vfunc_get_cacheability?(msg: Message): Cacheability
     /* Virtual methods of GObject.Object */
@@ -1465,8 +1446,6 @@ export class ContentDecoder {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1476,11 +1455,11 @@ export class ContentDecoder {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1520,8 +1499,6 @@ export class ContentSniffer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1531,11 +1508,11 @@ export class ContentSniffer {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of Soup.ContentSniffer */
     vfunc_get_buffer_size?(): number
     vfunc_sniff?(msg: Message, buffer: Buffer): [ /* returnType */ string, /* params */ GLib.HashTable | null ]
@@ -1592,8 +1569,6 @@ export class CookieJar {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1603,11 +1578,11 @@ export class CookieJar {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of Soup.CookieJar */
     vfunc_changed?(old_cookie: Cookie, new_cookie: Cookie): void
     vfunc_is_persistent?(): boolean
@@ -1669,8 +1644,6 @@ export class CookieJarDB {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1680,11 +1653,11 @@ export class CookieJarDB {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of Soup.CookieJar */
     vfunc_changed?(old_cookie: Cookie, new_cookie: Cookie): void
     vfunc_is_persistent?(): boolean
@@ -1746,8 +1719,6 @@ export class CookieJarText {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1757,11 +1728,11 @@ export class CookieJarText {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of Soup.CookieJar */
     vfunc_changed?(old_cookie: Cookie, new_cookie: Cookie): void
     vfunc_is_persistent?(): boolean
@@ -1816,8 +1787,6 @@ export class Logger {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1827,9 +1796,9 @@ export class Logger {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1884,7 +1853,7 @@ export class Message {
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.Message */
     content_sniffed(content_type: string, params: GLib.HashTable): void
-    disable_feature(feature_type: number): void
+    disable_feature(feature_type: GObject.Type): void
     finished(): void
     get_address(): Address
     get_first_party(): URI
@@ -1931,8 +1900,6 @@ export class Message {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2057,8 +2024,6 @@ export class MultipartInputStream {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2122,8 +2087,6 @@ export class ProxyResolverDefault {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2136,11 +2099,11 @@ export class ProxyResolverDefault {
     get_proxy_uri_async(uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback): void
     get_proxy_uri_sync(uri: URI, cancellable?: Gio.Cancellable | null): [ /* returnType */ number, /* proxy_uri */ URI ]
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2189,8 +2152,6 @@ export class Request {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2254,8 +2215,6 @@ export class RequestData {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2321,8 +2280,6 @@ export class RequestFile {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2388,8 +2345,6 @@ export class RequestHTTP {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2446,8 +2401,6 @@ export class Requester {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2457,11 +2410,11 @@ export class Requester {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Methods of Soup.SessionFeature */
-    add_feature(type: number): boolean
+    add_feature(type: GObject.Type): boolean
     attach(session: Session): void
     detach(session: Session): void
-    has_feature(type: number): boolean
-    remove_feature(type: number): boolean
+    has_feature(type: GObject.Type): boolean
+    remove_feature(type: GObject.Type): boolean
     /* Virtual methods of GObject.Object */
     vfunc_constructed?(): void
     vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -2538,8 +2491,6 @@ export class Server {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2624,20 +2575,22 @@ export class Session {
     /* Methods of Soup.Session */
     abort(): void
     add_feature(feature: SessionFeature): void
-    add_feature_by_type(feature_type: number): void
+    add_feature_by_type(feature_type: GObject.Type): void
     cancel_message(msg: Message, status_code: number): void
+    connect_async(uri: URI, cancellable?: Gio.Cancellable | null, progress_callback?: SessionConnectProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
+    connect_finish(result: Gio.AsyncResult): Gio.IOStream
     get_async_context(): GLib.MainContext | null
-    get_feature(feature_type: number): SessionFeature | null
-    get_feature_for_message(feature_type: number, msg: Message): SessionFeature | null
-    get_features(feature_type: number): GLib.SList
-    has_feature(feature_type: number): boolean
+    get_feature(feature_type: GObject.Type): SessionFeature | null
+    get_feature_for_message(feature_type: GObject.Type, msg: Message): SessionFeature | null
+    get_features(feature_type: GObject.Type): GLib.SList
+    has_feature(feature_type: GObject.Type): boolean
     pause_message(msg: Message): void
     prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null): void
     prepare_for_uri(uri: URI): void
     queue_message(msg: Message, callback?: SessionCallback | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
-    remove_feature_by_type(feature_type: number): void
+    remove_feature_by_type(feature_type: GObject.Type): void
     request(uri_string: string): Request
     request_http(method: string, uri_string: string): RequestHTTP
     request_http_uri(method: string, uri: URI): RequestHTTP
@@ -2666,8 +2619,6 @@ export class Session {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2756,20 +2707,22 @@ export class SessionAsync {
     /* Methods of Soup.Session */
     abort(): void
     add_feature(feature: SessionFeature): void
-    add_feature_by_type(feature_type: number): void
+    add_feature_by_type(feature_type: GObject.Type): void
     cancel_message(msg: Message, status_code: number): void
+    connect_async(uri: URI, cancellable?: Gio.Cancellable | null, progress_callback?: SessionConnectProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
+    connect_finish(result: Gio.AsyncResult): Gio.IOStream
     get_async_context(): GLib.MainContext | null
-    get_feature(feature_type: number): SessionFeature | null
-    get_feature_for_message(feature_type: number, msg: Message): SessionFeature | null
-    get_features(feature_type: number): GLib.SList
-    has_feature(feature_type: number): boolean
+    get_feature(feature_type: GObject.Type): SessionFeature | null
+    get_feature_for_message(feature_type: GObject.Type, msg: Message): SessionFeature | null
+    get_features(feature_type: GObject.Type): GLib.SList
+    has_feature(feature_type: GObject.Type): boolean
     pause_message(msg: Message): void
     prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null): void
     prepare_for_uri(uri: URI): void
     queue_message(msg: Message, callback?: SessionCallback | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
-    remove_feature_by_type(feature_type: number): void
+    remove_feature_by_type(feature_type: GObject.Type): void
     request(uri_string: string): Request
     request_http(method: string, uri_string: string): RequestHTTP
     request_http_uri(method: string, uri: URI): RequestHTTP
@@ -2798,8 +2751,6 @@ export class SessionAsync {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2888,20 +2839,22 @@ export class SessionSync {
     /* Methods of Soup.Session */
     abort(): void
     add_feature(feature: SessionFeature): void
-    add_feature_by_type(feature_type: number): void
+    add_feature_by_type(feature_type: GObject.Type): void
     cancel_message(msg: Message, status_code: number): void
+    connect_async(uri: URI, cancellable?: Gio.Cancellable | null, progress_callback?: SessionConnectProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
+    connect_finish(result: Gio.AsyncResult): Gio.IOStream
     get_async_context(): GLib.MainContext | null
-    get_feature(feature_type: number): SessionFeature | null
-    get_feature_for_message(feature_type: number, msg: Message): SessionFeature | null
-    get_features(feature_type: number): GLib.SList
-    has_feature(feature_type: number): boolean
+    get_feature(feature_type: GObject.Type): SessionFeature | null
+    get_feature_for_message(feature_type: GObject.Type, msg: Message): SessionFeature | null
+    get_features(feature_type: GObject.Type): GLib.SList
+    has_feature(feature_type: GObject.Type): boolean
     pause_message(msg: Message): void
     prefetch_dns(hostname: string, cancellable?: Gio.Cancellable | null, callback?: AddressCallback | null): void
     prepare_for_uri(uri: URI): void
     queue_message(msg: Message, callback?: SessionCallback | null): void
     redirect_message(msg: Message): boolean
     remove_feature(feature: SessionFeature): void
-    remove_feature_by_type(feature_type: number): void
+    remove_feature_by_type(feature_type: GObject.Type): void
     request(uri_string: string): Request
     request_http(method: string, uri_string: string): RequestHTTP
     request_http_uri(method: string, uri: URI): RequestHTTP
@@ -2930,8 +2883,6 @@ export class SessionSync {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3048,8 +2999,6 @@ export class Socket {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3141,8 +3090,6 @@ export class WebsocketConnection {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void

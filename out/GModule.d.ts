@@ -4,6 +4,7 @@
 
 import * as Gjs from './Gjs'
 import * as GLib from './GLib'
+import * as GObject from './GObject'
 export enum ModuleFlags {
     LAZY,
     LOCAL,

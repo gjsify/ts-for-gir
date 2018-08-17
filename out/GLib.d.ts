@@ -3,6 +3,7 @@
  */
 
 import * as Gjs from './Gjs'
+import * as GObject from './GObject'
 export enum BookmarkFileError {
     INVALID_URI,
     INVALID_VALUE,
@@ -28,6 +29,7 @@ export enum ConvertError {
     BAD_URI,
     NOT_ABSOLUTE_PATH,
     NO_MEMORY,
+    EMBEDDED_NUL,
 }
 export enum DateDMY {
     DAY,
@@ -292,6 +294,12 @@ export enum TestLogType {
     MESSAGE,
     START_SUITE,
     STOP_SUITE,
+}
+export enum TestResult {
+    SUCCESS,
+    SKIPPED,
+    FAILURE,
+    INCOMPLETE,
 }
 export enum ThreadError {
     THREAD_ERROR_AGAIN,
@@ -629,6 +637,7 @@ export enum FormatSizeFlags {
     DEFAULT,
     LONG_FORMAT,
     IEC_UNITS,
+    BITS,
 }
 export enum HookFlagMask {
     ACTIVE,
@@ -800,6 +809,7 @@ export const HAVE_ISO_VARARGS:number
 export const HOOK_FLAG_USER_SHIFT:number
 export const IEEE754_DOUBLE_BIAS:number
 export const IEEE754_FLOAT_BIAS:number
+export const KEY_FILE_DESKTOP_ACTION_GROUP_PREFIX:string
 export const KEY_FILE_DESKTOP_GROUP:string
 export const KEY_FILE_DESKTOP_KEY_ACTIONS:string
 export const KEY_FILE_DESKTOP_KEY_CATEGORIES:string
@@ -891,7 +901,7 @@ export const USEC_PER_SEC:number
 export const VA_COPY_AS_ARRAY:number
 export const VERSION_MIN_REQUIRED:number
 export const WIN32_MSG_HANDLE:number
-export function access(filename: string, mode: number): number
+export function access(filename: any, mode: number): number
 export function ascii_digit_value(c: number): number
 export function ascii_dtostr(buffer: string, buf_len: number, d: number): string
 export function ascii_formatd(buffer: string, buf_len: number, format: string, d: number): string
@@ -931,11 +941,10 @@ export function atomic_pointer_set(atomic: object, newval?: object | null): void
 export function atomic_pointer_xor(atomic: object, val: number): number
 export function base64_decode(text: string): Gjs.byteArray.ByteArray
 export function base64_decode_inplace(text: Gjs.byteArray.ByteArray): number
-export function base64_decode_step(in_: Gjs.byteArray.ByteArray, state: number, save: number): [ /* returnType */ number, /* out */ Gjs.byteArray.ByteArray ]
 export function base64_encode(data: Gjs.byteArray.ByteArray): string
 export function base64_encode_close(break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ Gjs.byteArray.ByteArray ]
 export function base64_encode_step(in_: Gjs.byteArray.ByteArray, break_lines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ Gjs.byteArray.ByteArray ]
-export function basename(file_name: string): string
+export function basename(file_name: any): any
 export function bit_lock(address: number, lock_bit: number): void
 export function bit_nth_lsf(mask: number, nth_bit: number): number
 export function bit_nth_msf(mask: number, nth_bit: number): number
@@ -950,7 +959,7 @@ export function byte_array_free_to_bytes(array: Gjs.byteArray.ByteArray): Bytes
 export function byte_array_new(): Gjs.byteArray.ByteArray
 export function byte_array_new_take(data: Gjs.byteArray.ByteArray): Gjs.byteArray.ByteArray
 export function byte_array_unref(array: Gjs.byteArray.ByteArray): void
-export function chdir(path: string): number
+export function chdir(path: any): number
 export function check_version(required_major: number, required_minor: number, required_micro: number): string
 export function checksum_type_get_length(checksum_type: ChecksumType): number
 export function child_watch_add(priority: number, pid: Pid, function_: ChildWatchFunc, notify?: DestroyNotify | null): number
@@ -963,24 +972,18 @@ export function compute_checksum_for_string(checksum_type: ChecksumType, str: st
 export function compute_hmac_for_bytes(digest_type: ChecksumType, key: Bytes, data: Bytes): string
 export function compute_hmac_for_data(digest_type: ChecksumType, key: Gjs.byteArray.ByteArray, data: Gjs.byteArray.ByteArray): string
 export function compute_hmac_for_string(digest_type: ChecksumType, key: Gjs.byteArray.ByteArray, str: string, length: number): string
-export function convert(str: string, len: number, to_codeset: string, from_codeset: string): [ /* returnType */ string, /* bytes_read */ number, /* bytes_written */ number ]
+export function convert(str: Gjs.byteArray.ByteArray, to_codeset: string, from_codeset: string): [ /* returnType */ Gjs.byteArray.ByteArray, /* bytes_read */ number | null ]
 export function convert_error_quark(): Quark
-export function convert_with_fallback(str: string, len: number, to_codeset: string, from_codeset: string, fallback: string, bytes_read: number, bytes_written: number): string
-export function convert_with_iconv(str: string, len: number, converter: IConv, bytes_read: number, bytes_written: number): string
-export function datalist_clear(datalist: Data): void
+export function convert_with_fallback(str: Gjs.byteArray.ByteArray, to_codeset: string, from_codeset: string, fallback: string): [ /* returnType */ Gjs.byteArray.ByteArray, /* bytes_read */ number | null ]
+export function datalist_foreach(datalist: Data, func: DataForeachFunc): void
 export function datalist_get_data(datalist: Data, key: string): object | null
 export function datalist_get_flags(datalist: Data): number
 export function datalist_id_get_data(datalist: Data, key_id: Quark): object | null
-export function datalist_id_remove_no_notify(datalist: Data, key_id: Quark): object | null
-export function datalist_id_replace_data(datalist: Data, key_id: Quark, oldval?: object | null, newval?: object | null, destroy?: DestroyNotify | null, old_destroy?: DestroyNotify | null): boolean
-export function datalist_id_set_data_full(datalist: Data, key_id: Quark, data: object | null, destroy_func: DestroyNotify): void
-export function datalist_init(datalist: Data): void
 export function datalist_set_flags(datalist: Data, flags: number): void
 export function datalist_unset_flags(datalist: Data, flags: number): void
 export function dataset_destroy(dataset_location: object): void
+export function dataset_foreach(dataset_location: object, func: DataForeachFunc): void
 export function dataset_id_get_data(dataset_location: object, key_id: Quark): object | null
-export function dataset_id_remove_no_notify(dataset_location: object, key_id: Quark): object | null
-export function dataset_id_set_data_full(dataset_location: object, key_id: Quark, data: object | null, destroy_func: DestroyNotify): void
 export function date_get_days_in_month(month: DateMonth, year: DateYear): number
 export function date_get_monday_weeks_in_year(year: DateYear): number
 export function date_get_sunday_weeks_in_year(year: DateYear): number
@@ -997,7 +1000,7 @@ export function date_valid_weekday(weekday: DateWeekday): boolean
 export function date_valid_year(year: DateYear): boolean
 export function dcgettext(domain: string | null, msgid: string, category: number): string
 export function dgettext(domain: string | null, msgid: string): string
-export function dir_make_tmp(tmpl?: string): string
+export function dir_make_tmp(tmpl?: any): string
 export function direct_equal(v1?: object | null, v2?: object | null): boolean
 export function direct_hash(v?: object | null): number
 export function dngettext(domain: string | null, msgid: string, msgid_plural: string, n: number): string
@@ -1005,23 +1008,23 @@ export function double_equal(v1: object, v2: object): boolean
 export function double_hash(v: object): number
 export function dpgettext(domain: string | null, msgctxtid: string, msgidoffset: number): string
 export function dpgettext2(domain: string | null, context: string, msgid: string): string
-export function environ_getenv(envp: string[] | null, variable: string): string
-export function environ_setenv(envp: string[] | null, variable: string, value: string, overwrite: boolean): string[]
-export function environ_unsetenv(envp: string[] | null, variable: string): string[]
+export function environ_getenv(envp: any, variable: any): any
+export function environ_setenv(envp: any, variable: any, value: any, overwrite: boolean): any
+export function environ_unsetenv(envp: any, variable: any): any
 export function file_error_from_errno(err_no: number): FileError
 export function file_error_quark(): Quark
-export function file_get_contents(filename: string): [ /* returnType */ boolean, /* contents */ Gjs.byteArray.ByteArray ]
-export function file_open_tmp(tmpl?: string): [ /* returnType */ number, /* name_used */ any ]
-export function file_read_link(filename: string): string
-export function file_set_contents(filename: string, contents: Gjs.byteArray.ByteArray): boolean
-export function file_test(filename: string, test: FileTest): boolean
-export function filename_display_basename(filename: string): string
-export function filename_display_name(filename: string): string
+export function file_get_contents(filename: any): [ /* returnType */ boolean, /* contents */ Gjs.byteArray.ByteArray ]
+export function file_open_tmp(tmpl?: any): [ /* returnType */ number, /* name_used */ any ]
+export function file_read_link(filename: any): string
+export function file_set_contents(filename: any, contents: Gjs.byteArray.ByteArray): boolean
+export function file_test(filename: any, test: FileTest): boolean
+export function filename_display_basename(filename: any): string
+export function filename_display_name(filename: any): string
 export function filename_from_uri(uri: string): [ /* returnType */ string, /* hostname */ string | null ]
-export function filename_from_utf8(utf8string: string, len: number): [ /* returnType */ Gjs.byteArray.ByteArray, /* bytes_read */ number | null ]
-export function filename_to_uri(filename: string, hostname?: string | null): string
-export function filename_to_utf8(opsysstring: string, len: number): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
-export function find_program_in_path(program: string): string
+export function filename_from_utf8(utf8string: string, len: number): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
+export function filename_to_uri(filename: any, hostname?: string | null): string
+export function filename_to_utf8(opsysstring: any, len: number): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
+export function find_program_in_path(program: any): string
 export function format_size(size: number): string
 export function format_size_for_display(size: number): string
 export function format_size_full(size: number, flags: FormatSizeFlags): string
@@ -1031,27 +1034,27 @@ export function get_charset(): [ /* returnType */ boolean, /* charset */ string 
 export function get_codeset(): string
 export function get_current_dir(): string
 export function get_current_time(result: TimeVal): void
-export function get_environ(): string[]
+export function get_environ(): any
 export function get_filename_charsets(charsets: string): boolean
-export function get_home_dir(): string
+export function get_home_dir(): any
 export function get_host_name(): string
 export function get_language_names(): string[]
 export function get_locale_variants(locale: string): string[]
 export function get_monotonic_time(): number
 export function get_num_processors(): number
 export function get_prgname(): string
-export function get_real_name(): string
+export function get_real_name(): any
 export function get_real_time(): number
 export function get_system_config_dirs(): any
 export function get_system_data_dirs(): any
-export function get_tmp_dir(): string
-export function get_user_cache_dir(): string
-export function get_user_config_dir(): string
-export function get_user_data_dir(): string
-export function get_user_name(): string
-export function get_user_runtime_dir(): string
-export function get_user_special_dir(directory: UserDirectory): string
-export function getenv(variable: string): string
+export function get_tmp_dir(): any
+export function get_user_cache_dir(): any
+export function get_user_config_dir(): any
+export function get_user_data_dir(): any
+export function get_user_name(): any
+export function get_user_runtime_dir(): any
+export function get_user_special_dir(directory: UserDirectory): any
+export function getenv(variable: any): any
 export function hash_table_add(hash_table: HashTable, key?: object | null): boolean
 export function hash_table_contains(hash_table: HashTable, key?: object | null): boolean
 export function hash_table_destroy(hash_table: HashTable): void
@@ -1076,7 +1079,6 @@ export function hostname_is_ip_address(hostname: string): boolean
 export function hostname_is_non_ascii(hostname: string): boolean
 export function hostname_to_ascii(hostname: string): string
 export function hostname_to_unicode(hostname: string): string
-export function iconv(converter: IConv, inbuf: string, inbytes_left: number, outbuf: string, outbytes_left: number): number
 export function idle_add(priority: number, function_: SourceFunc, notify?: DestroyNotify | null): number
 export function idle_remove_by_data(data?: object | null): boolean
 export function idle_source_new(): Source
@@ -1091,9 +1093,9 @@ export function io_channel_error_from_errno(en: number): IOChannelError
 export function io_channel_error_quark(): Quark
 export function io_create_watch(channel: IOChannel, condition: IOCondition): Source
 export function key_file_error_quark(): Quark
-export function listenv(): string[]
-export function locale_from_utf8(utf8string: string, len: number): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
-export function locale_to_utf8(opsysstring: string, len: number): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
+export function listenv(): any
+export function locale_from_utf8(utf8string: string, len: number): [ /* returnType */ Gjs.byteArray.ByteArray, /* bytes_read */ number | null ]
+export function locale_to_utf8(opsysstring: Gjs.byteArray.ByteArray): [ /* returnType */ string, /* bytes_read */ number | null, /* bytes_written */ number | null ]
 export function log_default_handler(log_domain: string | null, log_level: LogLevelFlags, message?: string | null, unused_data?: object | null): void
 export function log_remove_handler(log_domain: string, handler_id: number): void
 export function log_set_always_fatal(fatal_mask: LogLevelFlags): LogLevelFlags
@@ -1123,7 +1125,7 @@ export function mem_is_system_malloc(): boolean
 export function mem_profile(): void
 export function mem_set_vtable(vtable: MemVTable): void
 export function memdup(mem: object | null, byte_size: number): object | null
-export function mkdir_with_parents(pathname: string, mode: number): number
+export function mkdir_with_parents(pathname: any, mode: number): number
 export function nullify_pointer(nullify_location: object): void
 export function number_parser_error_quark(): Quark
 export function on_error_query(prg_name: string): void
@@ -1132,10 +1134,10 @@ export function once_init_enter(location: object): boolean
 export function once_init_leave(location: object, result: number): void
 export function option_error_quark(): Quark
 export function parse_debug_string(string: string | null, keys: DebugKey[]): number
-export function path_get_basename(file_name: string): string
-export function path_get_dirname(file_name: string): string
-export function path_is_absolute(file_name: string): boolean
-export function path_skip_root(file_name: string): string
+export function path_get_basename(file_name: any): string
+export function path_get_dirname(file_name: any): string
+export function path_is_absolute(file_name: any): boolean
+export function path_skip_root(file_name: any): any
 export function pattern_match(pspec: PatternSpec, string_length: number, string: string, string_reversed?: string | null): boolean
 export function pattern_match_simple(pattern: string, string: string): boolean
 export function pattern_match_string(pspec: PatternSpec, string: string): boolean
@@ -1162,7 +1164,7 @@ export function regex_escape_string(string: string[]): string
 export function regex_match_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): boolean
 export function regex_split_simple(pattern: string, string: string, compile_options: RegexCompileFlags, match_options: RegexMatchFlags): string[]
 export function reload_user_special_dirs_cache(): void
-export function rmdir(filename: string): number
+export function rmdir(filename: any): number
 export function sequence_get(iter: SequenceIter): object | null
 export function sequence_insert_before(iter: SequenceIter, data?: object | null): SequenceIter
 export function sequence_move(src: SequenceIter, dest: SequenceIter): void
@@ -1175,11 +1177,11 @@ export function sequence_swap(a: SequenceIter, b: SequenceIter): void
 export function set_application_name(application_name: string): void
 export function set_error_literal(domain: Quark, code: number, message: string): /* err */ Error | null
 export function set_prgname(prgname: string): void
-export function setenv(variable: string, value: string, overwrite: boolean): boolean
+export function setenv(variable: any, value: any, overwrite: boolean): boolean
 export function shell_error_quark(): Quark
-export function shell_parse_argv(command_line: string): [ /* returnType */ boolean, /* argvp */ string[] | null ]
-export function shell_quote(unquoted_string: string): string
-export function shell_unquote(quoted_string: string): string
+export function shell_parse_argv(command_line: any): [ /* returnType */ boolean, /* argvp */ any[] ]
+export function shell_quote(unquoted_string: any): string
+export function shell_unquote(quoted_string: any): string
 export function slice_alloc(block_size: number): object | null
 export function slice_alloc0(block_size: number): object | null
 export function slice_copy(block_size: number, mem_block?: object | null): object | null
@@ -1193,15 +1195,15 @@ export function source_remove_by_funcs_user_data(funcs: SourceFuncs, user_data?:
 export function source_remove_by_user_data(user_data?: object | null): boolean
 export function source_set_name_by_id(tag: number, name: string): void
 export function spaced_primes_closest(num: number): number
-export function spawn_async(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* child_pid */ Pid | null ]
-export function spawn_async_with_pipes(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* child_pid */ Pid | null, /* standard_input */ number | null, /* standard_output */ number | null, /* standard_error */ number | null ]
+export function spawn_async(working_directory: any, argv: any, envp: any, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* child_pid */ Pid | null ]
+export function spawn_async_with_pipes(working_directory: any, argv: any, envp: any, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* child_pid */ Pid | null, /* standard_input */ number | null, /* standard_output */ number | null, /* standard_error */ number | null ]
 export function spawn_check_exit_status(exit_status: number): boolean
 export function spawn_close_pid(pid: Pid): void
-export function spawn_command_line_async(command_line: string): boolean
-export function spawn_command_line_sync(command_line: string): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
+export function spawn_command_line_async(command_line: any): boolean
+export function spawn_command_line_sync(command_line: any): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
 export function spawn_error_quark(): Quark
 export function spawn_exit_error_quark(): Quark
-export function spawn_sync(working_directory: string, argv: string[], envp: string[] | null, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
+export function spawn_sync(working_directory: any, argv: any, envp: any, flags: SpawnFlags, child_setup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* standard_output */ Gjs.byteArray.ByteArray | null, /* standard_error */ Gjs.byteArray.ByteArray | null, /* exit_status */ number | null ]
 export function stpcpy(dest: string, src: string): string
 export function str_equal(v1: object, v2: object): boolean
 export function str_has_prefix(str: string, prefix: string): boolean
@@ -1241,7 +1243,7 @@ export function strstr_len(haystack: string, haystack_len: number, needle: strin
 export function strtod(nptr: string): [ /* returnType */ number, /* endptr */ string | null ]
 export function strup(string: string): string
 export function strv_contains(strv: string, str: string): boolean
-export function strv_get_type(): number
+export function strv_get_type(): GObject.Type
 export function strv_length(str_array: string): number
 export function test_add_data_func(testpath: string, test_data: object | null, test_func: TestDataFunc): void
 export function test_add_data_func_full(testpath: string, test_data: object | null, test_func: TestDataFunc, data_free_func: DestroyNotify): void
@@ -1252,7 +1254,7 @@ export function test_bug_base(uri_pattern: string): void
 export function test_expect_message(log_domain: string | null, log_level: LogLevelFlags, pattern: string): void
 export function test_fail(): void
 export function test_failed(): boolean
-export function test_get_dir(file_type: TestFileType): string
+export function test_get_dir(file_type: TestFileType): any
 export function test_incomplete(msg?: string | null): void
 export function test_log_type_name(log_type: TestLogType): string
 export function test_queue_destroy(destroy_func: DestroyNotify, destroy_data?: object | null): void
@@ -1344,8 +1346,8 @@ export function unix_open_pipe(fds: number, flags: number): boolean
 export function unix_set_fd_nonblocking(fd: number, nonblock: boolean): boolean
 export function unix_signal_add(priority: number, signum: number, handler: SourceFunc, notify: DestroyNotify): number
 export function unix_signal_source_new(signum: number): Source
-export function unlink(filename: string): number
-export function unsetenv(variable: string): void
+export function unlink(filename: any): number
+export function unsetenv(variable: any): void
 export function uri_escape_string(unescaped: string, reserved_chars_allowed: string | null, allow_utf8: boolean): string
 export function uri_list_extract_uris(uri_list: string): string[]
 export function uri_parse_scheme(uri: string): string
@@ -1381,7 +1383,7 @@ export function utf8_to_utf16(str: string, len: number): [ /* returnType */ numb
 export function utf8_validate(str: Gjs.byteArray.ByteArray): [ /* returnType */ boolean, /* end */ string | null ]
 export function uuid_string_is_valid(str: string): boolean
 export function uuid_string_random(): string
-export function variant_get_gtype(): number
+export function variant_get_gtype(): GObject.Type
 export function variant_is_object_path(string: string): boolean
 export function variant_is_signature(string: string): boolean
 export function variant_parse(type: VariantType | null, text: string, limit?: string | null, endptr?: string | null): Variant
@@ -1393,6 +1395,9 @@ export function variant_type_string_is_valid(type_string: string): boolean
 export function variant_type_string_scan(string: string, limit?: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
 export interface ChildWatchFunc {
     (pid: Pid, status: number): void
+}
+export interface ClearHandleFunc {
+    (handle_id: number): void
 }
 export interface CompareDataFunc {
     (a?: object | null, b?: object | null): number
@@ -1578,9 +1583,9 @@ export class BookmarkFile {
     has_application(uri: string, name: string): boolean
     has_group(uri: string, group: string): boolean
     has_item(uri: string): boolean
-    load_from_data(data: string, length: number): boolean
-    load_from_data_dirs(file: string, full_path?: any): boolean
-    load_from_file(filename: string): boolean
+    load_from_data(data: Gjs.byteArray.ByteArray): boolean
+    load_from_data_dirs(file: any): [ /* returnType */ boolean, /* full_path */ any ]
+    load_from_file(filename: any): boolean
     move_item(old_uri: string, new_uri?: string | null): boolean
     remove_application(uri: string, name: string): boolean
     remove_group(uri: string, group: string): boolean
@@ -1588,15 +1593,15 @@ export class BookmarkFile {
     set_added(uri: string, added: number): void
     set_app_info(uri: string, name: string, exec: string, count: number, stamp: number): boolean
     set_description(uri: string | null, description: string): void
-    set_groups(uri: string, groups: string | null, length: number): void
+    set_groups(uri: string, groups: string[] | null): void
     set_icon(uri: string, href: string | null, mime_type: string): void
     set_is_private(uri: string, is_private: boolean): void
     set_mime_type(uri: string, mime_type: string): void
     set_modified(uri: string, modified: number): void
     set_title(uri: string | null, title: string): void
     set_visited(uri: string, visited: number): void
-    to_data(): [ /* returnType */ string, /* length */ number | null ]
-    to_file(filename: string): boolean
+    to_data(): Gjs.byteArray.ByteArray
+    to_file(filename: any): boolean
     static name: string
     static error_quark(): Quark
 }
@@ -1670,6 +1675,7 @@ export class Date {
     clamp(min_date: Date, max_date: Date): void
     clear(n_dates: number): void
     compare(rhs: Date): number
+    copy(): Date
     days_between(date2: Date): number
     free(): void
     get_day(): DateDay
@@ -1756,6 +1762,7 @@ export class DateTime {
     static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
     constructor(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number)
     static new(tz: TimeZone, year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    static new_from_iso8601(text: string, default_tz?: TimeZone | null): DateTime | null
     static new_from_timeval_local(tv: TimeVal): DateTime
     static new_from_timeval_utc(tv: TimeVal): DateTime
     static new_from_unix_local(t: number): DateTime
@@ -1778,10 +1785,10 @@ export class DebugKey {
 export class Dir {
     /* Methods of GLib.Dir */
     close(): void
-    read_name(): string
+    read_name(): any
     rewind(): void
     static name: string
-    static make_tmp(tmpl?: string): string
+    static make_tmp(tmpl?: any): string
 }
 export class Error {
     /* Fields of GLib.Error */
@@ -1867,7 +1874,6 @@ export class HookList {
 }
 export class IConv {
     /* Methods of GLib.IConv */
-    close(): number
     static name: string
 }
 export class IOChannel {
@@ -1905,7 +1911,7 @@ export class IOChannel {
     write_chars(buf: Gjs.byteArray.ByteArray, count: number): [ /* returnType */ IOStatus, /* bytes_written */ number ]
     write_unichar(thechar: number): IOStatus
     static name: string
-    static new_file(filename: string, mode: string): IOChannel
+    static new_file(filename: any, mode: string): IOChannel
     static unix_new(fd: number): IOChannel
     static error_from_errno(en: number): IOChannelError
     static error_quark(): Quark
@@ -1934,6 +1940,7 @@ export class KeyFile {
     get_integer(group_name: string, key: string): number
     get_integer_list(group_name: string, key: string): number[]
     get_keys(group_name: string): [ /* returnType */ string[], /* length */ number | null ]
+    get_locale_for_key(group_name: string, key: string, locale?: string | null): string | null
     get_locale_string(group_name: string, key: string, locale?: string | null): string
     get_locale_string_list(group_name: string, key: string, locale?: string | null): string[]
     get_start_group(): string
@@ -1944,9 +1951,9 @@ export class KeyFile {
     has_group(group_name: string): boolean
     load_from_bytes(bytes: Bytes, flags: KeyFileFlags): boolean
     load_from_data(data: string, length: number, flags: KeyFileFlags): boolean
-    load_from_data_dirs(file: string, flags: KeyFileFlags): [ /* returnType */ boolean, /* full_path */ any ]
-    load_from_dirs(file: string, search_dirs: any, flags: KeyFileFlags): [ /* returnType */ boolean, /* full_path */ any ]
-    load_from_file(file: string, flags: KeyFileFlags): boolean
+    load_from_data_dirs(file: any, flags: KeyFileFlags): [ /* returnType */ boolean, /* full_path */ any ]
+    load_from_dirs(file: any, search_dirs: any, flags: KeyFileFlags): [ /* returnType */ boolean, /* full_path */ any ]
+    load_from_file(file: any, flags: KeyFileFlags): boolean
     remove_comment(group_name?: string | null, key?: string | null): boolean
     remove_group(group_name: string): boolean
     remove_key(group_name: string, key: string): boolean
@@ -2041,9 +2048,9 @@ export class MappedFile {
     ref(): MappedFile
     unref(): void
     static name: string
-    static new(filename: string, writable: boolean): MappedFile
-    constructor(filename: string, writable: boolean)
-    static new(filename: string, writable: boolean): MappedFile
+    static new(filename: any, writable: boolean): MappedFile
+    constructor(filename: any, writable: boolean)
+    static new(filename: any, writable: boolean): MappedFile
     static new_from_fd(fd: number, writable: boolean): MappedFile
 }
 export class MarkupParseContext {

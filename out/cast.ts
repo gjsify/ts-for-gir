@@ -129,7 +129,7 @@ let inheritanceTable = {
     'Gtk.LinkButtonAccessible': [ 'Gtk.ButtonAccessible', 'Atk.Action', 'Atk.Component', 'Atk.HyperlinkImpl', 'Atk.Image', 'Gtk.ContainerAccessible', 'Gtk.WidgetAccessible', 'Gtk.Accessible', 'Atk.Object', 'GObject.Object' ],
     'Gtk.ListBox': [ 'Gtk.Container', 'Atk.ImplementorIface', 'Gtk.Buildable', 'Gtk.Widget', 'GObject.InitiallyUnowned', 'GObject.Object' ],
     'Gtk.ListBoxAccessible': [ 'Gtk.ContainerAccessible', 'Atk.Component', 'Atk.Selection', 'Gtk.WidgetAccessible', 'Gtk.Accessible', 'Atk.Object', 'GObject.Object' ],
-    'Gtk.ListBoxRow': [ 'Gtk.Bin', 'Atk.ImplementorIface', 'Gtk.Buildable', 'Gtk.Container', 'Gtk.Widget', 'GObject.InitiallyUnowned', 'GObject.Object' ],
+    'Gtk.ListBoxRow': [ 'Gtk.Bin', 'Atk.ImplementorIface', 'Gtk.Actionable', 'Gtk.Buildable', 'Gtk.Container', 'Gtk.Widget', 'GObject.InitiallyUnowned', 'GObject.Object' ],
     'Gtk.ListBoxRowAccessible': [ 'Gtk.ContainerAccessible', 'Atk.Component', 'Gtk.WidgetAccessible', 'Gtk.Accessible', 'Atk.Object', 'GObject.Object' ],
     'Gtk.ListStore': [ 'GObject.Object', 'Gtk.Buildable', 'Gtk.TreeDragDest', 'Gtk.TreeDragSource', 'Gtk.TreeModel', 'Gtk.TreeSortable' ],
     'Gtk.LockButton': [ 'Gtk.Button', 'Atk.ImplementorIface', 'Gtk.Actionable', 'Gtk.Activatable', 'Gtk.Buildable', 'Gtk.Bin', 'Gtk.Container', 'Gtk.Widget', 'GObject.InitiallyUnowned', 'GObject.Object' ],

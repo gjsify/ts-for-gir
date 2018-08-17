@@ -368,8 +368,6 @@ export class Buffer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -498,8 +496,6 @@ export class Completion {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -589,8 +585,6 @@ export class CompletionContext {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -743,7 +737,7 @@ export class CompletionInfo {
     get_group(): Gtk.WindowGroup
     get_has_resize_grip(): boolean
     get_hide_titlebar_when_maximized(): boolean
-    get_icon(): GdkPixbuf.Pixbuf
+    get_icon(): GdkPixbuf.Pixbuf | null
     get_icon_list(): GdkPixbuf.Pixbuf[]
     get_icon_name(): string | null
     get_mnemonic_modifier(): Gdk.ModifierType
@@ -797,7 +791,7 @@ export class CompletionInfo {
     set_has_user_ref_count(setting: boolean): void
     set_hide_titlebar_when_maximized(setting: boolean): void
     set_icon(icon?: GdkPixbuf.Pixbuf | null): void
-    set_icon_from_file(filename: string): boolean
+    set_icon_from_file(filename: any): boolean
     set_icon_list(list: GdkPixbuf.Pixbuf[]): void
     set_icon_name(name?: string | null): void
     set_keep_above(setting: boolean): void
@@ -831,7 +825,7 @@ export class CompletionInfo {
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
-    child_type(): number
+    child_type(): GObject.Type
     forall(callback: Gtk.Callback): void
     foreach(callback: Gtk.Callback): void
     get_border_width(): number
@@ -910,7 +904,7 @@ export class CompletionInfo {
     get_allocated_size(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
     get_allocated_width(): number
     get_allocation(): /* allocation */ Gtk.Allocation
-    get_ancestor(widget_type: number): Gtk.Widget | null
+    get_ancestor(widget_type: GObject.Type): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
@@ -970,7 +964,7 @@ export class CompletionInfo {
     get_style(): Gtk.Style
     get_style_context(): Gtk.StyleContext
     get_support_multidevice(): boolean
-    get_template_child(widget_type: number, name: string): GObject.Object
+    get_template_child(widget_type: GObject.Type, name: string): GObject.Object
     get_tooltip_markup(): string | null
     get_tooltip_text(): string | null
     get_tooltip_window(): Gtk.Window
@@ -1122,8 +1116,6 @@ export class CompletionInfo {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1152,7 +1144,7 @@ export class CompletionInfo {
     /* Virtual methods of Gtk.Container */
     vfunc_add?(widget: Gtk.Widget): void
     vfunc_check_resize?(): void
-    vfunc_child_type?(): number
+    vfunc_child_type?(): GObject.Type
     vfunc_composite_name?(child: Gtk.Widget): string
     vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
     vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -1460,8 +1452,6 @@ export class CompletionItem {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1550,8 +1540,6 @@ export class CompletionWords {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1637,8 +1625,6 @@ export class File {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1705,8 +1691,6 @@ export class FileLoader {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1779,8 +1763,6 @@ export class FileSaver {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1849,8 +1831,6 @@ export class Gutter {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -1941,8 +1921,6 @@ export class GutterRenderer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2069,8 +2047,6 @@ export class GutterRendererPixbuf {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2194,8 +2170,6 @@ export class GutterRendererText {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2287,8 +2261,6 @@ export class Language {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2347,8 +2319,6 @@ export class LanguageManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2599,7 +2569,7 @@ export class Map {
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
-    child_type(): number
+    child_type(): GObject.Type
     forall(callback: Gtk.Callback): void
     foreach(callback: Gtk.Callback): void
     get_border_width(): number
@@ -2678,7 +2648,7 @@ export class Map {
     get_allocated_size(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
     get_allocated_width(): number
     get_allocation(): /* allocation */ Gtk.Allocation
-    get_ancestor(widget_type: number): Gtk.Widget | null
+    get_ancestor(widget_type: GObject.Type): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
@@ -2740,7 +2710,7 @@ export class Map {
     get_style(): Gtk.Style
     get_style_context(): Gtk.StyleContext
     get_support_multidevice(): boolean
-    get_template_child(widget_type: number, name: string): GObject.Object
+    get_template_child(widget_type: GObject.Type, name: string): GObject.Object
     get_tooltip_markup(): string | null
     get_tooltip_text(): string | null
     get_tooltip_window(): Gtk.Window
@@ -2894,8 +2864,6 @@ export class Map {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -2936,6 +2904,7 @@ export class Map {
     vfunc_draw_layer?(layer: Gtk.TextViewLayer, cr: cairo.Context): void
     vfunc_extend_selection?(granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter): boolean
     vfunc_insert_at_cursor?(str: string): void
+    vfunc_insert_emoji?(): void
     vfunc_move_cursor?(step: Gtk.MovementStep, count: number, extend_selection: boolean): void
     vfunc_paste_clipboard?(): void
     vfunc_populate_popup?(popup: Gtk.Widget): void
@@ -2944,7 +2913,7 @@ export class Map {
     /* Virtual methods of Gtk.Container */
     vfunc_add?(widget: Gtk.Widget): void
     vfunc_check_resize?(): void
-    vfunc_child_type?(): number
+    vfunc_child_type?(): GObject.Type
     vfunc_composite_name?(child: Gtk.Widget): string
     vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
     vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -3062,6 +3031,7 @@ export class Map {
     connect(sigName: "delete-from-cursor", callback: ((obj: Map, type: Gtk.DeleteType, count: number) => void)): void
     connect(sigName: "extend-selection", callback: ((obj: Map, granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => boolean)): void
     connect(sigName: "insert-at-cursor", callback: ((obj: Map, string: string) => void)): void
+    connect(sigName: "insert-emoji", callback: ((obj: Map) => void)): void
     connect(sigName: "move-cursor", callback: ((obj: Map, step: Gtk.MovementStep, count: number, extend_selection: boolean) => void)): void
     connect(sigName: "move-viewport", callback: ((obj: Map, step: Gtk.ScrollStep, count: number) => void)): void
     connect(sigName: "paste-clipboard", callback: ((obj: Map) => void)): void
@@ -3275,8 +3245,6 @@ export class Mark {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3345,8 +3313,6 @@ export class MarkAttributes {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3459,8 +3425,6 @@ export class PrintCompositor {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3531,8 +3495,6 @@ export class Region {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3612,8 +3574,6 @@ export class SearchContext {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3686,8 +3646,6 @@ export class SearchSettings {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3751,8 +3709,6 @@ export class SpaceDrawer {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3820,8 +3776,6 @@ export class Style {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -3878,8 +3832,6 @@ export class StyleScheme {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4014,7 +3966,7 @@ export class StyleSchemeChooserButton {
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
-    child_type(): number
+    child_type(): GObject.Type
     forall(callback: Gtk.Callback): void
     foreach(callback: Gtk.Callback): void
     get_border_width(): number
@@ -4093,7 +4045,7 @@ export class StyleSchemeChooserButton {
     get_allocated_size(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
     get_allocated_width(): number
     get_allocation(): /* allocation */ Gtk.Allocation
-    get_ancestor(widget_type: number): Gtk.Widget | null
+    get_ancestor(widget_type: GObject.Type): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
@@ -4154,7 +4106,7 @@ export class StyleSchemeChooserButton {
     get_style(): Gtk.Style
     get_style_context(): Gtk.StyleContext
     get_support_multidevice(): boolean
-    get_template_child(widget_type: number, name: string): GObject.Object
+    get_template_child(widget_type: GObject.Type, name: string): GObject.Object
     get_tooltip_markup(): string | null
     get_tooltip_text(): string | null
     get_tooltip_window(): Gtk.Window
@@ -4307,8 +4259,6 @@ export class StyleSchemeChooserButton {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4352,7 +4302,7 @@ export class StyleSchemeChooserButton {
     /* Virtual methods of Gtk.Container */
     vfunc_add?(widget: Gtk.Widget): void
     vfunc_check_resize?(): void
-    vfunc_child_type?(): number
+    vfunc_child_type?(): GObject.Type
     vfunc_composite_name?(child: Gtk.Widget): string
     vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
     vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -4663,7 +4613,7 @@ export class StyleSchemeChooserWidget {
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
-    child_type(): number
+    child_type(): GObject.Type
     forall(callback: Gtk.Callback): void
     foreach(callback: Gtk.Callback): void
     get_border_width(): number
@@ -4742,7 +4692,7 @@ export class StyleSchemeChooserWidget {
     get_allocated_size(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
     get_allocated_width(): number
     get_allocation(): /* allocation */ Gtk.Allocation
-    get_ancestor(widget_type: number): Gtk.Widget | null
+    get_ancestor(widget_type: GObject.Type): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
@@ -4804,7 +4754,7 @@ export class StyleSchemeChooserWidget {
     get_style(): Gtk.Style
     get_style_context(): Gtk.StyleContext
     get_support_multidevice(): boolean
-    get_template_child(widget_type: number, name: string): GObject.Object
+    get_template_child(widget_type: GObject.Type, name: string): GObject.Object
     get_tooltip_markup(): string | null
     get_tooltip_text(): string | null
     get_tooltip_window(): Gtk.Window
@@ -4958,8 +4908,6 @@ export class StyleSchemeChooserWidget {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -4983,7 +4931,7 @@ export class StyleSchemeChooserWidget {
     /* Virtual methods of Gtk.Container */
     vfunc_add?(widget: Gtk.Widget): void
     vfunc_check_resize?(): void
-    vfunc_child_type?(): number
+    vfunc_child_type?(): GObject.Type
     vfunc_composite_name?(child: Gtk.Widget): string
     vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
     vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -5241,8 +5189,6 @@ export class StyleSchemeManager {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5376,8 +5322,6 @@ export class Tag {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -5709,7 +5653,7 @@ export class View {
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
-    child_type(): number
+    child_type(): GObject.Type
     forall(callback: Gtk.Callback): void
     foreach(callback: Gtk.Callback): void
     get_border_width(): number
@@ -5788,7 +5732,7 @@ export class View {
     get_allocated_size(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
     get_allocated_width(): number
     get_allocation(): /* allocation */ Gtk.Allocation
-    get_ancestor(widget_type: number): Gtk.Widget | null
+    get_ancestor(widget_type: GObject.Type): Gtk.Widget | null
     get_app_paintable(): boolean
     get_can_default(): boolean
     get_can_focus(): boolean
@@ -5850,7 +5794,7 @@ export class View {
     get_style(): Gtk.Style
     get_style_context(): Gtk.StyleContext
     get_support_multidevice(): boolean
-    get_template_child(widget_type: number, name: string): GObject.Object
+    get_template_child(widget_type: GObject.Type, name: string): GObject.Object
     get_tooltip_markup(): string | null
     get_tooltip_text(): string | null
     get_tooltip_window(): Gtk.Window
@@ -6004,8 +5948,6 @@ export class View {
     notify_by_pspec(pspec: GObject.ParamSpec): void
     ref(): GObject.Object
     ref_sink(): GObject.Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: GObject.Value): void
@@ -6046,6 +5988,7 @@ export class View {
     vfunc_draw_layer?(layer: Gtk.TextViewLayer, cr: cairo.Context): void
     vfunc_extend_selection?(granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter): boolean
     vfunc_insert_at_cursor?(str: string): void
+    vfunc_insert_emoji?(): void
     vfunc_move_cursor?(step: Gtk.MovementStep, count: number, extend_selection: boolean): void
     vfunc_paste_clipboard?(): void
     vfunc_populate_popup?(popup: Gtk.Widget): void
@@ -6054,7 +5997,7 @@ export class View {
     /* Virtual methods of Gtk.Container */
     vfunc_add?(widget: Gtk.Widget): void
     vfunc_check_resize?(): void
-    vfunc_child_type?(): number
+    vfunc_child_type?(): GObject.Type
     vfunc_composite_name?(child: Gtk.Widget): string
     vfunc_forall?(include_internals: boolean, callback: Gtk.Callback): void
     vfunc_get_child_property?(child: Gtk.Widget, property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -6172,6 +6115,7 @@ export class View {
     connect(sigName: "delete-from-cursor", callback: ((obj: View, type: Gtk.DeleteType, count: number) => void)): void
     connect(sigName: "extend-selection", callback: ((obj: View, granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => boolean)): void
     connect(sigName: "insert-at-cursor", callback: ((obj: View, string: string) => void)): void
+    connect(sigName: "insert-emoji", callback: ((obj: View) => void)): void
     connect(sigName: "move-cursor", callback: ((obj: View, step: Gtk.MovementStep, count: number, extend_selection: boolean) => void)): void
     connect(sigName: "move-viewport", callback: ((obj: View, step: Gtk.ScrollStep, count: number) => void)): void
     connect(sigName: "paste-clipboard", callback: ((obj: View) => void)): void

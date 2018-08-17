@@ -69,7 +69,7 @@ export const PARAM_STATIC_STRINGS:number
 export const PARAM_USER_SHIFT:number
 export const SIGNAL_FLAGS_MASK:number
 export const SIGNAL_MATCH_MASK:number
-export const TYPE_FLAG_RESERVED_ID_BIT:number
+export const TYPE_FLAG_RESERVED_ID_BIT:Type
 export const TYPE_FUNDAMENTAL_MAX:number
 export const TYPE_FUNDAMENTAL_SHIFT:number
 export const TYPE_RESERVED_BSE_FIRST:number
@@ -79,8 +79,8 @@ export const TYPE_RESERVED_GLIB_LAST:number
 export const TYPE_RESERVED_USER_FIRST:number
 export const VALUE_COLLECT_FORMAT_MAX_LENGTH:number
 export const VALUE_NOCOPY_CONTENTS:number
-export function boxed_copy(boxed_type: number, src_boxed: object): object
-export function boxed_free(boxed_type: number, boxed: object): void
+export function boxed_copy(boxed_type: Type, src_boxed: object): object
+export function boxed_free(boxed_type: Type, boxed: object): void
 export function cclosure_marshal_BOOLEAN__BOXED_BOXED(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint?: object | null, marshal_data?: object | null): void
 export function cclosure_marshal_BOOLEAN__FLAGS(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint?: object | null, marshal_data?: object | null): void
 export function cclosure_marshal_STRING__OBJECT_POINTER(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint?: object | null, marshal_data?: object | null): void
@@ -104,32 +104,32 @@ export function cclosure_marshal_VOID__ULONG(closure: Closure, return_value: Val
 export function cclosure_marshal_VOID__VARIANT(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint?: object | null, marshal_data?: object | null): void
 export function cclosure_marshal_VOID__VOID(closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint?: object | null, marshal_data?: object | null): void
 export function cclosure_marshal_generic(closure: Closure, return_gvalue: Value, n_param_values: number, param_values: Value, invocation_hint?: object | null, marshal_data?: object | null): void
-export function enum_complete_type_info(g_enum_type: number, const_values: EnumValue): /* info */ TypeInfo
+export function enum_complete_type_info(g_enum_type: Type, const_values: EnumValue): /* info */ TypeInfo
 export function enum_get_value(enum_class: EnumClass, value: number): EnumValue
 export function enum_get_value_by_name(enum_class: EnumClass, name: string): EnumValue
 export function enum_get_value_by_nick(enum_class: EnumClass, nick: string): EnumValue
-export function enum_register_static(name: string, const_static_values: EnumValue): number
-export function enum_to_string(g_enum_type: number, value: number): string
-export function flags_complete_type_info(g_flags_type: number, const_values: FlagsValue): /* info */ TypeInfo
+export function enum_register_static(name: string, const_static_values: EnumValue): Type
+export function enum_to_string(g_enum_type: Type, value: number): string
+export function flags_complete_type_info(g_flags_type: Type, const_values: FlagsValue): /* info */ TypeInfo
 export function flags_get_first_value(flags_class: FlagsClass, value: number): FlagsValue
 export function flags_get_value_by_name(flags_class: FlagsClass, name: string): FlagsValue
 export function flags_get_value_by_nick(flags_class: FlagsClass, nick: string): FlagsValue
-export function flags_register_static(name: string, const_static_values: FlagsValue): number
-export function flags_to_string(flags_type: number, value: number): string
-export function gtype_get_type(): number
+export function flags_register_static(name: string, const_static_values: FlagsValue): Type
+export function flags_to_string(flags_type: Type, value: number): string
+export function gtype_get_type(): Type
 export function param_spec_boolean(name: string, nick: string, blurb: string, default_value: boolean, flags: ParamFlags): ParamSpec
-export function param_spec_boxed(name: string, nick: string, blurb: string, boxed_type: number, flags: ParamFlags): ParamSpec
+export function param_spec_boxed(name: string, nick: string, blurb: string, boxed_type: Type, flags: ParamFlags): ParamSpec
 export function param_spec_char(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
 export function param_spec_double(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
-export function param_spec_enum(name: string, nick: string, blurb: string, enum_type: number, default_value: number, flags: ParamFlags): ParamSpec
-export function param_spec_flags(name: string, nick: string, blurb: string, flags_type: number, default_value: number, flags: ParamFlags): ParamSpec
+export function param_spec_enum(name: string, nick: string, blurb: string, enum_type: Type, default_value: number, flags: ParamFlags): ParamSpec
+export function param_spec_flags(name: string, nick: string, blurb: string, flags_type: Type, default_value: number, flags: ParamFlags): ParamSpec
 export function param_spec_float(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
-export function param_spec_gtype(name: string, nick: string, blurb: string, is_a_type: number, flags: ParamFlags): ParamSpec
+export function param_spec_gtype(name: string, nick: string, blurb: string, is_a_type: Type, flags: ParamFlags): ParamSpec
 export function param_spec_int(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
 export function param_spec_int64(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
 export function param_spec_long(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
-export function param_spec_object(name: string, nick: string, blurb: string, object_type: number, flags: ParamFlags): ParamSpec
-export function param_spec_param(name: string, nick: string, blurb: string, param_type: number, flags: ParamFlags): ParamSpec
+export function param_spec_object(name: string, nick: string, blurb: string, object_type: Type, flags: ParamFlags): ParamSpec
+export function param_spec_param(name: string, nick: string, blurb: string, param_type: Type, flags: ParamFlags): ParamSpec
 export function param_spec_pointer(name: string, nick: string, blurb: string, flags: ParamFlags): ParamSpec
 export function param_spec_pool_new(type_prefixing: boolean): ParamSpecPool
 export function param_spec_string(name: string, nick: string, blurb: string, default_value: string | null, flags: ParamFlags): ParamSpec
@@ -139,13 +139,13 @@ export function param_spec_uint64(name: string, nick: string, blurb: string, min
 export function param_spec_ulong(name: string, nick: string, blurb: string, minimum: number, maximum: number, default_value: number, flags: ParamFlags): ParamSpec
 export function param_spec_unichar(name: string, nick: string, blurb: string, default_value: number, flags: ParamFlags): ParamSpec
 export function param_spec_variant(name: string, nick: string, blurb: string, type: GLib.VariantType, default_value: GLib.Variant | null, flags: ParamFlags): ParamSpec
-export function param_type_register_static(name: string, pspec_info: ParamSpecTypeInfo): number
+export function param_type_register_static(name: string, pspec_info: ParamSpecTypeInfo): Type
 export function param_value_convert(pspec: ParamSpec, src_value: Value, dest_value: Value, strict_validation: boolean): boolean
 export function param_value_defaults(pspec: ParamSpec, value: Value): boolean
 export function param_value_set_default(pspec: ParamSpec, value: Value): void
 export function param_value_validate(pspec: ParamSpec, value: Value): boolean
 export function param_values_cmp(pspec: ParamSpec, value1: Value, value2: Value): number
-export function pointer_type_register_static(name: string): number
+export function pointer_type_register_static(name: string): Type
 export function signal_accumulator_first_wins(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy?: object | null): boolean
 export function signal_accumulator_true_handled(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy?: object | null): boolean
 export function signal_add_emission_hook(signal_id: number, detail: GLib.Quark, hook_func: SignalEmissionHook, data_destroy: GLib.DestroyNotify): number
@@ -164,71 +164,71 @@ export function signal_handlers_destroy(instance: Object): void
 export function signal_handlers_disconnect_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure?: Closure | null, func?: object | null, data?: object | null): number
 export function signal_handlers_unblock_matched(instance: Object, mask: SignalMatchType, signal_id: number, detail: GLib.Quark, closure?: Closure | null, func?: object | null, data?: object | null): number
 export function signal_has_handler_pending(instance: Object, signal_id: number, detail: GLib.Quark, may_be_blocked: boolean): boolean
-export function signal_list_ids(itype: number): number[]
-export function signal_lookup(name: string, itype: number): number
+export function signal_list_ids(itype: Type): number[]
+export function signal_lookup(name: string, itype: Type): number
 export function signal_name(signal_id: number): string
-export function signal_override_class_closure(signal_id: number, instance_type: number, class_closure: Closure): void
-export function signal_parse_name(detailed_signal: string, itype: number, force_detail_quark: boolean): [ /* returnType */ boolean, /* signal_id_p */ number, /* detail_p */ GLib.Quark ]
+export function signal_override_class_closure(signal_id: number, instance_type: Type, class_closure: Closure): void
+export function signal_parse_name(detailed_signal: string, itype: Type, force_detail_quark: boolean): [ /* returnType */ boolean, /* signal_id_p */ number, /* detail_p */ GLib.Quark ]
 export function signal_query(signal_id: number): /* query */ SignalQuery
 export function signal_remove_emission_hook(signal_id: number, hook_id: number): void
-export function signal_set_va_marshaller(signal_id: number, instance_type: number, va_marshaller: SignalCVaMarshaller): void
+export function signal_set_va_marshaller(signal_id: number, instance_type: Type, va_marshaller: SignalCVaMarshaller): void
 export function signal_stop_emission(instance: Object, signal_id: number, detail: GLib.Quark): void
 export function signal_stop_emission_by_name(instance: Object, detailed_signal: string): void
-export function signal_type_cclosure_new(itype: number, struct_offset: number): Closure
+export function signal_type_cclosure_new(itype: Type, struct_offset: number): Closure
 export function source_set_closure(source: GLib.Source, closure: Closure): void
 export function source_set_dummy_callback(source: GLib.Source): void
 export function strdup_value_contents(value: Value): string
-export function type_add_class_private(class_type: number, private_size: number): void
-export function type_add_instance_private(class_type: number, private_size: number): number
-export function type_add_interface_dynamic(instance_type: number, interface_type: number, plugin: TypePlugin): void
-export function type_add_interface_static(instance_type: number, interface_type: number, info: InterfaceInfo): void
-export function type_check_class_is_a(g_class: TypeClass, is_a_type: number): boolean
+export function type_add_class_private(class_type: Type, private_size: number): void
+export function type_add_instance_private(class_type: Type, private_size: number): number
+export function type_add_interface_dynamic(instance_type: Type, interface_type: Type, plugin: TypePlugin): void
+export function type_add_interface_static(instance_type: Type, interface_type: Type, info: InterfaceInfo): void
+export function type_check_class_is_a(g_class: TypeClass, is_a_type: Type): boolean
 export function type_check_instance(instance: TypeInstance): boolean
-export function type_check_instance_is_a(instance: TypeInstance, iface_type: number): boolean
-export function type_check_instance_is_fundamentally_a(instance: TypeInstance, fundamental_type: number): boolean
-export function type_check_is_value_type(type: number): boolean
+export function type_check_instance_is_a(instance: TypeInstance, iface_type: Type): boolean
+export function type_check_instance_is_fundamentally_a(instance: TypeInstance, fundamental_type: Type): boolean
+export function type_check_is_value_type(type: Type): boolean
 export function type_check_value(value: Value): boolean
-export function type_check_value_holds(value: Value, type: number): boolean
-export function type_children(type: number): number
+export function type_check_value_holds(value: Value, type: Type): boolean
+export function type_children(type: Type): Type[]
 export function type_class_adjust_private_offset(g_class: object | null, private_size_or_offset: number): void
-export function type_class_peek(type: number): TypeClass
-export function type_class_peek_static(type: number): TypeClass
-export function type_class_ref(type: number): TypeClass
-export function type_default_interface_peek(g_type: number): TypeInterface
-export function type_default_interface_ref(g_type: number): TypeInterface
+export function type_class_peek(type: Type): TypeClass
+export function type_class_peek_static(type: Type): TypeClass
+export function type_class_ref(type: Type): TypeClass
+export function type_default_interface_peek(g_type: Type): TypeInterface
+export function type_default_interface_ref(g_type: Type): TypeInterface
 export function type_default_interface_unref(g_iface: TypeInterface): void
-export function type_depth(type: number): number
-export function type_ensure(type: number): void
+export function type_depth(type: Type): number
+export function type_ensure(type: Type): void
 export function type_free_instance(instance: TypeInstance): void
-export function type_from_name(name: string): number
-export function type_fundamental(type_id: number): number
-export function type_fundamental_next(): number
-export function type_get_instance_count(type: number): number
-export function type_get_plugin(type: number): TypePlugin
-export function type_get_qdata(type: number, quark: GLib.Quark): object | null
+export function type_from_name(name: string): Type
+export function type_fundamental(type_id: Type): Type
+export function type_fundamental_next(): Type
+export function type_get_instance_count(type: Type): number
+export function type_get_plugin(type: Type): TypePlugin
+export function type_get_qdata(type: Type, quark: GLib.Quark): object | null
 export function type_get_type_registration_serial(): number
 export function type_init(): void
 export function type_init_with_debug_flags(debug_flags: TypeDebugFlags): void
-export function type_interface_add_prerequisite(interface_type: number, prerequisite_type: number): void
-export function type_interface_get_plugin(instance_type: number, interface_type: number): TypePlugin
-export function type_interface_peek(instance_class: TypeClass, iface_type: number): TypeInterface
-export function type_interface_prerequisites(interface_type: number): number
-export function type_interfaces(type: number): number
-export function type_is_a(type: number, is_a_type: number): boolean
-export function type_name(type: number): string
+export function type_interface_add_prerequisite(interface_type: Type, prerequisite_type: Type): void
+export function type_interface_get_plugin(instance_type: Type, interface_type: Type): TypePlugin
+export function type_interface_peek(instance_class: TypeClass, iface_type: Type): TypeInterface
+export function type_interface_prerequisites(interface_type: Type): Type[]
+export function type_interfaces(type: Type): Type[]
+export function type_is_a(type: Type, is_a_type: Type): boolean
+export function type_name(type: Type): string
 export function type_name_from_class(g_class: TypeClass): string
 export function type_name_from_instance(instance: TypeInstance): string
-export function type_next_base(leaf_type: number, root_type: number): number
-export function type_parent(type: number): number
-export function type_qname(type: number): GLib.Quark
-export function type_query(type: number): /* query */ TypeQuery
-export function type_register_dynamic(parent_type: number, type_name: string, plugin: TypePlugin, flags: TypeFlags): number
-export function type_register_fundamental(type_id: number, type_name: string, info: TypeInfo, finfo: TypeFundamentalInfo, flags: TypeFlags): number
-export function type_register_static(parent_type: number, type_name: string, info: TypeInfo, flags: TypeFlags): number
-export function type_set_qdata(type: number, quark: GLib.Quark, data?: object | null): void
-export function type_test_flags(type: number, flags: number): boolean
-export function value_type_compatible(src_type: number, dest_type: number): boolean
-export function value_type_transformable(src_type: number, dest_type: number): boolean
+export function type_next_base(leaf_type: Type, root_type: Type): Type
+export function type_parent(type: Type): Type
+export function type_qname(type: Type): GLib.Quark
+export function type_query(type: Type): /* query */ TypeQuery
+export function type_register_dynamic(parent_type: Type, type_name: string, plugin: TypePlugin, flags: TypeFlags): Type
+export function type_register_fundamental(type_id: Type, type_name: string, info: TypeInfo, finfo: TypeFundamentalInfo, flags: TypeFlags): Type
+export function type_register_static(parent_type: Type, type_name: string, info: TypeInfo, flags: TypeFlags): Type
+export function type_set_qdata(type: Type, quark: GLib.Quark, data?: object | null): void
+export function type_test_flags(type: Type, flags: number): boolean
+export function value_type_compatible(src_type: Type, dest_type: Type): boolean
+export function value_type_transformable(src_type: Type, dest_type: Type): boolean
 export interface BaseFinalizeFunc {
     (g_class: TypeClass): void
 }
@@ -293,10 +293,10 @@ export interface TypeInterfaceCheckFunc {
     (check_data: object | null, g_iface: TypeInterface): void
 }
 export interface TypePluginCompleteInterfaceInfo {
-    (plugin: TypePlugin, instance_type: number, interface_type: number, info: InterfaceInfo): void
+    (plugin: TypePlugin, instance_type: Type, interface_type: Type, info: InterfaceInfo): void
 }
 export interface TypePluginCompleteTypeInfo {
-    (plugin: TypePlugin, g_type: number, info: TypeInfo, value_table: TypeValueTable): void
+    (plugin: TypePlugin, g_type: Type, info: TypeInfo, value_table: TypeValueTable): void
 }
 export interface TypePluginUnuse {
     (plugin: TypePlugin): void
@@ -312,8 +312,8 @@ export interface WeakNotify {
 }
 export class TypePlugin {
     /* Methods of GObject.TypePlugin */
-    complete_interface_info(instance_type: number, interface_type: number, info: InterfaceInfo): void
-    complete_type_info(g_type: number, info: TypeInfo, value_table: TypeValueTable): void
+    complete_interface_info(instance_type: Type, interface_type: Type, info: InterfaceInfo): void
+    complete_type_info(g_type: Type, info: TypeInfo, value_table: TypeValueTable): void
     unuse(): void
     use(): void
     static name: string
@@ -350,8 +350,6 @@ export class Binding {
     notify_by_pspec(pspec: ParamSpec): void
     ref(): Object
     ref_sink(): Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: Value): void
@@ -394,8 +392,6 @@ export class InitiallyUnowned {
     notify_by_pspec(pspec: ParamSpec): void
     ref(): Object
     ref_sink(): Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: Value): void
@@ -437,8 +433,6 @@ export class Object {
     notify_by_pspec(pspec: ParamSpec): void
     ref(): Object
     ref_sink(): Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: Value): void
@@ -460,8 +454,8 @@ export class Object {
     connect(sigName: string, callback: any): void
     static name: string
     constructor (config?: Object_ConstructProps)
-    static new(object_type: number, names: string[], values: Value[]): Object
-    static newv(object_type: number, parameters: Parameter[]): Object
+    static new(object_type: Type, names: string[], values: Value[]): Object
+    static newv(object_type: Type, parameters: Parameter[]): Object
     static compat_control(what: number, data?: object | null): number
     static interface_find_property(g_iface: TypeInterface, property_name: string): ParamSpec
     static interface_install_property(g_iface: TypeInterface, pspec: ParamSpec): void
@@ -472,8 +466,8 @@ export class ParamSpec {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -500,8 +494,8 @@ export class ParamSpecBoolean {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -527,8 +521,8 @@ export class ParamSpecBoxed {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -557,8 +551,8 @@ export class ParamSpecChar {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -588,8 +582,8 @@ export class ParamSpecDouble {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -617,8 +611,8 @@ export class ParamSpecEnum {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -646,8 +640,8 @@ export class ParamSpecFlags {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -677,8 +671,8 @@ export class ParamSpecFloat {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -700,13 +694,13 @@ export class ParamSpecFloat {
 export class ParamSpecGType {
     /* Fields of GObject.ParamSpecGType */
     parent_instance:ParamSpec
-    is_a_type:number
+    is_a_type:Type
     /* Fields of GObject.ParamSpec */
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -735,8 +729,8 @@ export class ParamSpecInt {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -765,8 +759,8 @@ export class ParamSpecInt64 {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -795,8 +789,8 @@ export class ParamSpecLong {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -822,8 +816,8 @@ export class ParamSpecObject {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -848,8 +842,8 @@ export class ParamSpecOverride {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -875,8 +869,8 @@ export class ParamSpecParam {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -902,8 +896,8 @@ export class ParamSpecPointer {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -935,8 +929,8 @@ export class ParamSpecString {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -965,8 +959,8 @@ export class ParamSpecUChar {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -995,8 +989,8 @@ export class ParamSpecUInt {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -1025,8 +1019,8 @@ export class ParamSpecUInt64 {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -1055,8 +1049,8 @@ export class ParamSpecULong {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -1083,8 +1077,8 @@ export class ParamSpecUnichar {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -1112,8 +1106,8 @@ export class ParamSpecValueArray {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -1141,8 +1135,8 @@ export class ParamSpecVariant {
     g_type_instance:TypeInstance
     name:string
     flags:ParamFlags
-    value_type:number
-    owner_type:number
+    value_type:Type
+    owner_type:Type
     /* Methods of GObject.ParamSpec */
     get_blurb(): string
     get_default_value(): Value
@@ -1173,10 +1167,10 @@ export class TypeModule {
     /* Fields of GObject.Object */
     g_type_instance:TypeInstance
     /* Methods of GObject.TypeModule */
-    add_interface(instance_type: number, interface_type: number, interface_info: InterfaceInfo): void
-    register_enum(name: string, const_static_values: EnumValue): number
-    register_flags(name: string, const_static_values: FlagsValue): number
-    register_type(parent_type: number, type_name: string, type_info: TypeInfo, flags: TypeFlags): number
+    add_interface(instance_type: Type, interface_type: Type, interface_info: InterfaceInfo): void
+    register_enum(name: string, const_static_values: EnumValue): Type
+    register_flags(name: string, const_static_values: FlagsValue): Type
+    register_type(parent_type: Type, type_name: string, type_info: TypeInfo, flags: TypeFlags): Type
     set_name(name: string): void
     unuse(): void
     use(): boolean
@@ -1194,8 +1188,6 @@ export class TypeModule {
     notify_by_pspec(pspec: ParamSpec): void
     ref(): Object
     ref_sink(): Object
-    replace_data(key: string, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
-    replace_qdata(quark: GLib.Quark, oldval?: object | null, newval?: object | null, destroy?: GLib.DestroyNotify | null, old_destroy?: GLib.DestroyNotify | null): boolean
     run_dispose(): void
     set_data(key: string, data?: object | null): void
     set_property(property_name: string, value: Value): void
@@ -1205,8 +1197,8 @@ export class TypeModule {
     unref(): void
     watch_closure(closure: Closure): void
     /* Methods of GObject.TypePlugin */
-    complete_interface_info(instance_type: number, interface_type: number, info: InterfaceInfo): void
-    complete_type_info(g_type: number, info: TypeInfo, value_table: TypeValueTable): void
+    complete_interface_info(instance_type: Type, interface_type: Type, info: InterfaceInfo): void
+    complete_type_info(g_type: Type, info: TypeInfo, value_table: TypeValueTable): void
     /* Virtual methods of GObject.TypeModule */
     vfunc_load?(): boolean
     vfunc_unload?(): void
@@ -1320,10 +1312,10 @@ export class ObjectConstructParam {
 }
 export class ParamSpecPool {
     /* Methods of GObject.ParamSpecPool */
-    insert(pspec: ParamSpec, owner_type: number): void
-    list(owner_type: number): ParamSpec[]
-    list_owned(owner_type: number): ParamSpec[]
-    lookup(param_name: string, owner_type: number, walk_ancestors: boolean): ParamSpec
+    insert(pspec: ParamSpec, owner_type: Type): void
+    list(owner_type: Type): ParamSpec[]
+    list_owned(owner_type: Type): ParamSpec[]
+    lookup(param_name: string, owner_type: Type, walk_ancestors: boolean): ParamSpec
     remove(pspec: ParamSpec): void
     static name: string
 }
@@ -1332,7 +1324,7 @@ export class ParamSpecTypeInfo {
     instance_size:number
     n_preallocs:number
     instance_init:any
-    value_type:number
+    value_type:Type
     finalize:any
     value_set_default:any
     value_validate:any
@@ -1356,25 +1348,25 @@ export class SignalQuery {
     /* Fields of GObject.SignalQuery */
     signal_id:number
     signal_name:string
-    itype:number
+    itype:Type
     signal_flags:SignalFlags
-    return_type:number
+    return_type:Type
     n_params:number
-    param_types:number
+    param_types:Type[]
     static name: string
 }
 export class TypeClass {
     /* Fields of GObject.TypeClass */
     /* Methods of GObject.TypeClass */
     add_private(private_size: number): void
-    get_private(private_type: number): object | null
+    get_private(private_type: Type): object | null
     peek_parent(): TypeClass
     unref(): void
     static name: string
     static adjust_private_offset(g_class: object | null, private_size_or_offset: number): void
-    static peek(type: number): TypeClass
-    static peek_static(type: number): TypeClass
-    static ref(type: number): TypeClass
+    static peek(type: Type): TypeClass
+    static peek_static(type: Type): TypeClass
+    static ref(type: Type): TypeClass
 }
 export class TypeFundamentalInfo {
     /* Fields of GObject.TypeFundamentalInfo */
@@ -1398,7 +1390,7 @@ export class TypeInfo {
 export class TypeInstance {
     /* Fields of GObject.TypeInstance */
     /* Methods of GObject.TypeInstance */
-    get_private(private_type: number): object | null
+    get_private(private_type: Type): object | null
     static name: string
 }
 export class TypeInterface {
@@ -1406,10 +1398,10 @@ export class TypeInterface {
     /* Methods of GObject.TypeInterface */
     peek_parent(): TypeInterface
     static name: string
-    static add_prerequisite(interface_type: number, prerequisite_type: number): void
-    static get_plugin(instance_type: number, interface_type: number): TypePlugin
-    static peek(instance_class: TypeClass, iface_type: number): TypeInterface
-    static prerequisites(interface_type: number): number
+    static add_prerequisite(interface_type: Type, prerequisite_type: Type): void
+    static get_plugin(instance_type: Type, interface_type: Type): TypePlugin
+    static peek(instance_class: TypeClass, iface_type: Type): TypeInterface
+    static prerequisites(interface_type: Type): Type[]
 }
 export class TypePluginClass {
     /* Fields of GObject.TypePluginClass */
@@ -1421,7 +1413,7 @@ export class TypePluginClass {
 }
 export class TypeQuery {
     /* Fields of GObject.TypeQuery */
-    type:number
+    type:Type
     type_name:string
     class_size:number
     instance_size:number
@@ -1446,7 +1438,7 @@ export class Value {
     copy(dest_value: Value): void
     dup_object(): Object
     dup_string(): string
-    dup_variant(): GLib.Variant
+    dup_variant(): GLib.Variant | null
     fits_pointer(): boolean
     get_boolean(): boolean
     get_boxed(): object | null
@@ -1455,7 +1447,7 @@ export class Value {
     get_enum(): number
     get_flags(): number
     get_float(): number
-    get_gtype(): number
+    get_gtype(): Type
     get_int(): number
     get_int64(): number
     get_long(): number
@@ -1468,8 +1460,8 @@ export class Value {
     get_uint(): number
     get_uint64(): number
     get_ulong(): number
-    get_variant(): GLib.Variant
-    init(g_type: number): Value
+    get_variant(): GLib.Variant | null
+    init(g_type: Type): Value
     init_from_instance(instance: TypeInstance): void
     peek_pointer(): object | null
     reset(): Value
@@ -1481,7 +1473,7 @@ export class Value {
     set_enum(v_enum: number): void
     set_flags(v_flags: number): void
     set_float(v_float: number): void
-    set_gtype(v_gtype: number): void
+    set_gtype(v_gtype: Type): void
     set_instance(instance?: object | null): void
     set_int(v_int: number): void
     set_int64(v_int64: number): void
@@ -1505,8 +1497,8 @@ export class Value {
     transform(dest_value: Value): boolean
     unset(): void
     static name: string
-    static type_compatible(src_type: number, dest_type: number): boolean
-    static type_transformable(src_type: number, dest_type: number): boolean
+    static type_compatible(src_type: Type, dest_type: Type): boolean
+    static type_transformable(src_type: Type, dest_type: Type): boolean
 }
 export class ValueArray {
     /* Fields of GObject.ValueArray */
@@ -1515,7 +1507,6 @@ export class ValueArray {
     /* Methods of GObject.ValueArray */
     append(value?: Value | null): ValueArray
     copy(): ValueArray
-    free(): void
     get_nth(index_: number): Value
     insert(index_: number, value?: Value | null): ValueArray
     prepend(value?: Value | null): ValueArray

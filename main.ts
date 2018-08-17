@@ -404,7 +404,7 @@ export class GirModule {
                 'char*': 'string',
                 'gchar*': 'string',
                 'gchar**': 'any',  // FIXME
-                'GType': 'number',  // GObject.Type ?
+                'GType': (this.name == 'GObject' ? 'Type' : 'GObject.Type') + suffix,
             }
             if (cTypeMap[cType]) {
                 return cTypeMap[cType]
@@ -1055,6 +1055,13 @@ export class GirModule {
         out.push("")
 
         let deps: string[] = this.transitiveDependencies
+
+        // Always pull in GObject, as we may need it for e.g. GObject.type
+        if (this.name != 'GObject') {
+            if (!lodash.find(deps, x => x == 'GObject')) {
+                deps.push('GObject')
+            }
+        }
 
         out.push("import * as Gjs from './Gjs'")
         for (let d of deps) {

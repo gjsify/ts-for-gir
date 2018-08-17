@@ -3,6 +3,7 @@
  */
 
 import * as Gjs from './Gjs'
+import * as GObject from './GObject'
 export function open_display(): void
 export class Display {
     static name: string

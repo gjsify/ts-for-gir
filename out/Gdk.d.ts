@@ -2861,7 +2861,7 @@ export function error_trap_pop(): number
 export function error_trap_pop_ignored(): void
 export function error_trap_push(): void
 export function event_get(): Event | null
-export function event_handler_set(func: EventFunc, notify: GLib.DestroyNotify): void
+export function event_handler_set(func: EventFunc): void
 export function event_peek(): Event | null
 export function event_request_motions(event: EventMotion): void
 export function events_get_angle(event1: Event, event2: Event): [ /* returnType */ boolean, /* angle */ number ]
@@ -2924,9 +2924,9 @@ export function test_render_sync(window: Window): void
 export function test_simulate_button(window: Window, x: number, y: number, button: number, modifiers: ModifierType, button_pressrelease: EventType): boolean
 export function test_simulate_key(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, key_pressrelease: EventType): boolean
 export function text_property_to_utf8_list_for_display(display: Display, encoding: Atom, format: number, text: Gjs.byteArray.ByteArray): [ /* returnType */ number, /* list */ string[] ]
-export function threads_add_idle(priority: number, function_: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): number
-export function threads_add_timeout(priority: number, interval: number, function_: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): number
-export function threads_add_timeout_seconds(priority: number, interval: number, function_: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): number
+export function threads_add_idle(priority: number, function_: GLib.SourceFunc): number
+export function threads_add_timeout(priority: number, interval: number, function_: GLib.SourceFunc): number
+export function threads_add_timeout_seconds(priority: number, interval: number, function_: GLib.SourceFunc): number
 export function threads_enter(): void
 export function threads_init(): void
 export function threads_leave(): void
@@ -4692,7 +4692,7 @@ export class Event {
     constructor(type: EventType)
     static new(type: EventType): Event
     static get(): Event | null
-    static handler_set(func: EventFunc, notify: GLib.DestroyNotify): void
+    static handler_set(func: EventFunc): void
     static peek(): Event | null
     static request_motions(event: EventMotion): void
 }

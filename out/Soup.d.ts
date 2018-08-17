@@ -935,14 +935,14 @@ export class AuthDomain {
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.AuthDomain */
     accepts(msg: Message): string | null
-    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, dnotify: GLib.DestroyNotify): void
+    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback): void
     challenge(msg: Message): void
     check_password(msg: Message, username: string, password: string): boolean
     covers(msg: Message): boolean
-    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback, dnotify: GLib.DestroyNotify): void
+    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback): void
     get_realm(): string
-    set_filter(filter: AuthDomainFilter, dnotify: GLib.DestroyNotify): void
-    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback, dnotify: GLib.DestroyNotify): void
+    set_filter(filter: AuthDomainFilter): void
+    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback): void
     try_generic_auth_callback(msg: Message, username: string): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1012,14 +1012,14 @@ export class AuthDomainBasic {
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.AuthDomain */
     accepts(msg: Message): string | null
-    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, dnotify: GLib.DestroyNotify): void
+    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback): void
     challenge(msg: Message): void
     check_password(msg: Message, username: string, password: string): boolean
     covers(msg: Message): boolean
-    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback, dnotify: GLib.DestroyNotify): void
+    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback): void
     get_realm(): string
-    set_filter(filter: AuthDomainFilter, dnotify: GLib.DestroyNotify): void
-    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback, dnotify: GLib.DestroyNotify): void
+    set_filter(filter: AuthDomainFilter): void
+    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback): void
     try_generic_auth_callback(msg: Message, username: string): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1091,14 +1091,14 @@ export class AuthDomainDigest {
     g_type_instance:GObject.TypeInstance
     /* Methods of Soup.AuthDomain */
     accepts(msg: Message): string | null
-    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback, dnotify: GLib.DestroyNotify): void
+    basic_set_auth_callback(callback: AuthDomainBasicAuthCallback): void
     challenge(msg: Message): void
     check_password(msg: Message, username: string, password: string): boolean
     covers(msg: Message): boolean
-    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback, dnotify: GLib.DestroyNotify): void
+    digest_set_auth_callback(callback: AuthDomainDigestAuthCallback): void
     get_realm(): string
-    set_filter(filter: AuthDomainFilter, dnotify: GLib.DestroyNotify): void
-    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback, dnotify: GLib.DestroyNotify): void
+    set_filter(filter: AuthDomainFilter): void
+    set_generic_auth_callback(auth_callback: AuthDomainGenericAuthCallback): void
     try_generic_auth_callback(msg: Message, username: string): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1770,9 +1770,9 @@ export class Logger {
     /* Methods of Soup.Logger */
     attach(session: Session): void
     detach(session: Session): void
-    set_printer(printer: LoggerPrinter, destroy: GLib.DestroyNotify): void
-    set_request_filter(request_filter: LoggerFilter, destroy: GLib.DestroyNotify): void
-    set_response_filter(response_filter: LoggerFilter, destroy: GLib.DestroyNotify): void
+    set_printer(printer: LoggerPrinter): void
+    set_request_filter(request_filter: LoggerFilter): void
+    set_response_filter(response_filter: LoggerFilter): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -1869,7 +1869,7 @@ export class Message {
     got_informational(): void
     is_keepalive(): boolean
     restarted(): void
-    set_chunk_allocator(allocator: ChunkAllocator, destroy_notify: GLib.DestroyNotify): void
+    set_chunk_allocator(allocator: ChunkAllocator): void
     set_first_party(first_party: URI): void
     set_flags(flags: MessageFlags): void
     set_http_version(version: HTTPVersion): void
@@ -2454,9 +2454,9 @@ export class Server {
     /* Methods of Soup.Server */
     accept_iostream(stream: Gio.IOStream, local_addr?: Gio.SocketAddress | null, remote_addr?: Gio.SocketAddress | null): boolean
     add_auth_domain(auth_domain: AuthDomain): void
-    add_early_handler(path: string | null, callback: ServerCallback, destroy: GLib.DestroyNotify): void
-    add_handler(path: string | null, callback: ServerCallback, destroy: GLib.DestroyNotify): void
-    add_websocket_handler(path: string | null, origin: string | null, protocols: string[] | null, callback: ServerWebsocketCallback, destroy: GLib.DestroyNotify): void
+    add_early_handler(path: string | null, callback: ServerCallback): void
+    add_handler(path: string | null, callback: ServerCallback): void
+    add_websocket_handler(path: string | null, origin: string | null, protocols: string[] | null, callback: ServerWebsocketCallback): void
     disconnect(): void
     get_async_context(): GLib.MainContext | null
     get_listener(): Socket

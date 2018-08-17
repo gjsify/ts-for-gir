@@ -47,7 +47,7 @@ export class Notification {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Notify.Notification */
-    add_action(action: string, label: string, callback: ActionCallback, free_func: GLib.DestroyNotify): void
+    add_action(action: string, label: string, callback: ActionCallback): void
     clear_actions(): void
     clear_hints(): void
     close(): boolean

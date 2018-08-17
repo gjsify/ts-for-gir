@@ -2415,7 +2415,7 @@ export class WebContext {
     is_automation_allowed(): boolean
     is_ephemeral(): boolean
     prefetch_dns(hostname: string): void
-    register_uri_scheme(scheme: string, callback: URISchemeRequestCallback, user_data_destroy_func: GLib.DestroyNotify): void
+    register_uri_scheme(scheme: string, callback: URISchemeRequestCallback): void
     set_additional_plugins_directory(directory: string): void
     set_automation_allowed(allowed: boolean): void
     set_cache_model(cache_model: CacheModel): void
@@ -2777,7 +2777,7 @@ export class WebView {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void
@@ -3442,7 +3442,7 @@ export class WebViewBase {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void

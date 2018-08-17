@@ -148,7 +148,7 @@ export function param_values_cmp(pspec: ParamSpec, value1: Value, value2: Value)
 export function pointer_type_register_static(name: string): Type
 export function signal_accumulator_first_wins(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy?: object | null): boolean
 export function signal_accumulator_true_handled(ihint: SignalInvocationHint, return_accu: Value, handler_return: Value, dummy?: object | null): boolean
-export function signal_add_emission_hook(signal_id: number, detail: GLib.Quark, hook_func: SignalEmissionHook, data_destroy: GLib.DestroyNotify): number
+export function signal_add_emission_hook(signal_id: number, detail: GLib.Quark, hook_func: SignalEmissionHook): number
 export function signal_chain_from_overridden(instance_and_params: Value[], return_value: Value): void
 export function signal_connect_closure(instance: Object, detailed_signal: string, closure: Closure, after: boolean): number
 export function signal_connect_closure_by_id(instance: Object, signal_id: number, detail: GLib.Quark, closure: Closure, after: boolean): number

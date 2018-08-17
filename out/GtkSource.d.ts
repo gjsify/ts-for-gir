@@ -340,9 +340,9 @@ export class Buffer {
     move_mark_by_name(name: string, where: Gtk.TextIter): void
     paste_clipboard(clipboard: Gtk.Clipboard, override_location: Gtk.TextIter | null, default_editable: boolean): void
     place_cursor(where: Gtk.TextIter): void
-    register_deserialize_format(mime_type: string, function_: Gtk.TextBufferDeserializeFunc, user_data_destroy: GLib.DestroyNotify): Gdk.Atom
+    register_deserialize_format(mime_type: string, function_: Gtk.TextBufferDeserializeFunc): Gdk.Atom
     register_deserialize_tagset(tagset_name?: string | null): Gdk.Atom
-    register_serialize_format(mime_type: string, function_: Gtk.TextBufferSerializeFunc, user_data_destroy: GLib.DestroyNotify): Gdk.Atom
+    register_serialize_format(mime_type: string, function_: Gtk.TextBufferSerializeFunc): Gdk.Atom
     register_serialize_tagset(tagset_name?: string | null): Gdk.Atom
     remove_all_tags(start: Gtk.TextIter, end: Gtk.TextIter): void
     remove_selection_clipboard(clipboard: Gtk.Clipboard): void
@@ -853,7 +853,7 @@ export class CompletionInfo {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void
@@ -1674,7 +1674,7 @@ export class FileLoader {
     get_input_stream(): Gio.InputStream | null
     get_location(): Gio.File | null
     get_newline_type(): NewlineType
-    load_async(io_priority: number, cancellable?: Gio.Cancellable | null, progress_callback?: Gio.FileProgressCallback | null, progress_callback_notify?: GLib.DestroyNotify | null, callback?: Gio.AsyncReadyCallback | null): void
+    load_async(io_priority: number, cancellable?: Gio.Cancellable | null, progress_callback?: Gio.FileProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     load_finish(result: Gio.AsyncResult): boolean
     set_candidate_encodings(candidate_encodings: GLib.SList): void
     /* Methods of GObject.Object */
@@ -1743,7 +1743,7 @@ export class FileSaver {
     get_flags(): FileSaverFlags
     get_location(): Gio.File
     get_newline_type(): NewlineType
-    save_async(io_priority: number, cancellable?: Gio.Cancellable | null, progress_callback?: Gio.FileProgressCallback | null, progress_callback_notify?: GLib.DestroyNotify | null, callback?: Gio.AsyncReadyCallback | null): void
+    save_async(io_priority: number, cancellable?: Gio.Cancellable | null, progress_callback?: Gio.FileProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     save_finish(result: Gio.AsyncResult): boolean
     set_compression_type(compression_type: CompressionType): void
     set_encoding(encoding?: Encoding | null): void
@@ -2597,7 +2597,7 @@ export class Map {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void
@@ -3994,7 +3994,7 @@ export class StyleSchemeChooserButton {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void
@@ -4641,7 +4641,7 @@ export class StyleSchemeChooserWidget {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void
@@ -5681,7 +5681,7 @@ export class View {
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
     add_events(events: number): void
     add_mnemonic_label(label: Gtk.Widget): void
-    add_tick_callback(callback: Gtk.TickCallback, notify: GLib.DestroyNotify): number
+    add_tick_callback(callback: Gtk.TickCallback): number
     can_activate_accel(signal_id: number): boolean
     child_focus(direction: Gtk.DirectionType): boolean
     child_notify(child_property: string): void

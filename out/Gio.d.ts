@@ -736,7 +736,7 @@ export function io_modules_load_all_in_directory_with_scope(dirname: any, scope:
 export function io_modules_scan_all_in_directory(dirname: any): void
 export function io_modules_scan_all_in_directory_with_scope(dirname: any, scope: IOModuleScope): void
 export function io_scheduler_cancel_all_jobs(): void
-export function io_scheduler_push_job(job_func: IOSchedulerJobFunc, notify: GLib.DestroyNotify | null, io_priority: number, cancellable?: Cancellable | null): void
+export function io_scheduler_push_job(job_func: IOSchedulerJobFunc, io_priority: number, cancellable?: Cancellable | null): void
 export function keyfile_settings_backend_new(filename: string, root_path: string, root_group?: string | null): SettingsBackend
 export function memory_settings_backend_new(): SettingsBackend
 export function network_monitor_get_default(): NetworkMonitor
@@ -2396,7 +2396,7 @@ export class Cancellable {
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.Cancellable */
     cancel(): void
-    connect(callback: GObject.Callback, data_destroy_func?: GLib.DestroyNotify | null): number
+    connect(callback: GObject.Callback): number
     disconnect(handler_id: number): void
     get_fd(): number
     is_cancelled(): boolean
@@ -2875,7 +2875,7 @@ export class DBusConnection {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.DBusConnection */
-    add_filter(filter_function: DBusMessageFilterFunction, user_data_free_func: GLib.DestroyNotify): number
+    add_filter(filter_function: DBusMessageFilterFunction): number
     call(bus_name: string | null, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant | null, reply_type: GLib.VariantType | null, flags: DBusCallFlags, timeout_msec: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     call_finish(res: AsyncResult): GLib.Variant
     call_sync(bus_name: string | null, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant | null, reply_type: GLib.VariantType | null, flags: DBusCallFlags, timeout_msec: number, cancellable?: Cancellable | null): GLib.Variant
@@ -2907,7 +2907,7 @@ export class DBusConnection {
     send_message_with_reply_finish(res: AsyncResult): DBusMessage
     send_message_with_reply_sync(message: DBusMessage, flags: DBusSendMessageFlags, timeout_msec: number, cancellable?: Cancellable | null): [ /* returnType */ DBusMessage, /* out_serial */ number | null ]
     set_exit_on_close(exit_on_close: boolean): void
-    signal_subscribe(sender: string | null, interface_name: string | null, member: string | null, object_path: string | null, arg0: string | null, flags: DBusSignalFlags, callback: DBusSignalCallback, user_data_free_func?: GLib.DestroyNotify | null): number
+    signal_subscribe(sender: string | null, interface_name: string | null, member: string | null, object_path: string | null, arg0: string | null, flags: DBusSignalFlags, callback: DBusSignalCallback): number
     signal_unsubscribe(subscription_id: number): void
     start_message_processing(): void
     unexport_action_group(export_id: number): void
@@ -3329,9 +3329,9 @@ export class DBusObjectManagerClient {
     constructor (config?: DBusObjectManagerClient_ConstructProps)
     static new_finish(res: AsyncResult): DBusObjectManagerClient
     static new_for_bus_finish(res: AsyncResult): DBusObjectManagerClient
-    static new_for_bus_sync(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, get_proxy_type_destroy_notify?: GLib.DestroyNotify | null, cancellable?: Cancellable | null): DBusObjectManagerClient
-    static new_sync(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string | null, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, get_proxy_type_destroy_notify?: GLib.DestroyNotify | null, cancellable?: Cancellable | null): DBusObjectManagerClient
-    static new_for_bus(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, get_proxy_type_destroy_notify?: GLib.DestroyNotify | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    static new_for_bus_sync(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, cancellable?: Cancellable | null): DBusObjectManagerClient
+    static new_sync(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string | null, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, cancellable?: Cancellable | null): DBusObjectManagerClient
+    static new_for_bus(bus_type: BusType, flags: DBusObjectManagerClientFlags, name: string, object_path: string, get_proxy_type_func?: DBusProxyTypeFunc | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 }
 export interface DBusObjectManagerServer_ConstructProps extends GObject.Object_ConstructProps {
     connection?:DBusConnection
@@ -9429,7 +9429,7 @@ export class Vfs {
     get_supported_uri_schemes(): string[]
     is_active(): boolean
     parse_name(parse_name: string): File
-    register_uri_scheme(scheme: string, uri_func?: VfsFileLookupFunc | null, uri_destroy?: GLib.DestroyNotify | null, parse_name_func?: VfsFileLookupFunc | null, parse_name_destroy?: GLib.DestroyNotify | null): boolean
+    register_uri_scheme(scheme: string, uri_func?: VfsFileLookupFunc | null, parse_name_func?: VfsFileLookupFunc | null): boolean
     unregister_uri_scheme(scheme: string): boolean
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -9916,8 +9916,8 @@ export class IOModuleScope {
 }
 export class IOSchedulerJob {
     /* Methods of Gio.IOSchedulerJob */
-    send_to_mainloop(func: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): boolean
-    send_to_mainloop_async(func: GLib.SourceFunc, notify?: GLib.DestroyNotify | null): void
+    send_to_mainloop(func: GLib.SourceFunc): boolean
+    send_to_mainloop_async(func: GLib.SourceFunc): void
     static name: string
 }
 export class IOStreamAdapter {

@@ -962,7 +962,7 @@ export function byte_array_unref(array: Gjs.byteArray.ByteArray): void
 export function chdir(path: any): number
 export function check_version(required_major: number, required_minor: number, required_micro: number): string
 export function checksum_type_get_length(checksum_type: ChecksumType): number
-export function child_watch_add(priority: number, pid: Pid, function_: ChildWatchFunc, notify?: DestroyNotify | null): number
+export function child_watch_add(priority: number, pid: Pid, function_: ChildWatchFunc): number
 export function child_watch_source_new(pid: Pid): Source
 export function clear_error(): void
 export function close(fd: number): boolean
@@ -1079,7 +1079,7 @@ export function hostname_is_ip_address(hostname: string): boolean
 export function hostname_is_non_ascii(hostname: string): boolean
 export function hostname_to_ascii(hostname: string): string
 export function hostname_to_unicode(hostname: string): string
-export function idle_add(priority: number, function_: SourceFunc, notify?: DestroyNotify | null): number
+export function idle_add(priority: number, function_: SourceFunc): number
 export function idle_remove_by_data(data?: object | null): boolean
 export function idle_source_new(): Source
 export function int64_equal(v1: object, v2: object): boolean
@@ -1088,7 +1088,7 @@ export function int_equal(v1: object, v2: object): boolean
 export function int_hash(v: object): number
 export function intern_static_string(string?: string | null): string
 export function intern_string(string?: string | null): string
-export function io_add_watch(channel: IOChannel, priority: number, condition: IOCondition, func: IOFunc, notify: DestroyNotify): number
+export function io_add_watch(channel: IOChannel, priority: number, condition: IOCondition, func: IOFunc): number
 export function io_channel_error_from_errno(en: number): IOChannelError
 export function io_channel_error_quark(): Quark
 export function io_create_watch(channel: IOChannel, condition: IOCondition): Source
@@ -1100,8 +1100,8 @@ export function log_default_handler(log_domain: string | null, log_level: LogLev
 export function log_remove_handler(log_domain: string, handler_id: number): void
 export function log_set_always_fatal(fatal_mask: LogLevelFlags): LogLevelFlags
 export function log_set_fatal_mask(log_domain: string, fatal_mask: LogLevelFlags): LogLevelFlags
-export function log_set_handler(log_domain: string | null, log_levels: LogLevelFlags, log_func: LogFunc, destroy: DestroyNotify): number
-export function log_set_writer_func(user_data_free: DestroyNotify): void
+export function log_set_handler(log_domain: string | null, log_levels: LogLevelFlags, log_func: LogFunc): number
+export function log_set_writer_func(): void
 export function log_structured_array(log_level: LogLevelFlags, fields: LogField[]): void
 export function log_variant(log_domain: string | null, log_level: LogLevelFlags, fields: Variant): void
 export function log_writer_default(log_level: LogLevelFlags, fields: LogField[], user_data?: object | null): LogWriterOutput
@@ -1246,7 +1246,7 @@ export function strv_contains(strv: string, str: string): boolean
 export function strv_get_type(): GObject.Type
 export function strv_length(str_array: string): number
 export function test_add_data_func(testpath: string, test_data: object | null, test_func: TestDataFunc): void
-export function test_add_data_func_full(testpath: string, test_data: object | null, test_func: TestDataFunc, data_free_func: DestroyNotify): void
+export function test_add_data_func_full(testpath: string, test_data: object | null, test_func: TestDataFunc): void
 export function test_add_func(testpath: string, test_func: TestFunc): void
 export function test_assert_expected_messages_internal(domain: string, file: string, line: number, func: string): void
 export function test_bug(bug_uri_snippet: string): void
@@ -1287,8 +1287,8 @@ export function thread_pool_stop_unused_threads(): void
 export function thread_self(): Thread
 export function thread_yield(): void
 export function time_val_from_iso8601(iso_date: string): [ /* returnType */ boolean, /* time_ */ TimeVal ]
-export function timeout_add(priority: number, interval: number, function_: SourceFunc, notify?: DestroyNotify | null): number
-export function timeout_add_seconds(priority: number, interval: number, function_: SourceFunc, notify?: DestroyNotify | null): number
+export function timeout_add(priority: number, interval: number, function_: SourceFunc): number
+export function timeout_add_seconds(priority: number, interval: number, function_: SourceFunc): number
 export function timeout_source_new(interval: number): Source
 export function timeout_source_new_seconds(interval: number): Source
 export function trash_stack_height(stack_p: TrashStack): number
@@ -1340,11 +1340,11 @@ export function unicode_canonical_ordering(string: number, len: number): void
 export function unicode_script_from_iso15924(iso15924: number): UnicodeScript
 export function unicode_script_to_iso15924(script: UnicodeScript): number
 export function unix_error_quark(): Quark
-export function unix_fd_add_full(priority: number, fd: number, condition: IOCondition, function_: UnixFDSourceFunc, notify: DestroyNotify): number
+export function unix_fd_add_full(priority: number, fd: number, condition: IOCondition, function_: UnixFDSourceFunc): number
 export function unix_fd_source_new(fd: number, condition: IOCondition): Source
 export function unix_open_pipe(fds: number, flags: number): boolean
 export function unix_set_fd_nonblocking(fd: number, nonblock: boolean): boolean
-export function unix_signal_add(priority: number, signum: number, handler: SourceFunc, notify: DestroyNotify): number
+export function unix_signal_add(priority: number, signum: number, handler: SourceFunc): number
 export function unix_signal_source_new(signum: number): Source
 export function unlink(filename: any): number
 export function unsetenv(variable: any): void
@@ -2004,7 +2004,7 @@ export class MainContext {
     find_source_by_funcs_user_data(funcs: SourceFuncs, user_data?: object | null): Source
     find_source_by_id(source_id: number): Source
     find_source_by_user_data(user_data?: object | null): Source
-    invoke_full(priority: number, function_: SourceFunc, notify?: DestroyNotify | null): void
+    invoke_full(priority: number, function_: SourceFunc): void
     is_owner(): boolean
     iteration(may_block: boolean): boolean
     pending(): boolean
@@ -2157,7 +2157,7 @@ export class OptionContext {
     set_main_group(group: OptionGroup): void
     set_strict_posix(strict_posix: boolean): void
     set_summary(summary?: string | null): void
-    set_translate_func(func?: TranslateFunc | null, destroy_notify?: DestroyNotify | null): void
+    set_translate_func(func?: TranslateFunc | null): void
     set_translation_domain(domain: string): void
     static name: string
 }
@@ -2177,7 +2177,7 @@ export class OptionGroup {
     add_entries(entries: OptionEntry): void
     free(): void
     ref(): OptionGroup
-    set_translate_func(func?: TranslateFunc | null, destroy_notify?: DestroyNotify | null): void
+    set_translate_func(func?: TranslateFunc | null): void
     set_translation_domain(domain: string): void
     unref(): void
     static name: string
@@ -2432,7 +2432,7 @@ export class Source {
     remove_child_source(child_source: Source): void
     remove_poll(fd: PollFD): void
     remove_unix_fd(tag: object): void
-    set_callback(func: SourceFunc, notify?: DestroyNotify | null): void
+    set_callback(func: SourceFunc): void
     set_callback_indirect(callback_data: object | null, callback_funcs: SourceCallbackFuncs): void
     set_can_recurse(can_recurse: boolean): void
     set_funcs(funcs: SourceFuncs): void

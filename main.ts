@@ -338,7 +338,7 @@ export class GirModule {
         const collection =
             e.array
                 ? e.array
-                : (e.type && e.type[0].$.name === "GLib.List")
+                : (e.type && /^GLib.S?List$/.test(e.type[0].$.name))
                     ? e.type as GirArray[]
                     : undefined
 
@@ -412,7 +412,7 @@ export class GirModule {
             }
         }
 
-        let fullTypeName: string = type.$.name
+        let fullTypeName: string | null = type.$.name
 
         let fullTypeMap = {
             'GObject.Value': 'any',
@@ -421,18 +421,18 @@ export class GirModule {
             'GLib.Bytes': 'Gjs.byteArray.ByteArray'
         }
 
-        if (fullTypeMap[fullTypeName]) {
+        if (fullTypeName && fullTypeMap[fullTypeName]) {
             return fullTypeMap[fullTypeName]
         }
         
         // Fully qualify our type name if need be
-        if (fullTypeName.indexOf(".") < 0) {
+        if (fullTypeName && fullTypeName.indexOf(".") < 0) {
             let mod: GirModule = this
             if (e._module) mod = e._module
             fullTypeName = `${mod.name}.${type.$.name}`
         }
 
-        if (this.symTable[fullTypeName] == null) {
+        if (!fullTypeName || this.symTable[fullTypeName] == null) {
             console.warn(`Could not find type ${fullTypeName} for ${e.$.name}`)
             return "any" + arr
         }
@@ -1125,13 +1125,13 @@ function exportGjs(outDir: string|null, girModules: { [key: string]: any })
 `export namespace byteArray {
     export class ByteArray {
         constructor(len: number)
-        toString(): string
         toGBytes(): any  // GLib.Bytes?
         length: number
     }
     export function fromString(input: string): ByteArray
     export function fromArray(input: number[]): ByteArray
     export function fromGBytes(input: any): ByteArray
+    export function toString(x: ByteArray): string
 }
 export namespace console {
     export function interact(): void
@@ -1210,8 +1210,8 @@ ${keys.map(key => `import * as ${key} from "./${key}";`).join("\n")}
 
 declare global {
     function printerr(...args: any[]): void
-    function log(message?: string)
-    function logError(exception: any, message?: string)
+    function log(message?: string): void
+    function logError(exception: any, message?: string): void
     const ARGV: string[]
     const imports: typeof Gjs & {
         [key: string]: any

@@ -684,7 +684,7 @@ export class Value {
     get_minimum_increment(): /* value */ any
     get_minimum_value(): /* value */ any
     get_range(): Range | null
-    get_sub_ranges(): GLib.SList
+    get_sub_ranges(): Range[]
     get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     set_current_value(value: any): boolean
     set_value(new_value: number): void
@@ -695,7 +695,7 @@ export class Value {
     vfunc_get_minimum_increment?(): /* value */ any
     vfunc_get_minimum_value?(): /* value */ any
     vfunc_get_range?(): Range | null
-    vfunc_get_sub_ranges?(): GLib.SList
+    vfunc_get_sub_ranges?(): Range[]
     vfunc_get_value_and_text?(): [ /* value */ number, /* text */ string | null ]
     vfunc_set_current_value?(value: any): boolean
     vfunc_set_value?(new_value: number): void
@@ -1175,7 +1175,7 @@ export class NoOpObject {
     get_minimum_increment(): /* value */ any
     get_minimum_value(): /* value */ any
     get_range(): Range | null
-    get_sub_ranges(): GLib.SList
+    get_sub_ranges(): Range[]
     get_value_and_text(): [ /* value */ number, /* text */ string | null ]
     set_current_value(value: any): boolean
     set_value(new_value: number): void
@@ -2161,5 +2161,5 @@ export class TextRectangle {
     height:number
     static name: string
 }
-type AttributeSet = GLib.SList
+type AttributeSet = any
 type State = number

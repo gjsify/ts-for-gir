@@ -6,7 +6,7 @@
   "typings": "out/index",
   "scripts": {
     "test": "tsc test.ts && node_modules/ava/cli.js test.js",
-    "regress": "tsc main.ts && nodejs main.js -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Notify-0.7 -o out && cd out && tsc sam.ts",
+    "regress": "tsc main.ts && nodejs main.js -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o out && cd out && tsc sam.ts",
     "build": "tsc main.ts",
     "watch": "tsc --watch",
     "run": "node main.js"
@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
   "devDependencies": {
-    "@types/commander": "^2.9.1",
     "@types/lodash": "^4.14.66",
     "@types/node": "^7.0.31",
     "@types/xml2js": "0.0.33",

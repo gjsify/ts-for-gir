@@ -1161,8 +1161,8 @@ export class TypeModule {
     /* Fields of GObject.TypeModule */
     parent_instance:Object
     use_count:number
-    type_infos:GLib.SList
-    interface_infos:GLib.SList
+    type_infos:object[]
+    interface_infos:object[]
     name:string
     /* Fields of GObject.Object */
     g_type_instance:TypeInstance

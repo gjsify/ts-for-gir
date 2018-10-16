@@ -1826,6 +1826,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     enable_hyperlink_auditing?:boolean
     enable_java?:boolean
     enable_javascript?:boolean
+    enable_media_capabilities?:boolean
     enable_media_stream?:boolean
     enable_mediasource?:boolean
     enable_offline_web_application_cache?:boolean
@@ -1881,6 +1882,7 @@ export class Settings {
     enable_hyperlink_auditing:boolean
     enable_java:boolean
     enable_javascript:boolean
+    enable_media_capabilities:boolean
     enable_media_stream:boolean
     enable_mediasource:boolean
     enable_offline_web_application_cache:boolean
@@ -1939,6 +1941,7 @@ export class Settings {
     get_enable_hyperlink_auditing(): boolean
     get_enable_java(): boolean
     get_enable_javascript(): boolean
+    get_enable_media_capabilities(): boolean
     get_enable_media_stream(): boolean
     get_enable_mediasource(): boolean
     get_enable_offline_web_application_cache(): boolean
@@ -1991,6 +1994,7 @@ export class Settings {
     set_enable_hyperlink_auditing(enabled: boolean): void
     set_enable_java(enabled: boolean): void
     set_enable_javascript(enabled: boolean): void
+    set_enable_media_capabilities(enabled: boolean): void
     set_enable_media_stream(enabled: boolean): void
     set_enable_mediasource(enabled: boolean): void
     set_enable_offline_web_application_cache(enabled: boolean): void
@@ -2076,6 +2080,7 @@ export class Settings {
     connect(sigName: "notify::enable-hyperlink-auditing", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: "notify::enable-java", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: "notify::enable-javascript", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): void
+    connect(sigName: "notify::enable-media-capabilities", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: "notify::enable-media-stream", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: "notify::enable-mediasource", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): void
     connect(sigName: "notify::enable-offline-web-application-cache", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): void
@@ -2291,9 +2296,11 @@ export class UserContentManager {
     add_script(script: UserScript): void
     add_style_sheet(stylesheet: UserStyleSheet): void
     register_script_message_handler(name: string): boolean
+    register_script_message_handler_in_world(name: string, world_name: string): boolean
     remove_all_scripts(): void
     remove_all_style_sheets(): void
     unregister_script_message_handler(name: string): void
+    unregister_script_message_handler_in_world(name: string, world_name: string): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2699,7 +2706,6 @@ export class WebView {
     get_favicon(): cairo.Surface
     get_find_controller(): FindController
     get_inspector(): WebInspector
-    get_javascript_global_context(): JavaScriptCore.GlobalContext
     get_main_resource(): WebResource
     get_page_id(): number
     get_session_state(): WebViewSessionState
@@ -2732,6 +2738,8 @@ export class WebView {
     run_javascript_finish(result: Gio.AsyncResult): JavascriptResult
     run_javascript_from_gresource(resource: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     run_javascript_from_gresource_finish(result: Gio.AsyncResult): JavascriptResult
+    run_javascript_in_world(script: string, world_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    run_javascript_in_world_finish(result: Gio.AsyncResult): JavascriptResult
     save(save_mode: SaveMode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     save_finish(result: Gio.AsyncResult): Gio.InputStream
     save_to_file(file: Gio.File, save_mode: SaveMode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -4161,8 +4169,7 @@ export class InstallMissingMediaPluginsPermissionRequestPrivate {
 }
 export class JavascriptResult {
     /* Methods of WebKit2.JavascriptResult */
-    get_global_context(): JavaScriptCore.GlobalContext
-    get_value(): JavaScriptCore.Value
+    get_js_value(): JavaScriptCore.Value
     ref(): JavascriptResult
     unref(): void
     static name: string
@@ -4290,6 +4297,7 @@ export class UserScript {
     static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist?: string[] | null, blacklist?: string[] | null): UserScript
     constructor(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist?: string[] | null, blacklist?: string[] | null)
     static new(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, whitelist?: string[] | null, blacklist?: string[] | null): UserScript
+    static new_for_world(source: string, injected_frames: UserContentInjectedFrames, injection_time: UserScriptInjectionTime, world_name: string, whitelist?: string[] | null, blacklist?: string[] | null): UserScript
 }
 export class UserStyleSheet {
     /* Methods of WebKit2.UserStyleSheet */
@@ -4299,6 +4307,7 @@ export class UserStyleSheet {
     static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist?: string[] | null, blacklist?: string[] | null): UserStyleSheet
     constructor(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist?: string[] | null, blacklist?: string[] | null)
     static new(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, whitelist?: string[] | null, blacklist?: string[] | null): UserStyleSheet
+    static new_for_world(source: string, injected_frames: UserContentInjectedFrames, level: UserStyleLevel, world_name: string, whitelist?: string[] | null, blacklist?: string[] | null): UserStyleSheet
 }
 export class WebContextPrivate {
     static name: string

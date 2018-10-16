@@ -903,8 +903,8 @@ export class Layout {
     get_line(line: number): LayoutLine | null
     get_line_count(): number
     get_line_readonly(line: number): LayoutLine | null
-    get_lines(): GLib.SList
-    get_lines_readonly(): GLib.SList
+    get_lines(): LayoutLine[]
+    get_lines_readonly(): LayoutLine[]
     get_log_attrs(): /* attrs */ LogAttr[]
     get_log_attrs_readonly(): LogAttr[]
     get_pixel_extents(): [ /* ink_rect */ Rectangle | null, /* logical_rect */ Rectangle | null ]
@@ -1062,7 +1062,7 @@ export class Analysis {
     flags:number
     script:number
     language:Language
-    extra_attrs:GLib.SList
+    extra_attrs:object[]
     static name: string
 }
 export class AttrClass {
@@ -1105,8 +1105,8 @@ export class AttrInt {
 export class AttrIterator {
     /* Methods of Pango.AttrIterator */
     destroy(): void
-    get_attrs(): GLib.SList
-    get_font(desc: FontDescription, language?: Language | null, extra_attrs?: GLib.SList | null): void
+    get_attrs(): Attribute[]
+    get_font(desc: FontDescription, language?: Language | null, extra_attrs?: Attribute[] | null): void
     next(): boolean
     range(): [ /* start */ number, /* end */ number ]
     static name: string
@@ -1276,7 +1276,7 @@ export class GlyphItem {
     item:Item
     glyphs:GlyphString
     /* Methods of Pango.GlyphItem */
-    apply_attrs(text: string, list: AttrList): GLib.SList
+    apply_attrs(text: string, list: AttrList): GlyphItem[]
     copy(): GlyphItem | null
     free(): void
     get_logical_widths(text: string, logical_widths: number[]): void
@@ -1390,7 +1390,7 @@ export class LayoutLine {
     layout:Layout
     start_index:number
     length:number
-    runs:GLib.SList
+    runs:LayoutRun[]
     is_paragraph_start:number
     resolved_dir:number
     /* Methods of Pango.LayoutLine */

@@ -35,15 +35,16 @@ code examples/browser
 Install GObject Introspection Repository files:
 
 ```bash
-# Ubuntu 17.10
+# Ubuntu 18.04
 sudo apt update && sudo apt install \
+    libappindicator3-dev \
+    libgda-5.0-dev \
     libgirepository1.0-dev \
     libgtk-3-dev \
-    libsoup2.4-dev \
     libgtksourceview-3.0-dev \
-    libwebkit2gtk-4.0-dev \
-    libappindicator3-dev \
-    libnotify-dev
+    libnotify-dev \
+    libsoup2.4-dev \
+    libwebkit2gtk-4.0-dev
 ```
 
 Generate definitions:

@@ -116,9 +116,9 @@ export enum SpaceTypeFlags {
     ALL,
 }
 export function completion_error_quark(): GLib.Quark
-export function encoding_get_all(): GLib.SList
+export function encoding_get_all(): Encoding[]
 export function encoding_get_current(): Encoding
-export function encoding_get_default_candidates(): GLib.SList
+export function encoding_get_default_candidates(): Encoding[]
 export function encoding_get_from_charset(charset: string): Encoding | null
 export function encoding_get_utf8(): Encoding
 export function file_loader_error_quark(): GLib.Quark
@@ -264,8 +264,8 @@ export class Buffer {
     get_implicit_trailing_newline(): boolean
     get_language(): Language | null
     get_max_undo_levels(): number
-    get_source_marks_at_iter(iter: Gtk.TextIter, category?: string | null): GLib.SList
-    get_source_marks_at_line(line: number, category?: string | null): GLib.SList
+    get_source_marks_at_iter(iter: Gtk.TextIter, category?: string | null): Mark[]
+    get_source_marks_at_line(line: number, category?: string | null): Mark[]
     get_style_scheme(): StyleScheme | null
     get_undo_manager(): UndoManager | null
     iter_backward_to_context_class_toggle(iter: Gtk.TextIter, context_class: string): boolean
@@ -1676,7 +1676,7 @@ export class FileLoader {
     get_newline_type(): NewlineType
     load_async(io_priority: number, cancellable?: Gio.Cancellable | null, progress_callback?: Gio.FileProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     load_finish(result: Gio.AsyncResult): boolean
-    set_candidate_encodings(candidate_encodings: GLib.SList): void
+    set_candidate_encodings(candidate_encodings: Encoding[]): void
     /* Methods of GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -6317,9 +6317,9 @@ export class Encoding {
     get_name(): string
     to_string(): string
     static name: string
-    static get_all(): GLib.SList
+    static get_all(): Encoding[]
     static get_current(): Encoding
-    static get_default_candidates(): GLib.SList
+    static get_default_candidates(): Encoding[]
     static get_from_charset(charset: string): Encoding | null
     static get_utf8(): Encoding
 }

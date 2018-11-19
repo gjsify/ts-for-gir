@@ -160,7 +160,7 @@ export class GirModule {
     dependencies: string[] = []
     transitiveDependencies: string[] = []
     repo: GirRepository
-    ns: GirNamespace
+    ns: GirNamespace = { $: { name: "", version: "" } }
     symTable: { [key:string]: any } = {}
     patch: { [key:string]: string[] } = {}
 

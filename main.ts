@@ -160,7 +160,7 @@ export class GirModule {
     dependencies: string[] = []
     transitiveDependencies: string[] = []
     repo: GirRepository
-    ns: GirNamespace
+    ns: GirNamespace = { $: { name: "", version: "" } }
     symTable: { [key:string]: any } = {}
     patch: { [key:string]: string[] } = {}
 
@@ -387,7 +387,7 @@ export class GirModule {
             'guint': 'number', 'glong': 'number', 'gulong': 'number', 'gint': 'number',
             'guint8': 'number', 'guint64': 'number', 'gint64': 'number', 
             'gdouble': 'number', 'gssize': 'number', 'gsize': 'number', 'long': 'number',
-            'object': 'any', 'va_list': 'any', 'gshort': 'number'
+            'object': 'any', 'va_list': 'any', 'gshort': 'number', 'filename': 'string'
         }
 
         if (podTypeMap[type.$.name] != null)
@@ -971,6 +971,7 @@ export class GirModule {
         def.push(`    static name: string`)
         if (isDerivedFromGObject) {
             def.push(`    constructor (config?: ${name}_ConstructProps)`)
+            def.push(`    _init (config?: ${name}_ConstructProps): void`)
         } else {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
@@ -1095,6 +1096,33 @@ export class GirModule {
         if (this.ns.interface)
             for (let e of this.ns.interface)
                 out = out.concat(this.exportInterface(e))
+
+        // Extra interfaces used to help define GObject classes in js; these
+        // aren't part of gi.
+        if (this.name == "GObject") {
+            out = out.concat([
+`export interface SignalDefinition {
+    flags?: SignalFlags,
+    accumulator: number,
+    return_type?: Type,
+    param_types?: Type[]
+}`,
+`export interface MetaInfo {
+    GTypeName: string,
+    GTypeFlags?: TypeFlags,
+    Implements?: Function[],
+    Properties?: {[K: string]: ParamSpec},
+    Signals?: {[K: string]: SignalDefinition},
+    Requires?: Function[],
+    CssName?: string,
+    Template?: string,
+    Children?: string[],
+    InternalChildren?: string[]
+}`,
+"export function registerClass(metaInfo: MetaInfo, klass: Function): Function",
+"export function registerClass(klass: Function): Function",
+"export function registerClass<T extends MetaInfo | Function>(a: T, b?: Function): Function"])
+        }
 
         if (this.ns.class)
             for (let e of this.ns.class)

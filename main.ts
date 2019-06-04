@@ -971,7 +971,7 @@ export class GirModule {
         def.push(`    static name: string`)
         if (isDerivedFromGObject) {
             def.push(`    constructor (config?: ${name}_ConstructProps)`)
-            def.push(`    _init (config?: ${name}_ConstructProps)`)
+            def.push(`    _init (config?: ${name}_ConstructProps): void`)
         } else {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
@@ -1016,14 +1016,6 @@ export class GirModule {
 
                     stc = stc.concat(desc)
                 }
-
-            // Allow new GObject classes to be defined/registered
-            if (this.name === "GObject" && name === "Object") {
-                stc = stc.concat([
-                    "    static registerClass(metaInfo: MetaInfo, klass: Function): Function",
-                    "    static registerClass(klass: Function): Function",
-                    "    static registerClass(a: metaInfo | Function, b?: Function): Function"])
-            }
 
             if (stc.length > 0) {
                 def = def.concat(stc)
@@ -1126,7 +1118,10 @@ export class GirModule {
     Template?: string,
     Children?: string[],
     InternalChildren?: string[]
-}`])
+}`,
+"export function registerClass(metaInfo: MetaInfo, klass: Function): Function",
+"export function registerClass(klass: Function): Function",
+"export function registerClass<T extends MetaInfo | Function>(a: T, b?: Function): Function"])
         }
 
         if (this.ns.class)

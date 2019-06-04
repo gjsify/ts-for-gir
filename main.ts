@@ -971,6 +971,7 @@ export class GirModule {
         def.push(`    static name: string`)
         if (isDerivedFromGObject) {
             def.push(`    constructor (config?: ${name}_ConstructProps)`)
+            def.push(`    _init (config?: ${name}_ConstructProps)`)
         } else {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
@@ -1015,6 +1016,14 @@ export class GirModule {
 
                     stc = stc.concat(desc)
                 }
+
+            // Allow new GObject classes to be defined/registered
+            if (this.name === "GObject" && name === "Object") {
+                stc = stc.concat([
+                    "    static registerClass(metaInfo: MetaInfo, klass: Function): Function",
+                    "    static registerClass(klass: Function): Function",
+                    "    static registerClass(a: metaInfo | Function, b?: Function): Function"])
+            }
 
             if (stc.length > 0) {
                 def = def.concat(stc)
@@ -1095,6 +1104,30 @@ export class GirModule {
         if (this.ns.interface)
             for (let e of this.ns.interface)
                 out = out.concat(this.exportInterface(e))
+
+        // Extra interfaces used to help define GObject classes in js; these
+        // aren't part of gi.
+        if (this.name == "GObject") {
+            out = out.concat([
+`export interface SignalDefinition {
+    flags?: SignalFlags,
+    accumulator: number,
+    return_type?: Type,
+    param_types?: Type[]
+}`,
+`export interface MetaInfo {
+    GTypeName: string,
+    GTypeFlags?: TypeFlags,
+    Implements?: Function[],
+    Properties?: {[K: string]: ParamSpec},
+    Signals?: {[K: string]: SignalDefinition},
+    Requires?: Function[],
+    CssName?: string,
+    Template?: string,
+    Children?: string[],
+    InternalChildren?: string[]
+}`])
+        }
 
         if (this.ns.class)
             for (let e of this.ns.class)

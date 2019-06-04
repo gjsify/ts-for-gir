@@ -971,6 +971,7 @@ export class GirModule {
         def.push(`    static name: string`)
         if (isDerivedFromGObject) {
             def.push(`    constructor (config?: ${name}_ConstructProps)`)
+            def.push(`    _init (config?: ${name}_ConstructProps)`)
         } else {
             let constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {

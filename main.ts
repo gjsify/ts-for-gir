@@ -1119,11 +1119,11 @@ export class GirModule {
     Children?: string[],
     InternalChildren?: string[]
 }`,
-"export GTypeName: symbol",
-"export requires: symbol",
-"export interfaces: symbol",
-"export properties: symbol",
-"export signals: symbol",
+"export const GTypeName: symbol",
+"export const requires: symbol",
+"export const interfaces: symbol",
+"export const properties: symbol",
+"export const signals: symbol",
 "export function registerClass(metaInfo: MetaInfo, klass: Function): Function",
 "export function registerClass(klass: Function): Function",
 "export function registerClass<T extends MetaInfo | Function>(a: T, b?: Function): Function"])

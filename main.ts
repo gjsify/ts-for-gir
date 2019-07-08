@@ -1138,7 +1138,14 @@ export class GirModule {
 
         if (this.ns.alias)
             for (let e of this.ns.alias)
-                out = out.concat(this.exportAlias(e))
+                // GType is not a number in GJS
+                if (this.name != "GObject" || e.$.name != "Type")
+                    out = out.concat(this.exportAlias(e))
+
+        if (this.name == "GObject")
+            out = out.concat(["export interface Type {",
+                "    name: string",
+                "}"])
 
         outStream.write(out.join("\n"))
     }

@@ -963,9 +963,9 @@ export class GirModule {
             let prefix = "GObject."
             if (this.name == "GObject") prefix = ""
             for (let p of propertyNames) {
-                def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void)): void`)
+                def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void)): number`)
             }
-            def.push(`    connect(sigName: string, callback: any): void`)
+            def.push(`    connect(sigName: string, callback: any): number`)
             def.push(`    connect_after(sigName: string, callback: any): number`)
             def.push(`    emit(sigName: string, ...args: any[]): void`)
             def.push(`    disconnect(id: number): void`)

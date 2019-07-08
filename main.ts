@@ -726,7 +726,10 @@ export class GirModule {
         let [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
         let paramComma = params.length > 0 ? ', ' : ''
 
-        return [`    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): void`]
+         return [`    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+            `    connect_after(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+            `    emit(sigName: "${sigName}"${paramComma}${params}): void`
+         ]
     }
 
     exportFunction(e: GirFunction) {
@@ -963,6 +966,9 @@ export class GirModule {
                 def.push(`    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void)): void`)
             }
             def.push(`    connect(sigName: string, callback: any): void`)
+            def.push(`    connect_after(sigName: string, callback: any): number`)
+            def.push(`    emit(sigName: string, ...args: any[]): void`)
+            def.push(`    disconnect(id: number): void`)
         }
 
         // TODO: Records have fields

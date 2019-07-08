@@ -1022,6 +1022,9 @@ export class GirModule {
             }
         }
 
+        if (isDerivedFromGObject)
+            def.push(`    static $gtype: ${this.name == "GObject" ? "" : "GObject."}Type`)
+
         def.push("}")
 
         return def

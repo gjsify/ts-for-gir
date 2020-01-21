@@ -9,11 +9,11 @@ interfaces.
 
 The definitions can be used for both TypeScript or JavaScript projects.
 
-# How to use
+## How to use
 
 Install:
 
-```
+```bash
 git clone https://github.com/sammydre/ts-for-gjs
 cd ts-for-gjs
 npm install
@@ -22,15 +22,15 @@ npm install
 Now open some code with an editor that understands TypeScript, for example
 [Visual Studio Code](https://code.visualstudio.com/).
 
-```
+```bash
 code examples/browser
 ```
 
-# What it's like
+## What it's like
 
 ![screencast](screencast-01.gif)
 
-# Development
+## Development
 
 Install GObject Introspection Repository files:
 
@@ -52,3 +52,21 @@ Generate definitions:
 ```bash
 npm run regress
 ```
+
+## Related Projects
+
+# TypeScript Type Definitions
+
+* [ts-gir](https://github.com/codejamninja/ts-gir)
+* [node-gir-typedef](https://github.com/SolarLiner/node-gir-typedef)
+* [gir2dts](https://github.com/darkoverlordofdata/gir2dts)
+* [gir-dts-generator](https://github.com/Place1/gir-dts-generator)
+* [gjs-ts](https://github.com/niagr/gjs-ts)
+* [gjs-docs](https://github.com/apla/gjs-docs)
+
+## Other
+
+* [node-gtk](https://github.com/romgrk/node-gtk)
+* [cgjs](https://github.com/cgjs/cgjs)
+* [jsgtk](https://github.com/WebReflection/jsgtk)
+* [vala-girs](https://github.com/nemequ/vala-girs)

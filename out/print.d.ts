@@ -1,1 +1,0 @@
-declare function print(...args: any[]): void

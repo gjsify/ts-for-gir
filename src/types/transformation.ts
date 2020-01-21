@@ -1,0 +1,13 @@
+export type Transformation =
+    | 'none'
+    | 'camelCase'
+    | 'capitalCase'
+    | 'constantCase'
+    | 'dotCase'
+    | 'headerCase'
+    | 'noCase'
+    | 'paramCase'
+    | 'pascalCase'
+    | 'pathCase'
+    | 'sentenceCase'
+    | 'snakeCase'

@@ -2,35 +2,60 @@
   "name": "ts-for-gjs",
   "version": "1.0.0",
   "description": "Typescript bindings for GJS",
-  "main": "out/index",
-  "typings": "out/index",
+  "main": "lib/index.js",
+  "bin": {
+    "ts-gir": "bin/bin.js"
+  },
+  "typings": "@types",
   "scripts": {
-    "test": "tsc test.ts && node_modules/ava/cli.js test.js",
-    "regress": "tsc main.ts && nodejs main.js -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o out && cd out && tsc sam.ts",
-    "build": "tsc main.ts",
-    "watch": "tsc --watch",
-    "run": "node main.js"
+    "test": "npm run build:ts -- test/test.ts && ava test/test.js && npm run build:ts -- test/sam.ts",
+    "regress": "npm run build && node lib/index.js -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types",
+    "build": "npm run clear:build && npm run build:ts",
+    "build:ts": "tsc",
+    "clear": "npm run clear:build && npm run clear:types",
+    "clear:build": "rm -rf ./lib",
+    "clear:types": "rm -rf ./@types",
+    "watch": "npm run build:ts -- --watch",
+    "start": "node node lib/index.js",
+    "lint": "npm run build:ts -- --noEmit && eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sammydre/ts-for-gjs.git"
   },
   "author": "",
+  "files": [
+    "lib",
+    "bin"
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/sammydre/ts-for-gjs/issues"
   },
   "homepage": "https://github.com/sammydre/ts-for-gjs#readme",
   "devDependencies": {
-    "@types/lodash": "^4.14.66",
-    "@types/node": "^7.0.31",
-    "@types/xml2js": "0.0.33",
-    "ava": "^0.19.1",
-    "commander": "^2.9.0",
-    "events": "^1.1.1",
-    "ts-loader": "^2.2.0",
-    "typescript": "^2.3.4",
-    "webpack": "^3.0.0",
-    "xml2js": "^0.4.17"
+    "@types/change-case": "^2.3.1",
+    "@types/commander": "^2.12.2",
+    "@types/ejs": "^3.0.0",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^13.1.6",
+    "@types/xml2js": "0.4.5",
+    "@typescript-eslint/eslint-plugin": "^2.15.0",
+    "@typescript-eslint/parser": "^2.15.0",
+    "ava": "^3.0.0-beta.2",
+    "ejs": "^3.0.1",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "change-case": "^4.1.1",
+    "commander": "^4.1.0",
+    "ejs": "^3.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "events": "^3.1.0",
+    "lodash": "^4.17.15",
+    "prettier": "^1.19.1",
+    "xml2js": "^0.4.23"
   }
 }

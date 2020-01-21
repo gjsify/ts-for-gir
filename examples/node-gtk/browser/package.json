@@ -1,0 +1,30 @@
+{
+  "name": "gir-ts-browser-example",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "build": "webpack",
+    "tsc": "tsc",
+    "types": "rm -rf types && cp -r ../../../lib types",
+    "start": "npm run build && node dist/browser.js",
+    "watch": "npm run build -- --watch",
+    "lint": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": "^12"
+  },
+  "devDependencies": {
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "node-gtk": "^0.3.0"
+  }
+}

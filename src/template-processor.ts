@@ -1,7 +1,7 @@
 import fs from 'fs'
 import Path from 'path'
 import ejs from 'ejs'
-import { Runtime } from './types/runtime'
+import { Environment } from './types/environment'
 import { Conversation } from './conversations'
 
 const CLIEngine = require('eslint').CLIEngine
@@ -11,8 +11,8 @@ const TEMPLATE_DIR = __dirname + '/../templates'
 
 export class TemplateProcessor {
     private templateDir: string
-    constructor(protected readonly data: any, private readonly runtime: Runtime) {
-        this.templateDir = Conversation.getRuntimeDir(runtime, TEMPLATE_DIR)
+    constructor(protected readonly data: any, private readonly environment: Environment) {
+        this.templateDir = Conversation.getEnvironmentDir(environment, TEMPLATE_DIR)
     }
 
     /**
@@ -58,7 +58,7 @@ export class TemplateProcessor {
     }
 
     public write(content: string, targetDir: string, targetFilename: string): string {
-        targetDir = Conversation.getRuntimeDir(this.runtime, targetDir)
+        targetDir = Conversation.getEnvironmentDir(this.environment, targetDir)
         const destPath = Path.join(targetDir, targetFilename)
 
         // write template result file

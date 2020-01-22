@@ -1,22 +1,23 @@
 {
-  "name": "ts-for-gjs",
+  "name": "ts-for-gir",
   "version": "1.0.0",
-  "description": "Typescript bindings for GJS",
+  "description": "Typescript bindings for GJS and node-gtk",
   "main": "lib/index.js",
   "bin": {
-    "ts-gir": "bin/bin.js"
+    "ts-for-gir": "bin/bin.js"
   },
   "typings": "@types",
   "scripts": {
-    "test": "npm run build:ts -- test/test.ts && ava test/test.js && npm run build:ts -- test/sam.ts",
-    "regress": "npm run build && node lib/index.js -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types",
+    "test": "npm run build:ts && npm run build:test && ava tmp/test/test.js",
+    "regress": "npm run build:ts && node lib/cli.js -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types",
     "build": "npm run clear:build && npm run build:ts",
     "build:ts": "tsc",
+    "build:test": "tsc -p tsconfig.test.json",
     "clear": "npm run clear:build && npm run clear:types",
     "clear:build": "rm -rf ./lib",
     "clear:types": "rm -rf ./@types",
     "watch": "npm run build:ts -- --watch",
-    "start": "node node lib/index.js",
+    "start": "node lib/cli.js",
     "lint": "npm run build:ts -- --noEmit && eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "repository": {
@@ -38,13 +39,13 @@
     "@types/commander": "^2.12.2",
     "@types/ejs": "^3.0.0",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^13.1.6",
+    "@types/node": "^13.1.8",
     "@types/xml2js": "0.4.5",
-    "@typescript-eslint/eslint-plugin": "^2.15.0",
-    "@typescript-eslint/parser": "^2.15.0",
-    "ava": "^3.0.0-beta.2",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "ava": "^3.0.0",
     "ejs": "^3.0.1",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.5"
   },
   "dependencies": {
     "change-case": "^4.1.1",
@@ -56,6 +57,7 @@
     "events": "^3.1.0",
     "lodash": "^4.17.15",
     "prettier": "^1.19.1",
+    "tiny-glob": "^0.2.6",
     "xml2js": "^0.4.23"
   }
 }

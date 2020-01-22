@@ -1,5 +1,5 @@
 import test from 'ava'
-import { GirEnumeration, GirModule } from './main'
+import { GirEnumeration, GirModule } from '../src'
 import * as TestData from './testData'
 
 const emptyRepositoryXml = {
@@ -30,7 +30,7 @@ test('enumeration', t => {
         ],
     }
 
-    const mod = new GirModule(emptyRepositoryXml)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib')
     t.deepEqual(mod.exportEnumeration(enum_), ['export enum MyEnum {', '    MEMBER_1,', '}'])
 })
 
@@ -61,7 +61,7 @@ test('constant', t => {
         'Test.MyType': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib')
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable
@@ -98,7 +98,7 @@ test('function', t => {
         'Test.BusNameLostCallback': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib')
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable
@@ -150,7 +150,7 @@ test('callback', t => {
         'GLib.Variant': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib')
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable
@@ -169,7 +169,7 @@ test('interface', t => {
         'GLib.VariantType': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib')
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable
@@ -240,10 +240,18 @@ test('interface', t => {
         '    vfunc_list_actions?(): string[]',
         '    vfunc_query_action?(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]',
         '    /* Signals of ActionGroup */',
-        '    connect(sigName: "action-added", callback: ((obj: ActionGroup, action_name: string) => void)): void',
-        '    connect(sigName: "action-enabled-changed", callback: ((obj: ActionGroup, action_name: string, enabled: boolean) => void)): void',
-        '    connect(sigName: "action-removed", callback: ((obj: ActionGroup, action_name: string) => void)): void',
-        '    connect(sigName: "action-state-changed", callback: ((obj: ActionGroup, action_name: string, value: GLib.Variant) => void)): void',
+        '    connect(sigName: "action-added", callback: ((obj: ActionGroup, action_name: string) => void)): number',
+        '    connect_after(sigName: "action-added", callback: ((obj: ActionGroup, action_name: string) => void)): number',
+        '    emit(sigName: "action-added", action_name: string): void',
+        '    connect(sigName: "action-enabled-changed", callback: ((obj: ActionGroup, action_name: string, enabled: boolean) => void)): number',
+        '    connect_after(sigName: "action-enabled-changed", callback: ((obj: ActionGroup, action_name: string, enabled: boolean) => void)): number',
+        '    emit(sigName: "action-enabled-changed", action_name: string, enabled: boolean): void',
+        '    connect(sigName: "action-removed", callback: ((obj: ActionGroup, action_name: string) => void)): number',
+        '    connect_after(sigName: "action-removed", callback: ((obj: ActionGroup, action_name: string) => void)): number',
+        '    emit(sigName: "action-removed", action_name: string): void',
+        '    connect(sigName: "action-state-changed", callback: ((obj: ActionGroup, action_name: string, value: GLib.Variant) => void)): number',
+        '    connect_after(sigName: "action-state-changed", callback: ((obj: ActionGroup, action_name: string, value: GLib.Variant) => void)): number',
+        '    emit(sigName: "action-state-changed", action_name: string, value: GLib.Variant): void',
         '    static name: string',
         '}',
     ])
@@ -257,7 +265,7 @@ test('constructors', t => {
         'Test.DBusNodeInfo': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib')
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable
@@ -299,7 +307,7 @@ test('class', t => {
         'Test.ParamSpec': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib')
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable
@@ -364,11 +372,19 @@ test('class', t => {
         '    vfunc_notify?(pspec: ParamSpec): void',
         '    vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void',
         '    /* Signals of GObject.Object */',
-        '    connect(sigName: "notify", callback: ((obj: ApplicationCommandLine, pspec: ParamSpec) => void)): void',
-        '    connect(sigName: "notify::is-remote", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): void',
-        '    connect(sigName: string, callback: any): void',
+        '    connect(sigName: "notify", callback: ((obj: ApplicationCommandLine, pspec: ParamSpec) => void)): number',
+        '    connect_after(sigName: "notify", callback: ((obj: ApplicationCommandLine, pspec: ParamSpec) => void)): number',
+        '    emit(sigName: "notify", pspec: ParamSpec): void',
+        '    connect(sigName: "notify::is-remote", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): number',
+        '    connect_after(sigName: "notify::is-remote", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): number',
+        '    connect(sigName: string, callback: any): number',
+        '    connect_after(sigName: string, callback: any): number',
+        '    emit(sigName: string, ...args: any[]): void',
+        '    disconnect(id: number): void',
         '    static name: string',
         '    constructor (config?: ApplicationCommandLine_ConstructProps)',
+        '    _init (config?: ApplicationCommandLine_ConstructProps): void',
+        '    static $gtype: GObject.Type',
         '}',
     ])
 })

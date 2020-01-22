@@ -3,8 +3,8 @@ import TemplateProcessor from './template-processor'
 import { Conversation } from './conversations'
 
 import {
-    Runtime,
-    Buildtype,
+    Environment,
+    BuildType,
     GirRepository,
     GirNamespace,
     GirAlias,
@@ -15,10 +15,6 @@ import {
     GirArray,
     GirType,
     ParsedType,
-    InheritanceTable,
-    FunctionDescription,
-    FunctionMap,
-    ClassDetails,
     CTypeMap,
     GType,
     TypeArraySuffix,
@@ -59,10 +55,10 @@ const POD_TYPE_MAP = {
     va_list: 'any',
 }
 
-const POD_TYPE_MAP_ARRAY = (runtime: Runtime): { guint8: string; gint8: string; gunichar: string } => {
+const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
     return {
-        guint8: runtime === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
-        gint8: runtime === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
+        guint8: environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
+        gint8: environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
         gunichar: 'string',
     }
 }
@@ -87,9 +83,9 @@ export class GirModule {
     patch: { [key: string]: string[] } = {}
     conversation: Conversation
 
-    constructor(xml, private readonly runtime: Runtime, private readonly buildtype: Buildtype) {
+    constructor(xml, private readonly environment: Environment, private readonly buildType: BuildType) {
         this.repo = xml.repository
-        this.conversation = new Conversation(runtime)
+        this.conversation = new Conversation(environment)
 
         if (this.repo.include) {
             for (const i of this.repo.include) {
@@ -249,9 +245,9 @@ export class GirModule {
 
     private typeLookup(e: GirVariable): ParsedType {
         let type: GirType
-        let arr = ''
-        let arrCType
-        let nul = ''
+        let arr: TypeArraySuffix = ''
+        let arrCType: string | undefined
+        let nul: TypeNullableSuffix = ''
         const collection = e.array
             ? e.array
             : e.type && /^GLib.S?List$/.test(e.type[0].$.name)
@@ -262,7 +258,7 @@ export class GirModule {
             const typeArray = collection[0].type
             if (typeArray == null || typeArray.length == 0) return 'any'
             if (collection[0].$) {
-                const ea: any = collection[0].$
+                const ea = collection[0].$
                 arrCType = ea['c:type']
             }
             type = typeArray[0]
@@ -282,8 +278,8 @@ export class GirModule {
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
 
         if (arr) {
-            if (POD_TYPE_MAP_ARRAY(this.runtime)[type.$.name] != null) {
-                return (POD_TYPE_MAP_ARRAY(this.runtime)[type.$.name] + nul) as ParsedType
+            if (POD_TYPE_MAP_ARRAY(this.environment)[type.$.name] != null) {
+                return (POD_TYPE_MAP_ARRAY(this.environment)[type.$.name] + nul) as ParsedType
             }
         }
 
@@ -294,7 +290,7 @@ export class GirModule {
         if (!this.name) return 'any'
 
         let cType = type.$['c:type']
-        if (!cType) cType = arrCType
+        if (!cType && arrCType) cType = arrCType
 
         if (cType) {
             if (C_TYPE_MAP(this.name, suffix)[cType]) {
@@ -549,7 +545,7 @@ export class GirModule {
             break: 1,
         }
 
-        // Function name conversation by runtime
+        // Function name conversation by environment
         name = this.conversation.transform('function', name)
 
         if (reservedWords[name]) return [[`/* Function '${name}' is a reserved word */`], null]
@@ -871,7 +867,7 @@ export class GirModule {
             const constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
                 if (!Array.isArray(constructor_)) {
-                    console.warn('constructor_ is not an array', constructor_)
+                    debugger
                 } else {
                     for (const f of constructor_) {
                         const [desc, funcName] = this.getConstructorFunction(name, f, '    static ')
@@ -894,7 +890,9 @@ export class GirModule {
         const constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
         if (constructor_) {
             if (!Array.isArray(constructor_)) {
-                console.warn('constructor_ is not an array', constructor_)
+                // console.warn('constructor_ is not an array:')
+                // console.dir(constructor_)
+                debugger
             } else {
                 for (const f of constructor_) {
                     const [desc, funcName] = this.getConstructorFunction(name, f, '    static ')
@@ -941,10 +939,10 @@ export class GirModule {
         return this.exportObjectInternal(e)
     }
 
-    exportJs(outDir?: string): void {
+    exportJs(outDir: string | null): void {
         const templateProcessor = new TemplateProcessor(
-            { name: this.name, version: this.version, runtime: this.runtime, buildtype: this.buildtype },
-            this.runtime,
+            { name: this.name, version: this.version, environment: this.environment, buildType: this.buildType },
+            this.environment,
         )
         if (outDir) {
             templateProcessor.create('module.js', outDir, `${this.name}.js`)
@@ -973,8 +971,8 @@ export class GirModule {
         }
 
         // Module dependencies as type references or imports
-        if (this.buildtype === 'lib') {
-            if (this.runtime === 'gjs') {
+        if (this.buildType === 'lib') {
+            if (this.environment === 'gjs') {
                 out.push(`import * as Gjs from './Gjs';`)
             }
             for (const d of deps) {
@@ -982,7 +980,7 @@ export class GirModule {
                 out.push(`import * as ${base} from './${base}';`)
             }
         } else {
-            if (this.runtime === 'gjs') {
+            if (this.environment === 'gjs') {
                 out.push('/// <reference path="Gjs.d.ts" />')
             }
             for (const d of deps) {
@@ -992,7 +990,7 @@ export class GirModule {
         }
 
         // START Namespace
-        if (this.buildtype === 'typeDefinition') {
+        if (this.buildType === 'types') {
             out.push('')
             out.push(`declare namespace ${this.name} {`)
         }
@@ -1013,8 +1011,8 @@ export class GirModule {
         if (this.ns.interface) for (const e of this.ns.interface) out = out.concat(this.exportInterface(e))
 
         const templateProcessor = new TemplateProcessor(
-            { name: this.name, version: this.version, runtime: this.runtime, buildtype: this.buildtype },
-            this.runtime,
+            { name: this.name, version: this.version, environment: this.environment, buildType: this.buildType },
+            this.environment,
         )
 
         // Extra interfaces used to help define GObject classes in js; these
@@ -1043,7 +1041,7 @@ export class GirModule {
         if (this.name == 'GObject') out = out.concat(['export interface Type {', '    name: string', '}'])
 
         // END Namespace
-        if (this.buildtype === 'typeDefinition') {
+        if (this.buildType === 'types') {
             out.push(`}`)
         }
 

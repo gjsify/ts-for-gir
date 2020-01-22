@@ -1,6 +1,6 @@
 import * as changeCase from 'change-case'
 import { Conversations } from './types/conversations'
-import { Runtime } from './types/runtime'
+import { Environment } from './types/environment'
 import { Construct } from './types/construct'
 import Path from 'path'
 
@@ -16,29 +16,29 @@ export class Conversation {
         },
     }
 
-    constructor(private readonly runtime: Runtime) {
+    constructor(private readonly environment: Environment) {
         //
     }
 
     transform(construct: Construct, transformMe: string): string {
-        const conversations = this.conversations[construct][this.runtime].transformation
+        const conversations = this.conversations[construct][this.environment].transformation
         if (conversations === 'none') {
             return transformMe
         }
         return changeCase[conversations](transformMe)
     }
 
-    static getRuntimeDir(runtime: Runtime, baseDir: string): string {
-        if (runtime == 'gjs') {
+    static getEnvironmentDir(environment: Environment, baseDir: string): string {
+        if (environment == 'gjs') {
             return Path.join(baseDir, 'Gjs')
         }
-        if (runtime == 'node') {
+        if (environment == 'node') {
             return Path.join(baseDir, 'node-gtk')
         }
         return baseDir
     }
 
-    getRuntimeDir(baseDir: string): string {
-        return Conversation.getRuntimeDir(this.runtime, baseDir)
+    getEnvironmentDir(baseDir: string): string {
+        return Conversation.getEnvironmentDir(this.environment, baseDir)
     }
 }

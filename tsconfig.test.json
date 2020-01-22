@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "lib": ["es6"],                 
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "rootDir": "",
+    "outDir": "tmp",
+  },
+  "files": [
+    "test/test.ts",
+  ],
+  "include": ["test"],
+  "exclude": [
+    "node_modules",
+    "templates",
+    "src",
+  ]
+}

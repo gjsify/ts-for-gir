@@ -9,9 +9,9 @@
             "request": "launch",
             "protocol": "inspector",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/main.js",
+            "program": "${workspaceRoot}/lib/cli.js",
             "args": [
-                "-m", "Gtk-3.0"
+                "-m", "Gtk-3.0", "-p"
             ],
             "outFiles": [
                 "${workspaceRoot}/main.js"

@@ -41,14 +41,6 @@ export interface TsForGjsExtended {
     _fullSymName?: string
 }
 
-export interface ClassDetails {
-    name: string
-    qualifiedName: string
-    parentName?: string
-    qualifiedParentName?: string
-    localParentName?: string // qualified if its module != qualifiedName's module
-}
-
 export interface GirInclude {
     $: {
         name: string
@@ -214,9 +206,6 @@ export interface GirRepository {
     include?: GirInclude[]
     namespace?: GirNamespace[]
 }
-
-export type FunctionDescription = [string[], string | null]
-export type FunctionMap = Map<string, string[]>
 
 export interface CTypeMap {
     'char*': 'string'

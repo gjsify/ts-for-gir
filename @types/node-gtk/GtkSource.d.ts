@@ -226,12 +226,6 @@ export class UndoManager {
     emit(sigName: "can-undo-changed"): void
     static name: string
 }
-// WORKAROUND until bug InheritancedOverloadedMethodsReturnNamespace is fixed
-type TextView = Gtk.TextView;
-type TextTag = Gtk.TextTag;
-type Button = Gtk.Button;
-type TextMark = Gtk.TextMark;
-type TextBuffer = Gtk.TextBuffer;
 
 export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
     highlight_matching_brackets?:boolean

@@ -1,6 +1,5 @@
 import * as Gjs from "./Gjs";
 <% for (let i = 0; i < girModuleKeys.length; i++) { -%>
-    // /// <reference path="<%= girModuleKeys[i] %>.d.ts" />
     import * as <%= girModuleKeys[i] %> from "./<%= girModuleKeys[i] %>";
 <% } -%>
 

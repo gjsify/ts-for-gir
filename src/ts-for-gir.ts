@@ -4,7 +4,7 @@ import * as xml2js from 'xml2js'
 
 import { GirModule } from './gir-module'
 import TemplateProcessor from './template-processor'
-import { Conversation } from './conversations'
+import { Transformation } from './transformation'
 
 import { Environment, BuildType, InheritanceTable } from './types'
 
@@ -170,7 +170,7 @@ export class TsForGir {
             let dtOutf: NodeJS.WritableStream = process.stdout
             if (outDir) {
                 const name: string = girModules[k].name || 'unknown'
-                const targetDir = Conversation.getEnvironmentDir(environment, outDir)
+                const targetDir = Transformation.getEnvironmentDir(environment, outDir)
                 const dtFileName = `${name}.d.ts`
                 const dtTargetPath = `${targetDir}/${dtFileName}`
                 fs.mkdirSync(targetDir, { recursive: true })

@@ -131,10 +131,16 @@ export class Class {
     connect(sigName: "notify", callback: ((obj: Class, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Class, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Class, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Class, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Class, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Class_ConstructProps)
     _init (config?: Class_ConstructProps): void
@@ -200,10 +206,16 @@ export class Context {
     connect(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Context, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Context, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Context, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Context_ConstructProps)
     _init (config?: Context_ConstructProps): void
@@ -261,10 +273,16 @@ export class Exception {
     connect(sigName: "notify", callback: ((obj: Exception, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Exception, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Exception, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Exception, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Exception, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Exception_ConstructProps)
     _init (config?: Exception_ConstructProps): void
@@ -343,10 +361,16 @@ export class Value {
     connect(sigName: "notify", callback: ((obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Value, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Value, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Value, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Value, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Value_ConstructProps)
     _init (config?: Value_ConstructProps): void
@@ -404,10 +428,16 @@ export class VirtualMachine {
     connect(sigName: "notify", callback: ((obj: VirtualMachine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: VirtualMachine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: VirtualMachine, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: VirtualMachine, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: VirtualMachine, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: VirtualMachine_ConstructProps)
     _init (config?: VirtualMachine_ConstructProps): void
@@ -459,14 +489,23 @@ export class WeakValue {
     connect(sigName: "cleared", callback: ((obj: WeakValue) => void)): number
     connect_after(sigName: "cleared", callback: ((obj: WeakValue) => void)): number
     emit(sigName: "cleared"): void
+    on(sigName: "cleared", callback: ((event: WeakValue) => void)): EventEmitter
+    once(sigName: "cleared", callback: ((event: WeakValue) => void)): EventEmitter
+    off(sigName: "cleared", callback: ((event: WeakValue) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WeakValue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WeakValue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WeakValue, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WeakValue, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WeakValue, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WeakValue_ConstructProps)
     _init (config?: WeakValue_ConstructProps): void

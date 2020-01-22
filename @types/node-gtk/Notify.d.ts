@@ -105,26 +105,53 @@ export class Notification {
     connect(sigName: "closed", callback: ((obj: Notification) => void)): number
     connect_after(sigName: "closed", callback: ((obj: Notification) => void)): number
     emit(sigName: "closed"): void
+    on(sigName: "closed", callback: ((event: Notification) => void)): EventEmitter
+    once(sigName: "closed", callback: ((event: Notification) => void)): EventEmitter
+    off(sigName: "closed", callback: ((event: Notification) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Notification, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Notification, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Notification, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::app-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::app-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::app-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::app-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::body", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::body", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::closed-reason", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed-reason", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::closed-reason", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::closed-reason", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::closed-reason", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::icon-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::icon-name", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::icon-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::icon-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::icon-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::id", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::id", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::id", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::id", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::summary", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::summary", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Notification_ConstructProps)
     _init (config?: Notification_ConstructProps): void

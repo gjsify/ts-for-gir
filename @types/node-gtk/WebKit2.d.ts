@@ -350,14 +350,23 @@ export class AuthenticationRequest {
     connect(sigName: "cancelled", callback: ((obj: AuthenticationRequest) => void)): number
     connect_after(sigName: "cancelled", callback: ((obj: AuthenticationRequest) => void)): number
     emit(sigName: "cancelled"): void
+    on(sigName: "cancelled", callback: ((event: AuthenticationRequest) => void)): EventEmitter
+    once(sigName: "cancelled", callback: ((event: AuthenticationRequest) => void)): EventEmitter
+    off(sigName: "cancelled", callback: ((event: AuthenticationRequest) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AuthenticationRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AuthenticationRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AuthenticationRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AuthenticationRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AuthenticationRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AuthenticationRequest_ConstructProps)
     _init (config?: AuthenticationRequest_ConstructProps): void
@@ -411,14 +420,23 @@ export class AutomationSession {
     connect(sigName: "create-web-view", callback: ((obj: AutomationSession) => WebView)): number
     connect_after(sigName: "create-web-view", callback: ((obj: AutomationSession) => WebView)): number
     emit(sigName: "create-web-view"): void
+    on(sigName: "create-web-view", callback: ((event: AutomationSession) => WebView)): EventEmitter
+    once(sigName: "create-web-view", callback: ((event: AutomationSession) => WebView)): EventEmitter
+    off(sigName: "create-web-view", callback: ((event: AutomationSession) => WebView)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AutomationSession, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AutomationSession, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AutomationSession, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AutomationSession, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AutomationSession, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AutomationSession_ConstructProps)
     _init (config?: AutomationSession_ConstructProps): void
@@ -476,14 +494,23 @@ export class BackForwardList {
     connect(sigName: "changed", callback: ((obj: BackForwardList, item_added?: BackForwardListItem | null, items_removed?: object | null) => void)): number
     connect_after(sigName: "changed", callback: ((obj: BackForwardList, item_added?: BackForwardListItem | null, items_removed?: object | null) => void)): number
     emit(sigName: "changed", item_added?: BackForwardListItem | null, items_removed?: object | null): void
+    on(sigName: "changed", callback: ((event: BackForwardList, item_added?: BackForwardListItem | null, items_removed?: object | null) => void)): EventEmitter
+    once(sigName: "changed", callback: ((event: BackForwardList, item_added?: BackForwardListItem | null, items_removed?: object | null) => void)): EventEmitter
+    off(sigName: "changed", callback: ((event: BackForwardList, item_added?: BackForwardListItem | null, items_removed?: object | null) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: BackForwardList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: BackForwardList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: BackForwardList, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: BackForwardList, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: BackForwardList, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: BackForwardList_ConstructProps)
     _init (config?: BackForwardList_ConstructProps): void
@@ -536,10 +563,16 @@ export class BackForwardListItem {
     connect(sigName: "notify", callback: ((obj: BackForwardListItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: BackForwardListItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: BackForwardListItem, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: BackForwardListItem, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: BackForwardListItem, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: BackForwardListItem_ConstructProps)
     _init (config?: BackForwardListItem_ConstructProps): void
@@ -595,16 +628,28 @@ export class ColorChooserRequest {
     connect(sigName: "finished", callback: ((obj: ColorChooserRequest) => void)): number
     connect_after(sigName: "finished", callback: ((obj: ColorChooserRequest) => void)): number
     emit(sigName: "finished"): void
+    on(sigName: "finished", callback: ((event: ColorChooserRequest) => void)): EventEmitter
+    once(sigName: "finished", callback: ((event: ColorChooserRequest) => void)): EventEmitter
+    off(sigName: "finished", callback: ((event: ColorChooserRequest) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::rgba", callback: ((obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rgba", callback: ((obj: ColorChooserRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::rgba", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::rgba", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::rgba", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: ColorChooserRequest_ConstructProps)
     _init (config?: ColorChooserRequest_ConstructProps): void
@@ -666,10 +711,16 @@ export class ContextMenu {
     connect(sigName: "notify", callback: ((obj: ContextMenu, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ContextMenu, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: ContextMenu, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: ContextMenu, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: ContextMenu, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: ContextMenu_ConstructProps)
     _init (config?: ContextMenu_ConstructProps): void
@@ -727,10 +778,16 @@ export class ContextMenuItem {
     connect(sigName: "notify", callback: ((obj: ContextMenuItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ContextMenuItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: ContextMenuItem, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: ContextMenuItem, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: ContextMenuItem, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: ContextMenuItem_ConstructProps)
     _init (config?: ContextMenuItem_ConstructProps): void
@@ -799,14 +856,23 @@ export class CookieManager {
     connect(sigName: "changed", callback: ((obj: CookieManager) => void)): number
     connect_after(sigName: "changed", callback: ((obj: CookieManager) => void)): number
     emit(sigName: "changed"): void
+    on(sigName: "changed", callback: ((event: CookieManager) => void)): EventEmitter
+    once(sigName: "changed", callback: ((event: CookieManager) => void)): EventEmitter
+    off(sigName: "changed", callback: ((event: CookieManager) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: CookieManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: CookieManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: CookieManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: CookieManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: CookieManager, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: CookieManager_ConstructProps)
     _init (config?: CookieManager_ConstructProps): void
@@ -856,10 +922,16 @@ export class DeviceInfoPermissionRequest {
     connect(sigName: "notify", callback: ((obj: DeviceInfoPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DeviceInfoPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: DeviceInfoPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: DeviceInfoPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: DeviceInfoPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: DeviceInfoPermissionRequest_ConstructProps)
     _init (config?: DeviceInfoPermissionRequest_ConstructProps): void
@@ -927,34 +999,67 @@ export class Download {
     connect(sigName: "created-destination", callback: ((obj: Download, destination: string) => void)): number
     connect_after(sigName: "created-destination", callback: ((obj: Download, destination: string) => void)): number
     emit(sigName: "created-destination", destination: string): void
+    on(sigName: "created-destination", callback: ((event: Download, destination: string) => void)): EventEmitter
+    once(sigName: "created-destination", callback: ((event: Download, destination: string) => void)): EventEmitter
+    off(sigName: "created-destination", callback: ((event: Download, destination: string) => void)): EventEmitter
     connect(sigName: "decide-destination", callback: ((obj: Download, suggested_filename: string) => boolean)): number
     connect_after(sigName: "decide-destination", callback: ((obj: Download, suggested_filename: string) => boolean)): number
     emit(sigName: "decide-destination", suggested_filename: string): void
+    on(sigName: "decide-destination", callback: ((event: Download, suggested_filename: string) => boolean)): EventEmitter
+    once(sigName: "decide-destination", callback: ((event: Download, suggested_filename: string) => boolean)): EventEmitter
+    off(sigName: "decide-destination", callback: ((event: Download, suggested_filename: string) => boolean)): EventEmitter
     connect(sigName: "failed", callback: ((obj: Download, error: GLib.Error) => void)): number
     connect_after(sigName: "failed", callback: ((obj: Download, error: GLib.Error) => void)): number
     emit(sigName: "failed", error: GLib.Error): void
+    on(sigName: "failed", callback: ((event: Download, error: GLib.Error) => void)): EventEmitter
+    once(sigName: "failed", callback: ((event: Download, error: GLib.Error) => void)): EventEmitter
+    off(sigName: "failed", callback: ((event: Download, error: GLib.Error) => void)): EventEmitter
     connect(sigName: "finished", callback: ((obj: Download) => void)): number
     connect_after(sigName: "finished", callback: ((obj: Download) => void)): number
     emit(sigName: "finished"): void
+    on(sigName: "finished", callback: ((event: Download) => void)): EventEmitter
+    once(sigName: "finished", callback: ((event: Download) => void)): EventEmitter
+    off(sigName: "finished", callback: ((event: Download) => void)): EventEmitter
     connect(sigName: "received-data", callback: ((obj: Download, data_length: number) => void)): number
     connect_after(sigName: "received-data", callback: ((obj: Download, data_length: number) => void)): number
     emit(sigName: "received-data", data_length: number): void
+    on(sigName: "received-data", callback: ((event: Download, data_length: number) => void)): EventEmitter
+    once(sigName: "received-data", callback: ((event: Download, data_length: number) => void)): EventEmitter
+    off(sigName: "received-data", callback: ((event: Download, data_length: number) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Download, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Download, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Download, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::allow-overwrite", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-overwrite", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::allow-overwrite", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::allow-overwrite", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::allow-overwrite", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::destination", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::destination", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::destination", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::destination", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::destination", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::estimated-progress", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-progress", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::estimated-progress", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::estimated-progress", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::estimated-progress", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::response", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::response", callback: ((obj: Download, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::response", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::response", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::response", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Download_ConstructProps)
     _init (config?: Download_ConstructProps): void
@@ -1011,12 +1116,21 @@ export class EditorState {
     connect(sigName: "notify", callback: ((obj: EditorState, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: EditorState, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: EditorState, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: EditorState, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: EditorState, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::typing-attributes", callback: ((obj: EditorState, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::typing-attributes", callback: ((obj: EditorState, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::typing-attributes", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::typing-attributes", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::typing-attributes", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: EditorState_ConstructProps)
     _init (config?: EditorState_ConstructProps): void
@@ -1069,14 +1183,23 @@ export class FaviconDatabase {
     connect(sigName: "favicon-changed", callback: ((obj: FaviconDatabase, page_uri: string, favicon_uri: string) => void)): number
     connect_after(sigName: "favicon-changed", callback: ((obj: FaviconDatabase, page_uri: string, favicon_uri: string) => void)): number
     emit(sigName: "favicon-changed", page_uri: string, favicon_uri: string): void
+    on(sigName: "favicon-changed", callback: ((event: FaviconDatabase, page_uri: string, favicon_uri: string) => void)): EventEmitter
+    once(sigName: "favicon-changed", callback: ((event: FaviconDatabase, page_uri: string, favicon_uri: string) => void)): EventEmitter
+    off(sigName: "favicon-changed", callback: ((event: FaviconDatabase, page_uri: string, favicon_uri: string) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FaviconDatabase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FaviconDatabase, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: FaviconDatabase, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: FaviconDatabase, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: FaviconDatabase, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: FaviconDatabase_ConstructProps)
     _init (config?: FaviconDatabase_ConstructProps): void
@@ -1135,18 +1258,36 @@ export class FileChooserRequest {
     connect(sigName: "notify", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: FileChooserRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: FileChooserRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: FileChooserRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::filter", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::mime-types", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mime-types", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::mime-types", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::mime-types", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::mime-types", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::select-multiple", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::select-multiple", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::select-multiple", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::select-multiple", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::select-multiple", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::selected-files", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::selected-files", callback: ((obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::selected-files", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::selected-files", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::selected-files", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: FileChooserRequest_ConstructProps)
     _init (config?: FileChooserRequest_ConstructProps): void
@@ -1208,26 +1349,50 @@ export class FindController {
     connect(sigName: "counted-matches", callback: ((obj: FindController, match_count: number) => void)): number
     connect_after(sigName: "counted-matches", callback: ((obj: FindController, match_count: number) => void)): number
     emit(sigName: "counted-matches", match_count: number): void
+    on(sigName: "counted-matches", callback: ((event: FindController, match_count: number) => void)): EventEmitter
+    once(sigName: "counted-matches", callback: ((event: FindController, match_count: number) => void)): EventEmitter
+    off(sigName: "counted-matches", callback: ((event: FindController, match_count: number) => void)): EventEmitter
     connect(sigName: "failed-to-find-text", callback: ((obj: FindController) => void)): number
     connect_after(sigName: "failed-to-find-text", callback: ((obj: FindController) => void)): number
     emit(sigName: "failed-to-find-text"): void
+    on(sigName: "failed-to-find-text", callback: ((event: FindController) => void)): EventEmitter
+    once(sigName: "failed-to-find-text", callback: ((event: FindController) => void)): EventEmitter
+    off(sigName: "failed-to-find-text", callback: ((event: FindController) => void)): EventEmitter
     connect(sigName: "found-text", callback: ((obj: FindController, match_count: number) => void)): number
     connect_after(sigName: "found-text", callback: ((obj: FindController, match_count: number) => void)): number
     emit(sigName: "found-text", match_count: number): void
+    on(sigName: "found-text", callback: ((event: FindController, match_count: number) => void)): EventEmitter
+    once(sigName: "found-text", callback: ((event: FindController, match_count: number) => void)): EventEmitter
+    off(sigName: "found-text", callback: ((event: FindController, match_count: number) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: FindController, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: FindController, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: FindController, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::max-match-count", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-match-count", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-match-count", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::max-match-count", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::max-match-count", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::options", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::options", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::options", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::options", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::options", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::text", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::text", callback: ((obj: FindController, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::text", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::text", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::text", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: FindController_ConstructProps)
     _init (config?: FindController_ConstructProps): void
@@ -1278,10 +1443,16 @@ export class FormSubmissionRequest {
     connect(sigName: "notify", callback: ((obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: FormSubmissionRequest_ConstructProps)
     _init (config?: FormSubmissionRequest_ConstructProps): void
@@ -1334,19 +1505,34 @@ export class GeolocationManager {
     connect(sigName: "start", callback: ((obj: GeolocationManager) => boolean)): number
     connect_after(sigName: "start", callback: ((obj: GeolocationManager) => boolean)): number
     emit(sigName: "start"): void
+    on(sigName: "start", callback: ((event: GeolocationManager) => boolean)): EventEmitter
+    once(sigName: "start", callback: ((event: GeolocationManager) => boolean)): EventEmitter
+    off(sigName: "start", callback: ((event: GeolocationManager) => boolean)): EventEmitter
     connect(sigName: "stop", callback: ((obj: GeolocationManager) => void)): number
     connect_after(sigName: "stop", callback: ((obj: GeolocationManager) => void)): number
     emit(sigName: "stop"): void
+    on(sigName: "stop", callback: ((event: GeolocationManager) => void)): EventEmitter
+    once(sigName: "stop", callback: ((event: GeolocationManager) => void)): EventEmitter
+    off(sigName: "stop", callback: ((event: GeolocationManager) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: GeolocationManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: GeolocationManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: GeolocationManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: GeolocationManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: GeolocationManager, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-high-accuracy", callback: ((obj: GeolocationManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-high-accuracy", callback: ((obj: GeolocationManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-high-accuracy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-high-accuracy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-high-accuracy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: GeolocationManager_ConstructProps)
     _init (config?: GeolocationManager_ConstructProps): void
@@ -1396,10 +1582,16 @@ export class GeolocationPermissionRequest {
     connect(sigName: "notify", callback: ((obj: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: GeolocationPermissionRequest_ConstructProps)
     _init (config?: GeolocationPermissionRequest_ConstructProps): void
@@ -1467,10 +1659,16 @@ export class HitTestResult {
     connect(sigName: "notify", callback: ((obj: HitTestResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: HitTestResult, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: HitTestResult, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: HitTestResult, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: HitTestResult, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: HitTestResult_ConstructProps)
     _init (config?: HitTestResult_ConstructProps): void
@@ -1523,10 +1721,16 @@ export class InstallMissingMediaPluginsPermissionRequest {
     connect(sigName: "notify", callback: ((obj: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: InstallMissingMediaPluginsPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: InstallMissingMediaPluginsPermissionRequest_ConstructProps)
     _init (config?: InstallMissingMediaPluginsPermissionRequest_ConstructProps): void
@@ -1592,22 +1796,46 @@ export class NavigationPolicyDecision {
     connect(sigName: "notify", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::frame-name", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::frame-name", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::frame-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::frame-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::frame-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::modifiers", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modifiers", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::modifiers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::modifiers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::modifiers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::mouse-button", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mouse-button", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::mouse-button", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::mouse-button", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::mouse-button", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::navigation-action", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::navigation-action", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::navigation-action", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::navigation-action", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::navigation-action", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::navigation-type", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::navigation-type", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::navigation-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::navigation-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::navigation-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::request", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::request", callback: ((obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: NavigationPolicyDecision_ConstructProps)
     _init (config?: NavigationPolicyDecision_ConstructProps): void
@@ -1667,25 +1895,49 @@ export class Notification {
     connect(sigName: "clicked", callback: ((obj: Notification) => void)): number
     connect_after(sigName: "clicked", callback: ((obj: Notification) => void)): number
     emit(sigName: "clicked"): void
+    on(sigName: "clicked", callback: ((event: Notification) => void)): EventEmitter
+    once(sigName: "clicked", callback: ((event: Notification) => void)): EventEmitter
+    off(sigName: "clicked", callback: ((event: Notification) => void)): EventEmitter
     connect(sigName: "closed", callback: ((obj: Notification) => void)): number
     connect_after(sigName: "closed", callback: ((obj: Notification) => void)): number
     emit(sigName: "closed"): void
+    on(sigName: "closed", callback: ((event: Notification) => void)): EventEmitter
+    once(sigName: "closed", callback: ((event: Notification) => void)): EventEmitter
+    off(sigName: "closed", callback: ((event: Notification) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Notification, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Notification, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Notification, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::body", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::body", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::id", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::id", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::id", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::id", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tag", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tag", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tag", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tag", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tag", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::title", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::title", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::title", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::title", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::title", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Notification_ConstructProps)
     _init (config?: Notification_ConstructProps): void
@@ -1735,10 +1987,16 @@ export class NotificationPermissionRequest {
     connect(sigName: "notify", callback: ((obj: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: NotificationPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: NotificationPermissionRequest_ConstructProps)
     _init (config?: NotificationPermissionRequest_ConstructProps): void
@@ -1792,14 +2050,23 @@ export class OptionMenu {
     connect(sigName: "close", callback: ((obj: OptionMenu) => void)): number
     connect_after(sigName: "close", callback: ((obj: OptionMenu) => void)): number
     emit(sigName: "close"): void
+    on(sigName: "close", callback: ((event: OptionMenu) => void)): EventEmitter
+    once(sigName: "close", callback: ((event: OptionMenu) => void)): EventEmitter
+    off(sigName: "close", callback: ((event: OptionMenu) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: OptionMenu, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: OptionMenu, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: OptionMenu, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: OptionMenu, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: OptionMenu, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: OptionMenu_ConstructProps)
     _init (config?: OptionMenu_ConstructProps): void
@@ -1852,10 +2119,16 @@ export class Plugin {
     connect(sigName: "notify", callback: ((obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Plugin, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Plugin, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Plugin, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Plugin_ConstructProps)
     _init (config?: Plugin_ConstructProps): void
@@ -1906,10 +2179,16 @@ export class PolicyDecision {
     connect(sigName: "notify", callback: ((obj: PolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: PolicyDecision, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: PolicyDecision, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: PolicyDecision, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: PolicyDecision, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: PolicyDecision_ConstructProps)
     _init (config?: PolicyDecision_ConstructProps): void
@@ -1966,17 +2245,29 @@ export class PrintCustomWidget {
     connect(sigName: "apply", callback: ((obj: PrintCustomWidget) => void)): number
     connect_after(sigName: "apply", callback: ((obj: PrintCustomWidget) => void)): number
     emit(sigName: "apply"): void
+    on(sigName: "apply", callback: ((event: PrintCustomWidget) => void)): EventEmitter
+    once(sigName: "apply", callback: ((event: PrintCustomWidget) => void)): EventEmitter
+    off(sigName: "apply", callback: ((event: PrintCustomWidget) => void)): EventEmitter
     connect(sigName: "update", callback: ((obj: PrintCustomWidget, page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings) => void)): number
     connect_after(sigName: "update", callback: ((obj: PrintCustomWidget, page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings) => void)): number
     emit(sigName: "update", page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings): void
+    on(sigName: "update", callback: ((event: PrintCustomWidget, page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings) => void)): EventEmitter
+    once(sigName: "update", callback: ((event: PrintCustomWidget, page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings) => void)): EventEmitter
+    off(sigName: "update", callback: ((event: PrintCustomWidget, page_setup: Gtk.PageSetup, print_settings: Gtk.PrintSettings) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PrintCustomWidget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: PrintCustomWidget, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: PrintCustomWidget, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: PrintCustomWidget, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: PrintCustomWidget, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: PrintCustomWidget_ConstructProps)
     _init (config?: PrintCustomWidget_ConstructProps): void
@@ -2038,24 +2329,45 @@ export class PrintOperation {
     connect(sigName: "create-custom-widget", callback: ((obj: PrintOperation) => PrintCustomWidget)): number
     connect_after(sigName: "create-custom-widget", callback: ((obj: PrintOperation) => PrintCustomWidget)): number
     emit(sigName: "create-custom-widget"): void
+    on(sigName: "create-custom-widget", callback: ((event: PrintOperation) => PrintCustomWidget)): EventEmitter
+    once(sigName: "create-custom-widget", callback: ((event: PrintOperation) => PrintCustomWidget)): EventEmitter
+    off(sigName: "create-custom-widget", callback: ((event: PrintOperation) => PrintCustomWidget)): EventEmitter
     connect(sigName: "failed", callback: ((obj: PrintOperation, error: GLib.Error) => void)): number
     connect_after(sigName: "failed", callback: ((obj: PrintOperation, error: GLib.Error) => void)): number
     emit(sigName: "failed", error: GLib.Error): void
+    on(sigName: "failed", callback: ((event: PrintOperation, error: GLib.Error) => void)): EventEmitter
+    once(sigName: "failed", callback: ((event: PrintOperation, error: GLib.Error) => void)): EventEmitter
+    off(sigName: "failed", callback: ((event: PrintOperation, error: GLib.Error) => void)): EventEmitter
     connect(sigName: "finished", callback: ((obj: PrintOperation) => void)): number
     connect_after(sigName: "finished", callback: ((obj: PrintOperation) => void)): number
     emit(sigName: "finished"): void
+    on(sigName: "finished", callback: ((event: PrintOperation) => void)): EventEmitter
+    once(sigName: "finished", callback: ((event: PrintOperation) => void)): EventEmitter
+    off(sigName: "finished", callback: ((event: PrintOperation) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: PrintOperation, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: PrintOperation, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: PrintOperation, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::page-setup", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::page-setup", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::page-setup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::page-setup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::page-setup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::print-settings", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::print-settings", callback: ((obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::print-settings", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::print-settings", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::print-settings", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: PrintOperation_ConstructProps)
     _init (config?: PrintOperation_ConstructProps): void
@@ -2115,14 +2427,26 @@ export class ResponsePolicyDecision {
     connect(sigName: "notify", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::request", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::request", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::response", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::response", callback: ((obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::response", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::response", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::response", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: ResponsePolicyDecision_ConstructProps)
     _init (config?: ResponsePolicyDecision_ConstructProps): void
@@ -2183,10 +2507,16 @@ export class SecurityManager {
     connect(sigName: "notify", callback: ((obj: SecurityManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SecurityManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: SecurityManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: SecurityManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: SecurityManager, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: SecurityManager_ConstructProps)
     _init (config?: SecurityManager_ConstructProps): void
@@ -2465,124 +2795,301 @@ export class Settings {
     connect(sigName: "notify", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Settings, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Settings, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Settings, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::allow-file-access-from-file-urls", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-file-access-from-file-urls", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::allow-file-access-from-file-urls", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::allow-file-access-from-file-urls", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::allow-file-access-from-file-urls", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::allow-modal-dialogs", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-modal-dialogs", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::allow-modal-dialogs", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::allow-modal-dialogs", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::allow-modal-dialogs", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::allow-universal-access-from-file-urls", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-universal-access-from-file-urls", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::allow-universal-access-from-file-urls", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::allow-universal-access-from-file-urls", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::allow-universal-access-from-file-urls", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::auto-load-images", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-load-images", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::auto-load-images", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::auto-load-images", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::auto-load-images", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::cursive-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cursive-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::cursive-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::cursive-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::cursive-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::default-charset", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-charset", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::default-charset", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::default-charset", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::default-charset", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::default-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::default-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::default-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::default-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::default-font-size", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-font-size", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::default-font-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::default-font-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::default-font-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::default-monospace-font-size", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-monospace-font-size", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::default-monospace-font-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::default-monospace-font-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::default-monospace-font-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::draw-compositing-indicators", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::draw-compositing-indicators", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::draw-compositing-indicators", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::draw-compositing-indicators", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::draw-compositing-indicators", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-accelerated-2d-canvas", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-accelerated-2d-canvas", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-accelerated-2d-canvas", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-accelerated-2d-canvas", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-accelerated-2d-canvas", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-back-forward-navigation-gestures", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-back-forward-navigation-gestures", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-back-forward-navigation-gestures", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-back-forward-navigation-gestures", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-back-forward-navigation-gestures", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-caret-browsing", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-caret-browsing", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-caret-browsing", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-caret-browsing", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-caret-browsing", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-developer-extras", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-developer-extras", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-developer-extras", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-developer-extras", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-developer-extras", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-dns-prefetching", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-dns-prefetching", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-dns-prefetching", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-dns-prefetching", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-dns-prefetching", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-encrypted-media", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-encrypted-media", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-encrypted-media", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-encrypted-media", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-encrypted-media", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-frame-flattening", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-frame-flattening", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-frame-flattening", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-frame-flattening", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-frame-flattening", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-fullscreen", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-fullscreen", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-fullscreen", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-fullscreen", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-fullscreen", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-html5-database", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-html5-database", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-html5-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-html5-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-html5-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-html5-local-storage", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-html5-local-storage", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-html5-local-storage", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-html5-local-storage", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-html5-local-storage", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-hyperlink-auditing", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-hyperlink-auditing", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-hyperlink-auditing", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-hyperlink-auditing", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-hyperlink-auditing", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-java", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-java", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-java", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-java", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-java", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-javascript", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-javascript", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-javascript", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-javascript", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-javascript", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-javascript-markup", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-javascript-markup", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-javascript-markup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-javascript-markup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-javascript-markup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-media", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-media", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-media", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-media", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-media", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-media-capabilities", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-media-capabilities", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-media-capabilities", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-media-capabilities", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-media-capabilities", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-media-stream", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-media-stream", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-media-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-media-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-media-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-mediasource", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-mediasource", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-mediasource", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-mediasource", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-mediasource", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-mock-capture-devices", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-mock-capture-devices", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-mock-capture-devices", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-mock-capture-devices", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-mock-capture-devices", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-offline-web-application-cache", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-offline-web-application-cache", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-offline-web-application-cache", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-offline-web-application-cache", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-offline-web-application-cache", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-page-cache", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-page-cache", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-page-cache", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-page-cache", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-page-cache", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-plugins", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-plugins", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-plugins", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-plugins", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-plugins", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-private-browsing", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-private-browsing", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-private-browsing", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-private-browsing", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-private-browsing", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-resizable-text-areas", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-resizable-text-areas", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-resizable-text-areas", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-resizable-text-areas", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-resizable-text-areas", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-site-specific-quirks", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-site-specific-quirks", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-site-specific-quirks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-site-specific-quirks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-site-specific-quirks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-smooth-scrolling", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-smooth-scrolling", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-smooth-scrolling", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-smooth-scrolling", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-smooth-scrolling", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-spatial-navigation", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-spatial-navigation", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-spatial-navigation", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-spatial-navigation", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-spatial-navigation", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-tabs-to-links", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-tabs-to-links", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-tabs-to-links", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-tabs-to-links", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-tabs-to-links", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-webaudio", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-webaudio", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-webaudio", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-webaudio", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-webaudio", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-webgl", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-webgl", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-webgl", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-webgl", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-webgl", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-write-console-messages-to-stdout", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-write-console-messages-to-stdout", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-write-console-messages-to-stdout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-write-console-messages-to-stdout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-write-console-messages-to-stdout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::enable-xss-auditor", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-xss-auditor", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enable-xss-auditor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::enable-xss-auditor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::enable-xss-auditor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::fantasy-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::fantasy-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::fantasy-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::fantasy-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::fantasy-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::hardware-acceleration-policy", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::hardware-acceleration-policy", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hardware-acceleration-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::hardware-acceleration-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::hardware-acceleration-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::javascript-can-access-clipboard", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::javascript-can-access-clipboard", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::javascript-can-access-clipboard", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::javascript-can-access-clipboard", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::javascript-can-access-clipboard", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::javascript-can-open-windows-automatically", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::javascript-can-open-windows-automatically", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::javascript-can-open-windows-automatically", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::javascript-can-open-windows-automatically", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::javascript-can-open-windows-automatically", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::load-icons-ignoring-image-load-setting", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::load-icons-ignoring-image-load-setting", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::load-icons-ignoring-image-load-setting", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::load-icons-ignoring-image-load-setting", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::load-icons-ignoring-image-load-setting", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::media-playback-allows-inline", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::media-playback-allows-inline", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::media-playback-allows-inline", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::media-playback-allows-inline", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::media-playback-allows-inline", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::media-playback-requires-user-gesture", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::media-playback-requires-user-gesture", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::media-playback-requires-user-gesture", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::media-playback-requires-user-gesture", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::media-playback-requires-user-gesture", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::minimum-font-size", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::minimum-font-size", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::minimum-font-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::minimum-font-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::minimum-font-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::monospace-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::monospace-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::monospace-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::monospace-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::monospace-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::pictograph-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pictograph-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::pictograph-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::pictograph-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::pictograph-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::print-backgrounds", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::print-backgrounds", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::print-backgrounds", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::print-backgrounds", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::print-backgrounds", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::sans-serif-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sans-serif-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sans-serif-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::sans-serif-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::sans-serif-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::serif-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serif-font-family", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::serif-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::serif-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::serif-font-family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::user-agent", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-agent", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::zoom-text-only", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::zoom-text-only", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::zoom-text-only", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::zoom-text-only", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::zoom-text-only", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Settings_ConstructProps)
     _init (config?: Settings_ConstructProps): void
@@ -2640,12 +3147,21 @@ export class URIRequest {
     connect(sigName: "notify", callback: ((obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: URIRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: URIRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: URIRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::uri", callback: ((obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: ((obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: URIRequest_ConstructProps)
     _init (config?: URIRequest_ConstructProps): void
@@ -2707,22 +3223,46 @@ export class URIResponse {
     connect(sigName: "notify", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: URIResponse, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: URIResponse, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: URIResponse, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::content-length", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-length", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::content-length", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::content-length", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::content-length", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::http-headers", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::http-headers", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::http-headers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::http-headers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::http-headers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::mime-type", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mime-type", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::mime-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::mime-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::mime-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::status-code", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::status-code", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::status-code", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::status-code", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::status-code", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::suggested-filename", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::suggested-filename", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::suggested-filename", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::suggested-filename", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::suggested-filename", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::uri", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: ((obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: URIResponse_ConstructProps)
     _init (config?: URIResponse_ConstructProps): void
@@ -2777,10 +3317,16 @@ export class URISchemeRequest {
     connect(sigName: "notify", callback: ((obj: URISchemeRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: URISchemeRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: URISchemeRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: URISchemeRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: URISchemeRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: URISchemeRequest_ConstructProps)
     _init (config?: URISchemeRequest_ConstructProps): void
@@ -2841,10 +3387,16 @@ export class UserContentFilterStore {
     connect(sigName: "notify", callback: ((obj: UserContentFilterStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UserContentFilterStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: UserContentFilterStore, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: UserContentFilterStore, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: UserContentFilterStore, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: UserContentFilterStore_ConstructProps)
     _init (config?: UserContentFilterStore_ConstructProps): void
@@ -2905,14 +3457,23 @@ export class UserContentManager {
     connect(sigName: "script-message-received", callback: ((obj: UserContentManager, js_result: JavascriptResult) => void)): number
     connect_after(sigName: "script-message-received", callback: ((obj: UserContentManager, js_result: JavascriptResult) => void)): number
     emit(sigName: "script-message-received", js_result: JavascriptResult): void
+    on(sigName: "script-message-received", callback: ((event: UserContentManager, js_result: JavascriptResult) => void)): EventEmitter
+    once(sigName: "script-message-received", callback: ((event: UserContentManager, js_result: JavascriptResult) => void)): EventEmitter
+    off(sigName: "script-message-received", callback: ((event: UserContentManager, js_result: JavascriptResult) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UserContentManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UserContentManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: UserContentManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: UserContentManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: UserContentManager, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: UserContentManager_ConstructProps)
     _init (config?: UserContentManager_ConstructProps): void
@@ -2966,14 +3527,26 @@ export class UserMediaPermissionRequest {
     connect(sigName: "notify", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-for-audio-device", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-for-audio-device", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-for-audio-device", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-for-audio-device", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-for-audio-device", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-for-video-device", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-for-video-device", callback: ((obj: UserMediaPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-for-video-device", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-for-video-device", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-for-video-device", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: UserMediaPermissionRequest_ConstructProps)
     _init (config?: UserMediaPermissionRequest_ConstructProps): void
@@ -3068,23 +3641,41 @@ export class WebContext {
     connect(sigName: "automation-started", callback: ((obj: WebContext, session: AutomationSession) => void)): number
     connect_after(sigName: "automation-started", callback: ((obj: WebContext, session: AutomationSession) => void)): number
     emit(sigName: "automation-started", session: AutomationSession): void
+    on(sigName: "automation-started", callback: ((event: WebContext, session: AutomationSession) => void)): EventEmitter
+    once(sigName: "automation-started", callback: ((event: WebContext, session: AutomationSession) => void)): EventEmitter
+    off(sigName: "automation-started", callback: ((event: WebContext, session: AutomationSession) => void)): EventEmitter
     connect(sigName: "download-started", callback: ((obj: WebContext, download: Download) => void)): number
     connect_after(sigName: "download-started", callback: ((obj: WebContext, download: Download) => void)): number
     emit(sigName: "download-started", download: Download): void
+    on(sigName: "download-started", callback: ((event: WebContext, download: Download) => void)): EventEmitter
+    once(sigName: "download-started", callback: ((event: WebContext, download: Download) => void)): EventEmitter
+    off(sigName: "download-started", callback: ((event: WebContext, download: Download) => void)): EventEmitter
     connect(sigName: "initialize-notification-permissions", callback: ((obj: WebContext) => void)): number
     connect_after(sigName: "initialize-notification-permissions", callback: ((obj: WebContext) => void)): number
     emit(sigName: "initialize-notification-permissions"): void
+    on(sigName: "initialize-notification-permissions", callback: ((event: WebContext) => void)): EventEmitter
+    once(sigName: "initialize-notification-permissions", callback: ((event: WebContext) => void)): EventEmitter
+    off(sigName: "initialize-notification-permissions", callback: ((event: WebContext) => void)): EventEmitter
     connect(sigName: "initialize-web-extensions", callback: ((obj: WebContext) => void)): number
     connect_after(sigName: "initialize-web-extensions", callback: ((obj: WebContext) => void)): number
     emit(sigName: "initialize-web-extensions"): void
+    on(sigName: "initialize-web-extensions", callback: ((event: WebContext) => void)): EventEmitter
+    once(sigName: "initialize-web-extensions", callback: ((event: WebContext) => void)): EventEmitter
+    off(sigName: "initialize-web-extensions", callback: ((event: WebContext) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebContext, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebContext_ConstructProps)
     _init (config?: WebContext_ConstructProps): void
@@ -3150,32 +3741,62 @@ export class WebInspector {
     connect(sigName: "attach", callback: ((obj: WebInspector) => boolean)): number
     connect_after(sigName: "attach", callback: ((obj: WebInspector) => boolean)): number
     emit(sigName: "attach"): void
+    on(sigName: "attach", callback: ((event: WebInspector) => boolean)): EventEmitter
+    once(sigName: "attach", callback: ((event: WebInspector) => boolean)): EventEmitter
+    off(sigName: "attach", callback: ((event: WebInspector) => boolean)): EventEmitter
     connect(sigName: "bring-to-front", callback: ((obj: WebInspector) => boolean)): number
     connect_after(sigName: "bring-to-front", callback: ((obj: WebInspector) => boolean)): number
     emit(sigName: "bring-to-front"): void
+    on(sigName: "bring-to-front", callback: ((event: WebInspector) => boolean)): EventEmitter
+    once(sigName: "bring-to-front", callback: ((event: WebInspector) => boolean)): EventEmitter
+    off(sigName: "bring-to-front", callback: ((event: WebInspector) => boolean)): EventEmitter
     connect(sigName: "closed", callback: ((obj: WebInspector) => void)): number
     connect_after(sigName: "closed", callback: ((obj: WebInspector) => void)): number
     emit(sigName: "closed"): void
+    on(sigName: "closed", callback: ((event: WebInspector) => void)): EventEmitter
+    once(sigName: "closed", callback: ((event: WebInspector) => void)): EventEmitter
+    off(sigName: "closed", callback: ((event: WebInspector) => void)): EventEmitter
     connect(sigName: "detach", callback: ((obj: WebInspector) => boolean)): number
     connect_after(sigName: "detach", callback: ((obj: WebInspector) => boolean)): number
     emit(sigName: "detach"): void
+    on(sigName: "detach", callback: ((event: WebInspector) => boolean)): EventEmitter
+    once(sigName: "detach", callback: ((event: WebInspector) => boolean)): EventEmitter
+    off(sigName: "detach", callback: ((event: WebInspector) => boolean)): EventEmitter
     connect(sigName: "open-window", callback: ((obj: WebInspector) => boolean)): number
     connect_after(sigName: "open-window", callback: ((obj: WebInspector) => boolean)): number
     emit(sigName: "open-window"): void
+    on(sigName: "open-window", callback: ((event: WebInspector) => boolean)): EventEmitter
+    once(sigName: "open-window", callback: ((event: WebInspector) => boolean)): EventEmitter
+    off(sigName: "open-window", callback: ((event: WebInspector) => boolean)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebInspector, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebInspector, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebInspector, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::attached-height", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attached-height", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::attached-height", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::attached-height", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::attached-height", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::can-attach", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-attach", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-attach", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::can-attach", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::can-attach", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::inspected-uri", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::inspected-uri", callback: ((obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::inspected-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::inspected-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::inspected-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebInspector_ConstructProps)
     _init (config?: WebInspector_ConstructProps): void
@@ -3230,30 +3851,57 @@ export class WebResource {
     connect(sigName: "failed", callback: ((obj: WebResource, error: GLib.Error) => void)): number
     connect_after(sigName: "failed", callback: ((obj: WebResource, error: GLib.Error) => void)): number
     emit(sigName: "failed", error: GLib.Error): void
+    on(sigName: "failed", callback: ((event: WebResource, error: GLib.Error) => void)): EventEmitter
+    once(sigName: "failed", callback: ((event: WebResource, error: GLib.Error) => void)): EventEmitter
+    off(sigName: "failed", callback: ((event: WebResource, error: GLib.Error) => void)): EventEmitter
     connect(sigName: "failed-with-tls-errors", callback: ((obj: WebResource, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void)): number
     connect_after(sigName: "failed-with-tls-errors", callback: ((obj: WebResource, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void)): number
     emit(sigName: "failed-with-tls-errors", certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): void
+    on(sigName: "failed-with-tls-errors", callback: ((event: WebResource, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void)): EventEmitter
+    once(sigName: "failed-with-tls-errors", callback: ((event: WebResource, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void)): EventEmitter
+    off(sigName: "failed-with-tls-errors", callback: ((event: WebResource, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => void)): EventEmitter
     connect(sigName: "finished", callback: ((obj: WebResource) => void)): number
     connect_after(sigName: "finished", callback: ((obj: WebResource) => void)): number
     emit(sigName: "finished"): void
+    on(sigName: "finished", callback: ((event: WebResource) => void)): EventEmitter
+    once(sigName: "finished", callback: ((event: WebResource) => void)): EventEmitter
+    off(sigName: "finished", callback: ((event: WebResource) => void)): EventEmitter
     connect(sigName: "received-data", callback: ((obj: WebResource, data_length: number) => void)): number
     connect_after(sigName: "received-data", callback: ((obj: WebResource, data_length: number) => void)): number
     emit(sigName: "received-data", data_length: number): void
+    on(sigName: "received-data", callback: ((event: WebResource, data_length: number) => void)): EventEmitter
+    once(sigName: "received-data", callback: ((event: WebResource, data_length: number) => void)): EventEmitter
+    off(sigName: "received-data", callback: ((event: WebResource, data_length: number) => void)): EventEmitter
     connect(sigName: "sent-request", callback: ((obj: WebResource, request: URIRequest, redirected_response: URIResponse) => void)): number
     connect_after(sigName: "sent-request", callback: ((obj: WebResource, request: URIRequest, redirected_response: URIResponse) => void)): number
     emit(sigName: "sent-request", request: URIRequest, redirected_response: URIResponse): void
+    on(sigName: "sent-request", callback: ((event: WebResource, request: URIRequest, redirected_response: URIResponse) => void)): EventEmitter
+    once(sigName: "sent-request", callback: ((event: WebResource, request: URIRequest, redirected_response: URIResponse) => void)): EventEmitter
+    off(sigName: "sent-request", callback: ((event: WebResource, request: URIRequest, redirected_response: URIResponse) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebResource, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebResource, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebResource, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::response", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::response", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::response", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::response", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::response", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::uri", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: ((obj: WebResource, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebResource_ConstructProps)
     _init (config?: WebResource_ConstructProps): void
@@ -3851,412 +4499,868 @@ export class WebView {
     connect(sigName: "authenticate", callback: ((obj: WebView, request: AuthenticationRequest) => boolean)): number
     connect_after(sigName: "authenticate", callback: ((obj: WebView, request: AuthenticationRequest) => boolean)): number
     emit(sigName: "authenticate", request: AuthenticationRequest): void
+    on(sigName: "authenticate", callback: ((event: WebView, request: AuthenticationRequest) => boolean)): EventEmitter
+    once(sigName: "authenticate", callback: ((event: WebView, request: AuthenticationRequest) => boolean)): EventEmitter
+    off(sigName: "authenticate", callback: ((event: WebView, request: AuthenticationRequest) => boolean)): EventEmitter
     connect(sigName: "close", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "close", callback: ((obj: WebView) => void)): number
     emit(sigName: "close"): void
+    on(sigName: "close", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "close", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "close", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "context-menu", callback: ((obj: WebView, context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult) => boolean)): number
     connect_after(sigName: "context-menu", callback: ((obj: WebView, context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult) => boolean)): number
     emit(sigName: "context-menu", context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult): void
+    on(sigName: "context-menu", callback: ((event: WebView, context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult) => boolean)): EventEmitter
+    once(sigName: "context-menu", callback: ((event: WebView, context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult) => boolean)): EventEmitter
+    off(sigName: "context-menu", callback: ((event: WebView, context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult) => boolean)): EventEmitter
     connect(sigName: "context-menu-dismissed", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "context-menu-dismissed", callback: ((obj: WebView) => void)): number
     emit(sigName: "context-menu-dismissed"): void
+    on(sigName: "context-menu-dismissed", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "context-menu-dismissed", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "context-menu-dismissed", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "create", callback: ((obj: WebView, navigation_action: NavigationAction) => Gtk.Widget)): number
     connect_after(sigName: "create", callback: ((obj: WebView, navigation_action: NavigationAction) => Gtk.Widget)): number
     emit(sigName: "create", navigation_action: NavigationAction): void
+    on(sigName: "create", callback: ((event: WebView, navigation_action: NavigationAction) => Gtk.Widget)): EventEmitter
+    once(sigName: "create", callback: ((event: WebView, navigation_action: NavigationAction) => Gtk.Widget)): EventEmitter
+    off(sigName: "create", callback: ((event: WebView, navigation_action: NavigationAction) => Gtk.Widget)): EventEmitter
     connect(sigName: "decide-policy", callback: ((obj: WebView, decision: PolicyDecision, decision_type: PolicyDecisionType) => boolean)): number
     connect_after(sigName: "decide-policy", callback: ((obj: WebView, decision: PolicyDecision, decision_type: PolicyDecisionType) => boolean)): number
     emit(sigName: "decide-policy", decision: PolicyDecision, decision_type: PolicyDecisionType): void
+    on(sigName: "decide-policy", callback: ((event: WebView, decision: PolicyDecision, decision_type: PolicyDecisionType) => boolean)): EventEmitter
+    once(sigName: "decide-policy", callback: ((event: WebView, decision: PolicyDecision, decision_type: PolicyDecisionType) => boolean)): EventEmitter
+    off(sigName: "decide-policy", callback: ((event: WebView, decision: PolicyDecision, decision_type: PolicyDecisionType) => boolean)): EventEmitter
     connect(sigName: "enter-fullscreen", callback: ((obj: WebView) => boolean)): number
     connect_after(sigName: "enter-fullscreen", callback: ((obj: WebView) => boolean)): number
     emit(sigName: "enter-fullscreen"): void
+    on(sigName: "enter-fullscreen", callback: ((event: WebView) => boolean)): EventEmitter
+    once(sigName: "enter-fullscreen", callback: ((event: WebView) => boolean)): EventEmitter
+    off(sigName: "enter-fullscreen", callback: ((event: WebView) => boolean)): EventEmitter
     connect(sigName: "insecure-content-detected", callback: ((obj: WebView, event: InsecureContentEvent) => void)): number
     connect_after(sigName: "insecure-content-detected", callback: ((obj: WebView, event: InsecureContentEvent) => void)): number
     emit(sigName: "insecure-content-detected", event: InsecureContentEvent): void
+    on(sigName: "insecure-content-detected", callback: ((event: WebView, event: InsecureContentEvent) => void)): EventEmitter
+    once(sigName: "insecure-content-detected", callback: ((event: WebView, event: InsecureContentEvent) => void)): EventEmitter
+    off(sigName: "insecure-content-detected", callback: ((event: WebView, event: InsecureContentEvent) => void)): EventEmitter
     connect(sigName: "leave-fullscreen", callback: ((obj: WebView) => boolean)): number
     connect_after(sigName: "leave-fullscreen", callback: ((obj: WebView) => boolean)): number
     emit(sigName: "leave-fullscreen"): void
+    on(sigName: "leave-fullscreen", callback: ((event: WebView) => boolean)): EventEmitter
+    once(sigName: "leave-fullscreen", callback: ((event: WebView) => boolean)): EventEmitter
+    off(sigName: "leave-fullscreen", callback: ((event: WebView) => boolean)): EventEmitter
     connect(sigName: "load-changed", callback: ((obj: WebView, load_event: LoadEvent) => void)): number
     connect_after(sigName: "load-changed", callback: ((obj: WebView, load_event: LoadEvent) => void)): number
     emit(sigName: "load-changed", load_event: LoadEvent): void
+    on(sigName: "load-changed", callback: ((event: WebView, load_event: LoadEvent) => void)): EventEmitter
+    once(sigName: "load-changed", callback: ((event: WebView, load_event: LoadEvent) => void)): EventEmitter
+    off(sigName: "load-changed", callback: ((event: WebView, load_event: LoadEvent) => void)): EventEmitter
     connect(sigName: "load-failed", callback: ((obj: WebView, load_event: LoadEvent, failing_uri: string, error: GLib.Error) => boolean)): number
     connect_after(sigName: "load-failed", callback: ((obj: WebView, load_event: LoadEvent, failing_uri: string, error: GLib.Error) => boolean)): number
     emit(sigName: "load-failed", load_event: LoadEvent, failing_uri: string, error: GLib.Error): void
+    on(sigName: "load-failed", callback: ((event: WebView, load_event: LoadEvent, failing_uri: string, error: GLib.Error) => boolean)): EventEmitter
+    once(sigName: "load-failed", callback: ((event: WebView, load_event: LoadEvent, failing_uri: string, error: GLib.Error) => boolean)): EventEmitter
+    off(sigName: "load-failed", callback: ((event: WebView, load_event: LoadEvent, failing_uri: string, error: GLib.Error) => boolean)): EventEmitter
     connect(sigName: "load-failed-with-tls-errors", callback: ((obj: WebView, failing_uri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean)): number
     connect_after(sigName: "load-failed-with-tls-errors", callback: ((obj: WebView, failing_uri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean)): number
     emit(sigName: "load-failed-with-tls-errors", failing_uri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags): void
+    on(sigName: "load-failed-with-tls-errors", callback: ((event: WebView, failing_uri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean)): EventEmitter
+    once(sigName: "load-failed-with-tls-errors", callback: ((event: WebView, failing_uri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean)): EventEmitter
+    off(sigName: "load-failed-with-tls-errors", callback: ((event: WebView, failing_uri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean)): EventEmitter
     connect(sigName: "mouse-target-changed", callback: ((obj: WebView, hit_test_result: HitTestResult, modifiers: number) => void)): number
     connect_after(sigName: "mouse-target-changed", callback: ((obj: WebView, hit_test_result: HitTestResult, modifiers: number) => void)): number
     emit(sigName: "mouse-target-changed", hit_test_result: HitTestResult, modifiers: number): void
+    on(sigName: "mouse-target-changed", callback: ((event: WebView, hit_test_result: HitTestResult, modifiers: number) => void)): EventEmitter
+    once(sigName: "mouse-target-changed", callback: ((event: WebView, hit_test_result: HitTestResult, modifiers: number) => void)): EventEmitter
+    off(sigName: "mouse-target-changed", callback: ((event: WebView, hit_test_result: HitTestResult, modifiers: number) => void)): EventEmitter
     connect(sigName: "permission-request", callback: ((obj: WebView, request: PermissionRequest) => boolean)): number
     connect_after(sigName: "permission-request", callback: ((obj: WebView, request: PermissionRequest) => boolean)): number
     emit(sigName: "permission-request", request: PermissionRequest): void
+    on(sigName: "permission-request", callback: ((event: WebView, request: PermissionRequest) => boolean)): EventEmitter
+    once(sigName: "permission-request", callback: ((event: WebView, request: PermissionRequest) => boolean)): EventEmitter
+    off(sigName: "permission-request", callback: ((event: WebView, request: PermissionRequest) => boolean)): EventEmitter
     connect(sigName: "print", callback: ((obj: WebView, print_operation: PrintOperation) => boolean)): number
     connect_after(sigName: "print", callback: ((obj: WebView, print_operation: PrintOperation) => boolean)): number
     emit(sigName: "print", print_operation: PrintOperation): void
+    on(sigName: "print", callback: ((event: WebView, print_operation: PrintOperation) => boolean)): EventEmitter
+    once(sigName: "print", callback: ((event: WebView, print_operation: PrintOperation) => boolean)): EventEmitter
+    off(sigName: "print", callback: ((event: WebView, print_operation: PrintOperation) => boolean)): EventEmitter
     connect(sigName: "ready-to-show", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "ready-to-show", callback: ((obj: WebView) => void)): number
     emit(sigName: "ready-to-show"): void
+    on(sigName: "ready-to-show", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "ready-to-show", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "ready-to-show", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "resource-load-started", callback: ((obj: WebView, resource: WebResource, request: URIRequest) => void)): number
     connect_after(sigName: "resource-load-started", callback: ((obj: WebView, resource: WebResource, request: URIRequest) => void)): number
     emit(sigName: "resource-load-started", resource: WebResource, request: URIRequest): void
+    on(sigName: "resource-load-started", callback: ((event: WebView, resource: WebResource, request: URIRequest) => void)): EventEmitter
+    once(sigName: "resource-load-started", callback: ((event: WebView, resource: WebResource, request: URIRequest) => void)): EventEmitter
+    off(sigName: "resource-load-started", callback: ((event: WebView, resource: WebResource, request: URIRequest) => void)): EventEmitter
     connect(sigName: "run-as-modal", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "run-as-modal", callback: ((obj: WebView) => void)): number
     emit(sigName: "run-as-modal"): void
+    on(sigName: "run-as-modal", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "run-as-modal", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "run-as-modal", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "run-color-chooser", callback: ((obj: WebView, request: ColorChooserRequest) => boolean)): number
     connect_after(sigName: "run-color-chooser", callback: ((obj: WebView, request: ColorChooserRequest) => boolean)): number
     emit(sigName: "run-color-chooser", request: ColorChooserRequest): void
+    on(sigName: "run-color-chooser", callback: ((event: WebView, request: ColorChooserRequest) => boolean)): EventEmitter
+    once(sigName: "run-color-chooser", callback: ((event: WebView, request: ColorChooserRequest) => boolean)): EventEmitter
+    off(sigName: "run-color-chooser", callback: ((event: WebView, request: ColorChooserRequest) => boolean)): EventEmitter
     connect(sigName: "run-file-chooser", callback: ((obj: WebView, request: FileChooserRequest) => boolean)): number
     connect_after(sigName: "run-file-chooser", callback: ((obj: WebView, request: FileChooserRequest) => boolean)): number
     emit(sigName: "run-file-chooser", request: FileChooserRequest): void
+    on(sigName: "run-file-chooser", callback: ((event: WebView, request: FileChooserRequest) => boolean)): EventEmitter
+    once(sigName: "run-file-chooser", callback: ((event: WebView, request: FileChooserRequest) => boolean)): EventEmitter
+    off(sigName: "run-file-chooser", callback: ((event: WebView, request: FileChooserRequest) => boolean)): EventEmitter
     connect(sigName: "script-dialog", callback: ((obj: WebView, dialog: ScriptDialog) => boolean)): number
     connect_after(sigName: "script-dialog", callback: ((obj: WebView, dialog: ScriptDialog) => boolean)): number
     emit(sigName: "script-dialog", dialog: ScriptDialog): void
+    on(sigName: "script-dialog", callback: ((event: WebView, dialog: ScriptDialog) => boolean)): EventEmitter
+    once(sigName: "script-dialog", callback: ((event: WebView, dialog: ScriptDialog) => boolean)): EventEmitter
+    off(sigName: "script-dialog", callback: ((event: WebView, dialog: ScriptDialog) => boolean)): EventEmitter
     connect(sigName: "show-notification", callback: ((obj: WebView, notification: Notification) => boolean)): number
     connect_after(sigName: "show-notification", callback: ((obj: WebView, notification: Notification) => boolean)): number
     emit(sigName: "show-notification", notification: Notification): void
+    on(sigName: "show-notification", callback: ((event: WebView, notification: Notification) => boolean)): EventEmitter
+    once(sigName: "show-notification", callback: ((event: WebView, notification: Notification) => boolean)): EventEmitter
+    off(sigName: "show-notification", callback: ((event: WebView, notification: Notification) => boolean)): EventEmitter
     connect(sigName: "show-option-menu", callback: ((obj: WebView, menu: OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): number
     connect_after(sigName: "show-option-menu", callback: ((obj: WebView, menu: OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): number
     emit(sigName: "show-option-menu", menu: OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle): void
+    on(sigName: "show-option-menu", callback: ((event: WebView, menu: OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): EventEmitter
+    once(sigName: "show-option-menu", callback: ((event: WebView, menu: OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): EventEmitter
+    off(sigName: "show-option-menu", callback: ((event: WebView, menu: OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): EventEmitter
     connect(sigName: "submit-form", callback: ((obj: WebView, request: FormSubmissionRequest) => void)): number
     connect_after(sigName: "submit-form", callback: ((obj: WebView, request: FormSubmissionRequest) => void)): number
     emit(sigName: "submit-form", request: FormSubmissionRequest): void
+    on(sigName: "submit-form", callback: ((event: WebView, request: FormSubmissionRequest) => void)): EventEmitter
+    once(sigName: "submit-form", callback: ((event: WebView, request: FormSubmissionRequest) => void)): EventEmitter
+    off(sigName: "submit-form", callback: ((event: WebView, request: FormSubmissionRequest) => void)): EventEmitter
     connect(sigName: "web-process-crashed", callback: ((obj: WebView) => boolean)): number
     connect_after(sigName: "web-process-crashed", callback: ((obj: WebView) => boolean)): number
     emit(sigName: "web-process-crashed"): void
+    on(sigName: "web-process-crashed", callback: ((event: WebView) => boolean)): EventEmitter
+    once(sigName: "web-process-crashed", callback: ((event: WebView) => boolean)): EventEmitter
+    off(sigName: "web-process-crashed", callback: ((event: WebView) => boolean)): EventEmitter
     connect(sigName: "web-process-terminated", callback: ((obj: WebView, reason: WebProcessTerminationReason) => void)): number
     connect_after(sigName: "web-process-terminated", callback: ((obj: WebView, reason: WebProcessTerminationReason) => void)): number
     emit(sigName: "web-process-terminated", reason: WebProcessTerminationReason): void
+    on(sigName: "web-process-terminated", callback: ((event: WebView, reason: WebProcessTerminationReason) => void)): EventEmitter
+    once(sigName: "web-process-terminated", callback: ((event: WebView, reason: WebProcessTerminationReason) => void)): EventEmitter
+    off(sigName: "web-process-terminated", callback: ((event: WebView, reason: WebProcessTerminationReason) => void)): EventEmitter
     /* Signals of Gtk.Container */
     connect(sigName: "add", callback: ((obj: WebView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: ((obj: WebView, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
+    on(sigName: "add", callback: ((event: WebView, object: Gtk.Widget) => void)): EventEmitter
+    once(sigName: "add", callback: ((event: WebView, object: Gtk.Widget) => void)): EventEmitter
+    off(sigName: "add", callback: ((event: WebView, object: Gtk.Widget) => void)): EventEmitter
     connect(sigName: "check-resize", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "check-resize", callback: ((obj: WebView) => void)): number
     emit(sigName: "check-resize"): void
+    on(sigName: "check-resize", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "check-resize", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "check-resize", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "remove", callback: ((obj: WebView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "remove", callback: ((obj: WebView, object: Gtk.Widget) => void)): number
     emit(sigName: "remove", object: Gtk.Widget): void
+    on(sigName: "remove", callback: ((event: WebView, object: Gtk.Widget) => void)): EventEmitter
+    once(sigName: "remove", callback: ((event: WebView, object: Gtk.Widget) => void)): EventEmitter
+    off(sigName: "remove", callback: ((event: WebView, object: Gtk.Widget) => void)): EventEmitter
     connect(sigName: "set-focus-child", callback: ((obj: WebView, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: ((obj: WebView, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
+    on(sigName: "set-focus-child", callback: ((event: WebView, object: Gtk.Widget) => void)): EventEmitter
+    once(sigName: "set-focus-child", callback: ((event: WebView, object: Gtk.Widget) => void)): EventEmitter
+    off(sigName: "set-focus-child", callback: ((event: WebView, object: Gtk.Widget) => void)): EventEmitter
     /* Signals of Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: ((obj: WebView) => void)): number
     emit(sigName: "accel-closures-changed"): void
+    on(sigName: "accel-closures-changed", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "accel-closures-changed", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "accel-closures-changed", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "button-press-event", callback: ((obj: WebView, event: Gdk.EventButton) => boolean)): number
     connect_after(sigName: "button-press-event", callback: ((obj: WebView, event: Gdk.EventButton) => boolean)): number
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
+    on(sigName: "button-press-event", callback: ((event: WebView, event: Gdk.EventButton) => boolean)): EventEmitter
+    once(sigName: "button-press-event", callback: ((event: WebView, event: Gdk.EventButton) => boolean)): EventEmitter
+    off(sigName: "button-press-event", callback: ((event: WebView, event: Gdk.EventButton) => boolean)): EventEmitter
     connect(sigName: "button-release-event", callback: ((obj: WebView, event: Gdk.EventButton) => boolean)): number
     connect_after(sigName: "button-release-event", callback: ((obj: WebView, event: Gdk.EventButton) => boolean)): number
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
+    on(sigName: "button-release-event", callback: ((event: WebView, event: Gdk.EventButton) => boolean)): EventEmitter
+    once(sigName: "button-release-event", callback: ((event: WebView, event: Gdk.EventButton) => boolean)): EventEmitter
+    off(sigName: "button-release-event", callback: ((event: WebView, event: Gdk.EventButton) => boolean)): EventEmitter
     connect(sigName: "can-activate-accel", callback: ((obj: WebView, signal_id: number) => boolean)): number
     connect_after(sigName: "can-activate-accel", callback: ((obj: WebView, signal_id: number) => boolean)): number
     emit(sigName: "can-activate-accel", signal_id: number): void
+    on(sigName: "can-activate-accel", callback: ((event: WebView, signal_id: number) => boolean)): EventEmitter
+    once(sigName: "can-activate-accel", callback: ((event: WebView, signal_id: number) => boolean)): EventEmitter
+    off(sigName: "can-activate-accel", callback: ((event: WebView, signal_id: number) => boolean)): EventEmitter
     connect(sigName: "child-notify", callback: ((obj: WebView, child_property: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: ((obj: WebView, child_property: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", child_property: GObject.ParamSpec): void
+    on(sigName: "child-notify", callback: ((event: WebView, child_property: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "child-notify", callback: ((event: WebView, child_property: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "child-notify", callback: ((event: WebView, child_property: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "composited-changed", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "composited-changed", callback: ((obj: WebView) => void)): number
     emit(sigName: "composited-changed"): void
+    on(sigName: "composited-changed", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "composited-changed", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "composited-changed", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "configure-event", callback: ((obj: WebView, event: Gdk.EventConfigure) => boolean)): number
     connect_after(sigName: "configure-event", callback: ((obj: WebView, event: Gdk.EventConfigure) => boolean)): number
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
+    on(sigName: "configure-event", callback: ((event: WebView, event: Gdk.EventConfigure) => boolean)): EventEmitter
+    once(sigName: "configure-event", callback: ((event: WebView, event: Gdk.EventConfigure) => boolean)): EventEmitter
+    off(sigName: "configure-event", callback: ((event: WebView, event: Gdk.EventConfigure) => boolean)): EventEmitter
     connect(sigName: "damage-event", callback: ((obj: WebView, event: Gdk.EventExpose) => boolean)): number
     connect_after(sigName: "damage-event", callback: ((obj: WebView, event: Gdk.EventExpose) => boolean)): number
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
+    on(sigName: "damage-event", callback: ((event: WebView, event: Gdk.EventExpose) => boolean)): EventEmitter
+    once(sigName: "damage-event", callback: ((event: WebView, event: Gdk.EventExpose) => boolean)): EventEmitter
+    off(sigName: "damage-event", callback: ((event: WebView, event: Gdk.EventExpose) => boolean)): EventEmitter
     connect(sigName: "delete-event", callback: ((obj: WebView, event: Gdk.Event) => boolean)): number
     connect_after(sigName: "delete-event", callback: ((obj: WebView, event: Gdk.Event) => boolean)): number
     emit(sigName: "delete-event", event: Gdk.Event): void
+    on(sigName: "delete-event", callback: ((event: WebView, event: Gdk.Event) => boolean)): EventEmitter
+    once(sigName: "delete-event", callback: ((event: WebView, event: Gdk.Event) => boolean)): EventEmitter
+    off(sigName: "delete-event", callback: ((event: WebView, event: Gdk.Event) => boolean)): EventEmitter
     connect(sigName: "destroy", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "destroy", callback: ((obj: WebView) => void)): number
     emit(sigName: "destroy"): void
+    on(sigName: "destroy", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "destroy", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "destroy", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "destroy-event", callback: ((obj: WebView, event: Gdk.Event) => boolean)): number
     connect_after(sigName: "destroy-event", callback: ((obj: WebView, event: Gdk.Event) => boolean)): number
     emit(sigName: "destroy-event", event: Gdk.Event): void
+    on(sigName: "destroy-event", callback: ((event: WebView, event: Gdk.Event) => boolean)): EventEmitter
+    once(sigName: "destroy-event", callback: ((event: WebView, event: Gdk.Event) => boolean)): EventEmitter
+    off(sigName: "destroy-event", callback: ((event: WebView, event: Gdk.Event) => boolean)): EventEmitter
     connect(sigName: "direction-changed", callback: ((obj: WebView, previous_direction: Gtk.TextDirection) => void)): number
     connect_after(sigName: "direction-changed", callback: ((obj: WebView, previous_direction: Gtk.TextDirection) => void)): number
     emit(sigName: "direction-changed", previous_direction: Gtk.TextDirection): void
+    on(sigName: "direction-changed", callback: ((event: WebView, previous_direction: Gtk.TextDirection) => void)): EventEmitter
+    once(sigName: "direction-changed", callback: ((event: WebView, previous_direction: Gtk.TextDirection) => void)): EventEmitter
+    off(sigName: "direction-changed", callback: ((event: WebView, previous_direction: Gtk.TextDirection) => void)): EventEmitter
     connect(sigName: "drag-begin", callback: ((obj: WebView, context: Gdk.DragContext) => void)): number
     connect_after(sigName: "drag-begin", callback: ((obj: WebView, context: Gdk.DragContext) => void)): number
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
+    on(sigName: "drag-begin", callback: ((event: WebView, context: Gdk.DragContext) => void)): EventEmitter
+    once(sigName: "drag-begin", callback: ((event: WebView, context: Gdk.DragContext) => void)): EventEmitter
+    off(sigName: "drag-begin", callback: ((event: WebView, context: Gdk.DragContext) => void)): EventEmitter
     connect(sigName: "drag-data-delete", callback: ((obj: WebView, context: Gdk.DragContext) => void)): number
     connect_after(sigName: "drag-data-delete", callback: ((obj: WebView, context: Gdk.DragContext) => void)): number
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
+    on(sigName: "drag-data-delete", callback: ((event: WebView, context: Gdk.DragContext) => void)): EventEmitter
+    once(sigName: "drag-data-delete", callback: ((event: WebView, context: Gdk.DragContext) => void)): EventEmitter
+    off(sigName: "drag-data-delete", callback: ((event: WebView, context: Gdk.DragContext) => void)): EventEmitter
     connect(sigName: "drag-data-get", callback: ((obj: WebView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
     connect_after(sigName: "drag-data-get", callback: ((obj: WebView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
+    on(sigName: "drag-data-get", callback: ((event: WebView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    once(sigName: "drag-data-get", callback: ((event: WebView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    off(sigName: "drag-data-get", callback: ((event: WebView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
     connect(sigName: "drag-data-received", callback: ((obj: WebView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
     connect_after(sigName: "drag-data-received", callback: ((obj: WebView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
+    on(sigName: "drag-data-received", callback: ((event: WebView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    once(sigName: "drag-data-received", callback: ((event: WebView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    off(sigName: "drag-data-received", callback: ((event: WebView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
     connect(sigName: "drag-drop", callback: ((obj: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
     connect_after(sigName: "drag-drop", callback: ((obj: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
+    on(sigName: "drag-drop", callback: ((event: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
+    once(sigName: "drag-drop", callback: ((event: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
+    off(sigName: "drag-drop", callback: ((event: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
     connect(sigName: "drag-end", callback: ((obj: WebView, context: Gdk.DragContext) => void)): number
     connect_after(sigName: "drag-end", callback: ((obj: WebView, context: Gdk.DragContext) => void)): number
     emit(sigName: "drag-end", context: Gdk.DragContext): void
+    on(sigName: "drag-end", callback: ((event: WebView, context: Gdk.DragContext) => void)): EventEmitter
+    once(sigName: "drag-end", callback: ((event: WebView, context: Gdk.DragContext) => void)): EventEmitter
+    off(sigName: "drag-end", callback: ((event: WebView, context: Gdk.DragContext) => void)): EventEmitter
     connect(sigName: "drag-failed", callback: ((obj: WebView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
     connect_after(sigName: "drag-failed", callback: ((obj: WebView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
+    on(sigName: "drag-failed", callback: ((event: WebView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): EventEmitter
+    once(sigName: "drag-failed", callback: ((event: WebView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): EventEmitter
+    off(sigName: "drag-failed", callback: ((event: WebView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): EventEmitter
     connect(sigName: "drag-leave", callback: ((obj: WebView, context: Gdk.DragContext, time: number) => void)): number
     connect_after(sigName: "drag-leave", callback: ((obj: WebView, context: Gdk.DragContext, time: number) => void)): number
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
+    on(sigName: "drag-leave", callback: ((event: WebView, context: Gdk.DragContext, time: number) => void)): EventEmitter
+    once(sigName: "drag-leave", callback: ((event: WebView, context: Gdk.DragContext, time: number) => void)): EventEmitter
+    off(sigName: "drag-leave", callback: ((event: WebView, context: Gdk.DragContext, time: number) => void)): EventEmitter
     connect(sigName: "drag-motion", callback: ((obj: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
     connect_after(sigName: "drag-motion", callback: ((obj: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
+    on(sigName: "drag-motion", callback: ((event: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
+    once(sigName: "drag-motion", callback: ((event: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
+    off(sigName: "drag-motion", callback: ((event: WebView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
     connect(sigName: "draw", callback: ((obj: WebView, cr: cairo.Context) => boolean)): number
     connect_after(sigName: "draw", callback: ((obj: WebView, cr: cairo.Context) => boolean)): number
     emit(sigName: "draw", cr: cairo.Context): void
+    on(sigName: "draw", callback: ((event: WebView, cr: cairo.Context) => boolean)): EventEmitter
+    once(sigName: "draw", callback: ((event: WebView, cr: cairo.Context) => boolean)): EventEmitter
+    off(sigName: "draw", callback: ((event: WebView, cr: cairo.Context) => boolean)): EventEmitter
     connect(sigName: "enter-notify-event", callback: ((obj: WebView, event: Gdk.EventCrossing) => boolean)): number
     connect_after(sigName: "enter-notify-event", callback: ((obj: WebView, event: Gdk.EventCrossing) => boolean)): number
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
+    on(sigName: "enter-notify-event", callback: ((event: WebView, event: Gdk.EventCrossing) => boolean)): EventEmitter
+    once(sigName: "enter-notify-event", callback: ((event: WebView, event: Gdk.EventCrossing) => boolean)): EventEmitter
+    off(sigName: "enter-notify-event", callback: ((event: WebView, event: Gdk.EventCrossing) => boolean)): EventEmitter
     connect(sigName: "event", callback: ((obj: WebView, event: Gdk.Event) => boolean)): number
     connect_after(sigName: "event", callback: ((obj: WebView, event: Gdk.Event) => boolean)): number
     emit(sigName: "event", event: Gdk.Event): void
+    on(sigName: "event", callback: ((event: WebView, event: Gdk.Event) => boolean)): EventEmitter
+    once(sigName: "event", callback: ((event: WebView, event: Gdk.Event) => boolean)): EventEmitter
+    off(sigName: "event", callback: ((event: WebView, event: Gdk.Event) => boolean)): EventEmitter
     connect(sigName: "event-after", callback: ((obj: WebView, event: Gdk.Event) => void)): number
     connect_after(sigName: "event-after", callback: ((obj: WebView, event: Gdk.Event) => void)): number
     emit(sigName: "event-after", event: Gdk.Event): void
+    on(sigName: "event-after", callback: ((event: WebView, event: Gdk.Event) => void)): EventEmitter
+    once(sigName: "event-after", callback: ((event: WebView, event: Gdk.Event) => void)): EventEmitter
+    off(sigName: "event-after", callback: ((event: WebView, event: Gdk.Event) => void)): EventEmitter
     connect(sigName: "focus", callback: ((obj: WebView, direction: Gtk.DirectionType) => boolean)): number
     connect_after(sigName: "focus", callback: ((obj: WebView, direction: Gtk.DirectionType) => boolean)): number
     emit(sigName: "focus", direction: Gtk.DirectionType): void
+    on(sigName: "focus", callback: ((event: WebView, direction: Gtk.DirectionType) => boolean)): EventEmitter
+    once(sigName: "focus", callback: ((event: WebView, direction: Gtk.DirectionType) => boolean)): EventEmitter
+    off(sigName: "focus", callback: ((event: WebView, direction: Gtk.DirectionType) => boolean)): EventEmitter
     connect(sigName: "focus-in-event", callback: ((obj: WebView, event: Gdk.EventFocus) => boolean)): number
     connect_after(sigName: "focus-in-event", callback: ((obj: WebView, event: Gdk.EventFocus) => boolean)): number
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
+    on(sigName: "focus-in-event", callback: ((event: WebView, event: Gdk.EventFocus) => boolean)): EventEmitter
+    once(sigName: "focus-in-event", callback: ((event: WebView, event: Gdk.EventFocus) => boolean)): EventEmitter
+    off(sigName: "focus-in-event", callback: ((event: WebView, event: Gdk.EventFocus) => boolean)): EventEmitter
     connect(sigName: "focus-out-event", callback: ((obj: WebView, event: Gdk.EventFocus) => boolean)): number
     connect_after(sigName: "focus-out-event", callback: ((obj: WebView, event: Gdk.EventFocus) => boolean)): number
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
+    on(sigName: "focus-out-event", callback: ((event: WebView, event: Gdk.EventFocus) => boolean)): EventEmitter
+    once(sigName: "focus-out-event", callback: ((event: WebView, event: Gdk.EventFocus) => boolean)): EventEmitter
+    off(sigName: "focus-out-event", callback: ((event: WebView, event: Gdk.EventFocus) => boolean)): EventEmitter
     connect(sigName: "grab-broken-event", callback: ((obj: WebView, event: Gdk.EventGrabBroken) => boolean)): number
     connect_after(sigName: "grab-broken-event", callback: ((obj: WebView, event: Gdk.EventGrabBroken) => boolean)): number
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
+    on(sigName: "grab-broken-event", callback: ((event: WebView, event: Gdk.EventGrabBroken) => boolean)): EventEmitter
+    once(sigName: "grab-broken-event", callback: ((event: WebView, event: Gdk.EventGrabBroken) => boolean)): EventEmitter
+    off(sigName: "grab-broken-event", callback: ((event: WebView, event: Gdk.EventGrabBroken) => boolean)): EventEmitter
     connect(sigName: "grab-focus", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "grab-focus", callback: ((obj: WebView) => void)): number
     emit(sigName: "grab-focus"): void
+    on(sigName: "grab-focus", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "grab-focus", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "grab-focus", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "grab-notify", callback: ((obj: WebView, was_grabbed: boolean) => void)): number
     connect_after(sigName: "grab-notify", callback: ((obj: WebView, was_grabbed: boolean) => void)): number
     emit(sigName: "grab-notify", was_grabbed: boolean): void
+    on(sigName: "grab-notify", callback: ((event: WebView, was_grabbed: boolean) => void)): EventEmitter
+    once(sigName: "grab-notify", callback: ((event: WebView, was_grabbed: boolean) => void)): EventEmitter
+    off(sigName: "grab-notify", callback: ((event: WebView, was_grabbed: boolean) => void)): EventEmitter
     connect(sigName: "hide", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "hide", callback: ((obj: WebView) => void)): number
     emit(sigName: "hide"): void
+    on(sigName: "hide", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "hide", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "hide", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "hierarchy-changed", callback: ((obj: WebView, previous_toplevel?: Gtk.Widget | null) => void)): number
     connect_after(sigName: "hierarchy-changed", callback: ((obj: WebView, previous_toplevel?: Gtk.Widget | null) => void)): number
     emit(sigName: "hierarchy-changed", previous_toplevel?: Gtk.Widget | null): void
+    on(sigName: "hierarchy-changed", callback: ((event: WebView, previous_toplevel?: Gtk.Widget | null) => void)): EventEmitter
+    once(sigName: "hierarchy-changed", callback: ((event: WebView, previous_toplevel?: Gtk.Widget | null) => void)): EventEmitter
+    off(sigName: "hierarchy-changed", callback: ((event: WebView, previous_toplevel?: Gtk.Widget | null) => void)): EventEmitter
     connect(sigName: "key-press-event", callback: ((obj: WebView, event: Gdk.EventKey) => boolean)): number
     connect_after(sigName: "key-press-event", callback: ((obj: WebView, event: Gdk.EventKey) => boolean)): number
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
+    on(sigName: "key-press-event", callback: ((event: WebView, event: Gdk.EventKey) => boolean)): EventEmitter
+    once(sigName: "key-press-event", callback: ((event: WebView, event: Gdk.EventKey) => boolean)): EventEmitter
+    off(sigName: "key-press-event", callback: ((event: WebView, event: Gdk.EventKey) => boolean)): EventEmitter
     connect(sigName: "key-release-event", callback: ((obj: WebView, event: Gdk.EventKey) => boolean)): number
     connect_after(sigName: "key-release-event", callback: ((obj: WebView, event: Gdk.EventKey) => boolean)): number
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
+    on(sigName: "key-release-event", callback: ((event: WebView, event: Gdk.EventKey) => boolean)): EventEmitter
+    once(sigName: "key-release-event", callback: ((event: WebView, event: Gdk.EventKey) => boolean)): EventEmitter
+    off(sigName: "key-release-event", callback: ((event: WebView, event: Gdk.EventKey) => boolean)): EventEmitter
     connect(sigName: "keynav-failed", callback: ((obj: WebView, direction: Gtk.DirectionType) => boolean)): number
     connect_after(sigName: "keynav-failed", callback: ((obj: WebView, direction: Gtk.DirectionType) => boolean)): number
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
+    on(sigName: "keynav-failed", callback: ((event: WebView, direction: Gtk.DirectionType) => boolean)): EventEmitter
+    once(sigName: "keynav-failed", callback: ((event: WebView, direction: Gtk.DirectionType) => boolean)): EventEmitter
+    off(sigName: "keynav-failed", callback: ((event: WebView, direction: Gtk.DirectionType) => boolean)): EventEmitter
     connect(sigName: "leave-notify-event", callback: ((obj: WebView, event: Gdk.EventCrossing) => boolean)): number
     connect_after(sigName: "leave-notify-event", callback: ((obj: WebView, event: Gdk.EventCrossing) => boolean)): number
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
+    on(sigName: "leave-notify-event", callback: ((event: WebView, event: Gdk.EventCrossing) => boolean)): EventEmitter
+    once(sigName: "leave-notify-event", callback: ((event: WebView, event: Gdk.EventCrossing) => boolean)): EventEmitter
+    off(sigName: "leave-notify-event", callback: ((event: WebView, event: Gdk.EventCrossing) => boolean)): EventEmitter
     connect(sigName: "map", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "map", callback: ((obj: WebView) => void)): number
     emit(sigName: "map"): void
+    on(sigName: "map", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "map", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "map", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "map-event", callback: ((obj: WebView, event: Gdk.EventAny) => boolean)): number
     connect_after(sigName: "map-event", callback: ((obj: WebView, event: Gdk.EventAny) => boolean)): number
     emit(sigName: "map-event", event: Gdk.EventAny): void
+    on(sigName: "map-event", callback: ((event: WebView, event: Gdk.EventAny) => boolean)): EventEmitter
+    once(sigName: "map-event", callback: ((event: WebView, event: Gdk.EventAny) => boolean)): EventEmitter
+    off(sigName: "map-event", callback: ((event: WebView, event: Gdk.EventAny) => boolean)): EventEmitter
     connect(sigName: "mnemonic-activate", callback: ((obj: WebView, group_cycling: boolean) => boolean)): number
     connect_after(sigName: "mnemonic-activate", callback: ((obj: WebView, group_cycling: boolean) => boolean)): number
     emit(sigName: "mnemonic-activate", group_cycling: boolean): void
+    on(sigName: "mnemonic-activate", callback: ((event: WebView, group_cycling: boolean) => boolean)): EventEmitter
+    once(sigName: "mnemonic-activate", callback: ((event: WebView, group_cycling: boolean) => boolean)): EventEmitter
+    off(sigName: "mnemonic-activate", callback: ((event: WebView, group_cycling: boolean) => boolean)): EventEmitter
     connect(sigName: "motion-notify-event", callback: ((obj: WebView, event: Gdk.EventMotion) => boolean)): number
     connect_after(sigName: "motion-notify-event", callback: ((obj: WebView, event: Gdk.EventMotion) => boolean)): number
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
+    on(sigName: "motion-notify-event", callback: ((event: WebView, event: Gdk.EventMotion) => boolean)): EventEmitter
+    once(sigName: "motion-notify-event", callback: ((event: WebView, event: Gdk.EventMotion) => boolean)): EventEmitter
+    off(sigName: "motion-notify-event", callback: ((event: WebView, event: Gdk.EventMotion) => boolean)): EventEmitter
     connect(sigName: "move-focus", callback: ((obj: WebView, direction: Gtk.DirectionType) => void)): number
     connect_after(sigName: "move-focus", callback: ((obj: WebView, direction: Gtk.DirectionType) => void)): number
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
+    on(sigName: "move-focus", callback: ((event: WebView, direction: Gtk.DirectionType) => void)): EventEmitter
+    once(sigName: "move-focus", callback: ((event: WebView, direction: Gtk.DirectionType) => void)): EventEmitter
+    off(sigName: "move-focus", callback: ((event: WebView, direction: Gtk.DirectionType) => void)): EventEmitter
     connect(sigName: "parent-set", callback: ((obj: WebView, old_parent?: Gtk.Widget | null) => void)): number
     connect_after(sigName: "parent-set", callback: ((obj: WebView, old_parent?: Gtk.Widget | null) => void)): number
     emit(sigName: "parent-set", old_parent?: Gtk.Widget | null): void
+    on(sigName: "parent-set", callback: ((event: WebView, old_parent?: Gtk.Widget | null) => void)): EventEmitter
+    once(sigName: "parent-set", callback: ((event: WebView, old_parent?: Gtk.Widget | null) => void)): EventEmitter
+    off(sigName: "parent-set", callback: ((event: WebView, old_parent?: Gtk.Widget | null) => void)): EventEmitter
     connect(sigName: "popup-menu", callback: ((obj: WebView) => boolean)): number
     connect_after(sigName: "popup-menu", callback: ((obj: WebView) => boolean)): number
     emit(sigName: "popup-menu"): void
+    on(sigName: "popup-menu", callback: ((event: WebView) => boolean)): EventEmitter
+    once(sigName: "popup-menu", callback: ((event: WebView) => boolean)): EventEmitter
+    off(sigName: "popup-menu", callback: ((event: WebView) => boolean)): EventEmitter
     connect(sigName: "property-notify-event", callback: ((obj: WebView, event: Gdk.EventProperty) => boolean)): number
     connect_after(sigName: "property-notify-event", callback: ((obj: WebView, event: Gdk.EventProperty) => boolean)): number
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
+    on(sigName: "property-notify-event", callback: ((event: WebView, event: Gdk.EventProperty) => boolean)): EventEmitter
+    once(sigName: "property-notify-event", callback: ((event: WebView, event: Gdk.EventProperty) => boolean)): EventEmitter
+    off(sigName: "property-notify-event", callback: ((event: WebView, event: Gdk.EventProperty) => boolean)): EventEmitter
     connect(sigName: "proximity-in-event", callback: ((obj: WebView, event: Gdk.EventProximity) => boolean)): number
     connect_after(sigName: "proximity-in-event", callback: ((obj: WebView, event: Gdk.EventProximity) => boolean)): number
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
+    on(sigName: "proximity-in-event", callback: ((event: WebView, event: Gdk.EventProximity) => boolean)): EventEmitter
+    once(sigName: "proximity-in-event", callback: ((event: WebView, event: Gdk.EventProximity) => boolean)): EventEmitter
+    off(sigName: "proximity-in-event", callback: ((event: WebView, event: Gdk.EventProximity) => boolean)): EventEmitter
     connect(sigName: "proximity-out-event", callback: ((obj: WebView, event: Gdk.EventProximity) => boolean)): number
     connect_after(sigName: "proximity-out-event", callback: ((obj: WebView, event: Gdk.EventProximity) => boolean)): number
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
+    on(sigName: "proximity-out-event", callback: ((event: WebView, event: Gdk.EventProximity) => boolean)): EventEmitter
+    once(sigName: "proximity-out-event", callback: ((event: WebView, event: Gdk.EventProximity) => boolean)): EventEmitter
+    off(sigName: "proximity-out-event", callback: ((event: WebView, event: Gdk.EventProximity) => boolean)): EventEmitter
     connect(sigName: "query-tooltip", callback: ((obj: WebView, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
     connect_after(sigName: "query-tooltip", callback: ((obj: WebView, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
     emit(sigName: "query-tooltip", x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip): void
+    on(sigName: "query-tooltip", callback: ((event: WebView, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): EventEmitter
+    once(sigName: "query-tooltip", callback: ((event: WebView, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): EventEmitter
+    off(sigName: "query-tooltip", callback: ((event: WebView, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): EventEmitter
     connect(sigName: "realize", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "realize", callback: ((obj: WebView) => void)): number
     emit(sigName: "realize"): void
+    on(sigName: "realize", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "realize", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "realize", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "screen-changed", callback: ((obj: WebView, previous_screen?: Gdk.Screen | null) => void)): number
     connect_after(sigName: "screen-changed", callback: ((obj: WebView, previous_screen?: Gdk.Screen | null) => void)): number
     emit(sigName: "screen-changed", previous_screen?: Gdk.Screen | null): void
+    on(sigName: "screen-changed", callback: ((event: WebView, previous_screen?: Gdk.Screen | null) => void)): EventEmitter
+    once(sigName: "screen-changed", callback: ((event: WebView, previous_screen?: Gdk.Screen | null) => void)): EventEmitter
+    off(sigName: "screen-changed", callback: ((event: WebView, previous_screen?: Gdk.Screen | null) => void)): EventEmitter
     connect(sigName: "scroll-event", callback: ((obj: WebView, event: Gdk.EventScroll) => boolean)): number
     connect_after(sigName: "scroll-event", callback: ((obj: WebView, event: Gdk.EventScroll) => boolean)): number
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
+    on(sigName: "scroll-event", callback: ((event: WebView, event: Gdk.EventScroll) => boolean)): EventEmitter
+    once(sigName: "scroll-event", callback: ((event: WebView, event: Gdk.EventScroll) => boolean)): EventEmitter
+    off(sigName: "scroll-event", callback: ((event: WebView, event: Gdk.EventScroll) => boolean)): EventEmitter
     connect(sigName: "selection-clear-event", callback: ((obj: WebView, event: Gdk.EventSelection) => boolean)): number
     connect_after(sigName: "selection-clear-event", callback: ((obj: WebView, event: Gdk.EventSelection) => boolean)): number
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
+    on(sigName: "selection-clear-event", callback: ((event: WebView, event: Gdk.EventSelection) => boolean)): EventEmitter
+    once(sigName: "selection-clear-event", callback: ((event: WebView, event: Gdk.EventSelection) => boolean)): EventEmitter
+    off(sigName: "selection-clear-event", callback: ((event: WebView, event: Gdk.EventSelection) => boolean)): EventEmitter
     connect(sigName: "selection-get", callback: ((obj: WebView, data: Gtk.SelectionData, info: number, time: number) => void)): number
     connect_after(sigName: "selection-get", callback: ((obj: WebView, data: Gtk.SelectionData, info: number, time: number) => void)): number
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
+    on(sigName: "selection-get", callback: ((event: WebView, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    once(sigName: "selection-get", callback: ((event: WebView, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    off(sigName: "selection-get", callback: ((event: WebView, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
     connect(sigName: "selection-notify-event", callback: ((obj: WebView, event: Gdk.EventSelection) => boolean)): number
     connect_after(sigName: "selection-notify-event", callback: ((obj: WebView, event: Gdk.EventSelection) => boolean)): number
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
+    on(sigName: "selection-notify-event", callback: ((event: WebView, event: Gdk.EventSelection) => boolean)): EventEmitter
+    once(sigName: "selection-notify-event", callback: ((event: WebView, event: Gdk.EventSelection) => boolean)): EventEmitter
+    off(sigName: "selection-notify-event", callback: ((event: WebView, event: Gdk.EventSelection) => boolean)): EventEmitter
     connect(sigName: "selection-received", callback: ((obj: WebView, data: Gtk.SelectionData, time: number) => void)): number
     connect_after(sigName: "selection-received", callback: ((obj: WebView, data: Gtk.SelectionData, time: number) => void)): number
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
+    on(sigName: "selection-received", callback: ((event: WebView, data: Gtk.SelectionData, time: number) => void)): EventEmitter
+    once(sigName: "selection-received", callback: ((event: WebView, data: Gtk.SelectionData, time: number) => void)): EventEmitter
+    off(sigName: "selection-received", callback: ((event: WebView, data: Gtk.SelectionData, time: number) => void)): EventEmitter
     connect(sigName: "selection-request-event", callback: ((obj: WebView, event: Gdk.EventSelection) => boolean)): number
     connect_after(sigName: "selection-request-event", callback: ((obj: WebView, event: Gdk.EventSelection) => boolean)): number
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
+    on(sigName: "selection-request-event", callback: ((event: WebView, event: Gdk.EventSelection) => boolean)): EventEmitter
+    once(sigName: "selection-request-event", callback: ((event: WebView, event: Gdk.EventSelection) => boolean)): EventEmitter
+    off(sigName: "selection-request-event", callback: ((event: WebView, event: Gdk.EventSelection) => boolean)): EventEmitter
     connect(sigName: "show", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "show", callback: ((obj: WebView) => void)): number
     emit(sigName: "show"): void
+    on(sigName: "show", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "show", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "show", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "show-help", callback: ((obj: WebView, help_type: Gtk.WidgetHelpType) => boolean)): number
     connect_after(sigName: "show-help", callback: ((obj: WebView, help_type: Gtk.WidgetHelpType) => boolean)): number
     emit(sigName: "show-help", help_type: Gtk.WidgetHelpType): void
+    on(sigName: "show-help", callback: ((event: WebView, help_type: Gtk.WidgetHelpType) => boolean)): EventEmitter
+    once(sigName: "show-help", callback: ((event: WebView, help_type: Gtk.WidgetHelpType) => boolean)): EventEmitter
+    off(sigName: "show-help", callback: ((event: WebView, help_type: Gtk.WidgetHelpType) => boolean)): EventEmitter
     connect(sigName: "size-allocate", callback: ((obj: WebView, allocation: Gtk.Allocation) => void)): number
     connect_after(sigName: "size-allocate", callback: ((obj: WebView, allocation: Gtk.Allocation) => void)): number
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
+    on(sigName: "size-allocate", callback: ((event: WebView, allocation: Gtk.Allocation) => void)): EventEmitter
+    once(sigName: "size-allocate", callback: ((event: WebView, allocation: Gtk.Allocation) => void)): EventEmitter
+    off(sigName: "size-allocate", callback: ((event: WebView, allocation: Gtk.Allocation) => void)): EventEmitter
     connect(sigName: "state-changed", callback: ((obj: WebView, state: Gtk.StateType) => void)): number
     connect_after(sigName: "state-changed", callback: ((obj: WebView, state: Gtk.StateType) => void)): number
     emit(sigName: "state-changed", state: Gtk.StateType): void
+    on(sigName: "state-changed", callback: ((event: WebView, state: Gtk.StateType) => void)): EventEmitter
+    once(sigName: "state-changed", callback: ((event: WebView, state: Gtk.StateType) => void)): EventEmitter
+    off(sigName: "state-changed", callback: ((event: WebView, state: Gtk.StateType) => void)): EventEmitter
     connect(sigName: "state-flags-changed", callback: ((obj: WebView, flags: Gtk.StateFlags) => void)): number
     connect_after(sigName: "state-flags-changed", callback: ((obj: WebView, flags: Gtk.StateFlags) => void)): number
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
+    on(sigName: "state-flags-changed", callback: ((event: WebView, flags: Gtk.StateFlags) => void)): EventEmitter
+    once(sigName: "state-flags-changed", callback: ((event: WebView, flags: Gtk.StateFlags) => void)): EventEmitter
+    off(sigName: "state-flags-changed", callback: ((event: WebView, flags: Gtk.StateFlags) => void)): EventEmitter
     connect(sigName: "style-set", callback: ((obj: WebView, previous_style?: Gtk.Style | null) => void)): number
     connect_after(sigName: "style-set", callback: ((obj: WebView, previous_style?: Gtk.Style | null) => void)): number
     emit(sigName: "style-set", previous_style?: Gtk.Style | null): void
+    on(sigName: "style-set", callback: ((event: WebView, previous_style?: Gtk.Style | null) => void)): EventEmitter
+    once(sigName: "style-set", callback: ((event: WebView, previous_style?: Gtk.Style | null) => void)): EventEmitter
+    off(sigName: "style-set", callback: ((event: WebView, previous_style?: Gtk.Style | null) => void)): EventEmitter
     connect(sigName: "style-updated", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "style-updated", callback: ((obj: WebView) => void)): number
     emit(sigName: "style-updated"): void
+    on(sigName: "style-updated", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "style-updated", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "style-updated", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "touch-event", callback: ((obj: WebView, object: Gdk.Event) => boolean)): number
     connect_after(sigName: "touch-event", callback: ((obj: WebView, object: Gdk.Event) => boolean)): number
     emit(sigName: "touch-event", object: Gdk.Event): void
+    on(sigName: "touch-event", callback: ((event: WebView, object: Gdk.Event) => boolean)): EventEmitter
+    once(sigName: "touch-event", callback: ((event: WebView, object: Gdk.Event) => boolean)): EventEmitter
+    off(sigName: "touch-event", callback: ((event: WebView, object: Gdk.Event) => boolean)): EventEmitter
     connect(sigName: "unmap", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "unmap", callback: ((obj: WebView) => void)): number
     emit(sigName: "unmap"): void
+    on(sigName: "unmap", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "unmap", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "unmap", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "unmap-event", callback: ((obj: WebView, event: Gdk.EventAny) => boolean)): number
     connect_after(sigName: "unmap-event", callback: ((obj: WebView, event: Gdk.EventAny) => boolean)): number
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
+    on(sigName: "unmap-event", callback: ((event: WebView, event: Gdk.EventAny) => boolean)): EventEmitter
+    once(sigName: "unmap-event", callback: ((event: WebView, event: Gdk.EventAny) => boolean)): EventEmitter
+    off(sigName: "unmap-event", callback: ((event: WebView, event: Gdk.EventAny) => boolean)): EventEmitter
     connect(sigName: "unrealize", callback: ((obj: WebView) => void)): number
     connect_after(sigName: "unrealize", callback: ((obj: WebView) => void)): number
     emit(sigName: "unrealize"): void
+    on(sigName: "unrealize", callback: ((event: WebView) => void)): EventEmitter
+    once(sigName: "unrealize", callback: ((event: WebView) => void)): EventEmitter
+    off(sigName: "unrealize", callback: ((event: WebView) => void)): EventEmitter
     connect(sigName: "visibility-notify-event", callback: ((obj: WebView, event: Gdk.EventVisibility) => boolean)): number
     connect_after(sigName: "visibility-notify-event", callback: ((obj: WebView, event: Gdk.EventVisibility) => boolean)): number
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
+    on(sigName: "visibility-notify-event", callback: ((event: WebView, event: Gdk.EventVisibility) => boolean)): EventEmitter
+    once(sigName: "visibility-notify-event", callback: ((event: WebView, event: Gdk.EventVisibility) => boolean)): EventEmitter
+    off(sigName: "visibility-notify-event", callback: ((event: WebView, event: Gdk.EventVisibility) => boolean)): EventEmitter
     connect(sigName: "window-state-event", callback: ((obj: WebView, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: ((obj: WebView, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
+    on(sigName: "window-state-event", callback: ((event: WebView, event: Gdk.EventWindowState) => boolean)): EventEmitter
+    once(sigName: "window-state-event", callback: ((event: WebView, event: Gdk.EventWindowState) => boolean)): EventEmitter
+    off(sigName: "window-state-event", callback: ((event: WebView, event: Gdk.EventWindowState) => boolean)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebView, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebView, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebView, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::editable", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::editable", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::editable", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::editable", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::editable", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::estimated-load-progress", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-load-progress", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::estimated-load-progress", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::estimated-load-progress", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::estimated-load-progress", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::favicon", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::favicon", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::favicon", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::favicon", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::favicon", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-loading", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-loading", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-loading", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-loading", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-loading", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-playing-audio", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-playing-audio", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-playing-audio", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-playing-audio", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-playing-audio", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::settings", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::settings", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::settings", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::settings", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::settings", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::title", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::title", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::title", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::title", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::title", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::uri", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::zoom-level", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::zoom-level", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::zoom-level", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::zoom-level", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::zoom-level", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::border-width", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border-width", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::border-width", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::border-width", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::border-width", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::child", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::child", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::resize-mode", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::resize-mode", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::resize-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::resize-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::resize-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::app-paintable", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-paintable", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::app-paintable", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::app-paintable", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::app-paintable", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::can-default", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-default", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::can-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::can-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::can-focus", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-focus", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::can-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::can-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::composite-child", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::composite-child", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::composite-child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::composite-child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::composite-child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::double-buffered", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::double-buffered", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::double-buffered", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::double-buffered", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::double-buffered", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::events", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::events", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::events", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::events", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::events", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::expand", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::expand", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::expand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::expand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::expand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::focus-on-click", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::focus-on-click", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focus-on-click", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::focus-on-click", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::focus-on-click", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::halign", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::halign", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::halign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::halign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::halign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::has-default", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::has-default", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::has-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::has-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::has-focus", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::has-focus", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::has-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::has-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::has-tooltip", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::has-tooltip", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-tooltip", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::has-tooltip", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::has-tooltip", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::height-request", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height-request", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::height-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::height-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::height-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::hexpand", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::hexpand", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::hexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::hexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::hexpand-set", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::hexpand-set", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::hexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::hexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-focus", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-focus", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-bottom", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-bottom", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-bottom", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-bottom", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-bottom", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-end", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-end", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-end", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-end", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-end", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-left", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-left", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-left", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-left", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-left", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-right", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-right", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-right", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-right", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-right", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-start", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-start", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-start", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-start", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-start", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-top", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-top", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-top", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-top", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-top", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::name", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::no-show-all", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::no-show-all", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::no-show-all", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::no-show-all", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::no-show-all", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::opacity", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::opacity", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::opacity", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::opacity", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::opacity", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::parent", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::receives-default", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::receives-default", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::receives-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::receives-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::receives-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::scale-factor", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scale-factor", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scale-factor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::scale-factor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::scale-factor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::sensitive", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sensitive", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sensitive", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::sensitive", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::sensitive", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::style", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::style", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::style", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::style", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::style", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tooltip-markup", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tooltip-markup", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-markup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tooltip-markup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tooltip-markup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tooltip-text", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tooltip-text", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-text", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tooltip-text", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tooltip-text", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::valign", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::valign", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::valign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::valign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::valign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::vexpand", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vexpand", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::vexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::vexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::vexpand-set", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vexpand-set", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::vexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::vexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::visible", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::visible", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::visible", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::visible", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::visible", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::width-request", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::width-request", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::width-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::width-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::width-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::window", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::window", callback: ((obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::window", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::window", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::window", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebView_ConstructProps)
     _init (config?: WebView_ConstructProps): void
@@ -4750,315 +5854,666 @@ export class WebViewBase {
     connect(sigName: "add", callback: ((obj: WebViewBase, object: Gtk.Widget) => void)): number
     connect_after(sigName: "add", callback: ((obj: WebViewBase, object: Gtk.Widget) => void)): number
     emit(sigName: "add", object: Gtk.Widget): void
+    on(sigName: "add", callback: ((event: WebViewBase, object: Gtk.Widget) => void)): EventEmitter
+    once(sigName: "add", callback: ((event: WebViewBase, object: Gtk.Widget) => void)): EventEmitter
+    off(sigName: "add", callback: ((event: WebViewBase, object: Gtk.Widget) => void)): EventEmitter
     connect(sigName: "check-resize", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "check-resize", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "check-resize"): void
+    on(sigName: "check-resize", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "check-resize", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "check-resize", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "remove", callback: ((obj: WebViewBase, object: Gtk.Widget) => void)): number
     connect_after(sigName: "remove", callback: ((obj: WebViewBase, object: Gtk.Widget) => void)): number
     emit(sigName: "remove", object: Gtk.Widget): void
+    on(sigName: "remove", callback: ((event: WebViewBase, object: Gtk.Widget) => void)): EventEmitter
+    once(sigName: "remove", callback: ((event: WebViewBase, object: Gtk.Widget) => void)): EventEmitter
+    off(sigName: "remove", callback: ((event: WebViewBase, object: Gtk.Widget) => void)): EventEmitter
     connect(sigName: "set-focus-child", callback: ((obj: WebViewBase, object: Gtk.Widget) => void)): number
     connect_after(sigName: "set-focus-child", callback: ((obj: WebViewBase, object: Gtk.Widget) => void)): number
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
+    on(sigName: "set-focus-child", callback: ((event: WebViewBase, object: Gtk.Widget) => void)): EventEmitter
+    once(sigName: "set-focus-child", callback: ((event: WebViewBase, object: Gtk.Widget) => void)): EventEmitter
+    off(sigName: "set-focus-child", callback: ((event: WebViewBase, object: Gtk.Widget) => void)): EventEmitter
     /* Signals of Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "accel-closures-changed"): void
+    on(sigName: "accel-closures-changed", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "accel-closures-changed", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "accel-closures-changed", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "button-press-event", callback: ((obj: WebViewBase, event: Gdk.EventButton) => boolean)): number
     connect_after(sigName: "button-press-event", callback: ((obj: WebViewBase, event: Gdk.EventButton) => boolean)): number
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
+    on(sigName: "button-press-event", callback: ((event: WebViewBase, event: Gdk.EventButton) => boolean)): EventEmitter
+    once(sigName: "button-press-event", callback: ((event: WebViewBase, event: Gdk.EventButton) => boolean)): EventEmitter
+    off(sigName: "button-press-event", callback: ((event: WebViewBase, event: Gdk.EventButton) => boolean)): EventEmitter
     connect(sigName: "button-release-event", callback: ((obj: WebViewBase, event: Gdk.EventButton) => boolean)): number
     connect_after(sigName: "button-release-event", callback: ((obj: WebViewBase, event: Gdk.EventButton) => boolean)): number
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
+    on(sigName: "button-release-event", callback: ((event: WebViewBase, event: Gdk.EventButton) => boolean)): EventEmitter
+    once(sigName: "button-release-event", callback: ((event: WebViewBase, event: Gdk.EventButton) => boolean)): EventEmitter
+    off(sigName: "button-release-event", callback: ((event: WebViewBase, event: Gdk.EventButton) => boolean)): EventEmitter
     connect(sigName: "can-activate-accel", callback: ((obj: WebViewBase, signal_id: number) => boolean)): number
     connect_after(sigName: "can-activate-accel", callback: ((obj: WebViewBase, signal_id: number) => boolean)): number
     emit(sigName: "can-activate-accel", signal_id: number): void
+    on(sigName: "can-activate-accel", callback: ((event: WebViewBase, signal_id: number) => boolean)): EventEmitter
+    once(sigName: "can-activate-accel", callback: ((event: WebViewBase, signal_id: number) => boolean)): EventEmitter
+    off(sigName: "can-activate-accel", callback: ((event: WebViewBase, signal_id: number) => boolean)): EventEmitter
     connect(sigName: "child-notify", callback: ((obj: WebViewBase, child_property: GObject.ParamSpec) => void)): number
     connect_after(sigName: "child-notify", callback: ((obj: WebViewBase, child_property: GObject.ParamSpec) => void)): number
     emit(sigName: "child-notify", child_property: GObject.ParamSpec): void
+    on(sigName: "child-notify", callback: ((event: WebViewBase, child_property: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "child-notify", callback: ((event: WebViewBase, child_property: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "child-notify", callback: ((event: WebViewBase, child_property: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "composited-changed", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "composited-changed", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "composited-changed"): void
+    on(sigName: "composited-changed", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "composited-changed", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "composited-changed", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "configure-event", callback: ((obj: WebViewBase, event: Gdk.EventConfigure) => boolean)): number
     connect_after(sigName: "configure-event", callback: ((obj: WebViewBase, event: Gdk.EventConfigure) => boolean)): number
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
+    on(sigName: "configure-event", callback: ((event: WebViewBase, event: Gdk.EventConfigure) => boolean)): EventEmitter
+    once(sigName: "configure-event", callback: ((event: WebViewBase, event: Gdk.EventConfigure) => boolean)): EventEmitter
+    off(sigName: "configure-event", callback: ((event: WebViewBase, event: Gdk.EventConfigure) => boolean)): EventEmitter
     connect(sigName: "damage-event", callback: ((obj: WebViewBase, event: Gdk.EventExpose) => boolean)): number
     connect_after(sigName: "damage-event", callback: ((obj: WebViewBase, event: Gdk.EventExpose) => boolean)): number
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
+    on(sigName: "damage-event", callback: ((event: WebViewBase, event: Gdk.EventExpose) => boolean)): EventEmitter
+    once(sigName: "damage-event", callback: ((event: WebViewBase, event: Gdk.EventExpose) => boolean)): EventEmitter
+    off(sigName: "damage-event", callback: ((event: WebViewBase, event: Gdk.EventExpose) => boolean)): EventEmitter
     connect(sigName: "delete-event", callback: ((obj: WebViewBase, event: Gdk.Event) => boolean)): number
     connect_after(sigName: "delete-event", callback: ((obj: WebViewBase, event: Gdk.Event) => boolean)): number
     emit(sigName: "delete-event", event: Gdk.Event): void
+    on(sigName: "delete-event", callback: ((event: WebViewBase, event: Gdk.Event) => boolean)): EventEmitter
+    once(sigName: "delete-event", callback: ((event: WebViewBase, event: Gdk.Event) => boolean)): EventEmitter
+    off(sigName: "delete-event", callback: ((event: WebViewBase, event: Gdk.Event) => boolean)): EventEmitter
     connect(sigName: "destroy", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "destroy", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "destroy"): void
+    on(sigName: "destroy", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "destroy", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "destroy", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "destroy-event", callback: ((obj: WebViewBase, event: Gdk.Event) => boolean)): number
     connect_after(sigName: "destroy-event", callback: ((obj: WebViewBase, event: Gdk.Event) => boolean)): number
     emit(sigName: "destroy-event", event: Gdk.Event): void
+    on(sigName: "destroy-event", callback: ((event: WebViewBase, event: Gdk.Event) => boolean)): EventEmitter
+    once(sigName: "destroy-event", callback: ((event: WebViewBase, event: Gdk.Event) => boolean)): EventEmitter
+    off(sigName: "destroy-event", callback: ((event: WebViewBase, event: Gdk.Event) => boolean)): EventEmitter
     connect(sigName: "direction-changed", callback: ((obj: WebViewBase, previous_direction: Gtk.TextDirection) => void)): number
     connect_after(sigName: "direction-changed", callback: ((obj: WebViewBase, previous_direction: Gtk.TextDirection) => void)): number
     emit(sigName: "direction-changed", previous_direction: Gtk.TextDirection): void
+    on(sigName: "direction-changed", callback: ((event: WebViewBase, previous_direction: Gtk.TextDirection) => void)): EventEmitter
+    once(sigName: "direction-changed", callback: ((event: WebViewBase, previous_direction: Gtk.TextDirection) => void)): EventEmitter
+    off(sigName: "direction-changed", callback: ((event: WebViewBase, previous_direction: Gtk.TextDirection) => void)): EventEmitter
     connect(sigName: "drag-begin", callback: ((obj: WebViewBase, context: Gdk.DragContext) => void)): number
     connect_after(sigName: "drag-begin", callback: ((obj: WebViewBase, context: Gdk.DragContext) => void)): number
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
+    on(sigName: "drag-begin", callback: ((event: WebViewBase, context: Gdk.DragContext) => void)): EventEmitter
+    once(sigName: "drag-begin", callback: ((event: WebViewBase, context: Gdk.DragContext) => void)): EventEmitter
+    off(sigName: "drag-begin", callback: ((event: WebViewBase, context: Gdk.DragContext) => void)): EventEmitter
     connect(sigName: "drag-data-delete", callback: ((obj: WebViewBase, context: Gdk.DragContext) => void)): number
     connect_after(sigName: "drag-data-delete", callback: ((obj: WebViewBase, context: Gdk.DragContext) => void)): number
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
+    on(sigName: "drag-data-delete", callback: ((event: WebViewBase, context: Gdk.DragContext) => void)): EventEmitter
+    once(sigName: "drag-data-delete", callback: ((event: WebViewBase, context: Gdk.DragContext) => void)): EventEmitter
+    off(sigName: "drag-data-delete", callback: ((event: WebViewBase, context: Gdk.DragContext) => void)): EventEmitter
     connect(sigName: "drag-data-get", callback: ((obj: WebViewBase, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
     connect_after(sigName: "drag-data-get", callback: ((obj: WebViewBase, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
+    on(sigName: "drag-data-get", callback: ((event: WebViewBase, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    once(sigName: "drag-data-get", callback: ((event: WebViewBase, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    off(sigName: "drag-data-get", callback: ((event: WebViewBase, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
     connect(sigName: "drag-data-received", callback: ((obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
     connect_after(sigName: "drag-data-received", callback: ((obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
+    on(sigName: "drag-data-received", callback: ((event: WebViewBase, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    once(sigName: "drag-data-received", callback: ((event: WebViewBase, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    off(sigName: "drag-data-received", callback: ((event: WebViewBase, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
     connect(sigName: "drag-drop", callback: ((obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
     connect_after(sigName: "drag-drop", callback: ((obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
+    on(sigName: "drag-drop", callback: ((event: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
+    once(sigName: "drag-drop", callback: ((event: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
+    off(sigName: "drag-drop", callback: ((event: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
     connect(sigName: "drag-end", callback: ((obj: WebViewBase, context: Gdk.DragContext) => void)): number
     connect_after(sigName: "drag-end", callback: ((obj: WebViewBase, context: Gdk.DragContext) => void)): number
     emit(sigName: "drag-end", context: Gdk.DragContext): void
+    on(sigName: "drag-end", callback: ((event: WebViewBase, context: Gdk.DragContext) => void)): EventEmitter
+    once(sigName: "drag-end", callback: ((event: WebViewBase, context: Gdk.DragContext) => void)): EventEmitter
+    off(sigName: "drag-end", callback: ((event: WebViewBase, context: Gdk.DragContext) => void)): EventEmitter
     connect(sigName: "drag-failed", callback: ((obj: WebViewBase, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
     connect_after(sigName: "drag-failed", callback: ((obj: WebViewBase, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
+    on(sigName: "drag-failed", callback: ((event: WebViewBase, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): EventEmitter
+    once(sigName: "drag-failed", callback: ((event: WebViewBase, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): EventEmitter
+    off(sigName: "drag-failed", callback: ((event: WebViewBase, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): EventEmitter
     connect(sigName: "drag-leave", callback: ((obj: WebViewBase, context: Gdk.DragContext, time: number) => void)): number
     connect_after(sigName: "drag-leave", callback: ((obj: WebViewBase, context: Gdk.DragContext, time: number) => void)): number
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
+    on(sigName: "drag-leave", callback: ((event: WebViewBase, context: Gdk.DragContext, time: number) => void)): EventEmitter
+    once(sigName: "drag-leave", callback: ((event: WebViewBase, context: Gdk.DragContext, time: number) => void)): EventEmitter
+    off(sigName: "drag-leave", callback: ((event: WebViewBase, context: Gdk.DragContext, time: number) => void)): EventEmitter
     connect(sigName: "drag-motion", callback: ((obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
     connect_after(sigName: "drag-motion", callback: ((obj: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
+    on(sigName: "drag-motion", callback: ((event: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
+    once(sigName: "drag-motion", callback: ((event: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
+    off(sigName: "drag-motion", callback: ((event: WebViewBase, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): EventEmitter
     connect(sigName: "draw", callback: ((obj: WebViewBase, cr: cairo.Context) => boolean)): number
     connect_after(sigName: "draw", callback: ((obj: WebViewBase, cr: cairo.Context) => boolean)): number
     emit(sigName: "draw", cr: cairo.Context): void
+    on(sigName: "draw", callback: ((event: WebViewBase, cr: cairo.Context) => boolean)): EventEmitter
+    once(sigName: "draw", callback: ((event: WebViewBase, cr: cairo.Context) => boolean)): EventEmitter
+    off(sigName: "draw", callback: ((event: WebViewBase, cr: cairo.Context) => boolean)): EventEmitter
     connect(sigName: "enter-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventCrossing) => boolean)): number
     connect_after(sigName: "enter-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventCrossing) => boolean)): number
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
+    on(sigName: "enter-notify-event", callback: ((event: WebViewBase, event: Gdk.EventCrossing) => boolean)): EventEmitter
+    once(sigName: "enter-notify-event", callback: ((event: WebViewBase, event: Gdk.EventCrossing) => boolean)): EventEmitter
+    off(sigName: "enter-notify-event", callback: ((event: WebViewBase, event: Gdk.EventCrossing) => boolean)): EventEmitter
     connect(sigName: "event", callback: ((obj: WebViewBase, event: Gdk.Event) => boolean)): number
     connect_after(sigName: "event", callback: ((obj: WebViewBase, event: Gdk.Event) => boolean)): number
     emit(sigName: "event", event: Gdk.Event): void
+    on(sigName: "event", callback: ((event: WebViewBase, event: Gdk.Event) => boolean)): EventEmitter
+    once(sigName: "event", callback: ((event: WebViewBase, event: Gdk.Event) => boolean)): EventEmitter
+    off(sigName: "event", callback: ((event: WebViewBase, event: Gdk.Event) => boolean)): EventEmitter
     connect(sigName: "event-after", callback: ((obj: WebViewBase, event: Gdk.Event) => void)): number
     connect_after(sigName: "event-after", callback: ((obj: WebViewBase, event: Gdk.Event) => void)): number
     emit(sigName: "event-after", event: Gdk.Event): void
+    on(sigName: "event-after", callback: ((event: WebViewBase, event: Gdk.Event) => void)): EventEmitter
+    once(sigName: "event-after", callback: ((event: WebViewBase, event: Gdk.Event) => void)): EventEmitter
+    off(sigName: "event-after", callback: ((event: WebViewBase, event: Gdk.Event) => void)): EventEmitter
     connect(sigName: "focus", callback: ((obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
     connect_after(sigName: "focus", callback: ((obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
     emit(sigName: "focus", direction: Gtk.DirectionType): void
+    on(sigName: "focus", callback: ((event: WebViewBase, direction: Gtk.DirectionType) => boolean)): EventEmitter
+    once(sigName: "focus", callback: ((event: WebViewBase, direction: Gtk.DirectionType) => boolean)): EventEmitter
+    off(sigName: "focus", callback: ((event: WebViewBase, direction: Gtk.DirectionType) => boolean)): EventEmitter
     connect(sigName: "focus-in-event", callback: ((obj: WebViewBase, event: Gdk.EventFocus) => boolean)): number
     connect_after(sigName: "focus-in-event", callback: ((obj: WebViewBase, event: Gdk.EventFocus) => boolean)): number
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
+    on(sigName: "focus-in-event", callback: ((event: WebViewBase, event: Gdk.EventFocus) => boolean)): EventEmitter
+    once(sigName: "focus-in-event", callback: ((event: WebViewBase, event: Gdk.EventFocus) => boolean)): EventEmitter
+    off(sigName: "focus-in-event", callback: ((event: WebViewBase, event: Gdk.EventFocus) => boolean)): EventEmitter
     connect(sigName: "focus-out-event", callback: ((obj: WebViewBase, event: Gdk.EventFocus) => boolean)): number
     connect_after(sigName: "focus-out-event", callback: ((obj: WebViewBase, event: Gdk.EventFocus) => boolean)): number
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
+    on(sigName: "focus-out-event", callback: ((event: WebViewBase, event: Gdk.EventFocus) => boolean)): EventEmitter
+    once(sigName: "focus-out-event", callback: ((event: WebViewBase, event: Gdk.EventFocus) => boolean)): EventEmitter
+    off(sigName: "focus-out-event", callback: ((event: WebViewBase, event: Gdk.EventFocus) => boolean)): EventEmitter
     connect(sigName: "grab-broken-event", callback: ((obj: WebViewBase, event: Gdk.EventGrabBroken) => boolean)): number
     connect_after(sigName: "grab-broken-event", callback: ((obj: WebViewBase, event: Gdk.EventGrabBroken) => boolean)): number
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
+    on(sigName: "grab-broken-event", callback: ((event: WebViewBase, event: Gdk.EventGrabBroken) => boolean)): EventEmitter
+    once(sigName: "grab-broken-event", callback: ((event: WebViewBase, event: Gdk.EventGrabBroken) => boolean)): EventEmitter
+    off(sigName: "grab-broken-event", callback: ((event: WebViewBase, event: Gdk.EventGrabBroken) => boolean)): EventEmitter
     connect(sigName: "grab-focus", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "grab-focus", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "grab-focus"): void
+    on(sigName: "grab-focus", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "grab-focus", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "grab-focus", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "grab-notify", callback: ((obj: WebViewBase, was_grabbed: boolean) => void)): number
     connect_after(sigName: "grab-notify", callback: ((obj: WebViewBase, was_grabbed: boolean) => void)): number
     emit(sigName: "grab-notify", was_grabbed: boolean): void
+    on(sigName: "grab-notify", callback: ((event: WebViewBase, was_grabbed: boolean) => void)): EventEmitter
+    once(sigName: "grab-notify", callback: ((event: WebViewBase, was_grabbed: boolean) => void)): EventEmitter
+    off(sigName: "grab-notify", callback: ((event: WebViewBase, was_grabbed: boolean) => void)): EventEmitter
     connect(sigName: "hide", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "hide", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "hide"): void
+    on(sigName: "hide", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "hide", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "hide", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "hierarchy-changed", callback: ((obj: WebViewBase, previous_toplevel?: Gtk.Widget | null) => void)): number
     connect_after(sigName: "hierarchy-changed", callback: ((obj: WebViewBase, previous_toplevel?: Gtk.Widget | null) => void)): number
     emit(sigName: "hierarchy-changed", previous_toplevel?: Gtk.Widget | null): void
+    on(sigName: "hierarchy-changed", callback: ((event: WebViewBase, previous_toplevel?: Gtk.Widget | null) => void)): EventEmitter
+    once(sigName: "hierarchy-changed", callback: ((event: WebViewBase, previous_toplevel?: Gtk.Widget | null) => void)): EventEmitter
+    off(sigName: "hierarchy-changed", callback: ((event: WebViewBase, previous_toplevel?: Gtk.Widget | null) => void)): EventEmitter
     connect(sigName: "key-press-event", callback: ((obj: WebViewBase, event: Gdk.EventKey) => boolean)): number
     connect_after(sigName: "key-press-event", callback: ((obj: WebViewBase, event: Gdk.EventKey) => boolean)): number
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
+    on(sigName: "key-press-event", callback: ((event: WebViewBase, event: Gdk.EventKey) => boolean)): EventEmitter
+    once(sigName: "key-press-event", callback: ((event: WebViewBase, event: Gdk.EventKey) => boolean)): EventEmitter
+    off(sigName: "key-press-event", callback: ((event: WebViewBase, event: Gdk.EventKey) => boolean)): EventEmitter
     connect(sigName: "key-release-event", callback: ((obj: WebViewBase, event: Gdk.EventKey) => boolean)): number
     connect_after(sigName: "key-release-event", callback: ((obj: WebViewBase, event: Gdk.EventKey) => boolean)): number
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
+    on(sigName: "key-release-event", callback: ((event: WebViewBase, event: Gdk.EventKey) => boolean)): EventEmitter
+    once(sigName: "key-release-event", callback: ((event: WebViewBase, event: Gdk.EventKey) => boolean)): EventEmitter
+    off(sigName: "key-release-event", callback: ((event: WebViewBase, event: Gdk.EventKey) => boolean)): EventEmitter
     connect(sigName: "keynav-failed", callback: ((obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
     connect_after(sigName: "keynav-failed", callback: ((obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
+    on(sigName: "keynav-failed", callback: ((event: WebViewBase, direction: Gtk.DirectionType) => boolean)): EventEmitter
+    once(sigName: "keynav-failed", callback: ((event: WebViewBase, direction: Gtk.DirectionType) => boolean)): EventEmitter
+    off(sigName: "keynav-failed", callback: ((event: WebViewBase, direction: Gtk.DirectionType) => boolean)): EventEmitter
     connect(sigName: "leave-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventCrossing) => boolean)): number
     connect_after(sigName: "leave-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventCrossing) => boolean)): number
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
+    on(sigName: "leave-notify-event", callback: ((event: WebViewBase, event: Gdk.EventCrossing) => boolean)): EventEmitter
+    once(sigName: "leave-notify-event", callback: ((event: WebViewBase, event: Gdk.EventCrossing) => boolean)): EventEmitter
+    off(sigName: "leave-notify-event", callback: ((event: WebViewBase, event: Gdk.EventCrossing) => boolean)): EventEmitter
     connect(sigName: "map", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "map", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "map"): void
+    on(sigName: "map", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "map", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "map", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "map-event", callback: ((obj: WebViewBase, event: Gdk.EventAny) => boolean)): number
     connect_after(sigName: "map-event", callback: ((obj: WebViewBase, event: Gdk.EventAny) => boolean)): number
     emit(sigName: "map-event", event: Gdk.EventAny): void
+    on(sigName: "map-event", callback: ((event: WebViewBase, event: Gdk.EventAny) => boolean)): EventEmitter
+    once(sigName: "map-event", callback: ((event: WebViewBase, event: Gdk.EventAny) => boolean)): EventEmitter
+    off(sigName: "map-event", callback: ((event: WebViewBase, event: Gdk.EventAny) => boolean)): EventEmitter
     connect(sigName: "mnemonic-activate", callback: ((obj: WebViewBase, group_cycling: boolean) => boolean)): number
     connect_after(sigName: "mnemonic-activate", callback: ((obj: WebViewBase, group_cycling: boolean) => boolean)): number
     emit(sigName: "mnemonic-activate", group_cycling: boolean): void
+    on(sigName: "mnemonic-activate", callback: ((event: WebViewBase, group_cycling: boolean) => boolean)): EventEmitter
+    once(sigName: "mnemonic-activate", callback: ((event: WebViewBase, group_cycling: boolean) => boolean)): EventEmitter
+    off(sigName: "mnemonic-activate", callback: ((event: WebViewBase, group_cycling: boolean) => boolean)): EventEmitter
     connect(sigName: "motion-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventMotion) => boolean)): number
     connect_after(sigName: "motion-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventMotion) => boolean)): number
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
+    on(sigName: "motion-notify-event", callback: ((event: WebViewBase, event: Gdk.EventMotion) => boolean)): EventEmitter
+    once(sigName: "motion-notify-event", callback: ((event: WebViewBase, event: Gdk.EventMotion) => boolean)): EventEmitter
+    off(sigName: "motion-notify-event", callback: ((event: WebViewBase, event: Gdk.EventMotion) => boolean)): EventEmitter
     connect(sigName: "move-focus", callback: ((obj: WebViewBase, direction: Gtk.DirectionType) => void)): number
     connect_after(sigName: "move-focus", callback: ((obj: WebViewBase, direction: Gtk.DirectionType) => void)): number
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
+    on(sigName: "move-focus", callback: ((event: WebViewBase, direction: Gtk.DirectionType) => void)): EventEmitter
+    once(sigName: "move-focus", callback: ((event: WebViewBase, direction: Gtk.DirectionType) => void)): EventEmitter
+    off(sigName: "move-focus", callback: ((event: WebViewBase, direction: Gtk.DirectionType) => void)): EventEmitter
     connect(sigName: "parent-set", callback: ((obj: WebViewBase, old_parent?: Gtk.Widget | null) => void)): number
     connect_after(sigName: "parent-set", callback: ((obj: WebViewBase, old_parent?: Gtk.Widget | null) => void)): number
     emit(sigName: "parent-set", old_parent?: Gtk.Widget | null): void
+    on(sigName: "parent-set", callback: ((event: WebViewBase, old_parent?: Gtk.Widget | null) => void)): EventEmitter
+    once(sigName: "parent-set", callback: ((event: WebViewBase, old_parent?: Gtk.Widget | null) => void)): EventEmitter
+    off(sigName: "parent-set", callback: ((event: WebViewBase, old_parent?: Gtk.Widget | null) => void)): EventEmitter
     connect(sigName: "popup-menu", callback: ((obj: WebViewBase) => boolean)): number
     connect_after(sigName: "popup-menu", callback: ((obj: WebViewBase) => boolean)): number
     emit(sigName: "popup-menu"): void
+    on(sigName: "popup-menu", callback: ((event: WebViewBase) => boolean)): EventEmitter
+    once(sigName: "popup-menu", callback: ((event: WebViewBase) => boolean)): EventEmitter
+    off(sigName: "popup-menu", callback: ((event: WebViewBase) => boolean)): EventEmitter
     connect(sigName: "property-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventProperty) => boolean)): number
     connect_after(sigName: "property-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventProperty) => boolean)): number
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
+    on(sigName: "property-notify-event", callback: ((event: WebViewBase, event: Gdk.EventProperty) => boolean)): EventEmitter
+    once(sigName: "property-notify-event", callback: ((event: WebViewBase, event: Gdk.EventProperty) => boolean)): EventEmitter
+    off(sigName: "property-notify-event", callback: ((event: WebViewBase, event: Gdk.EventProperty) => boolean)): EventEmitter
     connect(sigName: "proximity-in-event", callback: ((obj: WebViewBase, event: Gdk.EventProximity) => boolean)): number
     connect_after(sigName: "proximity-in-event", callback: ((obj: WebViewBase, event: Gdk.EventProximity) => boolean)): number
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
+    on(sigName: "proximity-in-event", callback: ((event: WebViewBase, event: Gdk.EventProximity) => boolean)): EventEmitter
+    once(sigName: "proximity-in-event", callback: ((event: WebViewBase, event: Gdk.EventProximity) => boolean)): EventEmitter
+    off(sigName: "proximity-in-event", callback: ((event: WebViewBase, event: Gdk.EventProximity) => boolean)): EventEmitter
     connect(sigName: "proximity-out-event", callback: ((obj: WebViewBase, event: Gdk.EventProximity) => boolean)): number
     connect_after(sigName: "proximity-out-event", callback: ((obj: WebViewBase, event: Gdk.EventProximity) => boolean)): number
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
+    on(sigName: "proximity-out-event", callback: ((event: WebViewBase, event: Gdk.EventProximity) => boolean)): EventEmitter
+    once(sigName: "proximity-out-event", callback: ((event: WebViewBase, event: Gdk.EventProximity) => boolean)): EventEmitter
+    off(sigName: "proximity-out-event", callback: ((event: WebViewBase, event: Gdk.EventProximity) => boolean)): EventEmitter
     connect(sigName: "query-tooltip", callback: ((obj: WebViewBase, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
     connect_after(sigName: "query-tooltip", callback: ((obj: WebViewBase, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
     emit(sigName: "query-tooltip", x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip): void
+    on(sigName: "query-tooltip", callback: ((event: WebViewBase, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): EventEmitter
+    once(sigName: "query-tooltip", callback: ((event: WebViewBase, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): EventEmitter
+    off(sigName: "query-tooltip", callback: ((event: WebViewBase, x: number, y: number, keyboard_mode: boolean, tooltip: Gtk.Tooltip) => boolean)): EventEmitter
     connect(sigName: "realize", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "realize", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "realize"): void
+    on(sigName: "realize", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "realize", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "realize", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "screen-changed", callback: ((obj: WebViewBase, previous_screen?: Gdk.Screen | null) => void)): number
     connect_after(sigName: "screen-changed", callback: ((obj: WebViewBase, previous_screen?: Gdk.Screen | null) => void)): number
     emit(sigName: "screen-changed", previous_screen?: Gdk.Screen | null): void
+    on(sigName: "screen-changed", callback: ((event: WebViewBase, previous_screen?: Gdk.Screen | null) => void)): EventEmitter
+    once(sigName: "screen-changed", callback: ((event: WebViewBase, previous_screen?: Gdk.Screen | null) => void)): EventEmitter
+    off(sigName: "screen-changed", callback: ((event: WebViewBase, previous_screen?: Gdk.Screen | null) => void)): EventEmitter
     connect(sigName: "scroll-event", callback: ((obj: WebViewBase, event: Gdk.EventScroll) => boolean)): number
     connect_after(sigName: "scroll-event", callback: ((obj: WebViewBase, event: Gdk.EventScroll) => boolean)): number
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
+    on(sigName: "scroll-event", callback: ((event: WebViewBase, event: Gdk.EventScroll) => boolean)): EventEmitter
+    once(sigName: "scroll-event", callback: ((event: WebViewBase, event: Gdk.EventScroll) => boolean)): EventEmitter
+    off(sigName: "scroll-event", callback: ((event: WebViewBase, event: Gdk.EventScroll) => boolean)): EventEmitter
     connect(sigName: "selection-clear-event", callback: ((obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
     connect_after(sigName: "selection-clear-event", callback: ((obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
+    on(sigName: "selection-clear-event", callback: ((event: WebViewBase, event: Gdk.EventSelection) => boolean)): EventEmitter
+    once(sigName: "selection-clear-event", callback: ((event: WebViewBase, event: Gdk.EventSelection) => boolean)): EventEmitter
+    off(sigName: "selection-clear-event", callback: ((event: WebViewBase, event: Gdk.EventSelection) => boolean)): EventEmitter
     connect(sigName: "selection-get", callback: ((obj: WebViewBase, data: Gtk.SelectionData, info: number, time: number) => void)): number
     connect_after(sigName: "selection-get", callback: ((obj: WebViewBase, data: Gtk.SelectionData, info: number, time: number) => void)): number
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
+    on(sigName: "selection-get", callback: ((event: WebViewBase, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    once(sigName: "selection-get", callback: ((event: WebViewBase, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
+    off(sigName: "selection-get", callback: ((event: WebViewBase, data: Gtk.SelectionData, info: number, time: number) => void)): EventEmitter
     connect(sigName: "selection-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
     connect_after(sigName: "selection-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
+    on(sigName: "selection-notify-event", callback: ((event: WebViewBase, event: Gdk.EventSelection) => boolean)): EventEmitter
+    once(sigName: "selection-notify-event", callback: ((event: WebViewBase, event: Gdk.EventSelection) => boolean)): EventEmitter
+    off(sigName: "selection-notify-event", callback: ((event: WebViewBase, event: Gdk.EventSelection) => boolean)): EventEmitter
     connect(sigName: "selection-received", callback: ((obj: WebViewBase, data: Gtk.SelectionData, time: number) => void)): number
     connect_after(sigName: "selection-received", callback: ((obj: WebViewBase, data: Gtk.SelectionData, time: number) => void)): number
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
+    on(sigName: "selection-received", callback: ((event: WebViewBase, data: Gtk.SelectionData, time: number) => void)): EventEmitter
+    once(sigName: "selection-received", callback: ((event: WebViewBase, data: Gtk.SelectionData, time: number) => void)): EventEmitter
+    off(sigName: "selection-received", callback: ((event: WebViewBase, data: Gtk.SelectionData, time: number) => void)): EventEmitter
     connect(sigName: "selection-request-event", callback: ((obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
     connect_after(sigName: "selection-request-event", callback: ((obj: WebViewBase, event: Gdk.EventSelection) => boolean)): number
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
+    on(sigName: "selection-request-event", callback: ((event: WebViewBase, event: Gdk.EventSelection) => boolean)): EventEmitter
+    once(sigName: "selection-request-event", callback: ((event: WebViewBase, event: Gdk.EventSelection) => boolean)): EventEmitter
+    off(sigName: "selection-request-event", callback: ((event: WebViewBase, event: Gdk.EventSelection) => boolean)): EventEmitter
     connect(sigName: "show", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "show", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "show"): void
+    on(sigName: "show", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "show", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "show", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "show-help", callback: ((obj: WebViewBase, help_type: Gtk.WidgetHelpType) => boolean)): number
     connect_after(sigName: "show-help", callback: ((obj: WebViewBase, help_type: Gtk.WidgetHelpType) => boolean)): number
     emit(sigName: "show-help", help_type: Gtk.WidgetHelpType): void
+    on(sigName: "show-help", callback: ((event: WebViewBase, help_type: Gtk.WidgetHelpType) => boolean)): EventEmitter
+    once(sigName: "show-help", callback: ((event: WebViewBase, help_type: Gtk.WidgetHelpType) => boolean)): EventEmitter
+    off(sigName: "show-help", callback: ((event: WebViewBase, help_type: Gtk.WidgetHelpType) => boolean)): EventEmitter
     connect(sigName: "size-allocate", callback: ((obj: WebViewBase, allocation: Gtk.Allocation) => void)): number
     connect_after(sigName: "size-allocate", callback: ((obj: WebViewBase, allocation: Gtk.Allocation) => void)): number
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
+    on(sigName: "size-allocate", callback: ((event: WebViewBase, allocation: Gtk.Allocation) => void)): EventEmitter
+    once(sigName: "size-allocate", callback: ((event: WebViewBase, allocation: Gtk.Allocation) => void)): EventEmitter
+    off(sigName: "size-allocate", callback: ((event: WebViewBase, allocation: Gtk.Allocation) => void)): EventEmitter
     connect(sigName: "state-changed", callback: ((obj: WebViewBase, state: Gtk.StateType) => void)): number
     connect_after(sigName: "state-changed", callback: ((obj: WebViewBase, state: Gtk.StateType) => void)): number
     emit(sigName: "state-changed", state: Gtk.StateType): void
+    on(sigName: "state-changed", callback: ((event: WebViewBase, state: Gtk.StateType) => void)): EventEmitter
+    once(sigName: "state-changed", callback: ((event: WebViewBase, state: Gtk.StateType) => void)): EventEmitter
+    off(sigName: "state-changed", callback: ((event: WebViewBase, state: Gtk.StateType) => void)): EventEmitter
     connect(sigName: "state-flags-changed", callback: ((obj: WebViewBase, flags: Gtk.StateFlags) => void)): number
     connect_after(sigName: "state-flags-changed", callback: ((obj: WebViewBase, flags: Gtk.StateFlags) => void)): number
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
+    on(sigName: "state-flags-changed", callback: ((event: WebViewBase, flags: Gtk.StateFlags) => void)): EventEmitter
+    once(sigName: "state-flags-changed", callback: ((event: WebViewBase, flags: Gtk.StateFlags) => void)): EventEmitter
+    off(sigName: "state-flags-changed", callback: ((event: WebViewBase, flags: Gtk.StateFlags) => void)): EventEmitter
     connect(sigName: "style-set", callback: ((obj: WebViewBase, previous_style?: Gtk.Style | null) => void)): number
     connect_after(sigName: "style-set", callback: ((obj: WebViewBase, previous_style?: Gtk.Style | null) => void)): number
     emit(sigName: "style-set", previous_style?: Gtk.Style | null): void
+    on(sigName: "style-set", callback: ((event: WebViewBase, previous_style?: Gtk.Style | null) => void)): EventEmitter
+    once(sigName: "style-set", callback: ((event: WebViewBase, previous_style?: Gtk.Style | null) => void)): EventEmitter
+    off(sigName: "style-set", callback: ((event: WebViewBase, previous_style?: Gtk.Style | null) => void)): EventEmitter
     connect(sigName: "style-updated", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "style-updated", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "style-updated"): void
+    on(sigName: "style-updated", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "style-updated", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "style-updated", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "touch-event", callback: ((obj: WebViewBase, object: Gdk.Event) => boolean)): number
     connect_after(sigName: "touch-event", callback: ((obj: WebViewBase, object: Gdk.Event) => boolean)): number
     emit(sigName: "touch-event", object: Gdk.Event): void
+    on(sigName: "touch-event", callback: ((event: WebViewBase, object: Gdk.Event) => boolean)): EventEmitter
+    once(sigName: "touch-event", callback: ((event: WebViewBase, object: Gdk.Event) => boolean)): EventEmitter
+    off(sigName: "touch-event", callback: ((event: WebViewBase, object: Gdk.Event) => boolean)): EventEmitter
     connect(sigName: "unmap", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "unmap", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "unmap"): void
+    on(sigName: "unmap", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "unmap", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "unmap", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "unmap-event", callback: ((obj: WebViewBase, event: Gdk.EventAny) => boolean)): number
     connect_after(sigName: "unmap-event", callback: ((obj: WebViewBase, event: Gdk.EventAny) => boolean)): number
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
+    on(sigName: "unmap-event", callback: ((event: WebViewBase, event: Gdk.EventAny) => boolean)): EventEmitter
+    once(sigName: "unmap-event", callback: ((event: WebViewBase, event: Gdk.EventAny) => boolean)): EventEmitter
+    off(sigName: "unmap-event", callback: ((event: WebViewBase, event: Gdk.EventAny) => boolean)): EventEmitter
     connect(sigName: "unrealize", callback: ((obj: WebViewBase) => void)): number
     connect_after(sigName: "unrealize", callback: ((obj: WebViewBase) => void)): number
     emit(sigName: "unrealize"): void
+    on(sigName: "unrealize", callback: ((event: WebViewBase) => void)): EventEmitter
+    once(sigName: "unrealize", callback: ((event: WebViewBase) => void)): EventEmitter
+    off(sigName: "unrealize", callback: ((event: WebViewBase) => void)): EventEmitter
     connect(sigName: "visibility-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventVisibility) => boolean)): number
     connect_after(sigName: "visibility-notify-event", callback: ((obj: WebViewBase, event: Gdk.EventVisibility) => boolean)): number
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
+    on(sigName: "visibility-notify-event", callback: ((event: WebViewBase, event: Gdk.EventVisibility) => boolean)): EventEmitter
+    once(sigName: "visibility-notify-event", callback: ((event: WebViewBase, event: Gdk.EventVisibility) => boolean)): EventEmitter
+    off(sigName: "visibility-notify-event", callback: ((event: WebViewBase, event: Gdk.EventVisibility) => boolean)): EventEmitter
     connect(sigName: "window-state-event", callback: ((obj: WebViewBase, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: ((obj: WebViewBase, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
+    on(sigName: "window-state-event", callback: ((event: WebViewBase, event: Gdk.EventWindowState) => boolean)): EventEmitter
+    once(sigName: "window-state-event", callback: ((event: WebViewBase, event: Gdk.EventWindowState) => boolean)): EventEmitter
+    off(sigName: "window-state-event", callback: ((event: WebViewBase, event: Gdk.EventWindowState) => boolean)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebViewBase, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebViewBase, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebViewBase, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::border-width", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border-width", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::border-width", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::border-width", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::border-width", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::child", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::child", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::resize-mode", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::resize-mode", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::resize-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::resize-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::resize-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::app-paintable", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-paintable", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::app-paintable", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::app-paintable", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::app-paintable", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::can-default", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-default", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::can-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::can-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::can-focus", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-focus", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::can-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::can-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::composite-child", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::composite-child", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::composite-child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::composite-child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::composite-child", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::double-buffered", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::double-buffered", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::double-buffered", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::double-buffered", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::double-buffered", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::events", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::events", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::events", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::events", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::events", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::expand", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::expand", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::expand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::expand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::expand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::focus-on-click", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::focus-on-click", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focus-on-click", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::focus-on-click", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::focus-on-click", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::halign", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::halign", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::halign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::halign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::halign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::has-default", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::has-default", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::has-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::has-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::has-focus", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::has-focus", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::has-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::has-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::has-tooltip", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::has-tooltip", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-tooltip", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::has-tooltip", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::has-tooltip", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::height-request", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height-request", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::height-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::height-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::height-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::hexpand", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::hexpand", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::hexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::hexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::hexpand-set", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::hexpand-set", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::hexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::hexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-focus", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-focus", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-focus", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-bottom", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-bottom", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-bottom", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-bottom", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-bottom", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-end", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-end", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-end", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-end", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-end", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-left", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-left", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-left", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-left", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-left", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-right", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-right", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-right", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-right", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-right", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-start", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-start", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-start", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-start", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-start", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::margin-top", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-top", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-top", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::margin-top", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::margin-top", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::name", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::no-show-all", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::no-show-all", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::no-show-all", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::no-show-all", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::no-show-all", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::opacity", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::opacity", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::opacity", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::opacity", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::opacity", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::parent", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::receives-default", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::receives-default", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::receives-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::receives-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::receives-default", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::scale-factor", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scale-factor", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scale-factor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::scale-factor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::scale-factor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::sensitive", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sensitive", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sensitive", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::sensitive", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::sensitive", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::style", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::style", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::style", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::style", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::style", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tooltip-markup", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tooltip-markup", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-markup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tooltip-markup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tooltip-markup", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tooltip-text", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tooltip-text", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-text", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tooltip-text", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tooltip-text", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::valign", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::valign", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::valign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::valign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::valign", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::vexpand", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vexpand", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::vexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::vexpand", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::vexpand-set", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vexpand-set", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::vexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::vexpand-set", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::visible", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::visible", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::visible", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::visible", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::visible", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::width-request", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::width-request", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::width-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::width-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::width-request", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::window", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::window", callback: ((obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::window", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::window", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::window", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebViewBase_ConstructProps)
     _init (config?: WebViewBase_ConstructProps): void
@@ -5133,10 +6588,16 @@ export class WebsiteDataManager {
     connect(sigName: "notify", callback: ((obj: WebsiteDataManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebsiteDataManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebsiteDataManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebsiteDataManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebsiteDataManager, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebsiteDataManager_ConstructProps)
     _init (config?: WebsiteDataManager_ConstructProps): void
@@ -5202,10 +6663,16 @@ export class WindowProperties {
     connect(sigName: "notify", callback: ((obj: WindowProperties, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WindowProperties, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WindowProperties, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WindowProperties, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WindowProperties, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WindowProperties_ConstructProps)
     _init (config?: WindowProperties_ConstructProps): void

@@ -3022,17 +3022,29 @@ export class AppLaunchContext {
     connect(sigName: "launch-failed", callback: ((obj: AppLaunchContext, startup_notify_id: string) => void)): number
     connect_after(sigName: "launch-failed", callback: ((obj: AppLaunchContext, startup_notify_id: string) => void)): number
     emit(sigName: "launch-failed", startup_notify_id: string): void
+    on(sigName: "launch-failed", callback: ((event: AppLaunchContext, startup_notify_id: string) => void)): EventEmitter
+    once(sigName: "launch-failed", callback: ((event: AppLaunchContext, startup_notify_id: string) => void)): EventEmitter
+    off(sigName: "launch-failed", callback: ((event: AppLaunchContext, startup_notify_id: string) => void)): EventEmitter
     connect(sigName: "launched", callback: ((obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): number
     connect_after(sigName: "launched", callback: ((obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): number
     emit(sigName: "launched", info: Gio.AppInfo, platform_data: GLib.Variant): void
+    on(sigName: "launched", callback: ((event: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): EventEmitter
+    once(sigName: "launched", callback: ((event: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): EventEmitter
+    off(sigName: "launched", callback: ((event: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AppLaunchContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AppLaunchContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AppLaunchContext, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AppLaunchContext_ConstructProps)
     _init (config?: AppLaunchContext_ConstructProps): void
@@ -3086,10 +3098,16 @@ export class Cursor {
     connect(sigName: "notify", callback: ((obj: Cursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Cursor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Cursor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Cursor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Cursor, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Cursor_ConstructProps)
     _init (config?: Cursor_ConstructProps): void
@@ -3186,29 +3204,59 @@ export class Device {
     connect(sigName: "changed", callback: ((obj: Device) => void)): number
     connect_after(sigName: "changed", callback: ((obj: Device) => void)): number
     emit(sigName: "changed"): void
+    on(sigName: "changed", callback: ((event: Device) => void)): EventEmitter
+    once(sigName: "changed", callback: ((event: Device) => void)): EventEmitter
+    off(sigName: "changed", callback: ((event: Device) => void)): EventEmitter
     connect(sigName: "tool-changed", callback: ((obj: Device, tool: DeviceTool) => void)): number
     connect_after(sigName: "tool-changed", callback: ((obj: Device, tool: DeviceTool) => void)): number
     emit(sigName: "tool-changed", tool: DeviceTool): void
+    on(sigName: "tool-changed", callback: ((event: Device, tool: DeviceTool) => void)): EventEmitter
+    once(sigName: "tool-changed", callback: ((event: Device, tool: DeviceTool) => void)): EventEmitter
+    off(sigName: "tool-changed", callback: ((event: Device, tool: DeviceTool) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Device, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Device, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Device, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::associated-device", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::associated-device", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::associated-device", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::associated-device", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::associated-device", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::axes", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::axes", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::axes", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::input-mode", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-mode", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::input-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::input-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::input-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::n-axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-axes", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::n-axes", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::n-axes", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::n-axes", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::seat", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::seat", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::seat", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::seat", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::seat", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tool", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tool", callback: ((obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tool", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tool", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tool", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Device_ConstructProps)
     _init (config?: Device_ConstructProps): void
@@ -3260,20 +3308,35 @@ export class DeviceManager {
     connect(sigName: "device-added", callback: ((obj: DeviceManager, device: Device) => void)): number
     connect_after(sigName: "device-added", callback: ((obj: DeviceManager, device: Device) => void)): number
     emit(sigName: "device-added", device: Device): void
+    on(sigName: "device-added", callback: ((event: DeviceManager, device: Device) => void)): EventEmitter
+    once(sigName: "device-added", callback: ((event: DeviceManager, device: Device) => void)): EventEmitter
+    off(sigName: "device-added", callback: ((event: DeviceManager, device: Device) => void)): EventEmitter
     connect(sigName: "device-changed", callback: ((obj: DeviceManager, device: Device) => void)): number
     connect_after(sigName: "device-changed", callback: ((obj: DeviceManager, device: Device) => void)): number
     emit(sigName: "device-changed", device: Device): void
+    on(sigName: "device-changed", callback: ((event: DeviceManager, device: Device) => void)): EventEmitter
+    once(sigName: "device-changed", callback: ((event: DeviceManager, device: Device) => void)): EventEmitter
+    off(sigName: "device-changed", callback: ((event: DeviceManager, device: Device) => void)): EventEmitter
     connect(sigName: "device-removed", callback: ((obj: DeviceManager, device: Device) => void)): number
     connect_after(sigName: "device-removed", callback: ((obj: DeviceManager, device: Device) => void)): number
     emit(sigName: "device-removed", device: Device): void
+    on(sigName: "device-removed", callback: ((event: DeviceManager, device: Device) => void)): EventEmitter
+    once(sigName: "device-removed", callback: ((event: DeviceManager, device: Device) => void)): EventEmitter
+    off(sigName: "device-removed", callback: ((event: DeviceManager, device: Device) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DeviceManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DeviceManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: DeviceManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: DeviceManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: DeviceManager, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: DeviceManager_ConstructProps)
     _init (config?: DeviceManager_ConstructProps): void
@@ -3327,10 +3390,16 @@ export class DeviceTool {
     connect(sigName: "notify", callback: ((obj: DeviceTool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DeviceTool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: DeviceTool, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: DeviceTool, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: DeviceTool, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: DeviceTool_ConstructProps)
     _init (config?: DeviceTool_ConstructProps): void
@@ -3421,29 +3490,53 @@ export class Display {
     connect(sigName: "closed", callback: ((obj: Display, is_error: boolean) => void)): number
     connect_after(sigName: "closed", callback: ((obj: Display, is_error: boolean) => void)): number
     emit(sigName: "closed", is_error: boolean): void
+    on(sigName: "closed", callback: ((event: Display, is_error: boolean) => void)): EventEmitter
+    once(sigName: "closed", callback: ((event: Display, is_error: boolean) => void)): EventEmitter
+    off(sigName: "closed", callback: ((event: Display, is_error: boolean) => void)): EventEmitter
     connect(sigName: "monitor-added", callback: ((obj: Display, monitor: Monitor) => void)): number
     connect_after(sigName: "monitor-added", callback: ((obj: Display, monitor: Monitor) => void)): number
     emit(sigName: "monitor-added", monitor: Monitor): void
+    on(sigName: "monitor-added", callback: ((event: Display, monitor: Monitor) => void)): EventEmitter
+    once(sigName: "monitor-added", callback: ((event: Display, monitor: Monitor) => void)): EventEmitter
+    off(sigName: "monitor-added", callback: ((event: Display, monitor: Monitor) => void)): EventEmitter
     connect(sigName: "monitor-removed", callback: ((obj: Display, monitor: Monitor) => void)): number
     connect_after(sigName: "monitor-removed", callback: ((obj: Display, monitor: Monitor) => void)): number
     emit(sigName: "monitor-removed", monitor: Monitor): void
+    on(sigName: "monitor-removed", callback: ((event: Display, monitor: Monitor) => void)): EventEmitter
+    once(sigName: "monitor-removed", callback: ((event: Display, monitor: Monitor) => void)): EventEmitter
+    off(sigName: "monitor-removed", callback: ((event: Display, monitor: Monitor) => void)): EventEmitter
     connect(sigName: "opened", callback: ((obj: Display) => void)): number
     connect_after(sigName: "opened", callback: ((obj: Display) => void)): number
     emit(sigName: "opened"): void
+    on(sigName: "opened", callback: ((event: Display) => void)): EventEmitter
+    once(sigName: "opened", callback: ((event: Display) => void)): EventEmitter
+    off(sigName: "opened", callback: ((event: Display) => void)): EventEmitter
     connect(sigName: "seat-added", callback: ((obj: Display, seat: Seat) => void)): number
     connect_after(sigName: "seat-added", callback: ((obj: Display, seat: Seat) => void)): number
     emit(sigName: "seat-added", seat: Seat): void
+    on(sigName: "seat-added", callback: ((event: Display, seat: Seat) => void)): EventEmitter
+    once(sigName: "seat-added", callback: ((event: Display, seat: Seat) => void)): EventEmitter
+    off(sigName: "seat-added", callback: ((event: Display, seat: Seat) => void)): EventEmitter
     connect(sigName: "seat-removed", callback: ((obj: Display, seat: Seat) => void)): number
     connect_after(sigName: "seat-removed", callback: ((obj: Display, seat: Seat) => void)): number
     emit(sigName: "seat-removed", seat: Seat): void
+    on(sigName: "seat-removed", callback: ((event: Display, seat: Seat) => void)): EventEmitter
+    once(sigName: "seat-removed", callback: ((event: Display, seat: Seat) => void)): EventEmitter
+    off(sigName: "seat-removed", callback: ((event: Display, seat: Seat) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Display, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Display, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Display, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Display, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Display_ConstructProps)
     _init (config?: Display_ConstructProps): void
@@ -3499,16 +3592,28 @@ export class DisplayManager {
     connect(sigName: "display-opened", callback: ((obj: DisplayManager, display: Display) => void)): number
     connect_after(sigName: "display-opened", callback: ((obj: DisplayManager, display: Display) => void)): number
     emit(sigName: "display-opened", display: Display): void
+    on(sigName: "display-opened", callback: ((event: DisplayManager, display: Display) => void)): EventEmitter
+    once(sigName: "display-opened", callback: ((event: DisplayManager, display: Display) => void)): EventEmitter
+    off(sigName: "display-opened", callback: ((event: DisplayManager, display: Display) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: DisplayManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: DisplayManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: DisplayManager, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::default-display", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-display", callback: ((obj: DisplayManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::default-display", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::default-display", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::default-display", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: DisplayManager_ConstructProps)
     _init (config?: DisplayManager_ConstructProps): void
@@ -3567,23 +3672,41 @@ export class DragContext {
     connect(sigName: "action-changed", callback: ((obj: DragContext, action: DragAction) => void)): number
     connect_after(sigName: "action-changed", callback: ((obj: DragContext, action: DragAction) => void)): number
     emit(sigName: "action-changed", action: DragAction): void
+    on(sigName: "action-changed", callback: ((event: DragContext, action: DragAction) => void)): EventEmitter
+    once(sigName: "action-changed", callback: ((event: DragContext, action: DragAction) => void)): EventEmitter
+    off(sigName: "action-changed", callback: ((event: DragContext, action: DragAction) => void)): EventEmitter
     connect(sigName: "cancel", callback: ((obj: DragContext, reason: DragCancelReason) => void)): number
     connect_after(sigName: "cancel", callback: ((obj: DragContext, reason: DragCancelReason) => void)): number
     emit(sigName: "cancel", reason: DragCancelReason): void
+    on(sigName: "cancel", callback: ((event: DragContext, reason: DragCancelReason) => void)): EventEmitter
+    once(sigName: "cancel", callback: ((event: DragContext, reason: DragCancelReason) => void)): EventEmitter
+    off(sigName: "cancel", callback: ((event: DragContext, reason: DragCancelReason) => void)): EventEmitter
     connect(sigName: "dnd-finished", callback: ((obj: DragContext) => void)): number
     connect_after(sigName: "dnd-finished", callback: ((obj: DragContext) => void)): number
     emit(sigName: "dnd-finished"): void
+    on(sigName: "dnd-finished", callback: ((event: DragContext) => void)): EventEmitter
+    once(sigName: "dnd-finished", callback: ((event: DragContext) => void)): EventEmitter
+    off(sigName: "dnd-finished", callback: ((event: DragContext) => void)): EventEmitter
     connect(sigName: "drop-performed", callback: ((obj: DragContext, time: number) => void)): number
     connect_after(sigName: "drop-performed", callback: ((obj: DragContext, time: number) => void)): number
     emit(sigName: "drop-performed", time: number): void
+    on(sigName: "drop-performed", callback: ((event: DragContext, time: number) => void)): EventEmitter
+    once(sigName: "drop-performed", callback: ((event: DragContext, time: number) => void)): EventEmitter
+    off(sigName: "drop-performed", callback: ((event: DragContext, time: number) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DragContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DragContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: DragContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: DragContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: DragContext, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: DragContext_ConstructProps)
     _init (config?: DragContext_ConstructProps): void
@@ -3636,10 +3759,16 @@ export class DrawingContext {
     connect(sigName: "notify", callback: ((obj: DrawingContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DrawingContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: DrawingContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: DrawingContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: DrawingContext, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: DrawingContext_ConstructProps)
     _init (config?: DrawingContext_ConstructProps): void
@@ -3694,32 +3823,59 @@ export class FrameClock {
     connect(sigName: "after-paint", callback: ((obj: FrameClock) => void)): number
     connect_after(sigName: "after-paint", callback: ((obj: FrameClock) => void)): number
     emit(sigName: "after-paint"): void
+    on(sigName: "after-paint", callback: ((event: FrameClock) => void)): EventEmitter
+    once(sigName: "after-paint", callback: ((event: FrameClock) => void)): EventEmitter
+    off(sigName: "after-paint", callback: ((event: FrameClock) => void)): EventEmitter
     connect(sigName: "before-paint", callback: ((obj: FrameClock) => void)): number
     connect_after(sigName: "before-paint", callback: ((obj: FrameClock) => void)): number
     emit(sigName: "before-paint"): void
+    on(sigName: "before-paint", callback: ((event: FrameClock) => void)): EventEmitter
+    once(sigName: "before-paint", callback: ((event: FrameClock) => void)): EventEmitter
+    off(sigName: "before-paint", callback: ((event: FrameClock) => void)): EventEmitter
     connect(sigName: "flush-events", callback: ((obj: FrameClock) => void)): number
     connect_after(sigName: "flush-events", callback: ((obj: FrameClock) => void)): number
     emit(sigName: "flush-events"): void
+    on(sigName: "flush-events", callback: ((event: FrameClock) => void)): EventEmitter
+    once(sigName: "flush-events", callback: ((event: FrameClock) => void)): EventEmitter
+    off(sigName: "flush-events", callback: ((event: FrameClock) => void)): EventEmitter
     connect(sigName: "layout", callback: ((obj: FrameClock) => void)): number
     connect_after(sigName: "layout", callback: ((obj: FrameClock) => void)): number
     emit(sigName: "layout"): void
+    on(sigName: "layout", callback: ((event: FrameClock) => void)): EventEmitter
+    once(sigName: "layout", callback: ((event: FrameClock) => void)): EventEmitter
+    off(sigName: "layout", callback: ((event: FrameClock) => void)): EventEmitter
     connect(sigName: "paint", callback: ((obj: FrameClock) => void)): number
     connect_after(sigName: "paint", callback: ((obj: FrameClock) => void)): number
     emit(sigName: "paint"): void
+    on(sigName: "paint", callback: ((event: FrameClock) => void)): EventEmitter
+    once(sigName: "paint", callback: ((event: FrameClock) => void)): EventEmitter
+    off(sigName: "paint", callback: ((event: FrameClock) => void)): EventEmitter
     connect(sigName: "resume-events", callback: ((obj: FrameClock) => void)): number
     connect_after(sigName: "resume-events", callback: ((obj: FrameClock) => void)): number
     emit(sigName: "resume-events"): void
+    on(sigName: "resume-events", callback: ((event: FrameClock) => void)): EventEmitter
+    once(sigName: "resume-events", callback: ((event: FrameClock) => void)): EventEmitter
+    off(sigName: "resume-events", callback: ((event: FrameClock) => void)): EventEmitter
     connect(sigName: "update", callback: ((obj: FrameClock) => void)): number
     connect_after(sigName: "update", callback: ((obj: FrameClock) => void)): number
     emit(sigName: "update"): void
+    on(sigName: "update", callback: ((event: FrameClock) => void)): EventEmitter
+    once(sigName: "update", callback: ((event: FrameClock) => void)): EventEmitter
+    off(sigName: "update", callback: ((event: FrameClock) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FrameClock, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FrameClock, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: FrameClock, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: FrameClock, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: FrameClock, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: FrameClock_ConstructProps)
     _init (config?: FrameClock_ConstructProps): void
@@ -3784,10 +3940,16 @@ export class GLContext {
     connect(sigName: "notify", callback: ((obj: GLContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: GLContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: GLContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: GLContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: GLContext, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: GLContext_ConstructProps)
     _init (config?: GLContext_ConstructProps): void
@@ -3848,20 +4010,35 @@ export class Keymap {
     connect(sigName: "direction-changed", callback: ((obj: Keymap) => void)): number
     connect_after(sigName: "direction-changed", callback: ((obj: Keymap) => void)): number
     emit(sigName: "direction-changed"): void
+    on(sigName: "direction-changed", callback: ((event: Keymap) => void)): EventEmitter
+    once(sigName: "direction-changed", callback: ((event: Keymap) => void)): EventEmitter
+    off(sigName: "direction-changed", callback: ((event: Keymap) => void)): EventEmitter
     connect(sigName: "keys-changed", callback: ((obj: Keymap) => void)): number
     connect_after(sigName: "keys-changed", callback: ((obj: Keymap) => void)): number
     emit(sigName: "keys-changed"): void
+    on(sigName: "keys-changed", callback: ((event: Keymap) => void)): EventEmitter
+    once(sigName: "keys-changed", callback: ((event: Keymap) => void)): EventEmitter
+    off(sigName: "keys-changed", callback: ((event: Keymap) => void)): EventEmitter
     connect(sigName: "state-changed", callback: ((obj: Keymap) => void)): number
     connect_after(sigName: "state-changed", callback: ((obj: Keymap) => void)): number
     emit(sigName: "state-changed"): void
+    on(sigName: "state-changed", callback: ((event: Keymap) => void)): EventEmitter
+    once(sigName: "state-changed", callback: ((event: Keymap) => void)): EventEmitter
+    off(sigName: "state-changed", callback: ((event: Keymap) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Keymap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Keymap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Keymap, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Keymap, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Keymap, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Keymap_ConstructProps)
     _init (config?: Keymap_ConstructProps): void
@@ -3931,32 +4108,68 @@ export class Monitor {
     connect(sigName: "invalidate", callback: ((obj: Monitor) => void)): number
     connect_after(sigName: "invalidate", callback: ((obj: Monitor) => void)): number
     emit(sigName: "invalidate"): void
+    on(sigName: "invalidate", callback: ((event: Monitor) => void)): EventEmitter
+    once(sigName: "invalidate", callback: ((event: Monitor) => void)): EventEmitter
+    off(sigName: "invalidate", callback: ((event: Monitor) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Monitor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Monitor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Monitor, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::geometry", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::geometry", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::geometry", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::geometry", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::geometry", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::height-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::height-mm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::height-mm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::height-mm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::manufacturer", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::manufacturer", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::manufacturer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::manufacturer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::manufacturer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::model", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::model", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::model", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::model", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::model", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::refresh-rate", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::refresh-rate", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::refresh-rate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::refresh-rate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::refresh-rate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::scale-factor", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scale-factor", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scale-factor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::scale-factor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::scale-factor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::subpixel-layout", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::subpixel-layout", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::subpixel-layout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::subpixel-layout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::subpixel-layout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::width-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::width-mm", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::width-mm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::width-mm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::width-mm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::workarea", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::workarea", callback: ((obj: Monitor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::workarea", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::workarea", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::workarea", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Monitor_ConstructProps)
     _init (config?: Monitor_ConstructProps): void
@@ -4037,24 +4250,45 @@ export class Screen {
     connect(sigName: "composited-changed", callback: ((obj: Screen) => void)): number
     connect_after(sigName: "composited-changed", callback: ((obj: Screen) => void)): number
     emit(sigName: "composited-changed"): void
+    on(sigName: "composited-changed", callback: ((event: Screen) => void)): EventEmitter
+    once(sigName: "composited-changed", callback: ((event: Screen) => void)): EventEmitter
+    off(sigName: "composited-changed", callback: ((event: Screen) => void)): EventEmitter
     connect(sigName: "monitors-changed", callback: ((obj: Screen) => void)): number
     connect_after(sigName: "monitors-changed", callback: ((obj: Screen) => void)): number
     emit(sigName: "monitors-changed"): void
+    on(sigName: "monitors-changed", callback: ((event: Screen) => void)): EventEmitter
+    once(sigName: "monitors-changed", callback: ((event: Screen) => void)): EventEmitter
+    off(sigName: "monitors-changed", callback: ((event: Screen) => void)): EventEmitter
     connect(sigName: "size-changed", callback: ((obj: Screen) => void)): number
     connect_after(sigName: "size-changed", callback: ((obj: Screen) => void)): number
     emit(sigName: "size-changed"): void
+    on(sigName: "size-changed", callback: ((event: Screen) => void)): EventEmitter
+    once(sigName: "size-changed", callback: ((event: Screen) => void)): EventEmitter
+    off(sigName: "size-changed", callback: ((event: Screen) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Screen, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Screen, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Screen, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::font-options", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::font-options", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::font-options", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::font-options", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::font-options", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::resolution", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::resolution", callback: ((obj: Screen, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::resolution", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::resolution", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::resolution", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Screen_ConstructProps)
     _init (config?: Screen_ConstructProps): void
@@ -4116,23 +4350,41 @@ export class Seat {
     connect(sigName: "device-added", callback: ((obj: Seat, device: Device) => void)): number
     connect_after(sigName: "device-added", callback: ((obj: Seat, device: Device) => void)): number
     emit(sigName: "device-added", device: Device): void
+    on(sigName: "device-added", callback: ((event: Seat, device: Device) => void)): EventEmitter
+    once(sigName: "device-added", callback: ((event: Seat, device: Device) => void)): EventEmitter
+    off(sigName: "device-added", callback: ((event: Seat, device: Device) => void)): EventEmitter
     connect(sigName: "device-removed", callback: ((obj: Seat, device: Device) => void)): number
     connect_after(sigName: "device-removed", callback: ((obj: Seat, device: Device) => void)): number
     emit(sigName: "device-removed", device: Device): void
+    on(sigName: "device-removed", callback: ((event: Seat, device: Device) => void)): EventEmitter
+    once(sigName: "device-removed", callback: ((event: Seat, device: Device) => void)): EventEmitter
+    off(sigName: "device-removed", callback: ((event: Seat, device: Device) => void)): EventEmitter
     connect(sigName: "tool-added", callback: ((obj: Seat, tool: DeviceTool) => void)): number
     connect_after(sigName: "tool-added", callback: ((obj: Seat, tool: DeviceTool) => void)): number
     emit(sigName: "tool-added", tool: DeviceTool): void
+    on(sigName: "tool-added", callback: ((event: Seat, tool: DeviceTool) => void)): EventEmitter
+    once(sigName: "tool-added", callback: ((event: Seat, tool: DeviceTool) => void)): EventEmitter
+    off(sigName: "tool-added", callback: ((event: Seat, tool: DeviceTool) => void)): EventEmitter
     connect(sigName: "tool-removed", callback: ((obj: Seat, tool: DeviceTool) => void)): number
     connect_after(sigName: "tool-removed", callback: ((obj: Seat, tool: DeviceTool) => void)): number
     emit(sigName: "tool-removed", tool: DeviceTool): void
+    on(sigName: "tool-removed", callback: ((event: Seat, tool: DeviceTool) => void)): EventEmitter
+    once(sigName: "tool-removed", callback: ((event: Seat, tool: DeviceTool) => void)): EventEmitter
+    off(sigName: "tool-removed", callback: ((event: Seat, tool: DeviceTool) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Seat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Seat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Seat, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Seat, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Seat, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Seat_ConstructProps)
     _init (config?: Seat_ConstructProps): void
@@ -4187,10 +4439,16 @@ export class Visual {
     connect(sigName: "notify", callback: ((obj: Visual, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Visual, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Visual, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Visual, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Visual, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Visual_ConstructProps)
     _init (config?: Visual_ConstructProps): void
@@ -4404,28 +4662,52 @@ export class Window {
     connect(sigName: "create-surface", callback: ((obj: Window, width: number, height: number) => cairo.Surface)): number
     connect_after(sigName: "create-surface", callback: ((obj: Window, width: number, height: number) => cairo.Surface)): number
     emit(sigName: "create-surface", width: number, height: number): void
+    on(sigName: "create-surface", callback: ((event: Window, width: number, height: number) => cairo.Surface)): EventEmitter
+    once(sigName: "create-surface", callback: ((event: Window, width: number, height: number) => cairo.Surface)): EventEmitter
+    off(sigName: "create-surface", callback: ((event: Window, width: number, height: number) => cairo.Surface)): EventEmitter
     connect(sigName: "from-embedder", callback: ((obj: Window, embedder_x: number, embedder_y: number) => void)): number
     connect_after(sigName: "from-embedder", callback: ((obj: Window, embedder_x: number, embedder_y: number) => void)): number
     emit(sigName: "from-embedder", embedder_x: number, embedder_y: number): void
+    on(sigName: "from-embedder", callback: ((event: Window, embedder_x: number, embedder_y: number) => void)): EventEmitter
+    once(sigName: "from-embedder", callback: ((event: Window, embedder_x: number, embedder_y: number) => void)): EventEmitter
+    off(sigName: "from-embedder", callback: ((event: Window, embedder_x: number, embedder_y: number) => void)): EventEmitter
     connect(sigName: "moved-to-rect", callback: ((obj: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void)): number
     connect_after(sigName: "moved-to-rect", callback: ((obj: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void)): number
     emit(sigName: "moved-to-rect", flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean): void
+    on(sigName: "moved-to-rect", callback: ((event: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void)): EventEmitter
+    once(sigName: "moved-to-rect", callback: ((event: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void)): EventEmitter
+    off(sigName: "moved-to-rect", callback: ((event: Window, flipped_rect: object | null, final_rect: object | null, flipped_x: boolean, flipped_y: boolean) => void)): EventEmitter
     connect(sigName: "pick-embedded-child", callback: ((obj: Window, x: number, y: number) => Window | null)): number
     connect_after(sigName: "pick-embedded-child", callback: ((obj: Window, x: number, y: number) => Window | null)): number
     emit(sigName: "pick-embedded-child", x: number, y: number): void
+    on(sigName: "pick-embedded-child", callback: ((event: Window, x: number, y: number) => Window | null)): EventEmitter
+    once(sigName: "pick-embedded-child", callback: ((event: Window, x: number, y: number) => Window | null)): EventEmitter
+    off(sigName: "pick-embedded-child", callback: ((event: Window, x: number, y: number) => Window | null)): EventEmitter
     connect(sigName: "to-embedder", callback: ((obj: Window, offscreen_x: number, offscreen_y: number) => void)): number
     connect_after(sigName: "to-embedder", callback: ((obj: Window, offscreen_x: number, offscreen_y: number) => void)): number
     emit(sigName: "to-embedder", offscreen_x: number, offscreen_y: number): void
+    on(sigName: "to-embedder", callback: ((event: Window, offscreen_x: number, offscreen_y: number) => void)): EventEmitter
+    once(sigName: "to-embedder", callback: ((event: Window, offscreen_x: number, offscreen_y: number) => void)): EventEmitter
+    off(sigName: "to-embedder", callback: ((event: Window, offscreen_x: number, offscreen_y: number) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Window, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Window, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Window, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Window, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Window, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::cursor", callback: ((obj: Window, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cursor", callback: ((obj: Window, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::cursor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::cursor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::cursor", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Window_ConstructProps)
     _init (config?: Window_ConstructProps): void

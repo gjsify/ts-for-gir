@@ -2,7 +2,7 @@ import fs from 'fs'
 import Path from 'path'
 import ejs from 'ejs'
 import { Environment } from './types/environment'
-import { Conversation } from './conversations'
+import { Transformation } from './transformation'
 
 const CLIEngine = require('eslint').CLIEngine
 const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
@@ -12,7 +12,34 @@ const TEMPLATE_DIR = __dirname + '/../templates'
 export class TemplateProcessor {
     private templateDir: string
     constructor(protected readonly data: any, private readonly environment: Environment) {
-        this.templateDir = Conversation.getEnvironmentDir(environment, TEMPLATE_DIR)
+        this.templateDir = Transformation.getEnvironmentDir(environment, TEMPLATE_DIR)
+    }
+
+    public static generateSignalFunctions(
+        environment: Environment,
+        sigName: string,
+        clsName: string,
+        paramComma: ', ' | '',
+        params: string,
+        retType: string,
+    ): string[] {
+        const signalMethods = [
+            `    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+            `    connect_after(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+            `    emit(sigName: "${sigName}"${paramComma}${params}): void`,
+        ]
+        if (environment === 'node') {
+            signalMethods.push(
+                `    on(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
+            )
+            signalMethods.push(
+                `    once(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
+            )
+            signalMethods.push(
+                `    off(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
+            )
+        }
+        return signalMethods
     }
 
     /**
@@ -42,7 +69,18 @@ export class TemplateProcessor {
         return prettifiedCode || renderedCode
     }
 
-    public render(templateString: string, additionalData: any = {}): string {
+    protected write(content: string, targetDir: string, targetFilename: string): string {
+        targetDir = Transformation.getEnvironmentDir(this.environment, targetDir)
+        const destPath = Path.join(targetDir, targetFilename)
+
+        // write template result file
+        !fs.existsSync(targetDir) && fs.mkdirSync(targetDir, { recursive: true })
+        fs.writeFileSync(destPath, content, { encoding: 'utf8', flag: 'w' })
+
+        return destPath
+    }
+
+    protected render(templateString: string, additionalData: any = {}): string {
         const renderedCode = ejs.render(templateString, { ...this.data, ...additionalData })
         return renderedCode
     }
@@ -52,20 +90,9 @@ export class TemplateProcessor {
      * @param path
      * @return The path where the file was saved
      */
-    public read(path: string): string {
+    protected read(path: string): string {
         const fullTemplatePath = Path.join(this.templateDir, path)
         return fs.readFileSync(fullTemplatePath, 'utf8')
-    }
-
-    public write(content: string, targetDir: string, targetFilename: string): string {
-        targetDir = Conversation.getEnvironmentDir(this.environment, targetDir)
-        const destPath = Path.join(targetDir, targetFilename)
-
-        // write template result file
-        !fs.existsSync(targetDir) && fs.mkdirSync(targetDir, { recursive: true })
-        fs.writeFileSync(destPath, content, { encoding: 'utf8', flag: 'w' })
-
-        return destPath
     }
 
     protected prettify(path: string): string | null {

@@ -422,6 +422,9 @@ export class Component {
     connect(sigName: "bounds-changed", callback: ((obj: Component, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: ((obj: Component, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
+    on(sigName: "bounds-changed", callback: ((event: Component, arg1: Rectangle) => void)): EventEmitter
+    once(sigName: "bounds-changed", callback: ((event: Component, arg1: Rectangle) => void)): EventEmitter
+    off(sigName: "bounds-changed", callback: ((event: Component, arg1: Rectangle) => void)): EventEmitter
     static name: string
 }
 export class Document {
@@ -447,15 +450,27 @@ export class Document {
     connect(sigName: "load-complete", callback: ((obj: Document) => void)): number
     connect_after(sigName: "load-complete", callback: ((obj: Document) => void)): number
     emit(sigName: "load-complete"): void
+    on(sigName: "load-complete", callback: ((event: Document) => void)): EventEmitter
+    once(sigName: "load-complete", callback: ((event: Document) => void)): EventEmitter
+    off(sigName: "load-complete", callback: ((event: Document) => void)): EventEmitter
     connect(sigName: "load-stopped", callback: ((obj: Document) => void)): number
     connect_after(sigName: "load-stopped", callback: ((obj: Document) => void)): number
     emit(sigName: "load-stopped"): void
+    on(sigName: "load-stopped", callback: ((event: Document) => void)): EventEmitter
+    once(sigName: "load-stopped", callback: ((event: Document) => void)): EventEmitter
+    off(sigName: "load-stopped", callback: ((event: Document) => void)): EventEmitter
     connect(sigName: "page-changed", callback: ((obj: Document, page_number: number) => void)): number
     connect_after(sigName: "page-changed", callback: ((obj: Document, page_number: number) => void)): number
     emit(sigName: "page-changed", page_number: number): void
+    on(sigName: "page-changed", callback: ((event: Document, page_number: number) => void)): EventEmitter
+    once(sigName: "page-changed", callback: ((event: Document, page_number: number) => void)): EventEmitter
+    off(sigName: "page-changed", callback: ((event: Document, page_number: number) => void)): EventEmitter
     connect(sigName: "reload", callback: ((obj: Document) => void)): number
     connect_after(sigName: "reload", callback: ((obj: Document) => void)): number
     emit(sigName: "reload"): void
+    on(sigName: "reload", callback: ((event: Document) => void)): EventEmitter
+    once(sigName: "reload", callback: ((event: Document) => void)): EventEmitter
+    off(sigName: "reload", callback: ((event: Document) => void)): EventEmitter
     static name: string
 }
 export class EditableText {
@@ -498,6 +513,9 @@ export class Hypertext {
     connect(sigName: "link-selected", callback: ((obj: Hypertext, arg1: number) => void)): number
     connect_after(sigName: "link-selected", callback: ((obj: Hypertext, arg1: number) => void)): number
     emit(sigName: "link-selected", arg1: number): void
+    on(sigName: "link-selected", callback: ((event: Hypertext, arg1: number) => void)): EventEmitter
+    once(sigName: "link-selected", callback: ((event: Hypertext, arg1: number) => void)): EventEmitter
+    off(sigName: "link-selected", callback: ((event: Hypertext, arg1: number) => void)): EventEmitter
     static name: string
 }
 export class Image {
@@ -540,6 +558,9 @@ export class Selection {
     connect(sigName: "selection-changed", callback: ((obj: Selection) => void)): number
     connect_after(sigName: "selection-changed", callback: ((obj: Selection) => void)): number
     emit(sigName: "selection-changed"): void
+    on(sigName: "selection-changed", callback: ((event: Selection) => void)): EventEmitter
+    once(sigName: "selection-changed", callback: ((event: Selection) => void)): EventEmitter
+    off(sigName: "selection-changed", callback: ((event: Selection) => void)): EventEmitter
     static name: string
 }
 export class StreamableContent {
@@ -627,24 +648,45 @@ export class Table {
     connect(sigName: "column-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "column-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void)): number
     emit(sigName: "column-deleted", arg1: number, arg2: number): void
+    on(sigName: "column-deleted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "column-deleted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "column-deleted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "column-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "column-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void)): number
     emit(sigName: "column-inserted", arg1: number, arg2: number): void
+    on(sigName: "column-inserted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "column-inserted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "column-inserted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "column-reordered", callback: ((obj: Table) => void)): number
     connect_after(sigName: "column-reordered", callback: ((obj: Table) => void)): number
     emit(sigName: "column-reordered"): void
+    on(sigName: "column-reordered", callback: ((event: Table) => void)): EventEmitter
+    once(sigName: "column-reordered", callback: ((event: Table) => void)): EventEmitter
+    off(sigName: "column-reordered", callback: ((event: Table) => void)): EventEmitter
     connect(sigName: "model-changed", callback: ((obj: Table) => void)): number
     connect_after(sigName: "model-changed", callback: ((obj: Table) => void)): number
     emit(sigName: "model-changed"): void
+    on(sigName: "model-changed", callback: ((event: Table) => void)): EventEmitter
+    once(sigName: "model-changed", callback: ((event: Table) => void)): EventEmitter
+    off(sigName: "model-changed", callback: ((event: Table) => void)): EventEmitter
     connect(sigName: "row-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "row-deleted", callback: ((obj: Table, arg1: number, arg2: number) => void)): number
     emit(sigName: "row-deleted", arg1: number, arg2: number): void
+    on(sigName: "row-deleted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "row-deleted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "row-deleted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "row-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "row-inserted", callback: ((obj: Table, arg1: number, arg2: number) => void)): number
     emit(sigName: "row-inserted", arg1: number, arg2: number): void
+    on(sigName: "row-inserted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "row-inserted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "row-inserted", callback: ((event: Table, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "row-reordered", callback: ((obj: Table) => void)): number
     connect_after(sigName: "row-reordered", callback: ((obj: Table) => void)): number
     emit(sigName: "row-reordered"): void
+    on(sigName: "row-reordered", callback: ((event: Table) => void)): EventEmitter
+    once(sigName: "row-reordered", callback: ((event: Table) => void)): EventEmitter
+    off(sigName: "row-reordered", callback: ((event: Table) => void)): EventEmitter
     static name: string
 }
 export class TableCell {
@@ -721,21 +763,39 @@ export class Text {
     connect(sigName: "text-attributes-changed", callback: ((obj: Text) => void)): number
     connect_after(sigName: "text-attributes-changed", callback: ((obj: Text) => void)): number
     emit(sigName: "text-attributes-changed"): void
+    on(sigName: "text-attributes-changed", callback: ((event: Text) => void)): EventEmitter
+    once(sigName: "text-attributes-changed", callback: ((event: Text) => void)): EventEmitter
+    off(sigName: "text-attributes-changed", callback: ((event: Text) => void)): EventEmitter
     connect(sigName: "text-caret-moved", callback: ((obj: Text, arg1: number) => void)): number
     connect_after(sigName: "text-caret-moved", callback: ((obj: Text, arg1: number) => void)): number
     emit(sigName: "text-caret-moved", arg1: number): void
+    on(sigName: "text-caret-moved", callback: ((event: Text, arg1: number) => void)): EventEmitter
+    once(sigName: "text-caret-moved", callback: ((event: Text, arg1: number) => void)): EventEmitter
+    off(sigName: "text-caret-moved", callback: ((event: Text, arg1: number) => void)): EventEmitter
     connect(sigName: "text-changed", callback: ((obj: Text, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "text-changed", callback: ((obj: Text, arg1: number, arg2: number) => void)): number
     emit(sigName: "text-changed", arg1: number, arg2: number): void
+    on(sigName: "text-changed", callback: ((event: Text, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "text-changed", callback: ((event: Text, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "text-changed", callback: ((event: Text, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "text-insert", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void)): number
     connect_after(sigName: "text-insert", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void)): number
     emit(sigName: "text-insert", arg1: number, arg2: number, arg3: string): void
+    on(sigName: "text-insert", callback: ((event: Text, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
+    once(sigName: "text-insert", callback: ((event: Text, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
+    off(sigName: "text-insert", callback: ((event: Text, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
     connect(sigName: "text-remove", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void)): number
     connect_after(sigName: "text-remove", callback: ((obj: Text, arg1: number, arg2: number, arg3: string) => void)): number
     emit(sigName: "text-remove", arg1: number, arg2: number, arg3: string): void
+    on(sigName: "text-remove", callback: ((event: Text, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
+    once(sigName: "text-remove", callback: ((event: Text, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
+    off(sigName: "text-remove", callback: ((event: Text, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
     connect(sigName: "text-selection-changed", callback: ((obj: Text) => void)): number
     connect_after(sigName: "text-selection-changed", callback: ((obj: Text) => void)): number
     emit(sigName: "text-selection-changed"): void
+    on(sigName: "text-selection-changed", callback: ((event: Text) => void)): EventEmitter
+    once(sigName: "text-selection-changed", callback: ((event: Text) => void)): EventEmitter
+    off(sigName: "text-selection-changed", callback: ((event: Text) => void)): EventEmitter
     static name: string
     static freeRanges(ranges: TextRange[]): void
 }
@@ -766,6 +826,9 @@ export class Value {
     connect(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void)): number
     connect_after(sigName: "value-changed", callback: ((obj: Value, value: number, text: string) => void)): number
     emit(sigName: "value-changed", value: number, text: string): void
+    on(sigName: "value-changed", callback: ((event: Value, value: number, text: string) => void)): EventEmitter
+    once(sigName: "value-changed", callback: ((event: Value, value: number, text: string) => void)): EventEmitter
+    off(sigName: "value-changed", callback: ((event: Value, value: number, text: string) => void)): EventEmitter
     static name: string
 }
 export class Window {
@@ -773,30 +836,57 @@ export class Window {
     connect(sigName: "activate", callback: ((obj: Window) => void)): number
     connect_after(sigName: "activate", callback: ((obj: Window) => void)): number
     emit(sigName: "activate"): void
+    on(sigName: "activate", callback: ((event: Window) => void)): EventEmitter
+    once(sigName: "activate", callback: ((event: Window) => void)): EventEmitter
+    off(sigName: "activate", callback: ((event: Window) => void)): EventEmitter
     connect(sigName: "create", callback: ((obj: Window) => void)): number
     connect_after(sigName: "create", callback: ((obj: Window) => void)): number
     emit(sigName: "create"): void
+    on(sigName: "create", callback: ((event: Window) => void)): EventEmitter
+    once(sigName: "create", callback: ((event: Window) => void)): EventEmitter
+    off(sigName: "create", callback: ((event: Window) => void)): EventEmitter
     connect(sigName: "deactivate", callback: ((obj: Window) => void)): number
     connect_after(sigName: "deactivate", callback: ((obj: Window) => void)): number
     emit(sigName: "deactivate"): void
+    on(sigName: "deactivate", callback: ((event: Window) => void)): EventEmitter
+    once(sigName: "deactivate", callback: ((event: Window) => void)): EventEmitter
+    off(sigName: "deactivate", callback: ((event: Window) => void)): EventEmitter
     connect(sigName: "destroy", callback: ((obj: Window) => void)): number
     connect_after(sigName: "destroy", callback: ((obj: Window) => void)): number
     emit(sigName: "destroy"): void
+    on(sigName: "destroy", callback: ((event: Window) => void)): EventEmitter
+    once(sigName: "destroy", callback: ((event: Window) => void)): EventEmitter
+    off(sigName: "destroy", callback: ((event: Window) => void)): EventEmitter
     connect(sigName: "maximize", callback: ((obj: Window) => void)): number
     connect_after(sigName: "maximize", callback: ((obj: Window) => void)): number
     emit(sigName: "maximize"): void
+    on(sigName: "maximize", callback: ((event: Window) => void)): EventEmitter
+    once(sigName: "maximize", callback: ((event: Window) => void)): EventEmitter
+    off(sigName: "maximize", callback: ((event: Window) => void)): EventEmitter
     connect(sigName: "minimize", callback: ((obj: Window) => void)): number
     connect_after(sigName: "minimize", callback: ((obj: Window) => void)): number
     emit(sigName: "minimize"): void
+    on(sigName: "minimize", callback: ((event: Window) => void)): EventEmitter
+    once(sigName: "minimize", callback: ((event: Window) => void)): EventEmitter
+    off(sigName: "minimize", callback: ((event: Window) => void)): EventEmitter
     connect(sigName: "move", callback: ((obj: Window) => void)): number
     connect_after(sigName: "move", callback: ((obj: Window) => void)): number
     emit(sigName: "move"): void
+    on(sigName: "move", callback: ((event: Window) => void)): EventEmitter
+    once(sigName: "move", callback: ((event: Window) => void)): EventEmitter
+    off(sigName: "move", callback: ((event: Window) => void)): EventEmitter
     connect(sigName: "resize", callback: ((obj: Window) => void)): number
     connect_after(sigName: "resize", callback: ((obj: Window) => void)): number
     emit(sigName: "resize"): void
+    on(sigName: "resize", callback: ((event: Window) => void)): EventEmitter
+    once(sigName: "resize", callback: ((event: Window) => void)): EventEmitter
+    off(sigName: "resize", callback: ((event: Window) => void)): EventEmitter
     connect(sigName: "restore", callback: ((obj: Window) => void)): number
     connect_after(sigName: "restore", callback: ((obj: Window) => void)): number
     emit(sigName: "restore"): void
+    on(sigName: "restore", callback: ((event: Window) => void)): EventEmitter
+    once(sigName: "restore", callback: ((event: Window) => void)): EventEmitter
+    off(sigName: "restore", callback: ((event: Window) => void)): EventEmitter
     static name: string
 }
 export interface GObjectAccessible_ConstructProps extends Object_ConstructProps {
@@ -915,59 +1005,128 @@ export class GObjectAccessible {
     connect(sigName: "active-descendant-changed", callback: ((obj: GObjectAccessible, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: ((obj: GObjectAccessible, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
+    on(sigName: "active-descendant-changed", callback: ((event: GObjectAccessible, arg1: Object) => void)): EventEmitter
+    once(sigName: "active-descendant-changed", callback: ((event: GObjectAccessible, arg1: Object) => void)): EventEmitter
+    off(sigName: "active-descendant-changed", callback: ((event: GObjectAccessible, arg1: Object) => void)): EventEmitter
     connect(sigName: "children-changed", callback: ((obj: GObjectAccessible, arg1: number, arg2: Object) => void)): number
     connect_after(sigName: "children-changed", callback: ((obj: GObjectAccessible, arg1: number, arg2: Object) => void)): number
     emit(sigName: "children-changed", arg1: number, arg2: Object): void
+    on(sigName: "children-changed", callback: ((event: GObjectAccessible, arg1: number, arg2: Object) => void)): EventEmitter
+    once(sigName: "children-changed", callback: ((event: GObjectAccessible, arg1: number, arg2: Object) => void)): EventEmitter
+    off(sigName: "children-changed", callback: ((event: GObjectAccessible, arg1: number, arg2: Object) => void)): EventEmitter
     connect(sigName: "focus-event", callback: ((obj: GObjectAccessible, arg1: boolean) => void)): number
     connect_after(sigName: "focus-event", callback: ((obj: GObjectAccessible, arg1: boolean) => void)): number
     emit(sigName: "focus-event", arg1: boolean): void
+    on(sigName: "focus-event", callback: ((event: GObjectAccessible, arg1: boolean) => void)): EventEmitter
+    once(sigName: "focus-event", callback: ((event: GObjectAccessible, arg1: boolean) => void)): EventEmitter
+    off(sigName: "focus-event", callback: ((event: GObjectAccessible, arg1: boolean) => void)): EventEmitter
     connect(sigName: "property-change", callback: ((obj: GObjectAccessible, arg1: PropertyValues) => void)): number
     connect_after(sigName: "property-change", callback: ((obj: GObjectAccessible, arg1: PropertyValues) => void)): number
     emit(sigName: "property-change", arg1: PropertyValues): void
+    on(sigName: "property-change", callback: ((event: GObjectAccessible, arg1: PropertyValues) => void)): EventEmitter
+    once(sigName: "property-change", callback: ((event: GObjectAccessible, arg1: PropertyValues) => void)): EventEmitter
+    off(sigName: "property-change", callback: ((event: GObjectAccessible, arg1: PropertyValues) => void)): EventEmitter
     connect(sigName: "state-change", callback: ((obj: GObjectAccessible, arg1: string, arg2: boolean) => void)): number
     connect_after(sigName: "state-change", callback: ((obj: GObjectAccessible, arg1: string, arg2: boolean) => void)): number
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
+    on(sigName: "state-change", callback: ((event: GObjectAccessible, arg1: string, arg2: boolean) => void)): EventEmitter
+    once(sigName: "state-change", callback: ((event: GObjectAccessible, arg1: string, arg2: boolean) => void)): EventEmitter
+    off(sigName: "state-change", callback: ((event: GObjectAccessible, arg1: string, arg2: boolean) => void)): EventEmitter
     connect(sigName: "visible-data-changed", callback: ((obj: GObjectAccessible) => void)): number
     connect_after(sigName: "visible-data-changed", callback: ((obj: GObjectAccessible) => void)): number
     emit(sigName: "visible-data-changed"): void
+    on(sigName: "visible-data-changed", callback: ((event: GObjectAccessible) => void)): EventEmitter
+    once(sigName: "visible-data-changed", callback: ((event: GObjectAccessible) => void)): EventEmitter
+    off(sigName: "visible-data-changed", callback: ((event: GObjectAccessible) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: GObjectAccessible, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: GObjectAccessible, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: GObjectAccessible, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-name", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-name", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-parent", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-parent", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-role", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-role", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption-object", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-description", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-header", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-summary", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-value", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-value", callback: ((obj: GObjectAccessible, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: GObjectAccessible_ConstructProps)
     _init (config?: GObjectAccessible_ConstructProps): void
@@ -1047,22 +1206,43 @@ export class Hyperlink {
     connect(sigName: "link-activated", callback: ((obj: Hyperlink) => void)): number
     connect_after(sigName: "link-activated", callback: ((obj: Hyperlink) => void)): number
     emit(sigName: "link-activated"): void
+    on(sigName: "link-activated", callback: ((event: Hyperlink) => void)): EventEmitter
+    once(sigName: "link-activated", callback: ((event: Hyperlink) => void)): EventEmitter
+    off(sigName: "link-activated", callback: ((event: Hyperlink) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Hyperlink, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Hyperlink, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Hyperlink, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::end-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::end-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::end-index", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::end-index", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::end-index", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::number-of-anchors", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::number-of-anchors", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::number-of-anchors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::number-of-anchors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::number-of-anchors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::selected-link", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::selected-link", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::selected-link", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::selected-link", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::selected-link", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::start-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::start-index", callback: ((obj: Hyperlink, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::start-index", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::start-index", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::start-index", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Hyperlink_ConstructProps)
     _init (config?: Hyperlink_ConstructProps): void
@@ -1115,10 +1295,16 @@ export class Misc {
     connect(sigName: "notify", callback: ((obj: Misc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Misc, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Misc, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Misc, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Misc, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Misc_ConstructProps)
     _init (config?: Misc_ConstructProps): void
@@ -1361,157 +1547,316 @@ export class NoOpObject {
     connect(sigName: "active-descendant-changed", callback: ((obj: NoOpObject, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: ((obj: NoOpObject, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
+    on(sigName: "active-descendant-changed", callback: ((event: NoOpObject, arg1: Object) => void)): EventEmitter
+    once(sigName: "active-descendant-changed", callback: ((event: NoOpObject, arg1: Object) => void)): EventEmitter
+    off(sigName: "active-descendant-changed", callback: ((event: NoOpObject, arg1: Object) => void)): EventEmitter
     connect(sigName: "children-changed", callback: ((obj: NoOpObject, arg1: number, arg2: Object) => void)): number
     connect_after(sigName: "children-changed", callback: ((obj: NoOpObject, arg1: number, arg2: Object) => void)): number
     emit(sigName: "children-changed", arg1: number, arg2: Object): void
+    on(sigName: "children-changed", callback: ((event: NoOpObject, arg1: number, arg2: Object) => void)): EventEmitter
+    once(sigName: "children-changed", callback: ((event: NoOpObject, arg1: number, arg2: Object) => void)): EventEmitter
+    off(sigName: "children-changed", callback: ((event: NoOpObject, arg1: number, arg2: Object) => void)): EventEmitter
     connect(sigName: "focus-event", callback: ((obj: NoOpObject, arg1: boolean) => void)): number
     connect_after(sigName: "focus-event", callback: ((obj: NoOpObject, arg1: boolean) => void)): number
     emit(sigName: "focus-event", arg1: boolean): void
+    on(sigName: "focus-event", callback: ((event: NoOpObject, arg1: boolean) => void)): EventEmitter
+    once(sigName: "focus-event", callback: ((event: NoOpObject, arg1: boolean) => void)): EventEmitter
+    off(sigName: "focus-event", callback: ((event: NoOpObject, arg1: boolean) => void)): EventEmitter
     connect(sigName: "property-change", callback: ((obj: NoOpObject, arg1: PropertyValues) => void)): number
     connect_after(sigName: "property-change", callback: ((obj: NoOpObject, arg1: PropertyValues) => void)): number
     emit(sigName: "property-change", arg1: PropertyValues): void
+    on(sigName: "property-change", callback: ((event: NoOpObject, arg1: PropertyValues) => void)): EventEmitter
+    once(sigName: "property-change", callback: ((event: NoOpObject, arg1: PropertyValues) => void)): EventEmitter
+    off(sigName: "property-change", callback: ((event: NoOpObject, arg1: PropertyValues) => void)): EventEmitter
     connect(sigName: "state-change", callback: ((obj: NoOpObject, arg1: string, arg2: boolean) => void)): number
     connect_after(sigName: "state-change", callback: ((obj: NoOpObject, arg1: string, arg2: boolean) => void)): number
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
+    on(sigName: "state-change", callback: ((event: NoOpObject, arg1: string, arg2: boolean) => void)): EventEmitter
+    once(sigName: "state-change", callback: ((event: NoOpObject, arg1: string, arg2: boolean) => void)): EventEmitter
+    off(sigName: "state-change", callback: ((event: NoOpObject, arg1: string, arg2: boolean) => void)): EventEmitter
     connect(sigName: "visible-data-changed", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "visible-data-changed", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "visible-data-changed"): void
+    on(sigName: "visible-data-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "visible-data-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "visible-data-changed", callback: ((event: NoOpObject) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: NoOpObject, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: NoOpObject, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: NoOpObject, pspec: GObject.ParamSpec) => void)): EventEmitter
     /* Signals of Atk.Component */
     connect(sigName: "bounds-changed", callback: ((obj: NoOpObject, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: ((obj: NoOpObject, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
+    on(sigName: "bounds-changed", callback: ((event: NoOpObject, arg1: Rectangle) => void)): EventEmitter
+    once(sigName: "bounds-changed", callback: ((event: NoOpObject, arg1: Rectangle) => void)): EventEmitter
+    off(sigName: "bounds-changed", callback: ((event: NoOpObject, arg1: Rectangle) => void)): EventEmitter
     /* Signals of Atk.Document */
     connect(sigName: "load-complete", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "load-complete", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "load-complete"): void
+    on(sigName: "load-complete", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "load-complete", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "load-complete", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "load-stopped", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "load-stopped", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "load-stopped"): void
+    on(sigName: "load-stopped", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "load-stopped", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "load-stopped", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "page-changed", callback: ((obj: NoOpObject, page_number: number) => void)): number
     connect_after(sigName: "page-changed", callback: ((obj: NoOpObject, page_number: number) => void)): number
     emit(sigName: "page-changed", page_number: number): void
+    on(sigName: "page-changed", callback: ((event: NoOpObject, page_number: number) => void)): EventEmitter
+    once(sigName: "page-changed", callback: ((event: NoOpObject, page_number: number) => void)): EventEmitter
+    off(sigName: "page-changed", callback: ((event: NoOpObject, page_number: number) => void)): EventEmitter
     connect(sigName: "reload", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "reload", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "reload"): void
+    on(sigName: "reload", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "reload", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "reload", callback: ((event: NoOpObject) => void)): EventEmitter
     /* Signals of Atk.Hypertext */
     connect(sigName: "link-selected", callback: ((obj: NoOpObject, arg1: number) => void)): number
     connect_after(sigName: "link-selected", callback: ((obj: NoOpObject, arg1: number) => void)): number
     emit(sigName: "link-selected", arg1: number): void
+    on(sigName: "link-selected", callback: ((event: NoOpObject, arg1: number) => void)): EventEmitter
+    once(sigName: "link-selected", callback: ((event: NoOpObject, arg1: number) => void)): EventEmitter
+    off(sigName: "link-selected", callback: ((event: NoOpObject, arg1: number) => void)): EventEmitter
     /* Signals of Atk.Selection */
     connect(sigName: "selection-changed", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "selection-changed", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "selection-changed"): void
+    on(sigName: "selection-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "selection-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "selection-changed", callback: ((event: NoOpObject) => void)): EventEmitter
     /* Signals of Atk.Table */
     connect(sigName: "column-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "column-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     emit(sigName: "column-deleted", arg1: number, arg2: number): void
+    on(sigName: "column-deleted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "column-deleted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "column-deleted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "column-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "column-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     emit(sigName: "column-inserted", arg1: number, arg2: number): void
+    on(sigName: "column-inserted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "column-inserted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "column-inserted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "column-reordered", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "column-reordered", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "column-reordered"): void
+    on(sigName: "column-reordered", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "column-reordered", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "column-reordered", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "model-changed", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "model-changed", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "model-changed"): void
+    on(sigName: "model-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "model-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "model-changed", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "row-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "row-deleted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     emit(sigName: "row-deleted", arg1: number, arg2: number): void
+    on(sigName: "row-deleted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "row-deleted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "row-deleted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "row-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "row-inserted", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     emit(sigName: "row-inserted", arg1: number, arg2: number): void
+    on(sigName: "row-inserted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "row-inserted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "row-inserted", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "row-reordered", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "row-reordered", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "row-reordered"): void
+    on(sigName: "row-reordered", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "row-reordered", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "row-reordered", callback: ((event: NoOpObject) => void)): EventEmitter
     /* Signals of Atk.Text */
     connect(sigName: "text-attributes-changed", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "text-attributes-changed", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "text-attributes-changed"): void
+    on(sigName: "text-attributes-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "text-attributes-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "text-attributes-changed", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "text-caret-moved", callback: ((obj: NoOpObject, arg1: number) => void)): number
     connect_after(sigName: "text-caret-moved", callback: ((obj: NoOpObject, arg1: number) => void)): number
     emit(sigName: "text-caret-moved", arg1: number): void
+    on(sigName: "text-caret-moved", callback: ((event: NoOpObject, arg1: number) => void)): EventEmitter
+    once(sigName: "text-caret-moved", callback: ((event: NoOpObject, arg1: number) => void)): EventEmitter
+    off(sigName: "text-caret-moved", callback: ((event: NoOpObject, arg1: number) => void)): EventEmitter
     connect(sigName: "text-changed", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     connect_after(sigName: "text-changed", callback: ((obj: NoOpObject, arg1: number, arg2: number) => void)): number
     emit(sigName: "text-changed", arg1: number, arg2: number): void
+    on(sigName: "text-changed", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    once(sigName: "text-changed", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
+    off(sigName: "text-changed", callback: ((event: NoOpObject, arg1: number, arg2: number) => void)): EventEmitter
     connect(sigName: "text-insert", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): number
     connect_after(sigName: "text-insert", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): number
     emit(sigName: "text-insert", arg1: number, arg2: number, arg3: string): void
+    on(sigName: "text-insert", callback: ((event: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
+    once(sigName: "text-insert", callback: ((event: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
+    off(sigName: "text-insert", callback: ((event: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
     connect(sigName: "text-remove", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): number
     connect_after(sigName: "text-remove", callback: ((obj: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): number
     emit(sigName: "text-remove", arg1: number, arg2: number, arg3: string): void
+    on(sigName: "text-remove", callback: ((event: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
+    once(sigName: "text-remove", callback: ((event: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
+    off(sigName: "text-remove", callback: ((event: NoOpObject, arg1: number, arg2: number, arg3: string) => void)): EventEmitter
     connect(sigName: "text-selection-changed", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "text-selection-changed", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "text-selection-changed"): void
+    on(sigName: "text-selection-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "text-selection-changed", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "text-selection-changed", callback: ((event: NoOpObject) => void)): EventEmitter
     /* Signals of Atk.Value */
     connect(sigName: "value-changed", callback: ((obj: NoOpObject, value: number, text: string) => void)): number
     connect_after(sigName: "value-changed", callback: ((obj: NoOpObject, value: number, text: string) => void)): number
     emit(sigName: "value-changed", value: number, text: string): void
+    on(sigName: "value-changed", callback: ((event: NoOpObject, value: number, text: string) => void)): EventEmitter
+    once(sigName: "value-changed", callback: ((event: NoOpObject, value: number, text: string) => void)): EventEmitter
+    off(sigName: "value-changed", callback: ((event: NoOpObject, value: number, text: string) => void)): EventEmitter
     /* Signals of Atk.Window */
     connect(sigName: "activate", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "activate", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "activate"): void
+    on(sigName: "activate", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "activate", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "activate", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "create", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "create", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "create"): void
+    on(sigName: "create", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "create", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "create", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "deactivate", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "deactivate", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "deactivate"): void
+    on(sigName: "deactivate", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "deactivate", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "deactivate", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "destroy", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "destroy", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "destroy"): void
+    on(sigName: "destroy", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "destroy", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "destroy", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "maximize", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "maximize", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "maximize"): void
+    on(sigName: "maximize", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "maximize", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "maximize", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "minimize", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "minimize", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "minimize"): void
+    on(sigName: "minimize", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "minimize", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "minimize", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "move", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "move", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "move"): void
+    on(sigName: "move", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "move", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "move", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "resize", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "resize", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "resize"): void
+    on(sigName: "resize", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "resize", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "resize", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "restore", callback: ((obj: NoOpObject) => void)): number
     connect_after(sigName: "restore", callback: ((obj: NoOpObject) => void)): number
     emit(sigName: "restore"): void
+    on(sigName: "restore", callback: ((event: NoOpObject) => void)): EventEmitter
+    once(sigName: "restore", callback: ((event: NoOpObject) => void)): EventEmitter
+    off(sigName: "restore", callback: ((event: NoOpObject) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-name", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-name", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-parent", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-parent", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-role", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-role", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption-object", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-description", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-header", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-summary", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-value", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-value", callback: ((obj: NoOpObject, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: NoOpObject_ConstructProps)
     _init (config?: NoOpObject_ConstructProps): void
@@ -1566,10 +1911,16 @@ export class NoOpObjectFactory {
     connect(sigName: "notify", callback: ((obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: NoOpObjectFactory, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: NoOpObjectFactory_ConstructProps)
     _init (config?: NoOpObjectFactory_ConstructProps): void
@@ -1701,59 +2052,128 @@ export class Object {
     connect(sigName: "active-descendant-changed", callback: ((obj: Object, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: ((obj: Object, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
+    on(sigName: "active-descendant-changed", callback: ((event: Object, arg1: Object) => void)): EventEmitter
+    once(sigName: "active-descendant-changed", callback: ((event: Object, arg1: Object) => void)): EventEmitter
+    off(sigName: "active-descendant-changed", callback: ((event: Object, arg1: Object) => void)): EventEmitter
     connect(sigName: "children-changed", callback: ((obj: Object, arg1: number, arg2: Object) => void)): number
     connect_after(sigName: "children-changed", callback: ((obj: Object, arg1: number, arg2: Object) => void)): number
     emit(sigName: "children-changed", arg1: number, arg2: Object): void
+    on(sigName: "children-changed", callback: ((event: Object, arg1: number, arg2: Object) => void)): EventEmitter
+    once(sigName: "children-changed", callback: ((event: Object, arg1: number, arg2: Object) => void)): EventEmitter
+    off(sigName: "children-changed", callback: ((event: Object, arg1: number, arg2: Object) => void)): EventEmitter
     connect(sigName: "focus-event", callback: ((obj: Object, arg1: boolean) => void)): number
     connect_after(sigName: "focus-event", callback: ((obj: Object, arg1: boolean) => void)): number
     emit(sigName: "focus-event", arg1: boolean): void
+    on(sigName: "focus-event", callback: ((event: Object, arg1: boolean) => void)): EventEmitter
+    once(sigName: "focus-event", callback: ((event: Object, arg1: boolean) => void)): EventEmitter
+    off(sigName: "focus-event", callback: ((event: Object, arg1: boolean) => void)): EventEmitter
     connect(sigName: "property-change", callback: ((obj: Object, arg1: PropertyValues) => void)): number
     connect_after(sigName: "property-change", callback: ((obj: Object, arg1: PropertyValues) => void)): number
     emit(sigName: "property-change", arg1: PropertyValues): void
+    on(sigName: "property-change", callback: ((event: Object, arg1: PropertyValues) => void)): EventEmitter
+    once(sigName: "property-change", callback: ((event: Object, arg1: PropertyValues) => void)): EventEmitter
+    off(sigName: "property-change", callback: ((event: Object, arg1: PropertyValues) => void)): EventEmitter
     connect(sigName: "state-change", callback: ((obj: Object, arg1: string, arg2: boolean) => void)): number
     connect_after(sigName: "state-change", callback: ((obj: Object, arg1: string, arg2: boolean) => void)): number
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
+    on(sigName: "state-change", callback: ((event: Object, arg1: string, arg2: boolean) => void)): EventEmitter
+    once(sigName: "state-change", callback: ((event: Object, arg1: string, arg2: boolean) => void)): EventEmitter
+    off(sigName: "state-change", callback: ((event: Object, arg1: string, arg2: boolean) => void)): EventEmitter
     connect(sigName: "visible-data-changed", callback: ((obj: Object) => void)): number
     connect_after(sigName: "visible-data-changed", callback: ((obj: Object) => void)): number
     emit(sigName: "visible-data-changed"): void
+    on(sigName: "visible-data-changed", callback: ((event: Object) => void)): EventEmitter
+    once(sigName: "visible-data-changed", callback: ((event: Object) => void)): EventEmitter
+    off(sigName: "visible-data-changed", callback: ((event: Object) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Object, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Object, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Object, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-name", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-name", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-parent", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-parent", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-role", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-role", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption-object", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-description", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-header", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-summary", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-value", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-value", callback: ((obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Object_ConstructProps)
     _init (config?: Object_ConstructProps): void
@@ -1806,10 +2226,16 @@ export class ObjectFactory {
     connect(sigName: "notify", callback: ((obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ObjectFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: ObjectFactory, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: ObjectFactory, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: ObjectFactory, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: ObjectFactory_ConstructProps)
     _init (config?: ObjectFactory_ConstructProps): void
@@ -1947,63 +2373,135 @@ export class Plug {
     connect(sigName: "active-descendant-changed", callback: ((obj: Plug, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: ((obj: Plug, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
+    on(sigName: "active-descendant-changed", callback: ((event: Plug, arg1: Object) => void)): EventEmitter
+    once(sigName: "active-descendant-changed", callback: ((event: Plug, arg1: Object) => void)): EventEmitter
+    off(sigName: "active-descendant-changed", callback: ((event: Plug, arg1: Object) => void)): EventEmitter
     connect(sigName: "children-changed", callback: ((obj: Plug, arg1: number, arg2: Object) => void)): number
     connect_after(sigName: "children-changed", callback: ((obj: Plug, arg1: number, arg2: Object) => void)): number
     emit(sigName: "children-changed", arg1: number, arg2: Object): void
+    on(sigName: "children-changed", callback: ((event: Plug, arg1: number, arg2: Object) => void)): EventEmitter
+    once(sigName: "children-changed", callback: ((event: Plug, arg1: number, arg2: Object) => void)): EventEmitter
+    off(sigName: "children-changed", callback: ((event: Plug, arg1: number, arg2: Object) => void)): EventEmitter
     connect(sigName: "focus-event", callback: ((obj: Plug, arg1: boolean) => void)): number
     connect_after(sigName: "focus-event", callback: ((obj: Plug, arg1: boolean) => void)): number
     emit(sigName: "focus-event", arg1: boolean): void
+    on(sigName: "focus-event", callback: ((event: Plug, arg1: boolean) => void)): EventEmitter
+    once(sigName: "focus-event", callback: ((event: Plug, arg1: boolean) => void)): EventEmitter
+    off(sigName: "focus-event", callback: ((event: Plug, arg1: boolean) => void)): EventEmitter
     connect(sigName: "property-change", callback: ((obj: Plug, arg1: PropertyValues) => void)): number
     connect_after(sigName: "property-change", callback: ((obj: Plug, arg1: PropertyValues) => void)): number
     emit(sigName: "property-change", arg1: PropertyValues): void
+    on(sigName: "property-change", callback: ((event: Plug, arg1: PropertyValues) => void)): EventEmitter
+    once(sigName: "property-change", callback: ((event: Plug, arg1: PropertyValues) => void)): EventEmitter
+    off(sigName: "property-change", callback: ((event: Plug, arg1: PropertyValues) => void)): EventEmitter
     connect(sigName: "state-change", callback: ((obj: Plug, arg1: string, arg2: boolean) => void)): number
     connect_after(sigName: "state-change", callback: ((obj: Plug, arg1: string, arg2: boolean) => void)): number
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
+    on(sigName: "state-change", callback: ((event: Plug, arg1: string, arg2: boolean) => void)): EventEmitter
+    once(sigName: "state-change", callback: ((event: Plug, arg1: string, arg2: boolean) => void)): EventEmitter
+    off(sigName: "state-change", callback: ((event: Plug, arg1: string, arg2: boolean) => void)): EventEmitter
     connect(sigName: "visible-data-changed", callback: ((obj: Plug) => void)): number
     connect_after(sigName: "visible-data-changed", callback: ((obj: Plug) => void)): number
     emit(sigName: "visible-data-changed"): void
+    on(sigName: "visible-data-changed", callback: ((event: Plug) => void)): EventEmitter
+    once(sigName: "visible-data-changed", callback: ((event: Plug) => void)): EventEmitter
+    off(sigName: "visible-data-changed", callback: ((event: Plug) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Plug, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Plug, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Plug, pspec: GObject.ParamSpec) => void)): EventEmitter
     /* Signals of Atk.Component */
     connect(sigName: "bounds-changed", callback: ((obj: Plug, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: ((obj: Plug, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
+    on(sigName: "bounds-changed", callback: ((event: Plug, arg1: Rectangle) => void)): EventEmitter
+    once(sigName: "bounds-changed", callback: ((event: Plug, arg1: Rectangle) => void)): EventEmitter
+    off(sigName: "bounds-changed", callback: ((event: Plug, arg1: Rectangle) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-name", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-name", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-parent", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-parent", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-role", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-role", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption-object", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-description", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-header", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-summary", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-value", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-value", callback: ((obj: Plug, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Plug_ConstructProps)
     _init (config?: Plug_ConstructProps): void
@@ -2057,10 +2555,16 @@ export class Registry {
     connect(sigName: "notify", callback: ((obj: Registry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Registry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Registry, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Registry, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Registry, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Registry_ConstructProps)
     _init (config?: Registry_ConstructProps): void
@@ -2118,14 +2622,26 @@ export class Relation {
     connect(sigName: "notify", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Relation, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Relation, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Relation, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::relation-type", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::relation-type", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::relation-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::relation-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::relation-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::target", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::target", callback: ((obj: Relation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::target", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::target", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::target", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Relation_ConstructProps)
     _init (config?: Relation_ConstructProps): void
@@ -2183,10 +2699,16 @@ export class RelationSet {
     connect(sigName: "notify", callback: ((obj: RelationSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: RelationSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: RelationSet, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: RelationSet, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: RelationSet, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: RelationSet_ConstructProps)
     _init (config?: RelationSet_ConstructProps): void
@@ -2326,63 +2848,135 @@ export class Socket {
     connect(sigName: "active-descendant-changed", callback: ((obj: Socket, arg1: Object) => void)): number
     connect_after(sigName: "active-descendant-changed", callback: ((obj: Socket, arg1: Object) => void)): number
     emit(sigName: "active-descendant-changed", arg1: Object): void
+    on(sigName: "active-descendant-changed", callback: ((event: Socket, arg1: Object) => void)): EventEmitter
+    once(sigName: "active-descendant-changed", callback: ((event: Socket, arg1: Object) => void)): EventEmitter
+    off(sigName: "active-descendant-changed", callback: ((event: Socket, arg1: Object) => void)): EventEmitter
     connect(sigName: "children-changed", callback: ((obj: Socket, arg1: number, arg2: Object) => void)): number
     connect_after(sigName: "children-changed", callback: ((obj: Socket, arg1: number, arg2: Object) => void)): number
     emit(sigName: "children-changed", arg1: number, arg2: Object): void
+    on(sigName: "children-changed", callback: ((event: Socket, arg1: number, arg2: Object) => void)): EventEmitter
+    once(sigName: "children-changed", callback: ((event: Socket, arg1: number, arg2: Object) => void)): EventEmitter
+    off(sigName: "children-changed", callback: ((event: Socket, arg1: number, arg2: Object) => void)): EventEmitter
     connect(sigName: "focus-event", callback: ((obj: Socket, arg1: boolean) => void)): number
     connect_after(sigName: "focus-event", callback: ((obj: Socket, arg1: boolean) => void)): number
     emit(sigName: "focus-event", arg1: boolean): void
+    on(sigName: "focus-event", callback: ((event: Socket, arg1: boolean) => void)): EventEmitter
+    once(sigName: "focus-event", callback: ((event: Socket, arg1: boolean) => void)): EventEmitter
+    off(sigName: "focus-event", callback: ((event: Socket, arg1: boolean) => void)): EventEmitter
     connect(sigName: "property-change", callback: ((obj: Socket, arg1: PropertyValues) => void)): number
     connect_after(sigName: "property-change", callback: ((obj: Socket, arg1: PropertyValues) => void)): number
     emit(sigName: "property-change", arg1: PropertyValues): void
+    on(sigName: "property-change", callback: ((event: Socket, arg1: PropertyValues) => void)): EventEmitter
+    once(sigName: "property-change", callback: ((event: Socket, arg1: PropertyValues) => void)): EventEmitter
+    off(sigName: "property-change", callback: ((event: Socket, arg1: PropertyValues) => void)): EventEmitter
     connect(sigName: "state-change", callback: ((obj: Socket, arg1: string, arg2: boolean) => void)): number
     connect_after(sigName: "state-change", callback: ((obj: Socket, arg1: string, arg2: boolean) => void)): number
     emit(sigName: "state-change", arg1: string, arg2: boolean): void
+    on(sigName: "state-change", callback: ((event: Socket, arg1: string, arg2: boolean) => void)): EventEmitter
+    once(sigName: "state-change", callback: ((event: Socket, arg1: string, arg2: boolean) => void)): EventEmitter
+    off(sigName: "state-change", callback: ((event: Socket, arg1: string, arg2: boolean) => void)): EventEmitter
     connect(sigName: "visible-data-changed", callback: ((obj: Socket) => void)): number
     connect_after(sigName: "visible-data-changed", callback: ((obj: Socket) => void)): number
     emit(sigName: "visible-data-changed"): void
+    on(sigName: "visible-data-changed", callback: ((event: Socket) => void)): EventEmitter
+    once(sigName: "visible-data-changed", callback: ((event: Socket) => void)): EventEmitter
+    off(sigName: "visible-data-changed", callback: ((event: Socket) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Socket, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Socket, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Socket, pspec: GObject.ParamSpec) => void)): EventEmitter
     /* Signals of Atk.Component */
     connect(sigName: "bounds-changed", callback: ((obj: Socket, arg1: Rectangle) => void)): number
     connect_after(sigName: "bounds-changed", callback: ((obj: Socket, arg1: Rectangle) => void)): number
     emit(sigName: "bounds-changed", arg1: Rectangle): void
+    on(sigName: "bounds-changed", callback: ((event: Socket, arg1: Rectangle) => void)): EventEmitter
+    once(sigName: "bounds-changed", callback: ((event: Socket, arg1: Rectangle) => void)): EventEmitter
+    off(sigName: "bounds-changed", callback: ((event: Socket, arg1: Rectangle) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-layer", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-layer", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-layer", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-component-mdi-zorder", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-component-mdi-zorder", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-hypertext-nlinks", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-hypertext-nlinks", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-name", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-name", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-parent", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-parent", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-parent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-role", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-role", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-role", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-caption-object", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-caption-object", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-caption-object", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-column-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-column-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-column-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-description", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-row-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-row-header", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-row-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-table-summary", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-table-summary", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-table-summary", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accessible-value", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accessible-value", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accessible-value", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Socket_ConstructProps)
     _init (config?: Socket_ConstructProps): void
@@ -2441,10 +3035,16 @@ export class StateSet {
     connect(sigName: "notify", callback: ((obj: StateSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: StateSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: StateSet, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: StateSet, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: StateSet, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: StateSet_ConstructProps)
     _init (config?: StateSet_ConstructProps): void
@@ -2492,10 +3092,16 @@ export class Util {
     connect(sigName: "notify", callback: ((obj: Util, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Util, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Util, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Util, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Util, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Util_ConstructProps)
     _init (config?: Util_ConstructProps): void

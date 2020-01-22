@@ -649,12 +649,21 @@ export class Address {
     connect(sigName: "notify", callback: ((obj: Address, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Address, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Address, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Address, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Address, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::physical", callback: ((obj: Address, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical", callback: ((obj: Address, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::physical", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::physical", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::physical", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Address_ConstructProps)
     _init (config?: Address_ConstructProps): void
@@ -738,20 +747,41 @@ export class Auth {
     connect(sigName: "notify", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Auth, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Auth, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Auth, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::host", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::host", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-authenticated", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-authenticated", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-for-proxy", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-for-proxy", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::realm", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::realm", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::scheme-name", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scheme-name", callback: ((obj: Auth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Auth_ConstructProps)
     _init (config?: Auth_ConstructProps): void
@@ -830,20 +860,41 @@ export class AuthBasic {
     connect(sigName: "notify", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AuthBasic, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AuthBasic, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AuthBasic, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::host", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::host", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-authenticated", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-authenticated", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-for-proxy", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-for-proxy", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::realm", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::realm", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scheme-name", callback: ((obj: AuthBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AuthBasic_ConstructProps)
     _init (config?: AuthBasic_ConstructProps): void
@@ -921,20 +972,41 @@ export class AuthDigest {
     connect(sigName: "notify", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AuthDigest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AuthDigest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AuthDigest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::host", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::host", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-authenticated", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-authenticated", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-for-proxy", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-for-proxy", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::realm", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::realm", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scheme-name", callback: ((obj: AuthDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AuthDigest_ConstructProps)
     _init (config?: AuthDigest_ConstructProps): void
@@ -1011,22 +1083,46 @@ export class AuthDomain {
     connect(sigName: "notify", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AuthDomain, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AuthDomain, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AuthDomain, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::add-path", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::add-path", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::add-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::add-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::add-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::filter", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::filter-data", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter-data", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::filter-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::filter-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::filter-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::generic-auth-callback", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::generic-auth-callback", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::generic-auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::generic-auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::generic-auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::generic-auth-data", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::generic-auth-data", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::generic-auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::generic-auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::generic-auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::remove-path", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::remove-path", callback: ((obj: AuthDomain, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::remove-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::remove-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::remove-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AuthDomain_ConstructProps)
     _init (config?: AuthDomain_ConstructProps): void
@@ -1103,26 +1199,56 @@ export class AuthDomainBasic {
     connect(sigName: "notify", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::auth-callback", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auth-callback", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::auth-data", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auth-data", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::add-path", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::add-path", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::add-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::add-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::add-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::filter", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::filter-data", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter-data", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::filter-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::filter-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::filter-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::generic-auth-callback", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::generic-auth-callback", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::generic-auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::generic-auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::generic-auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::generic-auth-data", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::generic-auth-data", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::generic-auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::generic-auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::generic-auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::remove-path", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::remove-path", callback: ((obj: AuthDomainBasic, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::remove-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::remove-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::remove-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AuthDomainBasic_ConstructProps)
     _init (config?: AuthDomainBasic_ConstructProps): void
@@ -1199,26 +1325,56 @@ export class AuthDomainDigest {
     connect(sigName: "notify", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::auth-callback", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auth-callback", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::auth-data", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auth-data", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::add-path", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::add-path", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::add-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::add-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::add-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::filter", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::filter", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::filter-data", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter-data", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::filter-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::filter-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::filter-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::generic-auth-callback", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::generic-auth-callback", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::generic-auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::generic-auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::generic-auth-callback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::generic-auth-data", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::generic-auth-data", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::generic-auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::generic-auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::generic-auth-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::remove-path", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::remove-path", callback: ((obj: AuthDomainDigest, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::remove-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::remove-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::remove-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AuthDomainDigest_ConstructProps)
     _init (config?: AuthDomainDigest_ConstructProps): void
@@ -1278,14 +1434,23 @@ export class AuthManager {
     connect(sigName: "authenticate", callback: ((obj: AuthManager, msg: Message, auth: Auth, retrying: boolean) => void)): number
     connect_after(sigName: "authenticate", callback: ((obj: AuthManager, msg: Message, auth: Auth, retrying: boolean) => void)): number
     emit(sigName: "authenticate", msg: Message, auth: Auth, retrying: boolean): void
+    on(sigName: "authenticate", callback: ((event: AuthManager, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
+    once(sigName: "authenticate", callback: ((event: AuthManager, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
+    off(sigName: "authenticate", callback: ((event: AuthManager, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AuthManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AuthManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AuthManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AuthManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AuthManager, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AuthManager_ConstructProps)
     _init (config?: AuthManager_ConstructProps): void
@@ -1363,20 +1528,41 @@ export class AuthNTLM {
     connect(sigName: "notify", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AuthNTLM, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AuthNTLM, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AuthNTLM, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::host", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::host", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-authenticated", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-authenticated", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-for-proxy", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-for-proxy", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::realm", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::realm", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scheme-name", callback: ((obj: AuthNTLM, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AuthNTLM_ConstructProps)
     _init (config?: AuthNTLM_ConstructProps): void
@@ -1454,20 +1640,41 @@ export class AuthNegotiate {
     connect(sigName: "notify", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: AuthNegotiate, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: AuthNegotiate, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: AuthNegotiate, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::host", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::host", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-authenticated", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-authenticated", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-authenticated", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-for-proxy", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-for-proxy", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-for-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::realm", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::realm", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::realm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::scheme-name", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scheme-name", callback: ((obj: AuthNegotiate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::scheme-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: AuthNegotiate_ConstructProps)
     _init (config?: AuthNegotiate_ConstructProps): void
@@ -1534,10 +1741,16 @@ export class Cache {
     connect(sigName: "notify", callback: ((obj: Cache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Cache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Cache, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Cache, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Cache, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Cache_ConstructProps)
     _init (config?: Cache_ConstructProps): void
@@ -1592,10 +1805,16 @@ export class ContentDecoder {
     connect(sigName: "notify", callback: ((obj: ContentDecoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ContentDecoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: ContentDecoder, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: ContentDecoder, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: ContentDecoder, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: ContentDecoder_ConstructProps)
     _init (config?: ContentDecoder_ConstructProps): void
@@ -1655,10 +1874,16 @@ export class ContentSniffer {
     connect(sigName: "notify", callback: ((obj: ContentSniffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ContentSniffer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: ContentSniffer, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: ContentSniffer, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: ContentSniffer, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: ContentSniffer_ConstructProps)
     _init (config?: ContentSniffer_ConstructProps): void
@@ -1734,16 +1959,28 @@ export class CookieJar {
     connect(sigName: "changed", callback: ((obj: CookieJar, old_cookie: Cookie, new_cookie: Cookie) => void)): number
     connect_after(sigName: "changed", callback: ((obj: CookieJar, old_cookie: Cookie, new_cookie: Cookie) => void)): number
     emit(sigName: "changed", old_cookie: Cookie, new_cookie: Cookie): void
+    on(sigName: "changed", callback: ((event: CookieJar, old_cookie: Cookie, new_cookie: Cookie) => void)): EventEmitter
+    once(sigName: "changed", callback: ((event: CookieJar, old_cookie: Cookie, new_cookie: Cookie) => void)): EventEmitter
+    off(sigName: "changed", callback: ((event: CookieJar, old_cookie: Cookie, new_cookie: Cookie) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: CookieJar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: CookieJar, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: CookieJar, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: CookieJar, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: CookieJar, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accept-policy", callback: ((obj: CookieJar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-policy", callback: ((obj: CookieJar, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accept-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accept-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: CookieJar_ConstructProps)
     _init (config?: CookieJar_ConstructProps): void
@@ -1820,16 +2057,28 @@ export class CookieJarDB {
     connect(sigName: "changed", callback: ((obj: CookieJarDB, old_cookie: Cookie, new_cookie: Cookie) => void)): number
     connect_after(sigName: "changed", callback: ((obj: CookieJarDB, old_cookie: Cookie, new_cookie: Cookie) => void)): number
     emit(sigName: "changed", old_cookie: Cookie, new_cookie: Cookie): void
+    on(sigName: "changed", callback: ((event: CookieJarDB, old_cookie: Cookie, new_cookie: Cookie) => void)): EventEmitter
+    once(sigName: "changed", callback: ((event: CookieJarDB, old_cookie: Cookie, new_cookie: Cookie) => void)): EventEmitter
+    off(sigName: "changed", callback: ((event: CookieJarDB, old_cookie: Cookie, new_cookie: Cookie) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: CookieJarDB, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: CookieJarDB, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: CookieJarDB, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: CookieJarDB, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: CookieJarDB, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accept-policy", callback: ((obj: CookieJarDB, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-policy", callback: ((obj: CookieJarDB, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accept-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accept-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: CookieJarDB_ConstructProps)
     _init (config?: CookieJarDB_ConstructProps): void
@@ -1906,16 +2155,28 @@ export class CookieJarText {
     connect(sigName: "changed", callback: ((obj: CookieJarText, old_cookie: Cookie, new_cookie: Cookie) => void)): number
     connect_after(sigName: "changed", callback: ((obj: CookieJarText, old_cookie: Cookie, new_cookie: Cookie) => void)): number
     emit(sigName: "changed", old_cookie: Cookie, new_cookie: Cookie): void
+    on(sigName: "changed", callback: ((event: CookieJarText, old_cookie: Cookie, new_cookie: Cookie) => void)): EventEmitter
+    once(sigName: "changed", callback: ((event: CookieJarText, old_cookie: Cookie, new_cookie: Cookie) => void)): EventEmitter
+    off(sigName: "changed", callback: ((event: CookieJarText, old_cookie: Cookie, new_cookie: Cookie) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: CookieJarText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: CookieJarText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: CookieJarText, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: CookieJarText, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: CookieJarText, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accept-policy", callback: ((obj: CookieJarText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-policy", callback: ((obj: CookieJarText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accept-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accept-policy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: CookieJarText_ConstructProps)
     _init (config?: CookieJarText_ConstructProps): void
@@ -1982,17 +2243,29 @@ export class HSTSEnforcer {
     connect(sigName: "changed", callback: ((obj: HSTSEnforcer, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): number
     connect_after(sigName: "changed", callback: ((obj: HSTSEnforcer, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): number
     emit(sigName: "changed", old_policy: HSTSPolicy, new_policy: HSTSPolicy): void
+    on(sigName: "changed", callback: ((event: HSTSEnforcer, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): EventEmitter
+    once(sigName: "changed", callback: ((event: HSTSEnforcer, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): EventEmitter
+    off(sigName: "changed", callback: ((event: HSTSEnforcer, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): EventEmitter
     connect(sigName: "hsts-enforced", callback: ((obj: HSTSEnforcer, message: Message) => void)): number
     connect_after(sigName: "hsts-enforced", callback: ((obj: HSTSEnforcer, message: Message) => void)): number
     emit(sigName: "hsts-enforced", message: Message): void
+    on(sigName: "hsts-enforced", callback: ((event: HSTSEnforcer, message: Message) => void)): EventEmitter
+    once(sigName: "hsts-enforced", callback: ((event: HSTSEnforcer, message: Message) => void)): EventEmitter
+    off(sigName: "hsts-enforced", callback: ((event: HSTSEnforcer, message: Message) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: HSTSEnforcer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: HSTSEnforcer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: HSTSEnforcer, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: HSTSEnforcer, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: HSTSEnforcer, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: HSTSEnforcer_ConstructProps)
     _init (config?: HSTSEnforcer_ConstructProps): void
@@ -2062,17 +2335,29 @@ export class HSTSEnforcerDB {
     connect(sigName: "changed", callback: ((obj: HSTSEnforcerDB, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): number
     connect_after(sigName: "changed", callback: ((obj: HSTSEnforcerDB, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): number
     emit(sigName: "changed", old_policy: HSTSPolicy, new_policy: HSTSPolicy): void
+    on(sigName: "changed", callback: ((event: HSTSEnforcerDB, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): EventEmitter
+    once(sigName: "changed", callback: ((event: HSTSEnforcerDB, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): EventEmitter
+    off(sigName: "changed", callback: ((event: HSTSEnforcerDB, old_policy: HSTSPolicy, new_policy: HSTSPolicy) => void)): EventEmitter
     connect(sigName: "hsts-enforced", callback: ((obj: HSTSEnforcerDB, message: Message) => void)): number
     connect_after(sigName: "hsts-enforced", callback: ((obj: HSTSEnforcerDB, message: Message) => void)): number
     emit(sigName: "hsts-enforced", message: Message): void
+    on(sigName: "hsts-enforced", callback: ((event: HSTSEnforcerDB, message: Message) => void)): EventEmitter
+    once(sigName: "hsts-enforced", callback: ((event: HSTSEnforcerDB, message: Message) => void)): EventEmitter
+    off(sigName: "hsts-enforced", callback: ((event: HSTSEnforcerDB, message: Message) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: HSTSEnforcerDB, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: HSTSEnforcerDB, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: HSTSEnforcerDB, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: HSTSEnforcerDB, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: HSTSEnforcerDB, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: HSTSEnforcerDB_ConstructProps)
     _init (config?: HSTSEnforcerDB_ConstructProps): void
@@ -2135,14 +2420,26 @@ export class Logger {
     connect(sigName: "notify", callback: ((obj: Logger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Logger, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Logger, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Logger, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Logger, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::level", callback: ((obj: Logger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::level", callback: ((obj: Logger, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::level", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::level", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::level", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::max-body-size", callback: ((obj: Logger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-body-size", callback: ((obj: Logger, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-body-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::max-body-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::max-body-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Logger_ConstructProps)
     _init (config?: Logger_ConstructProps): void
@@ -2265,85 +2562,181 @@ export class Message {
     connect(sigName: "content-sniffed", callback: ((obj: Message, type: string, params: GLib.HashTable) => void)): number
     connect_after(sigName: "content-sniffed", callback: ((obj: Message, type: string, params: GLib.HashTable) => void)): number
     emit(sigName: "content-sniffed", type: string, params: GLib.HashTable): void
+    on(sigName: "content-sniffed", callback: ((event: Message, type: string, params: GLib.HashTable) => void)): EventEmitter
+    once(sigName: "content-sniffed", callback: ((event: Message, type: string, params: GLib.HashTable) => void)): EventEmitter
+    off(sigName: "content-sniffed", callback: ((event: Message, type: string, params: GLib.HashTable) => void)): EventEmitter
     connect(sigName: "finished", callback: ((obj: Message) => void)): number
     connect_after(sigName: "finished", callback: ((obj: Message) => void)): number
     emit(sigName: "finished"): void
+    on(sigName: "finished", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "finished", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "finished", callback: ((event: Message) => void)): EventEmitter
     connect(sigName: "got-body", callback: ((obj: Message) => void)): number
     connect_after(sigName: "got-body", callback: ((obj: Message) => void)): number
     emit(sigName: "got-body"): void
+    on(sigName: "got-body", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "got-body", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "got-body", callback: ((event: Message) => void)): EventEmitter
     connect(sigName: "got-chunk", callback: ((obj: Message, chunk: Buffer) => void)): number
     connect_after(sigName: "got-chunk", callback: ((obj: Message, chunk: Buffer) => void)): number
     emit(sigName: "got-chunk", chunk: Buffer): void
+    on(sigName: "got-chunk", callback: ((event: Message, chunk: Buffer) => void)): EventEmitter
+    once(sigName: "got-chunk", callback: ((event: Message, chunk: Buffer) => void)): EventEmitter
+    off(sigName: "got-chunk", callback: ((event: Message, chunk: Buffer) => void)): EventEmitter
     connect(sigName: "got-headers", callback: ((obj: Message) => void)): number
     connect_after(sigName: "got-headers", callback: ((obj: Message) => void)): number
     emit(sigName: "got-headers"): void
+    on(sigName: "got-headers", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "got-headers", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "got-headers", callback: ((event: Message) => void)): EventEmitter
     connect(sigName: "got-informational", callback: ((obj: Message) => void)): number
     connect_after(sigName: "got-informational", callback: ((obj: Message) => void)): number
     emit(sigName: "got-informational"): void
+    on(sigName: "got-informational", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "got-informational", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "got-informational", callback: ((event: Message) => void)): EventEmitter
     connect(sigName: "network-event", callback: ((obj: Message, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): number
     connect_after(sigName: "network-event", callback: ((obj: Message, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): number
     emit(sigName: "network-event", event: Gio.SocketClientEvent, connection: Gio.IOStream): void
+    on(sigName: "network-event", callback: ((event: Message, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): EventEmitter
+    once(sigName: "network-event", callback: ((event: Message, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): EventEmitter
+    off(sigName: "network-event", callback: ((event: Message, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): EventEmitter
     connect(sigName: "restarted", callback: ((obj: Message) => void)): number
     connect_after(sigName: "restarted", callback: ((obj: Message) => void)): number
     emit(sigName: "restarted"): void
+    on(sigName: "restarted", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "restarted", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "restarted", callback: ((event: Message) => void)): EventEmitter
     connect(sigName: "starting", callback: ((obj: Message) => void)): number
     connect_after(sigName: "starting", callback: ((obj: Message) => void)): number
     emit(sigName: "starting"): void
+    on(sigName: "starting", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "starting", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "starting", callback: ((event: Message) => void)): EventEmitter
     connect(sigName: "wrote-body", callback: ((obj: Message) => void)): number
     connect_after(sigName: "wrote-body", callback: ((obj: Message) => void)): number
     emit(sigName: "wrote-body"): void
+    on(sigName: "wrote-body", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "wrote-body", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "wrote-body", callback: ((event: Message) => void)): EventEmitter
     connect(sigName: "wrote-body-data", callback: ((obj: Message, chunk: Buffer) => void)): number
     connect_after(sigName: "wrote-body-data", callback: ((obj: Message, chunk: Buffer) => void)): number
     emit(sigName: "wrote-body-data", chunk: Buffer): void
+    on(sigName: "wrote-body-data", callback: ((event: Message, chunk: Buffer) => void)): EventEmitter
+    once(sigName: "wrote-body-data", callback: ((event: Message, chunk: Buffer) => void)): EventEmitter
+    off(sigName: "wrote-body-data", callback: ((event: Message, chunk: Buffer) => void)): EventEmitter
     connect(sigName: "wrote-chunk", callback: ((obj: Message) => void)): number
     connect_after(sigName: "wrote-chunk", callback: ((obj: Message) => void)): number
     emit(sigName: "wrote-chunk"): void
+    on(sigName: "wrote-chunk", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "wrote-chunk", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "wrote-chunk", callback: ((event: Message) => void)): EventEmitter
     connect(sigName: "wrote-headers", callback: ((obj: Message) => void)): number
     connect_after(sigName: "wrote-headers", callback: ((obj: Message) => void)): number
     emit(sigName: "wrote-headers"): void
+    on(sigName: "wrote-headers", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "wrote-headers", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "wrote-headers", callback: ((event: Message) => void)): EventEmitter
     connect(sigName: "wrote-informational", callback: ((obj: Message) => void)): number
     connect_after(sigName: "wrote-informational", callback: ((obj: Message) => void)): number
     emit(sigName: "wrote-informational"): void
+    on(sigName: "wrote-informational", callback: ((event: Message) => void)): EventEmitter
+    once(sigName: "wrote-informational", callback: ((event: Message) => void)): EventEmitter
+    off(sigName: "wrote-informational", callback: ((event: Message) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Message, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Message, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Message, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::first-party", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::first-party", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::first-party", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::first-party", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::first-party", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::flags", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::flags", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::http-version", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::http-version", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::http-version", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::http-version", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::http-version", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::method", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::method", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::method", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::method", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::method", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::priority", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::priority", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::priority", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::priority", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::priority", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::reason-phrase", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::reason-phrase", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::reason-phrase", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::reason-phrase", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::reason-phrase", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::request-body", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::request-body", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::request-body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::request-body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::request-body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::request-body-data", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::request-body-data", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::request-body-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::request-body-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::request-body-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::request-headers", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::request-headers", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::request-headers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::request-headers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::request-headers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::response-body", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::response-body", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::response-body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::response-body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::response-body", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::response-body-data", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::response-body-data", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::response-body-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::response-body-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::response-body-data", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::response-headers", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::response-headers", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::response-headers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::response-headers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::response-headers", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::status-code", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::status-code", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::status-code", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::status-code", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::status-code", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-certificate", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-certificate", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-errors", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-errors", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-errors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-errors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-errors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::uri", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: ((obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Message_ConstructProps)
     _init (config?: Message_ConstructProps): void
@@ -2443,12 +2836,21 @@ export class MultipartInputStream {
     connect(sigName: "notify", callback: ((obj: MultipartInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: MultipartInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: MultipartInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: MultipartInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: MultipartInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::close-base-stream", callback: ((obj: MultipartInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::close-base-stream", callback: ((obj: MultipartInputStream, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: MultipartInputStream_ConstructProps)
     _init (config?: MultipartInputStream_ConstructProps): void
@@ -2508,12 +2910,21 @@ export class ProxyResolverDefault {
     connect(sigName: "notify", callback: ((obj: ProxyResolverDefault, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ProxyResolverDefault, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: ProxyResolverDefault, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: ProxyResolverDefault, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: ProxyResolverDefault, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::gproxy-resolver", callback: ((obj: ProxyResolverDefault, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::gproxy-resolver", callback: ((obj: ProxyResolverDefault, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::gproxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::gproxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::gproxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: ProxyResolverDefault_ConstructProps)
     _init (config?: ProxyResolverDefault_ConstructProps): void
@@ -2581,10 +2992,16 @@ export class Request {
     connect(sigName: "notify", callback: ((obj: Request, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Request, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Request, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Request, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Request, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Request_ConstructProps)
     _init (config?: Request_ConstructProps): void
@@ -2651,10 +3068,16 @@ export class RequestData {
     connect(sigName: "notify", callback: ((obj: RequestData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: RequestData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: RequestData, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: RequestData, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: RequestData, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: RequestData_ConstructProps)
     _init (config?: RequestData_ConstructProps): void
@@ -2723,10 +3146,16 @@ export class RequestFile {
     connect(sigName: "notify", callback: ((obj: RequestFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: RequestFile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: RequestFile, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: RequestFile, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: RequestFile, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: RequestFile_ConstructProps)
     _init (config?: RequestFile_ConstructProps): void
@@ -2795,10 +3224,16 @@ export class RequestHTTP {
     connect(sigName: "notify", callback: ((obj: RequestHTTP, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: RequestHTTP, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: RequestHTTP, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: RequestHTTP, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: RequestHTTP, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: RequestHTTP_ConstructProps)
     _init (config?: RequestHTTP_ConstructProps): void
@@ -2855,10 +3290,16 @@ export class Requester {
     connect(sigName: "notify", callback: ((obj: Requester, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Requester, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Requester, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Requester, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Requester, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Requester_ConstructProps)
     _init (config?: Requester_ConstructProps): void
@@ -2953,29 +3394,56 @@ export class Server {
     connect(sigName: "request-aborted", callback: ((obj: Server, message: Message, client: ClientContext) => void)): number
     connect_after(sigName: "request-aborted", callback: ((obj: Server, message: Message, client: ClientContext) => void)): number
     emit(sigName: "request-aborted", message: Message, client: ClientContext): void
+    on(sigName: "request-aborted", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
+    once(sigName: "request-aborted", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
+    off(sigName: "request-aborted", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
     connect(sigName: "request-finished", callback: ((obj: Server, message: Message, client: ClientContext) => void)): number
     connect_after(sigName: "request-finished", callback: ((obj: Server, message: Message, client: ClientContext) => void)): number
     emit(sigName: "request-finished", message: Message, client: ClientContext): void
+    on(sigName: "request-finished", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
+    once(sigName: "request-finished", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
+    off(sigName: "request-finished", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
     connect(sigName: "request-read", callback: ((obj: Server, message: Message, client: ClientContext) => void)): number
     connect_after(sigName: "request-read", callback: ((obj: Server, message: Message, client: ClientContext) => void)): number
     emit(sigName: "request-read", message: Message, client: ClientContext): void
+    on(sigName: "request-read", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
+    once(sigName: "request-read", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
+    off(sigName: "request-read", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
     connect(sigName: "request-started", callback: ((obj: Server, message: Message, client: ClientContext) => void)): number
     connect_after(sigName: "request-started", callback: ((obj: Server, message: Message, client: ClientContext) => void)): number
     emit(sigName: "request-started", message: Message, client: ClientContext): void
+    on(sigName: "request-started", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
+    once(sigName: "request-started", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
+    off(sigName: "request-started", callback: ((event: Server, message: Message, client: ClientContext) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Server, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Server, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Server, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Server, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Server, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::http-aliases", callback: ((obj: Server, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::http-aliases", callback: ((obj: Server, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::https-aliases", callback: ((obj: Server, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::https-aliases", callback: ((obj: Server, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::server-header", callback: ((obj: Server, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::server-header", callback: ((obj: Server, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::server-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::server-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::server-header", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Server_ConstructProps)
     _init (config?: Server_ConstructProps): void
@@ -3104,65 +3572,143 @@ export class Session {
     connect(sigName: "authenticate", callback: ((obj: Session, msg: Message, auth: Auth, retrying: boolean) => void)): number
     connect_after(sigName: "authenticate", callback: ((obj: Session, msg: Message, auth: Auth, retrying: boolean) => void)): number
     emit(sigName: "authenticate", msg: Message, auth: Auth, retrying: boolean): void
+    on(sigName: "authenticate", callback: ((event: Session, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
+    once(sigName: "authenticate", callback: ((event: Session, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
+    off(sigName: "authenticate", callback: ((event: Session, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
     connect(sigName: "connection-created", callback: ((obj: Session, connection: GObject.Object) => void)): number
     connect_after(sigName: "connection-created", callback: ((obj: Session, connection: GObject.Object) => void)): number
     emit(sigName: "connection-created", connection: GObject.Object): void
+    on(sigName: "connection-created", callback: ((event: Session, connection: GObject.Object) => void)): EventEmitter
+    once(sigName: "connection-created", callback: ((event: Session, connection: GObject.Object) => void)): EventEmitter
+    off(sigName: "connection-created", callback: ((event: Session, connection: GObject.Object) => void)): EventEmitter
     connect(sigName: "request-queued", callback: ((obj: Session, msg: Message) => void)): number
     connect_after(sigName: "request-queued", callback: ((obj: Session, msg: Message) => void)): number
     emit(sigName: "request-queued", msg: Message): void
+    on(sigName: "request-queued", callback: ((event: Session, msg: Message) => void)): EventEmitter
+    once(sigName: "request-queued", callback: ((event: Session, msg: Message) => void)): EventEmitter
+    off(sigName: "request-queued", callback: ((event: Session, msg: Message) => void)): EventEmitter
     connect(sigName: "request-started", callback: ((obj: Session, msg: Message, socket: Socket) => void)): number
     connect_after(sigName: "request-started", callback: ((obj: Session, msg: Message, socket: Socket) => void)): number
     emit(sigName: "request-started", msg: Message, socket: Socket): void
+    on(sigName: "request-started", callback: ((event: Session, msg: Message, socket: Socket) => void)): EventEmitter
+    once(sigName: "request-started", callback: ((event: Session, msg: Message, socket: Socket) => void)): EventEmitter
+    off(sigName: "request-started", callback: ((event: Session, msg: Message, socket: Socket) => void)): EventEmitter
     connect(sigName: "request-unqueued", callback: ((obj: Session, msg: Message) => void)): number
     connect_after(sigName: "request-unqueued", callback: ((obj: Session, msg: Message) => void)): number
     emit(sigName: "request-unqueued", msg: Message): void
+    on(sigName: "request-unqueued", callback: ((event: Session, msg: Message) => void)): EventEmitter
+    once(sigName: "request-unqueued", callback: ((event: Session, msg: Message) => void)): EventEmitter
+    off(sigName: "request-unqueued", callback: ((event: Session, msg: Message) => void)): EventEmitter
     connect(sigName: "tunneling", callback: ((obj: Session, connection: GObject.Object) => void)): number
     connect_after(sigName: "tunneling", callback: ((obj: Session, connection: GObject.Object) => void)): number
     emit(sigName: "tunneling", connection: GObject.Object): void
+    on(sigName: "tunneling", callback: ((event: Session, connection: GObject.Object) => void)): EventEmitter
+    once(sigName: "tunneling", callback: ((event: Session, connection: GObject.Object) => void)): EventEmitter
+    off(sigName: "tunneling", callback: ((event: Session, connection: GObject.Object) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Session, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Session, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Session, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accept-language", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-language", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-language", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accept-language", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accept-language", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accept-language-auto", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-language-auto", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-language-auto", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accept-language-auto", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accept-language-auto", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::http-aliases", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::http-aliases", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::https-aliases", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::https-aliases", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::idle-timeout", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::idle-timeout", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::idle-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::idle-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::idle-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::max-conns", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-conns", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-conns", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::max-conns", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::max-conns", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::max-conns-per-host", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-conns-per-host", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-conns-per-host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::max-conns-per-host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::max-conns-per-host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::proxy-resolver", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::proxy-uri", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-uri", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::proxy-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::proxy-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::proxy-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-ca-file", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-ca-file", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-strict", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-strict", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-strict", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-strict", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-strict", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-use-system-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-use-system-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-use-system-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::timeout", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-database", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-database", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-interaction", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-interaction", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::use-ntlm", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::use-ntlm", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::use-ntlm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::use-ntlm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::use-ntlm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::use-thread-context", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::use-thread-context", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::use-thread-context", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::use-thread-context", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::use-thread-context", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::user-agent", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-agent", callback: ((obj: Session, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Session_ConstructProps)
     _init (config?: Session_ConstructProps): void
@@ -3273,65 +3819,143 @@ export class SessionAsync {
     connect(sigName: "authenticate", callback: ((obj: SessionAsync, msg: Message, auth: Auth, retrying: boolean) => void)): number
     connect_after(sigName: "authenticate", callback: ((obj: SessionAsync, msg: Message, auth: Auth, retrying: boolean) => void)): number
     emit(sigName: "authenticate", msg: Message, auth: Auth, retrying: boolean): void
+    on(sigName: "authenticate", callback: ((event: SessionAsync, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
+    once(sigName: "authenticate", callback: ((event: SessionAsync, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
+    off(sigName: "authenticate", callback: ((event: SessionAsync, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
     connect(sigName: "connection-created", callback: ((obj: SessionAsync, connection: GObject.Object) => void)): number
     connect_after(sigName: "connection-created", callback: ((obj: SessionAsync, connection: GObject.Object) => void)): number
     emit(sigName: "connection-created", connection: GObject.Object): void
+    on(sigName: "connection-created", callback: ((event: SessionAsync, connection: GObject.Object) => void)): EventEmitter
+    once(sigName: "connection-created", callback: ((event: SessionAsync, connection: GObject.Object) => void)): EventEmitter
+    off(sigName: "connection-created", callback: ((event: SessionAsync, connection: GObject.Object) => void)): EventEmitter
     connect(sigName: "request-queued", callback: ((obj: SessionAsync, msg: Message) => void)): number
     connect_after(sigName: "request-queued", callback: ((obj: SessionAsync, msg: Message) => void)): number
     emit(sigName: "request-queued", msg: Message): void
+    on(sigName: "request-queued", callback: ((event: SessionAsync, msg: Message) => void)): EventEmitter
+    once(sigName: "request-queued", callback: ((event: SessionAsync, msg: Message) => void)): EventEmitter
+    off(sigName: "request-queued", callback: ((event: SessionAsync, msg: Message) => void)): EventEmitter
     connect(sigName: "request-started", callback: ((obj: SessionAsync, msg: Message, socket: Socket) => void)): number
     connect_after(sigName: "request-started", callback: ((obj: SessionAsync, msg: Message, socket: Socket) => void)): number
     emit(sigName: "request-started", msg: Message, socket: Socket): void
+    on(sigName: "request-started", callback: ((event: SessionAsync, msg: Message, socket: Socket) => void)): EventEmitter
+    once(sigName: "request-started", callback: ((event: SessionAsync, msg: Message, socket: Socket) => void)): EventEmitter
+    off(sigName: "request-started", callback: ((event: SessionAsync, msg: Message, socket: Socket) => void)): EventEmitter
     connect(sigName: "request-unqueued", callback: ((obj: SessionAsync, msg: Message) => void)): number
     connect_after(sigName: "request-unqueued", callback: ((obj: SessionAsync, msg: Message) => void)): number
     emit(sigName: "request-unqueued", msg: Message): void
+    on(sigName: "request-unqueued", callback: ((event: SessionAsync, msg: Message) => void)): EventEmitter
+    once(sigName: "request-unqueued", callback: ((event: SessionAsync, msg: Message) => void)): EventEmitter
+    off(sigName: "request-unqueued", callback: ((event: SessionAsync, msg: Message) => void)): EventEmitter
     connect(sigName: "tunneling", callback: ((obj: SessionAsync, connection: GObject.Object) => void)): number
     connect_after(sigName: "tunneling", callback: ((obj: SessionAsync, connection: GObject.Object) => void)): number
     emit(sigName: "tunneling", connection: GObject.Object): void
+    on(sigName: "tunneling", callback: ((event: SessionAsync, connection: GObject.Object) => void)): EventEmitter
+    once(sigName: "tunneling", callback: ((event: SessionAsync, connection: GObject.Object) => void)): EventEmitter
+    off(sigName: "tunneling", callback: ((event: SessionAsync, connection: GObject.Object) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: SessionAsync, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: SessionAsync, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: SessionAsync, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accept-language", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-language", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-language", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accept-language", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accept-language", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accept-language-auto", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-language-auto", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-language-auto", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accept-language-auto", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accept-language-auto", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::http-aliases", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::http-aliases", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::https-aliases", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::https-aliases", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::idle-timeout", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::idle-timeout", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::idle-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::idle-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::idle-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::max-conns", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-conns", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-conns", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::max-conns", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::max-conns", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::max-conns-per-host", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-conns-per-host", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-conns-per-host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::max-conns-per-host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::max-conns-per-host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::proxy-resolver", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::proxy-uri", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-uri", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::proxy-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::proxy-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::proxy-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-ca-file", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-ca-file", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-strict", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-strict", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-strict", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-strict", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-strict", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-use-system-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-use-system-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-use-system-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::timeout", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-database", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-database", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-interaction", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-interaction", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::use-ntlm", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::use-ntlm", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::use-ntlm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::use-ntlm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::use-ntlm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::use-thread-context", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::use-thread-context", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::use-thread-context", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::use-thread-context", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::use-thread-context", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::user-agent", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-agent", callback: ((obj: SessionAsync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: SessionAsync_ConstructProps)
     _init (config?: SessionAsync_ConstructProps): void
@@ -3442,65 +4066,143 @@ export class SessionSync {
     connect(sigName: "authenticate", callback: ((obj: SessionSync, msg: Message, auth: Auth, retrying: boolean) => void)): number
     connect_after(sigName: "authenticate", callback: ((obj: SessionSync, msg: Message, auth: Auth, retrying: boolean) => void)): number
     emit(sigName: "authenticate", msg: Message, auth: Auth, retrying: boolean): void
+    on(sigName: "authenticate", callback: ((event: SessionSync, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
+    once(sigName: "authenticate", callback: ((event: SessionSync, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
+    off(sigName: "authenticate", callback: ((event: SessionSync, msg: Message, auth: Auth, retrying: boolean) => void)): EventEmitter
     connect(sigName: "connection-created", callback: ((obj: SessionSync, connection: GObject.Object) => void)): number
     connect_after(sigName: "connection-created", callback: ((obj: SessionSync, connection: GObject.Object) => void)): number
     emit(sigName: "connection-created", connection: GObject.Object): void
+    on(sigName: "connection-created", callback: ((event: SessionSync, connection: GObject.Object) => void)): EventEmitter
+    once(sigName: "connection-created", callback: ((event: SessionSync, connection: GObject.Object) => void)): EventEmitter
+    off(sigName: "connection-created", callback: ((event: SessionSync, connection: GObject.Object) => void)): EventEmitter
     connect(sigName: "request-queued", callback: ((obj: SessionSync, msg: Message) => void)): number
     connect_after(sigName: "request-queued", callback: ((obj: SessionSync, msg: Message) => void)): number
     emit(sigName: "request-queued", msg: Message): void
+    on(sigName: "request-queued", callback: ((event: SessionSync, msg: Message) => void)): EventEmitter
+    once(sigName: "request-queued", callback: ((event: SessionSync, msg: Message) => void)): EventEmitter
+    off(sigName: "request-queued", callback: ((event: SessionSync, msg: Message) => void)): EventEmitter
     connect(sigName: "request-started", callback: ((obj: SessionSync, msg: Message, socket: Socket) => void)): number
     connect_after(sigName: "request-started", callback: ((obj: SessionSync, msg: Message, socket: Socket) => void)): number
     emit(sigName: "request-started", msg: Message, socket: Socket): void
+    on(sigName: "request-started", callback: ((event: SessionSync, msg: Message, socket: Socket) => void)): EventEmitter
+    once(sigName: "request-started", callback: ((event: SessionSync, msg: Message, socket: Socket) => void)): EventEmitter
+    off(sigName: "request-started", callback: ((event: SessionSync, msg: Message, socket: Socket) => void)): EventEmitter
     connect(sigName: "request-unqueued", callback: ((obj: SessionSync, msg: Message) => void)): number
     connect_after(sigName: "request-unqueued", callback: ((obj: SessionSync, msg: Message) => void)): number
     emit(sigName: "request-unqueued", msg: Message): void
+    on(sigName: "request-unqueued", callback: ((event: SessionSync, msg: Message) => void)): EventEmitter
+    once(sigName: "request-unqueued", callback: ((event: SessionSync, msg: Message) => void)): EventEmitter
+    off(sigName: "request-unqueued", callback: ((event: SessionSync, msg: Message) => void)): EventEmitter
     connect(sigName: "tunneling", callback: ((obj: SessionSync, connection: GObject.Object) => void)): number
     connect_after(sigName: "tunneling", callback: ((obj: SessionSync, connection: GObject.Object) => void)): number
     emit(sigName: "tunneling", connection: GObject.Object): void
+    on(sigName: "tunneling", callback: ((event: SessionSync, connection: GObject.Object) => void)): EventEmitter
+    once(sigName: "tunneling", callback: ((event: SessionSync, connection: GObject.Object) => void)): EventEmitter
+    off(sigName: "tunneling", callback: ((event: SessionSync, connection: GObject.Object) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: SessionSync, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: SessionSync, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: SessionSync, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accept-language", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-language", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-language", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accept-language", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accept-language", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::accept-language-auto", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-language-auto", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-language-auto", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::accept-language-auto", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::accept-language-auto", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::http-aliases", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::http-aliases", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::http-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::https-aliases", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::https-aliases", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::https-aliases", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::idle-timeout", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::idle-timeout", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::idle-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::idle-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::idle-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::max-conns", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-conns", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-conns", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::max-conns", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::max-conns", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::max-conns-per-host", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-conns-per-host", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-conns-per-host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::max-conns-per-host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::max-conns-per-host", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::proxy-resolver", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::proxy-uri", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-uri", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::proxy-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::proxy-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::proxy-uri", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-ca-file", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-ca-file", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-strict", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-strict", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-strict", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-strict", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-strict", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-use-system-ca-file", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-use-system-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-use-system-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-use-system-ca-file", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::timeout", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-database", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-database", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-interaction", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-interaction", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::use-ntlm", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::use-ntlm", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::use-ntlm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::use-ntlm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::use-ntlm", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::use-thread-context", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::use-thread-context", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::use-thread-context", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::use-thread-context", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::use-thread-context", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::user-agent", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-agent", callback: ((obj: SessionSync, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::user-agent", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: SessionSync_ConstructProps)
     _init (config?: SessionSync_ConstructProps): void
@@ -3592,42 +4294,87 @@ export class Socket {
     connect(sigName: "disconnected", callback: ((obj: Socket) => void)): number
     connect_after(sigName: "disconnected", callback: ((obj: Socket) => void)): number
     emit(sigName: "disconnected"): void
+    on(sigName: "disconnected", callback: ((event: Socket) => void)): EventEmitter
+    once(sigName: "disconnected", callback: ((event: Socket) => void)): EventEmitter
+    off(sigName: "disconnected", callback: ((event: Socket) => void)): EventEmitter
     connect(sigName: "event", callback: ((obj: Socket, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): number
     connect_after(sigName: "event", callback: ((obj: Socket, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): number
     emit(sigName: "event", event: Gio.SocketClientEvent, connection: Gio.IOStream): void
+    on(sigName: "event", callback: ((event: Socket, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): EventEmitter
+    once(sigName: "event", callback: ((event: Socket, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): EventEmitter
+    off(sigName: "event", callback: ((event: Socket, event: Gio.SocketClientEvent, connection: Gio.IOStream) => void)): EventEmitter
     connect(sigName: "new-connection", callback: ((obj: Socket, new_: Socket) => void)): number
     connect_after(sigName: "new-connection", callback: ((obj: Socket, new_: Socket) => void)): number
     emit(sigName: "new-connection", new_: Socket): void
+    on(sigName: "new-connection", callback: ((event: Socket, new_: Socket) => void)): EventEmitter
+    once(sigName: "new-connection", callback: ((event: Socket, new_: Socket) => void)): EventEmitter
+    off(sigName: "new-connection", callback: ((event: Socket, new_: Socket) => void)): EventEmitter
     connect(sigName: "readable", callback: ((obj: Socket) => void)): number
     connect_after(sigName: "readable", callback: ((obj: Socket) => void)): number
     emit(sigName: "readable"): void
+    on(sigName: "readable", callback: ((event: Socket) => void)): EventEmitter
+    once(sigName: "readable", callback: ((event: Socket) => void)): EventEmitter
+    off(sigName: "readable", callback: ((event: Socket) => void)): EventEmitter
     connect(sigName: "writable", callback: ((obj: Socket) => void)): number
     connect_after(sigName: "writable", callback: ((obj: Socket) => void)): number
     emit(sigName: "writable"): void
+    on(sigName: "writable", callback: ((event: Socket) => void)): EventEmitter
+    once(sigName: "writable", callback: ((event: Socket) => void)): EventEmitter
+    off(sigName: "writable", callback: ((event: Socket) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: Socket, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: Socket, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: Socket, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ipv6-only", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ipv6-only", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ipv6-only", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ipv6-only", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ipv6-only", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::is-server", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-server", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-server", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::is-server", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::is-server", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::non-blocking", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::non-blocking", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::non-blocking", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::non-blocking", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::non-blocking", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::ssl-creds", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ssl-creds", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ssl-creds", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::ssl-creds", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::ssl-creds", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::timeout", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-certificate", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-certificate", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::tls-errors", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-errors", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-errors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::tls-errors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::tls-errors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::trusted-certificate", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::trusted-certificate", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::trusted-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::trusted-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::trusted-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: Socket_ConstructProps)
     _init (config?: Socket_ConstructProps): void
@@ -3710,32 +4457,62 @@ export class WebsocketConnection {
     connect(sigName: "closed", callback: ((obj: WebsocketConnection) => void)): number
     connect_after(sigName: "closed", callback: ((obj: WebsocketConnection) => void)): number
     emit(sigName: "closed"): void
+    on(sigName: "closed", callback: ((event: WebsocketConnection) => void)): EventEmitter
+    once(sigName: "closed", callback: ((event: WebsocketConnection) => void)): EventEmitter
+    off(sigName: "closed", callback: ((event: WebsocketConnection) => void)): EventEmitter
     connect(sigName: "closing", callback: ((obj: WebsocketConnection) => void)): number
     connect_after(sigName: "closing", callback: ((obj: WebsocketConnection) => void)): number
     emit(sigName: "closing"): void
+    on(sigName: "closing", callback: ((event: WebsocketConnection) => void)): EventEmitter
+    once(sigName: "closing", callback: ((event: WebsocketConnection) => void)): EventEmitter
+    off(sigName: "closing", callback: ((event: WebsocketConnection) => void)): EventEmitter
     connect(sigName: "error", callback: ((obj: WebsocketConnection, error: GLib.Error) => void)): number
     connect_after(sigName: "error", callback: ((obj: WebsocketConnection, error: GLib.Error) => void)): number
     emit(sigName: "error", error: GLib.Error): void
+    on(sigName: "error", callback: ((event: WebsocketConnection, error: GLib.Error) => void)): EventEmitter
+    once(sigName: "error", callback: ((event: WebsocketConnection, error: GLib.Error) => void)): EventEmitter
+    off(sigName: "error", callback: ((event: WebsocketConnection, error: GLib.Error) => void)): EventEmitter
     connect(sigName: "message", callback: ((obj: WebsocketConnection, type: number, message: Gjs.byteArray.ByteArray) => void)): number
     connect_after(sigName: "message", callback: ((obj: WebsocketConnection, type: number, message: Gjs.byteArray.ByteArray) => void)): number
     emit(sigName: "message", type: number, message: Gjs.byteArray.ByteArray): void
+    on(sigName: "message", callback: ((event: WebsocketConnection, type: number, message: Gjs.byteArray.ByteArray) => void)): EventEmitter
+    once(sigName: "message", callback: ((event: WebsocketConnection, type: number, message: Gjs.byteArray.ByteArray) => void)): EventEmitter
+    off(sigName: "message", callback: ((event: WebsocketConnection, type: number, message: Gjs.byteArray.ByteArray) => void)): EventEmitter
     connect(sigName: "pong", callback: ((obj: WebsocketConnection, message: Gjs.byteArray.ByteArray) => void)): number
     connect_after(sigName: "pong", callback: ((obj: WebsocketConnection, message: Gjs.byteArray.ByteArray) => void)): number
     emit(sigName: "pong", message: Gjs.byteArray.ByteArray): void
+    on(sigName: "pong", callback: ((event: WebsocketConnection, message: Gjs.byteArray.ByteArray) => void)): EventEmitter
+    once(sigName: "pong", callback: ((event: WebsocketConnection, message: Gjs.byteArray.ByteArray) => void)): EventEmitter
+    off(sigName: "pong", callback: ((event: WebsocketConnection, message: Gjs.byteArray.ByteArray) => void)): EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebsocketConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebsocketConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebsocketConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::keepalive-interval", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keepalive-interval", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::keepalive-interval", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::keepalive-interval", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::keepalive-interval", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::max-incoming-payload-size", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-incoming-payload-size", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-incoming-payload-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::max-incoming-payload-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::max-incoming-payload-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: "notify::state", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::state", callback: ((obj: WebsocketConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::state", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify::state", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify::state", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebsocketConnection_ConstructProps)
     _init (config?: WebsocketConnection_ConstructProps): void
@@ -3796,10 +4573,16 @@ export class WebsocketExtension {
     connect(sigName: "notify", callback: ((obj: WebsocketExtension, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebsocketExtension, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebsocketExtension, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebsocketExtension, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebsocketExtension, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebsocketExtension_ConstructProps)
     _init (config?: WebsocketExtension_ConstructProps): void
@@ -3859,10 +4642,16 @@ export class WebsocketExtensionDeflate {
     connect(sigName: "notify", callback: ((obj: WebsocketExtensionDeflate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebsocketExtensionDeflate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebsocketExtensionDeflate, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebsocketExtensionDeflate, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebsocketExtensionDeflate, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebsocketExtensionDeflate_ConstructProps)
     _init (config?: WebsocketExtensionDeflate_ConstructProps): void
@@ -3915,10 +4704,16 @@ export class WebsocketExtensionManager {
     connect(sigName: "notify", callback: ((obj: WebsocketExtensionManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: WebsocketExtensionManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: ((event: WebsocketExtensionManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    once(sigName: "notify", callback: ((event: WebsocketExtensionManager, pspec: GObject.ParamSpec) => void)): EventEmitter
+    off(sigName: "notify", callback: ((event: WebsocketExtensionManager, pspec: GObject.ParamSpec) => void)): EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
+    on(sigName: string, callback: any): EventEmitter
+    once(sigName: string, callback: any): EventEmitter
+    off(sigName: string, callback: any): EventEmitter
     static name: string
     constructor (config?: WebsocketExtensionManager_ConstructProps)
     _init (config?: WebsocketExtensionManager_ConstructProps): void

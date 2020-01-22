@@ -1,6 +1,6 @@
 import lodash from 'lodash'
 import TemplateProcessor from './template-processor'
-import { Conversation } from './conversations'
+import { Transformation } from './transformation'
 
 import {
     Environment,
@@ -81,11 +81,11 @@ export class GirModule {
     ns: GirNamespace = { $: { name: '', version: '' } }
     symTable: { [key: string]: any } = {}
     patch: { [key: string]: string[] } = {}
-    conversation: Conversation
+    transformation: Transformation
 
     constructor(xml, private readonly environment: Environment, private readonly buildType: BuildType) {
         this.repo = xml.repository
-        this.conversation = new Conversation(environment)
+        this.transformation = new Transformation(environment)
 
         if (this.repo.include) {
             for (const i of this.repo.include) {
@@ -499,7 +499,8 @@ export class GirModule {
         def.push(`export enum ${e.$.name} {`)
         if (e.member) {
             for (const member of e.member) {
-                const name = member.$.name.toUpperCase()
+                // const name = member.$.name.toUpperCase()
+                const name = this.transformation.transform('enum', member.$.name)
                 if (/\d/.test(name[0])) def.push(`    /* ${name} (invalid, starts with a number) */`)
                 else def.push(`    ${name},`)
             }
@@ -545,8 +546,8 @@ export class GirModule {
             break: 1,
         }
 
-        // Function name conversation by environment
-        name = this.conversation.transform('function', name)
+        // Function name transformation by environment
+        name = this.transformation.transform('function', name)
 
         if (reservedWords[name]) return [[`/* Function '${name}' is a reserved word */`], null]
 
@@ -606,16 +607,19 @@ export class GirModule {
     }
 
     private getSignalFunc(e: GirFunction, clsName: string): string[] {
-        const sigName = e.$.name
+        const sigName = this.transformation.transform('signalName', e.$.name)
         const [retType, outArrayLengthIndex] = this.getReturnType(e)
         const [params] = this.getParameters(e.parameters, outArrayLengthIndex)
         const paramComma = params.length > 0 ? ', ' : ''
 
-        return [
-            `    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
-            `    connect_after(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
-            `    emit(sigName: "${sigName}"${paramComma}${params}): void`,
-        ]
+        return TemplateProcessor.generateSignalFunctions(
+            this.environment,
+            sigName,
+            clsName,
+            paramComma,
+            params,
+            retType,
+        )
     }
 
     exportFunction(e: GirFunction): string[] {
@@ -849,11 +853,29 @@ export class GirModule {
                 def.push(
                     `    connect_after(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void)): number`,
                 )
+
+                if (this.environment === 'node') {
+                    def.push(
+                        `    on(sigName: "notify::${p}", callback: ((event: ${prefix}ParamSpec) => void)): EventEmitter`,
+                    )
+                    def.push(
+                        `    once(sigName: "notify::${p}", callback: ((event: ${prefix}ParamSpec) => void)): EventEmitter`,
+                    )
+                    def.push(
+                        `    off(sigName: "notify::${p}", callback: ((event: ${prefix}ParamSpec) => void)): EventEmitter`,
+                    )
+                }
             }
             def.push(`    connect(sigName: string, callback: any): number`)
             def.push(`    connect_after(sigName: string, callback: any): number`)
             def.push(`    emit(sigName: string, ...args: any[]): void`)
             def.push(`    disconnect(id: number): void`)
+
+            if (this.environment === 'node') {
+                def.push(`    on(sigName: string, callback: any): EventEmitter`)
+                def.push(`    once(sigName: string, callback: any): EventEmitter`)
+                def.push(`    off(sigName: string, callback: any): EventEmitter`)
+            }
         }
 
         // TODO: Records have fields

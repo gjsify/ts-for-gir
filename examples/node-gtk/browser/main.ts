@@ -18,11 +18,11 @@ Gtk.init(null);
 const wnd = new Gtk.Window({ title: 'Browser Test', default_width: 800, default_height: 600 });
 const webview = new WebKit.WebView({});
 const scrolledWindow = new Gtk.ScrolledWindow({});
-const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL});
+const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL} as any); // TODO
 const entry = new Gtk.Entry({ text: 'about:none', halign: Gtk.Align.FILL });
 const spinner = new Gtk.Spinner({});
 
-const hbox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL});
+const hbox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL} as any); // TODO
 hbox.packStart(
     makeButton('⇦', () => {
         webview.goBack();
@@ -50,7 +50,7 @@ hbox.packStart(
 hbox.packStart(entry, true, true, 5);
 hbox.packStart(spinner, false, false, 5);
 
-wnd.on('delete-event', (obj: any, event: any) => {
+wnd.on('delete-event', (event: any) => {
     Gtk.mainQuit();
 });
 entry.on('activate', () => {
@@ -58,15 +58,14 @@ entry.on('activate', () => {
     if (!(uri.startsWith('http://') || uri.startsWith('https://') || uri.startsWith('ftp://'))) uri = 'http://' + uri;
     webview.loadUri(uri);
 });
-webview.on('notify::uri', (obj: any, pspec: any) => {
+webview.on('notify::uri', (pspec: any) => {
     entry.text = webview.uri;
 });
-// webview.on('notify::is-loading', (obj: any, pspec: any) => {
-webview.on('notify::is-loading', (obj: any, pspec: any) => {
+webview.on('notify::is-loading', (pspec: any) => {
     spinner.active = webview.isLoading();
 });
 
-scrolledWindow.add(webview);
+scrolledWindow.add(webview as unknown as Gtk.Widget); // TODO
 box.packStart(hbox, false, true, 0);
 box.packStart(scrolledWindow, true, true, 0);
 wnd.add(box);

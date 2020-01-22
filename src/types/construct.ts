@@ -1,1 +1,1 @@
-export type Construct = 'function'
+export type Construct = 'function' | 'enum' | 'signalName'

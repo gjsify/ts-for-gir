@@ -612,14 +612,7 @@ export class GirModule {
         const [params] = this.getParameters(e.parameters, outArrayLengthIndex)
         const paramComma = params.length > 0 ? ', ' : ''
 
-        return TemplateProcessor.generateSignalFunctions(
-            this.environment,
-            sigName,
-            clsName,
-            paramComma,
-            params,
-            retType,
-        )
+        return TemplateProcessor.generateSignalMethods(this.environment, sigName, clsName, paramComma, params, retType)
     }
 
     exportFunction(e: GirFunction): string[] {
@@ -847,35 +840,9 @@ export class GirModule {
             let prefix = 'GObject.'
             if (this.name == 'GObject') prefix = ''
             for (const p of propertyNames) {
-                def.push(
-                    `    connect(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void)): number`,
-                )
-                def.push(
-                    `    connect_after(sigName: "notify::${p}", callback: ((obj: ${name}, pspec: ${prefix}ParamSpec) => void)): number`,
-                )
-
-                if (this.environment === 'node') {
-                    def.push(
-                        `    on(sigName: "notify::${p}", callback: ((event: ${prefix}ParamSpec) => void)): EventEmitter`,
-                    )
-                    def.push(
-                        `    once(sigName: "notify::${p}", callback: ((event: ${prefix}ParamSpec) => void)): EventEmitter`,
-                    )
-                    def.push(
-                        `    off(sigName: "notify::${p}", callback: ((event: ${prefix}ParamSpec) => void)): EventEmitter`,
-                    )
-                }
+                def = def.concat(TemplateProcessor.generateGObjectSignalMethods(this.environment, p, name, prefix))
             }
-            def.push(`    connect(sigName: string, callback: any): number`)
-            def.push(`    connect_after(sigName: string, callback: any): number`)
-            def.push(`    emit(sigName: string, ...args: any[]): void`)
-            def.push(`    disconnect(id: number): void`)
-
-            if (this.environment === 'node') {
-                def.push(`    on(sigName: string, callback: any): EventEmitter`)
-                def.push(`    once(sigName: string, callback: any): EventEmitter`)
-                def.push(`    off(sigName: string, callback: any): EventEmitter`)
-            }
+            def = def.concat(TemplateProcessor.generateGeneralSignalMethods(this.environment))
         }
 
         // TODO: Records have fields
@@ -977,9 +944,7 @@ export class GirModule {
     export(outStream: NodeJS.WritableStream): void {
         let out: string[] = []
 
-        out.push('/**')
-        out.push(` * ${this.name}-${this.version}`)
-        out.push(' */')
+        out = out.concat(TemplateProcessor.generateJSDocComment(`${this.name}-${this.version}`))
 
         out.push('')
 
@@ -993,22 +958,14 @@ export class GirModule {
         }
 
         // Module dependencies as type references or imports
-        if (this.buildType === 'lib') {
-            if (this.environment === 'gjs') {
-                out.push(`import * as Gjs from './Gjs';`)
-            }
-            for (const d of deps) {
-                const base = d.split('-')[0]
-                out.push(`import * as ${base} from './${base}';`)
-            }
-        } else {
-            if (this.environment === 'gjs') {
-                out.push('/// <reference path="Gjs.d.ts" />')
-            }
-            for (const d of deps) {
-                const base = d.split('-')[0]
-                out.push(`/// <reference path="${base}.d.ts" />`)
-            }
+        if (this.environment === 'gjs') {
+            out = out.concat(
+                TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, 'Gjs'),
+            )
+        }
+        for (const d of deps) {
+            const base = d.split('-')[0]
+            out = out.concat(TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, base))
         }
 
         // START Namespace

@@ -12,7 +12,7 @@ const NAME = 'ts-for-gir'
  * @param value
  * @param previous
  */
-const collect = (value: string, previous: string[]) => {
+const collect = (value: string, previous: string[]): string[] => {
     return previous.concat([value])
 }
 
@@ -21,7 +21,7 @@ const collect = (value: string, previous: string[]) => {
  * @param girDirectory
  * @param modules
  */
-const findModules = async (girDirectory: string, modules: string[]) => {
+const findModules = async (girDirectory: string, modules: string[]): Promise<string[]> => {
     const foundModules = new Set<string>()
     for (const i in modules) {
         if (modules[i]) {
@@ -31,13 +31,13 @@ const findModules = async (girDirectory: string, modules: string[]) => {
             globModules.forEach(module => foundModules.add(module))
         }
     }
-    return foundModules
+    return Array.from(foundModules)
 }
 
 commander
     .name(NAME)
     .description('Generates typescript type definitions from gir for gjs and node-gtk')
-    .usage('ts-for-gir [options]')
+    .usage('[options]')
     .option('-g --gir-directory [directory]', 'GIR directory', '/usr/share/gir-1.0')
     .option('-m --module <modules>', "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules", collect, [])
     .option('-o --outdir <dir>', 'Directory to output to', '@types')
@@ -84,7 +84,7 @@ const run = async (): Promise<void> => {
             tsForGir.main(
                 outDir,
                 girDirectory,
-                Array.from(girToLoad),
+                girToLoad,
                 environments[i],
                 buildType || defaultBuildType,
                 commander.verbose,

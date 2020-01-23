@@ -3,6 +3,7 @@ import Path from 'path'
 import ejs from 'ejs'
 import { Environment } from './types/environment'
 import { Transformation } from './transformation'
+import { BuildType } from './types'
 
 const CLIEngine = require('eslint').CLIEngine
 const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
@@ -15,31 +16,105 @@ export class TemplateProcessor {
         this.templateDir = Transformation.getEnvironmentDir(environment, TEMPLATE_DIR)
     }
 
-    public static generateSignalFunctions(
+    public static generateIndent(indents = 1, spaceForIndent = 4): string {
+        return ' '.repeat(indents * spaceForIndent)
+    }
+
+    public static generateJSDocComment(description: string): string[] {
+        const result: string[] = []
+        result.push('/**')
+        result.push(` * ${description}`)
+        result.push(' */')
+        return result
+    }
+
+    public static generateModuleDependenciesImport(
+        environment: Environment,
+        buildType: BuildType,
+        dependencyName: string,
+    ): string[] {
+        const result: string[] = []
+        if (buildType === 'lib') {
+            result.push(`import * as ${dependencyName} from './${dependencyName}';`)
+        } else {
+            result.push(`/// <reference path="${dependencyName}.d.ts" />`)
+        }
+        return result
+    }
+
+    public static generateSignalMethods(
         environment: Environment,
         sigName: string,
         clsName: string,
         paramComma: ', ' | '',
         params: string,
         retType: string,
+        identCount = 1,
     ): string[] {
+        const ident = this.generateIndent(identCount)
         const signalMethods = [
-            `    connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
-            `    connect_after(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
-            `    emit(sigName: "${sigName}"${paramComma}${params}): void`,
+            `${ident}connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+            `${ident}connect_after(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+            `${ident}emit(sigName: "${sigName}"${paramComma}${params}): void`,
         ]
         if (environment === 'node') {
             signalMethods.push(
-                `    on(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
+                `${ident}on(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
             )
             signalMethods.push(
-                `    once(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
+                `${ident}once(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
             )
             signalMethods.push(
-                `    off(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
+                `${ident}off(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
             )
         }
         return signalMethods
+    }
+
+    public static generateGObjectSignalMethods(
+        environment: Environment,
+        propertyName: string,
+        callbackObjectName: string,
+        nampespacePrefix: string,
+        identCount = 1,
+    ): string[] {
+        const result: string[] = []
+        const ident = this.generateIndent(identCount)
+        result.push(
+            `${ident}connect(sigName: "notify::${propertyName}", callback: ((obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
+        )
+        result.push(
+            `${ident}connect_after(sigName: "notify::${propertyName}", callback: ((obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
+        )
+        if (environment === 'node') {
+            result.push(
+                `${ident}on(sigName: "notify::${propertyName}", callback: ((event: ${nampespacePrefix}ParamSpec) => void)): EventEmitter`,
+            )
+            result.push(
+                `${ident}once(sigName: "notify::${propertyName}", callback: ((event: ${nampespacePrefix}ParamSpec) => void)): EventEmitter`,
+            )
+            result.push(
+                `${ident}off(sigName: "notify::${propertyName}", callback: ((event: ${nampespacePrefix}ParamSpec) => void)): EventEmitter`,
+            )
+        }
+
+        return result
+    }
+
+    public static generateGeneralSignalMethods(environment: Environment, identCount = 1): string[] {
+        const result: string[] = []
+        const ident = this.generateIndent(identCount)
+        result.push(`${ident}connect(sigName: string, callback: any): number`)
+        result.push(`${ident}connect_after(sigName: string, callback: any): number`)
+        result.push(`${ident}emit(sigName: string, ...args: any[]): void`)
+        result.push(`${ident}disconnect(id: number): void`)
+
+        if (environment === 'node') {
+            result.push(`${ident}on(sigName: string, callback: any): EventEmitter`)
+            result.push(`${ident}once(sigName: string, callback: any): EventEmitter`)
+            result.push(`${ident}off(sigName: string, callback: any): EventEmitter`)
+        }
+        return result
     }
 
     /**

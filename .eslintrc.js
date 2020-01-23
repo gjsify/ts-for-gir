@@ -18,8 +18,8 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-misused-new': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
-    // Gjs uses snake case
+    // For Gjs
     'camelcase': 'off',
-    '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/camelcase': 'off'
   }
 };

@@ -8,6 +8,7 @@
   },
   "typings": "@types",
   "scripts": {
+    "prepublish": "npm run lint && npm run test && npm run build",
     "test": "npm run build:ts && npm run build:test && ava tmp/test/test.js",
     "regress": "npm run build:ts && node lib/cli.js -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types",
     "build": "npm run clear:build && npm run build:ts",
@@ -18,7 +19,7 @@
     "clear:types": "rm -rf ./@types",
     "watch": "npm run build:ts -- --watch",
     "start": "node lib/cli.js",
-    "lint": "npm run build:ts -- --noEmit && eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "lint": "npm run build:ts -- --noEmit && eslint . --ext .ts,.tsx --fix"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
   "author": "",
   "files": [
     "lib",
-    "bin"
+    "bin",
+    "src"
   ],
   "license": "Apache-2.0",
   "bugs": {

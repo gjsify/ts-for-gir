@@ -6,4 +6,6 @@ test/*.js
 # don't lint templates
 templates/
 # temporary ignore examples
-examples/
+# examples/
+# temporary ignore generated types, remove this if the heap out of memory bug is fixed 
+@types/

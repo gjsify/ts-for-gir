@@ -3,6 +3,7 @@
  */
 
 /// <reference types="node" />
+/// <reference path="GLib.d.ts" />
 
 declare namespace GObject {
 

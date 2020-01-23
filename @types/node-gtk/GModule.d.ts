@@ -3,6 +3,8 @@
  */
 
 /// <reference types="node" />
+/// <reference path="GLib.d.ts" />
+/// <reference path="GObject.d.ts" />
 
 declare namespace GModule {
 

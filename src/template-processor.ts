@@ -40,6 +40,8 @@ export class TemplateProcessor {
         } else {
             if (asType) {
                 result.push(`/// <reference types="${dependencyName}" />`)
+            } else {
+                result.push(`/// <reference path="${dependencyName}.d.ts" />`)
             }
         }
         return result

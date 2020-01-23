@@ -3,6 +3,9 @@
  */
 
 /// <reference types="node" />
+/// <reference path="libxml2.d.ts" />
+/// <reference path="GObject.d.ts" />
+/// <reference path="GLib.d.ts" />
 
 declare namespace Gda {
 

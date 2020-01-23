@@ -3,6 +3,17 @@
  */
 
 /// <reference types="node" />
+/// <reference path="Gtk.d.ts" />
+/// <reference path="xlib.d.ts" />
+/// <reference path="Gdk.d.ts" />
+/// <reference path="cairo.d.ts" />
+/// <reference path="Pango.d.ts" />
+/// <reference path="GObject.d.ts" />
+/// <reference path="GLib.d.ts" />
+/// <reference path="Gio.d.ts" />
+/// <reference path="GdkPixbuf.d.ts" />
+/// <reference path="GModule.d.ts" />
+/// <reference path="Atk.d.ts" />
 
 declare namespace AppIndicator3 {
 

@@ -3,6 +3,11 @@
  */
 
 /// <reference types="node" />
+/// <reference path="GdkPixbuf.d.ts" />
+/// <reference path="Gio.d.ts" />
+/// <reference path="GObject.d.ts" />
+/// <reference path="GLib.d.ts" />
+/// <reference path="GModule.d.ts" />
 
 declare namespace Notify {
 

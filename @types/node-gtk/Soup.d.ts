@@ -3,6 +3,9 @@
  */
 
 /// <reference types="node" />
+/// <reference path="Gio.d.ts" />
+/// <reference path="GObject.d.ts" />
+/// <reference path="GLib.d.ts" />
 
 declare namespace Soup {
 

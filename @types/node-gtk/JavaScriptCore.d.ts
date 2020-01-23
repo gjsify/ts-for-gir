@@ -3,6 +3,8 @@
  */
 
 /// <reference types="node" />
+/// <reference path="GObject.d.ts" />
+/// <reference path="GLib.d.ts" />
 
 declare namespace JavaScriptCore {
 

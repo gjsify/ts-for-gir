@@ -3,6 +3,7 @@
  */
 
 /// <reference types="node" />
+/// <reference path="GObject.d.ts" />
 
 declare namespace cairo {
 

@@ -21,7 +21,7 @@ const collect = (value: string, previous: string[]): string[] => {
  * @param girDirectory
  * @param modules
  */
-const findModules = async (girDirectory: string, modules: string[]): Promise<string[]> => {
+const findModules = async (girDirectory: string, modules: string[]): Promise<Set<string>> => {
     const foundModules = new Set<string>()
     for (const i in modules) {
         if (modules[i]) {
@@ -31,7 +31,7 @@ const findModules = async (girDirectory: string, modules: string[]): Promise<str
             globModules.forEach(module => foundModules.add(module))
         }
     }
-    return Array.from(foundModules)
+    return foundModules
 }
 
 commander
@@ -79,12 +79,12 @@ const run = async (): Promise<void> => {
     for (const i in environments) {
         if (environments[i]) {
             const defaultBuildType = environments[i] === 'gjs' ? 'lib' : 'types'
-            console.log('buildType || defaultBuildType', buildType || defaultBuildType)
             const tsForGir = new TsForGir()
             tsForGir.main(
                 outDir,
                 girDirectory,
-                girToLoad,
+                // A copy is needed here
+                Array.from(girToLoad),
                 environments[i],
                 buildType || defaultBuildType,
                 commander.verbose,

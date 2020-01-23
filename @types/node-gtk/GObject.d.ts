@@ -2,7 +2,7 @@
  * GObject-2.0
  */
 
-/// <reference path="GLib.d.ts" />
+/// <reference types="node" />
 
 declare namespace GObject {
 
@@ -403,16 +403,16 @@ export class Binding {
     connect(sigName: "notify", callback: ((obj: Binding, pspec: ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Binding, pspec: ParamSpec) => void)): number
     emit(sigName: "notify", pspec: ParamSpec): void
-    on(sigName: "notify", callback: ((event: Binding, pspec: ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Binding, pspec: ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Binding, pspec: ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Binding_ConstructProps)
     _init (config?: Binding_ConstructProps): void
@@ -458,16 +458,16 @@ export class InitiallyUnowned {
     connect(sigName: "notify", callback: ((obj: InitiallyUnowned, pspec: ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: InitiallyUnowned, pspec: ParamSpec) => void)): number
     emit(sigName: "notify", pspec: ParamSpec): void
-    on(sigName: "notify", callback: ((event: InitiallyUnowned, pspec: ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: InitiallyUnowned, pspec: ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: InitiallyUnowned, pspec: ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: InitiallyUnowned_ConstructProps)
     _init (config?: InitiallyUnowned_ConstructProps): void
@@ -512,16 +512,16 @@ export class Object {
     connect(sigName: "notify", callback: ((obj: Object, pspec: ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Object, pspec: ParamSpec) => void)): number
     emit(sigName: "notify", pspec: ParamSpec): void
-    on(sigName: "notify", callback: ((event: Object, pspec: ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Object, pspec: ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Object, pspec: ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Object_ConstructProps)
     _init (config?: Object_ConstructProps): void
@@ -1285,16 +1285,16 @@ export class TypeModule {
     connect(sigName: "notify", callback: ((obj: TypeModule, pspec: ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: TypeModule, pspec: ParamSpec) => void)): number
     emit(sigName: "notify", pspec: ParamSpec): void
-    on(sigName: "notify", callback: ((event: TypeModule, pspec: ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: TypeModule, pspec: ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: TypeModule, pspec: ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: TypeModule_ConstructProps)
     _init (config?: TypeModule_ConstructProps): void

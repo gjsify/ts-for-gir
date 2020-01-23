@@ -1,6 +1,6 @@
 import lodash from 'lodash'
 import TemplateProcessor from './template-processor'
-import { Transformation } from './transformation'
+import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
 
 import {
     Environment,
@@ -15,8 +15,6 @@ import {
     GirArray,
     GirType,
     ParsedType,
-    CTypeMap,
-    GType,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
@@ -53,23 +51,6 @@ const POD_TYPE_MAP = {
     filename: 'string',
     // eslint-disable-next-line @typescript-eslint/camelcase
     va_list: 'any',
-}
-
-const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
-    return {
-        guint8: environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
-        gint8: environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
-        gunichar: 'string',
-    }
-}
-
-const C_TYPE_MAP = (targetModName: string | null, suffix: TypeSuffix): CTypeMap => {
-    return {
-        'char*': 'string',
-        'gchar*': 'string',
-        'gchar**': 'any', // FIXME
-        GType: ((targetModName == 'GObject' ? 'Type' : 'GObject.Type') + suffix) as GType,
-    }
 }
 
 export class GirModule {
@@ -300,15 +281,8 @@ export class GirModule {
 
         let fullTypeName: string | null = type.$.name
 
-        const fullTypeMap = {
-            'GObject.Value': 'any',
-            'GObject.Closure': 'Function',
-            'GLib.ByteArray': 'Gjs.byteArray.ByteArray',
-            'GLib.Bytes': 'Gjs.byteArray.ByteArray',
-        }
-
-        if (fullTypeName && fullTypeMap[fullTypeName]) {
-            return fullTypeMap[fullTypeName]
+        if (fullTypeName && FULL_TYPE_MAP(this.environment)[fullTypeName]) {
+            return FULL_TYPE_MAP(this.environment)[fullTypeName]
         }
 
         // Fully qualify our type name if need be
@@ -961,6 +935,10 @@ export class GirModule {
         if (this.environment === 'gjs') {
             out = out.concat(
                 TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, 'Gjs'),
+            )
+        } else {
+            out = out.concat(
+                TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, 'node', true),
             )
         }
         for (const d of deps) {

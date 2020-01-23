@@ -32,12 +32,15 @@ export class TemplateProcessor {
         environment: Environment,
         buildType: BuildType,
         dependencyName: string,
+        asType = false,
     ): string[] {
         const result: string[] = []
         if (buildType === 'lib') {
             result.push(`import * as ${dependencyName} from './${dependencyName}';`)
         } else {
-            result.push(`/// <reference path="${dependencyName}.d.ts" />`)
+            if (asType) {
+                result.push(`/// <reference types="${dependencyName}" />`)
+            }
         }
         return result
     }
@@ -59,13 +62,13 @@ export class TemplateProcessor {
         ]
         if (environment === 'node') {
             signalMethods.push(
-                `${ident}on(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
+                `${ident}on(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
             signalMethods.push(
-                `${ident}once(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
+                `${ident}once(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
             signalMethods.push(
-                `${ident}off(sigName: "${sigName}", callback: ((event: ${clsName}${paramComma}${params}) => ${retType})): EventEmitter`,
+                `${ident}off(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
         }
         return signalMethods
@@ -88,13 +91,13 @@ export class TemplateProcessor {
         )
         if (environment === 'node') {
             result.push(
-                `${ident}on(sigName: "notify::${propertyName}", callback: ((event: ${nampespacePrefix}ParamSpec) => void)): EventEmitter`,
+                `${ident}on(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
             result.push(
-                `${ident}once(sigName: "notify::${propertyName}", callback: ((event: ${nampespacePrefix}ParamSpec) => void)): EventEmitter`,
+                `${ident}once(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
             result.push(
-                `${ident}off(sigName: "notify::${propertyName}", callback: ((event: ${nampespacePrefix}ParamSpec) => void)): EventEmitter`,
+                `${ident}off(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
         }
 
@@ -110,9 +113,9 @@ export class TemplateProcessor {
         result.push(`${ident}disconnect(id: number): void`)
 
         if (environment === 'node') {
-            result.push(`${ident}on(sigName: string, callback: any): EventEmitter`)
-            result.push(`${ident}once(sigName: string, callback: any): EventEmitter`)
-            result.push(`${ident}off(sigName: string, callback: any): EventEmitter`)
+            result.push(`${ident}on(sigName: string, callback: any): NodeJS.EventEmitter`)
+            result.push(`${ident}once(sigName: string, callback: any): NodeJS.EventEmitter`)
+            result.push(`${ident}off(sigName: string, callback: any): NodeJS.EventEmitter`)
         }
         return result
     }

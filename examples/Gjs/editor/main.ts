@@ -18,6 +18,7 @@ srcView.monospace = true
 // it. giCast gives us a type-check at runtime.
 const buf: GtkSource.Buffer = giCast<GtkSource.Buffer>(srcView.buffer, GtkSource.Buffer)
 const lang = GtkSource.LanguageManager.get_default().get_language('js')
+print('lang', lang)
 buf.set_language(lang)
 
 notebook.add(srcView)

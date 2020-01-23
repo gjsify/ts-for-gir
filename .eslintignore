@@ -9,3 +9,5 @@ templates/
 # examples/
 # temporary ignore generated types, remove this if the heap out of memory bug is fixed 
 @types/
+*.js
+*/*.js

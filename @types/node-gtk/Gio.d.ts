@@ -2,8 +2,7 @@
  * Gio-2.0
  */
 
-/// <reference path="GObject.d.ts" />
-/// <reference path="GLib.d.ts" />
+/// <reference types="node" />
 
 declare namespace Gio {
 
@@ -775,7 +774,7 @@ export function resourceErrorQuark(): GLib.Quark
 export function resourceLoad(filename: string): Resource
 export function resourcesEnumerateChildren(path: string, lookup_flags: ResourceLookupFlags): string[]
 export function resourcesGetInfo(path: string, lookup_flags: ResourceLookupFlags): [ /* returnType */ boolean, /* size */ number | null, /* flags */ number | null ]
-export function resourcesLookupData(path: string, lookup_flags: ResourceLookupFlags): Gjs.byteArray.ByteArray
+export function resourcesLookupData(path: string, lookup_flags: ResourceLookupFlags): any
 export function resourcesOpenStream(path: string, lookup_flags: ResourceLookupFlags): InputStream
 export function resourcesRegister(resource: Resource): void
 export function resourcesUnregister(resource: Resource): void
@@ -965,27 +964,27 @@ export class ActionGroup {
     connect(sigName: "action-added", callback: ((obj: ActionGroup, action_name: string) => void)): number
     connect_after(sigName: "action-added", callback: ((obj: ActionGroup, action_name: string) => void)): number
     emit(sigName: "action-added", action_name: string): void
-    on(sigName: "action-added", callback: ((event: ActionGroup, action_name: string) => void)): EventEmitter
-    once(sigName: "action-added", callback: ((event: ActionGroup, action_name: string) => void)): EventEmitter
-    off(sigName: "action-added", callback: ((event: ActionGroup, action_name: string) => void)): EventEmitter
+    on(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-enabled-changed", callback: ((obj: ActionGroup, action_name: string, enabled: boolean) => void)): number
     connect_after(sigName: "action-enabled-changed", callback: ((obj: ActionGroup, action_name: string, enabled: boolean) => void)): number
     emit(sigName: "action-enabled-changed", action_name: string, enabled: boolean): void
-    on(sigName: "action-enabled-changed", callback: ((event: ActionGroup, action_name: string, enabled: boolean) => void)): EventEmitter
-    once(sigName: "action-enabled-changed", callback: ((event: ActionGroup, action_name: string, enabled: boolean) => void)): EventEmitter
-    off(sigName: "action-enabled-changed", callback: ((event: ActionGroup, action_name: string, enabled: boolean) => void)): EventEmitter
+    on(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-removed", callback: ((obj: ActionGroup, action_name: string) => void)): number
     connect_after(sigName: "action-removed", callback: ((obj: ActionGroup, action_name: string) => void)): number
     emit(sigName: "action-removed", action_name: string): void
-    on(sigName: "action-removed", callback: ((event: ActionGroup, action_name: string) => void)): EventEmitter
-    once(sigName: "action-removed", callback: ((event: ActionGroup, action_name: string) => void)): EventEmitter
-    off(sigName: "action-removed", callback: ((event: ActionGroup, action_name: string) => void)): EventEmitter
+    on(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-state-changed", callback: ((obj: ActionGroup, action_name: string, value: GLib.Variant) => void)): number
     connect_after(sigName: "action-state-changed", callback: ((obj: ActionGroup, action_name: string, value: GLib.Variant) => void)): number
     emit(sigName: "action-state-changed", action_name: string, value: GLib.Variant): void
-    on(sigName: "action-state-changed", callback: ((event: ActionGroup, action_name: string, value: GLib.Variant) => void)): EventEmitter
-    once(sigName: "action-state-changed", callback: ((event: ActionGroup, action_name: string, value: GLib.Variant) => void)): EventEmitter
-    off(sigName: "action-state-changed", callback: ((event: ActionGroup, action_name: string, value: GLib.Variant) => void)): EventEmitter
+    on(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class ActionMap {
@@ -1124,15 +1123,15 @@ export class DBusObject {
     connect(sigName: "interface-added", callback: ((obj: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: ((obj: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", interface: DBusInterface): void
-    on(sigName: "interface-added", callback: ((event: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-added", callback: ((event: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-added", callback: ((event: DBusObject, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: ((obj: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-removed", callback: ((obj: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-removed", interface: DBusInterface): void
-    on(sigName: "interface-removed", callback: ((event: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-removed", callback: ((event: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-removed", callback: ((event: DBusObject, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class DBusObjectManager {
@@ -1154,27 +1153,27 @@ export class DBusObjectManager {
     connect(sigName: "interface-added", callback: ((obj: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: ((obj: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", object: DBusObject, interface: DBusInterface): void
-    on(sigName: "interface-added", callback: ((event: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-added", callback: ((event: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-added", callback: ((event: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: ((obj: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-removed", callback: ((obj: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-removed", object: DBusObject, interface: DBusInterface): void
-    on(sigName: "interface-removed", callback: ((event: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-removed", callback: ((event: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-removed", callback: ((event: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-added", callback: ((obj: DBusObjectManager, object: DBusObject) => void)): number
     connect_after(sigName: "object-added", callback: ((obj: DBusObjectManager, object: DBusObject) => void)): number
     emit(sigName: "object-added", object: DBusObject): void
-    on(sigName: "object-added", callback: ((event: DBusObjectManager, object: DBusObject) => void)): EventEmitter
-    once(sigName: "object-added", callback: ((event: DBusObjectManager, object: DBusObject) => void)): EventEmitter
-    off(sigName: "object-added", callback: ((event: DBusObjectManager, object: DBusObject) => void)): EventEmitter
+    on(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-removed", callback: ((obj: DBusObjectManager, object: DBusObject) => void)): number
     connect_after(sigName: "object-removed", callback: ((obj: DBusObjectManager, object: DBusObject) => void)): number
     emit(sigName: "object-removed", object: DBusObject): void
-    on(sigName: "object-removed", callback: ((event: DBusObjectManager, object: DBusObject) => void)): EventEmitter
-    once(sigName: "object-removed", callback: ((event: DBusObjectManager, object: DBusObject) => void)): EventEmitter
-    off(sigName: "object-removed", callback: ((event: DBusObjectManager, object: DBusObject) => void)): EventEmitter
+    on(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class DatagramBased {
@@ -1266,27 +1265,27 @@ export class Drive {
     connect(sigName: "changed", callback: ((obj: Drive) => void)): number
     connect_after(sigName: "changed", callback: ((obj: Drive) => void)): number
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: ((event: Drive) => void)): EventEmitter
-    once(sigName: "changed", callback: ((event: Drive) => void)): EventEmitter
-    off(sigName: "changed", callback: ((event: Drive) => void)): EventEmitter
+    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "disconnected", callback: ((obj: Drive) => void)): number
     connect_after(sigName: "disconnected", callback: ((obj: Drive) => void)): number
     emit(sigName: "disconnected"): void
-    on(sigName: "disconnected", callback: ((event: Drive) => void)): EventEmitter
-    once(sigName: "disconnected", callback: ((event: Drive) => void)): EventEmitter
-    off(sigName: "disconnected", callback: ((event: Drive) => void)): EventEmitter
+    on(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "eject-button", callback: ((obj: Drive) => void)): number
     connect_after(sigName: "eject-button", callback: ((obj: Drive) => void)): number
     emit(sigName: "eject-button"): void
-    on(sigName: "eject-button", callback: ((event: Drive) => void)): EventEmitter
-    once(sigName: "eject-button", callback: ((event: Drive) => void)): EventEmitter
-    off(sigName: "eject-button", callback: ((event: Drive) => void)): EventEmitter
+    on(sigName: "eject-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "eject-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "eject-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stop-button", callback: ((obj: Drive) => void)): number
     connect_after(sigName: "stop-button", callback: ((obj: Drive) => void)): number
     emit(sigName: "stop-button"): void
-    on(sigName: "stop-button", callback: ((event: Drive) => void)): EventEmitter
-    once(sigName: "stop-button", callback: ((event: Drive) => void)): EventEmitter
-    off(sigName: "stop-button", callback: ((event: Drive) => void)): EventEmitter
+    on(sigName: "stop-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "stop-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "stop-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class DtlsClientConnection {
@@ -1352,9 +1351,9 @@ export class DtlsConnection {
     connect(sigName: "accept-certificate", callback: ((obj: DtlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     connect_after(sigName: "accept-certificate", callback: ((obj: DtlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     emit(sigName: "accept-certificate", peer_cert: TlsCertificate, errors: TlsCertificateFlags): void
-    on(sigName: "accept-certificate", callback: ((event: DtlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): EventEmitter
-    once(sigName: "accept-certificate", callback: ((event: DtlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): EventEmitter
-    off(sigName: "accept-certificate", callback: ((event: DtlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): EventEmitter
+    on(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class DtlsServerConnection {
@@ -1406,9 +1405,9 @@ export class File {
     hasUriScheme(uri_scheme: string): boolean
     hash(): number
     isNative(): boolean
-    loadBytes(cancellable?: Cancellable | null): [ /* returnType */ Gjs.byteArray.ByteArray, /* etag_out */ string | null ]
+    loadBytes(cancellable?: Cancellable | null): [ /* returnType */ any, /* etag_out */ string | null ]
     loadBytesAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    loadBytesFinish(result: AsyncResult): [ /* returnType */ Gjs.byteArray.ByteArray, /* etag_out */ string | null ]
+    loadBytesFinish(result: AsyncResult): [ /* returnType */ any, /* etag_out */ string | null ]
     loadContents(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* contents */ any, /* etag_out */ string | null ]
     loadContentsAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     loadContentsFinish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ any, /* etag_out */ string | null ]
@@ -1453,7 +1452,7 @@ export class File {
     replaceAsync(etag: string | null, make_backup: boolean, flags: FileCreateFlags, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     replaceContents(contents: any, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* new_etag */ string | null ]
     replaceContentsAsync(contents: any, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    replaceContentsBytesAsync(contents: Gjs.byteArray.ByteArray, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    replaceContentsBytesAsync(contents: any, etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     replaceContentsFinish(res: AsyncResult): [ /* returnType */ boolean, /* new_etag */ string | null ]
     replaceFinish(res: AsyncResult): FileOutputStream
     replaceReadwrite(etag: string | null, make_backup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): FileIOStream
@@ -1628,9 +1627,9 @@ export class ListModel {
     connect(sigName: "items-changed", callback: ((obj: ListModel, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: ((obj: ListModel, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
-    on(sigName: "items-changed", callback: ((event: ListModel, position: number, removed: number, added: number) => void)): EventEmitter
-    once(sigName: "items-changed", callback: ((event: ListModel, position: number, removed: number, added: number) => void)): EventEmitter
-    off(sigName: "items-changed", callback: ((event: ListModel, position: number, removed: number, added: number) => void)): EventEmitter
+    on(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class LoadableIcon {
@@ -1705,21 +1704,21 @@ export class Mount {
     connect(sigName: "changed", callback: ((obj: Mount) => void)): number
     connect_after(sigName: "changed", callback: ((obj: Mount) => void)): number
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: ((event: Mount) => void)): EventEmitter
-    once(sigName: "changed", callback: ((event: Mount) => void)): EventEmitter
-    off(sigName: "changed", callback: ((event: Mount) => void)): EventEmitter
+    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pre-unmount", callback: ((obj: Mount) => void)): number
     connect_after(sigName: "pre-unmount", callback: ((obj: Mount) => void)): number
     emit(sigName: "pre-unmount"): void
-    on(sigName: "pre-unmount", callback: ((event: Mount) => void)): EventEmitter
-    once(sigName: "pre-unmount", callback: ((event: Mount) => void)): EventEmitter
-    off(sigName: "pre-unmount", callback: ((event: Mount) => void)): EventEmitter
+    on(sigName: "pre-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "pre-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "pre-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmounted", callback: ((obj: Mount) => void)): number
     connect_after(sigName: "unmounted", callback: ((obj: Mount) => void)): number
     emit(sigName: "unmounted"): void
-    on(sigName: "unmounted", callback: ((event: Mount) => void)): EventEmitter
-    once(sigName: "unmounted", callback: ((event: Mount) => void)): EventEmitter
-    off(sigName: "unmounted", callback: ((event: Mount) => void)): EventEmitter
+    on(sigName: "unmounted", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "unmounted", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "unmounted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class NetworkMonitor {
@@ -1743,9 +1742,9 @@ export class NetworkMonitor {
     connect(sigName: "network-changed", callback: ((obj: NetworkMonitor, network_available: boolean) => void)): number
     connect_after(sigName: "network-changed", callback: ((obj: NetworkMonitor, network_available: boolean) => void)): number
     emit(sigName: "network-changed", network_available: boolean): void
-    on(sigName: "network-changed", callback: ((event: NetworkMonitor, network_available: boolean) => void)): EventEmitter
-    once(sigName: "network-changed", callback: ((event: NetworkMonitor, network_available: boolean) => void)): EventEmitter
-    off(sigName: "network-changed", callback: ((event: NetworkMonitor, network_available: boolean) => void)): EventEmitter
+    on(sigName: "network-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "network-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "network-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     static getDefault(): NetworkMonitor
 }
@@ -1934,15 +1933,15 @@ export class Volume {
     connect(sigName: "changed", callback: ((obj: Volume) => void)): number
     connect_after(sigName: "changed", callback: ((obj: Volume) => void)): number
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: ((event: Volume) => void)): EventEmitter
-    once(sigName: "changed", callback: ((event: Volume) => void)): EventEmitter
-    off(sigName: "changed", callback: ((event: Volume) => void)): EventEmitter
+    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: ((obj: Volume) => void)): number
     connect_after(sigName: "removed", callback: ((obj: Volume) => void)): number
     emit(sigName: "removed"): void
-    on(sigName: "removed", callback: ((event: Volume) => void)): EventEmitter
-    once(sigName: "removed", callback: ((event: Volume) => void)): EventEmitter
-    off(sigName: "removed", callback: ((event: Volume) => void)): EventEmitter
+    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export interface AppInfoMonitor_ConstructProps extends GObject.Object_ConstructProps {
@@ -1984,23 +1983,23 @@ export class AppInfoMonitor {
     connect(sigName: "changed", callback: ((obj: AppInfoMonitor) => void)): number
     connect_after(sigName: "changed", callback: ((obj: AppInfoMonitor) => void)): number
     emit(sigName: "changed"): void
-    on(sigName: "changed", callback: ((event: AppInfoMonitor) => void)): EventEmitter
-    once(sigName: "changed", callback: ((event: AppInfoMonitor) => void)): EventEmitter
-    off(sigName: "changed", callback: ((event: AppInfoMonitor) => void)): EventEmitter
+    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AppInfoMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AppInfoMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: AppInfoMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: AppInfoMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: AppInfoMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: AppInfoMonitor_ConstructProps)
     _init (config?: AppInfoMonitor_ConstructProps): void
@@ -2060,29 +2059,29 @@ export class AppLaunchContext {
     connect(sigName: "launch-failed", callback: ((obj: AppLaunchContext, startup_notify_id: string) => void)): number
     connect_after(sigName: "launch-failed", callback: ((obj: AppLaunchContext, startup_notify_id: string) => void)): number
     emit(sigName: "launch-failed", startup_notify_id: string): void
-    on(sigName: "launch-failed", callback: ((event: AppLaunchContext, startup_notify_id: string) => void)): EventEmitter
-    once(sigName: "launch-failed", callback: ((event: AppLaunchContext, startup_notify_id: string) => void)): EventEmitter
-    off(sigName: "launch-failed", callback: ((event: AppLaunchContext, startup_notify_id: string) => void)): EventEmitter
+    on(sigName: "launch-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "launch-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "launch-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "launched", callback: ((obj: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void)): number
     connect_after(sigName: "launched", callback: ((obj: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void)): number
     emit(sigName: "launched", info: AppInfo, platform_data: GLib.Variant): void
-    on(sigName: "launched", callback: ((event: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void)): EventEmitter
-    once(sigName: "launched", callback: ((event: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void)): EventEmitter
-    off(sigName: "launched", callback: ((event: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void)): EventEmitter
+    on(sigName: "launched", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "launched", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "launched", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: AppLaunchContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: AppLaunchContext, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: AppLaunchContext, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: AppLaunchContext, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: AppLaunchContext_ConstructProps)
     _init (config?: AppLaunchContext_ConstructProps): void
@@ -2214,124 +2213,124 @@ export class Application {
     connect(sigName: "activate", callback: ((obj: Application) => void)): number
     connect_after(sigName: "activate", callback: ((obj: Application) => void)): number
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: ((event: Application) => void)): EventEmitter
-    once(sigName: "activate", callback: ((event: Application) => void)): EventEmitter
-    off(sigName: "activate", callback: ((event: Application) => void)): EventEmitter
+    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "command-line", callback: ((obj: Application, command_line: ApplicationCommandLine) => number)): number
     connect_after(sigName: "command-line", callback: ((obj: Application, command_line: ApplicationCommandLine) => number)): number
     emit(sigName: "command-line", command_line: ApplicationCommandLine): void
-    on(sigName: "command-line", callback: ((event: Application, command_line: ApplicationCommandLine) => number)): EventEmitter
-    once(sigName: "command-line", callback: ((event: Application, command_line: ApplicationCommandLine) => number)): EventEmitter
-    off(sigName: "command-line", callback: ((event: Application, command_line: ApplicationCommandLine) => number)): EventEmitter
+    on(sigName: "command-line", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "command-line", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "command-line", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "handle-local-options", callback: ((obj: Application, options: GLib.VariantDict) => number)): number
     connect_after(sigName: "handle-local-options", callback: ((obj: Application, options: GLib.VariantDict) => number)): number
     emit(sigName: "handle-local-options", options: GLib.VariantDict): void
-    on(sigName: "handle-local-options", callback: ((event: Application, options: GLib.VariantDict) => number)): EventEmitter
-    once(sigName: "handle-local-options", callback: ((event: Application, options: GLib.VariantDict) => number)): EventEmitter
-    off(sigName: "handle-local-options", callback: ((event: Application, options: GLib.VariantDict) => number)): EventEmitter
+    on(sigName: "handle-local-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "handle-local-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "handle-local-options", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "name-lost", callback: ((obj: Application) => boolean)): number
     connect_after(sigName: "name-lost", callback: ((obj: Application) => boolean)): number
     emit(sigName: "name-lost"): void
-    on(sigName: "name-lost", callback: ((event: Application) => boolean)): EventEmitter
-    once(sigName: "name-lost", callback: ((event: Application) => boolean)): EventEmitter
-    off(sigName: "name-lost", callback: ((event: Application) => boolean)): EventEmitter
+    on(sigName: "name-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "name-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "name-lost", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "open", callback: ((obj: Application, files: File[], hint: string) => void)): number
     connect_after(sigName: "open", callback: ((obj: Application, files: File[], hint: string) => void)): number
     emit(sigName: "open", files: File[], hint: string): void
-    on(sigName: "open", callback: ((event: Application, files: File[], hint: string) => void)): EventEmitter
-    once(sigName: "open", callback: ((event: Application, files: File[], hint: string) => void)): EventEmitter
-    off(sigName: "open", callback: ((event: Application, files: File[], hint: string) => void)): EventEmitter
+    on(sigName: "open", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "open", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "open", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "shutdown", callback: ((obj: Application) => void)): number
     connect_after(sigName: "shutdown", callback: ((obj: Application) => void)): number
     emit(sigName: "shutdown"): void
-    on(sigName: "shutdown", callback: ((event: Application) => void)): EventEmitter
-    once(sigName: "shutdown", callback: ((event: Application) => void)): EventEmitter
-    off(sigName: "shutdown", callback: ((event: Application) => void)): EventEmitter
+    on(sigName: "shutdown", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "shutdown", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "shutdown", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "startup", callback: ((obj: Application) => void)): number
     connect_after(sigName: "startup", callback: ((obj: Application) => void)): number
     emit(sigName: "startup"): void
-    on(sigName: "startup", callback: ((event: Application) => void)): EventEmitter
-    once(sigName: "startup", callback: ((event: Application) => void)): EventEmitter
-    off(sigName: "startup", callback: ((event: Application) => void)): EventEmitter
+    on(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "startup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Application, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Application, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Application, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.ActionGroup */
     connect(sigName: "action-added", callback: ((obj: Application, action_name: string) => void)): number
     connect_after(sigName: "action-added", callback: ((obj: Application, action_name: string) => void)): number
     emit(sigName: "action-added", action_name: string): void
-    on(sigName: "action-added", callback: ((event: Application, action_name: string) => void)): EventEmitter
-    once(sigName: "action-added", callback: ((event: Application, action_name: string) => void)): EventEmitter
-    off(sigName: "action-added", callback: ((event: Application, action_name: string) => void)): EventEmitter
+    on(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-enabled-changed", callback: ((obj: Application, action_name: string, enabled: boolean) => void)): number
     connect_after(sigName: "action-enabled-changed", callback: ((obj: Application, action_name: string, enabled: boolean) => void)): number
     emit(sigName: "action-enabled-changed", action_name: string, enabled: boolean): void
-    on(sigName: "action-enabled-changed", callback: ((event: Application, action_name: string, enabled: boolean) => void)): EventEmitter
-    once(sigName: "action-enabled-changed", callback: ((event: Application, action_name: string, enabled: boolean) => void)): EventEmitter
-    off(sigName: "action-enabled-changed", callback: ((event: Application, action_name: string, enabled: boolean) => void)): EventEmitter
+    on(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-removed", callback: ((obj: Application, action_name: string) => void)): number
     connect_after(sigName: "action-removed", callback: ((obj: Application, action_name: string) => void)): number
     emit(sigName: "action-removed", action_name: string): void
-    on(sigName: "action-removed", callback: ((event: Application, action_name: string) => void)): EventEmitter
-    once(sigName: "action-removed", callback: ((event: Application, action_name: string) => void)): EventEmitter
-    off(sigName: "action-removed", callback: ((event: Application, action_name: string) => void)): EventEmitter
+    on(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-state-changed", callback: ((obj: Application, action_name: string, value: GLib.Variant) => void)): number
     connect_after(sigName: "action-state-changed", callback: ((obj: Application, action_name: string, value: GLib.Variant) => void)): number
     emit(sigName: "action-state-changed", action_name: string, value: GLib.Variant): void
-    on(sigName: "action-state-changed", callback: ((event: Application, action_name: string, value: GLib.Variant) => void)): EventEmitter
-    once(sigName: "action-state-changed", callback: ((event: Application, action_name: string, value: GLib.Variant) => void)): EventEmitter
-    off(sigName: "action-state-changed", callback: ((event: Application, action_name: string, value: GLib.Variant) => void)): EventEmitter
+    on(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::action-group", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::action-group", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::action-group", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::action-group", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::action-group", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::action-group", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::action-group", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::action-group", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::application-id", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::application-id", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::application-id", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::application-id", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::application-id", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::application-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::application-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::application-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::flags", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::flags", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::inactivity-timeout", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::inactivity-timeout", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::inactivity-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::inactivity-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::inactivity-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::inactivity-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::inactivity-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::inactivity-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-busy", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-busy", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-busy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-busy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-busy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-busy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-busy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-busy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-registered", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-registered", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-registered", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-registered", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-registered", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-registered", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-remote", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-remote", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-remote", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-remote", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-remote", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-remote", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-remote", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-remote", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::resource-base-path", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::resource-base-path", callback: ((obj: Application, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::resource-base-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::resource-base-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::resource-base-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::resource-base-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::resource-base-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::resource-base-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Application_ConstructProps)
     _init (config?: Application_ConstructProps): void
@@ -2401,21 +2400,21 @@ export class ApplicationCommandLine {
     connect(sigName: "notify", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-remote", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-remote", callback: ((obj: ApplicationCommandLine, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-remote", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-remote", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-remote", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-remote", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-remote", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-remote", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ApplicationCommandLine_ConstructProps)
     _init (config?: ApplicationCommandLine_ConstructProps): void
@@ -2462,9 +2461,9 @@ export class BufferedInputStream {
     readAllAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
     readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     readAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
-    readBytes(count: number, cancellable?: Cancellable | null): Gjs.byteArray.ByteArray
+    readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readBytesFinish(result: AsyncResult): Gjs.byteArray.ByteArray
+    readBytesFinish(result: AsyncResult): any
     readFinish(result: AsyncResult): number
     setPending(): boolean
     skip(count: number, cancellable?: Cancellable | null): number
@@ -2524,26 +2523,26 @@ export class BufferedInputStream {
     connect(sigName: "notify", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: BufferedInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: BufferedInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: BufferedInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::buffer-size", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::buffer-size", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::buffer-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::buffer-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::buffer-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::buffer-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::buffer-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::buffer-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::close-base-stream", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::close-base-stream", callback: ((obj: BufferedInputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: BufferedInputStream_ConstructProps)
     _init (config?: BufferedInputStream_ConstructProps): void
@@ -2597,8 +2596,8 @@ export class BufferedOutputStream {
     writeAllAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writeAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeBytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    writeBytesAsync(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    writeBytes(bytes: any, cancellable?: Cancellable | null): number
+    writeBytesAsync(bytes: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
     writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -2663,26 +2662,26 @@ export class BufferedOutputStream {
     connect(sigName: "notify", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-grow", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-grow", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::auto-grow", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::auto-grow", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::auto-grow", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::auto-grow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::auto-grow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::auto-grow", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::buffer-size", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::buffer-size", callback: ((obj: BufferedOutputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::buffer-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::buffer-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::buffer-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::buffer-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::buffer-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::buffer-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: BufferedOutputStream_ConstructProps)
     _init (config?: BufferedOutputStream_ConstructProps): void
@@ -2691,14 +2690,14 @@ export class BufferedOutputStream {
     static $gtype: GObject.Type
 }
 export interface BytesIcon_ConstructProps extends GObject.Object_ConstructProps {
-    bytes?:Gjs.byteArray.ByteArray
+    bytes?:any
 }
 export class BytesIcon {
     /* Properties of Gio.BytesIcon */
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.BytesIcon */
-    getBytes(): Gjs.byteArray.ByteArray
+    getBytes(): any
     /* Methods of GObject.Object */
     bindProperty(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -2740,20 +2739,20 @@ export class BytesIcon {
     connect(sigName: "notify", callback: ((obj: BytesIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: BytesIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: BytesIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: BytesIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: BytesIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: BytesIcon_ConstructProps)
     _init (config?: BytesIcon_ConstructProps): void
-    static new(bytes: Gjs.byteArray.ByteArray): BytesIcon
+    static new(bytes: any): BytesIcon
     static $gtype: GObject.Type
 }
 export interface Cancellable_ConstructProps extends GObject.Object_ConstructProps {
@@ -2811,23 +2810,23 @@ export class Cancellable {
     connect(sigName: "cancelled", callback: ((obj: Cancellable) => void)): number
     connect_after(sigName: "cancelled", callback: ((obj: Cancellable) => void)): number
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: ((event: Cancellable) => void)): EventEmitter
-    once(sigName: "cancelled", callback: ((event: Cancellable) => void)): EventEmitter
-    off(sigName: "cancelled", callback: ((event: Cancellable) => void)): EventEmitter
+    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Cancellable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Cancellable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Cancellable, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Cancellable, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Cancellable, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Cancellable_ConstructProps)
     _init (config?: Cancellable_ConstructProps): void
@@ -2888,21 +2887,21 @@ export class CharsetConverter {
     connect(sigName: "notify", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: CharsetConverter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: CharsetConverter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: CharsetConverter, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::use-fallback", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::use-fallback", callback: ((obj: CharsetConverter, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::use-fallback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::use-fallback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::use-fallback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::use-fallback", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::use-fallback", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::use-fallback", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: CharsetConverter_ConstructProps)
     _init (config?: CharsetConverter_ConstructProps): void
@@ -2941,9 +2940,9 @@ export class ConverterInputStream {
     readAllAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
     readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     readAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
-    readBytes(count: number, cancellable?: Cancellable | null): Gjs.byteArray.ByteArray
+    readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readBytesFinish(result: AsyncResult): Gjs.byteArray.ByteArray
+    readBytesFinish(result: AsyncResult): any
     readFinish(result: AsyncResult): number
     setPending(): boolean
     skip(count: number, cancellable?: Cancellable | null): number
@@ -2998,21 +2997,21 @@ export class ConverterInputStream {
     connect(sigName: "notify", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ConverterInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ConverterInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ConverterInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::close-base-stream", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::close-base-stream", callback: ((obj: ConverterInputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ConverterInputStream_ConstructProps)
     _init (config?: ConverterInputStream_ConstructProps): void
@@ -3058,8 +3057,8 @@ export class ConverterOutputStream {
     writeAllAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writeAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeBytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    writeBytesAsync(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    writeBytes(bytes: any, cancellable?: Cancellable | null): number
+    writeBytesAsync(bytes: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
     writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -3124,16 +3123,16 @@ export class ConverterOutputStream {
     connect(sigName: "notify", callback: ((obj: ConverterOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ConverterOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ConverterOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ConverterOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ConverterOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ConverterOutputStream_ConstructProps)
     _init (config?: ConverterOutputStream_ConstructProps): void
@@ -3185,16 +3184,16 @@ export class Credentials {
     connect(sigName: "notify", callback: ((obj: Credentials, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Credentials, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Credentials, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Credentials, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Credentials, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Credentials_ConstructProps)
     _init (config?: Credentials_ConstructProps): void
@@ -3258,41 +3257,41 @@ export class DBusActionGroup {
     connect(sigName: "notify", callback: ((obj: DBusActionGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusActionGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusActionGroup, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusActionGroup, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusActionGroup, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.ActionGroup */
     connect(sigName: "action-added", callback: ((obj: DBusActionGroup, action_name: string) => void)): number
     connect_after(sigName: "action-added", callback: ((obj: DBusActionGroup, action_name: string) => void)): number
     emit(sigName: "action-added", action_name: string): void
-    on(sigName: "action-added", callback: ((event: DBusActionGroup, action_name: string) => void)): EventEmitter
-    once(sigName: "action-added", callback: ((event: DBusActionGroup, action_name: string) => void)): EventEmitter
-    off(sigName: "action-added", callback: ((event: DBusActionGroup, action_name: string) => void)): EventEmitter
+    on(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-enabled-changed", callback: ((obj: DBusActionGroup, action_name: string, enabled: boolean) => void)): number
     connect_after(sigName: "action-enabled-changed", callback: ((obj: DBusActionGroup, action_name: string, enabled: boolean) => void)): number
     emit(sigName: "action-enabled-changed", action_name: string, enabled: boolean): void
-    on(sigName: "action-enabled-changed", callback: ((event: DBusActionGroup, action_name: string, enabled: boolean) => void)): EventEmitter
-    once(sigName: "action-enabled-changed", callback: ((event: DBusActionGroup, action_name: string, enabled: boolean) => void)): EventEmitter
-    off(sigName: "action-enabled-changed", callback: ((event: DBusActionGroup, action_name: string, enabled: boolean) => void)): EventEmitter
+    on(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-removed", callback: ((obj: DBusActionGroup, action_name: string) => void)): number
     connect_after(sigName: "action-removed", callback: ((obj: DBusActionGroup, action_name: string) => void)): number
     emit(sigName: "action-removed", action_name: string): void
-    on(sigName: "action-removed", callback: ((event: DBusActionGroup, action_name: string) => void)): EventEmitter
-    once(sigName: "action-removed", callback: ((event: DBusActionGroup, action_name: string) => void)): EventEmitter
-    off(sigName: "action-removed", callback: ((event: DBusActionGroup, action_name: string) => void)): EventEmitter
+    on(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-state-changed", callback: ((obj: DBusActionGroup, action_name: string, value: GLib.Variant) => void)): number
     connect_after(sigName: "action-state-changed", callback: ((obj: DBusActionGroup, action_name: string, value: GLib.Variant) => void)): number
     emit(sigName: "action-state-changed", action_name: string, value: GLib.Variant): void
-    on(sigName: "action-state-changed", callback: ((event: DBusActionGroup, action_name: string, value: GLib.Variant) => void)): EventEmitter
-    once(sigName: "action-state-changed", callback: ((event: DBusActionGroup, action_name: string, value: GLib.Variant) => void)): EventEmitter
-    off(sigName: "action-state-changed", callback: ((event: DBusActionGroup, action_name: string, value: GLib.Variant) => void)): EventEmitter
+    on(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusActionGroup_ConstructProps)
     _init (config?: DBusActionGroup_ConstructProps): void
@@ -3341,29 +3340,29 @@ export class DBusAuthObserver {
     connect(sigName: "allow-mechanism", callback: ((obj: DBusAuthObserver, mechanism: string) => boolean)): number
     connect_after(sigName: "allow-mechanism", callback: ((obj: DBusAuthObserver, mechanism: string) => boolean)): number
     emit(sigName: "allow-mechanism", mechanism: string): void
-    on(sigName: "allow-mechanism", callback: ((event: DBusAuthObserver, mechanism: string) => boolean)): EventEmitter
-    once(sigName: "allow-mechanism", callback: ((event: DBusAuthObserver, mechanism: string) => boolean)): EventEmitter
-    off(sigName: "allow-mechanism", callback: ((event: DBusAuthObserver, mechanism: string) => boolean)): EventEmitter
+    on(sigName: "allow-mechanism", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "allow-mechanism", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "allow-mechanism", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "authorize-authenticated-peer", callback: ((obj: DBusAuthObserver, stream: IOStream, credentials?: Credentials | null) => boolean)): number
     connect_after(sigName: "authorize-authenticated-peer", callback: ((obj: DBusAuthObserver, stream: IOStream, credentials?: Credentials | null) => boolean)): number
     emit(sigName: "authorize-authenticated-peer", stream: IOStream, credentials?: Credentials | null): void
-    on(sigName: "authorize-authenticated-peer", callback: ((event: DBusAuthObserver, stream: IOStream, credentials?: Credentials | null) => boolean)): EventEmitter
-    once(sigName: "authorize-authenticated-peer", callback: ((event: DBusAuthObserver, stream: IOStream, credentials?: Credentials | null) => boolean)): EventEmitter
-    off(sigName: "authorize-authenticated-peer", callback: ((event: DBusAuthObserver, stream: IOStream, credentials?: Credentials | null) => boolean)): EventEmitter
+    on(sigName: "authorize-authenticated-peer", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "authorize-authenticated-peer", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "authorize-authenticated-peer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusAuthObserver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusAuthObserver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusAuthObserver, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusAuthObserver, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusAuthObserver, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusAuthObserver_ConstructProps)
     _init (config?: DBusAuthObserver_ConstructProps): void
@@ -3467,43 +3466,43 @@ export class DBusConnection {
     connect(sigName: "closed", callback: ((obj: DBusConnection, remote_peer_vanished: boolean, error?: GLib.Error | null) => void)): number
     connect_after(sigName: "closed", callback: ((obj: DBusConnection, remote_peer_vanished: boolean, error?: GLib.Error | null) => void)): number
     emit(sigName: "closed", remote_peer_vanished: boolean, error?: GLib.Error | null): void
-    on(sigName: "closed", callback: ((event: DBusConnection, remote_peer_vanished: boolean, error?: GLib.Error | null) => void)): EventEmitter
-    once(sigName: "closed", callback: ((event: DBusConnection, remote_peer_vanished: boolean, error?: GLib.Error | null) => void)): EventEmitter
-    off(sigName: "closed", callback: ((event: DBusConnection, remote_peer_vanished: boolean, error?: GLib.Error | null) => void)): EventEmitter
+    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capabilities", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capabilities", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::capabilities", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::capabilities", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::capabilities", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::capabilities", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::exit-on-close", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::exit-on-close", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::exit-on-close", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::exit-on-close", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::exit-on-close", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::exit-on-close", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::exit-on-close", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::exit-on-close", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::unique-name", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unique-name", callback: ((obj: DBusConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::unique-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::unique-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::unique-name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::unique-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::unique-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::unique-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusConnection_ConstructProps)
     _init (config?: DBusConnection_ConstructProps): void
@@ -3578,28 +3577,28 @@ export class DBusInterfaceSkeleton {
     connect(sigName: "g-authorize-method", callback: ((obj: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
     connect_after(sigName: "g-authorize-method", callback: ((obj: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
     emit(sigName: "g-authorize-method", invocation: DBusMethodInvocation): void
-    on(sigName: "g-authorize-method", callback: ((event: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): EventEmitter
-    once(sigName: "g-authorize-method", callback: ((event: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): EventEmitter
-    off(sigName: "g-authorize-method", callback: ((event: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): EventEmitter
+    on(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "g-authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-flags", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: ((obj: DBusInterfaceSkeleton, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::g-flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::g-flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::g-flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::g-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusInterfaceSkeleton_ConstructProps)
     _init (config?: DBusInterfaceSkeleton_ConstructProps): void
@@ -3664,23 +3663,23 @@ export class DBusMenuModel {
     connect(sigName: "items-changed", callback: ((obj: DBusMenuModel, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: ((obj: DBusMenuModel, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
-    on(sigName: "items-changed", callback: ((event: DBusMenuModel, position: number, removed: number, added: number) => void)): EventEmitter
-    once(sigName: "items-changed", callback: ((event: DBusMenuModel, position: number, removed: number, added: number) => void)): EventEmitter
-    off(sigName: "items-changed", callback: ((event: DBusMenuModel, position: number, removed: number, added: number) => void)): EventEmitter
+    on(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusMenuModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusMenuModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusMenuModel, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusMenuModel, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusMenuModel, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusMenuModel_ConstructProps)
     _init (config?: DBusMenuModel_ConstructProps): void
@@ -3771,21 +3770,21 @@ export class DBusMessage {
     connect(sigName: "notify", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::locked", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::locked", callback: ((obj: DBusMessage, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::locked", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::locked", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::locked", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::locked", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::locked", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::locked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusMessage_ConstructProps)
     _init (config?: DBusMessage_ConstructProps): void
@@ -3850,16 +3849,16 @@ export class DBusMethodInvocation {
     connect(sigName: "notify", callback: ((obj: DBusMethodInvocation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusMethodInvocation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusMethodInvocation, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusMethodInvocation, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusMethodInvocation, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusMethodInvocation_ConstructProps)
     _init (config?: DBusMethodInvocation_ConstructProps): void
@@ -3934,59 +3933,59 @@ export class DBusObjectManagerClient {
     connect(sigName: "interface-proxy-properties-changed", callback: ((obj: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     connect_after(sigName: "interface-proxy-properties-changed", callback: ((obj: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     emit(sigName: "interface-proxy-properties-changed", object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]): void
-    on(sigName: "interface-proxy-properties-changed", callback: ((event: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): EventEmitter
-    once(sigName: "interface-proxy-properties-changed", callback: ((event: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): EventEmitter
-    off(sigName: "interface-proxy-properties-changed", callback: ((event: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): EventEmitter
+    on(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-proxy-signal", callback: ((obj: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void)): number
     connect_after(sigName: "interface-proxy-signal", callback: ((obj: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void)): number
     emit(sigName: "interface-proxy-signal", object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant): void
-    on(sigName: "interface-proxy-signal", callback: ((event: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void)): EventEmitter
-    once(sigName: "interface-proxy-signal", callback: ((event: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void)): EventEmitter
-    off(sigName: "interface-proxy-signal", callback: ((event: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void)): EventEmitter
+    on(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-proxy-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.DBusObjectManager */
     connect(sigName: "interface-added", callback: ((obj: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: ((obj: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", object: DBusObject, interface: DBusInterface): void
-    on(sigName: "interface-added", callback: ((event: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-added", callback: ((event: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-added", callback: ((event: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: ((obj: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-removed", callback: ((obj: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-removed", object: DBusObject, interface: DBusInterface): void
-    on(sigName: "interface-removed", callback: ((event: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-removed", callback: ((event: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-removed", callback: ((event: DBusObjectManagerClient, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-added", callback: ((obj: DBusObjectManagerClient, object: DBusObject) => void)): number
     connect_after(sigName: "object-added", callback: ((obj: DBusObjectManagerClient, object: DBusObject) => void)): number
     emit(sigName: "object-added", object: DBusObject): void
-    on(sigName: "object-added", callback: ((event: DBusObjectManagerClient, object: DBusObject) => void)): EventEmitter
-    once(sigName: "object-added", callback: ((event: DBusObjectManagerClient, object: DBusObject) => void)): EventEmitter
-    off(sigName: "object-added", callback: ((event: DBusObjectManagerClient, object: DBusObject) => void)): EventEmitter
+    on(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-removed", callback: ((obj: DBusObjectManagerClient, object: DBusObject) => void)): number
     connect_after(sigName: "object-removed", callback: ((obj: DBusObjectManagerClient, object: DBusObject) => void)): number
     emit(sigName: "object-removed", object: DBusObject): void
-    on(sigName: "object-removed", callback: ((event: DBusObjectManagerClient, object: DBusObject) => void)): EventEmitter
-    once(sigName: "object-removed", callback: ((event: DBusObjectManagerClient, object: DBusObject) => void)): EventEmitter
-    off(sigName: "object-removed", callback: ((event: DBusObjectManagerClient, object: DBusObject) => void)): EventEmitter
+    on(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name-owner", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name-owner", callback: ((obj: DBusObjectManagerClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::name-owner", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::name-owner", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::name-owner", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusObjectManagerClient_ConstructProps)
     _init (config?: DBusObjectManagerClient_ConstructProps): void
@@ -4053,46 +4052,46 @@ export class DBusObjectManagerServer {
     connect(sigName: "notify", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.DBusObjectManager */
     connect(sigName: "interface-added", callback: ((obj: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: ((obj: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", object: DBusObject, interface: DBusInterface): void
-    on(sigName: "interface-added", callback: ((event: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-added", callback: ((event: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-added", callback: ((event: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: ((obj: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-removed", callback: ((obj: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): number
     emit(sigName: "interface-removed", object: DBusObject, interface: DBusInterface): void
-    on(sigName: "interface-removed", callback: ((event: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-removed", callback: ((event: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-removed", callback: ((event: DBusObjectManagerServer, object: DBusObject, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-added", callback: ((obj: DBusObjectManagerServer, object: DBusObject) => void)): number
     connect_after(sigName: "object-added", callback: ((obj: DBusObjectManagerServer, object: DBusObject) => void)): number
     emit(sigName: "object-added", object: DBusObject): void
-    on(sigName: "object-added", callback: ((event: DBusObjectManagerServer, object: DBusObject) => void)): EventEmitter
-    once(sigName: "object-added", callback: ((event: DBusObjectManagerServer, object: DBusObject) => void)): EventEmitter
-    off(sigName: "object-added", callback: ((event: DBusObjectManagerServer, object: DBusObject) => void)): EventEmitter
+    on(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "object-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "object-removed", callback: ((obj: DBusObjectManagerServer, object: DBusObject) => void)): number
     connect_after(sigName: "object-removed", callback: ((obj: DBusObjectManagerServer, object: DBusObject) => void)): number
     emit(sigName: "object-removed", object: DBusObject): void
-    on(sigName: "object-removed", callback: ((event: DBusObjectManagerServer, object: DBusObject) => void)): EventEmitter
-    once(sigName: "object-removed", callback: ((event: DBusObjectManagerServer, object: DBusObject) => void)): EventEmitter
-    off(sigName: "object-removed", callback: ((event: DBusObjectManagerServer, object: DBusObject) => void)): EventEmitter
+    on(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "object-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::connection", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connection", callback: ((obj: DBusObjectManagerServer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::connection", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::connection", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::connection", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusObjectManagerServer_ConstructProps)
     _init (config?: DBusObjectManagerServer_ConstructProps): void
@@ -4148,29 +4147,29 @@ export class DBusObjectProxy {
     connect(sigName: "notify", callback: ((obj: DBusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusObjectProxy, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusObjectProxy, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusObjectProxy, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.DBusObject */
     connect(sigName: "interface-added", callback: ((obj: DBusObjectProxy, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: ((obj: DBusObjectProxy, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", interface: DBusInterface): void
-    on(sigName: "interface-added", callback: ((event: DBusObjectProxy, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-added", callback: ((event: DBusObjectProxy, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-added", callback: ((event: DBusObjectProxy, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: ((obj: DBusObjectProxy, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-removed", callback: ((obj: DBusObjectProxy, interface: DBusInterface) => void)): number
     emit(sigName: "interface-removed", interface: DBusInterface): void
-    on(sigName: "interface-removed", callback: ((event: DBusObjectProxy, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-removed", callback: ((event: DBusObjectProxy, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-removed", callback: ((event: DBusObjectProxy, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusObjectProxy_ConstructProps)
     _init (config?: DBusObjectProxy_ConstructProps): void
@@ -4232,41 +4231,41 @@ export class DBusObjectSkeleton {
     connect(sigName: "authorize-method", callback: ((obj: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
     connect_after(sigName: "authorize-method", callback: ((obj: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
     emit(sigName: "authorize-method", interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation): void
-    on(sigName: "authorize-method", callback: ((event: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): EventEmitter
-    once(sigName: "authorize-method", callback: ((event: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): EventEmitter
-    off(sigName: "authorize-method", callback: ((event: DBusObjectSkeleton, interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): EventEmitter
+    on(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "authorize-method", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.DBusObject */
     connect(sigName: "interface-added", callback: ((obj: DBusObjectSkeleton, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-added", callback: ((obj: DBusObjectSkeleton, interface: DBusInterface) => void)): number
     emit(sigName: "interface-added", interface: DBusInterface): void
-    on(sigName: "interface-added", callback: ((event: DBusObjectSkeleton, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-added", callback: ((event: DBusObjectSkeleton, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-added", callback: ((event: DBusObjectSkeleton, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "interface-removed", callback: ((obj: DBusObjectSkeleton, interface: DBusInterface) => void)): number
     connect_after(sigName: "interface-removed", callback: ((obj: DBusObjectSkeleton, interface: DBusInterface) => void)): number
     emit(sigName: "interface-removed", interface: DBusInterface): void
-    on(sigName: "interface-removed", callback: ((event: DBusObjectSkeleton, interface: DBusInterface) => void)): EventEmitter
-    once(sigName: "interface-removed", callback: ((event: DBusObjectSkeleton, interface: DBusInterface) => void)): EventEmitter
-    off(sigName: "interface-removed", callback: ((event: DBusObjectSkeleton, interface: DBusInterface) => void)): EventEmitter
+    on(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "interface-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-object-path", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-object-path", callback: ((obj: DBusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::g-object-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::g-object-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::g-object-path", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::g-object-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::g-object-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::g-object-path", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusObjectSkeleton_ConstructProps)
     _init (config?: DBusObjectSkeleton_ConstructProps): void
@@ -4358,44 +4357,44 @@ export class DBusProxy {
     connect(sigName: "g-properties-changed", callback: ((obj: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     connect_after(sigName: "g-properties-changed", callback: ((obj: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
     emit(sigName: "g-properties-changed", changed_properties: GLib.Variant, invalidated_properties: string[]): void
-    on(sigName: "g-properties-changed", callback: ((event: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): EventEmitter
-    once(sigName: "g-properties-changed", callback: ((event: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): EventEmitter
-    off(sigName: "g-properties-changed", callback: ((event: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): EventEmitter
+    on(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "g-properties-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "g-signal", callback: ((obj: DBusProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
     connect_after(sigName: "g-signal", callback: ((obj: DBusProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
     emit(sigName: "g-signal", sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
-    on(sigName: "g-signal", callback: ((event: DBusProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): EventEmitter
-    once(sigName: "g-signal", callback: ((event: DBusProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): EventEmitter
-    off(sigName: "g-signal", callback: ((event: DBusProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): EventEmitter
+    on(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "g-signal", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusProxy, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusProxy, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusProxy, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-default-timeout", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::g-default-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::g-default-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::g-default-timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::g-default-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-interface-info", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-interface-info", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::g-interface-info", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::g-interface-info", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::g-interface-info", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::g-interface-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::g-interface-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::g-interface-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::g-name-owner", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-name-owner", callback: ((obj: DBusProxy, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::g-name-owner", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::g-name-owner", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::g-name-owner", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::g-name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::g-name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::g-name-owner", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusProxy_ConstructProps)
     _init (config?: DBusProxy_ConstructProps): void
@@ -4461,33 +4460,33 @@ export class DBusServer {
     connect(sigName: "new-connection", callback: ((obj: DBusServer, connection: DBusConnection) => boolean)): number
     connect_after(sigName: "new-connection", callback: ((obj: DBusServer, connection: DBusConnection) => boolean)): number
     emit(sigName: "new-connection", connection: DBusConnection): void
-    on(sigName: "new-connection", callback: ((event: DBusServer, connection: DBusConnection) => boolean)): EventEmitter
-    once(sigName: "new-connection", callback: ((event: DBusServer, connection: DBusConnection) => boolean)): EventEmitter
-    off(sigName: "new-connection", callback: ((event: DBusServer, connection: DBusConnection) => boolean)): EventEmitter
+    on(sigName: "new-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "new-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "new-connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DBusServer, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DBusServer, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DBusServer, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::active", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::active", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::active", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::client-address", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::client-address", callback: ((obj: DBusServer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::client-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::client-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::client-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::client-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DBusServer_ConstructProps)
     _init (config?: DBusServer_ConstructProps): void
@@ -4562,9 +4561,9 @@ export class DataInputStream {
     readAllAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
     readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     readAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
-    readBytes(count: number, cancellable?: Cancellable | null): Gjs.byteArray.ByteArray
+    readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readBytesFinish(result: AsyncResult): Gjs.byteArray.ByteArray
+    readBytesFinish(result: AsyncResult): any
     readFinish(result: AsyncResult): number
     setPending(): boolean
     skip(count: number, cancellable?: Cancellable | null): number
@@ -4624,36 +4623,36 @@ export class DataInputStream {
     connect(sigName: "notify", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DataInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DataInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DataInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::byte-order", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::byte-order", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::byte-order", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::byte-order", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::byte-order", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::byte-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::byte-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::byte-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::newline-type", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::newline-type", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::newline-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::newline-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::newline-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::newline-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::newline-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::newline-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::buffer-size", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::buffer-size", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::buffer-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::buffer-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::buffer-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::buffer-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::buffer-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::buffer-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::close-base-stream", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::close-base-stream", callback: ((obj: DataInputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DataInputStream_ConstructProps)
     _init (config?: DataInputStream_ConstructProps): void
@@ -4709,8 +4708,8 @@ export class DataOutputStream {
     writeAllAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writeAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeBytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    writeBytesAsync(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    writeBytes(bytes: any, cancellable?: Cancellable | null): number
+    writeBytesAsync(bytes: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
     writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -4775,21 +4774,21 @@ export class DataOutputStream {
     connect(sigName: "notify", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DataOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DataOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DataOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::byte-order", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::byte-order", callback: ((obj: DataOutputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::byte-order", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::byte-order", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::byte-order", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::byte-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::byte-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::byte-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DataOutputStream_ConstructProps)
     _init (config?: DataOutputStream_ConstructProps): void
@@ -4882,16 +4881,16 @@ export class DesktopAppInfo {
     connect(sigName: "notify", callback: ((obj: DesktopAppInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: DesktopAppInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: DesktopAppInfo, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: DesktopAppInfo, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: DesktopAppInfo, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: DesktopAppInfo_ConstructProps)
     _init (config?: DesktopAppInfo_ConstructProps): void
@@ -4951,16 +4950,16 @@ export class Emblem {
     connect(sigName: "notify", callback: ((obj: Emblem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Emblem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Emblem, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Emblem, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Emblem, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Emblem_ConstructProps)
     _init (config?: Emblem_ConstructProps): void
@@ -5019,16 +5018,16 @@ export class EmblemedIcon {
     connect(sigName: "notify", callback: ((obj: EmblemedIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: EmblemedIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: EmblemedIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: EmblemedIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: EmblemedIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: EmblemedIcon_ConstructProps)
     _init (config?: EmblemedIcon_ConstructProps): void
@@ -5098,16 +5097,16 @@ export class FileEnumerator {
     connect(sigName: "notify", callback: ((obj: FileEnumerator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FileEnumerator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FileEnumerator, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FileEnumerator, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FileEnumerator, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FileEnumerator_ConstructProps)
     _init (config?: FileEnumerator_ConstructProps): void
@@ -5197,31 +5196,31 @@ export class FileIOStream {
     connect(sigName: "notify", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FileIOStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FileIOStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FileIOStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::input-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::output-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-stream", callback: ((obj: FileIOStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FileIOStream_ConstructProps)
     _init (config?: FileIOStream_ConstructProps): void
@@ -5277,16 +5276,16 @@ export class FileIcon {
     connect(sigName: "notify", callback: ((obj: FileIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FileIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FileIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FileIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FileIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FileIcon_ConstructProps)
     _init (config?: FileIcon_ConstructProps): void
@@ -5397,16 +5396,16 @@ export class FileInfo {
     connect(sigName: "notify", callback: ((obj: FileInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FileInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FileInfo, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FileInfo, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FileInfo, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FileInfo_ConstructProps)
     _init (config?: FileInfo_ConstructProps): void
@@ -5437,9 +5436,9 @@ export class FileInputStream {
     readAllAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
     readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     readAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
-    readBytes(count: number, cancellable?: Cancellable | null): Gjs.byteArray.ByteArray
+    readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readBytesFinish(result: AsyncResult): Gjs.byteArray.ByteArray
+    readBytesFinish(result: AsyncResult): any
     readFinish(result: AsyncResult): number
     setPending(): boolean
     skip(count: number, cancellable?: Cancellable | null): number
@@ -5502,16 +5501,16 @@ export class FileInputStream {
     connect(sigName: "notify", callback: ((obj: FileInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FileInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FileInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FileInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FileInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FileInputStream_ConstructProps)
     _init (config?: FileInputStream_ConstructProps): void
@@ -5570,33 +5569,33 @@ export class FileMonitor {
     connect(sigName: "changed", callback: ((obj: FileMonitor, file: File, other_file: File | null, event_type: FileMonitorEvent) => void)): number
     connect_after(sigName: "changed", callback: ((obj: FileMonitor, file: File, other_file: File | null, event_type: FileMonitorEvent) => void)): number
     emit(sigName: "changed", file: File, other_file: File | null, event_type: FileMonitorEvent): void
-    on(sigName: "changed", callback: ((event: FileMonitor, file: File, other_file: File | null, event_type: FileMonitorEvent) => void)): EventEmitter
-    once(sigName: "changed", callback: ((event: FileMonitor, file: File, other_file: File | null, event_type: FileMonitorEvent) => void)): EventEmitter
-    off(sigName: "changed", callback: ((event: FileMonitor, file: File, other_file: File | null, event_type: FileMonitorEvent) => void)): EventEmitter
+    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FileMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FileMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FileMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::cancelled", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cancelled", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::cancelled", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::cancelled", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::cancelled", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::rate-limit", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rate-limit", callback: ((obj: FileMonitor, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::rate-limit", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::rate-limit", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::rate-limit", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::rate-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::rate-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::rate-limit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FileMonitor_ConstructProps)
     _init (config?: FileMonitor_ConstructProps): void
@@ -5635,8 +5634,8 @@ export class FileOutputStream {
     writeAllAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writeAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeBytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    writeBytesAsync(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    writeBytes(bytes: any, cancellable?: Cancellable | null): number
+    writeBytesAsync(bytes: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
     writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -5711,16 +5710,16 @@ export class FileOutputStream {
     connect(sigName: "notify", callback: ((obj: FileOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FileOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FileOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FileOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FileOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FileOutputStream_ConstructProps)
     _init (config?: FileOutputStream_ConstructProps): void
@@ -5771,23 +5770,23 @@ export class FilenameCompleter {
     connect(sigName: "got-completion-data", callback: ((obj: FilenameCompleter) => void)): number
     connect_after(sigName: "got-completion-data", callback: ((obj: FilenameCompleter) => void)): number
     emit(sigName: "got-completion-data"): void
-    on(sigName: "got-completion-data", callback: ((event: FilenameCompleter) => void)): EventEmitter
-    once(sigName: "got-completion-data", callback: ((event: FilenameCompleter) => void)): EventEmitter
-    off(sigName: "got-completion-data", callback: ((event: FilenameCompleter) => void)): EventEmitter
+    on(sigName: "got-completion-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "got-completion-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "got-completion-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: FilenameCompleter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FilenameCompleter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FilenameCompleter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FilenameCompleter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FilenameCompleter, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FilenameCompleter_ConstructProps)
     _init (config?: FilenameCompleter_ConstructProps): void
@@ -5823,9 +5822,9 @@ export class FilterInputStream {
     readAllAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
     readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     readAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
-    readBytes(count: number, cancellable?: Cancellable | null): Gjs.byteArray.ByteArray
+    readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readBytesFinish(result: AsyncResult): Gjs.byteArray.ByteArray
+    readBytesFinish(result: AsyncResult): any
     readFinish(result: AsyncResult): number
     setPending(): boolean
     skip(count: number, cancellable?: Cancellable | null): number
@@ -5875,21 +5874,21 @@ export class FilterInputStream {
     connect(sigName: "notify", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FilterInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FilterInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FilterInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::close-base-stream", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::close-base-stream", callback: ((obj: FilterInputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::close-base-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::close-base-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FilterInputStream_ConstructProps)
     _init (config?: FilterInputStream_ConstructProps): void
@@ -5931,8 +5930,8 @@ export class FilterOutputStream {
     writeAllAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writeAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeBytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    writeBytesAsync(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    writeBytes(bytes: any, cancellable?: Cancellable | null): number
+    writeBytesAsync(bytes: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
     writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -5991,16 +5990,16 @@ export class FilterOutputStream {
     connect(sigName: "notify", callback: ((obj: FilterOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FilterOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FilterOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FilterOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FilterOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FilterOutputStream_ConstructProps)
     _init (config?: FilterOutputStream_ConstructProps): void
@@ -6068,16 +6067,16 @@ export class IOModule {
     connect(sigName: "notify", callback: ((obj: IOModule, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: IOModule, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: IOModule, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: IOModule, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: IOModule, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: IOModule_ConstructProps)
     _init (config?: IOModule_ConstructProps): void
@@ -6147,31 +6146,31 @@ export class IOStream {
     connect(sigName: "notify", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: IOStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: IOStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: IOStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::input-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::output-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-stream", callback: ((obj: IOStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: IOStream_ConstructProps)
     _init (config?: IOStream_ConstructProps): void
@@ -6248,66 +6247,66 @@ export class InetAddress {
     connect(sigName: "notify", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: InetAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: InetAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: InetAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-any", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-any", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-any", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-any", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-any", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-any", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-any", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-any", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-link-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-link-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-link-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-link-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-link-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-link-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-link-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-link-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-loopback", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-loopback", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-loopback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-loopback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-loopback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-loopback", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-loopback", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-loopback", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-mc-global", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-mc-global", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-mc-global", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-mc-global", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-mc-global", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-mc-global", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-mc-global", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-mc-global", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-mc-link-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-mc-link-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-mc-link-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-mc-link-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-mc-link-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-mc-link-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-mc-link-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-mc-link-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-mc-node-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-mc-node-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-mc-node-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-mc-node-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-mc-node-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-mc-node-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-mc-node-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-mc-node-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-mc-org-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-mc-org-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-mc-org-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-mc-org-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-mc-org-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-mc-org-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-mc-org-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-mc-org-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-mc-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-mc-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-mc-site-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-mc-site-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-mc-site-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-mc-site-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-mc-site-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-mc-site-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-multicast", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-multicast", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-multicast", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-multicast", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-multicast", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-multicast", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-multicast", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-multicast", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-site-local", callback: ((obj: InetAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-site-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-site-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-site-local", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-site-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-site-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-site-local", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: InetAddress_ConstructProps)
     _init (config?: InetAddress_ConstructProps): void
@@ -6372,31 +6371,31 @@ export class InetAddressMask {
     connect(sigName: "notify", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: InetAddressMask, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: InetAddressMask, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: InetAddressMask, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::address", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::address", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::address", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::family", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::family", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: ((obj: InetAddressMask, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::length", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::length", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::length", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: InetAddressMask_ConstructProps)
     _init (config?: InetAddressMask_ConstructProps): void
@@ -6469,21 +6468,21 @@ export class InetSocketAddress {
     connect(sigName: "notify", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: InetSocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: InetSocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: InetSocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::family", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::family", callback: ((obj: InetSocketAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: InetSocketAddress_ConstructProps)
     _init (config?: InetSocketAddress_ConstructProps): void
@@ -6510,9 +6509,9 @@ export class InputStream {
     readAllAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
     readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     readAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
-    readBytes(count: number, cancellable?: Cancellable | null): Gjs.byteArray.ByteArray
+    readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readBytesFinish(result: AsyncResult): Gjs.byteArray.ByteArray
+    readBytesFinish(result: AsyncResult): any
     readFinish(result: AsyncResult): number
     setPending(): boolean
     skip(count: number, cancellable?: Cancellable | null): number
@@ -6562,16 +6561,16 @@ export class InputStream {
     connect(sigName: "notify", callback: ((obj: InputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: InputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: InputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: InputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: InputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: InputStream_ConstructProps)
     _init (config?: InputStream_ConstructProps): void
@@ -6631,23 +6630,23 @@ export class ListStore {
     connect(sigName: "notify", callback: ((obj: ListStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ListStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ListStore, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ListStore, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ListStore, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.ListModel */
     connect(sigName: "items-changed", callback: ((obj: ListStore, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: ((obj: ListStore, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
-    on(sigName: "items-changed", callback: ((event: ListStore, position: number, removed: number, added: number) => void)): EventEmitter
-    once(sigName: "items-changed", callback: ((event: ListStore, position: number, removed: number, added: number) => void)): EventEmitter
-    off(sigName: "items-changed", callback: ((event: ListStore, position: number, removed: number, added: number) => void)): EventEmitter
+    on(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ListStore_ConstructProps)
     _init (config?: ListStore_ConstructProps): void
@@ -6663,7 +6662,7 @@ export class MemoryInputStream {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.MemoryInputStream */
-    addBytes(bytes: Gjs.byteArray.ByteArray): void
+    addBytes(bytes: any): void
     addData(data: any, destroy?: GLib.DestroyNotify | null): void
     /* Methods of Gio.InputStream */
     clearPending(): void
@@ -6677,9 +6676,9 @@ export class MemoryInputStream {
     readAllAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
     readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     readAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
-    readBytes(count: number, cancellable?: Cancellable | null): Gjs.byteArray.ByteArray
+    readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readBytesFinish(result: AsyncResult): Gjs.byteArray.ByteArray
+    readBytesFinish(result: AsyncResult): any
     readFinish(result: AsyncResult): number
     setPending(): boolean
     skip(count: number, cancellable?: Cancellable | null): number
@@ -6740,21 +6739,21 @@ export class MemoryInputStream {
     connect(sigName: "notify", callback: ((obj: MemoryInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: MemoryInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: MemoryInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: MemoryInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: MemoryInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: MemoryInputStream_ConstructProps)
     _init (config?: MemoryInputStream_ConstructProps): void
     static new(): MemoryInputStream
-    static newFromBytes(bytes: Gjs.byteArray.ByteArray): MemoryInputStream
+    static newFromBytes(bytes: any): MemoryInputStream
     static newFromData(data: any, destroy?: GLib.DestroyNotify | null): MemoryInputStream
     static $gtype: GObject.Type
 }
@@ -6774,7 +6773,7 @@ export class MemoryOutputStream {
     getData(): object | null
     getDataSize(): number
     getSize(): number
-    stealAsBytes(): Gjs.byteArray.ByteArray
+    stealAsBytes(): any
     stealData(): object | null
     /* Methods of Gio.OutputStream */
     clearPending(): void
@@ -6796,8 +6795,8 @@ export class MemoryOutputStream {
     writeAllAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writeAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeBytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    writeBytesAsync(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    writeBytes(bytes: any, cancellable?: Cancellable | null): number
+    writeBytesAsync(bytes: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
     writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -6866,21 +6865,21 @@ export class MemoryOutputStream {
     connect(sigName: "notify", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: MemoryOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: MemoryOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: MemoryOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data-size", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data-size", callback: ((obj: MemoryOutputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::data-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::data-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::data-size", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::data-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::data-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::data-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: MemoryOutputStream_ConstructProps)
     _init (config?: MemoryOutputStream_ConstructProps): void
@@ -6962,23 +6961,23 @@ export class Menu {
     connect(sigName: "items-changed", callback: ((obj: Menu, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: ((obj: Menu, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
-    on(sigName: "items-changed", callback: ((event: Menu, position: number, removed: number, added: number) => void)): EventEmitter
-    once(sigName: "items-changed", callback: ((event: Menu, position: number, removed: number, added: number) => void)): EventEmitter
-    off(sigName: "items-changed", callback: ((event: Menu, position: number, removed: number, added: number) => void)): EventEmitter
+    on(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Menu, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Menu, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Menu, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Menu, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Menu, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Menu_ConstructProps)
     _init (config?: Menu_ConstructProps): void
@@ -7034,16 +7033,16 @@ export class MenuAttributeIter {
     connect(sigName: "notify", callback: ((obj: MenuAttributeIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: MenuAttributeIter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: MenuAttributeIter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: MenuAttributeIter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: MenuAttributeIter, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: MenuAttributeIter_ConstructProps)
     _init (config?: MenuAttributeIter_ConstructProps): void
@@ -7099,16 +7098,16 @@ export class MenuItem {
     connect(sigName: "notify", callback: ((obj: MenuItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: MenuItem, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: MenuItem, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: MenuItem, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: MenuItem, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: MenuItem_ConstructProps)
     _init (config?: MenuItem_ConstructProps): void
@@ -7167,16 +7166,16 @@ export class MenuLinkIter {
     connect(sigName: "notify", callback: ((obj: MenuLinkIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: MenuLinkIter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: MenuLinkIter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: MenuLinkIter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: MenuLinkIter, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: MenuLinkIter_ConstructProps)
     _init (config?: MenuLinkIter_ConstructProps): void
@@ -7241,23 +7240,23 @@ export class MenuModel {
     connect(sigName: "items-changed", callback: ((obj: MenuModel, position: number, removed: number, added: number) => void)): number
     connect_after(sigName: "items-changed", callback: ((obj: MenuModel, position: number, removed: number, added: number) => void)): number
     emit(sigName: "items-changed", position: number, removed: number, added: number): void
-    on(sigName: "items-changed", callback: ((event: MenuModel, position: number, removed: number, added: number) => void)): EventEmitter
-    once(sigName: "items-changed", callback: ((event: MenuModel, position: number, removed: number, added: number) => void)): EventEmitter
-    off(sigName: "items-changed", callback: ((event: MenuModel, position: number, removed: number, added: number) => void)): EventEmitter
+    on(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "items-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: MenuModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: MenuModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: MenuModel, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: MenuModel, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: MenuModel, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: MenuModel_ConstructProps)
     _init (config?: MenuModel_ConstructProps): void
@@ -7351,98 +7350,98 @@ export class MountOperation {
     connect(sigName: "aborted", callback: ((obj: MountOperation) => void)): number
     connect_after(sigName: "aborted", callback: ((obj: MountOperation) => void)): number
     emit(sigName: "aborted"): void
-    on(sigName: "aborted", callback: ((event: MountOperation) => void)): EventEmitter
-    once(sigName: "aborted", callback: ((event: MountOperation) => void)): EventEmitter
-    off(sigName: "aborted", callback: ((event: MountOperation) => void)): EventEmitter
+    on(sigName: "aborted", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "aborted", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "aborted", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "ask-password", callback: ((obj: MountOperation, message: string, default_user: string, default_domain: string, flags: AskPasswordFlags) => void)): number
     connect_after(sigName: "ask-password", callback: ((obj: MountOperation, message: string, default_user: string, default_domain: string, flags: AskPasswordFlags) => void)): number
     emit(sigName: "ask-password", message: string, default_user: string, default_domain: string, flags: AskPasswordFlags): void
-    on(sigName: "ask-password", callback: ((event: MountOperation, message: string, default_user: string, default_domain: string, flags: AskPasswordFlags) => void)): EventEmitter
-    once(sigName: "ask-password", callback: ((event: MountOperation, message: string, default_user: string, default_domain: string, flags: AskPasswordFlags) => void)): EventEmitter
-    off(sigName: "ask-password", callback: ((event: MountOperation, message: string, default_user: string, default_domain: string, flags: AskPasswordFlags) => void)): EventEmitter
+    on(sigName: "ask-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "ask-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "ask-password", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "ask-question", callback: ((obj: MountOperation, message: string, choices: string[]) => void)): number
     connect_after(sigName: "ask-question", callback: ((obj: MountOperation, message: string, choices: string[]) => void)): number
     emit(sigName: "ask-question", message: string, choices: string[]): void
-    on(sigName: "ask-question", callback: ((event: MountOperation, message: string, choices: string[]) => void)): EventEmitter
-    once(sigName: "ask-question", callback: ((event: MountOperation, message: string, choices: string[]) => void)): EventEmitter
-    off(sigName: "ask-question", callback: ((event: MountOperation, message: string, choices: string[]) => void)): EventEmitter
+    on(sigName: "ask-question", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "ask-question", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "ask-question", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "reply", callback: ((obj: MountOperation, result: MountOperationResult) => void)): number
     connect_after(sigName: "reply", callback: ((obj: MountOperation, result: MountOperationResult) => void)): number
     emit(sigName: "reply", result: MountOperationResult): void
-    on(sigName: "reply", callback: ((event: MountOperation, result: MountOperationResult) => void)): EventEmitter
-    once(sigName: "reply", callback: ((event: MountOperation, result: MountOperationResult) => void)): EventEmitter
-    off(sigName: "reply", callback: ((event: MountOperation, result: MountOperationResult) => void)): EventEmitter
+    on(sigName: "reply", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "reply", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "reply", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-processes", callback: ((obj: MountOperation, message: string, processes: GLib.Pid[], choices: string[]) => void)): number
     connect_after(sigName: "show-processes", callback: ((obj: MountOperation, message: string, processes: GLib.Pid[], choices: string[]) => void)): number
     emit(sigName: "show-processes", message: string, processes: GLib.Pid[], choices: string[]): void
-    on(sigName: "show-processes", callback: ((event: MountOperation, message: string, processes: GLib.Pid[], choices: string[]) => void)): EventEmitter
-    once(sigName: "show-processes", callback: ((event: MountOperation, message: string, processes: GLib.Pid[], choices: string[]) => void)): EventEmitter
-    off(sigName: "show-processes", callback: ((event: MountOperation, message: string, processes: GLib.Pid[], choices: string[]) => void)): EventEmitter
+    on(sigName: "show-processes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "show-processes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "show-processes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-unmount-progress", callback: ((obj: MountOperation, message: string, time_left: number, bytes_left: number) => void)): number
     connect_after(sigName: "show-unmount-progress", callback: ((obj: MountOperation, message: string, time_left: number, bytes_left: number) => void)): number
     emit(sigName: "show-unmount-progress", message: string, time_left: number, bytes_left: number): void
-    on(sigName: "show-unmount-progress", callback: ((event: MountOperation, message: string, time_left: number, bytes_left: number) => void)): EventEmitter
-    once(sigName: "show-unmount-progress", callback: ((event: MountOperation, message: string, time_left: number, bytes_left: number) => void)): EventEmitter
-    off(sigName: "show-unmount-progress", callback: ((event: MountOperation, message: string, time_left: number, bytes_left: number) => void)): EventEmitter
+    on(sigName: "show-unmount-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "show-unmount-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "show-unmount-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: MountOperation, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: MountOperation, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: MountOperation, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::anonymous", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anonymous", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::anonymous", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::anonymous", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::anonymous", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::anonymous", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::anonymous", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::anonymous", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::choice", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::choice", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::choice", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::choice", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::choice", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::choice", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::choice", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::choice", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::domain", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::domain", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::domain", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::domain", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::domain", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::domain", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::domain", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::domain", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-tcrypt-hidden-volume", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-tcrypt-hidden-volume", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-tcrypt-hidden-volume", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-tcrypt-hidden-volume", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-tcrypt-hidden-volume", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-tcrypt-hidden-volume", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-tcrypt-hidden-volume", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-tcrypt-hidden-volume", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-tcrypt-system-volume", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-tcrypt-system-volume", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-tcrypt-system-volume", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::is-tcrypt-system-volume", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::is-tcrypt-system-volume", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::is-tcrypt-system-volume", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-tcrypt-system-volume", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-tcrypt-system-volume", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::password", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::password", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::password", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::password", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::password", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::password", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::password", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::password", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::password-save", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::password-save", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::password-save", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::password-save", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::password-save", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::password-save", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::password-save", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::password-save", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::pim", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pim", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::pim", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::pim", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::pim", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::pim", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::pim", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::pim", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::username", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::username", callback: ((obj: MountOperation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::username", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::username", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::username", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::username", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::username", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::username", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: MountOperation_ConstructProps)
     _init (config?: MountOperation_ConstructProps): void
@@ -7504,21 +7503,21 @@ export class NativeSocketAddress {
     connect(sigName: "notify", callback: ((obj: NativeSocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: NativeSocketAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: NativeSocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: NativeSocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: NativeSocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::family", callback: ((obj: NativeSocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::family", callback: ((obj: NativeSocketAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: NativeSocketAddress_ConstructProps)
     _init (config?: NativeSocketAddress_ConstructProps): void
@@ -7591,89 +7590,89 @@ export class NativeVolumeMonitor {
     connect(sigName: "drive-changed", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-changed", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-changed", drive: Drive): void
-    on(sigName: "drive-changed", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-changed", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-changed", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drive-connected", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-connected", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-connected", drive: Drive): void
-    on(sigName: "drive-connected", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-connected", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-connected", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drive-disconnected", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-disconnected", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-disconnected", drive: Drive): void
-    on(sigName: "drive-disconnected", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-disconnected", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-disconnected", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drive-eject-button", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-eject-button", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-eject-button", drive: Drive): void
-    on(sigName: "drive-eject-button", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-eject-button", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-eject-button", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-eject-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-eject-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-eject-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drive-stop-button", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-stop-button", callback: ((obj: NativeVolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-stop-button", drive: Drive): void
-    on(sigName: "drive-stop-button", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-stop-button", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-stop-button", callback: ((event: NativeVolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-stop-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-stop-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-stop-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mount-added", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void)): number
     connect_after(sigName: "mount-added", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void)): number
     emit(sigName: "mount-added", mount: Mount): void
-    on(sigName: "mount-added", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
-    once(sigName: "mount-added", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
-    off(sigName: "mount-added", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
+    on(sigName: "mount-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mount-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mount-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mount-changed", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void)): number
     connect_after(sigName: "mount-changed", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void)): number
     emit(sigName: "mount-changed", mount: Mount): void
-    on(sigName: "mount-changed", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
-    once(sigName: "mount-changed", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
-    off(sigName: "mount-changed", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
+    on(sigName: "mount-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mount-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mount-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mount-pre-unmount", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void)): number
     connect_after(sigName: "mount-pre-unmount", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void)): number
     emit(sigName: "mount-pre-unmount", mount: Mount): void
-    on(sigName: "mount-pre-unmount", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
-    once(sigName: "mount-pre-unmount", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
-    off(sigName: "mount-pre-unmount", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
+    on(sigName: "mount-pre-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mount-pre-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mount-pre-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mount-removed", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void)): number
     connect_after(sigName: "mount-removed", callback: ((obj: NativeVolumeMonitor, mount: Mount) => void)): number
     emit(sigName: "mount-removed", mount: Mount): void
-    on(sigName: "mount-removed", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
-    once(sigName: "mount-removed", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
-    off(sigName: "mount-removed", callback: ((event: NativeVolumeMonitor, mount: Mount) => void)): EventEmitter
+    on(sigName: "mount-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mount-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mount-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "volume-added", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void)): number
     connect_after(sigName: "volume-added", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void)): number
     emit(sigName: "volume-added", volume: Volume): void
-    on(sigName: "volume-added", callback: ((event: NativeVolumeMonitor, volume: Volume) => void)): EventEmitter
-    once(sigName: "volume-added", callback: ((event: NativeVolumeMonitor, volume: Volume) => void)): EventEmitter
-    off(sigName: "volume-added", callback: ((event: NativeVolumeMonitor, volume: Volume) => void)): EventEmitter
+    on(sigName: "volume-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "volume-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "volume-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "volume-changed", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void)): number
     connect_after(sigName: "volume-changed", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void)): number
     emit(sigName: "volume-changed", volume: Volume): void
-    on(sigName: "volume-changed", callback: ((event: NativeVolumeMonitor, volume: Volume) => void)): EventEmitter
-    once(sigName: "volume-changed", callback: ((event: NativeVolumeMonitor, volume: Volume) => void)): EventEmitter
-    off(sigName: "volume-changed", callback: ((event: NativeVolumeMonitor, volume: Volume) => void)): EventEmitter
+    on(sigName: "volume-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "volume-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "volume-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "volume-removed", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void)): number
     connect_after(sigName: "volume-removed", callback: ((obj: NativeVolumeMonitor, volume: Volume) => void)): number
     emit(sigName: "volume-removed", volume: Volume): void
-    on(sigName: "volume-removed", callback: ((event: NativeVolumeMonitor, volume: Volume) => void)): EventEmitter
-    once(sigName: "volume-removed", callback: ((event: NativeVolumeMonitor, volume: Volume) => void)): EventEmitter
-    off(sigName: "volume-removed", callback: ((event: NativeVolumeMonitor, volume: Volume) => void)): EventEmitter
+    on(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: NativeVolumeMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: NativeVolumeMonitor_ConstructProps)
     _init (config?: NativeVolumeMonitor_ConstructProps): void
@@ -7731,16 +7730,16 @@ export class NetworkAddress {
     connect(sigName: "notify", callback: ((obj: NetworkAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: NetworkAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: NetworkAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: NetworkAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: NetworkAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: NetworkAddress_ConstructProps)
     _init (config?: NetworkAddress_ConstructProps): void
@@ -7806,21 +7805,21 @@ export class NetworkService {
     connect(sigName: "notify", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: NetworkService, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: NetworkService, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: NetworkService, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::scheme", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scheme", callback: ((obj: NetworkService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::scheme", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::scheme", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::scheme", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: NetworkService_ConstructProps)
     _init (config?: NetworkService_ConstructProps): void
@@ -7876,16 +7875,16 @@ export class Notification {
     connect(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Notification, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Notification, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Notification, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Notification, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Notification_ConstructProps)
     _init (config?: Notification_ConstructProps): void
@@ -7919,8 +7918,8 @@ export class OutputStream {
     writeAllAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writeAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeBytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    writeBytesAsync(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    writeBytes(bytes: any, cancellable?: Cancellable | null): number
+    writeBytesAsync(bytes: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
     writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -7979,16 +7978,16 @@ export class OutputStream {
     connect(sigName: "notify", callback: ((obj: OutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: OutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: OutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: OutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: OutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: OutputStream_ConstructProps)
     _init (config?: OutputStream_ConstructProps): void
@@ -8057,31 +8056,31 @@ export class Permission {
     connect(sigName: "notify", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Permission, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Permission, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Permission, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::allowed", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allowed", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::allowed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::allowed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::allowed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::allowed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::allowed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::allowed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-acquire", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-acquire", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::can-acquire", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::can-acquire", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::can-acquire", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::can-acquire", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-acquire", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-acquire", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-release", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-release", callback: ((obj: Permission, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::can-release", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::can-release", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::can-release", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::can-release", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-release", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-release", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Permission_ConstructProps)
     _init (config?: Permission_ConstructProps): void
@@ -8146,41 +8145,41 @@ export class PropertyAction {
     connect(sigName: "notify", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: PropertyAction, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: PropertyAction, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: PropertyAction, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enabled", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enabled", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::enabled", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::enabled", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::enabled", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parameter-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parameter-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::parameter-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::parameter-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::parameter-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::parameter-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::parameter-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::parameter-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::state", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::state", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::state", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::state", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::state", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::state-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::state-type", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::state-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::state-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::state-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::state-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::state-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::state-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: ((obj: PropertyAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: PropertyAction_ConstructProps)
     _init (config?: PropertyAction_ConstructProps): void
@@ -8265,21 +8264,21 @@ export class ProxyAddress {
     connect(sigName: "notify", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ProxyAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ProxyAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ProxyAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::family", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::family", callback: ((obj: ProxyAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ProxyAddress_ConstructProps)
     _init (config?: ProxyAddress_ConstructProps): void
@@ -8341,21 +8340,21 @@ export class ProxyAddressEnumerator {
     connect(sigName: "notify", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::proxy-resolver", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: ((obj: ProxyAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ProxyAddressEnumerator_ConstructProps)
     _init (config?: ProxyAddressEnumerator_ConstructProps): void
@@ -8436,23 +8435,23 @@ export class Resolver {
     connect(sigName: "reload", callback: ((obj: Resolver) => void)): number
     connect_after(sigName: "reload", callback: ((obj: Resolver) => void)): number
     emit(sigName: "reload"): void
-    on(sigName: "reload", callback: ((event: Resolver) => void)): EventEmitter
-    once(sigName: "reload", callback: ((event: Resolver) => void)): EventEmitter
-    off(sigName: "reload", callback: ((event: Resolver) => void)): EventEmitter
+    on(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "reload", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Resolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Resolver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Resolver, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Resolver, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Resolver, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Resolver_ConstructProps)
     _init (config?: Resolver_ConstructProps): void
@@ -8554,51 +8553,51 @@ export class Settings {
     connect(sigName: "change-event", callback: ((obj: Settings, keys: GLib.Quark[] | null) => boolean)): number
     connect_after(sigName: "change-event", callback: ((obj: Settings, keys: GLib.Quark[] | null) => boolean)): number
     emit(sigName: "change-event", keys: GLib.Quark[] | null): void
-    on(sigName: "change-event", callback: ((event: Settings, keys: GLib.Quark[] | null) => boolean)): EventEmitter
-    once(sigName: "change-event", callback: ((event: Settings, keys: GLib.Quark[] | null) => boolean)): EventEmitter
-    off(sigName: "change-event", callback: ((event: Settings, keys: GLib.Quark[] | null) => boolean)): EventEmitter
+    on(sigName: "change-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "change-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "change-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: ((obj: Settings, key: string) => void)): number
     connect_after(sigName: "changed", callback: ((obj: Settings, key: string) => void)): number
     emit(sigName: "changed", key: string): void
-    on(sigName: "changed", callback: ((event: Settings, key: string) => void)): EventEmitter
-    once(sigName: "changed", callback: ((event: Settings, key: string) => void)): EventEmitter
-    off(sigName: "changed", callback: ((event: Settings, key: string) => void)): EventEmitter
+    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "writable-change-event", callback: ((obj: Settings, key: number) => boolean)): number
     connect_after(sigName: "writable-change-event", callback: ((obj: Settings, key: number) => boolean)): number
     emit(sigName: "writable-change-event", key: number): void
-    on(sigName: "writable-change-event", callback: ((event: Settings, key: number) => boolean)): EventEmitter
-    once(sigName: "writable-change-event", callback: ((event: Settings, key: number) => boolean)): EventEmitter
-    off(sigName: "writable-change-event", callback: ((event: Settings, key: number) => boolean)): EventEmitter
+    on(sigName: "writable-change-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "writable-change-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "writable-change-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "writable-changed", callback: ((obj: Settings, key: string) => void)): number
     connect_after(sigName: "writable-changed", callback: ((obj: Settings, key: string) => void)): number
     emit(sigName: "writable-changed", key: string): void
-    on(sigName: "writable-changed", callback: ((event: Settings, key: string) => void)): EventEmitter
-    once(sigName: "writable-changed", callback: ((event: Settings, key: string) => void)): EventEmitter
-    off(sigName: "writable-changed", callback: ((event: Settings, key: string) => void)): EventEmitter
+    on(sigName: "writable-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "writable-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "writable-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Settings, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Settings, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Settings, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::delay-apply", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::delay-apply", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::delay-apply", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::delay-apply", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::delay-apply", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::delay-apply", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::delay-apply", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::delay-apply", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::has-unapplied", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::has-unapplied", callback: ((obj: Settings, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::has-unapplied", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::has-unapplied", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::has-unapplied", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::has-unapplied", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-unapplied", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-unapplied", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Settings_ConstructProps)
     _init (config?: Settings_ConstructProps): void
@@ -8671,16 +8670,16 @@ export class SettingsBackend {
     connect(sigName: "notify", callback: ((obj: SettingsBackend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SettingsBackend, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SettingsBackend, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SettingsBackend, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SettingsBackend, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SettingsBackend_ConstructProps)
     _init (config?: SettingsBackend_ConstructProps): void
@@ -8751,54 +8750,54 @@ export class SimpleAction {
     connect(sigName: "activate", callback: ((obj: SimpleAction, parameter?: GLib.Variant | null) => void)): number
     connect_after(sigName: "activate", callback: ((obj: SimpleAction, parameter?: GLib.Variant | null) => void)): number
     emit(sigName: "activate", parameter?: GLib.Variant | null): void
-    on(sigName: "activate", callback: ((event: SimpleAction, parameter?: GLib.Variant | null) => void)): EventEmitter
-    once(sigName: "activate", callback: ((event: SimpleAction, parameter?: GLib.Variant | null) => void)): EventEmitter
-    off(sigName: "activate", callback: ((event: SimpleAction, parameter?: GLib.Variant | null) => void)): EventEmitter
+    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "change-state", callback: ((obj: SimpleAction, value?: GLib.Variant | null) => void)): number
     connect_after(sigName: "change-state", callback: ((obj: SimpleAction, value?: GLib.Variant | null) => void)): number
     emit(sigName: "change-state", value?: GLib.Variant | null): void
-    on(sigName: "change-state", callback: ((event: SimpleAction, value?: GLib.Variant | null) => void)): EventEmitter
-    once(sigName: "change-state", callback: ((event: SimpleAction, value?: GLib.Variant | null) => void)): EventEmitter
-    off(sigName: "change-state", callback: ((event: SimpleAction, value?: GLib.Variant | null) => void)): EventEmitter
+    on(sigName: "change-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "change-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "change-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SimpleAction, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SimpleAction, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SimpleAction, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enabled", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enabled", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::enabled", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::enabled", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::enabled", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::state", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::state", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::state", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::state", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::state", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::state-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::state-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::state-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::state-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::state-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::state-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::state-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::state-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::name", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::parameter-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parameter-type", callback: ((obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::parameter-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::parameter-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::parameter-type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::parameter-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::parameter-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::parameter-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SimpleAction_ConstructProps)
     _init (config?: SimpleAction_ConstructProps): void
@@ -8871,41 +8870,41 @@ export class SimpleActionGroup {
     connect(sigName: "notify", callback: ((obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SimpleActionGroup, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SimpleActionGroup, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SimpleActionGroup, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.ActionGroup */
     connect(sigName: "action-added", callback: ((obj: SimpleActionGroup, action_name: string) => void)): number
     connect_after(sigName: "action-added", callback: ((obj: SimpleActionGroup, action_name: string) => void)): number
     emit(sigName: "action-added", action_name: string): void
-    on(sigName: "action-added", callback: ((event: SimpleActionGroup, action_name: string) => void)): EventEmitter
-    once(sigName: "action-added", callback: ((event: SimpleActionGroup, action_name: string) => void)): EventEmitter
-    off(sigName: "action-added", callback: ((event: SimpleActionGroup, action_name: string) => void)): EventEmitter
+    on(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-enabled-changed", callback: ((obj: SimpleActionGroup, action_name: string, enabled: boolean) => void)): number
     connect_after(sigName: "action-enabled-changed", callback: ((obj: SimpleActionGroup, action_name: string, enabled: boolean) => void)): number
     emit(sigName: "action-enabled-changed", action_name: string, enabled: boolean): void
-    on(sigName: "action-enabled-changed", callback: ((event: SimpleActionGroup, action_name: string, enabled: boolean) => void)): EventEmitter
-    once(sigName: "action-enabled-changed", callback: ((event: SimpleActionGroup, action_name: string, enabled: boolean) => void)): EventEmitter
-    off(sigName: "action-enabled-changed", callback: ((event: SimpleActionGroup, action_name: string, enabled: boolean) => void)): EventEmitter
+    on(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-enabled-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-removed", callback: ((obj: SimpleActionGroup, action_name: string) => void)): number
     connect_after(sigName: "action-removed", callback: ((obj: SimpleActionGroup, action_name: string) => void)): number
     emit(sigName: "action-removed", action_name: string): void
-    on(sigName: "action-removed", callback: ((event: SimpleActionGroup, action_name: string) => void)): EventEmitter
-    once(sigName: "action-removed", callback: ((event: SimpleActionGroup, action_name: string) => void)): EventEmitter
-    off(sigName: "action-removed", callback: ((event: SimpleActionGroup, action_name: string) => void)): EventEmitter
+    on(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "action-state-changed", callback: ((obj: SimpleActionGroup, action_name: string, value: GLib.Variant) => void)): number
     connect_after(sigName: "action-state-changed", callback: ((obj: SimpleActionGroup, action_name: string, value: GLib.Variant) => void)): number
     emit(sigName: "action-state-changed", action_name: string, value: GLib.Variant): void
-    on(sigName: "action-state-changed", callback: ((event: SimpleActionGroup, action_name: string, value: GLib.Variant) => void)): EventEmitter
-    once(sigName: "action-state-changed", callback: ((event: SimpleActionGroup, action_name: string, value: GLib.Variant) => void)): EventEmitter
-    off(sigName: "action-state-changed", callback: ((event: SimpleActionGroup, action_name: string, value: GLib.Variant) => void)): EventEmitter
+    on(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SimpleActionGroup_ConstructProps)
     _init (config?: SimpleActionGroup_ConstructProps): void
@@ -8967,16 +8966,16 @@ export class SimpleAsyncResult {
     connect(sigName: "notify", callback: ((obj: SimpleAsyncResult, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SimpleAsyncResult, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SimpleAsyncResult, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SimpleAsyncResult, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SimpleAsyncResult, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SimpleAsyncResult_ConstructProps)
     _init (config?: SimpleAsyncResult_ConstructProps): void
@@ -9050,31 +9049,31 @@ export class SimpleIOStream {
     connect(sigName: "notify", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SimpleIOStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SimpleIOStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SimpleIOStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::input-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::output-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-stream", callback: ((obj: SimpleIOStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SimpleIOStream_ConstructProps)
     _init (config?: SimpleIOStream_ConstructProps): void
@@ -9144,31 +9143,31 @@ export class SimplePermission {
     connect(sigName: "notify", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SimplePermission, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SimplePermission, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SimplePermission, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::allowed", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allowed", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::allowed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::allowed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::allowed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::allowed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::allowed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::allowed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-acquire", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-acquire", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::can-acquire", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::can-acquire", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::can-acquire", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::can-acquire", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-acquire", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-acquire", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::can-release", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-release", callback: ((obj: SimplePermission, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::can-release", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::can-release", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::can-release", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::can-release", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-release", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-release", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SimplePermission_ConstructProps)
     _init (config?: SimplePermission_ConstructProps): void
@@ -9230,26 +9229,26 @@ export class SimpleProxyResolver {
     connect(sigName: "notify", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::default-proxy", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-proxy", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::default-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::default-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::default-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::default-proxy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::default-proxy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::default-proxy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::ignore-hosts", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignore-hosts", callback: ((obj: SimpleProxyResolver, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::ignore-hosts", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::ignore-hosts", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::ignore-hosts", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::ignore-hosts", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ignore-hosts", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ignore-hosts", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SimpleProxyResolver_ConstructProps)
     _init (config?: SimpleProxyResolver_ConstructProps): void
@@ -9380,66 +9379,66 @@ export class Socket {
     connect(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Socket, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Socket, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Socket, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::blocking", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::blocking", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::blocking", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::blocking", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::blocking", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::blocking", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::blocking", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::blocking", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::broadcast", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::broadcast", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::broadcast", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::broadcast", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::broadcast", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::broadcast", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::broadcast", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::broadcast", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::keepalive", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keepalive", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::keepalive", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::keepalive", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::keepalive", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::keepalive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::keepalive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::keepalive", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::listen-backlog", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::listen-backlog", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::local-address", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-address", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::local-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::local-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::local-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::local-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::local-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::local-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::multicast-loopback", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::multicast-loopback", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::multicast-loopback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::multicast-loopback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::multicast-loopback", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::multicast-loopback", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::multicast-loopback", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::multicast-loopback", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::multicast-ttl", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::multicast-ttl", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::multicast-ttl", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::multicast-ttl", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::multicast-ttl", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::multicast-ttl", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::multicast-ttl", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::multicast-ttl", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::remote-address", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::remote-address", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::remote-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::remote-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::remote-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::remote-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::remote-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::remote-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::ttl", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ttl", callback: ((obj: Socket, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::ttl", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::ttl", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::ttl", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::ttl", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ttl", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ttl", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Socket_ConstructProps)
     _init (config?: Socket_ConstructProps): void
@@ -9501,21 +9500,21 @@ export class SocketAddress {
     connect(sigName: "notify", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::family", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::family", callback: ((obj: SocketAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SocketAddress_ConstructProps)
     _init (config?: SocketAddress_ConstructProps): void
@@ -9570,16 +9569,16 @@ export class SocketAddressEnumerator {
     connect(sigName: "notify", callback: ((obj: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SocketAddressEnumerator, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SocketAddressEnumerator_ConstructProps)
     _init (config?: SocketAddressEnumerator_ConstructProps): void
@@ -9680,68 +9679,68 @@ export class SocketClient {
     connect(sigName: "event", callback: ((obj: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection?: IOStream | null) => void)): number
     connect_after(sigName: "event", callback: ((obj: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection?: IOStream | null) => void)): number
     emit(sigName: "event", event: SocketClientEvent, connectable: SocketConnectable, connection?: IOStream | null): void
-    on(sigName: "event", callback: ((event: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection?: IOStream | null) => void)): EventEmitter
-    once(sigName: "event", callback: ((event: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection?: IOStream | null) => void)): EventEmitter
-    off(sigName: "event", callback: ((event: SocketClient, event: SocketClientEvent, connectable: SocketConnectable, connection?: IOStream | null) => void)): EventEmitter
+    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SocketClient, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SocketClient, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SocketClient, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enable-proxy", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enable-proxy", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::enable-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::enable-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::enable-proxy", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::enable-proxy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::enable-proxy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::enable-proxy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::family", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::family", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::local-address", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-address", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::local-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::local-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::local-address", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::local-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::local-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::local-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::protocol", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::protocol", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::protocol", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::protocol", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::protocol", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::protocol", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::protocol", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::protocol", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::proxy-resolver", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::proxy-resolver", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::timeout", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::tls", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::tls", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::tls", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::tls", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::tls", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tls", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tls", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::tls-validation-flags", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tls-validation-flags", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::tls-validation-flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::tls-validation-flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::tls-validation-flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::tls-validation-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tls-validation-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tls-validation-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::type", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::type", callback: ((obj: SocketClient, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::type", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SocketClient_ConstructProps)
     _init (config?: SocketClient_ConstructProps): void
@@ -9822,31 +9821,31 @@ export class SocketConnection {
     connect(sigName: "notify", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SocketConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SocketConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SocketConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::input-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::output-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-stream", callback: ((obj: SocketConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SocketConnection_ConstructProps)
     _init (config?: SocketConnection_ConstructProps): void
@@ -9906,16 +9905,16 @@ export class SocketControlMessage {
     connect(sigName: "notify", callback: ((obj: SocketControlMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SocketControlMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SocketControlMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SocketControlMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SocketControlMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SocketControlMessage_ConstructProps)
     _init (config?: SocketControlMessage_ConstructProps): void
@@ -9983,28 +9982,28 @@ export class SocketListener {
     connect(sigName: "event", callback: ((obj: SocketListener, event: SocketListenerEvent, socket: Socket) => void)): number
     connect_after(sigName: "event", callback: ((obj: SocketListener, event: SocketListenerEvent, socket: Socket) => void)): number
     emit(sigName: "event", event: SocketListenerEvent, socket: Socket): void
-    on(sigName: "event", callback: ((event: SocketListener, event: SocketListenerEvent, socket: Socket) => void)): EventEmitter
-    once(sigName: "event", callback: ((event: SocketListener, event: SocketListenerEvent, socket: Socket) => void)): EventEmitter
-    off(sigName: "event", callback: ((event: SocketListener, event: SocketListenerEvent, socket: Socket) => void)): EventEmitter
+    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SocketListener, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SocketListener, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SocketListener, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::listen-backlog", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::listen-backlog", callback: ((obj: SocketListener, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SocketListener_ConstructProps)
     _init (config?: SocketListener_ConstructProps): void
@@ -10081,40 +10080,40 @@ export class SocketService {
     connect(sigName: "incoming", callback: ((obj: SocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): number
     connect_after(sigName: "incoming", callback: ((obj: SocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): number
     emit(sigName: "incoming", connection: SocketConnection, source_object?: GObject.Object | null): void
-    on(sigName: "incoming", callback: ((event: SocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): EventEmitter
-    once(sigName: "incoming", callback: ((event: SocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): EventEmitter
-    off(sigName: "incoming", callback: ((event: SocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): EventEmitter
+    on(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.SocketListener */
     connect(sigName: "event", callback: ((obj: SocketService, event: SocketListenerEvent, socket: Socket) => void)): number
     connect_after(sigName: "event", callback: ((obj: SocketService, event: SocketListenerEvent, socket: Socket) => void)): number
     emit(sigName: "event", event: SocketListenerEvent, socket: Socket): void
-    on(sigName: "event", callback: ((event: SocketService, event: SocketListenerEvent, socket: Socket) => void)): EventEmitter
-    once(sigName: "event", callback: ((event: SocketService, event: SocketListenerEvent, socket: Socket) => void)): EventEmitter
-    off(sigName: "event", callback: ((event: SocketService, event: SocketListenerEvent, socket: Socket) => void)): EventEmitter
+    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SocketService, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SocketService, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SocketService, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::active", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::active", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::active", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::listen-backlog", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::listen-backlog", callback: ((obj: SocketService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SocketService_ConstructProps)
     _init (config?: SocketService_ConstructProps): void
@@ -10130,9 +10129,9 @@ export class Subprocess {
     /* Fields of GObject.Object */
     g_type_instance:GObject.TypeInstance
     /* Methods of Gio.Subprocess */
-    communicate(stdin_buf?: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ Gjs.byteArray.ByteArray, /* stderr_buf */ Gjs.byteArray.ByteArray ]
-    communicateAsync(stdin_buf?: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    communicateFinish(result: AsyncResult): [ /* returnType */ boolean, /* stdout_buf */ Gjs.byteArray.ByteArray, /* stderr_buf */ Gjs.byteArray.ByteArray ]
+    communicate(stdin_buf?: any, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ any, /* stderr_buf */ any ]
+    communicateAsync(stdin_buf?: any, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    communicateFinish(result: AsyncResult): [ /* returnType */ boolean, /* stdout_buf */ any, /* stderr_buf */ any ]
     communicateUtf8(stdin_buf?: string | null, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* stdout_buf */ string | null, /* stderr_buf */ string | null ]
     communicateUtf8Async(stdin_buf?: string | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     communicateUtf8Finish(result: AsyncResult): [ /* returnType */ boolean, /* stdout_buf */ string | null, /* stderr_buf */ string | null ]
@@ -10190,16 +10189,16 @@ export class Subprocess {
     connect(sigName: "notify", callback: ((obj: Subprocess, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Subprocess, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Subprocess, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Subprocess, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Subprocess, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Subprocess_ConstructProps)
     _init (config?: Subprocess_ConstructProps): void
@@ -10262,16 +10261,16 @@ export class SubprocessLauncher {
     connect(sigName: "notify", callback: ((obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: SubprocessLauncher, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: SubprocessLauncher, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: SubprocessLauncher, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: SubprocessLauncher, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: SubprocessLauncher_ConstructProps)
     _init (config?: SubprocessLauncher_ConstructProps): void
@@ -10349,21 +10348,21 @@ export class Task {
     connect(sigName: "notify", callback: ((obj: Task, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Task, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Task, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Task, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Task, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::completed", callback: ((obj: Task, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::completed", callback: ((obj: Task, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::completed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::completed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::completed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Task_ConstructProps)
     _init (config?: Task_ConstructProps): void
@@ -10452,36 +10451,36 @@ export class TcpConnection {
     connect(sigName: "notify", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: TcpConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: TcpConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: TcpConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::graceful-disconnect", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::graceful-disconnect", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::graceful-disconnect", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::graceful-disconnect", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::graceful-disconnect", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::graceful-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::graceful-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::graceful-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::input-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::output-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-stream", callback: ((obj: TcpConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: TcpConnection_ConstructProps)
     _init (config?: TcpConnection_ConstructProps): void
@@ -10571,36 +10570,36 @@ export class TcpWrapperConnection {
     connect(sigName: "notify", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::graceful-disconnect", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::graceful-disconnect", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::graceful-disconnect", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::graceful-disconnect", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::graceful-disconnect", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::graceful-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::graceful-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::graceful-disconnect", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::input-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::output-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-stream", callback: ((obj: TcpWrapperConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: TcpWrapperConnection_ConstructProps)
     _init (config?: TcpWrapperConnection_ConstructProps): void
@@ -10655,16 +10654,16 @@ export class TestDBus {
     connect(sigName: "notify", callback: ((obj: TestDBus, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: TestDBus, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: TestDBus, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: TestDBus, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: TestDBus, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: TestDBus_ConstructProps)
     _init (config?: TestDBus_ConstructProps): void
@@ -10722,16 +10721,16 @@ export class ThemedIcon {
     connect(sigName: "notify", callback: ((obj: ThemedIcon, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ThemedIcon, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ThemedIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ThemedIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ThemedIcon, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ThemedIcon_ConstructProps)
     _init (config?: ThemedIcon_ConstructProps): void
@@ -10814,47 +10813,47 @@ export class ThreadedSocketService {
     connect(sigName: "run", callback: ((obj: ThreadedSocketService, connection: SocketConnection, source_object: GObject.Object) => boolean)): number
     connect_after(sigName: "run", callback: ((obj: ThreadedSocketService, connection: SocketConnection, source_object: GObject.Object) => boolean)): number
     emit(sigName: "run", connection: SocketConnection, source_object: GObject.Object): void
-    on(sigName: "run", callback: ((event: ThreadedSocketService, connection: SocketConnection, source_object: GObject.Object) => boolean)): EventEmitter
-    once(sigName: "run", callback: ((event: ThreadedSocketService, connection: SocketConnection, source_object: GObject.Object) => boolean)): EventEmitter
-    off(sigName: "run", callback: ((event: ThreadedSocketService, connection: SocketConnection, source_object: GObject.Object) => boolean)): EventEmitter
+    on(sigName: "run", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "run", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "run", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.SocketService */
     connect(sigName: "incoming", callback: ((obj: ThreadedSocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): number
     connect_after(sigName: "incoming", callback: ((obj: ThreadedSocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): number
     emit(sigName: "incoming", connection: SocketConnection, source_object?: GObject.Object | null): void
-    on(sigName: "incoming", callback: ((event: ThreadedSocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): EventEmitter
-    once(sigName: "incoming", callback: ((event: ThreadedSocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): EventEmitter
-    off(sigName: "incoming", callback: ((event: ThreadedSocketService, connection: SocketConnection, source_object?: GObject.Object | null) => boolean)): EventEmitter
+    on(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "incoming", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of Gio.SocketListener */
     connect(sigName: "event", callback: ((obj: ThreadedSocketService, event: SocketListenerEvent, socket: Socket) => void)): number
     connect_after(sigName: "event", callback: ((obj: ThreadedSocketService, event: SocketListenerEvent, socket: Socket) => void)): number
     emit(sigName: "event", event: SocketListenerEvent, socket: Socket): void
-    on(sigName: "event", callback: ((event: ThreadedSocketService, event: SocketListenerEvent, socket: Socket) => void)): EventEmitter
-    once(sigName: "event", callback: ((event: ThreadedSocketService, event: SocketListenerEvent, socket: Socket) => void)): EventEmitter
-    off(sigName: "event", callback: ((event: ThreadedSocketService, event: SocketListenerEvent, socket: Socket) => void)): EventEmitter
+    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::active", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::active", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::active", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::active", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::listen-backlog", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::listen-backlog", callback: ((obj: ThreadedSocketService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::listen-backlog", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::listen-backlog", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ThreadedSocketService_ConstructProps)
     _init (config?: ThreadedSocketService_ConstructProps): void
@@ -10915,16 +10914,16 @@ export class TlsCertificate {
     connect(sigName: "notify", callback: ((obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: TlsCertificate, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: TlsCertificate, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: TlsCertificate, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: TlsCertificate_ConstructProps)
     _init (config?: TlsCertificate_ConstructProps): void
@@ -11043,88 +11042,88 @@ export class TlsConnection {
     connect(sigName: "accept-certificate", callback: ((obj: TlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     connect_after(sigName: "accept-certificate", callback: ((obj: TlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): number
     emit(sigName: "accept-certificate", peer_cert: TlsCertificate, errors: TlsCertificateFlags): void
-    on(sigName: "accept-certificate", callback: ((event: TlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): EventEmitter
-    once(sigName: "accept-certificate", callback: ((event: TlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): EventEmitter
-    off(sigName: "accept-certificate", callback: ((event: TlsConnection, peer_cert: TlsCertificate, errors: TlsCertificateFlags) => boolean)): EventEmitter
+    on(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "accept-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: TlsConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: TlsConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: TlsConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::advertised-protocols", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::advertised-protocols", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::advertised-protocols", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::advertised-protocols", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::advertised-protocols", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::advertised-protocols", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::advertised-protocols", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::advertised-protocols", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::certificate", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::certificate", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::database", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::database", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::database", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::database", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::database", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::database", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::interaction", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::interaction", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::interaction", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::interaction", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::interaction", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::interaction", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::negotiated-protocol", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::negotiated-protocol", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::negotiated-protocol", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::negotiated-protocol", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::negotiated-protocol", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::negotiated-protocol", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::negotiated-protocol", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::negotiated-protocol", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::peer-certificate", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::peer-certificate", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::peer-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::peer-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::peer-certificate", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::peer-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::peer-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::peer-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::peer-certificate-errors", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::peer-certificate-errors", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::peer-certificate-errors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::peer-certificate-errors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::peer-certificate-errors", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::rehandshake-mode", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rehandshake-mode", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::rehandshake-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::rehandshake-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::rehandshake-mode", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::rehandshake-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::rehandshake-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::rehandshake-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::require-close-notify", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::require-close-notify", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::require-close-notify", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::require-close-notify", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::require-close-notify", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::require-close-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::require-close-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::require-close-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::use-system-certdb", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::use-system-certdb", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::use-system-certdb", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::use-system-certdb", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::use-system-certdb", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::use-system-certdb", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::use-system-certdb", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::use-system-certdb", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::input-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::output-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-stream", callback: ((obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: TlsConnection_ConstructProps)
     _init (config?: TlsConnection_ConstructProps): void
@@ -11200,16 +11199,16 @@ export class TlsDatabase {
     connect(sigName: "notify", callback: ((obj: TlsDatabase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: TlsDatabase, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: TlsDatabase, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: TlsDatabase, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: TlsDatabase, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: TlsDatabase_ConstructProps)
     _init (config?: TlsDatabase_ConstructProps): void
@@ -11271,16 +11270,16 @@ export class TlsInteraction {
     connect(sigName: "notify", callback: ((obj: TlsInteraction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: TlsInteraction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: TlsInteraction, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: TlsInteraction, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: TlsInteraction, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: TlsInteraction_ConstructProps)
     _init (config?: TlsInteraction_ConstructProps): void
@@ -11349,31 +11348,31 @@ export class TlsPassword {
     connect(sigName: "notify", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: TlsPassword, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: TlsPassword, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: TlsPassword, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::description", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::flags", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::flags", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::flags", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::warning", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::warning", callback: ((obj: TlsPassword, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::warning", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::warning", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::warning", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::warning", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::warning", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::warning", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: TlsPassword_ConstructProps)
     _init (config?: TlsPassword_ConstructProps): void
@@ -11463,31 +11462,31 @@ export class UnixConnection {
     connect(sigName: "notify", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: UnixConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: UnixConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: UnixConnection, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::closed", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::closed", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::closed", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::input-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::input-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::input-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::output-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-stream", callback: ((obj: UnixConnection, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::output-stream", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::output-stream", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: UnixConnection_ConstructProps)
     _init (config?: UnixConnection_ConstructProps): void
@@ -11550,16 +11549,16 @@ export class UnixCredentialsMessage {
     connect(sigName: "notify", callback: ((obj: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: UnixCredentialsMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: UnixCredentialsMessage_ConstructProps)
     _init (config?: UnixCredentialsMessage_ConstructProps): void
@@ -11616,16 +11615,16 @@ export class UnixFDList {
     connect(sigName: "notify", callback: ((obj: UnixFDList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UnixFDList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: UnixFDList, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: UnixFDList, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: UnixFDList, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: UnixFDList_ConstructProps)
     _init (config?: UnixFDList_ConstructProps): void
@@ -11692,16 +11691,16 @@ export class UnixFDMessage {
     connect(sigName: "notify", callback: ((obj: UnixFDMessage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UnixFDMessage, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: UnixFDMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: UnixFDMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: UnixFDMessage, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: UnixFDMessage_ConstructProps)
     _init (config?: UnixFDMessage_ConstructProps): void
@@ -11737,9 +11736,9 @@ export class UnixInputStream {
     readAllAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
     readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_read */ number ]
     readAsync(io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any
-    readBytes(count: number, cancellable?: Cancellable | null): Gjs.byteArray.ByteArray
+    readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readBytesFinish(result: AsyncResult): Gjs.byteArray.ByteArray
+    readBytesFinish(result: AsyncResult): any
     readFinish(result: AsyncResult): number
     setPending(): boolean
     skip(count: number, cancellable?: Cancellable | null): number
@@ -11795,21 +11794,21 @@ export class UnixInputStream {
     connect(sigName: "notify", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: UnixInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: UnixInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: UnixInputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::close-fd", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::close-fd", callback: ((obj: UnixInputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::close-fd", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::close-fd", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::close-fd", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::close-fd", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::close-fd", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::close-fd", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: UnixInputStream_ConstructProps)
     _init (config?: UnixInputStream_ConstructProps): void
@@ -11857,29 +11856,29 @@ export class UnixMountMonitor {
     connect(sigName: "mountpoints-changed", callback: ((obj: UnixMountMonitor) => void)): number
     connect_after(sigName: "mountpoints-changed", callback: ((obj: UnixMountMonitor) => void)): number
     emit(sigName: "mountpoints-changed"): void
-    on(sigName: "mountpoints-changed", callback: ((event: UnixMountMonitor) => void)): EventEmitter
-    once(sigName: "mountpoints-changed", callback: ((event: UnixMountMonitor) => void)): EventEmitter
-    off(sigName: "mountpoints-changed", callback: ((event: UnixMountMonitor) => void)): EventEmitter
+    on(sigName: "mountpoints-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mountpoints-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mountpoints-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mounts-changed", callback: ((obj: UnixMountMonitor) => void)): number
     connect_after(sigName: "mounts-changed", callback: ((obj: UnixMountMonitor) => void)): number
     emit(sigName: "mounts-changed"): void
-    on(sigName: "mounts-changed", callback: ((event: UnixMountMonitor) => void)): EventEmitter
-    once(sigName: "mounts-changed", callback: ((event: UnixMountMonitor) => void)): EventEmitter
-    off(sigName: "mounts-changed", callback: ((event: UnixMountMonitor) => void)): EventEmitter
+    on(sigName: "mounts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mounts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mounts-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: UnixMountMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UnixMountMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: UnixMountMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: UnixMountMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: UnixMountMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: UnixMountMonitor_ConstructProps)
     _init (config?: UnixMountMonitor_ConstructProps): void
@@ -11923,8 +11922,8 @@ export class UnixOutputStream {
     writeAllAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytes_written */ number | null ]
     writeAsync(buffer: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeBytes(bytes: Gjs.byteArray.ByteArray, cancellable?: Cancellable | null): number
-    writeBytesAsync(bytes: Gjs.byteArray.ByteArray, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
+    writeBytes(bytes: any, cancellable?: Cancellable | null): number
+    writeBytesAsync(bytes: any, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
     writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytes_written */ number | null ]
@@ -11990,21 +11989,21 @@ export class UnixOutputStream {
     connect(sigName: "notify", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: UnixOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: UnixOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: UnixOutputStream, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::close-fd", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::close-fd", callback: ((obj: UnixOutputStream, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::close-fd", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::close-fd", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::close-fd", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::close-fd", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::close-fd", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::close-fd", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: UnixOutputStream_ConstructProps)
     _init (config?: UnixOutputStream_ConstructProps): void
@@ -12076,21 +12075,21 @@ export class UnixSocketAddress {
     connect(sigName: "notify", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: UnixSocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: UnixSocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: UnixSocketAddress, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::family", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::family", callback: ((obj: UnixSocketAddress, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::family", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::family", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: UnixSocketAddress_ConstructProps)
     _init (config?: UnixSocketAddress_ConstructProps): void
@@ -12160,16 +12159,16 @@ export class Vfs {
     connect(sigName: "notify", callback: ((obj: Vfs, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Vfs, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Vfs, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Vfs, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Vfs, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Vfs_ConstructProps)
     _init (config?: Vfs_ConstructProps): void
@@ -12242,89 +12241,89 @@ export class VolumeMonitor {
     connect(sigName: "drive-changed", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-changed", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-changed", drive: Drive): void
-    on(sigName: "drive-changed", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-changed", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-changed", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drive-connected", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-connected", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-connected", drive: Drive): void
-    on(sigName: "drive-connected", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-connected", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-connected", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-connected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drive-disconnected", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-disconnected", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-disconnected", drive: Drive): void
-    on(sigName: "drive-disconnected", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-disconnected", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-disconnected", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-disconnected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drive-eject-button", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-eject-button", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-eject-button", drive: Drive): void
-    on(sigName: "drive-eject-button", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-eject-button", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-eject-button", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-eject-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-eject-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-eject-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drive-stop-button", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     connect_after(sigName: "drive-stop-button", callback: ((obj: VolumeMonitor, drive: Drive) => void)): number
     emit(sigName: "drive-stop-button", drive: Drive): void
-    on(sigName: "drive-stop-button", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    once(sigName: "drive-stop-button", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
-    off(sigName: "drive-stop-button", callback: ((event: VolumeMonitor, drive: Drive) => void)): EventEmitter
+    on(sigName: "drive-stop-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "drive-stop-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "drive-stop-button", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mount-added", callback: ((obj: VolumeMonitor, mount: Mount) => void)): number
     connect_after(sigName: "mount-added", callback: ((obj: VolumeMonitor, mount: Mount) => void)): number
     emit(sigName: "mount-added", mount: Mount): void
-    on(sigName: "mount-added", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
-    once(sigName: "mount-added", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
-    off(sigName: "mount-added", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
+    on(sigName: "mount-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mount-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mount-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mount-changed", callback: ((obj: VolumeMonitor, mount: Mount) => void)): number
     connect_after(sigName: "mount-changed", callback: ((obj: VolumeMonitor, mount: Mount) => void)): number
     emit(sigName: "mount-changed", mount: Mount): void
-    on(sigName: "mount-changed", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
-    once(sigName: "mount-changed", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
-    off(sigName: "mount-changed", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
+    on(sigName: "mount-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mount-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mount-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mount-pre-unmount", callback: ((obj: VolumeMonitor, mount: Mount) => void)): number
     connect_after(sigName: "mount-pre-unmount", callback: ((obj: VolumeMonitor, mount: Mount) => void)): number
     emit(sigName: "mount-pre-unmount", mount: Mount): void
-    on(sigName: "mount-pre-unmount", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
-    once(sigName: "mount-pre-unmount", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
-    off(sigName: "mount-pre-unmount", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
+    on(sigName: "mount-pre-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mount-pre-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mount-pre-unmount", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mount-removed", callback: ((obj: VolumeMonitor, mount: Mount) => void)): number
     connect_after(sigName: "mount-removed", callback: ((obj: VolumeMonitor, mount: Mount) => void)): number
     emit(sigName: "mount-removed", mount: Mount): void
-    on(sigName: "mount-removed", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
-    once(sigName: "mount-removed", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
-    off(sigName: "mount-removed", callback: ((event: VolumeMonitor, mount: Mount) => void)): EventEmitter
+    on(sigName: "mount-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mount-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mount-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "volume-added", callback: ((obj: VolumeMonitor, volume: Volume) => void)): number
     connect_after(sigName: "volume-added", callback: ((obj: VolumeMonitor, volume: Volume) => void)): number
     emit(sigName: "volume-added", volume: Volume): void
-    on(sigName: "volume-added", callback: ((event: VolumeMonitor, volume: Volume) => void)): EventEmitter
-    once(sigName: "volume-added", callback: ((event: VolumeMonitor, volume: Volume) => void)): EventEmitter
-    off(sigName: "volume-added", callback: ((event: VolumeMonitor, volume: Volume) => void)): EventEmitter
+    on(sigName: "volume-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "volume-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "volume-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "volume-changed", callback: ((obj: VolumeMonitor, volume: Volume) => void)): number
     connect_after(sigName: "volume-changed", callback: ((obj: VolumeMonitor, volume: Volume) => void)): number
     emit(sigName: "volume-changed", volume: Volume): void
-    on(sigName: "volume-changed", callback: ((event: VolumeMonitor, volume: Volume) => void)): EventEmitter
-    once(sigName: "volume-changed", callback: ((event: VolumeMonitor, volume: Volume) => void)): EventEmitter
-    off(sigName: "volume-changed", callback: ((event: VolumeMonitor, volume: Volume) => void)): EventEmitter
+    on(sigName: "volume-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "volume-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "volume-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "volume-removed", callback: ((obj: VolumeMonitor, volume: Volume) => void)): number
     connect_after(sigName: "volume-removed", callback: ((obj: VolumeMonitor, volume: Volume) => void)): number
     emit(sigName: "volume-removed", volume: Volume): void
-    on(sigName: "volume-removed", callback: ((event: VolumeMonitor, volume: Volume) => void)): EventEmitter
-    once(sigName: "volume-removed", callback: ((event: VolumeMonitor, volume: Volume) => void)): EventEmitter
-    off(sigName: "volume-removed", callback: ((event: VolumeMonitor, volume: Volume) => void)): EventEmitter
+    on(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "volume-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: VolumeMonitor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: VolumeMonitor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: VolumeMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: VolumeMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: VolumeMonitor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: VolumeMonitor_ConstructProps)
     _init (config?: VolumeMonitor_ConstructProps): void
@@ -12382,21 +12381,21 @@ export class ZlibCompressor {
     connect(sigName: "notify", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ZlibCompressor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ZlibCompressor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ZlibCompressor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-info", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-info", callback: ((obj: ZlibCompressor, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::file-info", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::file-info", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::file-info", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::file-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::file-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::file-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ZlibCompressor_ConstructProps)
     _init (config?: ZlibCompressor_ConstructProps): void
@@ -12450,21 +12449,21 @@ export class ZlibDecompressor {
     connect(sigName: "notify", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: ZlibDecompressor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: ZlibDecompressor, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: ZlibDecompressor, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-info", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-info", callback: ((obj: ZlibDecompressor, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::file-info", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::file-info", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::file-info", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::file-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::file-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::file-info", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: ZlibDecompressor_ConstructProps)
     _init (config?: ZlibDecompressor_ConstructProps): void
@@ -12822,12 +12821,12 @@ export class Resource {
     unregister(): void
     enumerateChildren(path: string, lookup_flags: ResourceLookupFlags): string[]
     getInfo(path: string, lookup_flags: ResourceLookupFlags): [ /* returnType */ boolean, /* size */ number | null, /* flags */ number | null ]
-    lookupData(path: string, lookup_flags: ResourceLookupFlags): Gjs.byteArray.ByteArray
+    lookupData(path: string, lookup_flags: ResourceLookupFlags): any
     openStream(path: string, lookup_flags: ResourceLookupFlags): InputStream
     ref(): Resource
     unref(): void
     static name: string
-    static newFromData(data: Gjs.byteArray.ByteArray): Resource
+    static newFromData(data: any): Resource
     static load(filename: string): Resource
 }
 export class SettingsBackendPrivate {

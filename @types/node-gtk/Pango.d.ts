@@ -2,9 +2,7 @@
  * Pango-1.0
  */
 
-/// <reference path="cairo.d.ts" />
-/// <reference path="GObject.d.ts" />
-/// <reference path="GLib.d.ts" />
+/// <reference types="node" />
 
 declare namespace Pango {
 
@@ -417,16 +415,16 @@ export class Context {
     connect(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Context, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Context, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Context, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Context, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Context_ConstructProps)
     _init (config?: Context_ConstructProps): void
@@ -473,16 +471,16 @@ export class Engine {
     connect(sigName: "notify", callback: ((obj: Engine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Engine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Engine, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Engine, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Engine, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Engine_ConstructProps)
     _init (config?: Engine_ConstructProps): void
@@ -531,16 +529,16 @@ export class EngineLang {
     connect(sigName: "notify", callback: ((obj: EngineLang, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: EngineLang, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: EngineLang, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: EngineLang, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: EngineLang, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: EngineLang_ConstructProps)
     _init (config?: EngineLang_ConstructProps): void
@@ -591,16 +589,16 @@ export class EngineShape {
     connect(sigName: "notify", callback: ((obj: EngineShape, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: EngineShape, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: EngineShape, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: EngineShape, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: EngineShape, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: EngineShape_ConstructProps)
     _init (config?: EngineShape_ConstructProps): void
@@ -661,16 +659,16 @@ export class Font {
     connect(sigName: "notify", callback: ((obj: Font, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Font, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Font, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Font, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Font, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Font_ConstructProps)
     _init (config?: Font_ConstructProps): void
@@ -728,16 +726,16 @@ export class FontFace {
     connect(sigName: "notify", callback: ((obj: FontFace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FontFace, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FontFace, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FontFace, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FontFace, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FontFace_ConstructProps)
     _init (config?: FontFace_ConstructProps): void
@@ -792,16 +790,16 @@ export class FontFamily {
     connect(sigName: "notify", callback: ((obj: FontFamily, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FontFamily, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FontFamily, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FontFamily, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FontFamily, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FontFamily_ConstructProps)
     _init (config?: FontFamily_ConstructProps): void
@@ -862,16 +860,16 @@ export class FontMap {
     connect(sigName: "notify", callback: ((obj: FontMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FontMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FontMap, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FontMap, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FontMap, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FontMap_ConstructProps)
     _init (config?: FontMap_ConstructProps): void
@@ -927,16 +925,16 @@ export class Fontset {
     connect(sigName: "notify", callback: ((obj: Fontset, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Fontset, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Fontset, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Fontset, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Fontset, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Fontset_ConstructProps)
     _init (config?: Fontset_ConstructProps): void
@@ -995,16 +993,16 @@ export class FontsetSimple {
     connect(sigName: "notify", callback: ((obj: FontsetSimple, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: FontsetSimple, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: FontsetSimple, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: FontsetSimple, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: FontsetSimple, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: FontsetSimple_ConstructProps)
     _init (config?: FontsetSimple_ConstructProps): void
@@ -1107,16 +1105,16 @@ export class Layout {
     connect(sigName: "notify", callback: ((obj: Layout, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Layout, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Layout, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Layout, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Layout, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Layout_ConstructProps)
     _init (config?: Layout_ConstructProps): void
@@ -1196,16 +1194,16 @@ export class Renderer {
     connect(sigName: "notify", callback: ((obj: Renderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Renderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Renderer, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Renderer, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Renderer, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Renderer_ConstructProps)
     _init (config?: Renderer_ConstructProps): void

@@ -1,4 +1,4 @@
-const nodeExternals = require('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
     entry: ['./main.ts'],
@@ -16,8 +16,8 @@ module.exports = {
             },
         ],
     },
-    mode: "development",
+    mode: 'development',
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
-};
+}

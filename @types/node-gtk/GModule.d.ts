@@ -2,8 +2,7 @@
  * GModule-2.0
  */
 
-/// <reference path="GLib.d.ts" />
-/// <reference path="GObject.d.ts" />
+/// <reference types="node" />
 
 declare namespace GModule {
 

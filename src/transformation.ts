@@ -1,8 +1,34 @@
 import * as changeCase from 'change-case'
-import { Transformations } from './types/transformations'
-import { Environment } from './types/environment'
-import { Construct } from './types/construct'
+import { Transformations, Environment, Construct, TypeSuffix, CTypeMap, GType } from './types'
 import Path from 'path'
+
+export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
+    return {
+        guint8: environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
+        gint8: environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
+        gunichar: 'string',
+    }
+}
+
+export const C_TYPE_MAP = (targetModName: string | null, suffix: TypeSuffix): CTypeMap => {
+    return {
+        'char*': 'string',
+        'gchar*': 'string',
+        'gchar**': 'any', // FIXME
+        GType: ((targetModName == 'GObject' ? 'Type' : 'GObject.Type') + suffix) as GType,
+    }
+}
+
+export const FULL_TYPE_MAP = (
+    environment: Environment,
+): { 'GObject.Value': string; 'GObject.Closure': string; 'GLib.ByteArray': string; 'GLib.Bytes': string } => {
+    return {
+        'GObject.Value': 'any',
+        'GObject.Closure': 'Function',
+        'GLib.ByteArray': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
+        'GLib.Bytes': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
+    }
+}
 
 export class Transformation {
     private transformations: Transformations = {

@@ -2,10 +2,7 @@
  * GdkPixbuf-2.0
  */
 
-/// <reference path="Gio.d.ts" />
-/// <reference path="GObject.d.ts" />
-/// <reference path="GLib.d.ts" />
-/// <reference path="GModule.d.ts" />
+/// <reference types="node" />
 
 declare namespace GdkPixbuf {
 
@@ -55,7 +52,7 @@ export interface Pixbuf_ConstructProps extends GObject.Object_ConstructProps {
     has_alpha?:boolean
     height?:number
     n_channels?:number
-    pixel_bytes?:Gjs.byteArray.ByteArray
+    pixel_bytes?:any
     pixels?:object
     rowstride?:number
     width?:number
@@ -87,7 +84,7 @@ export class Pixbuf {
     getRowstride(): number
     getWidth(): number
     newSubpixbuf(src_x: number, src_y: number, width: number, height: number): Pixbuf
-    readPixelBytes(): Gjs.byteArray.ByteArray
+    readPixelBytes(): any
     readPixels(): number
     removeOption(key: string): boolean
     rotateSimple(angle: PixbufRotation): Pixbuf | null
@@ -141,21 +138,21 @@ export class Pixbuf {
     connect(sigName: "notify", callback: ((obj: Pixbuf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: Pixbuf, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: Pixbuf, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: Pixbuf, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: Pixbuf, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: Pixbuf_ConstructProps)
     _init (config?: Pixbuf_ConstructProps): void
     static new(colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number): Pixbuf | null
-    static newFromBytes(data: Gjs.byteArray.ByteArray, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
+    static newFromBytes(data: any, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number): Pixbuf
     static newFromData(data: any, colorspace: Colorspace, has_alpha: boolean, bits_per_sample: number, width: number, height: number, rowstride: number, destroy_fn?: PixbufDestroyNotify | null): Pixbuf
     static newFromFile(filename: string): Pixbuf
     static newFromFileAtScale(filename: string, width: number, height: number, preserve_aspect_ratio: boolean): Pixbuf
@@ -223,16 +220,16 @@ export class PixbufAnimation {
     connect(sigName: "notify", callback: ((obj: PixbufAnimation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: PixbufAnimation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: PixbufAnimation, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: PixbufAnimation, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: PixbufAnimation, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: PixbufAnimation_ConstructProps)
     _init (config?: PixbufAnimation_ConstructProps): void
@@ -287,16 +284,16 @@ export class PixbufAnimationIter {
     connect(sigName: "notify", callback: ((obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: PixbufAnimationIter, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: PixbufAnimationIter_ConstructProps)
     _init (config?: PixbufAnimationIter_ConstructProps): void
@@ -316,7 +313,7 @@ export class PixbufLoader {
     getPixbuf(): Pixbuf
     setSize(width: number, height: number): void
     write(buf: any): boolean
-    writeBytes(buffer: Gjs.byteArray.ByteArray): boolean
+    writeBytes(buffer: any): boolean
     /* Methods of GObject.Object */
     bindProperty(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -356,41 +353,41 @@ export class PixbufLoader {
     connect(sigName: "area-prepared", callback: ((obj: PixbufLoader) => void)): number
     connect_after(sigName: "area-prepared", callback: ((obj: PixbufLoader) => void)): number
     emit(sigName: "area-prepared"): void
-    on(sigName: "area-prepared", callback: ((event: PixbufLoader) => void)): EventEmitter
-    once(sigName: "area-prepared", callback: ((event: PixbufLoader) => void)): EventEmitter
-    off(sigName: "area-prepared", callback: ((event: PixbufLoader) => void)): EventEmitter
+    on(sigName: "area-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "area-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "area-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "area-updated", callback: ((obj: PixbufLoader, x: number, y: number, width: number, height: number) => void)): number
     connect_after(sigName: "area-updated", callback: ((obj: PixbufLoader, x: number, y: number, width: number, height: number) => void)): number
     emit(sigName: "area-updated", x: number, y: number, width: number, height: number): void
-    on(sigName: "area-updated", callback: ((event: PixbufLoader, x: number, y: number, width: number, height: number) => void)): EventEmitter
-    once(sigName: "area-updated", callback: ((event: PixbufLoader, x: number, y: number, width: number, height: number) => void)): EventEmitter
-    off(sigName: "area-updated", callback: ((event: PixbufLoader, x: number, y: number, width: number, height: number) => void)): EventEmitter
+    on(sigName: "area-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "area-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "area-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "closed", callback: ((obj: PixbufLoader) => void)): number
     connect_after(sigName: "closed", callback: ((obj: PixbufLoader) => void)): number
     emit(sigName: "closed"): void
-    on(sigName: "closed", callback: ((event: PixbufLoader) => void)): EventEmitter
-    once(sigName: "closed", callback: ((event: PixbufLoader) => void)): EventEmitter
-    off(sigName: "closed", callback: ((event: PixbufLoader) => void)): EventEmitter
+    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-prepared", callback: ((obj: PixbufLoader, width: number, height: number) => void)): number
     connect_after(sigName: "size-prepared", callback: ((obj: PixbufLoader, width: number, height: number) => void)): number
     emit(sigName: "size-prepared", width: number, height: number): void
-    on(sigName: "size-prepared", callback: ((event: PixbufLoader, width: number, height: number) => void)): EventEmitter
-    once(sigName: "size-prepared", callback: ((event: PixbufLoader, width: number, height: number) => void)): EventEmitter
-    off(sigName: "size-prepared", callback: ((event: PixbufLoader, width: number, height: number) => void)): EventEmitter
+    on(sigName: "size-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "size-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "size-prepared", callback: (...args: any[]) => void): NodeJS.EventEmitter
     /* Signals of GObject.Object */
     connect(sigName: "notify", callback: ((obj: PixbufLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: PixbufLoader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: PixbufLoader, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: PixbufLoader, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: PixbufLoader, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: PixbufLoader_ConstructProps)
     _init (config?: PixbufLoader_ConstructProps): void
@@ -451,21 +448,21 @@ export class PixbufSimpleAnim {
     connect(sigName: "notify", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::loop", callback: ((obj: PixbufSimpleAnim, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::loop", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify::loop", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify::loop", callback: ((event: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify::loop", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::loop", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::loop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: PixbufSimpleAnim_ConstructProps)
     _init (config?: PixbufSimpleAnim_ConstructProps): void
@@ -516,16 +513,16 @@ export class PixbufSimpleAnimIter {
     connect(sigName: "notify", callback: ((obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: ((obj: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: ((event: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    once(sigName: "notify", callback: ((event: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): EventEmitter
-    off(sigName: "notify", callback: ((event: PixbufSimpleAnimIter, pspec: GObject.ParamSpec) => void)): EventEmitter
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
     disconnect(id: number): void
-    on(sigName: string, callback: any): EventEmitter
-    once(sigName: string, callback: any): EventEmitter
-    off(sigName: string, callback: any): EventEmitter
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
     constructor (config?: PixbufSimpleAnimIter_ConstructProps)
     _init (config?: PixbufSimpleAnimIter_ConstructProps): void

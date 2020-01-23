@@ -6,7 +6,6 @@
   "scripts": {
     "build": "webpack",
     "tsc": "tsc",
-    "types": "rm -rf types && cp -r ../../../lib types",
     "start": "npm run build && node dist/editor.js",
     "watch": "npm run build -- --watch",
     "lint": "tsc --noEmit",

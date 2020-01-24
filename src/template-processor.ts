@@ -11,16 +11,20 @@ const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
 const TEMPLATE_DIR = __dirname + '/../templates'
 
 export class TemplateProcessor {
-    private templateDir: string
+    private environmentTemplateDir: string
     constructor(protected readonly data: any, private readonly environment: Environment) {
-        this.templateDir = Transformation.getEnvironmentDir(environment, TEMPLATE_DIR)
+        this.environmentTemplateDir = Transformation.getEnvironmentDir(environment, TEMPLATE_DIR)
     }
 
     public static generateIndent(indents = 1, spaceForIndent = 4): string {
         return ' '.repeat(indents * spaceForIndent)
     }
 
-    public static generateJSDocComment(description: string): string[] {
+    /**
+     * See https://github.com/microsoft/tsdoc
+     * @param description
+     */
+    public static generateTSDocComment(description: string): string[] {
         const result: string[] = []
         result.push('/**')
         result.push(` * ${description}`)
@@ -165,26 +169,54 @@ export class TemplateProcessor {
         return renderedCode
     }
 
+    public getTemplatePath(filename: string): string | null {
+        const fullEnvironmentTemplatePath = Path.join(this.environmentTemplateDir, filename)
+        const fullGeneralTemplatePath = Path.join(TEMPLATE_DIR, filename)
+        if (fs.existsSync(fullEnvironmentTemplatePath)) {
+            return fullEnvironmentTemplatePath
+        }
+        if (fs.existsSync(fullGeneralTemplatePath)) {
+            return fullGeneralTemplatePath
+        }
+        return null
+    }
+
     /**
      * Reads a template file from filesystem and gets the unrendered string back
-     * @param path
-     * @return The path where the file was saved
+     * THe method tries first to load the file from the environment-specific template folder and otherwise looks for it in the general template folder
+     * @param filename
+     * @return The unrendered template content
      */
-    protected read(path: string): string {
-        const fullTemplatePath = Path.join(this.templateDir, path)
-        return fs.readFileSync(fullTemplatePath, 'utf8')
+    protected read(filename: string): string {
+        const path = this.getTemplatePath(filename)
+        if (path) {
+            return fs.readFileSync(path, 'utf8')
+        }
+        throw new Error(`Template '${filename}' not found'`)
     }
 
     protected prettify(path: string): string | null {
-        const report = lint.executeOnFiles([path])
-        if (report.results[0].output) {
-            const targetCode = report.results[0].output
-            return targetCode
-        } else {
-            // console.warn(report.results[0].messages);
-            console.warn(`Can't prettify file: "${path}"`)
+        let hasError = false
+        let report: any
+        try {
+            report = lint.executeOnFiles([path])
+        } catch (error) {
+            console.warn(error)
+            hasError = true
         }
-        return null
+
+        if (!report?.results || !report.results[0]?.output) {
+            hasError = true
+        }
+
+        if (hasError) {
+            console.warn(
+                `Can't prettify file: "${path}", please check if there is an .eslintrc.js in your working directory`,
+            )
+            return null
+        }
+
+        return report.results[0].output
     }
 }
 

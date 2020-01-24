@@ -1,10 +1,12 @@
 import lodash from 'lodash'
 import fs from 'fs'
+import Path from 'path'
 import * as xml2js from 'xml2js'
 
 import { GirModule } from './gir-module'
 import TemplateProcessor from './template-processor'
 import { Transformation } from './transformation'
+import { Utils } from './utils'
 
 import { Environment, BuildType, InheritanceTable } from './types'
 
@@ -83,26 +85,31 @@ export class TsForGir {
 
         while (girToLoad.length > 0) {
             const name = girToLoad.shift()
-            const fileName = `${girDirectory}/${name}.gir`
-            if (verbose) console.log(`Parsing ${fileName}...`)
-            const fileContents = fs.readFileSync(fileName, 'utf8')
-            xml2js.parseString(fileContents, (err, result) => {
-                if (err) {
-                    console.error('ERROR: ' + err)
-                    return
-                }
-                const gi = new GirModule(result, environment, buildType)
-
-                if (!gi.name) return
-
-                girModules[`${gi.name}-${gi.version}`] = gi
-
-                for (const dep of gi.dependencies) {
-                    if (!girModules[dep] && lodash.indexOf(girToLoad, dep) < 0) {
-                        girToLoad.unshift(dep)
+            if (!name) throw new Error('Module name not found!')
+            const filePath = Path.join(girDirectory, name + '.gir')
+            if (fs.existsSync(filePath)) {
+                if (verbose) console.log(`Parsing ${filePath}...`)
+                const fileContents = fs.readFileSync(filePath, 'utf8')
+                xml2js.parseString(fileContents, (err, result) => {
+                    if (err) {
+                        console.error('ERROR: ' + err)
+                        return
                     }
-                }
-            })
+                    const gi = new GirModule(result, environment, buildType)
+
+                    if (!gi.name) return
+
+                    girModules[`${gi.name}-${gi.version}`] = gi
+
+                    for (const dep of gi.dependencies) {
+                        if (!girModules[dep] && lodash.indexOf(girToLoad, dep) < 0) {
+                            girToLoad.unshift(dep)
+                        }
+                    }
+                })
+            } else {
+                console.warn(`WARN: ENOENT: no such file or directory, open '${filePath}'`)
+            }
         }
 
         //console.dir(girModules["GObject-2.0"], { depth: null })
@@ -134,11 +141,14 @@ export class TsForGir {
                 return
             }
             const deps = modDependencyMap[name]
-
-            for (const a of deps) {
-                if (ret[a]) continue
-                ret[a] = 1
-                traverseDependencies(a, ret)
+            if (Utils.isIterable(deps)) {
+                for (const a of deps) {
+                    if (ret[a]) continue
+                    ret[a] = 1
+                    traverseDependencies(a, ret)
+                }
+            } else {
+                console.warn('WARN: deps is not iterable: ', deps)
             }
         }
 

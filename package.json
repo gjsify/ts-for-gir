@@ -41,7 +41,7 @@
     "@types/commander": "^2.12.2",
     "@types/ejs": "^3.0.0",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^13.1.8",
+    "@types/node": "^13.5.0",
     "@types/xml2js": "0.4.5",
     "@typescript-eslint/eslint-plugin": "^2.17.0",
     "@typescript-eslint/parser": "^2.17.0",

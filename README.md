@@ -25,9 +25,7 @@ After you have linked this project you can use the `ts-for-gir` command in you p
 
 ```bash
 $ ts-for-gir --help
-Usage: ts-for-gir ts-for-gir [options]
-
-Generates typescript type definitions from gir for gjs and node-gtk
+Usage: ts-for-gir [options] [command]
 
 Options:
   -g --gir-directory [directory]   GIR directory (default: "/usr/share/gir-1.0")
@@ -39,16 +37,23 @@ Options:
   -v, --verbose                    verbosity (default: true)
   -h, --help                       output usage information
 
+Commands:
+  run [options]                    Generates typescript type definitions from GIR for gjs or node-gtk
+  list [options]                   Lists all available GIR modules
+
 Run ts-for-gir in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project
 
 Examples:
-  $ ts-for-gir -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types
+  $ ts-for-gir run -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types
 
   # You can also use wild cards
-  $ ts-for-gir -m Gtk*
+  $ ts-for-gir run -m Gtk*
 
   # If you want to parse all of your locally installed gir modules, run
-  $ ts-for-gir -m '*'
+  $ ts-for-gir run -m '*'
+
+  # Lists all available GIR modules in ./vala-girs/gir-1.0
+  $ ts-for-gir list -g ./vala-girs/gir-1.0
 ```
 
 ## Examples

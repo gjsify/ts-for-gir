@@ -1,37 +1,5 @@
 import { GirModule } from '../gir-module'
 
-export type ParsedType =
-    | 'Gjs.byteArray.ByteArray'
-    | 'Gjs.byteArray.ByteArray | null'
-    // normal
-    | 'void'
-    | 'string'
-    | 'number'
-    | 'any'
-    | 'object'
-    | 'Function'
-    // normal nullable
-    | 'void | null'
-    | 'string | null'
-    | 'number | null'
-    | 'any | null'
-    | 'object | null'
-    | 'Function | null'
-    // arrays
-    | 'void[]'
-    | 'string[]'
-    | 'number[]'
-    | 'any[]'
-    | 'object[]'
-    | 'Function[]'
-    // arrays nullable
-    | 'void[] | null'
-    | 'string[] | null'
-    | 'number[] | null'
-    | 'any[] | null'
-    | 'object[] | null'
-    | 'Function[] | null'
-
 export interface InheritanceTable {
     [name: string]: string[]
 }

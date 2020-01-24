@@ -1,6 +1,7 @@
 import lodash from 'lodash'
 import TemplateProcessor from './template-processor'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
+import { Utils } from './utils'
 
 import {
     Environment,
@@ -14,7 +15,6 @@ import {
     GirVariable,
     GirArray,
     GirType,
-    ParsedType,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
@@ -224,14 +224,15 @@ export class GirModule {
         }
     }
 
-    private typeLookup(e: GirVariable): ParsedType {
+    private typeLookup(e: GirVariable): string {
         let type: GirType
         let arr: TypeArraySuffix = ''
         let arrCType: string | undefined
         let nul: TypeNullableSuffix = ''
+
         const collection = e.array
             ? e.array
-            : e.type && /^GLib.S?List$/.test(e.type[0].$.name)
+            : e.type && /^GLib.S?List$/.test(e.type[0].$?.name)
             ? (e.type as GirArray[])
             : undefined
 
@@ -260,12 +261,12 @@ export class GirModule {
 
         if (arr) {
             if (POD_TYPE_MAP_ARRAY(this.environment)[type.$.name] != null) {
-                return (POD_TYPE_MAP_ARRAY(this.environment)[type.$.name] + nul) as ParsedType
+                return POD_TYPE_MAP_ARRAY(this.environment)[type.$.name] + nul
             }
         }
 
         if (POD_TYPE_MAP[type.$.name] != null) {
-            return (POD_TYPE_MAP[type.$.name] + suffix) as ParsedType
+            return POD_TYPE_MAP[type.$.name] + suffix
         }
 
         if (!this.name) return 'any'
@@ -304,10 +305,11 @@ export class GirModule {
             if (fullTypeName == 'Gio.ApplicationFlags') {
                 debugger
             }
-            return (ret + suffix) as ParsedType
+            const result = ret + suffix
+            return result
         }
 
-        return (fullTypeName + suffix) as ParsedType
+        return fullTypeName + suffix
     }
 
     private girBool(e: string | undefined, defaultVal = false): boolean {
@@ -327,7 +329,7 @@ export class GirModule {
         } else returnType = 'void'
 
         const outArrayLengthIndex =
-            returnVal.array && returnVal.array[0].$.length ? Number(returnVal.array[0].$.length) : -1
+            returnVal.array && returnVal.array[0].$?.length ? Number(returnVal.array[0].$.length) : -1
 
         return [returnType, outArrayLengthIndex] as [string, number]
     }
@@ -357,6 +359,13 @@ export class GirModule {
         return parseInt(param.$.destroy)
     }
 
+    private validateTypeName(typeName: string) {
+        if (Utils.isFirstCharNumeric(typeName)) {
+            typeName = '_' + typeName
+        }
+        return typeName
+    }
+
     private getParameters(parameters, outArrayLengthIndex: number): [string, string[]] {
         const def: string[] = []
         const outParams: string[] = []
@@ -381,7 +390,9 @@ export class GirModule {
 
                 for (const param of parametersArray as GirVariable[]) {
                     const paramName = this.fixVariableName(param.$.name || '-', false)
-                    const paramType = this.typeLookup(param)
+                    let paramType = this.typeLookup(param)
+
+                    paramType = this.validateTypeName(paramType)
 
                     if (skip.indexOf(param) !== -1) {
                         continue
@@ -470,7 +481,11 @@ export class GirModule {
 
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
 
-        def.push(`export enum ${e.$.name} {`)
+        let name = e.$.name
+        // E.g. the NetworkManager-1.0 has names starting with 80211
+        name = this.validateTypeName(name)
+
+        def.push(`export enum ${name} {`)
         if (e.member) {
             for (const member of e.member) {
                 // const name = member.$.name.toUpperCase()
@@ -918,7 +933,7 @@ export class GirModule {
     export(outStream: NodeJS.WritableStream): void {
         let out: string[] = []
 
-        out = out.concat(TemplateProcessor.generateJSDocComment(`${this.name}-${this.version}`))
+        out = out.concat(TemplateProcessor.generateTSDocComment(`${this.name}-${this.version}`))
 
         out.push('')
 

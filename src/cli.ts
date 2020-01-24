@@ -34,40 +34,13 @@ const findModules = async (girDirectory: string, modules: string[]): Promise<Set
     return foundModules
 }
 
-commander
-    .name(NAME)
-    .description('Generates typescript type definitions from gir for gjs and node-gtk')
-    .usage('[options]')
-    .option('-g --gir-directory [directory]', 'GIR directory', '/usr/share/gir-1.0')
-    .option('-m --module <modules>', "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules", collect, [])
-    .option('-o --outdir <dir>', 'Directory to output to', '@types')
-    .option('-e --environment <environments>', 'Javascript environment', collect, ['gjs', 'node'])
-    .option(
-        '-b --build-type <type>',
-        "Force the definitions generation type (default for gjs: 'lib', default for node: 'types')",
-    )
-    .option('-p --print', 'Print the output to console and create no files')
-    .option('-v, --verbose', 'verbosity', true)
-
-commander.on('--help', function() {
-    console.log('')
-    console.log(
-        `Run ${NAME} in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project`,
-    )
-    console.log('')
-    console.log('Examples:')
-    console.log(
-        `  $ ${NAME} -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types`,
-    )
-    console.log('')
-    console.log('  # You can also use wild cards')
-    console.log(`  $ ${NAME} -m Gtk*`)
-    console.log('')
-    console.log('  # If you want to parse all of your locally installed gir modules, run')
-    console.log(`  $ ${NAME} -m '*'`)
-})
-
-commander.parse(process.argv)
+const list = async (): Promise<void> => {
+    const girDirectory = commander.girDirectory
+    const modules = await findModules(girDirectory, commander.module)
+    for (const module of modules) {
+        console.log(module)
+    }
+}
 
 const run = async (): Promise<void> => {
     const outDir: string | null = commander.print ? null : commander.outdir
@@ -93,4 +66,48 @@ const run = async (): Promise<void> => {
     }
 }
 
-run()
+commander
+    .name(NAME)
+    .option('-g --gir-directory [directory]', 'GIR directory', '/usr/share/gir-1.0')
+    .option('-m --module <modules>', "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules", collect, [])
+    .option('-o --outdir <dir>', 'Directory to output to', '@types')
+    .option('-e --environment <environments>', 'Javascript environment', collect, ['gjs', 'node'])
+    .option(
+        '-b --build-type <type>',
+        "Force the definitions generation type (default for gjs: 'lib', default for node: 'types')",
+    )
+    .option('-p --print', 'Print the output to console and create no files')
+    .option('-v, --verbose', 'verbosity', true)
+
+commander
+    .command('run [options]')
+    .description('Generates typescript type definitions from GIR for gjs or node-gtk')
+    .action(run)
+
+commander
+    .command('list [options]')
+    .description('Lists all available GIR modules')
+    .action(list)
+
+commander.on('--help', () => {
+    console.log('')
+    console.log(
+        `Run ${NAME} in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project`,
+    )
+    console.log('')
+    console.log('Examples:')
+    console.log(
+        `  $ ${NAME} run -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types`,
+    )
+    console.log('')
+    console.log('  # You can also use wild cards')
+    console.log(`  $ ${NAME} run -m Gtk*`)
+    console.log('')
+    console.log('  # If you want to parse all of your locally installed gir modules, run')
+    console.log(`  $ ${NAME} run -m '*'`)
+    console.log('')
+    console.log('  # Lists all available GIR modules in ./vala-girs/gir-1.0')
+    console.log(`  $ ${NAME} list -g ./vala-girs/gir-1.0`)
+})
+
+commander.parseAsync(process.argv)

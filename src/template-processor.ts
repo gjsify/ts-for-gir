@@ -170,7 +170,12 @@ export class TemplateProcessor {
         return renderedCode
     }
 
-    public getTemplatePath(filename: string): string | null {
+    /**
+     * Checks if the template file exists and returns the path if found
+     * Tries first to load the file from the environment-specific template folder and otherwise looks for it in the general template folder
+     * @param filename
+     */
+    public exists(filename: string): string | null {
         const fullEnvironmentTemplatePath = Path.join(this.environmentTemplateDir, filename)
         const fullGeneralTemplatePath = Path.join(TEMPLATE_DIR, filename)
         if (fs.existsSync(fullEnvironmentTemplatePath)) {
@@ -184,12 +189,11 @@ export class TemplateProcessor {
 
     /**
      * Reads a template file from filesystem and gets the unrendered string back
-     * THe method tries first to load the file from the environment-specific template folder and otherwise looks for it in the general template folder
      * @param filename
      * @return The unrendered template content
      */
     protected read(filename: string): string {
-        const path = this.getTemplatePath(filename)
+        const path = this.exists(filename)
         if (path) {
             return fs.readFileSync(path, 'utf8')
         }

@@ -225,7 +225,6 @@ export class UndoManager {
     emit(sigName: "can-undo-changed"): void
     static name: string
 }
-
 export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
     highlight_matching_brackets?:boolean
     highlight_syntax?:boolean

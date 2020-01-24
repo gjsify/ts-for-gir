@@ -236,7 +236,6 @@ export class UndoManager {
     off(sigName: "can-undo-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
-
 export interface Buffer_ConstructProps extends Gtk.TextBuffer_ConstructProps {
     highlight_matching_brackets?:boolean
     highlight_syntax?:boolean

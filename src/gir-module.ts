@@ -63,6 +63,7 @@ export class GirModule {
     symTable: { [key: string]: any } = {}
     patch: { [key: string]: string[] } = {}
     transformation: Transformation
+    extends?: string
 
     constructor(xml, private readonly environment: Environment, private readonly buildType: BuildType) {
         this.repo = xml.repository
@@ -316,9 +317,9 @@ export class GirModule {
      * E.g. replaces something like `NetworkManager.80211ApFlags` with `NetworkManager._80211ApFlags`
      * @param e
      */
-    private typeLookupValidated(e: GirVariable): string {
+    private typeLookupFixed(e: GirVariable): string {
         let names = this.typeLookup(e).split('.')
-        names = names.map(name => this.validateName(name))
+        names = names.map(name => this.fixTypeName(name))
         return names.join('.')
     }
 
@@ -335,7 +336,7 @@ export class GirModule {
 
         const returnVal = e['return-value'] ? e['return-value'][0] : undefined
         if (returnVal) {
-            returnType = this.typeLookupValidated(returnVal)
+            returnType = this.typeLookupFixed(returnVal)
         } else returnType = 'void'
 
         const outArrayLengthIndex =
@@ -369,17 +370,6 @@ export class GirModule {
         return parseInt(param.$.destroy)
     }
 
-    /**
-     * Validates type names, e.g. Return types or enum definitions can not start with numbers
-     * @param typeName
-     */
-    private validateName(typeName: string): string {
-        if (Utils.isFirstCharNumeric(typeName)) {
-            typeName = '_' + typeName
-        }
-        return typeName
-    }
-
     private getParameters(parameters, outArrayLengthIndex: number): [string, string[]] {
         const def: string[] = []
         const outParams: string[] = []
@@ -404,7 +394,8 @@ export class GirModule {
 
                 for (const param of parametersArray as GirVariable[]) {
                     const paramName = this.fixVariableName(param.$.name || '-', false)
-                    const paramType = this.typeLookupValidated(param)
+
+                    const paramType = this.typeLookupFixed(param)
 
                     if (skip.indexOf(param) !== -1) {
                         continue
@@ -452,6 +443,7 @@ export class GirModule {
             eval: 1,
             default: 1,
             new: 1,
+            extends: 1,
         }
 
         // GJS always re-writes - to _ (I think?)
@@ -461,7 +453,31 @@ export class GirModule {
             if (allowQuotes) return `"${name}"`
             else return `${name}_`
         }
+
+        // TODO how does gjs and node-gtk do that?
+        if (Utils.isFirstCharNumeric(name)) {
+            if (allowQuotes) return `"${name}"`
+            else return `_${name}`
+        }
+
         return name
+    }
+
+    /**
+     * Fixes type names, e.g. Return types or enum definitions can not start with numbers
+     * @param typeName
+     */
+    private fixTypeName(typeName: string): string {
+        let nameChanges = false
+        // TODO how does gjs and node-gtk do that?
+        if (Utils.isFirstCharNumeric(typeName)) {
+            typeName = '_' + typeName
+            nameChanges = true
+        }
+        if (nameChanges) {
+            console.warn(`WARN: Name changed to ${typeName}`)
+        }
+        return typeName
     }
 
     private getVariable(v: GirVariable, optional = false, allowQuotes = false): [string[], string | null] {
@@ -469,11 +485,11 @@ export class GirModule {
         if (!v || !v.$ || !this.girBool(v.$.introspectable, true) || this.girBool(v.$.private)) return [[], null]
 
         let name = this.fixVariableName(v.$.name, allowQuotes)
-        let typeName = this.typeLookupValidated(v)
+        let typeName = this.typeLookupFixed(v)
         const nameSuffix = optional ? '?' : ''
 
-        name = this.validateName(name)
-        typeName = this.validateName(typeName)
+        name = this.fixTypeName(name)
+        typeName = this.fixTypeName(typeName)
 
         return [[`${name}${nameSuffix}:${typeName}`], name]
     }
@@ -498,7 +514,7 @@ export class GirModule {
 
         let name = e.$.name
         // E.g. the NetworkManager-1.0 has names starting with 80211
-        name = this.validateName(name)
+        name = this.fixTypeName(name)
 
         def.push(`export enum ${name} {`)
         if (e.member) {
@@ -924,7 +940,7 @@ export class GirModule {
     exportAlias(e: GirAlias): string[] {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
 
-        const typeName = this.typeLookupValidated(e)
+        const typeName = this.typeLookupFixed(e)
         const name = e.$.name
         return [`type ${name} = ${typeName}`]
     }
@@ -1020,15 +1036,11 @@ export class GirModule {
             this.environment,
         )
 
-        // Extra interfaces used to help define GObject classes in js; these
-        // aren't part of gi.
-        if (this.name == 'GObject') {
-            const patches = templateProcessor.load('GObject.d.ts')
-            out = out.concat(patches)
-        }
-
-        if (this.name == 'GtkSource') {
-            const patches = templateProcessor.load('GtkSource.d.ts')
+        // Extra interfaces
+        // E.g. used for GObject-2.0 to help define GObject classes in js;
+        // these aren't part of gi.
+        if (templateProcessor.exists(`${this.name}-${this.version}.d.ts`)) {
+            const patches = templateProcessor.load(`${this.name}-${this.version}.d.ts`)
             out = out.concat(patches)
         }
 

@@ -46,16 +46,15 @@ export class TsForGir {
 
         const inheritanceTableKeys = lodash.keys(inheritanceTable)
         const templateProcessor = new TemplateProcessor({ inheritanceTableKeys, inheritanceTable, buildType }, 'gjs')
+        console.log('Generate GJS cast lib, that can take a while ..')
         templateProcessor.create('cast.ts', outDir, 'cast.ts')
     }
 
     exportNodeGtk(outDir: string | null, girModules: { [key: string]: GirModule }, buildType: BuildType): void {
         if (!outDir) return
 
-        const girModuleKeys = lodash.keys(girModules).map(key => key.split('-')[0])
-        const girModuleVersions = lodash.keys(girModules).map(key => key.split('-')[1])
         const templateProcessor = new TemplateProcessor(
-            { girModuleKeys, girModuleVersions, girModules, environment: 'node-gtk' as Environment, buildType },
+            { girModules, environment: 'node-gtk' as Environment, buildType },
             'node',
         )
 

@@ -1,4 +1,4 @@
-import * as GObject from './GObject';
+import * as GObject from './GObject-2.0';
 
 const inheritanceTable = {
 <% for (const key of inheritanceTableKeys) { -%>

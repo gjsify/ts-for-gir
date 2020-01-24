@@ -35,17 +35,18 @@ export class TemplateProcessor {
     public static generateModuleDependenciesImport(
         environment: Environment,
         buildType: BuildType,
-        dependencyName: string,
+        namespace: string,
+        baseFilename: string,
         asType = false,
     ): string[] {
         const result: string[] = []
         if (buildType === 'lib') {
-            result.push(`import * as ${dependencyName} from './${dependencyName}';`)
+            result.push(`import * as ${namespace} from './${baseFilename}';`)
         } else {
             if (asType) {
-                result.push(`/// <reference types="${dependencyName}" />`)
+                result.push(`/// <reference types="${baseFilename}" />`)
             } else {
-                result.push(`/// <reference path="${dependencyName}.d.ts" />`)
+                result.push(`/// <reference path="${baseFilename}.d.ts" />`)
             }
         }
         return result

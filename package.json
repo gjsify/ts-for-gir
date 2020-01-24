@@ -10,7 +10,7 @@
   "scripts": {
     "prepublish": "npm run lint && npm run test && npm run build",
     "test": "npm run build:ts && npm run build:test && ava tmp/test/test.js",
-    "regress": "npm run build:ts && node lib/cli.js -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types",
+    "regress": "npm run build:ts && node lib/cli.js run -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types",
     "build": "npm run clear:build && npm run build:ts",
     "build:ts": "tsc",
     "build:test": "tsc -p tsconfig.test.json",

@@ -93,7 +93,7 @@ export class GirModule {
 
                     const symName = `${this.name}.${x.$.name}`
                     if (dict[symName]) {
-                        console.warn(`Warn: duplicate symbol: ${symName}`)
+                        console.warn(`WARN: duplicate symbol: ${symName}`)
                     }
 
                     x._module = this
@@ -295,13 +295,13 @@ export class GirModule {
         }
 
         if (!fullTypeName || this.symTable[fullTypeName] == null) {
-            console.warn(`Could not find type ${fullTypeName} for ${e.$.name}`)
+            console.warn(`WARN: Could not find type ${fullTypeName} for ${e.$.name}`)
             return ('any' + arr) as 'any' | 'any[]'
         }
 
         if (fullTypeName.indexOf(this.name + '.') == 0) {
             const ret = fullTypeName.substring(this.name.length + 1)
-            // console.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${e._module}`)
+            // console.warn(`WARN: Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${e._module}`)
             if (fullTypeName == 'Gio.ApplicationFlags') {
                 debugger
             }
@@ -310,6 +310,16 @@ export class GirModule {
         }
 
         return fullTypeName + suffix
+    }
+
+    /**
+     * E.g. replaces something like `NetworkManager.80211ApFlags` with `NetworkManager._80211ApFlags`
+     * @param e
+     */
+    private typeLookupValidated(e: GirVariable): string {
+        let names = this.typeLookup(e).split('.')
+        names = names.map(name => this.validateName(name))
+        return names.join('.')
     }
 
     private girBool(e: string | undefined, defaultVal = false): boolean {
@@ -325,7 +335,7 @@ export class GirModule {
 
         const returnVal = e['return-value'] ? e['return-value'][0] : undefined
         if (returnVal) {
-            returnType = this.typeLookup(returnVal)
+            returnType = this.typeLookupValidated(returnVal)
         } else returnType = 'void'
 
         const outArrayLengthIndex =
@@ -359,7 +369,11 @@ export class GirModule {
         return parseInt(param.$.destroy)
     }
 
-    private validateTypeName(typeName: string) {
+    /**
+     * Validates type names, e.g. Return types or enum definitions can not start with numbers
+     * @param typeName
+     */
+    private validateName(typeName: string): string {
         if (Utils.isFirstCharNumeric(typeName)) {
             typeName = '_' + typeName
         }
@@ -390,9 +404,7 @@ export class GirModule {
 
                 for (const param of parametersArray as GirVariable[]) {
                     const paramName = this.fixVariableName(param.$.name || '-', false)
-                    let paramType = this.typeLookup(param)
-
-                    paramType = this.validateTypeName(paramType)
+                    const paramType = this.typeLookupValidated(param)
 
                     if (skip.indexOf(param) !== -1) {
                         continue
@@ -456,9 +468,12 @@ export class GirModule {
         if (!v.$.name) return [[], null]
         if (!v || !v.$ || !this.girBool(v.$.introspectable, true) || this.girBool(v.$.private)) return [[], null]
 
-        const name = this.fixVariableName(v.$.name, allowQuotes)
-        const typeName = this.typeLookup(v)
+        let name = this.fixVariableName(v.$.name, allowQuotes)
+        let typeName = this.typeLookupValidated(v)
         const nameSuffix = optional ? '?' : ''
+
+        name = this.validateName(name)
+        typeName = this.validateName(typeName)
 
         return [[`${name}${nameSuffix}:${typeName}`], name]
     }
@@ -483,7 +498,7 @@ export class GirModule {
 
         let name = e.$.name
         // E.g. the NetworkManager-1.0 has names starting with 80211
-        name = this.validateTypeName(name)
+        name = this.validateName(name)
 
         def.push(`export enum ${name} {`)
         if (e.member) {
@@ -569,7 +584,7 @@ export class GirModule {
 
         const [retType] = this.getReturnType(e)
         if (retType.split(' ')[0] != name) {
-            // console.warn(`Constructor returns ${retType} should return ${name}`)
+            // console.warn(`WARN: Constructor returns ${retType} should return ${name}`)
 
             // Force constructors to return the type of the class they are actually
             // constructing. In a lot of cases the GI data says they return a base
@@ -692,6 +707,11 @@ export class GirModule {
         let def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(e)
 
+        // if (name === 'BinClass') {
+        //     console.log(e)
+        //     // throw new Error(name)
+        // }
+
         if (e.$ && e.$['glib:is-gtype-struct-for']) {
             return []
         }
@@ -705,7 +725,7 @@ export class GirModule {
             }
 
             if (localNames[name]) {
-                // console.warn(`Name ${name} already defined (${desc})`)
+                // console.warn(`WARN: Name ${name} already defined (${desc})`)
                 return [[], false]
             }
 
@@ -868,7 +888,7 @@ export class GirModule {
         const constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
         if (constructor_) {
             if (!Array.isArray(constructor_)) {
-                // console.warn('constructor_ is not an array:')
+                // console.warn('Warn: constructor_ is not an array:')
                 // console.dir(constructor_)
                 debugger
             } else {
@@ -881,19 +901,20 @@ export class GirModule {
             }
         }
 
-        if (e.function)
+        if (e.function) {
             for (const f of e.function) {
                 const [desc, funcName] = this.getFunction(f, '    static ')
                 if (funcName === 'new') continue
 
                 stc = stc.concat(desc)
             }
+        }
 
         if (stc.length > 0) {
             def = def.concat(stc)
         }
 
-        if (isDerivedFromGObject) def.push(`    static $gtype: ${this.name == 'GObject' ? '' : 'GObject.'}Type`)
+        if (isDerivedFromGObject) def.push(`    static $gtype: ${this.name === 'GObject' ? '' : 'GObject.'}Type`)
 
         def.push('}')
 
@@ -903,9 +924,8 @@ export class GirModule {
     exportAlias(e: GirAlias): string[] {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
 
-        const typeName = this.typeLookup(e)
+        const typeName = this.typeLookupValidated(e)
         const name = e.$.name
-
         return [`type ${name} = ${typeName}`]
     }
 
@@ -923,7 +943,7 @@ export class GirModule {
             this.environment,
         )
         if (outDir) {
-            templateProcessor.create('module.js', outDir, `${this.name}.js`)
+            templateProcessor.create('module.js', outDir, `${this.name}-${this.version}.js`)
         } else {
             const moduleContent = templateProcessor.load('module.js')
             console.log(moduleContent)
@@ -940,25 +960,38 @@ export class GirModule {
         const deps: string[] = this.transitiveDependencies
 
         // Always pull in GObject, as we may need it for e.g. GObject.type
-        if (this.name != 'GObject') {
-            if (!lodash.find(deps, x => x == 'GObject')) {
-                deps.push('GObject')
+        if (this.name != 'GObject-2.0') {
+            if (!lodash.find(deps, x => x == 'GObject-2.0')) {
+                deps.push('GObject-2.0')
             }
         }
 
         // Module dependencies as type references or imports
         if (this.environment === 'gjs') {
             out = out.concat(
-                TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, 'Gjs'),
+                TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, 'Gjs', 'Gjs'),
             )
         } else {
             out = out.concat(
-                TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, 'node', true),
+                TemplateProcessor.generateModuleDependenciesImport(
+                    this.environment,
+                    this.buildType,
+                    'node',
+                    'node',
+                    true,
+                ),
             )
         }
-        for (const d of deps) {
-            const base = d.split('-')[0]
-            out = out.concat(TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, base))
+        for (const dep of deps) {
+            // const namespace = dep.split('-')[0]
+            out = out.concat(
+                TemplateProcessor.generateModuleDependenciesImport(
+                    this.environment,
+                    this.buildType,
+                    dep.split('-')[0],
+                    dep,
+                ),
+            )
         }
 
         // START Namespace

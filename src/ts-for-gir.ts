@@ -10,13 +10,23 @@ import { Utils } from './utils'
 
 import { Environment, BuildType, InheritanceTable } from './types'
 
+export interface Dependency {
+    name: string
+    version: string
+    fullname: string
+}
+
+export interface DependencyMap {
+    [name: string]: Dependency[]
+}
+
 export class TsForGir {
-    exportGjs(outDir: string | null, girModules: { [key: string]: any }, buildType: BuildType): void {
+    exportGjs(outDir: string | null, girModules: { [key: string]: GirModule }, buildType: BuildType): void {
         if (!outDir) return
 
         const girModuleKeys = lodash.keys(girModules).map(key => key.split('-')[0])
         const templateProcessor = new TemplateProcessor(
-            { girModuleKeys, environment: 'Gjs' as Environment, buildType },
+            { girModules: girModules, girModuleKeys, environment: 'Gjs' as Environment, buildType },
             'gjs',
         )
 
@@ -117,10 +127,10 @@ export class TsForGir {
         if (verbose) console.log('Files parsed, loading types...')
 
         const symTable: { [name: string]: any } = {}
-        for (const k of lodash.values(girModules)) k.loadTypes(symTable)
+        for (const girModule of lodash.values(girModules)) girModule.loadTypes(symTable)
 
         const inheritanceTable: { [name: string]: string[] } = {}
-        for (const k of lodash.values(girModules)) k.loadInheritance(inheritanceTable)
+        for (const girModule of lodash.values(girModules)) girModule.loadInheritance(inheritanceTable)
 
         this.finaliseInheritance(inheritanceTable)
 
@@ -128,34 +138,44 @@ export class TsForGir {
         // console.dir(inheritanceTable)
 
         // Figure out transitive module dependencies
-        const modDependencyMap: { [name: string]: string[] } = {}
+        const modDependencyMap: DependencyMap = {}
 
-        for (const k of lodash.values(girModules)) {
-            modDependencyMap[k.name || '-'] = lodash.map(k.dependencies || [], (val: string) => {
-                return val.split('-')[0]
-            })
+        for (const girModule of lodash.values(girModules)) {
+            modDependencyMap[`${girModule.name}-${girModule.version}` || '-'] = lodash.map(
+                girModule.dependencies || [],
+                (fullname: string): Dependency => {
+                    const tmp = fullname.split('-')
+                    const name = tmp[0]
+                    const version = tmp[1]
+                    return {
+                        name,
+                        version,
+                        fullname,
+                    }
+                },
+            )
         }
 
-        const traverseDependencies = (name: string | null, ret): void => {
+        const traverseDependencies = (name: string | null, result): void => {
             if (!name) {
                 return
             }
             const deps = modDependencyMap[name]
             if (Utils.isIterable(deps)) {
-                for (const a of deps) {
-                    if (ret[a]) continue
-                    ret[a] = 1
-                    traverseDependencies(a, ret)
+                for (const dep of deps) {
+                    if (result[dep.fullname]) continue
+                    result[dep.fullname] = 1
+                    traverseDependencies(dep.fullname, result)
                 }
             } else {
-                console.warn('WARN: deps is not iterable: ', deps)
+                // console.warn('WARN: deps is not iterable: ', deps, name, modDependencyMap)
             }
         }
 
-        for (const k of lodash.values(girModules)) {
-            const ret = {}
-            traverseDependencies(k.name, ret)
-            k.transitiveDependencies = lodash.keys(ret)
+        for (const girModule of lodash.values(girModules)) {
+            const result = {}
+            traverseDependencies(`${girModule.name}-${girModule.version}`, result)
+            girModule.transitiveDependencies = lodash.keys(result)
         }
 
         const patch = {
@@ -180,8 +200,9 @@ export class TsForGir {
             let dtOutf: NodeJS.WritableStream = process.stdout
             if (outDir) {
                 const name: string = girModules[k].name || 'unknown'
+                const version: string = girModules[k].version || 'unknown'
                 const targetDir = Transformation.getEnvironmentDir(environment, outDir)
-                const dtFileName = `${name}.d.ts`
+                const dtFileName = `${name}-${version}.d.ts`
                 const dtTargetPath = `${targetDir}/${dtFileName}`
                 fs.mkdirSync(targetDir, { recursive: true })
                 dtOutf = fs.createWriteStream(dtTargetPath)

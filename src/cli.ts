@@ -52,7 +52,7 @@ const run = async (): Promise<void> => {
     for (const i in environments) {
         if (environments[i]) {
             const defaultBuildType = environments[i] === 'gjs' ? 'lib' : 'types'
-            const tsForGir = new TsForGir()
+            const tsForGir = new TsForGir(commander.verbose)
             tsForGir.main(
                 outDir,
                 girDirectory,

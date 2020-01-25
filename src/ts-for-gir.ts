@@ -6,9 +6,11 @@ import * as xml2js from 'xml2js'
 import { GirModule } from './gir-module'
 import TemplateProcessor from './template-processor'
 import { Transformation } from './transformation'
+import { Logger } from './logger'
 import { Utils } from './utils'
 
 import { Environment, BuildType, InheritanceTable } from './types'
+import commander from 'commander'
 
 export interface Dependency {
     name: string
@@ -21,6 +23,10 @@ export interface DependencyMap {
 }
 
 export class TsForGir {
+    log: Logger
+    constructor(verbose: boolean) {
+        this.log = new Logger(verbose)
+    }
     exportGjs(outDir: string | null, girModules: { [key: string]: GirModule }, buildType: BuildType): void {
         if (!outDir) return
 
@@ -46,7 +52,7 @@ export class TsForGir {
 
         const inheritanceTableKeys = lodash.keys(inheritanceTable)
         const templateProcessor = new TemplateProcessor({ inheritanceTableKeys, inheritanceTable, buildType }, 'gjs')
-        console.log('Generate GJS cast lib, that can take a while ..')
+        this.log.info('Generate GJS cast lib, that can take a while ..')
         templateProcessor.create('cast.ts', outDir, 'cast.ts')
     }
 
@@ -88,7 +94,7 @@ export class TsForGir {
         const girModules: { [key: string]: GirModule } = {}
 
         if (girToLoad.length == 0) {
-            console.error('Need to specify modules via -m!')
+            this.log.error('Need to specify modules via -m!')
             return
         }
 
@@ -97,14 +103,14 @@ export class TsForGir {
             if (!name) throw new Error('Module name not found!')
             const filePath = Path.join(girDirectory, name + '.gir')
             if (fs.existsSync(filePath)) {
-                if (verbose) console.log(`Parsing ${filePath}...`)
+                if (verbose) this.log.log(`Parsing ${filePath}...`)
                 const fileContents = fs.readFileSync(filePath, 'utf8')
                 xml2js.parseString(fileContents, (err, result) => {
                     if (err) {
-                        console.error('ERROR: ' + err)
+                        this.log.error('ERROR: ' + err)
                         return
                     }
-                    const gi = new GirModule(result, environment, buildType)
+                    const gi = new GirModule(result, environment, buildType, commander.verbose)
 
                     if (!gi.name) return
 
@@ -117,13 +123,13 @@ export class TsForGir {
                     }
                 })
             } else {
-                console.warn(`WARN: ENOENT: no such file or directory, open '${filePath}'`)
+                this.log.warn(`WARN: ENOENT: no such file or directory, open '${filePath}'`)
             }
         }
 
-        //console.dir(girModules["GObject-2.0"], { depth: null })
+        //this.log.dir(girModules["GObject-2.0"], { depth: null })
 
-        if (verbose) console.log('Files parsed, loading types...')
+        if (verbose) this.log.info('Files parsed, loading types...')
 
         const symTable: { [name: string]: any } = {}
         for (const girModule of lodash.values(girModules)) girModule.loadTypes(symTable)
@@ -133,8 +139,8 @@ export class TsForGir {
 
         this.finaliseInheritance(inheritanceTable)
 
-        // console.log('inheritanceTable:')
-        // console.dir(inheritanceTable)
+        // this.log.log('inheritanceTable:')
+        // this.log.dir(inheritanceTable)
 
         // Figure out transitive module dependencies
         const modDependencyMap: DependencyMap = {}
@@ -167,7 +173,7 @@ export class TsForGir {
                     traverseDependencies(dep.fullname, result)
                 }
             } else {
-                // console.warn('WARN: deps is not iterable: ', deps, name, modDependencyMap)
+                // this.log.warn('WARN: deps is not iterable: ', deps, name, modDependencyMap)
             }
         }
 
@@ -193,7 +199,7 @@ export class TsForGir {
             'WebKit.WebView.get_settings': ['/* get_settings clashes with Gtk.Widget.get_settings */'],
         }
 
-        if (verbose) console.log('Types loaded, generating .d.ts...')
+        if (verbose) this.log.info('Types loaded, generating .d.ts...')
 
         for (const k of lodash.keys(girModules)) {
             let dtOutf: NodeJS.WritableStream = process.stdout
@@ -206,7 +212,7 @@ export class TsForGir {
                 fs.mkdirSync(targetDir, { recursive: true })
                 dtOutf = fs.createWriteStream(dtTargetPath)
             }
-            if (verbose) console.log(` - ${k} ...`)
+            if (verbose) this.log.log(` - ${k} ...`)
             girModules[k].patch = patch
             girModules[k].export(dtOutf)
             if (buildType === 'lib') {
@@ -225,6 +231,6 @@ export class TsForGir {
             this.exportGjsCastLib(outDir, inheritanceTable, buildType)
         }
 
-        if (verbose) console.log('Done.')
+        if (verbose) this.log.success('Done.')
     }
 }

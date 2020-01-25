@@ -50,6 +50,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
+    "chalk": "^3.0.0",
     "change-case": "^4.1.1",
     "commander": "^4.1.0",
     "ejs": "^3.0.1",

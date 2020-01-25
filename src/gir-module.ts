@@ -2,6 +2,7 @@ import lodash from 'lodash'
 import TemplateProcessor from './template-processor'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
 import { Utils } from './utils'
+import { Logger } from './logger'
 
 import {
     Environment,
@@ -64,10 +65,17 @@ export class GirModule {
     patch: { [key: string]: string[] } = {}
     transformation: Transformation
     extends?: string
+    log: Logger
 
-    constructor(xml, private readonly environment: Environment, private readonly buildType: BuildType) {
+    constructor(
+        xml,
+        private readonly environment: Environment,
+        private readonly buildType: BuildType,
+        verbose: boolean,
+    ) {
         this.repo = xml.repository
         this.transformation = new Transformation(environment)
+        this.log = new Logger(verbose)
 
         if (this.repo.include) {
             for (const i of this.repo.include) {
@@ -94,7 +102,7 @@ export class GirModule {
 
                     const symName = `${this.name}.${x.$.name}`
                     if (dict[symName]) {
-                        console.warn(`WARN: duplicate symbol: ${symName}`)
+                        this.log.warn(`WARN: duplicate symbol: ${symName}`)
                     }
 
                     x._module = this
@@ -296,13 +304,13 @@ export class GirModule {
         }
 
         if (!fullTypeName || this.symTable[fullTypeName] == null) {
-            console.warn(`WARN: Could not find type ${fullTypeName} for ${e.$.name}`)
+            this.log.warn(`WARN: Could not find type ${fullTypeName} for ${e.$.name}`)
             return ('any' + arr) as 'any' | 'any[]'
         }
 
         if (fullTypeName.indexOf(this.name + '.') == 0) {
             const ret = fullTypeName.substring(this.name.length + 1)
-            // console.warn(`WARN: Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${e._module}`)
+            // this.log.warn(`WARN: Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${e._module}`)
             if (fullTypeName == 'Gio.ApplicationFlags') {
                 debugger
             }
@@ -478,7 +486,7 @@ export class GirModule {
             nameChanges = true
         }
         if (nameChanges) {
-            console.warn(`WARN: Name changed to ${typeName}`)
+            this.log.warn(`WARN: Name changed to ${typeName}`)
         }
         return typeName
     }
@@ -509,7 +517,8 @@ export class GirModule {
         if (!propName) return [[], null, null]
 
         if (v.$.name) {
-            origName = this.fixVariableName(v.$.name, false)
+            // TODO does that make sense here? This also changes the signal names
+            origName = this.fixTypeName(v.$.name)
         }
 
         return [[`    ${propPrefix}${propDesc}`], propName, origName]
@@ -608,7 +617,7 @@ export class GirModule {
 
         const [retType] = this.getReturnType(e)
         if (retType.split(' ')[0] != name) {
-            // console.warn(`WARN: Constructor returns ${retType} should return ${name}`)
+            // this.log.warn(`WARN: Constructor returns ${retType} should return ${name}`)
 
             // Force constructors to return the type of the class they are actually
             // constructing. In a lot of cases the GI data says they return a base
@@ -693,7 +702,7 @@ export class GirModule {
             }
         }
 
-        // console.log(`${e.$.name} : ${parent && parent.$ ? parent.$.name : 'none'} : ${parentModule ? parentModule.name : 'none'}`)
+        // this.log.log(`${e.$.name} : ${parent && parent.$ ? parent.$.name : 'none'} : ${parentModule ? parentModule.name : 'none'}`)
 
         callback(e)
 
@@ -732,7 +741,7 @@ export class GirModule {
         const isDerivedFromGObject = this.isDerivedFromGObject(e)
 
         // if (name === 'BinClass') {
-        //     console.log(e)
+        //     this.log.log(e)
         //     // throw new Error(name)
         // }
 
@@ -740,16 +749,16 @@ export class GirModule {
             return []
         }
 
-        const checkName = (desc: string[], name, localNames): [string[], boolean] => {
+        const checkName = (desc: string[], name: string | null, localNames): [string[], boolean] => {
             if (!desc || desc.length == 0) return [[], false]
 
             if (!name) {
-                // console.error(`No name for ${desc}`)
+                // this.log.error(`No name for ${desc}`)
                 return [[], false]
             }
 
             if (localNames[name]) {
-                // console.warn(`WARN: Name ${name} already defined (${desc})`)
+                // this.log.warn(`WARN: Name ${name} already defined (${desc})`)
                 return [[], false]
             }
 
@@ -912,8 +921,8 @@ export class GirModule {
         const constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
         if (constructor_) {
             if (!Array.isArray(constructor_)) {
-                // console.warn('Warn: constructor_ is not an array:')
-                // console.dir(constructor_)
+                // this.log.warn('Warn: constructor_ is not an array:')
+                // this.log.dir(constructor_)
                 debugger
             } else {
                 for (const f of constructor_) {
@@ -970,7 +979,7 @@ export class GirModule {
             templateProcessor.create('module.js', outDir, `${this.name}-${this.version}.js`)
         } else {
             const moduleContent = templateProcessor.load('module.js')
-            console.log(moduleContent)
+            this.log.log(moduleContent)
         }
     }
 

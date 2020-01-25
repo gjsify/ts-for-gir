@@ -444,6 +444,9 @@ export class GirModule {
             default: 1,
             new: 1,
             extends: 1,
+            with: 1,
+            var: 1,
+            class: 1,
         }
 
         // GJS always re-writes - to _ (I think?)
@@ -501,10 +504,15 @@ export class GirModule {
 
         const propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
         const [propDesc, propName] = this.getVariable(v, construct, true)
+        let origName: string | null = null
 
         if (!propName) return [[], null, null]
 
-        return [[`    ${propPrefix}${propDesc}`], propName, v.$.name || null]
+        if (v.$.name) {
+            origName = this.fixVariableName(v.$.name, false)
+        }
+
+        return [[`    ${propPrefix}${propDesc}`], propName, origName]
     }
 
     exportEnumeration(e: GirEnumeration): string[] {

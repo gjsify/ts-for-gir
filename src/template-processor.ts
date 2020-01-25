@@ -215,9 +215,7 @@ export class TemplateProcessor {
         }
 
         if (hasError) {
-            console.warn(
-                `Can't prettify file: "${path}", please check if there is an .eslintrc.js in your working directory`,
-            )
+            console.warn(`Can't prettify file: "${path}", please check your .eslintrc.js in your working directory`)
             return null
         }
 

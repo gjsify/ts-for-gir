@@ -202,7 +202,7 @@ export class TemplateProcessor {
             hasError = true
         }
 
-        if (report.errorCount > 0) {
+        if (report?.errorCount > 0) {
             hasError = true
         }
 

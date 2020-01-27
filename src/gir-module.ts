@@ -21,8 +21,18 @@ import {
 } from './types'
 
 export class GirModule {
+    /**
+     * E.g. 'Gtk'
+     */
     name: string | null = null
+    /**
+     * E.g. '3.0'
+     */
     version = '0.0'
+    /**
+     * E.g. 'Gtk-3.0'
+     */
+    fullName: string | null = null
     dependencies: string[] = []
     transitiveDependencies: string[] = []
     repo: GirRepository
@@ -52,6 +62,7 @@ export class GirModule {
             this.ns = this.repo.namespace[0]
             this.name = this.ns.$.name
             this.version = this.ns.$.version
+            this.fullName = `${this.name}-${this.version}`
         }
     }
 
@@ -890,7 +901,7 @@ export class GirModule {
             this.prettify,
         )
         if (outDir) {
-            templateProcessor.create('module.js', outDir, `${this.name}-${this.version}.js`)
+            templateProcessor.create('module.js', outDir, `${this.fullName}.js`)
         } else {
             const moduleContent = templateProcessor.load('module.js')
             this.log.log(moduleContent)
@@ -900,14 +911,14 @@ export class GirModule {
     export(outStream: NodeJS.WritableStream, outputPath: string | null): void {
         let out: string[] = []
 
-        out = out.concat(TemplateProcessor.generateTSDocComment(`${this.name}-${this.version}`))
+        out = out.concat(TemplateProcessor.generateTSDocComment(`${this.fullName}`))
 
         out.push('')
 
         const deps: string[] = this.transitiveDependencies
 
         // Always pull in GObject, as we may need it for e.g. GObject.type
-        if (this.name != 'GObject-2.0') {
+        if (this.fullName !== 'GObject-2.0') {
             if (!lodash.find(deps, x => x == 'GObject-2.0')) {
                 deps.push('GObject-2.0')
             }
@@ -930,15 +941,17 @@ export class GirModule {
             )
         }
         for (const dep of deps) {
-            // const namespace = dep.split('-')[0]
-            out = out.concat(
-                TemplateProcessor.generateModuleDependenciesImport(
-                    this.environment,
-                    this.buildType,
-                    dep.split('-')[0],
-                    dep,
-                ),
-            )
+            // Don't reference yourself as a dependency
+            if (this.fullName !== dep) {
+                out = out.concat(
+                    TemplateProcessor.generateModuleDependenciesImport(
+                        this.environment,
+                        this.buildType,
+                        dep.split('-')[0],
+                        dep,
+                    ),
+                )
+            }
         }
 
         // START Namespace
@@ -971,8 +984,8 @@ export class GirModule {
         // Extra interfaces
         // E.g. used for GObject-2.0 to help define GObject classes in js;
         // these aren't part of gi.
-        if (templateProcessor.exists(`${this.name}-${this.version}.d.ts`)) {
-            const patches = templateProcessor.load(`${this.name}-${this.version}.d.ts`)
+        if (templateProcessor.exists(`${this.fullName}.d.ts`)) {
+            const patches = templateProcessor.load(`${this.fullName}.d.ts`)
             out = out.concat(patches)
         }
 
@@ -985,9 +998,9 @@ export class GirModule {
         if (this.ns.alias)
             // GType is not a number in GJS
             for (const e of this.ns.alias)
-                if (this.name != 'GObject' || e.$.name != 'Type') out = out.concat(this.exportAlias(e))
+                if (this.name !== 'GObject' || e.$.name !== 'Type') out = out.concat(this.exportAlias(e))
 
-        if (this.name == 'GObject') out = out.concat(['export interface Type {', '    name: string', '}'])
+        if (this.name === 'GObject') out = out.concat(['export interface Type {', '    name: string', '}'])
 
         // END Namespace
         if (this.buildType === 'types') {

@@ -2,7 +2,7 @@
 
 [TypeScript](https://www.typescriptlang.org/) binding generator for
 [GJS](https://wiki.gnome.org/Projects/Gjs) and
-[node-gtk](https://github.com/romgrk/node-gtk).  Inspired by
+[node-gtk](https://github.com/romgrk/node-gtk) (in a very early stage).  Inspired by
 [gir2dts](https://github.com/darkoverlordofdata/gir2dts) but re-written and
 re-designed to be a more thorough TypeScript description of the [GObject
 introspection](https://wiki.gnome.org/Projects/GObjectIntrospection)

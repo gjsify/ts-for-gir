@@ -24,41 +24,77 @@ npm link
 After you have linked this project you can use the `ts-for-gir` command in you project:
 
 ```bash
-$ ts-for-gir --help
-Usage: ts-for-gir [options] [command]
+$ ts-for-gir --help  
+Typescript .d.ts generator from GIR for gjs or node-gtk
 
-Options:
-  -g --gir-directory [directory]   GIR directory (default: "/usr/share/gir-1.0")
-  -m --module <modules>            GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules (default: [])
-  -o --outdir <dir>                Directory to output to (default: "@types")
-  -e --environment <environments>  Javascript environment (default: ["gjs","node"])
-  -b --build-type <type>           Force the definitions generation type (default for gjs: 'lib', default for node: 'types')
-  -p --print                       Print the output to console and create no files
-  -v, --verbose                    verbosity (default: true)
-  -h, --help                       output usage information
+VERSION
+  ts-for-gir/1.0.0 linux-x64 node-v12.14.1
 
-Commands:
-  run [options]                    Generates typescript type definitions from GIR for gjs or node-gtk
-  list [options]                   Lists all available GIR modules
+USAGE
+  $ ts-for-gir [COMMAND]
 
-Run ts-for-gir in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project
+COMMANDS
+  generate  Generates .d.ts files from GIR for gjs or node-gtk
+  help      display help for ts-for-gir
+  list      Lists all available GIR modules
+```
 
-Examples:
-  $ ts-for-gir run -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types
+### Generate .d.ts files
+
+```bash
+$ ts-for-gir generate --help                                                                                                                                                       :(
+Generates .d.ts files from GIR for gjs or node-gtk
+
+USAGE
+  $ ts-for-gir generate MODULES
+
+ARGUMENTS
+  MODULES  [default: *] GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules
+
+OPTIONS
+  -b, --buildType=lib|types        [default for gjs: lib, default for node: types] Force the definitions generation type
+  -e, --environment=gjs|node       [default: gjs,node] Javascript environment
+  -g, --girDirectory=girDirectory  [default: /usr/share/gir-1.0] GIR directory
+  -h, --help                       show CLI help
+  -o, --outdir=outdir              [default: @types] Directory to output to
+  -p, --print                      Print the output to console and create no files
+  -v, --verbose                    verbosity
+
+EXAMPLES
+  # Run 'ts-for-gir generate' in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project
+  ts-for-gir generate
 
   # You can also use wild cards
-  $ ts-for-gir run -m Gtk*
+  ts-for-gir generate -m Gtk*
 
-  # If you want to parse all of your locally installed gir modules, run
-  $ ts-for-gir run -m '*'
+  # If you want to parse all of your locally installed gir modules run
+  ts-for-gir generate '*'
+```
 
+### List available GIR modules
+
+```bash
+$ ts-for-gir list --help
+Lists all available GIR modules
+
+USAGE
+  $ ts-for-gir list MODULES
+
+ARGUMENTS
+  MODULES  [default: *] GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules
+
+OPTIONS
+  -g, --girDirectory=girDirectory  [default: /usr/share/gir-1.0] GIR directory
+  -h, --help                       show CLI help
+
+EXAMPLES
   # Lists all available GIR modules in ./vala-girs/gir-1.0
-  $ ts-for-gir list -g ./vala-girs/gir-1.0
+  ts-for-gir list -g ./vala-girs/gir-1.0
 ```
 
 ## Examples
 
-Run `npm run regress` or `ts-for-gir -m Gtk-3.0 Soup-2.4 GtkSource-3.0 WebKit2-4.0 AppIndicator3-0.1 Gda-5.0 Notify-0.7` in the root of this project to generate the type definitons for the examples
+Run `npm run regress` or `ts-for-gir generate Gtk-3.0 Soup-2.4 GtkSource-3.0 WebKit2-4.0 AppIndicator3-0.1 Gda-5.0 Notify-0.7` in the root of this project to generate the type definitons for the examples
 
 Now open some code with an editor that understands TypeScript and see what happens, for example
 [Visual Studio Code](https://code.visualstudio.com/).

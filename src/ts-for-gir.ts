@@ -2,6 +2,7 @@ import lodash from 'lodash'
 import fs from 'fs'
 import Path from 'path'
 import * as xml2js from 'xml2js'
+import glob from 'tiny-glob'
 
 import { GirModule } from './gir-module'
 import TemplateProcessor from './template-processor'
@@ -25,6 +26,25 @@ export class TsForGir {
     log: Logger
     constructor(verbose: boolean) {
         this.log = Logger.getInstance(verbose)
+    }
+    /**
+     * Adds the possibility to use wild cards for module names. E.g. `Gtk*` or `'*'`
+     * @param girDirectory
+     * @param modules
+     */
+    async findModules(girDirectory: string, modules: string[]): Promise<Set<string>> {
+        const foundModules = new Set<string>()
+
+        for (const i in modules) {
+            if (modules[i]) {
+                const filename = `${modules[i]}.gir`
+                const files = await glob(filename, { cwd: girDirectory })
+                const globModules = files.map(file => Path.basename(file, '.gir'))
+                globModules.forEach(module => foundModules.add(module))
+            }
+        }
+
+        return foundModules
     }
     exportGjs(outDir: string | null, girModules: { [key: string]: GirModule }, buildType: BuildType): void {
         if (!outDir) return
@@ -89,6 +109,8 @@ export class TsForGir {
         environment: Environment,
         buildType: BuildType,
     ): void {
+        this.log.info(`Start to generate .d.ts files for '${environment}' as '${buildType}'.`)
+
         const girModules: { [key: string]: GirModule } = {}
         // A copy is needed here because we are changing the array
         const girToLoad = Array.from(girModulesToLoad)

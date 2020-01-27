@@ -1,16 +1,16 @@
 {
   "name": "ts-for-gir",
   "version": "1.0.0",
-  "description": "Typescript bindings for GJS and node-gtk",
+  "description": "Typescript .d.ts generator from GIR for gjs or node-gtk",
   "main": "lib/index.js",
   "bin": {
-    "ts-for-gir": "bin/bin.js"
+    "ts-for-gir": "./bin/run"
   },
   "typings": "@types",
   "scripts": {
-    "prepublish": "npm run lint && npm run test && npm run build",
+    "prepublish": "npm run lint && npm run regress && npm run test && npm run build",
     "test": "npm run build:ts && npm run build:test && ava tmp/test/test.js",
-    "regress": "npm run build:ts && node lib/cli.js run -m Gtk-3.0 -m Soup-2.4 -m GtkSource-3.0 -m WebKit2-4.0 -m AppIndicator3-0.1 -m Gda-5.0 -m Notify-0.7 -o @types",
+    "regress": "npm run build:ts && node bin/run generate Gtk-3.0 Soup-2.4 GtkSource-3.0 WebKit2-4.0 AppIndicator3-0.1 Gda-5.0 Notify-0.7 -o @types",
     "build": "npm run clear:build && npm run build:ts",
     "build:ts": "tsc",
     "build:test": "tsc -p tsconfig.test.json",
@@ -31,6 +31,13 @@
     "bin",
     "src"
   ],
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "ts-for-gir",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/sammydre/ts-for-gjs/issues"
@@ -50,9 +57,9 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
+    "@oclif/command": "^1.5.19",
     "chalk": "^3.0.0",
     "change-case": "^4.1.1",
-    "commander": "^4.1.0",
     "ejs": "^3.0.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",

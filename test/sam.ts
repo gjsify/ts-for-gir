@@ -1,5 +1,5 @@
-import * as Gtk from '../@types/Gjs/Gtk'
-import * as WebKit from '../@types/Gjs/WebKit2'
+import * as Gtk from '../@types/Gjs/Gtk-3.0'
+import * as WebKit from '../@types/Gjs/WebKit2-4.0'
 import { giCast } from '../@types/Gjs/cast'
 
 Gtk.init(null)

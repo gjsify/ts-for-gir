@@ -13,6 +13,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "rootDir": "src",
+    "resolveJsonModule": true,
   },
   "include": ["src"],
   "exclude": [

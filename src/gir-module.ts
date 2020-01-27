@@ -285,7 +285,7 @@ export class GirModule {
      * E.g. replaces something like `NetworkManager.80211ApFlags` with `NetworkManager._80211ApFlags`
      * @param e
      */
-    private typeLookupFixed(e: GirVariable): string {
+    private typeLookupTransformed(e: GirVariable): string {
         let names = this.typeLookup(e).split('.')
         names = names.map(name => this.transformation.transformTypeName(name))
         return names.join('.')
@@ -300,11 +300,11 @@ export class GirModule {
     }
 
     private getReturnType(e): [string, number] {
-        let returnType
+        let returnType: string
 
         const returnVal = e['return-value'] ? e['return-value'][0] : undefined
         if (returnVal) {
-            returnType = this.typeLookupFixed(returnVal)
+            returnType = this.typeLookupTransformed(returnVal)
         } else returnType = 'void'
 
         const outArrayLengthIndex =
@@ -363,7 +363,7 @@ export class GirModule {
                 for (const param of parametersArray as GirVariable[]) {
                     const paramName = this.transformation.transformParameterName(param.$.name || '-', false)
 
-                    const paramType = this.typeLookupFixed(param)
+                    const paramType = this.typeLookupTransformed(param)
 
                     if (skip.indexOf(param) !== -1) {
                         continue
@@ -405,7 +405,7 @@ export class GirModule {
         if (!v || !v.$ || !this.girBool(v.$.introspectable, true) || this.girBool(v.$.private)) return [[], null]
 
         const name = this.transformation.transformVariableName(v.$.name, allowQuotes)
-        let typeName = this.typeLookupFixed(v)
+        let typeName = this.typeLookupTransformed(v)
         const nameSuffix = optional ? '?' : ''
 
         typeName = this.transformation.transformTypeName(typeName)
@@ -862,11 +862,11 @@ export class GirModule {
         return def
     }
 
-    exportAlias(e: GirAlias): string[] {
-        if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
+    exportAlias(girAlias: GirAlias): string[] {
+        if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return []
 
-        const typeName = this.typeLookupFixed(e)
-        const name = e.$.name
+        const typeName = this.typeLookupTransformed(girAlias)
+        const name = girAlias.$.name
         return [`type ${name} = ${typeName}`]
     }
 

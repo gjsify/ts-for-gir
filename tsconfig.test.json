@@ -15,12 +15,13 @@
     "outDir": "tmp",
   },
   "files": [
-    "test/test.ts",
+    "test/ava/test.ts",
   ],
-  "include": ["test"],
+  "include": ["test/ava"],
   "exclude": [
     "node_modules",
     "templates",
     "src",
+    "test/girs"
   ]
 }

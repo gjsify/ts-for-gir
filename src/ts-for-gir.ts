@@ -230,7 +230,7 @@ export class TsForGir {
                 const version: string = girModules[k].version || 'unknown'
                 const targetDir = Transformation.getEnvironmentDir(environment, outDir)
                 const dtFileName = `${name}-${version}.d.ts`
-                const dtTargetPath = `${targetDir}/${dtFileName}`
+                const dtTargetPath = Path.join(targetDir, dtFileName)
                 fs.mkdirSync(targetDir, { recursive: true })
                 dtOutf = fs.createWriteStream(dtTargetPath)
             }

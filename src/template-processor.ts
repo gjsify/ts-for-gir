@@ -8,7 +8,7 @@ import { BuildType } from './types'
 const CLIEngine = require('eslint').CLIEngine
 const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
 
-const TEMPLATE_DIR = __dirname + '/../templates'
+const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
 export class TemplateProcessor {
     private environmentTemplateDir: string
@@ -129,37 +129,37 @@ export class TemplateProcessor {
 
     /**
      * Loads and renders a template and gets the rendered string back
-     * @param templatePath
+     * @param templateFilename
      */
-    public load(templatePath: string): string {
-        const fileContent = this.read(templatePath)
+    public load(templateFilename: string): string {
+        const fileContent = this.read(templateFilename)
         return this.render(fileContent)
     }
 
     /**
      * Loads an template, render the template and write the template to the filesystem
-     * @param templatePath
-     * @param targetDir
-     * @param targetFilename
+     * @param templateFilename
+     * @param outputDir
+     * @param outputFilename
      * @return The rendered (and if possible prettified) code string
      */
-    public create(templatePath: string, targetDir: string, targetFilename: string): string {
-        const fileContent = this.load(templatePath)
+    public create(templateFilename: string, outputDir: string, outputFilename: string): string {
+        const fileContent = this.load(templateFilename)
         const renderedCode = this.render(fileContent)
-        const destPath = this.write(renderedCode, targetDir, targetFilename)
+        const destPath = this.write(renderedCode, outputDir, outputFilename)
         const prettifiedCode = this.prettify(destPath)
         if (prettifiedCode) {
-            this.write(prettifiedCode, targetDir, targetFilename)
+            this.write(prettifiedCode, outputDir, outputFilename)
         }
         return prettifiedCode || renderedCode
     }
 
-    protected write(content: string, targetDir: string, targetFilename: string): string {
-        targetDir = Transformation.getEnvironmentDir(this.environment, targetDir)
-        const destPath = Path.join(targetDir, targetFilename)
+    protected write(content: string, outputDir: string, outputFilename: string): string {
+        outputDir = Transformation.getEnvironmentDir(this.environment, outputDir)
+        const destPath = Path.join(outputDir, outputFilename)
 
         // write template result file
-        !fs.existsSync(targetDir) && fs.mkdirSync(targetDir, { recursive: true })
+        fs.mkdirSync(outputDir, { recursive: true })
         fs.writeFileSync(destPath, content, { encoding: 'utf8', flag: 'w' })
 
         return destPath
@@ -173,11 +173,11 @@ export class TemplateProcessor {
     /**
      * Checks if the template file exists and returns the path if found
      * Tries first to load the file from the environment-specific template folder and otherwise looks for it in the general template folder
-     * @param filename
+     * @param templateFilename
      */
-    public exists(filename: string): string | null {
-        const fullEnvironmentTemplatePath = Path.join(this.environmentTemplateDir, filename)
-        const fullGeneralTemplatePath = Path.join(TEMPLATE_DIR, filename)
+    public exists(templateFilename: string): string | null {
+        const fullEnvironmentTemplatePath = Path.join(this.environmentTemplateDir, templateFilename)
+        const fullGeneralTemplatePath = Path.join(TEMPLATE_DIR, templateFilename)
         if (fs.existsSync(fullEnvironmentTemplatePath)) {
             return fullEnvironmentTemplatePath
         }
@@ -189,15 +189,15 @@ export class TemplateProcessor {
 
     /**
      * Reads a template file from filesystem and gets the unrendered string back
-     * @param filename
+     * @param templateFilename
      * @return The unrendered template content
      */
-    protected read(filename: string): string {
-        const path = this.exists(filename)
+    protected read(templateFilename: string): string {
+        const path = this.exists(templateFilename)
         if (path) {
             return fs.readFileSync(path, 'utf8')
         }
-        throw new Error(`Template '${filename}' not found'`)
+        throw new Error(`Template '${templateFilename}' not found'`)
     }
 
     protected prettify(path: string): string | null {

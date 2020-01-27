@@ -4,10 +4,11 @@
   "description": "",
   "main": "main.ts",
   "scripts": {
-    "build": "webpack",
-    "tsc": "tsc",
+    "build": "npm run build:types && npm run build:ts",
+    "build:ts": "webpack",
+    "build:types": "../../../bin/run generate Gtk-3.0 GtkSource-3.0 -e node",
     "start": "npm run build && node dist/editor.js",
-    "watch": "npm run build -- --watch",
+    "watch": "npm run build:ts -- --watch",
     "lint": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,7 +1,7 @@
-import '../../../@types/Gjs/index'
-import * as Gtk from '../../../@types/Gjs/Gtk'
-import * as Pango from '../../../@types/Gjs/Pango'
-import * as WebKit from '../../../@types/Gjs/WebKit2'
+import './@types/Gjs/index'
+import * as Gtk from './@types/Gjs/Gtk-3.0'
+import * as Pango from './@types/Gjs/Pango-1.0'
+import * as WebKit from './@types/Gjs/WebKit2-4.0'
 
 function makeButton(label: string, callback): Gtk.Button {
     const but = new Gtk.Button({ label: label })

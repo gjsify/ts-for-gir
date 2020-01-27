@@ -1,5 +1,6 @@
 import { TsForGir } from '../ts-for-gir'
 import { Command, flags } from '@oclif/command'
+import Path from 'path'
 import * as Config from '@oclif/config'
 
 import { Environment, BuildType } from '../types'
@@ -16,10 +17,16 @@ export default class Generate extends Command {
         `${NAME} generate`,
         '',
         '# You can also use wild cards',
-        `${NAME} generate -m Gtk*`,
+        `${NAME} generate Gtk*`,
         '',
         '# If you want to parse all of your locally installed gir modules run',
         `${NAME} generate '*'`,
+        '',
+        '# Generate .d.ts. files only for gjs',
+        `${NAME} generate '*' -e gjs`,
+        '',
+        '# Generate .d.ts. files only for node',
+        `${NAME} generate '*' -e node`,
     ]
 
     static aliases: ['g']
@@ -48,7 +55,11 @@ export default class Generate extends Command {
         }),
         // flag with no value
         verbose: flags.boolean({ char: 'v', description: 'verbosity', default: true }),
-        print: flags.boolean({ char: 'p', description: 'Print the output to console and create no files' }),
+        print: flags.boolean({
+            char: 'p',
+            description: 'Print the output to console and create no files',
+            default: false,
+        }),
     }
 
     static args = [
@@ -66,7 +77,7 @@ export default class Generate extends Command {
 
     async run(): Promise<void> {
         const { argv, flags } = this.parse(Generate)
-        const outDir: string | null = flags.print ? null : flags.outdir
+        const outDir: string | null = flags.print ? null : Path.join(process.cwd(), flags.outdir)
         const girDirectory = flags.girDirectory
         const tsForGir = new TsForGir(flags.verbose)
         const foundGirModules = await tsForGir.findModules(girDirectory, argv)

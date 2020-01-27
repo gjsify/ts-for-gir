@@ -1,7 +1,6 @@
 import lodash from 'lodash'
 import TemplateProcessor from './template-processor'
-import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
-import { Utils } from './utils'
+import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
 import { Logger } from './logger'
 
 import {
@@ -21,39 +20,6 @@ import {
     TypeSuffix,
 } from './types'
 
-const POD_TYPE_MAP = {
-    utf8: 'string',
-    none: 'void',
-    double: 'number',
-    guint32: 'number',
-    guint16: 'number',
-    gint16: 'number',
-    gunichar: 'number',
-    gint8: 'number',
-    gint32: 'number',
-    gushort: 'number',
-    gfloat: 'number',
-    gboolean: 'boolean',
-    gpointer: 'object',
-    gchar: 'number',
-    guint: 'number',
-    glong: 'number',
-    gulong: 'number',
-    gint: 'number',
-    guint8: 'number',
-    guint64: 'number',
-    gint64: 'number',
-    gdouble: 'number',
-    gssize: 'number',
-    gsize: 'number',
-    long: 'number',
-    object: 'any',
-    gshort: 'number',
-    filename: 'string',
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    va_list: 'any',
-}
-
 export class GirModule {
     name: string | null = null
     version = '0.0'
@@ -65,17 +31,11 @@ export class GirModule {
     patch: { [key: string]: string[] } = {}
     transformation: Transformation
     extends?: string
-    log: Logger
+    log = Logger.getInstance()
 
-    constructor(
-        xml,
-        private readonly environment: Environment,
-        private readonly buildType: BuildType,
-        verbose: boolean,
-    ) {
+    constructor(xml, private readonly environment: Environment, private readonly buildType: BuildType) {
         this.repo = xml.repository
         this.transformation = new Transformation(environment)
-        this.log = new Logger(verbose)
 
         if (this.repo.include) {
             for (const i of this.repo.include) {
@@ -102,7 +62,7 @@ export class GirModule {
 
                     const symName = `${this.name}.${x.$.name}`
                     if (dict[symName]) {
-                        this.log.warn(`WARN: duplicate symbol: ${symName}`)
+                        this.log.warn(`duplicate symbol: ${symName}`)
                     }
 
                     x._module = this
@@ -304,13 +264,13 @@ export class GirModule {
         }
 
         if (!fullTypeName || this.symTable[fullTypeName] == null) {
-            this.log.warn(`WARN: Could not find type ${fullTypeName} for ${e.$.name}`)
+            this.log.warn(`Could not find type ${fullTypeName} for ${e.$.name}`)
             return ('any' + arr) as 'any' | 'any[]'
         }
 
         if (fullTypeName.indexOf(this.name + '.') == 0) {
             const ret = fullTypeName.substring(this.name.length + 1)
-            // this.log.warn(`WARN: Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${e._module}`)
+            // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${e._module}`)
             if (fullTypeName == 'Gio.ApplicationFlags') {
                 debugger
             }
@@ -327,7 +287,7 @@ export class GirModule {
      */
     private typeLookupFixed(e: GirVariable): string {
         let names = this.typeLookup(e).split('.')
-        names = names.map(name => this.fixTypeName(name))
+        names = names.map(name => this.transformation.transformTypeName(name))
         return names.join('.')
     }
 
@@ -401,7 +361,7 @@ export class GirModule {
                 processParams(this.destroyDataIndexLookup)
 
                 for (const param of parametersArray as GirVariable[]) {
-                    const paramName = this.fixVariableName(param.$.name || '-', false)
+                    const paramName = this.transformation.transformParameterName(param.$.name || '-', false)
 
                     const paramType = this.typeLookupFixed(param)
 
@@ -440,67 +400,15 @@ export class GirModule {
         return [def.join(', '), outParams]
     }
 
-    private fixVariableName(name: string, allowQuotes: boolean): string {
-        const reservedNames = {
-            in: 1,
-            function: 1,
-            true: 1,
-            false: 1,
-            break: 1,
-            arguments: 1,
-            eval: 1,
-            default: 1,
-            new: 1,
-            extends: 1,
-            with: 1,
-            var: 1,
-            class: 1,
-        }
-
-        // GJS always re-writes - to _ (I think?)
-        name = name.replace(/-/g, '_')
-
-        if (reservedNames[name]) {
-            if (allowQuotes) return `"${name}"`
-            else return `${name}_`
-        }
-
-        // TODO how does gjs and node-gtk do that?
-        if (Utils.isFirstCharNumeric(name)) {
-            if (allowQuotes) return `"${name}"`
-            else return `_${name}`
-        }
-
-        return name
-    }
-
-    /**
-     * Fixes type names, e.g. Return types or enum definitions can not start with numbers
-     * @param typeName
-     */
-    private fixTypeName(typeName: string): string {
-        let nameChanges = false
-        // TODO how does gjs and node-gtk do that?
-        if (Utils.isFirstCharNumeric(typeName)) {
-            typeName = '_' + typeName
-            nameChanges = true
-        }
-        if (nameChanges) {
-            this.log.warn(`WARN: Name changed to ${typeName}`)
-        }
-        return typeName
-    }
-
     private getVariable(v: GirVariable, optional = false, allowQuotes = false): [string[], string | null] {
         if (!v.$.name) return [[], null]
         if (!v || !v.$ || !this.girBool(v.$.introspectable, true) || this.girBool(v.$.private)) return [[], null]
 
-        let name = this.fixVariableName(v.$.name, allowQuotes)
+        const name = this.transformation.transformVariableName(v.$.name, allowQuotes)
         let typeName = this.typeLookupFixed(v)
         const nameSuffix = optional ? '?' : ''
 
-        name = this.fixTypeName(name)
-        typeName = this.fixTypeName(typeName)
+        typeName = this.transformation.transformTypeName(typeName)
 
         return [[`${name}${nameSuffix}:${typeName}`], name]
     }
@@ -518,7 +426,7 @@ export class GirModule {
 
         if (v.$.name) {
             // TODO does that make sense here? This also changes the signal names
-            origName = this.fixTypeName(v.$.name)
+            origName = this.transformation.transformTypeName(v.$.name)
         }
 
         return [[`    ${propPrefix}${propDesc}`], propName, origName]
@@ -531,7 +439,7 @@ export class GirModule {
 
         let name = e.$.name
         // E.g. the NetworkManager-1.0 has names starting with 80211
-        name = this.fixTypeName(name)
+        name = this.transformation.transformTypeName(name)
 
         def.push(`export enum ${name} {`)
         if (e.member) {
@@ -617,7 +525,7 @@ export class GirModule {
 
         const [retType] = this.getReturnType(e)
         if (retType.split(' ')[0] != name) {
-            // this.log.warn(`WARN: Constructor returns ${retType} should return ${name}`)
+            // this.log.warn(`Constructor returns ${retType} should return ${name}`)
 
             // Force constructors to return the type of the class they are actually
             // constructing. In a lot of cases the GI data says they return a base
@@ -758,7 +666,7 @@ export class GirModule {
             }
 
             if (localNames[name]) {
-                // this.log.warn(`WARN: Name ${name} already defined (${desc})`)
+                // this.log.warn(`Name ${name} already defined (${desc})`)
                 return [[], false]
             }
 

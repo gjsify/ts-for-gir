@@ -127,7 +127,8 @@ export interface GirEnumerationMember {
     $: {
         name: string
         value: string
-        // c:identifier, glib:nick
+        'c:identifier'?: string
+        'glib:nick'?: string
     }
     doc?: GirDoc[]
 }

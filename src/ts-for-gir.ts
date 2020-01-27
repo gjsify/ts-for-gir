@@ -76,7 +76,6 @@ export class TsForGir {
             'gjs',
             this.prettify,
         )
-        this.log.info('Generate GJS cast lib, that can take a while ..')
         templateProcessor.create('cast.ts', outDir, 'cast.ts')
     }
 

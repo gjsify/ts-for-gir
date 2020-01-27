@@ -134,6 +134,10 @@ export class Transformation {
     }
 
     public transformParameterName(name: string, allowQuotes: boolean): string {
+        // Such a variable name exists in `GConf-2.0.d.ts` class `Engine` method `change_set_from_current`
+        if (name === '...') {
+            return '...args'
+        }
         return this.transformVariableName(name, allowQuotes)
     }
 

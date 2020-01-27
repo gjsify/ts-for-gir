@@ -460,8 +460,12 @@ export class GirModule {
         def.push(`export enum ${name} {`)
         if (e.member) {
             for (const member of e.member) {
-                // const name = member.$.name.toUpperCase()
-                const name = this.transformation.transform('enum', member.$.name)
+                const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
+                if (!_name) {
+                    continue
+                }
+                const name = this.transformation.transform('enum', _name)
+                member.$.name
                 if (/\d/.test(name[0])) def.push(`    /* ${name} (invalid, starts with a number) */`)
                 else def.push(`    ${name},`)
             }

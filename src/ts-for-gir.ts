@@ -24,7 +24,7 @@ export interface DependencyMap {
 
 export class TsForGir {
     log: Logger
-    constructor(verbose: boolean) {
+    constructor(verbose: boolean, private prettify: boolean) {
         this.log = Logger.getInstance(verbose)
     }
     /**
@@ -53,6 +53,7 @@ export class TsForGir {
         const templateProcessor = new TemplateProcessor(
             { girModules: girModules, girModuleKeys, environment: 'Gjs' as Environment, buildType },
             'gjs',
+            this.prettify,
         )
 
         // Types
@@ -70,7 +71,11 @@ export class TsForGir {
         if (!outDir) return
 
         const inheritanceTableKeys = lodash.keys(inheritanceTable)
-        const templateProcessor = new TemplateProcessor({ inheritanceTableKeys, inheritanceTable, buildType }, 'gjs')
+        const templateProcessor = new TemplateProcessor(
+            { inheritanceTableKeys, inheritanceTable, buildType },
+            'gjs',
+            this.prettify,
+        )
         this.log.info('Generate GJS cast lib, that can take a while ..')
         templateProcessor.create('cast.ts', outDir, 'cast.ts')
     }
@@ -81,6 +86,7 @@ export class TsForGir {
         const templateProcessor = new TemplateProcessor(
             { girModules, environment: 'node-gtk' as Environment, buildType },
             'node',
+            this.prettify,
         )
 
         templateProcessor.create('index.d.ts', outDir, 'index.d.ts')
@@ -132,7 +138,7 @@ export class TsForGir {
                         this.log.error(err)
                         return
                     }
-                    const gi = new GirModule(result, environment, buildType)
+                    const gi = new GirModule(result, environment, buildType, this.prettify)
 
                     if (!gi.name) return
 
@@ -225,18 +231,19 @@ export class TsForGir {
 
         for (const k of lodash.keys(girModules)) {
             let dtOutf: NodeJS.WritableStream = process.stdout
+            let dtOutputPath: string | null = null
             if (outDir) {
                 const name: string = girModules[k].name || 'unknown'
                 const version: string = girModules[k].version || 'unknown'
-                const targetDir = Transformation.getEnvironmentDir(environment, outDir)
+                const OutputDir = Transformation.getEnvironmentDir(environment, outDir)
                 const dtFileName = `${name}-${version}.d.ts`
-                const dtTargetPath = Path.join(targetDir, dtFileName)
-                fs.mkdirSync(targetDir, { recursive: true })
-                dtOutf = fs.createWriteStream(dtTargetPath)
+                dtOutputPath = Path.join(OutputDir, dtFileName)
+                fs.mkdirSync(OutputDir, { recursive: true })
+                dtOutf = fs.createWriteStream(dtOutputPath)
             }
             this.log.log(` - ${k} ...`)
             girModules[k].patch = patch
-            girModules[k].export(dtOutf)
+            girModules[k].export(dtOutf, dtOutputPath)
             if (buildType === 'lib') {
                 girModules[k].exportJs(outDir)
             }

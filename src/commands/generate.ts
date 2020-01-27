@@ -53,6 +53,10 @@ export default class Generate extends Command {
             multiple: false,
             options: ['lib', 'types'],
         }),
+        prettify: flags.boolean({
+            description: 'Prettifies the generated .d.ts files',
+            default: false,
+        }),
         // flag with no value
         verbose: flags.boolean({ char: 'v', description: 'verbosity', default: true }),
         print: flags.boolean({
@@ -79,7 +83,7 @@ export default class Generate extends Command {
         const { argv, flags } = this.parse(Generate)
         const outDir: string | null = flags.print ? null : Path.join(process.cwd(), flags.outdir)
         const girDirectory = flags.girDirectory
-        const tsForGir = new TsForGir(flags.verbose)
+        const tsForGir = new TsForGir(flags.verbose, flags.prettify)
         const foundGirModules = await tsForGir.findModules(girDirectory, argv)
         const environments: Environment[] = flags.environment as Environment[]
         const buildType: BuildType | undefined = flags.buildType as BuildType | undefined

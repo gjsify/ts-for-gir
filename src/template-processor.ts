@@ -3,6 +3,7 @@ import Path from 'path'
 import ejs from 'ejs'
 import { Environment } from './types/environment'
 import { Transformation } from './transformation'
+import { Logger } from './logger'
 import { BuildType } from './types'
 
 const CLIEngine = require('eslint').CLIEngine
@@ -12,7 +13,12 @@ const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
 export class TemplateProcessor {
     private environmentTemplateDir: string
-    constructor(protected readonly data: any, private readonly environment: Environment) {
+    private log = Logger.getInstance()
+    constructor(
+        protected readonly data: any,
+        private readonly environment: Environment,
+        private readonly prettie: boolean,
+    ) {
         this.environmentTemplateDir = Transformation.getEnvironmentDir(environment, TEMPLATE_DIR)
     }
 
@@ -147,10 +153,7 @@ export class TemplateProcessor {
         const fileContent = this.load(templateFilename)
         const renderedCode = this.render(fileContent)
         const destPath = this.write(renderedCode, outputDir, outputFilename)
-        const prettifiedCode = this.prettify(destPath)
-        if (prettifiedCode) {
-            this.write(prettifiedCode, outputDir, outputFilename)
-        }
+        const prettifiedCode = this.prettie ? this.prettify(destPath, true) : null
         return prettifiedCode || renderedCode
     }
 
@@ -187,6 +190,47 @@ export class TemplateProcessor {
         return null
     }
 
+    public prettify(path: string, changeFile = false): string | null {
+        let hasError = false
+        let report: any
+        let prettifiedCode: string | null = null
+        this.log.info(`Prettify "${path}"`)
+        try {
+            report = lint.executeOnFiles([path])
+        } catch (error) {
+            this.log.warn(error)
+            hasError = true
+        }
+
+        if (report.errorCount > 0) {
+            hasError = true
+        }
+
+        prettifiedCode = report?.results[0]?.output || null
+
+        if (hasError) {
+            if (!prettifiedCode) {
+                this.log.warn(
+                    `Can't prettify file: "${path}", please check your .eslintrc.js in your working directory`,
+                )
+                console.dir(report)
+
+                report?.results.forEach(result => {
+                    if (result.message) {
+                        this.log.log(result.message)
+                    }
+                })
+            }
+        } else {
+            prettifiedCode = report.results[0].output
+            if (prettifiedCode && changeFile) {
+                this.write(prettifiedCode, Path.dirname(path), Path.basename(path))
+            }
+        }
+
+        return prettifiedCode
+    }
+
     /**
      * Reads a template file from filesystem and gets the unrendered string back
      * @param templateFilename
@@ -198,28 +242,6 @@ export class TemplateProcessor {
             return fs.readFileSync(path, 'utf8')
         }
         throw new Error(`Template '${templateFilename}' not found'`)
-    }
-
-    protected prettify(path: string): string | null {
-        let hasError = false
-        let report: any
-        try {
-            report = lint.executeOnFiles([path])
-        } catch (error) {
-            console.warn(error)
-            hasError = true
-        }
-
-        if (!report?.results || !report.results[0]?.output) {
-            hasError = true
-        }
-
-        if (hasError) {
-            console.warn(`Can't prettify file: "${path}", please check your .eslintrc.js in your working directory`)
-            return null
-        }
-
-        return report.results[0].output
     }
 }
 

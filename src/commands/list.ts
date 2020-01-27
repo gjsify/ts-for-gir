@@ -30,7 +30,7 @@ export default class List extends Command {
     async run(): Promise<void> {
         const { argv, flags } = this.parse(List)
         const girDirectory = flags.girDirectory
-        const tsForGir = new TsForGir(false)
+        const tsForGir = new TsForGir(false, false)
         const foundGirModules = await tsForGir.findModules(girDirectory, argv)
         if (foundGirModules.size === 0) {
             this.error('No module found')

@@ -33,7 +33,12 @@ export class GirModule {
     extends?: string
     log = Logger.getInstance()
 
-    constructor(xml, private readonly environment: Environment, private readonly buildType: BuildType) {
+    constructor(
+        xml,
+        private readonly environment: Environment,
+        private readonly buildType: BuildType,
+        private readonly prettify: boolean,
+    ) {
         this.repo = xml.repository
         this.transformation = new Transformation(environment)
 
@@ -882,6 +887,7 @@ export class GirModule {
         const templateProcessor = new TemplateProcessor(
             { name: this.name, version: this.version, environment: this.environment, buildType: this.buildType },
             this.environment,
+            this.prettify,
         )
         if (outDir) {
             templateProcessor.create('module.js', outDir, `${this.name}-${this.version}.js`)
@@ -891,7 +897,7 @@ export class GirModule {
         }
     }
 
-    export(outStream: NodeJS.WritableStream): void {
+    export(outStream: NodeJS.WritableStream, outputPath: string | null): void {
         let out: string[] = []
 
         out = out.concat(TemplateProcessor.generateTSDocComment(`${this.name}-${this.version}`))
@@ -959,6 +965,7 @@ export class GirModule {
         const templateProcessor = new TemplateProcessor(
             { name: this.name, version: this.version, environment: this.environment, buildType: this.buildType },
             this.environment,
+            this.prettify,
         )
 
         // Extra interfaces
@@ -989,5 +996,9 @@ export class GirModule {
 
         // End of file
         outStream.write(out.join('\n'))
+
+        if (outputPath) {
+            templateProcessor.prettify(outputPath)
+        }
     }
 }

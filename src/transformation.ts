@@ -79,11 +79,68 @@ export const RESERVED_VARIABLE_NAMES = {
     with: 1,
     var: 1,
     class: 1,
+    delete: 1,
+    return: 1,
+}
+
+export const RESERVED_CLASS_NAMES = {
+    break: 1,
+    boolean: 1,
+    case: 1,
+    catch: 1,
+    class: 1,
+    const: 1,
+    continue: 1,
+    debugger: 1,
+    default: 1,
+    delete: 1,
+    do: 1,
+    else: 1,
+    enum: 1,
+    export: 1,
+    extends: 1,
+    false: 1,
+    finally: 1,
+    for: 1,
+    function: 1,
+    if: 1,
+    implements: 1,
+    import: 1,
+    in: 1,
+    instanceof: 1,
+    interface: 1,
+    let: 1,
+    new: 1,
+    number: 1,
+    package: 1,
+    private: 1,
+    protected: 1,
+    public: 1,
+    return: 1,
+    static: 1,
+    super: 1,
+    switch: 1,
+    string: 1,
+    this: 1,
+    throw: 1,
+    true: 1,
+    try: 1,
+    typeof: 1,
+    var: 1,
+    void: 1,
+    while: 1,
+    with: 1,
+    yield: 1,
 }
 
 export class Transformation {
+    /**
+     * Rules for the name conventions
+     * For node-gtk naming conventions see https://github.com/romgrk/node-gtk#naming-conventions
+     * For gjs see https://gjs-docs.gnome.org/ and https://wiki.gnome.org/Attic/Gjs
+     */
     private transformations: Transformations = {
-        function: {
+        functionName: {
             node: {
                 transformation: 'camelCase',
             },
@@ -91,7 +148,15 @@ export class Transformation {
                 transformation: 'none',
             },
         },
-        enum: {
+        enumName: {
+            node: {
+                transformation: 'pascalCase',
+            },
+            gjs: {
+                transformation: 'none',
+            },
+        },
+        enumValue: {
             node: {
                 transformation: 'upperCase',
             },
@@ -101,10 +166,19 @@ export class Transformation {
         },
         signalName: {
             node: {
-                transformation: 'none',
+                transformation: 'paramCase',
             },
             gjs: {
                 transformation: 'none',
+            },
+        },
+        // GJS always re-writes - to _ (I think?)
+        variableName: {
+            node: {
+                transformation: 'camelCase',
+            },
+            gjs: {
+                transformation: 'snakeCase',
             },
         },
     }
@@ -115,20 +189,41 @@ export class Transformation {
         //
     }
 
+    public transformClassName(name: string): string {
+        name = this.transformNumericName(name)
+
+        if (RESERVED_CLASS_NAMES[name]) {
+            name = `${name}_`
+        }
+
+        return name
+    }
+
+    public transformEnumName(name: string): string {
+        name = this.transform('enumName', name)
+        // Replace this if enums need special handling
+        return this.transformClassName(name)
+    }
+
+    public transformFunctionName(name: string): string {
+        name = this.transform('functionName', name)
+        // Replace this if enums need special handling
+        return this.transformClassName(name)
+    }
+
+    /**
+     * E.g. GstVideo-1.0 has a class `VideoScaler` with a method called `2d`
+     * or NetworkManager-1.0 has methods starting with `80211`
+     */
     public transformVariableName(name: string, allowQuotes: boolean): string {
-        // GJS always re-writes - to _ (I think?)
-        name = name.replace(/-/g, '_')
+        name = this.transform('variableName', name)
 
         if (RESERVED_VARIABLE_NAMES[name]) {
             if (allowQuotes) return `"${name}"`
             else return `${name}_`
         }
 
-        // TODO how does gjs and node-gtk do that?
-        if (Utils.isFirstCharNumeric(name)) {
-            if (allowQuotes) return `"${name}"`
-            else return `_${name}`
-        }
+        name = this.transformNumericName(name, allowQuotes)
 
         return name
     }
@@ -145,17 +240,13 @@ export class Transformation {
      * Fixes type names, e.g. Return types or enum definitions can not start with numbers
      * @param typeName
      */
-    public transformTypeName(typeName: string): string {
-        let nameChanges = false
-        // TODO how does gjs and node-gtk do that?
-        if (Utils.isFirstCharNumeric(typeName)) {
-            typeName = '_' + typeName
-            nameChanges = true
+    public transformTypeName(name: string): string {
+        const originalName = `${name}`
+        name = this.transformNumericName(name)
+        if (originalName !== name) {
+            this.log.warn(`Type name changed to ${name}`)
         }
-        if (nameChanges) {
-            this.log.warn(`Name changed to ${typeName}`)
-        }
-        return typeName
+        return name
     }
 
     public transform(construct: Construct, transformMe: string): string {
@@ -170,6 +261,21 @@ export class Transformation {
             return transformMe.toLowerCase()
         }
         return changeCase[transformations](transformMe)
+    }
+
+    /**
+     * In JavaScript there can be no variables, methods, class names or enum names that start with a number.
+     * This method converts such names.
+     * TODO ala prepends an `@` to numeric starting names how does gjs and node-gtk do that?
+     * @param name
+     * @param allowQuotes
+     */
+    private transformNumericName(name: string, allowQuotes = false): string {
+        if (Utils.isFirstCharNumeric(name)) {
+            if (allowQuotes) name = `"${name}"`
+            else name = `TODO_${name}`
+        }
+        return name
     }
 
     static getEnvironmentDir(environment: Environment, baseDir: string): string {

@@ -454,8 +454,8 @@ export class GirModule {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
 
         let name = e.$.name
-        // E.g. the NetworkManager-1.0 has names starting with 80211
-        name = this.transformation.transformTypeName(name)
+        // E.g. the NetworkManager-1.0 has enum names starting with 80211
+        name = this.transformation.transformEnumName(name)
 
         def.push(`export enum ${name} {`)
         if (e.member) {
@@ -464,8 +464,7 @@ export class GirModule {
                 if (!_name) {
                     continue
                 }
-                const name = this.transformation.transform('enum', _name)
-                member.$.name
+                const name = this.transformation.transform('enumValue', _name)
                 if (/\d/.test(name[0])) def.push(`    /* ${name} (invalid, starts with a number) */`)
                 else def.push(`    ${name},`)
             }
@@ -476,7 +475,9 @@ export class GirModule {
 
     exportConstant(e: GirVariable): string[] {
         const [varDesc, varName] = this.getVariable(e)
-        if (varName) return [`export const ${varDesc}`]
+        if (varName) {
+            return [`export const ${varDesc}`]
+        }
         return []
     }
 
@@ -512,7 +513,7 @@ export class GirModule {
         }
 
         // Function name transformation by environment
-        name = this.transformation.transform('function', name)
+        name = this.transformation.transformFunctionName(name)
 
         if (reservedWords[name]) return [[`/* Function '${name}' is a reserved word */`], null]
 
@@ -664,7 +665,7 @@ export class GirModule {
     }
 
     private exportObjectInternal(e: GirClass | GirClass): string[] {
-        const name = e.$.name
+        const name = this.transformation.transformClassName(e.$.name)
         let def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(e)
 

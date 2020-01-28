@@ -188,6 +188,14 @@ export class Transformation {
                 transformation: 'underscores',
             },
         },
+        parameterName: {
+            node: {
+                transformation: 'lowerCamelCase',
+            },
+            gjs: {
+                transformation: 'underscores',
+            },
+        },
         fieldName: {
             node: {
                 transformation: 'lowerCamelCase',
@@ -300,6 +308,7 @@ export class Transformation {
         if (name === '...') {
             return '...args'
         }
+        name = this.transform('parameterName', name)
         if (RESERVED_VARIABLE_NAMES[name]) {
             if (allowQuotes) return `"${name}"`
             else return `${name}_`

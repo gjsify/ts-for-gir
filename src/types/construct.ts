@@ -5,5 +5,6 @@ export type Construct =
     | 'fieldName'
     | 'constantName'
     | 'propertyName'
+    | 'parameterName'
     | 'enumName'
     | 'namespaceName'

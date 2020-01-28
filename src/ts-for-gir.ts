@@ -229,11 +229,11 @@ export class TsForGir {
             )
         }
 
-        const traverseDependencies = (name: string | null, result): void => {
-            if (!name) {
+        const traverseDependencies = (fullName: string | null, result): void => {
+            if (!fullName) {
                 return
             }
-            const deps = modDependencyMap[name]
+            const deps = modDependencyMap[fullName]
             if (Utils.isIterable(deps)) {
                 for (const dep of deps) {
                     if (result[dep.fullname]) continue
@@ -241,13 +241,13 @@ export class TsForGir {
                     traverseDependencies(dep.fullname, result)
                 }
             } else {
-                // this.log.warn('`deps` is not iterable: ', deps, name, modDependencyMap)
+                // this.log.warn('`deps` is not iterable: ', deps, fullName, modDependencyMap)
             }
         }
 
         for (const girModule of lodash.values(girModules)) {
             const result = {}
-            traverseDependencies(`${girModule.name}-${girModule.version}`, result)
+            traverseDependencies(`girModule.fullName`, result)
             girModule.transitiveDependencies = Object.keys(result)
         }
 
@@ -273,17 +273,16 @@ export class TsForGir {
             let dtOutf: NodeJS.WritableStream = process.stdout
             let dtOutputPath: string | null = null
             if (outDir) {
-                const name: string = girModules[k].name || 'unknown'
-                const version: string = girModules[k].version || 'unknown'
+                const fullName: string = girModules[k].fullName || 'unknown'
                 const OutputDir = Transformation.getEnvironmentDir(environment, outDir)
-                const dtFileName = `${name}-${version}.d.ts`
+                const dtFileName = `${fullName}.d.ts`
                 dtOutputPath = Path.join(OutputDir, dtFileName)
                 fs.mkdirSync(OutputDir, { recursive: true })
                 dtOutf = fs.createWriteStream(dtOutputPath)
             }
             this.log.log(` - ${k} ...`)
             girModules[k].patch = patch
-            girModules[k].export(dtOutf, dtOutputPath)
+            girModules[k].export(dtOutf, dtOutputPath, girDirectory)
             if (buildType === 'lib') {
                 girModules[k].exportJs(outDir)
             }

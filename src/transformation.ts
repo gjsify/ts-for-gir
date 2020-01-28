@@ -54,6 +54,11 @@ export const C_TYPE_MAP = (targetNamespaceName: string | null, suffix: TypeSuffi
     }
 }
 
+export const NAME_TO_NAMESPACES = {
+    GObject: 'GObject_2_0',
+    GLib: 'GLib_2_0',
+}
+
 export const FULL_TYPE_MAP = (
     environment: Environment,
 ): { 'GObject_2_0.Value': string; 'GObject_2_0.Closure': string; 'GLib.ByteArray': string; 'GLib.Bytes': string } => {

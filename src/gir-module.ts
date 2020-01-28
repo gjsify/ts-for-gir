@@ -1,6 +1,15 @@
 import lodash from 'lodash'
+import Path from 'path'
+import fs from 'fs'
 import TemplateProcessor from './template-processor'
-import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
+import {
+    Transformation,
+    C_TYPE_MAP,
+    FULL_TYPE_MAP,
+    POD_TYPE_MAP,
+    POD_TYPE_MAP_ARRAY,
+    NAME_TO_NAMESPACES,
+} from './transformation'
 import { Logger } from './logger'
 
 import {
@@ -271,24 +280,26 @@ export class GirModule {
 
         let fullTypeName: string | null = type.$.name
 
-        if (fullTypeName && FULL_TYPE_MAP(this.environment)[fullTypeName]) {
-            return FULL_TYPE_MAP(this.environment)[fullTypeName]
+        if (typeof fullTypeName === 'string') {
+            if (FULL_TYPE_MAP(this.environment)[fullTypeName]) {
+                return FULL_TYPE_MAP(this.environment)[fullTypeName]
+            }
+
+            // Fully qualify our type name if need be
+            if (fullTypeName.indexOf('.') <= 0) {
+                // eslint-disable-next-line @typescript-eslint/no-this-alias
+                let mod: GirModule = this
+                if (e._module) mod = e._module
+                fullTypeName = `${mod.namespaceName}.${type.$.name}`
+            }
         }
 
-        // Fully qualify our type name if need be
-        if (fullTypeName && fullTypeName.indexOf('.') < 0) {
-            // eslint-disable-next-line @typescript-eslint/no-this-alias
-            let mod: GirModule = this
-            if (e._module) mod = e._module
-            fullTypeName = `${mod.namespaceName}.${type.$.name}`
-        }
-
-        if (!fullTypeName || this.symTable[fullTypeName] == null) {
+        if (!fullTypeName || this.symTable[fullTypeName] === null) {
             this.log.warn(`Could not find type ${fullTypeName} for ${e.$.name}`)
             return ('any' + arr) as 'any' | 'any[]'
         }
 
-        if (fullTypeName.indexOf(this.namespaceName + '.') == 0) {
+        if (fullTypeName.indexOf(this.namespaceName + '.') === 0) {
             const ret = fullTypeName.substring(this.namespaceName.length + 1)
             // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.namespaceName} -- ${e._module}`)
             if (fullTypeName == 'Gio.ApplicationFlags') {
@@ -296,6 +307,14 @@ export class GirModule {
             }
             const result = ret + suffix
             return result
+        }
+
+        if (fullTypeName.indexOf('.') > 0) {
+            const namePath = fullTypeName.split('.')
+            if (namePath && namePath[0] && NAME_TO_NAMESPACES[namePath[0]]) {
+                namePath[0] = NAME_TO_NAMESPACES[namePath[0]]
+                fullTypeName = namePath.join('.')
+            }
         }
 
         return fullTypeName + suffix
@@ -924,7 +943,7 @@ export class GirModule {
         }
     }
 
-    export(outStream: NodeJS.WritableStream, outputPath: string | null): void {
+    export(outStream: NodeJS.WritableStream, outputPath: string | null, girDirectory: string): void {
         let out: string[] = []
 
         out = out.concat(TemplateProcessor.generateTSDocComment(`${this.fullName}`))
@@ -959,14 +978,22 @@ export class GirModule {
         for (const dep of deps) {
             // Don't reference yourself as a dependency
             if (this.fullName !== dep) {
-                out = out.concat(
-                    TemplateProcessor.generateModuleDependenciesImport(
-                        this.environment,
-                        this.buildType,
-                        this.transformation.transformModuleNamespaceName(dep),
-                        dep,
-                    ),
-                )
+                const girFilename = `${dep}.gir`
+                const filePath = Path.join(girDirectory, girFilename)
+                const depFileExists = fs.existsSync(filePath)
+                if (depFileExists) {
+                    out = out.concat(
+                        TemplateProcessor.generateModuleDependenciesImport(
+                            this.environment,
+                            this.buildType,
+                            this.transformation.transformModuleNamespaceName(dep),
+                            dep,
+                        ),
+                    )
+                } else {
+                    out = out.concat(`// WARN: Dependency not found: 'girFilename'`)
+                    this.log.warn(`Dependency gir file not found: '${filePath}'`)
+                }
             }
         }
 

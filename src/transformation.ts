@@ -1,4 +1,3 @@
-import * as changeCase from 'change-case'
 import { Transformations, Environment, Construct, TypeSuffix, CTypeMap, GType } from './types'
 import Path from 'path'
 import { Utils } from './utils'
@@ -133,6 +132,12 @@ export const RESERVED_CLASS_NAMES = {
     yield: 1,
 }
 
+export const RESERVED_FUNCTION_NAMES = {
+    false: 1,
+    true: 1,
+    break: 1,
+}
+
 export const RESERVED_NAMESPACE_NAMES = {}
 
 export class Transformation {
@@ -144,7 +149,7 @@ export class Transformation {
     private transformations: Transformations = {
         functionName: {
             node: {
-                transformation: 'camelCase',
+                transformation: 'lowerCamelCase',
             },
             gjs: {
                 transformation: 'none',
@@ -152,7 +157,7 @@ export class Transformation {
         },
         enumName: {
             node: {
-                transformation: 'pascalCase',
+                transformation: 'none',
             },
             gjs: {
                 transformation: 'none',
@@ -168,27 +173,43 @@ export class Transformation {
         },
         signalName: {
             node: {
-                transformation: 'paramCase',
+                transformation: 'none',
             },
             gjs: {
                 transformation: 'none',
             },
         },
         // GJS always re-writes - to _ (I think?)
-        variableName: {
+        propertyName: {
             node: {
-                transformation: 'camelCase',
+                transformation: 'lowerCamelCase',
             },
             gjs: {
                 transformation: 'underscores',
             },
         },
-        namespaceName: {
+        fieldName: {
             node: {
-                transformation: 'pascalCase',
+                transformation: 'lowerCamelCase',
             },
             gjs: {
-                transformation: 'pascalCase',
+                transformation: 'underscores',
+            },
+        },
+        constantName: {
+            node: {
+                transformation: 'none',
+            },
+            gjs: {
+                transformation: 'none',
+            },
+        },
+        namespaceName: {
+            node: {
+                transformation: 'upperCamelCase',
+            },
+            gjs: {
+                transformation: 'upperCamelCase',
             },
         },
     }
@@ -238,8 +259,8 @@ export class Transformation {
      * E.g. GstVideo-1.0 has a class `VideoScaler` with a method called `2d`
      * or NetworkManager-1.0 has methods starting with `80211`
      */
-    public transformVariableName(name: string, allowQuotes: boolean): string {
-        name = this.transform('variableName', name)
+    public transformPropertyName(name: string, allowQuotes: boolean): string {
+        name = this.transform('propertyName', name)
 
         if (RESERVED_VARIABLE_NAMES[name]) {
             if (allowQuotes) return `"${name}"`
@@ -247,7 +268,30 @@ export class Transformation {
         }
 
         name = this.transformNumericName(name, allowQuotes)
+        return name
+    }
 
+    public transformConstantName(name: string, allowQuotes: boolean): string {
+        name = this.transform('constantName', name)
+
+        if (RESERVED_VARIABLE_NAMES[name]) {
+            if (allowQuotes) return `"${name}"`
+            else return `${name}_`
+        }
+
+        name = this.transformNumericName(name, allowQuotes)
+        return name
+    }
+
+    public transformFieldName(name: string, allowQuotes: boolean): string {
+        name = this.transform('fieldName', name)
+
+        if (RESERVED_VARIABLE_NAMES[name]) {
+            if (allowQuotes) return `"${name}"`
+            else return `${name}_`
+        }
+
+        name = this.transformNumericName(name, allowQuotes)
         return name
     }
 
@@ -256,7 +300,13 @@ export class Transformation {
         if (name === '...') {
             return '...args'
         }
-        return this.transformVariableName(name, allowQuotes)
+        if (RESERVED_VARIABLE_NAMES[name]) {
+            if (allowQuotes) return `"${name}"`
+            else return `${name}_`
+        }
+
+        name = this.transformNumericName(name, allowQuotes)
+        return name
     }
 
     /**
@@ -277,6 +327,13 @@ export class Transformation {
         if (transformations === 'none') {
             return transformMe
         }
+
+        if (transformations === 'lowerCamelCase') {
+            return Utils.lowerCamelCase(transformMe)
+        }
+        if (transformations === 'upperCamelCase') {
+            return Utils.upperCamelCase(transformMe)
+        }
         if (transformations === 'upperCase') {
             return transformMe.toUpperCase()
         }
@@ -286,7 +343,7 @@ export class Transformation {
         if (transformations === 'underscores') {
             return transformMe.replace(/-|_/g, '_')
         }
-        return changeCase[transformations](transformMe)
+        return transformMe
     }
 
     /**

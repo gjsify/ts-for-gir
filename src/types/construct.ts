@@ -1,1 +1,9 @@
-export type Construct = 'functionName' | 'enumValue' | 'signalName' | 'variableName' | 'enumName' | 'namespaceName'
+export type Construct =
+    | 'functionName'
+    | 'enumValue'
+    | 'signalName'
+    | 'fieldName'
+    | 'constantName'
+    | 'propertyName'
+    | 'enumName'
+    | 'namespaceName'

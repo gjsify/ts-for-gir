@@ -2,7 +2,14 @@ import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 import TemplateProcessor from './template-processor'
-import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
+import {
+    Transformation,
+    C_TYPE_MAP,
+    FULL_TYPE_MAP,
+    POD_TYPE_MAP,
+    POD_TYPE_MAP_ARRAY,
+    RESERVED_FUNCTION_NAMES,
+} from './transformation'
 import { Logger } from './logger'
 
 import {
@@ -85,6 +92,7 @@ export class GirModule {
                     const symName = `${this.name}.${x.$.name}`
                     if (dict[symName]) {
                         this.log.warn(`Duplicate symbol: ${symName}`)
+                        debugger
                     }
 
                     x._module = this
@@ -291,16 +299,16 @@ export class GirModule {
         }
 
         if (!fullTypeName || !this.symTable[fullTypeName]) {
-            this.log.warn(`Could not find type ${fullTypeName} for ${e.$.name}`)
+            this.log.warn(`[${this.environment}][${this.fullName}] Could not find type ${fullTypeName} for ${e.$.name}`)
             return ('any' + arr) as 'any' | 'any[]'
         }
 
         if (fullTypeName.indexOf(this.name + '.') === 0) {
             const ret = fullTypeName.substring(this.name.length + 1)
             // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${e._module}`)
-            if (fullTypeName == 'Gio.ApplicationFlags') {
-                debugger
-            }
+            // if (fullTypeName === 'Gio.ApplicationFlags') {
+            //     debugger
+            // }
             const result = ret + suffix
             return result
         }
@@ -427,11 +435,28 @@ export class GirModule {
         return [def.join(', '), outParams]
     }
 
-    private getVariable(v: GirVariable, optional = false, allowQuotes = false): [string[], string | null] {
+    private getVariable(
+        v: GirVariable,
+        optional = false,
+        allowQuotes = false,
+        type: 'property' | 'constant' | 'field',
+    ): [string[], string | null] {
         if (!v.$.name) return [[], null]
         if (!v || !v.$ || !this.girBool(v.$.introspectable, true) || this.girBool(v.$.private)) return [[], null]
 
-        const name = this.transformation.transformVariableName(v.$.name, allowQuotes)
+        let name = v.$.name
+
+        switch (type) {
+            case 'property':
+                name = this.transformation.transformPropertyName(v.$.name, allowQuotes)
+                break
+            case 'constant':
+                name = this.transformation.transformConstantName(v.$.name, allowQuotes)
+                break
+            case 'field':
+                name = this.transformation.transformFieldName(v.$.name, allowQuotes)
+                break
+        }
         let typeName = this.typeLookupTransformed(v)
         const nameSuffix = optional ? '?' : ''
 
@@ -446,7 +471,7 @@ export class GirModule {
         if (this.girBool(v.$.private)) return [[], null, null]
 
         const propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
-        const [propDesc, propName] = this.getVariable(v, construct, true)
+        const [propDesc, propName] = this.getVariable(v, construct, true, 'property')
         let origName: string | null = null
 
         if (!propName) return [[], null, null]
@@ -485,7 +510,7 @@ export class GirModule {
     }
 
     exportConstant(e: GirVariable): string[] {
-        const [varDesc, varName] = this.getVariable(e)
+        const [varDesc, varName] = this.getVariable(e, false, false, 'constant')
         if (varName) {
             return [`export const ${varDesc}`]
         }
@@ -501,8 +526,9 @@ export class GirModule {
 
         const patch = e._fullSymName ? this.patch[e._fullSymName] : []
         let name = e.$.name
-        const [_retType, outArrayLengthIndex] = this.getReturnType(e)
-        let retType = _retType
+        // eslint-disable-next-line prefer-const
+        let [retType, outArrayLengthIndex] = this.getReturnType(e)
+
         const [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
 
         if (e.$['shadows']) {
@@ -511,26 +537,20 @@ export class GirModule {
 
         if (funcNamePrefix) name = funcNamePrefix + name
 
-        if (e._fullSymName == 'Gtk.Container.child_notify') {
-            // debugger
-        }
+        // if (e._fullSymName == 'Gtk.Container.child_notify') {
+        //     debugger
+        // }
 
         if (patch && patch.length === 1) return [patch, null]
-
-        const reservedWords = {
-            false: 1,
-            true: 1,
-            break: 1,
-        }
 
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
 
-        if (reservedWords[name]) return [[`/* Function '${name}' is a reserved word */`], null]
+        if (RESERVED_FUNCTION_NAMES[name]) return [[`/* Function '${name}' is a reserved word */`], null]
 
         if (patch && patch.length === 2) return [[`${prefix}${funcNamePrefix}${patch[patch.length - 1]}`], name]
 
-        const retTypeIsVoid = retType == 'void'
+        const retTypeIsVoid = retType === 'void'
         if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
             if (!retTypeIsVoid) {
                 outParams.unshift(`/* returnType */ ${retType}`)
@@ -764,7 +784,7 @@ export class GirModule {
             if (cls.field) {
                 def.push(`    /* Fields of ${cls._fullSymName} */`)
                 for (const f of cls.field) {
-                    const [desc, name] = this.getVariable(f, false, false)
+                    const [desc, name] = this.getVariable(f, false, false, 'field')
 
                     const [aDesc, added] = checkName(desc, name, localNames)
                     if (added) {
@@ -837,9 +857,7 @@ export class GirModule {
         } else {
             const constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
             if (constructor_) {
-                if (!Array.isArray(constructor_)) {
-                    // debugger
-                } else {
+                if (Array.isArray(constructor_)) {
                     for (const f of constructor_) {
                         const [desc, funcName] = this.getConstructorFunction(name, f, '    static ')
                         if (!funcName) continue
@@ -852,6 +870,9 @@ export class GirModule {
                         def = def.concat(jsStyleCtor)
                     }
                 }
+                // else {
+                //     debugger
+                // }
             }
         }
 
@@ -860,11 +881,7 @@ export class GirModule {
 
         const constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
         if (constructor_) {
-            if (!Array.isArray(constructor_)) {
-                // this.log.warn('Warn: constructor_ is not an array:')
-                // this.log.dir(constructor_)
-                // debugger
-            } else {
+            if (Array.isArray(constructor_)) {
                 for (const f of constructor_) {
                     const [desc, funcName] = this.getConstructorFunction(name, f, '    static ')
                     if (!funcName) continue
@@ -872,6 +889,11 @@ export class GirModule {
                     stc = stc.concat(desc)
                 }
             }
+            // else {
+            //     this.log.warn('Warn: constructor_ is not an array:')
+            //     this.log.dir(constructor_)
+            //     debugger
+            // }
         }
 
         if (e.function) {

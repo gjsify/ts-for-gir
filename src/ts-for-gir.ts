@@ -44,33 +44,74 @@ export class TsForGir {
             }
         }
 
+        // Remove duplicates
+        if (foundModules.has('ColorHug-1.0') && foundModules.has('Colorhug-1.0')) {
+            foundModules.delete('ColorHug-1.0')
+        }
+
         return foundModules
     }
     exportGjs(outDir: string | null, girModules: { [key: string]: GirModule }, buildType: BuildType): void {
         if (!outDir) return
 
-        const girModuleKeys = lodash.keys(girModules).map(key => key.split('-')[0])
+        const girModuleKeys = Object.keys(girModules).map(key => key.split('-')[0])
+
+        /**
+         * Gir modules grouped by name for each version
+         */
+        const girModGrouped: { [key: string]: { modules: Set<GirModule>; name: string; types: string } } = {}
+
+        // Groupe gir modules by name for each version
+        for (const fullName of Object.keys(girModules)) {
+            const girModule = girModules[fullName]
+            if (!girModule.name) {
+                continue
+            }
+            if (!girModGrouped[girModule.name]) {
+                girModGrouped[girModule.name] = {
+                    modules: new Set<GirModule>().add(girModule),
+                    name: girModule.name,
+                    types: '',
+                }
+            } else {
+                girModGrouped[girModule.name].modules.add(girModule)
+            }
+        }
+
+        for (const name in girModGrouped) {
+            const girModule = girModGrouped[name]
+            for (const moduleVersions of girModule.modules) {
+                if (girModule.types === '') {
+                    girModule.types = `typeof ${moduleVersions.namespaceName}`
+                } else {
+                    girModule.types = `${girModule.types} | typeof ${moduleVersions.namespaceName}`
+                }
+            }
+        }
+
         const templateProcessor = new TemplateProcessor(
-            { girModules: girModules, girModuleKeys, environment: 'Gjs' as Environment, buildType },
+            { girModules: girModules, girModuleKeys, girModGrouped, environment: 'Gjs' as Environment, buildType },
             'gjs',
             this.prettify,
         )
 
-        // Types
-        templateProcessor.create('Gjs.d.ts', outDir, 'Gjs.d.ts')
-        templateProcessor.create('index.d.ts', outDir, 'index.d.ts')
+        if (outDir) {
+            // Types
+            templateProcessor.create('Gjs.d.ts', outDir, 'Gjs.d.ts')
+            templateProcessor.create('index.d.ts', outDir, 'index.d.ts')
 
-        // Lib
-        if (buildType === 'lib') {
-            templateProcessor.create('index.js', outDir, 'index.js')
-            templateProcessor.create('Gjs.js', outDir, 'Gjs.js')
+            // Lib
+            if (buildType === 'lib') {
+                templateProcessor.create('index.js', outDir, 'index.js')
+                templateProcessor.create('Gjs.js', outDir, 'Gjs.js')
+            }
         }
     }
 
     exportGjsCastLib(outDir: string | null, inheritanceTable: InheritanceTable, buildType: BuildType): void {
         if (!outDir) return
 
-        const inheritanceTableKeys = lodash.keys(inheritanceTable)
+        const inheritanceTableKeys = Object.keys(inheritanceTable)
         const templateProcessor = new TemplateProcessor(
             { inheritanceTableKeys, inheritanceTable, buildType },
             'gjs',
@@ -95,7 +136,7 @@ export class TsForGir {
     }
 
     finaliseInheritance(inheritanceTable: InheritanceTable): void {
-        for (const clsName of lodash.keys(inheritanceTable)) {
+        for (const clsName of Object.keys(inheritanceTable)) {
             let p: string | string[] = inheritanceTable[clsName][0]
             while (p) {
                 p = inheritanceTable[p]
@@ -207,7 +248,7 @@ export class TsForGir {
         for (const girModule of lodash.values(girModules)) {
             const result = {}
             traverseDependencies(`${girModule.name}-${girModule.version}`, result)
-            girModule.transitiveDependencies = lodash.keys(result)
+            girModule.transitiveDependencies = Object.keys(result)
         }
 
         const patch = {
@@ -228,7 +269,7 @@ export class TsForGir {
 
         this.log.info('Types loaded, generating .d.ts...')
 
-        for (const k of lodash.keys(girModules)) {
+        for (const k of Object.keys(girModules)) {
             let dtOutf: NodeJS.WritableStream = process.stdout
             let dtOutputPath: string | null = null
             if (outDir) {

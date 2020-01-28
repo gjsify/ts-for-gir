@@ -45,21 +45,21 @@ export const POD_TYPE_MAP = {
     va_list: 'any',
 }
 
-export const C_TYPE_MAP = (targetModName: string | null, suffix: TypeSuffix): CTypeMap => {
+export const C_TYPE_MAP = (targetNamespaceName: string | null, suffix: TypeSuffix): CTypeMap => {
     return {
         'char*': 'string',
         'gchar*': 'string',
         'gchar**': 'any', // FIXME
-        GType: ((targetModName == 'GObject' ? 'Type' : 'GObject.Type') + suffix) as GType,
+        GType: ((targetNamespaceName == 'GObject_2_0' ? 'Type' : 'GObject_2_0.Type') + suffix) as GType,
     }
 }
 
 export const FULL_TYPE_MAP = (
     environment: Environment,
-): { 'GObject.Value': string; 'GObject.Closure': string; 'GLib.ByteArray': string; 'GLib.Bytes': string } => {
+): { 'GObject_2_0.Value': string; 'GObject_2_0.Closure': string; 'GLib.ByteArray': string; 'GLib.Bytes': string } => {
     return {
-        'GObject.Value': 'any',
-        'GObject.Closure': 'Function',
+        'GObject_2_0.Value': 'any',
+        'GObject_2_0.Closure': 'Function',
         'GLib.ByteArray': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
         'GLib.Bytes': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
     }
@@ -133,6 +133,8 @@ export const RESERVED_CLASS_NAMES = {
     yield: 1,
 }
 
+export const RESERVED_NAMESPACE_NAMES = {}
+
 export class Transformation {
     /**
      * Rules for the name conventions
@@ -178,7 +180,15 @@ export class Transformation {
                 transformation: 'camelCase',
             },
             gjs: {
-                transformation: 'snakeCase',
+                transformation: 'underscores',
+            },
+        },
+        namespaceName: {
+            node: {
+                transformation: 'pascalCase',
+            },
+            gjs: {
+                transformation: 'pascalCase',
             },
         },
     }
@@ -187,6 +197,19 @@ export class Transformation {
 
     constructor(private readonly environment: Environment) {
         //
+    }
+
+    public transformModuleNamespaceName(name: string): string {
+        // name = name.split('-')[0]
+        name = this.transformNumericName(name)
+
+        name = this.transform('namespaceName', name)
+
+        if (RESERVED_NAMESPACE_NAMES[name]) {
+            name = `${name}_`
+        }
+
+        return name
     }
 
     public transformClassName(name: string): string {
@@ -259,6 +282,9 @@ export class Transformation {
         }
         if (transformations === 'lowerCase') {
             return transformMe.toLowerCase()
+        }
+        if (transformations === 'underscores') {
+            return transformMe.replace(/-|_/g, '_')
         }
         return changeCase[transformations](transformMe)
     }

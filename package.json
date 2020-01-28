@@ -11,7 +11,7 @@
     "prepublish": "npm run lint && npm run regress && npm run test && npm run build",
     "test:ava": "npm run build:ts && npm run build:test:ava && ava tmp/test/test.js",
     "test:girs": "npm run build:ts && npm run build:test:ava && ava tmp/test/test.js",
-    "regress": "npm run build:ts && node bin/run generate Gtk-3.0 Soup-2.4 GtkSource-3.0 WebKit2-4.0 AppIndicator3-0.1 Gda-5.0 Notify-0.7 --prettify=true && npm run validate",
+    "regress": "npm run clear && npm run build:ts && node bin/run generate Gtk-3.0 Soup-2.4 GtkSource-3.0 WebKit2-4.0 AppIndicator3-0.1 Gda-5.0 Notify-0.7 --prettify=true && npm run validate",
     "build": "npm run clear:build && npm run build:ts",
     "build:ts": "tsc",
     "build:test:girs": "rm -rf ./test/girs/@types/Gjs && ts-for-gir generate '*' -e gjs -g ./test/girs/vala-girs/gir-1.0 -o ./test/girs/@types --prettify && NODE_OPTIONS=\"--max-old-space-size=4096\" tsc --noEmit ./test/girs/@types/Gjs/*.ts",

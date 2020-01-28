@@ -45,26 +45,21 @@ export const POD_TYPE_MAP = {
     va_list: 'any',
 }
 
-export const C_TYPE_MAP = (targetNamespaceName: string | null, suffix: TypeSuffix): CTypeMap => {
+export const C_TYPE_MAP = (targetFullName: string | null, suffix: TypeSuffix): CTypeMap => {
     return {
         'char*': 'string',
         'gchar*': 'string',
         'gchar**': 'any', // FIXME
-        GType: ((targetNamespaceName == 'GObject_2_0' ? 'Type' : 'GObject_2_0.Type') + suffix) as GType,
+        GType: ((targetFullName === 'GObject-2.0' ? 'Type' : 'GObject.Type') + suffix) as GType,
     }
-}
-
-export const NAME_TO_NAMESPACES = {
-    GObject: 'GObject_2_0',
-    GLib: 'GLib_2_0',
 }
 
 export const FULL_TYPE_MAP = (
     environment: Environment,
-): { 'GObject_2_0.Value': string; 'GObject_2_0.Closure': string; 'GLib.ByteArray': string; 'GLib.Bytes': string } => {
+): { 'GObject.Value': string; 'GObject.Closure': string; 'GLib.ByteArray': string; 'GLib.Bytes': string } => {
     return {
-        'GObject_2_0.Value': 'any',
-        'GObject_2_0.Closure': 'Function',
+        'GObject.Value': 'any',
+        'GObject.Closure': 'Function',
         'GLib.ByteArray': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
         'GLib.Bytes': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
     }

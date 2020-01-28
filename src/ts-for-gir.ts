@@ -247,7 +247,7 @@ export class TsForGir {
 
         for (const girModule of lodash.values(girModules)) {
             const result = {}
-            traverseDependencies(`girModule.fullName`, result)
+            traverseDependencies(girModule.fullName, result)
             girModule.transitiveDependencies = Object.keys(result)
         }
 

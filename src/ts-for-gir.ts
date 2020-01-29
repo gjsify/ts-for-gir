@@ -27,6 +27,7 @@ export class TsForGir {
     constructor(verbose: boolean, private prettify: boolean) {
         this.log = Logger.getInstance(verbose)
     }
+
     /**
      * Adds the possibility to use wild cards for module names. E.g. `Gtk*` or `'*'`
      * @param girDirectory
@@ -43,52 +44,14 @@ export class TsForGir {
                 globModules.forEach(module => foundModules.add(module))
             }
         }
-
-        // Remove duplicates
-        if (foundModules.has('ColorHug-1.0') && foundModules.has('Colorhug-1.0')) {
-            foundModules.delete('ColorHug-1.0')
-        }
-
         return foundModules
     }
+
     exportGjs(outDir: string | null, girModules: { [key: string]: GirModule }, buildType: BuildType): void {
         if (!outDir) return
 
-        /**
-         * Gir modules grouped by name for each version
-         */
-        const girModGrouped: { [key: string]: { modules: Set<GirModule>; name: string; types: string } } = {}
-
-        // Groupe gir modules by name for each version
-        for (const fullName of Object.keys(girModules)) {
-            const girModule = girModules[fullName]
-            if (!girModule.name) {
-                continue
-            }
-            if (!girModGrouped[girModule.name]) {
-                girModGrouped[girModule.name] = {
-                    modules: new Set<GirModule>().add(girModule),
-                    name: girModule.name,
-                    types: '',
-                }
-            } else {
-                girModGrouped[girModule.name].modules.add(girModule)
-            }
-        }
-
-        for (const name in girModGrouped) {
-            const girModule = girModGrouped[name]
-            for (const moduleVersions of girModule.modules) {
-                if (girModule.types === '') {
-                    girModule.types = `typeof ${moduleVersions.namespaceName}`
-                } else {
-                    girModule.types = `${girModule.types} | typeof ${moduleVersions.namespaceName}`
-                }
-            }
-        }
-
         const templateProcessor = new TemplateProcessor(
-            { girModules: girModules, girModGrouped, environment: 'Gjs' as Environment, buildType },
+            { girModules: girModules, environment: 'Gjs' as Environment, buildType },
             'gjs',
             this.prettify,
         )

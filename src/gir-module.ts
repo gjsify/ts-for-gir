@@ -95,11 +95,6 @@ export class GirModule {
                         const symName = `${this.name}.${girConstruct.$.name}`
                         if (dict[symName]) {
                             this.log.warn(`Duplicate symbol: ${symName}`)
-                            if (dict[symName]?._module?.version === girConstruct._module?.version) {
-                                this.log.warn(
-                                    `Duplicate symbol: '${symName}' in version '${girConstruct._module?.version}'`,
-                                )
-                            }
                             debugger
                         }
 
@@ -318,13 +313,6 @@ export class GirModule {
         if (!fullTypeName || !this.symTable[fullTypeName]) {
             this.log.warn(
                 `[${this.environment}][${this.fullName}] Could not find type '${fullTypeName}' for '${girVar.$.name}'`,
-            )
-            return ('any' + arr) as 'any' | 'any[]'
-        }
-
-        if (fullTypeName && this.symTable[fullTypeName]?._module?.version !== girVar._module?.version) {
-            this.log.warn(
-                `[${this.environment}][${this.fullName}] Could not find type '${fullTypeName}' for '${girVar.$.name}' in version '${girVar._module?.version}'`,
             )
             return ('any' + arr) as 'any' | 'any[]'
         }
@@ -657,7 +645,7 @@ export class GirModule {
     private traverseInheritanceTree(girClass: GirClass, callback: (cls: GirClass) => void): void {
         if (!girClass || !girClass.$) return
 
-        let parent: GirClass | null = null
+        const parent: GirClass | null = null
         // const parentModule: GirModule | undefined = undefined
 
         const mod: GirModule = girClass._module ? girClass._module : this
@@ -682,10 +670,6 @@ export class GirModule {
 
             if (!parentPtr && origParentName == 'Object') {
                 parentPtr = (this.symTable['GObject.Object'] as GirClass | null) || null
-            }
-
-            if (parentPtr && parentPtr._module?.version === girClass._module?.version) {
-                parent = parentPtr
             }
         }
 

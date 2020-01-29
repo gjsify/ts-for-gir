@@ -8,7 +8,7 @@ import {
     FULL_TYPE_MAP,
     POD_TYPE_MAP,
     POD_TYPE_MAP_ARRAY,
-    RESERVED_FUNCTION_NAMES,
+    // RESERVED_FUNCTION_NAMES,
 } from './transformation'
 import { Logger } from './logger'
 
@@ -31,7 +31,6 @@ import {
     GirConstruct,
     InheritanceTable,
 } from './types'
-import { string } from '@oclif/command/lib/flags'
 
 export class GirModule {
     /**
@@ -47,7 +46,7 @@ export class GirModule {
      */
     fullName: string | null = null
     /**
-     * E.g. 'Gtk_3_0'
+     * E.g. 'Gtk30'
      */
     namespaceName: string | null = null
     dependencies: string[] = []
@@ -85,22 +84,28 @@ export class GirModule {
     }
 
     loadTypes(dict: SymTable): void {
-        const loadTypesInternal = (arr?: GirConstruct[]): void => {
-            if (arr) {
-                for (const x of arr) {
-                    if (x?.$) {
-                        if ((x as GirVariable | GirFunction).$.introspectable) {
-                            if (!this.girBool((x as GirVariable | GirFunction).$.introspectable, true)) continue
+        const loadTypesInternal = (girConstructs?: GirConstruct[]): void => {
+            if (girConstructs) {
+                for (const girConstruct of girConstructs) {
+                    if (girConstruct?.$) {
+                        if ((girConstruct as GirVariable | GirFunction).$.introspectable) {
+                            if (!this.girBool((girConstruct as GirVariable | GirFunction).$.introspectable, true))
+                                continue
                         }
-                        const symName = `${this.name}.${x.$.name}`
+                        const symName = `${this.name}.${girConstruct.$.name}`
                         if (dict[symName]) {
                             this.log.warn(`Duplicate symbol: ${symName}`)
+                            if (dict[symName]?._module?.version === girConstruct._module?.version) {
+                                this.log.warn(
+                                    `Duplicate symbol: '${symName}' in version '${girConstruct._module?.version}'`,
+                                )
+                            }
                             debugger
                         }
 
-                        x._module = this
-                        x._fullSymName = symName
-                        dict[symName] = x
+                        girConstruct._module = this
+                        girConstruct._fullSymName = symName
+                        dict[symName] = girConstruct
                     }
                 }
             }
@@ -227,16 +232,16 @@ export class GirModule {
         }
     }
 
-    private typeLookup(e: GirVariable): string {
+    private typeLookup(girVar: GirVariable): string {
         let type: GirType
         let arr: TypeArraySuffix = ''
         let arrCType: string | undefined
         let nul: TypeNullableSuffix = ''
 
-        const collection = e.array
-            ? e.array
-            : e.type && /^GLib.S?List$/.test(e.type[0].$?.name)
-            ? (e.type as GirArray[])
+        const collection = girVar.array
+            ? girVar.array
+            : girVar.type && /^GLib.S?List$/.test(girVar.type[0].$?.name)
+            ? (girVar.type as GirArray[])
             : undefined
 
         if (collection && collection.length > 0) {
@@ -248,14 +253,14 @@ export class GirModule {
             }
             type = typeArray[0]
             arr = '[]'
-        } else if (e.type) {
-            type = e.type[0]
+        } else if (girVar.type) {
+            type = girVar.type[0]
         } else {
             return 'any'
         }
 
-        if (e.$) {
-            const nullable = this.girBool(e.$.nullable) || this.girBool(e.$['allow-none'])
+        if (girVar.$) {
+            const nullable = this.girBool(girVar.$.nullable) || this.girBool(girVar.$['allow-none'])
             if (nullable) {
                 nul = ' | null'
             }
@@ -288,6 +293,14 @@ export class GirModule {
 
         let fullTypeName: string | null = type.$.name
 
+        if (cType && cType.includes('GType[]')) {
+            debugger
+        }
+
+        if (fullTypeName && fullTypeName.includes('GType[]')) {
+            debugger
+        }
+
         if (typeof fullTypeName === 'string') {
             if (FULL_TYPE_MAP(this.environment)[fullTypeName]) {
                 return FULL_TYPE_MAP(this.environment)[fullTypeName]
@@ -297,19 +310,28 @@ export class GirModule {
             if (!fullTypeName.includes('.')) {
                 // eslint-disable-next-line @typescript-eslint/no-this-alias
                 let mod: GirModule = this
-                if (e._module) mod = e._module
+                if (girVar._module) mod = girVar._module
                 fullTypeName = `${mod.name}.${type.$.name}`
             }
         }
 
         if (!fullTypeName || !this.symTable[fullTypeName]) {
-            this.log.warn(`[${this.environment}][${this.fullName}] Could not find type ${fullTypeName} for ${e.$.name}`)
+            this.log.warn(
+                `[${this.environment}][${this.fullName}] Could not find type '${fullTypeName}' for '${girVar.$.name}'`,
+            )
+            return ('any' + arr) as 'any' | 'any[]'
+        }
+
+        if (fullTypeName && this.symTable[fullTypeName]?._module?.version !== girVar._module?.version) {
+            this.log.warn(
+                `[${this.environment}][${this.fullName}] Could not find type '${fullTypeName}' for '${girVar.$.name}' in version '${girVar._module?.version}'`,
+            )
             return ('any' + arr) as 'any' | 'any[]'
         }
 
         if (fullTypeName.indexOf(this.name + '.') === 0) {
             const ret = fullTypeName.substring(this.name.length + 1)
-            // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${e._module}`)
+            // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${girVar._module}`)
             // if (fullTypeName === 'Gio.ApplicationFlags') {
             //     debugger
             // }
@@ -321,7 +343,7 @@ export class GirModule {
     }
 
     /**
-     * E.g. replaces something like `NetworkManager.80211ApFlags` with `NetworkManager._80211ApFlags`
+     * E.g. replaces something like `NetworkManager.80211ApFlags` with `NetworkManager.TODO_80211ApFlags`
      * @param e
      */
     private typeLookupTransformed(e: GirVariable): string {
@@ -550,7 +572,7 @@ export class GirModule {
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
 
-        if (RESERVED_FUNCTION_NAMES[name]) return [[`/* Function '${name}' is a reserved word */`], null]
+        // if (RESERVED_FUNCTION_NAMES[name]) return [[`/* Function '${name}' is a reserved word */`], null]
 
         if (patch && patch.length === 2) return [[`${prefix}${funcNamePrefix}${patch[patch.length - 1]}`], name]
 
@@ -650,15 +672,18 @@ export class GirModule {
         if (girClass.$.parent) {
             let parentName = girClass.$.parent
             const origParentName = parentName
+            let parentPtr: GirClass | null = null
 
             if (parentName.indexOf('.') < 0) {
                 parentName = mod.name + '.' + parentName
             }
 
-            let parentPtr = this.symTable[parentName] as GirClass | null
+            if (this.symTable[parentName]) {
+                parentPtr = this.symTable[parentName] as GirClass | null
+            }
 
             if (!parentPtr && origParentName == 'Object') {
-                parentPtr = this.symTable['GObject.Object'] as GirClass | null
+                parentPtr = (this.symTable['GObject.Object'] as GirClass | null) || null
             }
 
             if (parentPtr) {
@@ -1039,7 +1064,7 @@ export class GirModule {
             this.prettify,
         )
 
-        // Extra interfaces
+        // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
         // E.g. used for GObject-2.0 to help define GObject classes in js;
         // these aren't part of gi.
         if (templateProcessor.exists(`${this.fullName}.d.ts`)) {

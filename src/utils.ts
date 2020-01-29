@@ -12,13 +12,21 @@ export class Utils {
         return !isNaN(str - parseFloat(str))
     }
 
+    static getFirstChar(str: string): string {
+        return str.charAt(0)
+    }
+
+    static getLastChar(str: string): string {
+        return str.charAt(str.length - 1)
+    }
+
     static isFirstCharNumeric(str: string): boolean {
-        return Utils.isNumeric(str.substring(0, 1))
+        return Utils.isNumeric(this.getFirstChar(str))
     }
 
     static camelCase(str: string): string {
         return str
-            .replace(/\s(.)/g, a => {
+            .replace(/\s(.)|(\s|-|_|\.)(.)/g, a => {
                 return a.toUpperCase()
             })
             .replace(/(\s|-|_|\.)/g, '')
@@ -26,15 +34,13 @@ export class Utils {
 
     static lowerCamelCase(str: string): string {
         str = this.camelCase(str)
-        return str.replace(/^(.)/, b => {
-            return b.toLowerCase()
-        })
+        str = this.getFirstChar(str).toLowerCase() + str.slice(1)
+        return str
     }
 
     static upperCamelCase(str: string): string {
         str = this.camelCase(str)
-        return str.replace(/^(.)/, b => {
-            return b.toUpperCase()
-        })
+        str = this.getFirstChar(str).toUpperCase() + str.slice(1)
+        return str
     }
 }

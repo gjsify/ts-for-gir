@@ -64,7 +64,7 @@ test('constant', t => {
     const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
     t.is(mod.name, 'Test')
 
-    mod.symTable = symTable
+    mod.symTable = symTable as any
 
     t.deepEqual(mod.exportConstant(var_), ['export const MY_CONST:MyType'])
     t.deepEqual(mod.exportConstant(arrVar), ['export const MY_ARR:MyType[]'])
@@ -101,7 +101,7 @@ test('function', t => {
     const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
     t.is(mod.name, 'Test')
 
-    mod.symTable = symTable
+    mod.symTable = symTable as any
 
     t.deepEqual(mod.exportFunction(func), ['export function my_func(arg1: MyType): string'])
 
@@ -153,7 +153,7 @@ test('callback', t => {
     const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
     t.is(mod.name, 'Test')
 
-    mod.symTable = symTable
+    mod.symTable = symTable as any
 
     t.deepEqual(mod.exportCallback(cbs[0]), [
         'export interface activate {',
@@ -172,7 +172,7 @@ test('interface', t => {
     const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
     t.is(mod.name, 'Test')
 
-    mod.symTable = symTable
+    mod.symTable = symTable as any
 
     t.deepEqual(mod.exportInterface(TestData.interfaceAction), [
         'export class Action {',
@@ -268,7 +268,7 @@ test('constructors', t => {
     const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
     t.is(mod.name, 'Test')
 
-    mod.symTable = symTable
+    mod.symTable = symTable as any
 
     t.deepEqual(mod.exportInterface(TestData.interfaceDBusNodeInfo), [
         'export class DBusNodeInfo {',
@@ -310,7 +310,7 @@ test('class', t => {
     const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
     t.is(mod.name, 'Test')
 
-    mod.symTable = symTable
+    mod.symTable = symTable as any
 
     t.deepEqual(mod.exportClass(TestData.classApplicationCommandLine), [
         'export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {',

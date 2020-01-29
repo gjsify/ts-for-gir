@@ -8,10 +8,23 @@
             "type": "node",
             "request": "launch",
             "protocol": "inspector",
-            "name": "Launch Program",
+            "name": "Generate Gtk",
             "program": "${workspaceRoot}/bin/run",
             "args": [
-                "generate", "Gtk-3.0", "-p"
+                "generate", "Gtk-3.0", "-o", "./tmp"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/main.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "name": "Generate all locale installed",
+            "program": "${workspaceRoot}/bin/run",
+            "args": [
+                "generate", "-o", "./tmp"
             ],
             "outFiles": [
                 "${workspaceRoot}/main.js"

@@ -229,7 +229,7 @@ export class Transformation {
     }
 
     public transformModuleNamespaceName(name: string): string {
-        // name = name.split('-')[0]
+        const originalName = `${name}`
         name = this.transformNumericName(name)
 
         name = this.transform('namespaceName', name)
@@ -237,30 +237,60 @@ export class Transformation {
         if (RESERVED_NAMESPACE_NAMES[name]) {
             name = `${name}_`
         }
-
+        if (originalName !== name) {
+            // this.log.warn(`[${this.environment}] Namespace name renamed from '${originalName}' to '${name}'`)
+        }
         return name
     }
 
     public transformClassName(name: string): string {
+        const originalName = `${name}`
         name = this.transformNumericName(name)
 
         if (RESERVED_CLASS_NAMES[name]) {
             name = `${name}_`
         }
-
+        if (originalName !== name) {
+            this.log.warn(`[${this.environment}] Class name renamed from '${originalName}' to '${name}'`)
+        }
         return name
     }
 
     public transformEnumName(name: string): string {
+        const originalName = `${name}`
+
+        // For an example enum starting with a number see https://gjs-docs.gnome.org/nm10~1.20.8/nm.80211mode
         name = this.transform('enumName', name)
-        // Replace this if enums need special handling
-        return this.transformClassName(name)
+
+        name = this.transformNumericName(name)
+
+        if (RESERVED_CLASS_NAMES[name]) {
+            name = `${name}_`
+        }
+        if (originalName !== name) {
+            this.log.warn(`[${this.environment}] Enum name renamed from '${originalName}' to '${name}'`)
+        }
+        return name
     }
 
     public transformFunctionName(name: string): string {
+        const originalName = `${name}`
         name = this.transform('functionName', name)
-        // Replace this if enums need special handling
-        return this.transformClassName(name)
+
+        // Some methods have one '?' at the end of the name
+        // For example 'Gee.Future.vfunc_wait' see https://gjs-docs.gnome.org/gee08~0.8_api/gee.future#vfunc-wait
+        // if (Utils.getLastChar(name) === '?') {
+        //     name = name.substr(0, name.length - 1)
+        // }
+
+        if (RESERVED_FUNCTION_NAMES[name]) {
+            name = `${name}_TODO`
+        }
+
+        if (originalName !== name) {
+            this.log.warn(`[${this.environment}] Function name renamed from '${originalName}' to '${name}'`)
+        }
+        return name
     }
 
     /**
@@ -268,53 +298,70 @@ export class Transformation {
      * or NetworkManager-1.0 has methods starting with `80211`
      */
     public transformPropertyName(name: string, allowQuotes: boolean): string {
+        const originalName = `${name}`
         name = this.transform('propertyName', name)
 
         if (RESERVED_VARIABLE_NAMES[name]) {
-            if (allowQuotes) return `"${name}"`
-            else return `${name}_`
+            if (allowQuotes) name = `"${name}"`
+            else name = `${name}_`
         }
 
         name = this.transformNumericName(name, allowQuotes)
+
+        if (originalName !== name) {
+            // this.log.warn(`Property name renamed from '${originalName}' to '${name}'`)
+        }
         return name
     }
 
     public transformConstantName(name: string, allowQuotes: boolean): string {
+        const originalName = `${name}`
         name = this.transform('constantName', name)
 
         if (RESERVED_VARIABLE_NAMES[name]) {
-            if (allowQuotes) return `"${name}"`
-            else return `${name}_`
+            if (allowQuotes) name = `"${name}"`
+            else name = `${name}_`
         }
 
         name = this.transformNumericName(name, allowQuotes)
+        if (originalName !== name) {
+            this.log.warn(`[${this.environment}] Constant name renamed from '${originalName}' to '${name}'`)
+        }
         return name
     }
 
     public transformFieldName(name: string, allowQuotes: boolean): string {
+        const originalName = `${name}`
         name = this.transform('fieldName', name)
 
         if (RESERVED_VARIABLE_NAMES[name]) {
-            if (allowQuotes) return `"${name}"`
-            else return `${name}_`
+            if (allowQuotes) name = `"${name}"`
+            else name = `${name}_`
         }
 
         name = this.transformNumericName(name, allowQuotes)
+        if (originalName !== name) {
+            this.log.warn(`[${this.environment}] Field name renamed from '${originalName}' to '${name}'`)
+        }
         return name
     }
 
     public transformParameterName(name: string, allowQuotes: boolean): string {
+        const originalName = `${name}`
         // Such a variable name exists in `GConf-2.0.d.ts` class `Engine` method `change_set_from_current`
         if (name === '...') {
             return '...args'
         }
         name = this.transform('parameterName', name)
         if (RESERVED_VARIABLE_NAMES[name]) {
-            if (allowQuotes) return `"${name}"`
-            else return `${name}_`
+            if (allowQuotes) name = `"${name}"`
+            else name = `${name}_`
         }
 
         name = this.transformNumericName(name, allowQuotes)
+        if (originalName !== name) {
+            this.log.warn(`[${this.environment}] Parameter name renamed from '${originalName}' to '${name}'`)
+        }
         return name
     }
 
@@ -325,8 +372,14 @@ export class Transformation {
     public transformTypeName(name: string): string {
         const originalName = `${name}`
         name = this.transformNumericName(name)
+
+        // Example: Gee.Future.GLib.exception: GLib.Error? see https://gjs-docs.gnome.org/gee08~0.8_api/gee.future#property-exception
+        if (Utils.getLastChar(name) === '?') {
+            name = name.substr(0, name.length - 1)
+        }
+
         if (originalName !== name) {
-            this.log.warn(`Type name changed to ${name}`)
+            this.log.warn(`[${this.environment}] Type name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }

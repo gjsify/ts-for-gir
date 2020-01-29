@@ -54,8 +54,6 @@ export class TsForGir {
     exportGjs(outDir: string | null, girModules: { [key: string]: GirModule }, buildType: BuildType): void {
         if (!outDir) return
 
-        const girModuleKeys = Object.keys(girModules).map(key => key.split('-')[0])
-
         /**
          * Gir modules grouped by name for each version
          */
@@ -90,7 +88,7 @@ export class TsForGir {
         }
 
         const templateProcessor = new TemplateProcessor(
-            { girModules: girModules, girModuleKeys, girModGrouped, environment: 'Gjs' as Environment, buildType },
+            { girModules: girModules, girModGrouped, environment: 'Gjs' as Environment, buildType },
             'gjs',
             this.prettify,
         )
@@ -185,7 +183,7 @@ export class TsForGir {
                     girModules[`${gi.name}-${gi.version}`] = gi
 
                     for (const dep of gi.dependencies) {
-                        if (!girModules[dep] && lodash.indexOf(girToLoad, dep) < 0) {
+                        if (!girModules[dep] && girToLoad.indexOf(dep) < 0) {
                             girToLoad.unshift(dep)
                         }
                     }
@@ -200,10 +198,10 @@ export class TsForGir {
         this.log.info('Files parsed, loading types...')
 
         const symTable: SymTable = {}
-        for (const girModule of lodash.values(girModules)) girModule.loadTypes(symTable)
+        for (const girModule of Object.values(girModules)) girModule.loadTypes(symTable)
 
         const inheritanceTable: InheritanceTable = {}
-        for (const girModule of lodash.values(girModules)) girModule.loadInheritance(inheritanceTable)
+        for (const girModule of Object.values(girModules)) girModule.loadInheritance(inheritanceTable)
 
         this.finaliseInheritance(inheritanceTable)
 
@@ -213,7 +211,7 @@ export class TsForGir {
         // Figure out transitive module dependencies
         const modDependencyMap: DependencyMap = {}
 
-        for (const girModule of lodash.values(girModules)) {
+        for (const girModule of Object.values(girModules)) {
             modDependencyMap[`${girModule.name}-${girModule.version}` || '-'] = lodash.map(
                 girModule.dependencies || [],
                 (fullname: string): Dependency => {
@@ -229,7 +227,7 @@ export class TsForGir {
             )
         }
 
-        const traverseDependencies = (fullName: string | null, result): void => {
+        const traverseDependencies = (fullName: string | null, result: { [name: string]: 1 }): void => {
             if (!fullName) {
                 return
             }
@@ -245,8 +243,8 @@ export class TsForGir {
             }
         }
 
-        for (const girModule of lodash.values(girModules)) {
-            const result = {}
+        for (const girModule of Object.values(girModules)) {
+            const result: { [name: string]: 1 } = {}
             traverseDependencies(girModule.fullName, result)
             girModule.transitiveDependencies = Object.keys(result)
         }
@@ -269,22 +267,22 @@ export class TsForGir {
 
         this.log.info('Types loaded, generating .d.ts...')
 
-        for (const k of Object.keys(girModules)) {
+        for (const moduleName of Object.keys(girModules)) {
             let dtOutf: NodeJS.WritableStream = process.stdout
             let dtOutputPath: string | null = null
             if (outDir) {
-                const fullName: string = girModules[k].fullName || 'unknown'
+                const fullName: string = girModules[moduleName].fullName || 'unknown'
                 const OutputDir = Transformation.getEnvironmentDir(environment, outDir)
                 const dtFileName = `${fullName}.d.ts`
                 dtOutputPath = Path.join(OutputDir, dtFileName)
                 fs.mkdirSync(OutputDir, { recursive: true })
                 dtOutf = fs.createWriteStream(dtOutputPath)
             }
-            this.log.log(` - ${k} ...`)
-            girModules[k].patch = patch
-            girModules[k].export(dtOutf, dtOutputPath, girDirectory)
+            this.log.log(` - ${moduleName} ...`)
+            girModules[moduleName].patch = patch
+            girModules[moduleName].export(dtOutf, dtOutputPath, girDirectory)
             if (buildType === 'lib') {
-                girModules[k].exportJs(outDir)
+                girModules[moduleName].exportJs(outDir)
             }
         }
 

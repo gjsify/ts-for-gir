@@ -488,7 +488,7 @@ export class GirModule {
 
         typeName = this.transformation.transformTypeName(typeName)
 
-        return [[`${name}${nameSuffix}:${typeName}`], name]
+        return [[`${name}${nameSuffix}: ${typeName}`], name]
     }
 
     private getProperty(v: GirVariable, construct = false): [string[], string | null, string | null] {
@@ -535,8 +535,8 @@ export class GirModule {
         return def
     }
 
-    exportConstant(e: GirVariable): string[] {
-        const [varDesc, varName] = this.getVariable(e, false, false, 'constant')
+    exportConstant(girVar: GirVariable): string[] {
+        const [varDesc, varName] = this.getVariable(girVar, false, false, 'constant')
         if (varName) {
             return [`export const ${varDesc}`]
         }
@@ -571,8 +571,6 @@ export class GirModule {
 
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
-
-        // if (RESERVED_FUNCTION_NAMES[name]) return [[`/* Function '${name}' is a reserved word */`], null]
 
         if (patch && patch.length === 2) return [[`${prefix}${funcNamePrefix}${patch[patch.length - 1]}`], name]
 
@@ -686,7 +684,7 @@ export class GirModule {
                 parentPtr = (this.symTable['GObject.Object'] as GirClass | null) || null
             }
 
-            if (parentPtr) {
+            if (parentPtr && parentPtr._module?.version === girClass._module?.version) {
                 parent = parentPtr
             }
         }
@@ -828,8 +826,8 @@ export class GirModule {
         const copyMethods = (cls: GirClass): void => {
             if (cls.method) {
                 def.push(`    /* Methods of ${cls._fullSymName} */`)
-                for (const f of cls.method) {
-                    const [desc, name] = this.getFunction(f, '    ')
+                for (const func of cls.method) {
+                    const [desc, name] = this.getFunction(func, '    ')
                     def = def.concat(checkName(desc, name, localNames)[0])
                 }
             }

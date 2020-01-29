@@ -277,11 +277,7 @@ export class Transformation {
         const originalName = `${name}`
         name = this.transform('functionName', name)
 
-        // Some methods have one '?' at the end of the name
-        // For example 'Gee.Future.vfunc_wait' see https://gjs-docs.gnome.org/gee08~0.8_api/gee.future#vfunc-wait
-        // if (Utils.getLastChar(name) === '?') {
-        //     name = name.substr(0, name.length - 1)
-        // }
+        name = this.transformNumericName(name)
 
         if (RESERVED_FUNCTION_NAMES[name]) {
             name = `${name}_TODO`
@@ -372,11 +368,6 @@ export class Transformation {
     public transformTypeName(name: string): string {
         const originalName = `${name}`
         name = this.transformNumericName(name)
-
-        // Example: Gee.Future.GLib.exception: GLib.Error? see https://gjs-docs.gnome.org/gee08~0.8_api/gee.future#property-exception
-        if (Utils.getLastChar(name) === '?') {
-            name = name.substr(0, name.length - 1)
-        }
 
         if (originalName !== name) {
             this.log.warn(`[${this.environment}] Type name renamed from '${originalName}' to '${name}'`)

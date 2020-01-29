@@ -66,8 +66,8 @@ test('constant', t => {
 
     mod.symTable = symTable as any
 
-    t.deepEqual(mod.exportConstant(var_), ['export const MY_CONST:MyType'])
-    t.deepEqual(mod.exportConstant(arrVar), ['export const MY_ARR:MyType[]'])
+    t.deepEqual(mod.exportConstant(var_), ['export const MY_CONST: MyType'])
+    t.deepEqual(mod.exportConstant(arrVar), ['export const MY_ARR: MyType[]'])
 })
 
 test('function', t => {
@@ -177,11 +177,11 @@ test('interface', t => {
     t.deepEqual(mod.exportInterface(TestData.interfaceAction), [
         'export class Action {',
         '    /* Properties of Action */',
-        '    readonly enabled:boolean',
-        '    readonly name:string',
-        '    readonly parameter_type:GLib.VariantType',
-        '    readonly state:GLib.Variant',
-        '    readonly state_type:GLib.VariantType',
+        '    readonly enabled: boolean',
+        '    readonly name: string',
+        '    readonly parameter_type: GLib.VariantType',
+        '    readonly state: GLib.Variant',
+        '    readonly state_type: GLib.VariantType',
         '    /* Methods of Action */',
         '    activate(parameter?: GLib.Variant | null): void',
         '    change_state(value: GLib.Variant): void',
@@ -273,11 +273,11 @@ test('constructors', t => {
     t.deepEqual(mod.exportInterface(TestData.interfaceDBusNodeInfo), [
         'export class DBusNodeInfo {',
         '    /* Fields of DBusNodeInfo */',
-        '    ref_count:number',
-        '    path:string',
-        '    interfaces:DBusInterfaceInfo[]',
-        '    nodes:DBusNodeInfo[]',
-        '    annotations:any[]',
+        '    ref_count: number',
+        '    path: string',
+        '    interfaces: DBusInterfaceInfo[]',
+        '    nodes: DBusNodeInfo[]',
+        '    annotations: any[]',
         '    /* Methods of DBusNodeInfo */',
         '    generate_xml(indent: number): /* string_builder */ GLib.String',
         '    lookup_interface(name: string): DBusInterfaceInfo',
@@ -314,16 +314,16 @@ test('class', t => {
 
     t.deepEqual(mod.exportClass(TestData.classApplicationCommandLine), [
         'export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {',
-        '    "arguments"?:GLib.Variant',
-        '    options?:GLib.Variant',
-        '    platform_data?:GLib.Variant',
+        '    "arguments"?: GLib.Variant',
+        '    options?: GLib.Variant',
+        '    platform_data?: GLib.Variant',
         '}',
         'export class ApplicationCommandLine {',
         '    /* Properties of ApplicationCommandLine */',
-        '    readonly is_remote:boolean',
+        '    readonly is_remote: boolean',
         '    /* Fields of ApplicationCommandLine */',
         '    /* Fields of GObject.Object */',
-        '    g_type_instance:any',
+        '    g_type_instance: any',
         '    /* Methods of ApplicationCommandLine */',
         '    create_file_for_arg(arg: string): File',
         '    get_arguments(): string[]',

@@ -1,4 +1,4 @@
-export type Construct =
+export type ConstructName =
     | 'functionName'
     | 'enumValue'
     | 'signalName'

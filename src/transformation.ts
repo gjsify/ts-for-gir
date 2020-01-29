@@ -1,4 +1,4 @@
-import { Transformations, Environment, Construct, TypeSuffix, CTypeMap, GType } from './types'
+import { Transformations, Environment, ConstructName, TypeSuffix, CTypeMap, GType } from './types'
 import Path from 'path'
 import { Utils } from './utils'
 import { Logger } from './logger'
@@ -152,15 +152,15 @@ export class Transformation {
                 transformation: 'lowerCamelCase',
             },
             gjs: {
-                transformation: 'none',
+                transformation: 'original',
             },
         },
         enumName: {
             node: {
-                transformation: 'none',
+                transformation: 'original',
             },
             gjs: {
-                transformation: 'none',
+                transformation: 'original',
             },
         },
         enumValue: {
@@ -173,10 +173,10 @@ export class Transformation {
         },
         signalName: {
             node: {
-                transformation: 'none',
+                transformation: 'original',
             },
             gjs: {
-                transformation: 'none',
+                transformation: 'original',
             },
         },
         // GJS always re-writes - to _ (I think?)
@@ -206,10 +206,10 @@ export class Transformation {
         },
         constantName: {
             node: {
-                transformation: 'none',
+                transformation: 'original',
             },
             gjs: {
-                transformation: 'none',
+                transformation: 'original',
             },
         },
         namespaceName: {
@@ -331,12 +331,11 @@ export class Transformation {
         return name
     }
 
-    public transform(construct: Construct, transformMe: string): string {
+    public transform(construct: ConstructName, transformMe: string): string {
         const transformations = this.transformations[construct][this.environment].transformation
-        if (transformations === 'none') {
+        if (transformations === 'original') {
             return transformMe
         }
-
         if (transformations === 'lowerCamelCase') {
             return Utils.lowerCamelCase(transformMe)
         }

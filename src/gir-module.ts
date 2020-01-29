@@ -27,7 +27,11 @@ import {
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
+    SymTable,
+    GirConstruct,
+    InheritanceTable,
 } from './types'
+import { string } from '@oclif/command/lib/flags'
 
 export class GirModule {
     /**
@@ -50,7 +54,7 @@ export class GirModule {
     transitiveDependencies: string[] = []
     repo: GirRepository
     ns: GirNamespace = { $: { name: '', version: '' } }
-    symTable: { [key: string]: any } = {}
+    symTable: SymTable = {}
     patch: { [key: string]: string[] } = {}
     transformation: Transformation
     extends?: string
@@ -80,24 +84,24 @@ export class GirModule {
         }
     }
 
-    loadTypes(dict): void {
-        const loadTypesInternal = (arr): void => {
+    loadTypes(dict: SymTable): void {
+        const loadTypesInternal = (arr?: GirConstruct[]): void => {
             if (arr) {
                 for (const x of arr) {
-                    if (x.$) {
-                        if (x.$.introspectable) {
-                            if (!this.girBool(x.$.introspectable, true)) continue
+                    if (x?.$) {
+                        if ((x as GirVariable | GirFunction).$.introspectable) {
+                            if (!this.girBool((x as GirVariable | GirFunction).$.introspectable, true)) continue
                         }
-                    }
-                    const symName = `${this.name}.${x.$.name}`
-                    if (dict[symName]) {
-                        this.log.warn(`Duplicate symbol: ${symName}`)
-                        debugger
-                    }
+                        const symName = `${this.name}.${x.$.name}`
+                        if (dict[symName]) {
+                            this.log.warn(`Duplicate symbol: ${symName}`)
+                            debugger
+                        }
 
-                    x._module = this
-                    x._fullSymName = symName
-                    dict[symName] = x
+                        x._module = this
+                        x._fullSymName = symName
+                        dict[symName] = x
+                    }
                 }
             }
         }
@@ -112,63 +116,63 @@ export class GirModule {
         loadTypesInternal(this.ns.union)
         loadTypesInternal(this.ns.alias)
 
-        const annotateFunctionArguments = (f: GirFunction): void => {
-            const funcName = f._fullSymName
-            if (f.parameters)
-                for (const p of f.parameters)
-                    if (p.parameter)
-                        for (const x of p.parameter) {
-                            x._module = this
-                            if (x.$ && x.$.name) {
-                                x._fullSymName = `${funcName}.${x.$.name}`
+        const annotateFunctionArguments = (girFunc: GirFunction): void => {
+            const funcName = girFunc._fullSymName
+            if (girFunc.parameters)
+                for (const gitParam of girFunc.parameters)
+                    if (gitParam.parameter)
+                        for (const girVar of gitParam.parameter) {
+                            girVar._module = this
+                            if (girVar.$ && girVar.$.name) {
+                                girVar._fullSymName = `${funcName}.${girVar.$.name}`
                             }
                         }
         }
-        const annotateFunctionReturn = (f: GirFunction): void => {
-            const retVal: GirVariable[] | undefined = f['return-value']
-            if (retVal)
-                for (const x of retVal) {
-                    x._module = this
-                    if (x.$ && x.$.name) {
-                        x._fullSymName = `${f._fullSymName}.${x.$.name}`
+        const annotateFunctionReturn = (girFunc: GirFunction): void => {
+            const retVals: GirVariable[] | undefined = girFunc['return-value']
+            if (retVals)
+                for (const retVal of retVals) {
+                    retVal._module = this
+                    if (retVal.$ && retVal.$.name) {
+                        retVal._fullSymName = `${girFunc._fullSymName}.${retVal.$.name}`
                     }
                 }
         }
-        const annotateFunctions = (obj: GirClass | null, funcs: GirFunction[]): void => {
+        const annotateFunctions = (girClass: GirClass | null, funcs: GirFunction[]): void => {
             if (funcs)
                 for (const f of funcs) {
-                    const nsName = obj ? obj._fullSymName : this.name
+                    const nsName = girClass ? girClass._fullSymName : this.name
                     f._fullSymName = `${nsName}.${f.$.name}`
                     annotateFunctionArguments(f)
                     annotateFunctionReturn(f)
                 }
         }
-        const annotateVariables = (obj: GirClass | null, vars): void => {
-            if (vars)
-                for (const x of vars) {
-                    const nsName = obj ? obj._fullSymName : this.name
-                    x._module = this
-                    if (x.$ && x.$.name) {
-                        x._fullSymName = `${nsName}.${x.$.name}`
+        const annotateVariables = (girClass: GirClass | null, girVars?: GirVariable[]): void => {
+            if (girVars)
+                for (const girVar of girVars) {
+                    const nsName = girClass ? girClass._fullSymName : this.name
+                    girVar._module = this
+                    if (girVar.$ && girVar.$.name) {
+                        girVar._fullSymName = `${nsName}.${girVar.$.name}`
                     }
                 }
         }
 
-        if (this.ns.callback) for (const f of this.ns.callback) annotateFunctionArguments(f)
+        if (this.ns.callback) for (const func of this.ns.callback) annotateFunctionArguments(func)
 
-        const objs = (this.ns.class ? this.ns.class : [])
+        const girClasses = (this.ns.class ? this.ns.class : [])
             .concat(this.ns.record ? this.ns.record : [])
             .concat(this.ns.interface ? this.ns.interface : [])
 
-        for (const c of objs) {
-            c._module = this
-            c._fullSymName = `${this.name}.${c.$.name}`
-            annotateFunctions(c, c.function || [])
-            annotateFunctions(c, c.method || [])
-            annotateFunctions(c, c['virtual-method'] || [])
-            annotateFunctions(c, c['glib:signal'] || [])
-            annotateVariables(c, c.property)
-            annotateVariables(c, c.field)
+        for (const girClass of girClasses) {
+            girClass._module = this
+            girClass._fullSymName = `${this.name}.${girClass.$.name}`
+            annotateFunctions(girClass, girClass.function || [])
+            annotateFunctions(girClass, girClass.method || [])
+            annotateFunctions(girClass, girClass['virtual-method'] || [])
+            annotateFunctions(girClass, girClass['glib:signal'] || [])
+            annotateVariables(girClass, girClass.property)
+            annotateVariables(girClass, girClass.field)
         }
 
         if (this.ns.function) annotateFunctions(null, this.ns.function)
@@ -181,10 +185,10 @@ export class GirModule {
         this.symTable = dict
     }
 
-    loadInheritance(inheritanceTable): void {
+    loadInheritance(inheritanceTable: InheritanceTable): void {
         // Class hierarchy
         for (const cls of this.ns.class ? this.ns.class : []) {
-            let parent
+            let parent: string | null = null
             if (cls.$ && cls.$.parent) parent = cls.$.parent
             if (!parent) continue
             if (!cls._fullSymName) continue
@@ -630,31 +634,31 @@ export class GirModule {
         return def
     }
 
-    private traverseInheritanceTree(e: GirClass, callback: (cls: GirClass) => void): void {
-        if (!e || !e.$) return
+    private traverseInheritanceTree(girClass: GirClass, callback: (cls: GirClass) => void): void {
+        if (!girClass || !girClass.$) return
 
-        let parent: GirClass | undefined = undefined
+        let parent: GirClass | null = null
         // const parentModule: GirModule | undefined = undefined
 
-        const mod: GirModule = e._module ? e._module : this
-        let name = e.$.name
+        const mod: GirModule = girClass._module ? girClass._module : this
+        let name = girClass.$.name
 
         if (name.indexOf('.') < 0) {
             name = mod.name + '.' + name
         }
 
-        if (e.$.parent) {
-            let parentName = e.$.parent
+        if (girClass.$.parent) {
+            let parentName = girClass.$.parent
             const origParentName = parentName
 
             if (parentName.indexOf('.') < 0) {
                 parentName = mod.name + '.' + parentName
             }
 
-            let parentPtr = this.symTable[parentName]
+            let parentPtr = this.symTable[parentName] as GirClass | null
 
             if (!parentPtr && origParentName == 'Object') {
-                parentPtr = this.symTable['GObject.Object']
+                parentPtr = this.symTable['GObject.Object'] as GirClass | null
             }
 
             if (parentPtr) {
@@ -662,22 +666,22 @@ export class GirModule {
             }
         }
 
-        // this.log.log(`${e.$.name} : ${parent && parent.$ ? parent.$.name : 'none'} : ${parentModule ? parentModule.name : 'none'}`)
+        // this.log.log(`${girClass.$.name} : ${parent && parent.$ ? parent.$.name : 'none'} : ${parentModule ? parentModule.name : 'none'}`)
 
-        callback(e)
+        callback(girClass)
 
         if (parent) this.traverseInheritanceTree(parent, callback)
     }
 
-    private forEachInterface(e: GirClass, callback: (cls: GirClass) => void): void {
-        for (const { $ } of e.implements || []) {
+    private forEachInterface(girClass: GirClass, callback: (cls: GirClass) => void): void {
+        for (const { $ } of girClass.implements || []) {
             let name = $.name as string
 
             if (name.indexOf('.') < 0) {
                 name = this.name + '.' + name
             }
 
-            const iface: GirClass | undefined = this.symTable[name]
+            const iface: GirClass | null = this.symTable[name] as GirClass | null
 
             if (iface) {
                 callback(iface)
@@ -685,9 +689,9 @@ export class GirModule {
         }
     }
 
-    private isDerivedFromGObject(e: GirClass): boolean {
+    private isDerivedFromGObject(girClass: GirClass): boolean {
         let ret = false
-        this.traverseInheritanceTree(e, cls => {
+        this.traverseInheritanceTree(girClass, cls => {
             if (cls._fullSymName == 'GObject.Object') {
                 ret = true
             }
@@ -695,17 +699,17 @@ export class GirModule {
         return ret
     }
 
-    private exportObjectInternal(e: GirClass | GirClass): string[] {
-        const name = this.transformation.transformClassName(e.$.name)
+    private exportObjectInternal(girClass: GirClass): string[] {
+        const name = this.transformation.transformClassName(girClass.$.name)
         let def: string[] = []
-        const isDerivedFromGObject = this.isDerivedFromGObject(e)
+        const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
 
         // if (name === 'BinClass') {
         //     this.log.log(e)
         //     // throw new Error(name)
         // }
 
-        if (e.$ && e.$['glib:is-gtype-struct-for']) {
+        if (girClass.$ && girClass.$['glib:is-gtype-struct-for']) {
             return []
         }
 
@@ -728,7 +732,7 @@ export class GirModule {
 
         let parentName: string | null = null
         let counter = 0
-        this.traverseInheritanceTree(e, cls => {
+        this.traverseInheritanceTree(girClass, cls => {
             if (counter++ != 1) return
             parentName = cls._fullSymName || null
         })
@@ -748,8 +752,8 @@ export class GirModule {
 
             def.push(`export interface ${name}_ConstructProps ${ext}{`)
             const constructPropNames = {}
-            if (e.property) {
-                for (const p of e.property) {
+            if (girClass.property) {
+                for (const p of girClass.property) {
                     const [desc, name] = this.getProperty(p, true)
                     def = def.concat(checkName(desc, name, constructPropNames)[0])
                 }
@@ -776,8 +780,8 @@ export class GirModule {
                 }
             }
         }
-        this.traverseInheritanceTree(e, copyProperties)
-        this.forEachInterface(e, copyProperties)
+        this.traverseInheritanceTree(girClass, copyProperties)
+        this.forEachInterface(girClass, copyProperties)
 
         // Fields
         const copyFields = (cls: GirClass): void => {
@@ -793,7 +797,7 @@ export class GirModule {
                 }
             }
         }
-        this.traverseInheritanceTree(e, copyFields)
+        this.traverseInheritanceTree(girClass, copyFields)
 
         // Instance methods
         const copyMethods = (cls: GirClass): void => {
@@ -805,11 +809,11 @@ export class GirModule {
                 }
             }
         }
-        this.traverseInheritanceTree(e, copyMethods)
-        this.forEachInterface(e, copyMethods)
+        this.traverseInheritanceTree(girClass, copyMethods)
+        this.forEachInterface(girClass, copyMethods)
 
         // Instance methods, vfunc_ prefix
-        this.traverseInheritanceTree(e, cls => {
+        this.traverseInheritanceTree(girClass, cls => {
             const vmeth = cls['virtual-method']
             if (vmeth) {
                 def.push(`    /* Virtual methods of ${cls._fullSymName} */`)
@@ -835,8 +839,8 @@ export class GirModule {
                 for (const s of signals) def = def.concat(this.getSignalFunc(s, name))
             }
         }
-        this.traverseInheritanceTree(e, copySignals)
-        this.forEachInterface(e, copySignals)
+        this.traverseInheritanceTree(girClass, copySignals)
+        this.forEachInterface(girClass, copySignals)
 
         if (isDerivedFromGObject) {
             let prefix = 'GObject.'
@@ -855,7 +859,7 @@ export class GirModule {
             def.push(`    constructor (config?: ${name}_ConstructProps)`)
             def.push(`    _init (config?: ${name}_ConstructProps): void`)
         } else {
-            const constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
+            const constructor_: GirFunction[] = (girClass['constructor'] || []) as GirFunction[]
             if (constructor_) {
                 if (Array.isArray(constructor_)) {
                     for (const f of constructor_) {
@@ -879,7 +883,7 @@ export class GirModule {
         // Static methods
         let stc: string[] = []
 
-        const constructor_: GirFunction[] = (e['constructor'] || []) as GirFunction[]
+        const constructor_: GirFunction[] = (girClass['constructor'] || []) as GirFunction[]
         if (constructor_) {
             if (Array.isArray(constructor_)) {
                 for (const f of constructor_) {
@@ -896,8 +900,8 @@ export class GirModule {
             // }
         }
 
-        if (e.function) {
-            for (const f of e.function) {
+        if (girClass.function) {
+            for (const f of girClass.function) {
                 const [desc, funcName] = this.getFunction(f, '    static ')
                 if (funcName === 'new') continue
 
@@ -925,12 +929,12 @@ export class GirModule {
         return [`type ${name} = ${typeName}`]
     }
 
-    exportInterface(e: GirClass): string[] {
-        return this.exportObjectInternal(e)
+    exportInterface(girClass: GirClass): string[] {
+        return this.exportObjectInternal(girClass)
     }
 
-    exportClass(e: GirClass): string[] {
-        return this.exportObjectInternal(e)
+    exportClass(girClass: GirClass): string[] {
+        return this.exportObjectInternal(girClass)
     }
 
     exportJs(outDir: string | null): void {

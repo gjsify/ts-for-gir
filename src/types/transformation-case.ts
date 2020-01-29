@@ -1,5 +1,5 @@
 export type TransformationCase =
-    | 'none'
+    | 'original'
     | 'lowerCamelCase'
     | 'upperCamelCase'
     | 'upperCase'

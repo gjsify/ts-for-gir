@@ -10,7 +10,7 @@ import { Transformation } from './transformation'
 import { Logger } from './logger'
 import { Utils } from './utils'
 
-import { Environment, BuildType, InheritanceTable } from './types'
+import { Environment, BuildType, InheritanceTable, SymTable } from './types'
 
 export interface Dependency {
     name: string
@@ -199,10 +199,10 @@ export class TsForGir {
 
         this.log.info('Files parsed, loading types...')
 
-        const symTable: { [name: string]: any } = {}
+        const symTable: SymTable = {}
         for (const girModule of lodash.values(girModules)) girModule.loadTypes(symTable)
 
-        const inheritanceTable: { [name: string]: string[] } = {}
+        const inheritanceTable: InheritanceTable = {}
         for (const girModule of lodash.values(girModules)) girModule.loadInheritance(inheritanceTable)
 
         this.finaliseInheritance(inheritanceTable)

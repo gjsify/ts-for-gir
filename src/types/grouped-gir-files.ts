@@ -1,3 +1,3 @@
 export interface GroupedGirFiles {
-    [id: string]: { fullNames: Set<string>; name: string }
+    [id: string]: { fullNames: string[]; name: string }
 }

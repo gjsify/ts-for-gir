@@ -4,11 +4,14 @@
 
 import { flags } from '@oclif/command'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
+import Path from 'path'
 import { Utils } from './utils'
 import { Environment, BuildType, UserConfig, UserConfigLoadResult } from './types'
 
 export class Config {
     static appName = 'ts-for-gir'
+
+    static configFilePath = Path.join(process.cwd(), '.ts-for-girrc.js')
 
     static defaults = {
         environments: ['gjs', 'node'],
@@ -81,6 +84,9 @@ export class Config {
             configSearchOptions.searchPlaces = [configName]
         }
         const userConfig: UserConfigLoadResult | null = await cosmiconfig(Config.appName, configSearchOptions).search()
+        if (userConfig?.filepath) {
+            Config.configFilePath = userConfig?.filepath
+        }
         return userConfig
     }
 

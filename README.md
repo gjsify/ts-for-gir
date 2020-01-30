@@ -95,8 +95,7 @@ EXAMPLES
 ### Config
 
 In addition to the option of passing options as a CLI flag, you can also write them in a config file.
-We use the [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) module for this, therefore you have several options how you want to create your config file.
-The easiest way is to create a new config file `.ts-for-girrc.js` in your project root directory, like this:
+To do that, create a new config file called `.ts-for-girrc.js` in your project root directory, like this:
 
 ```js
 module.exports = {

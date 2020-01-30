@@ -6,6 +6,7 @@ import * as inquirer from 'inquirer'
 import glob from 'tiny-glob'
 import Path from 'path'
 import { GroupedGirFiles } from './types'
+import { Config } from './config'
 import { Logger } from './logger'
 import { Utils } from './utils'
 
@@ -30,10 +31,10 @@ export class ModuleLoader {
             if (!girFilesGrouped[id]) {
                 girFilesGrouped[id] = {
                     name,
-                    fullNames: new Set<string>().add(fullName),
+                    fullNames: [fullName],
                 }
             } else {
-                girFilesGrouped[id].fullNames.add(fullName)
+                girFilesGrouped[id].fullNames.push(fullName)
             }
         }
 
@@ -46,13 +47,12 @@ export class ModuleLoader {
         const questions: any = []
         for (const id in girFilesGrouped) {
             const group = girFilesGrouped[id]
-            if (group.fullNames.size > 1) {
-                const fileVersions = Array.from(group.fullNames)
+            if (group.fullNames.length > 1) {
                 const question = {
                     name: group.name,
                     message: `Multiple versions of '${group.name}' found, which one do you want to use?`,
                     type: 'list',
-                    choices: fileVersions,
+                    choices: group.fullNames,
                 }
                 questions.push(question)
             }
@@ -60,17 +60,44 @@ export class ModuleLoader {
         return questions as inquirer.QuestionCollection<{ [name: string]: string }>
     }
 
-    private sortOutDuplicates(girFilesGrouped: GroupedGirFiles, answers: { [name: string]: string }): Set<string> {
-        const result = new Set<string>()
+    private sortOutDuplicates(
+        girFilesGrouped: GroupedGirFiles,
+        answers: { [name: string]: string },
+    ): { keep: string[]; ignore: string[] } {
+        const keep: string[] = []
+        const ignore: string[] = []
         for (const id in girFilesGrouped) {
             const group = girFilesGrouped[id]
-            if (group.fullNames.size === 1) {
-                result.add(Array.from(group.fullNames)[0])
-            } else if (group.fullNames.size > 1 && answers[group.name]) {
-                result.add(answers[group.name])
+            if (group.fullNames.length === 1) {
+                keep.push(group.fullNames[0])
+            } else if (group.fullNames.length > 1 && answers[group.name]) {
+                keep.push(answers[group.name])
+                ignore.push(...group.fullNames.filter(fullName => fullName !== answers[group.name]))
             }
         }
-        return result
+
+        return {
+            keep,
+            ignore,
+        }
+    }
+
+    private async askAddIgnore(): Promise<void> {
+        const questions = [
+            {
+                name: 'addToIgnore',
+                message: `Do you want to add the ignored modules to your config so that you don't need to select them again next time?`,
+                type: 'list',
+                choices: ['No', 'Yes'],
+            },
+        ]
+
+        const answer: { [name: string]: string } = await inquirer.prompt(questions)
+
+        if (answer.addToIgnore === 'Yes') {
+            // TODO
+            this.log.log(`Add ignored modules to '${Config.configFilePath}'`)
+        }
     }
 
     /**
@@ -78,7 +105,7 @@ export class ModuleLoader {
      * @param girDirectory
      * @param modules
      */
-    public async getModules(girDirectory: string, modules: string[]): Promise<Set<string>> {
+    public async getModules(girDirectory: string, modules: string[]): Promise<string[]> {
         const foundGirModules = await this.findModules(girDirectory, modules)
         const choosedGirModules = await this.askForVersions(foundGirModules)
         return choosedGirModules
@@ -88,11 +115,17 @@ export class ModuleLoader {
      * If multiple versions of the same module are found, this will aks the user with input prompts for the version he wish to use
      * @param foundGirModules
      */
-    public async askForVersions(foundGirModules: Set<string>): Promise<Set<string>> {
+    public async askForVersions(foundGirModules: Set<string>): Promise<string[]> {
         const girFilesGrouped = this.groupGirFiles(foundGirModules)
         const questions = this.generateFileVersionQuestions(girFilesGrouped)
         const answers: { [name: string]: string } = await inquirer.prompt(questions)
-        return this.sortOutDuplicates(girFilesGrouped, answers)
+        const { keep, ignore } = this.sortOutDuplicates(girFilesGrouped, answers)
+        if (ignore) {
+            this.log.log(`The following modules are ignored: \n${ignore.join('\n')}`)
+            await this.askAddIgnore()
+        }
+
+        return keep
     }
 
     /**

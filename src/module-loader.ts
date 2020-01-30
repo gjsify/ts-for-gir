@@ -82,11 +82,11 @@ export class ModuleLoader {
         }
     }
 
-    private async askAddIgnore(): Promise<void> {
+    private async askAddIgnore(ignore: string[]): Promise<void> {
         const questions = [
             {
                 name: 'addToIgnore',
-                message: `Do you want to add the ignored modules to your config so that you don't need to select them again next time?`,
+                message: `Do you want to add the ignored modules to your config so that you don't need to select them again next time?\n  Config path: '${Config.configFilePath}`,
                 type: 'list',
                 choices: ['No', 'Yes'],
             },
@@ -95,7 +95,14 @@ export class ModuleLoader {
         const answer: { [name: string]: string } = await inquirer.prompt(questions)
 
         if (answer.addToIgnore === 'Yes') {
-            // TODO
+            try {
+                await Config.addToConfig({ ignore })
+                process.exit(1)
+            } catch (error) {
+                this.log.error(error)
+                process.exit(1)
+            }
+
             this.log.log(`Add ignored modules to '${Config.configFilePath}'`)
         }
     }
@@ -122,7 +129,7 @@ export class ModuleLoader {
         const { keep, ignore } = this.sortOutDuplicates(girFilesGrouped, answers)
         if (ignore) {
             this.log.log(`The following modules are ignored: \n${ignore.join('\n')}`)
-            await this.askAddIgnore()
+            await this.askAddIgnore(ignore)
         }
 
         return keep

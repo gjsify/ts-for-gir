@@ -64,7 +64,7 @@ export default class Generate extends Command {
         const moduleLoader = new ModuleLoader(config.verbose)
         const choosedGirModules = await moduleLoader.getModules(config.girDirectory, config.modules)
 
-        if (choosedGirModules.size === 0) {
+        if (choosedGirModules.length === 0) {
             this.error('No module found!')
         }
         for (const i in config.environments) {

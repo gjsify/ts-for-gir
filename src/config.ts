@@ -7,6 +7,8 @@ import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import { Utils } from './utils'
 import { Environment, BuildType, UserConfig, UserConfigLoadResult } from './types'
+import { promises as fs } from 'fs'
+import { Logger } from './logger'
 
 export class Config {
     static appName = 'ts-for-gir'
@@ -71,6 +73,26 @@ export class Config {
             required: true,
             default: Config.defaults.modules[0],
         },
+    }
+
+    public static async addToConfig(configsToAdd: Partial<UserConfig>): Promise<void> {
+        const userConfig = await this.loadConfigFile()
+        const path = userConfig?.filepath || this.configFilePath
+        const configToStore = {}
+        Utils.merge(configToStore, userConfig?.config || {}, configsToAdd)
+        const fileExtension = Path.extname(path)
+        let writeConfigString = ''
+        switch (fileExtension) {
+            case '.js':
+                writeConfigString = `module.exports = ${JSON.stringify(configToStore, null, 4)}`
+                break
+            default:
+                Logger.error('Only configs with the extension .js are currently supported. Do nothing')
+                break
+        }
+        if (writeConfigString && path) {
+            return fs.writeFile(path, writeConfigString)
+        }
     }
 
     /**

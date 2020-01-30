@@ -63,4 +63,6 @@ export class Utils {
     public static map = lodash.map
 
     public static find = lodash.find
+
+    public static merge = lodash.merge
 }

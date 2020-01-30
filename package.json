@@ -11,7 +11,7 @@
     "prepublish": "npm run lint && npm run regress && npm run test && npm run build",
     "test": "npm run test:ava",
     "test:ava": "npm run build:ts && npm run build:test:ava && ava tmp/test/ava/test.js",
-    "test:girs": "npm run build:ts && npm run build:test:ava && ava tmp/test/ava/test.js",
+    "test:girs": "npm run build:ts && npm run build:test:girs && npm run validate:gjs",
     "regress": "npm run clear && npm run build:ts && node bin/run generate --configName='.ts-for-gir.regress.rc.js' && npm run validate",
     "build": "npm run clear:build && npm run build:ts",
     "build:ts": "tsc",

@@ -30,7 +30,7 @@ test('enumeration', t => {
         ],
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
     t.deepEqual(mod.exportEnumeration(enum_), ['export enum MyEnum {', '    MEMBER_1,', '}'])
 })
 
@@ -61,7 +61,7 @@ test('constant', t => {
         'Test.MyType': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -98,7 +98,7 @@ test('function', t => {
         'Test.BusNameLostCallback': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -150,7 +150,7 @@ test('callback', t => {
         'GLib.Variant': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -169,7 +169,7 @@ test('interface', t => {
         'GLib.VariantType': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -265,7 +265,7 @@ test('constructors', t => {
         'Test.DBusNodeInfo': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -307,7 +307,7 @@ test('class', t => {
         'Test.ParamSpec': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false)
+    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any

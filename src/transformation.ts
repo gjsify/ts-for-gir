@@ -222,10 +222,10 @@ export class Transformation {
         },
     }
 
-    private log = Logger.getInstance()
+    private log: Logger
 
-    constructor(private readonly environment: Environment) {
-        //
+    constructor(private readonly environment: Environment, verbose = true, moduleName = 'Transformation') {
+        this.log = Logger.getInstance(this.environment, verbose, moduleName)
     }
 
     public transformModuleNamespaceName(name: string): string {
@@ -321,7 +321,7 @@ export class Transformation {
 
         name = this.transformNumericName(name, allowQuotes)
         if (originalName !== name) {
-            this.log.warn(`[${this.environment}] Constant name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`Constant name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -337,7 +337,7 @@ export class Transformation {
 
         name = this.transformNumericName(name, allowQuotes)
         if (originalName !== name) {
-            this.log.warn(`[${this.environment}] Field name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`Field name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -356,7 +356,7 @@ export class Transformation {
 
         name = this.transformNumericName(name, allowQuotes)
         if (originalName !== name) {
-            this.log.warn(`[${this.environment}] Parameter name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`Parameter name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }

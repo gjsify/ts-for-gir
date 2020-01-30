@@ -13,8 +13,8 @@ declare global {
     const imports: typeof Gjs & {
         [key: string]: any
         gi: {
-          <% for (const key in girModGrouped) { -%>
-          <%= girModGrouped[key].name %>: <%= girModGrouped[key].types %>;
+          <% for (const key in girModules) { -%>
+          <%= girModules[key].name %>: typeof <%= girModules[key].namespaceName %>;
           <% } -%>
         }
         searchPath: string[];

@@ -1,4 +1,4 @@
-import { TsForGir } from '../ts-for-gir'
+import { ModuleLoader } from '../module-loader'
 import { Command, flags } from '@oclif/command'
 
 const NAME = 'ts-for-gir'
@@ -30,8 +30,8 @@ export default class List extends Command {
     async run(): Promise<void> {
         const { argv, flags } = this.parse(List)
         const girDirectory = flags.girDirectory
-        const tsForGir = new TsForGir(false, false)
-        const foundGirModules = await tsForGir.findModules(girDirectory, argv)
+        const moduleLoader = new ModuleLoader(true)
+        const foundGirModules = await moduleLoader.findModules(girDirectory, argv)
         if (foundGirModules.size === 0) {
             this.error('No module found')
             return

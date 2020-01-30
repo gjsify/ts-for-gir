@@ -2,14 +2,7 @@ import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 import TemplateProcessor from './template-processor'
-import {
-    Transformation,
-    C_TYPE_MAP,
-    FULL_TYPE_MAP,
-    POD_TYPE_MAP,
-    POD_TYPE_MAP_ARRAY,
-    // RESERVED_FUNCTION_NAMES,
-} from './transformation'
+import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
 import { Logger } from './logger'
 
 import {
@@ -57,16 +50,16 @@ export class GirModule {
     patch: { [key: string]: string[] } = {}
     transformation: Transformation
     extends?: string
-    log = Logger.getInstance()
+    log: Logger
 
     constructor(
         xml,
         private readonly environment: Environment,
         private readonly buildType: BuildType,
         private readonly prettify: boolean,
+        private readonly verbose: boolean,
     ) {
         this.repo = xml.repository
-        this.transformation = new Transformation(environment)
 
         if (this.repo.include) {
             for (const i of this.repo.include) {
@@ -79,6 +72,10 @@ export class GirModule {
             this.name = this.ns.$.name
             this.version = this.ns.$.version
             this.fullName = `${this.name}-${this.version}`
+        }
+        this.transformation = new Transformation(environment, verbose, this.fullName || undefined)
+        this.log = Logger.getInstance(this.environment, this.verbose, this.fullName || undefined)
+        if (this.fullName) {
             this.namespaceName = this.transformation.transformModuleNamespaceName(this.fullName)
         }
     }
@@ -311,9 +308,7 @@ export class GirModule {
         }
 
         if (!fullTypeName || !this.symTable[fullTypeName]) {
-            this.log.warn(
-                `[${this.environment}][${this.fullName}] Could not find type '${fullTypeName}' for '${girVar.$.name}'`,
-            )
+            this.log.warn(`Could not find type '${fullTypeName}' for '${girVar.$.name}'`)
             return ('any' + arr) as 'any' | 'any[]'
         }
 
@@ -955,6 +950,8 @@ export class GirModule {
             },
             this.environment,
             this.prettify,
+            this.verbose,
+            this.fullName || undefined,
         )
         if (outDir) {
             templateProcessor.create('module.js', outDir, `${this.fullName}.js`)
@@ -1044,6 +1041,8 @@ export class GirModule {
             { name: this.name, version: this.version, environment: this.environment, buildType: this.buildType },
             this.environment,
             this.prettify,
+            this.verbose,
+            this.fullName || undefined,
         )
 
         // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found

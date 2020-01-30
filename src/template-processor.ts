@@ -13,13 +13,16 @@ const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
 export class TemplateProcessor {
     private environmentTemplateDir: string
-    private log = Logger.getInstance()
+    private log: Logger
     constructor(
         protected readonly data: any,
         private readonly environment: Environment,
         private readonly prettie: boolean,
+        verbose = true,
+        moduleName = 'TemplateProcessor',
     ) {
         this.environmentTemplateDir = Transformation.getEnvironmentDir(environment, TEMPLATE_DIR)
+        this.log = Logger.getInstance(environment, verbose, moduleName)
     }
 
     public static generateIndent(indents = 1, spaceForIndent = 4): string {

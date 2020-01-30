@@ -2,7 +2,6 @@ import lodash from 'lodash'
 import fs from 'fs'
 import Path from 'path'
 import * as xml2js from 'xml2js'
-import glob from 'tiny-glob'
 
 import { GirModule } from './gir-module'
 import TemplateProcessor from './template-processor'
@@ -24,27 +23,8 @@ export interface DependencyMap {
 
 export class TsForGir {
     log: Logger
-    constructor(verbose: boolean, private prettify: boolean) {
-        this.log = Logger.getInstance(verbose)
-    }
-
-    /**
-     * Adds the possibility to use wild cards for module names. E.g. `Gtk*` or `'*'`
-     * @param girDirectory
-     * @param modules
-     */
-    async findModules(girDirectory: string, modules: string[]): Promise<Set<string>> {
-        const foundModules = new Set<string>()
-
-        for (const i in modules) {
-            if (modules[i]) {
-                const filename = `${modules[i]}.gir`
-                const files = await glob(filename, { cwd: girDirectory })
-                const globModules = files.map(file => Path.basename(file, '.gir'))
-                globModules.forEach(module => foundModules.add(module))
-            }
-        }
-        return foundModules
+    constructor(environment: Environment, private readonly verbose: boolean, private readonly prettify: boolean) {
+        this.log = Logger.getInstance(environment, verbose)
     }
 
     exportGjs(outDir: string | null, girModules: { [key: string]: GirModule }, buildType: BuildType): void {
@@ -139,7 +119,7 @@ export class TsForGir {
                         this.log.error(err)
                         return
                     }
-                    const gi = new GirModule(result, environment, buildType, this.prettify)
+                    const gi = new GirModule(result, environment, buildType, this.prettify, this.verbose)
 
                     if (!gi.name) return
 
@@ -168,8 +148,8 @@ export class TsForGir {
 
         this.finaliseInheritance(inheritanceTable)
 
-        // this.log.log('inheritanceTable:')
-        // this.log.dir(inheritanceTable)
+        // this.log.debug('inheritanceTable:')
+        // this.log.debug(inheritanceTable)
 
         // Figure out transitive module dependencies
         const modDependencyMap: DependencyMap = {}

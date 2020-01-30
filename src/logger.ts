@@ -1,3 +1,8 @@
+/**
+ * A logger that displays information in different colors on the console.
+ * In addition, the environment or the module currently being processed is also included as prepended to the logging string
+ */
+
 import chalk from 'chalk'
 import { Environment } from './types'
 
@@ -60,6 +65,15 @@ export class Logger {
             return
         }
         return console.log(...args)
+    }
+    public dir(...args: any[]): void {
+        if (!this.verbose) {
+            return
+        }
+        args.forEach(arg => {
+            console.dir(arg)
+        })
+        return
     }
     public info(...args: any[]): void {
         if (!this.verbose) {

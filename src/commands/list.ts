@@ -1,40 +1,33 @@
-import { ModuleLoader } from '../module-loader'
-import { Command, flags } from '@oclif/command'
+/**
+ * Everything you need for the `ts-for-gir list` command is located here
+ */
 
-const NAME = 'ts-for-gir'
+import { ModuleLoader } from '../module-loader'
+import { Command } from '@oclif/command'
+import { Config } from '../config'
 
 export default class List extends Command {
     static description = 'Lists all available GIR modules'
 
     static examples = [
         '# Lists all available GIR modules in ./vala-girs/gir-1.0',
-        `${NAME} list -g ./vala-girs/gir-1.0`,
+        `${Config.appName} list -g ./vala-girs/gir-1.0`,
     ]
-
-    static aliases: ['l']
 
     static flags = {
-        help: flags.help({ char: 'h' }),
-        girDirectory: flags.string({ char: 'g', description: 'GIR directory', default: '/usr/share/gir-1.0' }),
+        help: Config.defaultCliFlags.help,
+        girDirectory: Config.defaultCliFlags.girDirectory,
     }
 
-    static args = [
-        {
-            name: 'modules',
-            description: "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules",
-            required: true,
-            default: '*',
-        },
-    ]
+    static args = [Config.defaultCliArgs.modules]
 
     async run(): Promise<void> {
         const { argv, flags } = this.parse(List)
-        const girDirectory = flags.girDirectory
+        const config = await Config.load(flags, argv)
         const moduleLoader = new ModuleLoader(true)
-        const foundGirModules = await moduleLoader.findModules(girDirectory, argv)
+        const foundGirModules = await moduleLoader.findModules(config.girDirectory, config.modules)
         if (foundGirModules.size === 0) {
             this.error('No module found')
-            return
         }
         for (const module of foundGirModules) {
             this.log(module)

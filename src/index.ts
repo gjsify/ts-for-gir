@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+export * from './commands/generate'
+export * from './commands/list'
 export * from './types'
-export * from './transformation'
+export * from './config'
 export * from './gir-module'
+export * from './logger'
+export * from './module-loader'
 export * from './template-processor'
+export * from './transformation'
 export * from './ts-for-gir'
 export * from './utils'
 

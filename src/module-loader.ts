@@ -1,3 +1,7 @@
+/**
+ * The ModuleLoader is used for reading gir modules from the file system and to solve conflicts (e.g. Gtk-3.0 and Gtk-4.0 would be a conflict)
+ */
+
 import * as inquirer from 'inquirer'
 import glob from 'tiny-glob'
 import Path from 'path'
@@ -68,12 +72,21 @@ export class ModuleLoader {
         return result
     }
 
+    /**
+     * Loads all found modules and sorts out those that the user does not want to use (if multiple versions of a gir file are found)
+     * @param girDirectory
+     * @param modules
+     */
     public async getModules(girDirectory: string, modules: string[]): Promise<Set<string>> {
         const foundGirModules = await this.findModules(girDirectory, modules)
         const choosedGirModules = await this.askForVersions(foundGirModules)
         return choosedGirModules
     }
 
+    /**
+     * If multiple versions of the same module are found, this will aks the user with input prompts for the version he wish to use
+     * @param foundGirModules
+     */
     public async askForVersions(foundGirModules: Set<string>): Promise<Set<string>> {
         const girFilesGrouped = this.groupGirFiles(foundGirModules)
         const questions = this.generateFileVersionQuestions(girFilesGrouped)

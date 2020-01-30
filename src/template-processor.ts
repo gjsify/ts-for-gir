@@ -1,3 +1,8 @@
+/**
+ * The TemplateProcessor is used generate strings from templates files or template strings
+ * For example, the signal methods are generated here
+ */
+
 import fs from 'fs'
 import Path from 'path'
 import ejs from 'ejs'
@@ -17,7 +22,7 @@ export class TemplateProcessor {
     constructor(
         protected readonly data: any,
         private readonly environment: Environment,
-        private readonly prettie: boolean,
+        private readonly pretty: boolean,
         verbose = true,
         moduleName = 'TemplateProcessor',
     ) {
@@ -156,7 +161,7 @@ export class TemplateProcessor {
         const fileContent = this.load(templateFilename)
         const renderedCode = this.render(fileContent)
         const destPath = this.write(renderedCode, outputDir, outputFilename)
-        const prettifiedCode = this.prettie ? this.prettify(destPath, true) : null
+        const prettifiedCode = this.pretty ? this.prettify(destPath, true) : null
         return prettifiedCode || renderedCode
     }
 

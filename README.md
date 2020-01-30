@@ -92,9 +92,28 @@ EXAMPLES
   ts-for-gir list -g ./vala-girs/gir-1.0
 ```
 
+### Config
+
+In addition to the option of passing options as a CLI flag, you can also write them in a config file.
+We use the [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) module for this, therefore you have several options how you want to create your config file.
+The easiest way is to create a new config file `.ts-for-girrc.js` in your project root directory, like this:
+
+```js
+module.exports = {
+    pretty: false,
+    print: false,
+    verbose: true,
+    environments: ['gjs', 'node'],
+    outdir: '@types',
+    girDirectory: '/usr/share/gir-1.0',
+    modules: ['*'],
+    ignore: [],
+}
+```
+
 ## Examples
 
-Run `npm run regress` or `ts-for-gir generate Gtk-3.0 Soup-2.4 GtkSource-3.0 WebKit2-4.0 AppIndicator3-0.1 Gda-5.0 Notify-0.7` in the root of this project to generate the type definitons for the examples
+Run `npm run regress` or `ts-for-gir --configName='.ts-for-gir.regress.rc.js'` in the root of this project to generate the type definitons for the examples
 
 Now open some code with an editor that understands TypeScript and see what happens, for example
 [Visual Studio Code](https://code.visualstudio.com/).

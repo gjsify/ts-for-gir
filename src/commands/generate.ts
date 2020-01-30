@@ -1,12 +1,12 @@
-import { Command, flags } from '@oclif/command'
-import Path from 'path'
-import * as Config from '@oclif/config'
+/**
+ * Everything you need for the `ts-for-gir generate` command is located here
+ */
+
+import { Command } from '@oclif/command'
+import * as CLIConfig from '@oclif/config'
 import { TsForGir } from '../ts-for-gir'
+import { Config } from '../config'
 import { ModuleLoader } from '../module-loader'
-
-import { Environment, BuildType } from '../types'
-
-const NAME = 'ts-for-gir'
 
 export default class Generate extends Command {
     static description = 'Generates .d.ts files from GIR for gjs or node-gtk'
@@ -14,100 +14,71 @@ export default class Generate extends Command {
     static strict = false
 
     static examples = [
-        `# Run '${NAME} generate' in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project`,
-        `${NAME} generate`,
+        `# Run '${Config.appName} generate' in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project`,
+        `${Config.appName} generate`,
         '',
         '# You can also use wild cards',
-        `${NAME} generate Gtk*`,
+        `${Config.appName} generate Gtk*`,
         '',
         '# If you want to parse all of your locally installed gir modules run',
-        `${NAME} generate '*'`,
+        `${Config.appName} generate '*'`,
         '',
         '# Generate .d.ts. files only for gjs',
-        `${NAME} generate '*' -e gjs`,
+        `${Config.appName} generate '*' -e gjs`,
         '',
         '# Generate .d.ts. files only for node',
-        `${NAME} generate '*' -e node`,
+        `${Config.appName} generate '*' -e node`,
+        '',
+        '# Use a special config file',
+        `${Config.appName} generate --configName='.ts-for-gir.gtk4.rc.js`,
     ]
-
-    static aliases: ['g']
 
     static flags = {
-        help: flags.help({ char: 'h' }),
-        // flag with a value (-g, --gir-directory=VALUE)
-        girDirectory: flags.string({ char: 'g', description: 'GIR directory', default: '/usr/share/gir-1.0' }),
-        outdir: flags.string({
-            char: 'o',
-            description: 'Directory to output to',
-            default: '@types',
-        }),
-        environment: flags.string({
-            char: 'e',
-            description: 'Javascript environment',
-            multiple: true,
-            options: ['gjs', 'node'],
-            default: ['gjs', 'node'],
-        }),
-        buildType: flags.string({
-            char: 'b',
-            description: '[default for gjs: lib, default for node: types] Force the definitions generation type',
-            multiple: false,
-            options: ['lib', 'types'],
-        }),
-        prettify: flags.boolean({
-            description: 'Prettifies the generated .d.ts files',
-            default: false,
-        }),
-        // flag with no value
-        verbose: flags.boolean({ char: 'v', description: 'verbosity', default: true }),
-        print: flags.boolean({
-            char: 'p',
-            description: 'Print the output to console and create no files',
-            default: false,
-        }),
+        help: Config.defaultCliFlags.help,
+        girDirectory: Config.defaultCliFlags.girDirectory,
+        outdir: Config.defaultCliFlags.outdir,
+        environments: Config.defaultCliFlags.environments,
+        ignore: Config.defaultCliFlags.ignore,
+        buildType: Config.defaultCliFlags.buildType,
+        pretty: Config.defaultCliFlags.pretty,
+        verbose: Config.defaultCliFlags.verbose,
+        print: Config.defaultCliFlags.print,
+        configName: Config.defaultCliFlags.configName,
     }
 
-    static args = [
-        {
-            name: 'modules',
-            description: "GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules",
-            required: true,
-            default: '*',
-        },
-    ]
+    static args = [Config.defaultCliArgs.modules]
 
-    constructor(argv: string[], config: Config.IConfig) {
+    constructor(argv: string[], config: CLIConfig.IConfig) {
         super(argv, config)
     }
 
     async run(): Promise<void> {
         const { argv, flags } = this.parse(Generate)
-        const environments: Environment[] = flags.environment as Environment[]
-        const buildType: BuildType | undefined = flags.buildType as BuildType | undefined
-        const outDir: string | null = flags.print ? null : Path.join(process.cwd(), flags.outdir)
-        const girDirectory = flags.girDirectory
-        const moduleLoader = new ModuleLoader(flags.verbose)
-        const choosedGirModules = await moduleLoader.getModules(girDirectory, argv)
+
+        const config = await Config.load(flags, argv)
 
         if (argv.length === 0) {
             this.error("Need to pass an argument via 'ts-for-git generate [arguments here]'!")
-            return
         }
+
+        const moduleLoader = new ModuleLoader(config.verbose)
+        const choosedGirModules = await moduleLoader.getModules(config.girDirectory, config.modules)
 
         if (choosedGirModules.size === 0) {
             this.error('No module found!')
-            return
         }
-
-        for (const i in environments) {
-            if (environments[i]) {
-                const tsForGir = new TsForGir(environments[i], flags.verbose, flags.prettify)
-                const defaultBuildType = environments[i] === 'gjs' ? 'lib' : 'types'
-
-                tsForGir.main(outDir, girDirectory, choosedGirModules, environments[i], buildType || defaultBuildType)
+        for (const i in config.environments) {
+            if (config.environments[i]) {
+                const tsForGir = new TsForGir(config.environments[i], config.verbose, config.pretty)
+                const defaultBuildType = config.environments[i] === 'gjs' ? 'lib' : 'types'
+                tsForGir.main(
+                    config.outdir,
+                    config.girDirectory,
+                    choosedGirModules,
+                    config.environments[i],
+                    config.buildType || defaultBuildType,
+                )
             }
         }
     }
 }
-
-// new CLI(process.argv, {})

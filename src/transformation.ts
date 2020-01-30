@@ -1,3 +1,8 @@
+/**
+ * This is where transformations take place for gjs and node-gtk.
+ * For example a function names should be transformed to lowerCamelCase for node-gtk but should keep their original name for gjs
+ */
+
 import { Transformations, Environment, ConstructName, TypeSuffix, CTypeMap, GType } from './types'
 import Path from 'path'
 import { Utils } from './utils'

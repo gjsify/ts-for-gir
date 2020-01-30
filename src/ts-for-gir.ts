@@ -23,7 +23,7 @@ export interface DependencyMap {
 
 export class TsForGir {
     log: Logger
-    constructor(environment: Environment, private readonly verbose: boolean, private readonly prettify: boolean) {
+    constructor(environment: Environment, private readonly verbose: boolean, private readonly pretty: boolean) {
         this.log = Logger.getInstance(environment, verbose)
     }
 
@@ -33,7 +33,7 @@ export class TsForGir {
         const templateProcessor = new TemplateProcessor(
             { girModules: girModules, environment: 'Gjs' as Environment, buildType },
             'gjs',
-            this.prettify,
+            this.pretty,
         )
 
         if (outDir) {
@@ -56,7 +56,7 @@ export class TsForGir {
         const templateProcessor = new TemplateProcessor(
             { inheritanceTableKeys, inheritanceTable, buildType },
             'gjs',
-            this.prettify,
+            this.pretty,
         )
         templateProcessor.create('cast.ts', outDir, 'cast.ts')
     }
@@ -67,7 +67,7 @@ export class TsForGir {
         const templateProcessor = new TemplateProcessor(
             { girModules, environment: 'node-gtk' as Environment, buildType },
             'node',
-            this.prettify,
+            this.pretty,
         )
 
         templateProcessor.create('index.d.ts', outDir, 'index.d.ts')
@@ -119,7 +119,7 @@ export class TsForGir {
                         this.log.error(err)
                         return
                     }
-                    const gi = new GirModule(result, environment, buildType, this.prettify, this.verbose)
+                    const gi = new GirModule(result, environment, buildType, this.pretty, this.verbose)
 
                     if (!gi.name) return
 

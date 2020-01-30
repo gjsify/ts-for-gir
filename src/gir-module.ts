@@ -56,7 +56,7 @@ export class GirModule {
         xml,
         private readonly environment: Environment,
         private readonly buildType: BuildType,
-        private readonly prettify: boolean,
+        private readonly pretty: boolean,
         private readonly verbose: boolean,
     ) {
         this.repo = xml.repository
@@ -949,7 +949,7 @@ export class GirModule {
                 buildType: this.buildType,
             },
             this.environment,
-            this.prettify,
+            this.pretty,
             this.verbose,
             this.fullName || undefined,
         )
@@ -1040,7 +1040,7 @@ export class GirModule {
         const templateProcessor = new TemplateProcessor(
             { name: this.name, version: this.version, environment: this.environment, buildType: this.buildType },
             this.environment,
-            this.prettify,
+            this.pretty,
             this.verbose,
             this.fullName || undefined,
         )

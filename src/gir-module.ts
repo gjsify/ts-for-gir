@@ -1,9 +1,9 @@
-import lodash from 'lodash'
 import Path from 'path'
 import fs from 'fs'
 import TemplateProcessor from './template-processor'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
 import { Logger } from './logger'
+import { Utils } from './utils'
 
 import {
     Environment,
@@ -74,7 +74,7 @@ export class GirModule {
             this.fullName = `${this.name}-${this.version}`
         }
         this.transformation = new Transformation(environment, verbose, this.fullName || undefined)
-        this.log = Logger.getInstance(this.environment, this.verbose, this.fullName || undefined)
+        this.log = new Logger(this.environment, this.verbose, this.fullName || 'GirModule')
         if (this.fullName) {
             this.namespaceName = this.transformation.transformModuleNamespaceName(this.fullName)
         }
@@ -972,7 +972,7 @@ export class GirModule {
 
         // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
         if (this.fullName !== 'GObject-2.0') {
-            if (!lodash.find(deps, x => x === 'GObject-2.0')) {
+            if (!Utils.find(deps, x => x === 'GObject-2.0')) {
                 deps.push('GObject-2.0')
             }
         }
@@ -997,17 +997,12 @@ export class GirModule {
             // Don't reference yourself as a dependency
             if (this.fullName !== dep) {
                 const girFilename = `${dep}.gir`
-                const namespace = dep.split('-')[0]
+                const { name } = Utils.splitModuleName(dep)
                 const filePath = Path.join(girDirectory, girFilename)
                 const depFileExists = fs.existsSync(filePath)
                 if (depFileExists) {
                     out = out.concat(
-                        TemplateProcessor.generateModuleDependenciesImport(
-                            this.environment,
-                            this.buildType,
-                            namespace,
-                            dep,
-                        ),
+                        TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, name, dep),
                     )
                 } else {
                     out = out.concat(`// WARN: Dependency not found: '${dep}'`)

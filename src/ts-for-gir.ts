@@ -1,4 +1,3 @@
-import lodash from 'lodash'
 import fs from 'fs'
 import Path from 'path'
 import * as xml2js from 'xml2js'
@@ -24,7 +23,7 @@ export interface DependencyMap {
 export class TsForGir {
     log: Logger
     constructor(environment: Environment, private readonly verbose: boolean, private readonly pretty: boolean) {
-        this.log = Logger.getInstance(environment, verbose)
+        this.log = new Logger(environment, verbose, 'TsForGir')
     }
 
     exportGjs(outDir: string | null, girModules: { [key: string]: GirModule }, buildType: BuildType): void {
@@ -155,12 +154,10 @@ export class TsForGir {
         const modDependencyMap: DependencyMap = {}
 
         for (const girModule of Object.values(girModules)) {
-            modDependencyMap[`${girModule.name}-${girModule.version}` || '-'] = lodash.map(
+            modDependencyMap[`${girModule.name}-${girModule.version}` || '-'] = Utils.map(
                 girModule.dependencies || [],
                 (fullname: string): Dependency => {
-                    const tmp = fullname.split('-')
-                    const name = tmp[0]
-                    const version = tmp[1]
+                    const { name, version } = Utils.splitModuleName(fullname)
                     return {
                         name,
                         version,

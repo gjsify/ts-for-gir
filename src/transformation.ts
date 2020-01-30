@@ -230,7 +230,7 @@ export class Transformation {
     private log: Logger
 
     constructor(private readonly environment: Environment, verbose = true, moduleName = 'Transformation') {
-        this.log = Logger.getInstance(this.environment, verbose, moduleName)
+        this.log = new Logger(this.environment, verbose, moduleName)
     }
 
     public transformModuleNamespaceName(name: string): string {

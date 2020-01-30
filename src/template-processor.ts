@@ -27,7 +27,7 @@ export class TemplateProcessor {
         moduleName = 'TemplateProcessor',
     ) {
         this.environmentTemplateDir = Transformation.getEnvironmentDir(environment, TEMPLATE_DIR)
-        this.log = Logger.getInstance(environment, verbose, moduleName)
+        this.log = new Logger(environment, verbose, moduleName)
     }
 
     public static generateIndent(indents = 1, spaceForIndent = 4): string {

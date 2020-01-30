@@ -7,11 +7,12 @@ import glob from 'tiny-glob'
 import Path from 'path'
 import { GroupedGirFiles } from './types'
 import { Logger } from './logger'
+import { Utils } from './utils'
 
 export class ModuleLoader {
     log: Logger
     constructor(verbose: boolean) {
-        this.log = Logger.getInstance('', verbose, 'ModuleLoader')
+        this.log = new Logger('', verbose, 'ModuleLoader')
     }
 
     /**
@@ -23,7 +24,7 @@ export class ModuleLoader {
         const girFilesGrouped: GroupedGirFiles = {}
 
         for (const fullName of girFiles) {
-            const name = fullName.split('-')[0]
+            const { name } = Utils.splitModuleName(fullName)
             const id = name.toLowerCase()
 
             if (!girFilesGrouped[id]) {

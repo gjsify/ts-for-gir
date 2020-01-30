@@ -4,7 +4,7 @@
 
 import { flags } from '@oclif/command'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
-import lodash from 'lodash'
+import { Utils } from './utils'
 import { Environment, BuildType, UserConfig, UserConfigLoadResult } from './types'
 
 export class Config {
@@ -104,7 +104,7 @@ export class Config {
         }
 
         if (configFile) {
-            if (lodash.isEqual(config.environments, Config.defaults.environments) && configFile.config.environments) {
+            if (Utils.isEqual(config.environments, Config.defaults.environments) && configFile.config.environments) {
                 config.environments = configFile.config.environments
             }
             if (configFile.config.buildType) {
@@ -131,7 +131,7 @@ export class Config {
             if (config.girDirectory === Config.defaultCliFlags.girDirectory.default && configFile.config.girDirectory) {
                 config.girDirectory = configFile.config.girDirectory
             }
-            if (lodash.isEqual(config.modules, Config.defaults.modules) && configFile.config.modules) {
+            if (Utils.isEqual(config.modules, Config.defaults.modules) && configFile.config.modules) {
                 config.modules = configFile.config.modules
             }
         }

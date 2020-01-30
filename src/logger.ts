@@ -7,27 +7,11 @@ import chalk from 'chalk'
 import { Environment } from './types'
 
 export class Logger {
-    /**
-     * Singleton instances used to return one singleton for each configuration
-     * See https://refactoring.guru/design-patterns/singleton/typescript/example
-     */
-    private static instances: { [key: string]: Logger } = {}
-    private constructor(
+    constructor(
         private readonly environment: Environment | '',
         private readonly verbose: boolean,
         private readonly moduleName: string,
     ) {}
-    private static generateInstanceKey(environment: Environment | '' = '', verbose = true, moduleName = ''): string {
-        return environment + String(verbose) + moduleName
-    }
-    public static getInstance(environment: Environment | '' = '', verbose = true, moduleName = ''): Logger {
-        const instanceKey = Logger.generateInstanceKey(environment, verbose, moduleName)
-        if (!Logger.instances[instanceKey]) {
-            Logger.instances[instanceKey] = new Logger(environment, verbose, moduleName)
-        }
-
-        return Logger.instances[instanceKey]
-    }
     private prepend(args: any[], prepend: string): any[] {
         if (typeof args[0] === 'string') {
             args[0] = `${prepend}${args[0]}`

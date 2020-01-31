@@ -31,6 +31,9 @@ export default class Generate extends Command {
         '',
         '# Use a special config file',
         `${Config.appName} generate --configName='.ts-for-gir.gtk4.rc.js`,
+        '',
+        '# Generate .d.ts. files but not for Gtk-3.0 and xrandr-1.3',
+        `${Config.appName} generate --ignore=Gtk-3.0 xrandr-1.3`,
     ]
 
     static flags = {
@@ -62,7 +65,11 @@ export default class Generate extends Command {
         }
 
         const moduleLoader = new ModuleLoader(config.verbose)
-        const choosedGirModules = await moduleLoader.getModules(config.girDirectory, config.modules)
+        const choosedGirModules = await moduleLoader.getModules(
+            config.girDirectory,
+            config.modules,
+            config.ignore || [],
+        )
 
         if (choosedGirModules.length === 0) {
             this.error('No module found!')

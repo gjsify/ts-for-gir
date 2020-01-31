@@ -60,6 +60,11 @@ export class ModuleLoader {
         return questions as inquirer.QuestionCollection<{ [name: string]: string }>
     }
 
+    /**
+     * Sorts out the module the user has unchoosed via cli prompt
+     * @param girFilesGrouped
+     * @param answers
+     */
     private sortOutDuplicates(
         girFilesGrouped: GroupedGirFiles,
         answers: { [name: string]: string },
@@ -82,6 +87,10 @@ export class ModuleLoader {
         }
     }
 
+    /**
+     * Asks via cli prompt if the user wants to add the ignored modules to his config file
+     * @param ignore
+     */
     private async askAddIgnore(ignore: string[]): Promise<void> {
         const questions = [
             {
@@ -97,7 +106,6 @@ export class ModuleLoader {
         if (answer.addToIgnore === 'Yes') {
             try {
                 await Config.addToConfig({ ignore })
-                process.exit(1)
             } catch (error) {
                 this.log.error(error)
                 process.exit(1)
@@ -112,8 +120,8 @@ export class ModuleLoader {
      * @param girDirectory
      * @param modules
      */
-    public async getModules(girDirectory: string, modules: string[]): Promise<string[]> {
-        const foundGirModules = await this.findModules(girDirectory, modules)
+    public async getModules(girDirectory: string, modules: string[], ignore: string[]): Promise<string[]> {
+        const foundGirModules = await this.findModules(girDirectory, modules, ignore)
         const choosedGirModules = await this.askForVersions(foundGirModules)
         return choosedGirModules
     }
@@ -127,7 +135,7 @@ export class ModuleLoader {
         const questions = this.generateFileVersionQuestions(girFilesGrouped)
         const answers: { [name: string]: string } = await inquirer.prompt(questions)
         const { keep, ignore } = this.sortOutDuplicates(girFilesGrouped, answers)
-        if (ignore) {
+        if (ignore && ignore.length > 0) {
             this.log.log(`The following modules are ignored: \n${ignore.join('\n')}`)
             await this.askAddIgnore(ignore)
         }
@@ -140,14 +148,18 @@ export class ModuleLoader {
      * @param girDirectory
      * @param modules
      */
-    public async findModules(girDirectory: string, modules: string[]): Promise<Set<string>> {
+    public async findModules(girDirectory: string, modules: string[], ignore: string[]): Promise<Set<string>> {
         const foundModules = new Set<string>()
 
         for (const i in modules) {
             if (modules[i]) {
                 const filename = `${modules[i]}.gir`
                 const files = await glob(filename, { cwd: girDirectory })
-                const globModules = files.map(file => Path.basename(file, '.gir'))
+                let globModules = files.map(file => Path.basename(file, '.gir'))
+                // Filter out the ignored modules
+                globModules = globModules.filter(module => {
+                    return !ignore.includes(module)
+                })
                 globModules.forEach(module => foundModules.add(module))
             }
         }

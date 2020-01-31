@@ -15,6 +15,9 @@ export class Config {
 
     static configFilePath = Path.join(process.cwd(), '.ts-for-girrc.js')
 
+    /**
+     * Default cli flag and argument values
+     */
     static defaults = {
         environments: ['gjs', 'node'],
         pretty: false,
@@ -22,11 +25,14 @@ export class Config {
         outdir: '@types',
         girDirectory: '/usr/share/gir-1.0',
         modules: ['*'],
+        ignore: [],
     }
 
+    /**
+     * CLI flags used in commands/generate.ts and commands/list.ts
+     */
     static defaultCliFlags = {
         help: flags.help({ char: 'h' }),
-        // flag with a value (-g, --gir-directory=VALUE)
         girDirectory: flags.string({ char: 'g', description: 'GIR directory', default: Config.defaults.girDirectory }),
         outdir: flags.string({
             char: 'o',
@@ -44,6 +50,7 @@ export class Config {
             char: 'i',
             description: 'modules that should be ignored',
             multiple: true,
+            default: Config.defaults.ignore,
         }),
         buildType: flags.string({
             char: 'b',
@@ -66,6 +73,9 @@ export class Config {
         }),
     }
 
+    /**
+     * CLI arguments used in commands/generate.ts and commands/list.ts
+     */
     static defaultCliArgs = {
         modules: {
             name: 'modules',
@@ -75,6 +85,10 @@ export class Config {
         },
     }
 
+    /**
+     * Overwrites values in the user config
+     * @param configsToAdd
+     */
     public static async addToConfig(configsToAdd: Partial<UserConfig>): Promise<void> {
         const userConfig = await this.loadConfigFile()
         const path = userConfig?.filepath || this.configFilePath
@@ -86,8 +100,11 @@ export class Config {
             case '.js':
                 writeConfigString = `module.exports = ${JSON.stringify(configToStore, null, 4)}`
                 break
+            case '.jsson':
+                writeConfigString = `${JSON.stringify(configToStore, null, 4)}`
+                break
             default:
-                Logger.error('Only configs with the extension .js are currently supported. Do nothing')
+                Logger.error('Only configs with the extension .js and .json are currently supported. Do nothing')
                 break
         }
         if (writeConfigString && path) {
@@ -113,7 +130,7 @@ export class Config {
     }
 
     /**
-     * Loads the values of the config file and concatenate them with passed cli flags.
+     * Loads the values of the config file and concatenate them with passed cli flags / arguments.
      * The values from config file  are prefered if the cli flag value is the default (and so not set / overwritten)
      * @param flags
      * @param modules
@@ -128,6 +145,7 @@ export class Config {
             print: flags.print,
             outdir: flags.outdir,
             girDirectory: flags.girDirectory,
+            ignore: flags.ignore,
             modules,
         }
 
@@ -159,7 +177,16 @@ export class Config {
             if (config.girDirectory === Config.defaultCliFlags.girDirectory.default && configFile.config.girDirectory) {
                 config.girDirectory = configFile.config.girDirectory
             }
-            if (Utils.isEqual(config.modules, Config.defaults.modules) && configFile.config.modules) {
+            if (
+                (!config.ignore || config.ignore.length <= 0 || Utils.isEqual(config.ignore, Config.defaults.ignore)) &&
+                configFile.config.ignore
+            ) {
+                config.ignore = configFile.config.ignore
+            }
+            if (
+                (config.modules.length <= 0 || Utils.isEqual(config.modules, Config.defaults.modules)) &&
+                configFile.config.modules
+            ) {
                 config.modules = configFile.config.modules
             }
         }

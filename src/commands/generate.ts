@@ -7,6 +7,7 @@ import * as CLIConfig from '@oclif/config'
 import { TsForGir } from '../ts-for-gir'
 import { Config } from '../config'
 import { ModuleLoader } from '../module-loader'
+import { GenerateConfig } from '../types'
 
 export default class Generate extends Command {
     static description = 'Generates .d.ts files from GIR for gjs or node-gtk'
@@ -76,15 +77,17 @@ export default class Generate extends Command {
         }
         for (const i in config.environments) {
             if (config.environments[i]) {
-                const tsForGir = new TsForGir(config.environments[i], config.verbose, config.pretty)
                 const defaultBuildType = config.environments[i] === 'gjs' ? 'lib' : 'types'
-                tsForGir.main(
-                    config.outdir,
-                    config.girDirectory,
-                    choosedGirModules,
-                    config.environments[i],
-                    config.buildType || defaultBuildType,
-                )
+                const generateConfig: GenerateConfig = {
+                    environment: config.environments[i],
+                    girDirectory: config.girDirectory,
+                    outdir: config.outdir,
+                    pretty: config.pretty,
+                    verbose: config.verbose,
+                    buildType: config.buildType || defaultBuildType,
+                }
+                const tsForGir = new TsForGir(generateConfig)
+                tsForGir.main(choosedGirModules)
             }
         }
     }

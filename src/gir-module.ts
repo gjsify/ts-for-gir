@@ -6,8 +6,6 @@ import { Logger } from './logger'
 import { Utils } from './utils'
 
 import {
-    Environment,
-    BuildType,
     GirRepository,
     GirNamespace,
     GirAlias,
@@ -23,13 +21,15 @@ import {
     SymTable,
     GirConstruct,
     InheritanceTable,
+    ParsedGir,
+    GenerateConfig,
 } from './types'
 
 export class GirModule {
     /**
      * E.g. 'Gtk'
      */
-    name: string | null = null
+    name?: string
     /**
      * E.g. '3.0'
      */
@@ -37,11 +37,11 @@ export class GirModule {
     /**
      * E.g. 'Gtk-3.0'
      */
-    fullName: string | null = null
+    fullName?: string
     /**
      * E.g. 'Gtk30'
      */
-    namespaceName: string | null = null
+    namespaceName?: string
     dependencies: string[] = []
     transitiveDependencies: string[] = []
     repo: GirRepository
@@ -52,29 +52,23 @@ export class GirModule {
     extends?: string
     log: Logger
 
-    constructor(
-        xml,
-        private readonly environment: Environment,
-        private readonly buildType: BuildType,
-        private readonly pretty: boolean,
-        private readonly verbose: boolean,
-    ) {
+    constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
         this.repo = xml.repository
 
+        // TODO WIP move to ModuleLoader
         if (this.repo.include) {
             for (const i of this.repo.include) {
                 this.dependencies.unshift(`${i.$.name}-${i.$.version}`)
             }
         }
-
         if (this.repo.namespace && this.repo.namespace.length) {
             this.ns = this.repo.namespace[0]
             this.name = this.ns.$.name
             this.version = this.ns.$.version
             this.fullName = `${this.name}-${this.version}`
         }
-        this.transformation = new Transformation(environment, verbose, this.fullName || undefined)
-        this.log = new Logger(this.environment, this.verbose, this.fullName || 'GirModule')
+        this.transformation = new Transformation(this.fullName, config)
+        this.log = new Logger(config.environment, config.verbose, this.fullName || 'GirModule')
         if (this.fullName) {
             this.namespaceName = this.transformation.transformModuleNamespaceName(this.fullName)
         }
@@ -263,8 +257,8 @@ export class GirModule {
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
 
         if (arr) {
-            if (POD_TYPE_MAP_ARRAY(this.environment)[type.$.name] != null) {
-                return POD_TYPE_MAP_ARRAY(this.environment)[type.$.name] + nul
+            if (POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] != null) {
+                return POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] + nul
             }
         }
 
@@ -294,8 +288,8 @@ export class GirModule {
         }
 
         if (typeof fullTypeName === 'string') {
-            if (FULL_TYPE_MAP(this.environment)[fullTypeName]) {
-                return FULL_TYPE_MAP(this.environment)[fullTypeName]
+            if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
+                return FULL_TYPE_MAP(this.config.environment)[fullTypeName]
             }
 
             // Fully qualify our type name if need be
@@ -616,7 +610,14 @@ export class GirModule {
         const [params] = this.getParameters(e.parameters, outArrayLengthIndex)
         const paramComma = params.length > 0 ? ', ' : ''
 
-        return TemplateProcessor.generateSignalMethods(this.environment, sigName, clsName, paramComma, params, retType)
+        return TemplateProcessor.generateSignalMethods(
+            this.config.environment,
+            sigName,
+            clsName,
+            paramComma,
+            params,
+            retType,
+        )
     }
 
     exportFunction(e: GirFunction): string[] {
@@ -848,9 +849,11 @@ export class GirModule {
             let prefix = 'GObject.'
             if (this.name === 'GObject') prefix = ''
             for (const p of propertyNames) {
-                def = def.concat(TemplateProcessor.generateGObjectSignalMethods(this.environment, p, name, prefix))
+                def = def.concat(
+                    TemplateProcessor.generateGObjectSignalMethods(this.config.environment, p, name, prefix),
+                )
             }
-            def = def.concat(TemplateProcessor.generateGeneralSignalMethods(this.environment))
+            def = def.concat(TemplateProcessor.generateGeneralSignalMethods(this.config.environment))
         }
 
         // TODO: Records have fields
@@ -939,29 +942,25 @@ export class GirModule {
         return this.exportObjectInternal(girClass)
     }
 
-    exportJs(outDir: string | null): void {
+    exportJs(): void {
         const templateProcessor = new TemplateProcessor(
             {
                 name: this.name,
                 version: this.version,
                 namespaceName: this.namespaceName,
-                environment: this.environment,
-                buildType: this.buildType,
             },
-            this.environment,
-            this.pretty,
-            this.verbose,
             this.fullName || undefined,
+            this.config,
         )
-        if (outDir) {
-            templateProcessor.create('module.js', outDir, `${this.fullName}.js`)
+        if (this.config.outdir) {
+            templateProcessor.create('module.js', this.config.outdir, `${this.fullName}.js`)
         } else {
             const moduleContent = templateProcessor.load('module.js')
             this.log.log(moduleContent)
         }
     }
 
-    export(outStream: NodeJS.WritableStream, outputPath: string | null, girDirectory: string): void {
+    export(outStream: NodeJS.WritableStream, outputPath: string | null): void {
         let out: string[] = []
 
         out = out.concat(TemplateProcessor.generateTSDocComment(`${this.fullName}`))
@@ -978,32 +977,20 @@ export class GirModule {
         }
 
         // Module dependencies as type references or imports
-        if (this.environment === 'gjs') {
-            out = out.concat(
-                TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, 'Gjs', 'Gjs'),
-            )
+        if (this.config.environment === 'gjs') {
+            out = out.concat(TemplateProcessor.generateModuleDependenciesImport('Gjs', 'Gjs', false, this.config))
         } else {
-            out = out.concat(
-                TemplateProcessor.generateModuleDependenciesImport(
-                    this.environment,
-                    this.buildType,
-                    'node',
-                    'node',
-                    true,
-                ),
-            )
+            out = out.concat(TemplateProcessor.generateModuleDependenciesImport('node', 'node', true, this.config))
         }
         for (const dep of deps) {
             // Don't reference yourself as a dependency
             if (this.fullName !== dep) {
                 const girFilename = `${dep}.gir`
                 const { name } = Utils.splitModuleName(dep)
-                const filePath = Path.join(girDirectory, girFilename)
+                const filePath = Path.join(this.config.girDirectory, girFilename)
                 const depFileExists = fs.existsSync(filePath)
                 if (depFileExists) {
-                    out = out.concat(
-                        TemplateProcessor.generateModuleDependenciesImport(this.environment, this.buildType, name, dep),
-                    )
+                    out = out.concat(TemplateProcessor.generateModuleDependenciesImport(name, dep, false, this.config))
                 } else {
                     out = out.concat(`// WARN: Dependency not found: '${dep}'`)
                     this.log.warn(`Dependency gir file not found: '${filePath}'`)
@@ -1012,7 +999,7 @@ export class GirModule {
         }
 
         // START Namespace
-        if (this.buildType === 'types') {
+        if (this.config.buildType === 'types') {
             out.push('')
             out.push(`declare namespace ${this.name} {`)
         }
@@ -1033,11 +1020,9 @@ export class GirModule {
         if (this.ns.interface) for (const e of this.ns.interface) out = out.concat(this.exportInterface(e))
 
         const templateProcessor = new TemplateProcessor(
-            { name: this.name, version: this.version, environment: this.environment, buildType: this.buildType },
-            this.environment,
-            this.pretty,
-            this.verbose,
-            this.fullName || undefined,
+            { name: this.name, version: this.version },
+            this.fullName,
+            this.config,
         )
 
         // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
@@ -1062,7 +1047,7 @@ export class GirModule {
         if (this.fullName === 'GObject-2.0') out = out.concat(['export interface Type {', '    name: string', '}'])
 
         // END Namespace
-        if (this.buildType === 'types') {
+        if (this.config.buildType === 'types') {
             out.push(`}`)
         }
 

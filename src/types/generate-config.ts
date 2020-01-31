@@ -1,16 +1,13 @@
 import { BuildType, Environment } from '.'
 
 /**
- * Types for config file
+ * Type for currently used config e.g. in GirModule
  */
-export interface UserConfig {
-    environments: Environment[]
+export interface GenerateConfig {
+    environment: Environment
     outdir: string | null
     buildType?: BuildType
     girDirectory: string
     verbose: boolean
-    print: boolean
     pretty: boolean
-    modules: string[]
-    ignore?: string[]
 }

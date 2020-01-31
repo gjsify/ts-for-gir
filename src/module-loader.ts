@@ -5,7 +5,10 @@
 import * as inquirer from 'inquirer'
 import glob from 'tiny-glob'
 import Path from 'path'
-import { GroupedGirFiles } from './types'
+import fs from 'fs'
+import * as xml2js from 'xml2js'
+import { GroupedGirFiles, ParsedGir, GenerateConfig } from './types'
+import { GirModule } from './gir-module'
 import { Config } from './config'
 import { Logger } from './logger'
 import { Utils } from './utils'
@@ -61,11 +64,11 @@ export class ModuleLoader {
     }
 
     /**
-     * Sorts out the module the user has unchoosed via cli prompt
+     * Sorts out the module the user has not choosed via cli prompt
      * @param girFilesGrouped
      * @param answers
      */
-    private sortOutDuplicates(
+    private sortOutUnchoosedVersions(
         girFilesGrouped: GroupedGirFiles,
         answers: { [name: string]: string },
     ): { keep: string[]; ignore: string[] } {
@@ -116,6 +119,61 @@ export class ModuleLoader {
     }
 
     /**
+     * Reads parses the gir xml module files
+     * @param girModulesToRead
+     * @param config
+     */
+    private async readModule(
+        girModulesToRead: string[] | Set<string>,
+        config: GenerateConfig,
+    ): Promise<{ [key: string]: GirModule }> {
+        const girModules: { [key: string]: GirModule } = {}
+        // A copy is needed here because we are changing the array
+        const girToLoad = Array.from(girModulesToRead)
+
+        while (girToLoad.length > 0) {
+            const name = girToLoad.shift()
+            if (!name) throw new Error('Module name not found!')
+            const filePath = Path.join(config.girDirectory, name + '.gir')
+            if (!fs.existsSync(filePath)) {
+                this.log.warn(`ENOENT: no such file or directory, open '${filePath}'`)
+                continue
+            }
+            this.log.log(`Parsing ${filePath}...`)
+            const fileContents = fs.readFileSync(filePath, 'utf8')
+            const result = (await xml2js.parseStringPromise(fileContents)) as ParsedGir
+
+            const gi = new GirModule(result, config)
+            if (gi.fullName) {
+                girModules[gi.fullName] = gi
+            }
+        }
+        return girModules
+    }
+
+    // TODO WIP
+    private checkDependencies(choosedGirModules, config: GenerateConfig) {
+        const girModules = this.readModule(choosedGirModules, config)
+    }
+
+    /**
+     * If multiple versions of the same module are found, this will aks the user with input prompts for the version he wish to use
+     * @param foundGirModules
+     */
+    private async askForVersions(foundGirModules: Set<string>): Promise<string[]> {
+        const girFilesGrouped = this.groupGirFiles(foundGirModules)
+        const questions = this.generateFileVersionQuestions(girFilesGrouped)
+        const answers: { [name: string]: string } = await inquirer.prompt(questions)
+        const { keep, ignore } = this.sortOutUnchoosedVersions(girFilesGrouped, answers)
+        if (ignore && ignore.length > 0) {
+            this.log.log(`The following modules are ignored: \n${ignore.join('\n')}`)
+            await this.askAddIgnore(ignore)
+        }
+
+        return keep
+    }
+
+    /**
      * Loads all found modules and sorts out those that the user does not want to use (if multiple versions of a gir file are found)
      * @param girDirectory
      * @param modules
@@ -127,24 +185,7 @@ export class ModuleLoader {
     }
 
     /**
-     * If multiple versions of the same module are found, this will aks the user with input prompts for the version he wish to use
-     * @param foundGirModules
-     */
-    public async askForVersions(foundGirModules: Set<string>): Promise<string[]> {
-        const girFilesGrouped = this.groupGirFiles(foundGirModules)
-        const questions = this.generateFileVersionQuestions(girFilesGrouped)
-        const answers: { [name: string]: string } = await inquirer.prompt(questions)
-        const { keep, ignore } = this.sortOutDuplicates(girFilesGrouped, answers)
-        if (ignore && ignore.length > 0) {
-            this.log.log(`The following modules are ignored: \n${ignore.join('\n')}`)
-            await this.askAddIgnore(ignore)
-        }
-
-        return keep
-    }
-
-    /**
-     * Adds the possibility to use wild cards for module names. E.g. `Gtk*` or `'*'`
+     * Find modules with the possibility to use wild cards for module names. E.g. `Gtk*` or `'*'`
      * @param girDirectory
      * @param modules
      */

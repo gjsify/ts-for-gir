@@ -9,7 +9,7 @@ import ejs from 'ejs'
 import { Environment } from './types/environment'
 import { Transformation } from './transformation'
 import { Logger } from './logger'
-import { BuildType } from './types'
+import { BuildType, GenerateConfig } from './types'
 
 const CLIEngine = require('eslint').CLIEngine
 const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
@@ -21,13 +21,11 @@ export class TemplateProcessor {
     private log: Logger
     constructor(
         protected readonly data: any,
-        private readonly environment: Environment,
-        private readonly pretty: boolean,
-        verbose = true,
         moduleName = 'TemplateProcessor',
+        private readonly config: GenerateConfig,
     ) {
-        this.environmentTemplateDir = Transformation.getEnvironmentDir(environment, TEMPLATE_DIR)
-        this.log = new Logger(environment, verbose, moduleName)
+        this.environmentTemplateDir = Transformation.getEnvironmentDir(config.environment, TEMPLATE_DIR)
+        this.log = new Logger(config.environment, config.verbose, moduleName)
     }
 
     public static generateIndent(indents = 1, spaceForIndent = 4): string {
@@ -47,14 +45,13 @@ export class TemplateProcessor {
     }
 
     public static generateModuleDependenciesImport(
-        environment: Environment,
-        buildType: BuildType,
         namespace: string,
         baseFilename: string,
         asType = false,
+        config: GenerateConfig,
     ): string[] {
         const result: string[] = []
-        if (buildType === 'lib') {
+        if (config.buildType === 'lib') {
             result.push(`import * as ${namespace} from './${baseFilename}';`)
         } else {
             if (asType) {
@@ -161,12 +158,12 @@ export class TemplateProcessor {
         const fileContent = this.load(templateFilename)
         const renderedCode = this.render(fileContent)
         const destPath = this.write(renderedCode, outputDir, outputFilename)
-        const prettifiedCode = this.pretty ? this.prettify(destPath, true) : null
+        const prettifiedCode = this.config.pretty ? this.prettify(destPath, true) : null
         return prettifiedCode || renderedCode
     }
 
     protected write(content: string, outputDir: string, outputFilename: string): string {
-        outputDir = Transformation.getEnvironmentDir(this.environment, outputDir)
+        outputDir = Transformation.getEnvironmentDir(this.config.environment, outputDir)
         const destPath = Path.join(outputDir, outputFilename)
 
         // write template result file
@@ -177,7 +174,7 @@ export class TemplateProcessor {
     }
 
     protected render(templateString: string, additionalData: any = {}): string {
-        const renderedCode = ejs.render(templateString, { ...this.data, ...additionalData })
+        const renderedCode = ejs.render(templateString, { ...this.config, ...this.data, ...additionalData })
         return renderedCode
     }
 

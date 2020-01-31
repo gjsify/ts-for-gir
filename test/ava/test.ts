@@ -1,5 +1,5 @@
 import test from 'ava'
-import { GirEnumeration, GirModule } from '../../src'
+import { GirEnumeration, GirModule, GenerateConfig } from '../../src'
 import * as TestData from './testData'
 
 const emptyRepositoryXml = {
@@ -13,6 +13,15 @@ const emptyRepositoryXml = {
             },
         ],
     },
+}
+
+const config: GenerateConfig = {
+    environment: 'gjs',
+    girDirectory: '',
+    outdir: '',
+    pretty: false,
+    verbose: false,
+    buildType: 'lib',
 }
 
 test('enumeration', t => {
@@ -30,7 +39,7 @@ test('enumeration', t => {
         ],
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
+    const mod = new GirModule(emptyRepositoryXml, config)
     t.deepEqual(mod.exportEnumeration(enum_), ['export enum MyEnum {', '    MEMBER_1,', '}'])
 })
 
@@ -61,7 +70,7 @@ test('constant', t => {
         'Test.MyType': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
+    const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -98,7 +107,7 @@ test('function', t => {
         'Test.BusNameLostCallback': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
+    const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -150,7 +159,7 @@ test('callback', t => {
         'GLib.Variant': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
+    const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -169,7 +178,7 @@ test('interface', t => {
         'GLib.VariantType': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
+    const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -265,7 +274,7 @@ test('constructors', t => {
         'Test.DBusNodeInfo': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
+    const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any
@@ -307,7 +316,7 @@ test('class', t => {
         'Test.ParamSpec': 1,
     }
 
-    const mod = new GirModule(emptyRepositoryXml, 'gjs', 'lib', false, false)
+    const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.name, 'Test')
 
     mod.symTable = symTable as any

@@ -3,7 +3,7 @@
  * For example a function names should be transformed to lowerCamelCase for node-gtk but should keep their original name for gjs
  */
 
-import { Transformations, Environment, ConstructName, TypeSuffix, CTypeMap, GType } from './types'
+import { Transformations, Environment, ConstructName, TypeSuffix, CTypeMap, GType, GenerateConfig } from './types'
 import Path from 'path'
 import { Utils } from './utils'
 import { Logger } from './logger'
@@ -49,7 +49,7 @@ export const POD_TYPE_MAP = {
     va_list: 'any',
 }
 
-export const C_TYPE_MAP = (targetFullName: string | null, suffix: TypeSuffix): CTypeMap => {
+export const C_TYPE_MAP = (targetFullName?: string, suffix: TypeSuffix = ''): CTypeMap => {
     return {
         'char*': 'string',
         'gchar*': 'string',
@@ -229,8 +229,8 @@ export class Transformation {
 
     private log: Logger
 
-    constructor(private readonly environment: Environment, verbose = true, moduleName = 'Transformation') {
-        this.log = new Logger(this.environment, verbose, moduleName)
+    constructor(moduleName = 'Transformation', private readonly config: GenerateConfig) {
+        this.log = new Logger(config.environment, config.verbose, moduleName)
     }
 
     public transformModuleNamespaceName(name: string): string {
@@ -256,7 +256,7 @@ export class Transformation {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`[${this.environment}] Class name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${this.config.environment}] Class name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -273,7 +273,7 @@ export class Transformation {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`[${this.environment}] Enum name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${this.config.environment}] Enum name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -289,7 +289,7 @@ export class Transformation {
         }
 
         if (originalName !== name) {
-            this.log.warn(`[${this.environment}] Function name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${this.config.environment}] Function name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -375,13 +375,13 @@ export class Transformation {
         name = this.transformNumericName(name)
 
         if (originalName !== name) {
-            this.log.warn(`[${this.environment}] Type name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`[${this.config.environment}] Type name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
 
     public transform(construct: ConstructName, transformMe: string): string {
-        const transformations = this.transformations[construct][this.environment].transformation
+        const transformations = this.transformations[construct][this.config.environment].transformation
         if (transformations === 'original') {
             return transformMe
         }
@@ -429,6 +429,6 @@ export class Transformation {
     }
 
     getEnvironmentDir(baseDir: string): string {
-        return Transformation.getEnvironmentDir(this.environment, baseDir)
+        return Transformation.getEnvironmentDir(this.config.environment, baseDir)
     }
 }

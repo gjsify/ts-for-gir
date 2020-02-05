@@ -232,7 +232,7 @@ export class GirModule {
 
         if (collection && collection.length > 0) {
             const typeArray = collection[0].type
-            if (typeArray == null || typeArray.length == 0) return 'any'
+            if (!typeArray || typeArray.length === 0) return 'any'
             if (collection[0].$) {
                 const ea = collection[0].$
                 arrCType = ea['c:type']
@@ -257,12 +257,12 @@ export class GirModule {
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
 
         if (arr) {
-            if (POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] != null) {
+            if (POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
                 return POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] + nul
             }
         }
 
-        if (POD_TYPE_MAP[type.$.name] != null) {
+        if (POD_TYPE_MAP[type.$.name]) {
             return POD_TYPE_MAP[type.$.name] + suffix
         }
 
@@ -331,7 +331,7 @@ export class GirModule {
 
     private girBool(e: string | undefined, defaultVal = false): boolean {
         if (e) {
-            if (parseInt(e) == 0) return false
+            if (parseInt(e) === 0) return false
             return true
         }
         return defaultVal
@@ -409,7 +409,7 @@ export class GirModule {
 
                     const optDirection = param.$.direction
                     if (optDirection) {
-                        if (optDirection == 'out') {
+                        if (optDirection === 'out') {
                             outParams.push(`/* ${paramName} */ ${paramType}`)
                             continue
                         }
@@ -540,7 +540,7 @@ export class GirModule {
 
         if (funcNamePrefix) name = funcNamePrefix + name
 
-        // if (e._fullSymName == 'Gtk.Container.child_notify') {
+        // if (e._fullSymName === 'Gtk.Container.child_notify') {
         //     debugger
         // }
 
@@ -558,7 +558,7 @@ export class GirModule {
             }
             const retDesc = outParams.join(', ')
             retType = `[ ${retDesc} ]`
-        } else if (outParams.length == 1 && retTypeIsVoid) {
+        } else if (outParams.length === 1 && retTypeIsVoid) {
             retType = outParams[0]
         }
 
@@ -577,7 +577,7 @@ export class GirModule {
         if (!funcName) return [[], null]
 
         const [retType] = this.getReturnType(e)
-        if (retType.split(' ')[0] != name) {
+        if (retType.split(' ')[0] !== name) {
             // this.log.warn(`Constructor returns ${retType} should return ${name}`)
 
             // Force constructors to return the type of the class they are actually
@@ -638,10 +638,10 @@ export class GirModule {
         return def
     }
 
-    private traverseInheritanceTree(girClass: GirClass, callback: (cls: GirClass) => void): void {
+    private traverseInheritanceTree(girClass: GirClass, callback: (girClass: GirClass) => void): void {
         if (!girClass || !girClass.$) return
 
-        const parent: GirClass | null = null
+        let parent: GirClass | null = null
         // const parentModule: GirModule | undefined = undefined
 
         const mod: GirModule = girClass._module ? girClass._module : this
@@ -654,18 +654,17 @@ export class GirModule {
         if (girClass.$.parent) {
             let parentName = girClass.$.parent
             const origParentName = parentName
-            let parentPtr: GirClass | null = null
 
             if (parentName.indexOf('.') < 0) {
                 parentName = mod.name + '.' + parentName
             }
 
             if (this.symTable[parentName]) {
-                parentPtr = this.symTable[parentName] as GirClass | null
+                parent = this.symTable[parentName] as GirClass | null
             }
 
-            if (!parentPtr && origParentName == 'Object') {
-                parentPtr = (this.symTable['GObject.Object'] as GirClass | null) || null
+            if (!parent && origParentName === 'Object') {
+                parent = (this.symTable['GObject.Object'] as GirClass | null) || null
             }
         }
 
@@ -695,7 +694,7 @@ export class GirModule {
     private isDerivedFromGObject(girClass: GirClass): boolean {
         let ret = false
         this.traverseInheritanceTree(girClass, cls => {
-            if (cls._fullSymName == 'GObject.Object') {
+            if (cls._fullSymName === 'GObject.Object') {
                 ret = true
             }
         })
@@ -717,7 +716,7 @@ export class GirModule {
         }
 
         const checkName = (desc: string[], name: string | null, localNames): [string[], boolean] => {
-            if (!desc || desc.length == 0) return [[], false]
+            if (!desc || desc.length === 0) return [[], false]
 
             if (!name) {
                 // this.log.error(`No name for ${desc}`)
@@ -736,7 +735,7 @@ export class GirModule {
         let parentName: string | null = null
         let counter = 0
         this.traverseInheritanceTree(girClass, cls => {
-            if (counter++ != 1) return
+            if (counter++ !== 1) return
             parentName = cls._fullSymName || null
         })
 
@@ -870,7 +869,7 @@ export class GirModule {
                     for (const f of constructor_) {
                         const [desc, funcName] = this.getConstructorFunction(name, f, '    static ')
                         if (!funcName) continue
-                        if (funcName != 'new') continue
+                        if (funcName !== 'new') continue
 
                         def = def.concat(desc)
 

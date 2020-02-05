@@ -321,7 +321,9 @@ test('class', t => {
 
     mod.symTable = symTable as any
 
-    t.deepEqual(mod.exportClass(TestData.classApplicationCommandLine), [
+    const result = mod.exportClass(TestData.classApplicationCommandLine)
+
+    t.deepEqual(result, [
         'export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {',
         '    "arguments"?: GLib.Variant',
         '    options?: GLib.Variant',

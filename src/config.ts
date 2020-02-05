@@ -6,7 +6,7 @@ import { flags } from '@oclif/command'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import { Utils } from './utils'
-import { Environment, BuildType, UserConfig, UserConfigLoadResult } from './types'
+import { Environment, BuildType, UserConfig, UserConfigLoadResult, GenerateConfig } from './types'
 import { promises as fs } from 'fs'
 import { Logger } from './logger'
 
@@ -127,6 +127,19 @@ export class Config {
             Config.configFilePath = userConfig?.filepath
         }
         return userConfig
+    }
+
+    public static getGenerateConfig(config: UserConfig, environment: Environment = 'gjs'): GenerateConfig {
+        const defaultBuildType = environment === 'gjs' ? 'lib' : 'types'
+        const generateConfig: GenerateConfig = {
+            environment: environment,
+            girDirectory: config.girDirectory,
+            outdir: config.outdir,
+            pretty: config.pretty,
+            verbose: config.verbose,
+            buildType: config.buildType || defaultBuildType,
+        }
+        return generateConfig
     }
 
     /**

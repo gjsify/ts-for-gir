@@ -1,6 +1,6 @@
 import * as Gjs from "./Gjs";
-<% for (const key in girModules) { -%>
-import * as <%= girModules[key].namespaceName %> from "./<%= key %>";
+<% for (const girModule of girModules) { -%>
+import * as <%= girModule.namespaceName %> from "./<%= girModule.fullName %>";
 <% } -%>
 
 
@@ -13,8 +13,8 @@ declare global {
     const imports: typeof Gjs & {
         [key: string]: any
         gi: {
-          <% for (const key in girModules) { -%>
-          <%= girModules[key].name %>: typeof <%= girModules[key].namespaceName %>;
+          <% for (const girModule of girModules) { -%>
+          <%= girModule.name %>: typeof <%= girModule.namespaceName %>;
           <% } -%>
         }
         searchPath: string[];

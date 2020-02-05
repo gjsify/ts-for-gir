@@ -15,6 +15,7 @@ import {
     GirVariable,
     GirArray,
     GirType,
+    GirInclude,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
@@ -29,7 +30,7 @@ export class GirModule {
     /**
      * E.g. 'Gtk'
      */
-    name?: string
+    name: string
     /**
      * E.g. '3.0'
      */
@@ -37,11 +38,11 @@ export class GirModule {
     /**
      * E.g. 'Gtk-3.0'
      */
-    fullName?: string
+    fullName: string
     /**
      * E.g. 'Gtk30'
      */
-    namespaceName?: string
+    namespaceName: string
     dependencies: string[] = []
     transitiveDependencies: string[] = []
     repo: GirRepository
@@ -55,23 +56,27 @@ export class GirModule {
     constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
         this.repo = xml.repository
 
-        // TODO WIP move to ModuleLoader
+        if (!this.repo.namespace || !this.repo.namespace.length) {
+            throw new Error(`Namespace not found!`)
+        }
         if (this.repo.include) {
-            for (const i of this.repo.include) {
-                this.dependencies.unshift(`${i.$.name}-${i.$.version}`)
-            }
+            this.dependencies = this.loadDependencies(this.repo.include)
         }
-        if (this.repo.namespace && this.repo.namespace.length) {
-            this.ns = this.repo.namespace[0]
-            this.name = this.ns.$.name
-            this.version = this.ns.$.version
-            this.fullName = `${this.name}-${this.version}`
-        }
+        this.ns = this.repo.namespace[0]
+        this.name = this.ns.$.name
+        this.version = this.ns.$.version
+        this.fullName = `${this.name}-${this.version}`
         this.transformation = new Transformation(this.fullName, config)
         this.log = new Logger(config.environment, config.verbose, this.fullName || 'GirModule')
-        if (this.fullName) {
-            this.namespaceName = this.transformation.transformModuleNamespaceName(this.fullName)
+        this.namespaceName = this.transformation.transformModuleNamespaceName(this.fullName)
+    }
+
+    private loadDependencies(girInclude: GirInclude[]): string[] {
+        const dependencies: string[] = []
+        for (const i of girInclude) {
+            dependencies.unshift(`${i.$.name}-${i.$.version}`)
         }
+        return dependencies
     }
 
     loadTypes(dict: SymTable): void {
@@ -279,13 +284,13 @@ export class GirModule {
 
         let fullTypeName: string | null = type.$.name
 
-        if (cType && cType.includes('GType[]')) {
-            debugger
-        }
+        // if (cType && cType.includes('GType[]')) {
+        //     debugger
+        // }
 
-        if (fullTypeName && fullTypeName.includes('GType[]')) {
-            debugger
-        }
+        // if (fullTypeName && fullTypeName.includes('GType[]')) {
+        //     debugger
+        // }
 
         if (typeof fullTypeName === 'string') {
             if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
@@ -988,11 +993,15 @@ export class GirModule {
                 const { name } = Utils.splitModuleName(dep)
                 const filePath = Path.join(this.config.girDirectory, girFilename)
                 const depFileExists = fs.existsSync(filePath)
+                // if (name === 'GModule') {
+                //     this.log.debug(name, filePath, dep, depFileExists)
+                //     debugger
+                // }
                 if (depFileExists) {
                     out = out.concat(TemplateProcessor.generateModuleDependenciesImport(name, dep, false, this.config))
                 } else {
                     out = out.concat(`// WARN: Dependency not found: '${dep}'`)
-                    this.log.warn(`Dependency gir file not found: '${filePath}'`)
+                    this.log.error(`Dependency gir file not found: '${filePath}'`)
                 }
             }
         }

@@ -8,12 +8,12 @@ import { Transformation } from './transformation'
 import { Logger } from './logger'
 import { Utils } from './utils'
 
-import { Environment, BuildType, InheritanceTable, SymTable, ParsedGir, GenerateConfig } from './types'
+import { InheritanceTable, SymTable, ParsedGir, GenerateConfig, GirModules } from './types'
 
 export interface Dependency {
     name: string
     version: string
-    fullname: string
+    fullName: string
 }
 
 export interface DependencyMap {
@@ -22,11 +22,13 @@ export interface DependencyMap {
 
 export class TsForGir {
     log: Logger
+    /** Transitive module dependencies */
+    modDependencyMap: DependencyMap = {}
     constructor(private readonly config: GenerateConfig) {
         this.log = new Logger(config.environment, config.verbose, 'TsForGir')
     }
 
-    exportGjs(girModules: { [key: string]: GirModule }): void {
+    exportGjs(girModules: GirModule[]): void {
         if (!this.config.outdir) return
 
         const templateProcessor = new TemplateProcessor({ girModules: girModules }, 'gjs', this.config)
@@ -50,7 +52,7 @@ export class TsForGir {
         templateProcessor.create('cast.ts', this.config.outdir, 'cast.ts')
     }
 
-    exportNodeGtk(girModules: { [key: string]: GirModule }): void {
+    exportNodeGtk(girModules: GirModule[]): void {
         if (!this.config.outdir) return
 
         const templateProcessor = new TemplateProcessor({ girModules }, 'node', this.config)
@@ -74,46 +76,49 @@ export class TsForGir {
         }
     }
 
-    main(girModulesToLoad: string[] | Set<string>): void {
-        this.log.info(`Start to generate .d.ts files for '${this.config.environment}' as '${this.config.buildType}'.`)
+    // TODO WIP
+    private traverseDependencies(fullName: string, result: { [name: string]: 1 } = {}): void {
+        const deps = this.modDependencyMap[fullName]
+        if (Utils.isIterable(deps)) {
+            for (const dep of deps) {
+                if (result[dep.fullName]) continue
+                result[dep.fullName] = 1
+                this.traverseDependencies(dep.fullName, result)
+            }
+        } else {
+            // this.log.warn('`deps` is not iterable: ', deps, fullName, modDependencyMap)
+        }
+    }
 
-        const girModules: { [key: string]: GirModule } = {}
-        // A copy is needed here because we are changing the array
-        const girToLoad = Array.from(girModulesToLoad)
-
-        if (girToLoad.length == 0) {
-            this.log.error('Need to specify modules via -m!')
-            return
+    // TODO WIP
+    private setTraverseDependencies(girModules: GirModule[]): void {
+        // Figure out transitive module dependencies
+        for (const girModule of girModules) {
+            this.modDependencyMap[`${girModule.name}-${girModule.version}` || '-'] = Utils.map(
+                girModule.dependencies || [],
+                (fullName: string): Dependency => {
+                    const { name, version } = Utils.splitModuleName(fullName)
+                    return {
+                        name,
+                        version,
+                        fullName,
+                    }
+                },
+            )
         }
 
-        // TODO WIP move to ModuleLoader
-        while (girToLoad.length > 0) {
-            const name = girToLoad.shift()
-            if (!name) throw new Error('Module name not found!')
-            const filePath = Path.join(this.config.girDirectory, name + '.gir')
-            if (fs.existsSync(filePath)) {
-                this.log.log(`Parsing ${filePath}...`)
-                const fileContents = fs.readFileSync(filePath, 'utf8')
-                xml2js.parseString(fileContents, (err, result: ParsedGir) => {
-                    if (err) {
-                        this.log.error(err)
-                        return
-                    }
-                    const gi = new GirModule(result, this.config)
+        for (const girModule of Object.values(girModules)) {
+            const result: { [name: string]: 1 } = {}
+            this.traverseDependencies(girModule.fullName, result)
+            girModule.transitiveDependencies = Object.keys(result)
+        }
+    }
 
-                    if (!gi.name) return
+    main(girModules: GirModule[]): void {
+        this.log.info(`Start to generate .d.ts files for '${this.config.environment}' as '${this.config.buildType}'.`)
 
-                    girModules[`${gi.name}-${gi.version}`] = gi
-
-                    for (const dep of gi.dependencies) {
-                        if (!girModules[dep] && girToLoad.indexOf(dep) < 0) {
-                            girToLoad.unshift(dep)
-                        }
-                    }
-                })
-            } else {
-                this.log.warn(`ENOENT: no such file or directory, open '${filePath}'`)
-            }
+        if (girModules.length == 0) {
+            this.log.error('Need to specify modules!')
         }
 
         //this.log.dir(girModules["GObject-2.0"], { depth: null })
@@ -121,57 +126,18 @@ export class TsForGir {
         this.log.info('Files parsed, loading types...')
 
         const symTable: SymTable = {}
-        for (const girModule of Object.values(girModules)) girModule.loadTypes(symTable)
+        for (const girModule of girModules) girModule.loadTypes(symTable)
 
         const inheritanceTable: InheritanceTable = {}
-        for (const girModule of Object.values(girModules)) girModule.loadInheritance(inheritanceTable)
+        for (const girModule of girModules) girModule.loadInheritance(inheritanceTable)
 
         this.finaliseInheritance(inheritanceTable)
 
         // this.log.debug('inheritanceTable:')
         // this.log.debug(inheritanceTable)
 
-        // Figure out transitive module dependencies
-        const modDependencyMap: DependencyMap = {}
-
-        for (const girModule of Object.values(girModules)) {
-            modDependencyMap[`${girModule.name}-${girModule.version}` || '-'] = Utils.map(
-                girModule.dependencies || [],
-                (fullname: string): Dependency => {
-                    const { name, version } = Utils.splitModuleName(fullname)
-                    return {
-                        name,
-                        version,
-                        fullname,
-                    }
-                },
-            )
-        }
-
-        const traverseDependencies = (fullName: string, result: { [name: string]: 1 }): void => {
-            if (!fullName) {
-                return
-            }
-            const deps = modDependencyMap[fullName]
-            if (Utils.isIterable(deps)) {
-                for (const dep of deps) {
-                    if (result[dep.fullname]) continue
-                    result[dep.fullname] = 1
-                    traverseDependencies(dep.fullname, result)
-                }
-            } else {
-                // this.log.warn('`deps` is not iterable: ', deps, fullName, modDependencyMap)
-            }
-        }
-
-        for (const girModule of Object.values(girModules)) {
-            const result: { [name: string]: 1 } = {}
-            if (girModule.fullName) {
-                traverseDependencies(girModule.fullName, result)
-            }
-
-            girModule.transitiveDependencies = Object.keys(result)
-        }
+        // TODO WIP
+        this.setTraverseDependencies(girModules)
 
         const patch = {
             'Atk.Object.get_description': [
@@ -191,22 +157,22 @@ export class TsForGir {
 
         this.log.info('Types loaded, generating .d.ts...')
 
-        for (const moduleName of Object.keys(girModules)) {
+        for (const girModule of girModules) {
             let dtOutf: NodeJS.WritableStream = process.stdout
             let dtOutputPath: string | null = null
             if (this.config.outdir) {
-                const fullName: string = girModules[moduleName].fullName || 'unknown'
+                const fullName: string = girModule.fullName || 'unknown'
                 const OutputDir = Transformation.getEnvironmentDir(this.config.environment, this.config.outdir)
                 const dtFileName = `${fullName}.d.ts`
                 dtOutputPath = Path.join(OutputDir, dtFileName)
                 fs.mkdirSync(OutputDir, { recursive: true })
                 dtOutf = fs.createWriteStream(dtOutputPath)
             }
-            this.log.log(` - ${moduleName} ...`)
-            girModules[moduleName].patch = patch
-            girModules[moduleName].export(dtOutf, dtOutputPath)
+            this.log.log(` - ${girModule.fullName} ...`)
+            girModule.patch = patch
+            girModule.export(dtOutf, dtOutputPath)
             if (this.config.buildType === 'lib') {
-                girModules[moduleName].exportJs()
+                girModule.exportJs()
             }
         }
 

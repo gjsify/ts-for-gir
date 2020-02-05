@@ -65,26 +65,13 @@ export default class Generate extends Command {
             this.error("Need to pass an argument via 'ts-for-git generate [arguments here]'!")
         }
 
-        const moduleLoader = new ModuleLoader(config.verbose)
-        const choosedGirModules = await moduleLoader.getModules(
-            config.girDirectory,
-            config.modules,
-            config.ignore || [],
-        )
-
-        if (choosedGirModules.length === 0) {
-            this.error('No module found!')
-        }
         for (const i in config.environments) {
             if (config.environments[i]) {
-                const defaultBuildType = config.environments[i] === 'gjs' ? 'lib' : 'types'
-                const generateConfig: GenerateConfig = {
-                    environment: config.environments[i],
-                    girDirectory: config.girDirectory,
-                    outdir: config.outdir,
-                    pretty: config.pretty,
-                    verbose: config.verbose,
-                    buildType: config.buildType || defaultBuildType,
+                const generateConfig = Config.getGenerateConfig(config, config.environments[i])
+                const moduleLoader = new ModuleLoader(generateConfig)
+                const choosedGirModules = await moduleLoader.getModulesResolved(config.modules, config.ignore || [])
+                if (choosedGirModules.length === 0) {
+                    this.error('No module found!')
                 }
                 const tsForGir = new TsForGir(generateConfig)
                 tsForGir.main(choosedGirModules)

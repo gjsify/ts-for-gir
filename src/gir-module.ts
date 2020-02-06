@@ -79,7 +79,7 @@ export class GirModule {
         return dependencies
     }
 
-    loadTypes(dict: SymTable): void {
+    public loadTypes(dict: SymTable): void {
         const loadTypesInternal = (girConstructs?: GirConstruct[]): void => {
             if (girConstructs) {
                 for (const girConstruct of girConstructs) {
@@ -181,7 +181,7 @@ export class GirModule {
         this.symTable = dict
     }
 
-    loadInheritance(inheritanceTable: InheritanceTable): void {
+    public loadInheritance(inheritanceTable: InheritanceTable): void {
         // Class hierarchy
         for (const cls of this.ns.class ? this.ns.class : []) {
             let parent: string | null = null
@@ -492,7 +492,7 @@ export class GirModule {
         return [[`    ${propPrefix}${propDesc}`], propName, origName]
     }
 
-    exportEnumeration(e: GirEnumeration): string[] {
+    private exportEnumeration(e: GirEnumeration): string[] {
         const def: string[] = []
 
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
@@ -517,7 +517,7 @@ export class GirModule {
         return def
     }
 
-    exportConstant(girVar: GirVariable): string[] {
+    private exportConstant(girVar: GirVariable): string[] {
         const [varDesc, varName] = this.getVariable(girVar, false, false, 'constant')
         if (varName) {
             return [`export const ${varDesc}`]
@@ -625,11 +625,11 @@ export class GirModule {
         )
     }
 
-    exportFunction(e: GirFunction): string[] {
+    private exportFunction(e: GirFunction): string[] {
         return this.getFunction(e, 'export function ')[0]
     }
 
-    exportCallback(e: GirFunction): string[] {
+    private exportCallback(e: GirFunction): string[] {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
 
         const name = e.$.name
@@ -930,7 +930,7 @@ export class GirModule {
         return def
     }
 
-    exportAlias(girAlias: GirAlias): string[] {
+    public exportAlias(girAlias: GirAlias): string[] {
         if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return []
 
         const typeName = this.typeLookupTransformed(girAlias)
@@ -938,15 +938,15 @@ export class GirModule {
         return [`type ${name} = ${typeName}`]
     }
 
-    exportInterface(girClass: GirClass): string[] {
+    public exportInterface(girClass: GirClass): string[] {
         return this.exportObjectInternal(girClass)
     }
 
-    exportClass(girClass: GirClass): string[] {
+    public exportClass(girClass: GirClass): string[] {
         return this.exportObjectInternal(girClass)
     }
 
-    exportJs(): void {
+    public exportJs(): void {
         const templateProcessor = new TemplateProcessor(
             {
                 name: this.name,
@@ -964,7 +964,7 @@ export class GirModule {
         }
     }
 
-    export(outStream: NodeJS.WritableStream, outputPath: string | null): void {
+    public export(outStream: NodeJS.WritableStream, outputPath: string | null): void {
         let out: string[] = []
 
         out = out.concat(TemplateProcessor.generateTSDocComment(`${this.fullName}`))

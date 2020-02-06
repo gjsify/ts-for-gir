@@ -4,10 +4,9 @@
 
 import { Command } from '@oclif/command'
 import * as CLIConfig from '@oclif/config'
-import { TsForGir } from '../ts-for-gir'
+import { Generator } from '../generator'
 import { Config } from '../config'
 import { ModuleLoader } from '../module-loader'
-import { GenerateConfig } from '../types'
 
 export default class Generate extends Command {
     static description = 'Generates .d.ts files from GIR for gjs or node-gtk'
@@ -73,8 +72,8 @@ export default class Generate extends Command {
                 if (choosedGirModules.length === 0) {
                     this.error('No module found!')
                 }
-                const tsForGir = new TsForGir(generateConfig)
-                tsForGir.main(choosedGirModules)
+                const tsForGir = new Generator(generateConfig)
+                tsForGir.start(choosedGirModules)
             }
         }
     }

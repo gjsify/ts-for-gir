@@ -24,6 +24,7 @@ export default class List extends Command {
         girDirectory: Config.defaultCliFlags.girDirectory,
         ignore: Config.defaultCliFlags.ignore,
         configName: Config.defaultCliFlags.configName,
+        verbose: Config.defaultCliFlags.verbose,
     }
 
     static args = [Config.defaultCliArgs.modules]

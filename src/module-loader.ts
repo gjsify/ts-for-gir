@@ -8,13 +8,14 @@ import Path from 'path'
 import fs from 'fs'
 import * as xml2js from 'xml2js'
 import {
-    GroupedGirFiles,
+    GirModulesGroupedMap,
     ParsedGir,
     GenerateConfig,
-    GirModules,
     ResolveType,
-    ResolveGirModule,
-    GroupedGirFile,
+    GirModuleResolvedBy,
+    GirModulesGrouped,
+    DependencyMap,
+    Dependency,
 } from './types'
 import { GirModule } from './gir-module'
 import { Config } from './config'
@@ -23,6 +24,8 @@ import { Utils } from './utils'
 
 export class ModuleLoader {
     log: Logger
+    /** Transitive module dependencies */
+    modDependencyMap: DependencyMap = {}
     constructor(private readonly config: GenerateConfig) {
         this.log = new Logger('', config.verbose, 'ModuleLoader')
     }
@@ -32,8 +35,8 @@ export class ModuleLoader {
      * E.g. Gtk-3.0 and Gtk-4.0 will be grouped
      * @param girFiles
      */
-    private groupGirFiles(resolveGirModules: Set<ResolveGirModule> | ResolveGirModule[]): GroupedGirFiles {
-        const girFilesGrouped: GroupedGirFiles = {}
+    private groupGirFiles(resolveGirModules: Set<GirModuleResolvedBy> | GirModuleResolvedBy[]): GirModulesGroupedMap {
+        const girFilesGrouped: GirModulesGroupedMap = {}
 
         for (const resolveGirModule of resolveGirModules) {
             const { name } = Utils.splitModuleName(resolveGirModule.fullName)
@@ -55,7 +58,7 @@ export class ModuleLoader {
     }
 
     private generateFileVersionQuestions(
-        girFilesGrouped: GroupedGirFiles,
+        girFilesGrouped: GirModulesGroupedMap,
     ): inquirer.QuestionCollection<{ [name: string]: string }> {
         const questions: any = []
         for (const id in girFilesGrouped) {
@@ -79,11 +82,11 @@ export class ModuleLoader {
      * @param answers
      */
     private sortOutUnchoosedVersions(
-        girFilesGrouped: GroupedGirFiles,
+        girFilesGrouped: GirModulesGroupedMap,
         answers: { [name: string]: string },
-    ): { keep: ResolveGirModule[]; ignore: ResolveGirModule[] } {
-        const keep: ResolveGirModule[] = []
-        const ignore: ResolveGirModule[] = []
+    ): { keep: GirModuleResolvedBy[]; ignore: GirModuleResolvedBy[] } {
+        const keep: GirModuleResolvedBy[] = []
+        const ignore: GirModuleResolvedBy[] = []
         for (const id in girFilesGrouped) {
             const group = girFilesGrouped[id]
             const currentFullName = answers[group.name]
@@ -109,7 +112,7 @@ export class ModuleLoader {
      * Asks via cli prompt if the user wants to add the ignored modules to his config file
      * @param ignore
      */
-    private async askAddIgnorePrompt(ignore: ResolveGirModule[]): Promise<void> {
+    private async askAddIgnorePrompt(ignore: GirModuleResolvedBy[]): Promise<void> {
         const questions = [
             {
                 name: 'addToIgnore',
@@ -134,21 +137,86 @@ export class ModuleLoader {
     }
 
     /**
-     * Reads a gir xml module file and creates an object of GirModule
+     * Figure out transitive module dependencies
+     * @param fullName
+     * @param result
+     */
+    private traverseDependencies(fullName: string, result: { [name: string]: 1 } = {}): void {
+        const deps = this.modDependencyMap[fullName]
+        if (Utils.isIterable(deps)) {
+            for (const dep of deps) {
+                if (result[dep.fullName]) continue
+                result[dep.fullName] = 1
+                this.traverseDependencies(dep.fullName, result)
+            }
+        } else {
+            // this.log.warn('`deps` is not iterable: ', deps, fullName, modDependencyMap)
+        }
+    }
+
+    /**
+     * Extends the modDependencyMap by the current Module,
+     * should be called for each girModule so that the modDependencyMap is complete
+     * @param girModule
+     */
+    private extendDependencyMapFromGirModule(girModule: GirModule): void {
+        this.modDependencyMap[girModule.fullName || '-'] = Utils.map(
+            girModule.dependencies || [],
+            (fullName: string): Dependency => {
+                const { name, version } = Utils.splitModuleName(fullName)
+                return {
+                    name,
+                    version,
+                    fullName,
+                }
+            },
+        )
+    }
+
+    /**
+     * Sets the traverse dependencies for the current girModule,
+     * is required so that all dependencies can be found internally when generating the dependency imports for the module .d.ts file
+     * @param girModules
+     */
+    private setTraverseDependenciesForModules(girModules: GirModuleResolvedBy[]): void {
+        for (const girModule of girModules) {
+            const result: { [name: string]: 1 } = {}
+            this.traverseDependencies(girModule.fullName, result)
+            girModule.module.transitiveDependencies = Object.keys(result)
+        }
+    }
+
+    /**
+     * Reads a gir xml module file and creates an object of GirModule.
+     * Also sets the setDependencyMap
      * @param fillName
      * @param config
      */
-    private async loadGirModuleFromXml(fullName: string): Promise<GirModule | null> {
+    private async loadAndCreateGirModule(fullName: string): Promise<GirModule | null> {
         const filePath = Path.join(this.config.girDirectory, fullName + '.gir')
         if (!fs.existsSync(filePath)) {
-            this.log.error(`ENOENT: no such file or directory, open '${filePath}'`)
+            this.log.warn(`ENOENT: no such file or directory, open '${filePath}'`)
             return null
         }
         this.log.log(`Parsing ${filePath}...`)
         const fileContents = fs.readFileSync(filePath, 'utf8')
         const result = (await xml2js.parseStringPromise(fileContents)) as ParsedGir
         const gi = new GirModule(result, this.config)
+        this.extendDependencyMapFromGirModule(gi)
         return gi
+    }
+
+    private findGirModuleByFullName(
+        girModules: GirModuleResolvedBy[],
+        fullName: string,
+    ): GirModuleResolvedBy | undefined {
+        return girModules.find(girModule => girModule.fullName === fullName)
+    }
+
+    private existsGirModule(girModules: GirModuleResolvedBy[], fullName: string): boolean {
+        const foundModule = this.findGirModuleByFullName(girModules, fullName)
+
+        return typeof foundModule !== 'undefined'
     }
 
     /**
@@ -159,27 +227,41 @@ export class ModuleLoader {
      */
     private async loadGirModules(
         girModulesToRead: string[] | Set<string>,
-        girModules: ResolveGirModule[] = [],
+        girModules: GirModuleResolvedBy[] = [],
         resolvedBy = ResolveType.BY_HAND,
-    ): Promise<ResolveGirModule[]> {
+    ): Promise<GirModuleResolvedBy[]> {
         // A copy is needed here because we are changing the array for the while loop
         const girToLoad = Array.from(girModulesToRead)
+        let newModuleFound = false
 
         while (girToLoad.length > 0) {
             const fullName = girToLoad.shift()
             if (!fullName) throw new Error(`Module name '${fullName} 'not found!`)
-            const gi = await this.loadGirModuleFromXml(fullName)
-            if (gi && gi.fullName && !girModules.find(girModule => girModule.fullName === gi.fullName)) {
-                const addModule = {
-                    fullName: gi.fullName,
-                    module: gi,
-                    resolvedBy,
+            // If module has not already been loaded
+            if (!this.existsGirModule(girModules, fullName)) {
+                const gi = await this.loadAndCreateGirModule(fullName)
+                if (gi && gi.fullName) {
+                    const addModule = {
+                        fullName: gi.fullName,
+                        module: gi,
+                        resolvedBy,
+                    }
+                    girModules.push(addModule)
+                    newModuleFound = true
                 }
-                girModules.push(addModule)
-                // Load dependencies
-                if (gi.dependencies.length > 0) {
-                    this.loadGirModules(gi.dependencies, girModules, ResolveType.DEPENDENCE)
-                }
+            }
+        }
+
+        if (!newModuleFound) {
+            return girModules
+        }
+        this.setTraverseDependenciesForModules(girModules)
+
+        // Load girModules for dependencies
+        for (const girModule of girModules) {
+            // Load dependencies
+            if (girModule.module.transitiveDependencies.length > 0) {
+                await this.loadGirModules(girModule.module.transitiveDependencies, girModules, ResolveType.DEPENDENCE)
             }
         }
         return girModules
@@ -189,7 +271,7 @@ export class ModuleLoader {
      * If multiple versions of the same module are found, this will aks the user with input prompts for the version he wish to use
      * @param resolveFirModules
      */
-    private async askForVersionsPrompt(girFilesGrouped: GroupedGirFiles): Promise<ResolveGirModule[]> {
+    private async askForVersionsPrompt(girFilesGrouped: GirModulesGroupedMap): Promise<GirModuleResolvedBy[]> {
         const questions = this.generateFileVersionQuestions(girFilesGrouped)
         const answers: { [name: string]: string } = await inquirer.prompt(questions)
         const { keep, ignore } = this.sortOutUnchoosedVersions(girFilesGrouped, answers)
@@ -234,7 +316,6 @@ export class ModuleLoader {
         const foundGirModules = await this.findModules(modules, ignores)
         const girModules = await this.loadGirModules(foundGirModules)
         const girFilesGrouped = this.groupGirFiles(girModules)
-        // const girModules = girModules.map((girModule) => )
         const choosedGirModules = await this.askForVersionsPrompt(girFilesGrouped)
         return choosedGirModules.map(choosedGirModule => choosedGirModule.module)
     }
@@ -244,7 +325,7 @@ export class ModuleLoader {
      * @param girDirectory
      * @param modules
      */
-    public async getModules(modules: string[], ignores: string[] = []): Promise<GroupedGirFile[]> {
+    public async getModules(modules: string[], ignores: string[] = []): Promise<GirModulesGrouped[]> {
         const foundGirModules = await this.findModules(modules, ignores)
         const girModules = await this.loadGirModules(foundGirModules)
         const girFilesGrouped = this.groupGirFiles(girModules)

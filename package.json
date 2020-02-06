@@ -25,7 +25,7 @@
     "clear:types": "rm -rf ./@types",
     "watch": "npm run build:ts -- --watch",
     "start": "node lib/cli.js",
-    "lint": "npm run build:ts -- --noEmit && eslint . --ext .ts,.tsx --fix"
+    "lint": "npm run clear && npm run build:ts -- --noEmit && eslint . --ext .ts,.tsx --fix"
   },
   "repository": {
     "type": "git",

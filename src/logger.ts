@@ -63,7 +63,6 @@ export class Logger {
         if (!this.verbose) {
             return
         }
-        args = this.prependInfos(args, 'INFO:')
         return console.info(chalk.blue(...args))
     }
     public warn(...args: any[]): void {

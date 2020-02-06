@@ -9,7 +9,7 @@ import ejs from 'ejs'
 import { Environment } from './types/environment'
 import { Transformation } from './transformation'
 import { Logger } from './logger'
-import { BuildType, GenerateConfig } from './types'
+import { GenerateConfig } from './types'
 
 const CLIEngine = require('eslint').CLIEngine
 const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })

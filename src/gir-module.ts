@@ -492,39 +492,6 @@ export class GirModule {
         return [[`    ${propPrefix}${propDesc}`], propName, origName]
     }
 
-    private exportEnumeration(e: GirEnumeration): string[] {
-        const def: string[] = []
-
-        if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
-
-        let name = e.$.name
-        // E.g. the NetworkManager-1.0 has enum names starting with 80211
-        name = this.transformation.transformEnumName(name)
-
-        def.push(`export enum ${name} {`)
-        if (e.member) {
-            for (const member of e.member) {
-                const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
-                if (!_name) {
-                    continue
-                }
-                const name = this.transformation.transform('enumValue', _name)
-                if (/\d/.test(name[0])) def.push(`    /* ${name} (invalid, starts with a number) */`)
-                else def.push(`    ${name},`)
-            }
-        }
-        def.push('}')
-        return def
-    }
-
-    private exportConstant(girVar: GirVariable): string[] {
-        const [varDesc, varName] = this.getVariable(girVar, false, false, 'constant')
-        if (varName) {
-            return [`export const ${varDesc}`]
-        }
-        return []
-    }
-
     private getFunction(
         e: GirFunction,
         prefix: string,
@@ -625,24 +592,6 @@ export class GirModule {
         )
     }
 
-    private exportFunction(e: GirFunction): string[] {
-        return this.getFunction(e, 'export function ')[0]
-    }
-
-    private exportCallback(e: GirFunction): string[] {
-        if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
-
-        const name = e.$.name
-        const [retType, outArrayLengthIndex] = this.getReturnType(e)
-        const [params] = this.getParameters(e.parameters, outArrayLengthIndex)
-
-        const def: string[] = []
-        def.push(`export interface ${name} {`)
-        def.push(`    (${params}): ${retType}`)
-        def.push('}')
-        return def
-    }
-
     private traverseInheritanceTree(girClass: GirClass, callback: (girClass: GirClass) => void): void {
         if (!girClass || !girClass.$) return
 
@@ -706,7 +655,40 @@ export class GirModule {
         return ret
     }
 
-    private exportObjectInternal(girClass: GirClass): string[] {
+    public exportEnumeration(e: GirEnumeration): string[] {
+        const def: string[] = []
+
+        if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
+
+        let name = e.$.name
+        // E.g. the NetworkManager-1.0 has enum names starting with 80211
+        name = this.transformation.transformEnumName(name)
+
+        def.push(`export enum ${name} {`)
+        if (e.member) {
+            for (const member of e.member) {
+                const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
+                if (!_name) {
+                    continue
+                }
+                const name = this.transformation.transform('enumValue', _name)
+                if (/\d/.test(name[0])) def.push(`    /* ${name} (invalid, starts with a number) */`)
+                else def.push(`    ${name},`)
+            }
+        }
+        def.push('}')
+        return def
+    }
+
+    public exportConstant(girVar: GirVariable): string[] {
+        const [varDesc, varName] = this.getVariable(girVar, false, false, 'constant')
+        if (varName) {
+            return [`export const ${varDesc}`]
+        }
+        return []
+    }
+
+    public exportObjectInternal(girClass: GirClass): string[] {
         const name = this.transformation.transformClassName(girClass.$.name)
         let def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
@@ -927,6 +909,24 @@ export class GirModule {
 
         def.push('}')
 
+        return def
+    }
+
+    public exportFunction(e: GirFunction): string[] {
+        return this.getFunction(e, 'export function ')[0]
+    }
+
+    public exportCallback(e: GirFunction): string[] {
+        if (!e || !e.$ || !this.girBool(e.$.introspectable, true)) return []
+
+        const name = e.$.name
+        const [retType, outArrayLengthIndex] = this.getReturnType(e)
+        const [params] = this.getParameters(e.parameters, outArrayLengthIndex)
+
+        const def: string[] = []
+        def.push(`export interface ${name} {`)
+        def.push(`    (${params}): ${retType}`)
+        def.push('}')
         return def
     }
 

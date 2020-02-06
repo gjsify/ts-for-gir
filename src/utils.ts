@@ -58,6 +58,29 @@ export class Utils {
         return str
     }
 
+    /**
+     * Union (a ∪ b): create a set that contains the elements of both set a and set b.
+     * See https://2ality.com/2015/01/es6-set-operations.html#union
+     * @param target
+     * @param source
+     */
+    public static union<T>(target: Set<T>, source: Set<T> | T[]): Set<T> {
+        return (target = new Set<T>([...target, ...source]))
+    }
+
+    /**
+     * Difference (a \ b): create a set that contains those elements of set a that are not in set b. This operation is also sometimes called minus (-).
+     * See https://2ality.com/2015/01/es6-set-operations.html#difference
+     * @param sourceA
+     * @param sourceB
+     */
+    public static difference<T>(sourceA: Set<T> | T[], sourceB: Set<T> | T[]): Set<T> {
+        if (Array.isArray(sourceB)) {
+            return new Set([...sourceA].filter(a => !sourceB.includes(a)))
+        }
+        return new Set([...sourceA].filter(a => !sourceB.has(a)))
+    }
+
     public static isEqual = lodash.isEqual
 
     public static map = lodash.map

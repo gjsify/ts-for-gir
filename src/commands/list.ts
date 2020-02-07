@@ -34,8 +34,9 @@ export default class List extends Command {
         const config = await Config.load(flags, argv)
         const generateConfig = Config.getGenerateConfig(config)
         const moduleLoader = new ModuleLoader(generateConfig)
-        const moduleGroupes = await moduleLoader.getModules(config.modules, config.ignore)
-        if (moduleGroupes.length === 0) {
+        const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
+        const moduleGroupes = Object.values(grouped)
+        if (Object.keys(grouped).length === 0) {
             this.log(chalk.red('No modules found'))
             return
         }
@@ -73,6 +74,13 @@ export default class List extends Command {
                 for (const conflictModule of moduleGroup.modules) {
                     this.log(chalk.white(`  - ${conflictModule.fullName}`))
                 }
+            }
+        }
+
+        if (failed.size > 0) {
+            this.log(chalk.red('\nDependencies not found:'))
+            for (const fail of failed) {
+                this.log(chalk.white(`- ${fail}`))
             }
         }
     }

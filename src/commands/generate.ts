@@ -68,12 +68,12 @@ export default class Generate extends Command {
             if (config.environments[i]) {
                 const generateConfig = Config.getGenerateConfig(config, config.environments[i])
                 const moduleLoader = new ModuleLoader(generateConfig)
-                const choosedGirModules = await moduleLoader.getModulesResolved(config.modules, config.ignore || [])
-                if (choosedGirModules.length === 0) {
+                const { keep } = await moduleLoader.getModulesResolved(config.modules, config.ignore || [])
+                if (keep.size === 0) {
                     this.error('No module found!')
                 }
                 const tsForGir = new Generator(generateConfig)
-                tsForGir.start(choosedGirModules)
+                tsForGir.start(Array.from(keep).map(girModuleResolvedBy => girModuleResolvedBy.module))
             }
         }
     }

@@ -868,8 +868,10 @@ export class GirModule {
         }
 
         if (isDerivedFromGObject) {
-            def.push(`    constructor (config?: ${name}_ConstructProps)`)
-            def.push(`    _init (config?: ${name}_ConstructProps): void`)
+            def.push(
+                `    constructor (config?: ${name}_ConstructProps)`,
+                `    _init (config?: ${name}_ConstructProps): void`,
+            )
         } else {
             const constructor_: GirFunction[] = (girClass['constructor'] || []) as GirFunction[]
             if (constructor_) {
@@ -925,8 +927,9 @@ export class GirModule {
             def = def.concat(stc)
         }
 
-        if (isDerivedFromGObject)
+        if (isDerivedFromGObject) {
             def.push(`    static $gtype: ${this.fullName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
+        }
 
         def.push('}')
 

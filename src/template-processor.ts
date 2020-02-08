@@ -102,19 +102,14 @@ export class TemplateProcessor {
         const result: string[] = []
         const ident = this.generateIndent(identCount)
         result.push(
-            `${ident}connect(sigName: "notify::${propertyName}", callback: ((obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
+            `${ident}connect(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
+            `${ident}connect_after(sigName: "notify::${propertyName}", callback: (($obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
         )
-        result.push(
-            `${ident}connect_after(sigName: "notify::${propertyName}", callback: ((obj: ${callbackObjectName}, pspec: ${nampespacePrefix}ParamSpec) => void)): number`,
-        )
+        result.push()
         if (environment === 'node') {
             result.push(
                 `${ident}on(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-            )
-            result.push(
                 `${ident}once(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-            )
-            result.push(
                 `${ident}off(sigName: "notify::${propertyName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
         }
@@ -125,15 +120,19 @@ export class TemplateProcessor {
     public static generateGeneralSignalMethods(environment: Environment, identCount = 1): string[] {
         const result: string[] = []
         const ident = this.generateIndent(identCount)
-        result.push(`${ident}connect(sigName: string, callback: any): number`)
-        result.push(`${ident}connect_after(sigName: string, callback: any): number`)
-        result.push(`${ident}emit(sigName: string, ...args: any[]): void`)
-        result.push(`${ident}disconnect(id: number): void`)
+        result.push(
+            `${ident}connect(sigName: string, callback: any): number`,
+            `${ident}connect_after(sigName: string, callback: any): number`,
+            `${ident}emit(sigName: string, ...args: any[]): void`,
+            `${ident}disconnect(id: number): void`,
+        )
 
         if (environment === 'node') {
-            result.push(`${ident}on(sigName: string, callback: any): NodeJS.EventEmitter`)
-            result.push(`${ident}once(sigName: string, callback: any): NodeJS.EventEmitter`)
-            result.push(`${ident}off(sigName: string, callback: any): NodeJS.EventEmitter`)
+            result.push(
+                `${ident}on(sigName: string, callback: any): NodeJS.EventEmitter`,
+                `${ident}once(sigName: string, callback: any): NodeJS.EventEmitter`,
+                `${ident}off(sigName: string, callback: any): NodeJS.EventEmitter`,
+            )
         }
         return result
     }

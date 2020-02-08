@@ -74,8 +74,8 @@ export class TemplateProcessor {
     ): string[] {
         const ident = this.generateIndent(identCount)
         const signalMethods = [
-            `${ident}connect(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
-            `${ident}connect_after(sigName: "${sigName}", callback: ((obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+            `${ident}connect(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
+            `${ident}connect_after(sigName: "${sigName}", callback: (($obj: ${clsName}${paramComma}${params}) => ${retType})): number`,
             `${ident}emit(sigName: "${sigName}"${paramComma}${params}): void`,
         ]
         if (environment === 'node') {

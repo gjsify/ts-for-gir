@@ -26,6 +26,11 @@ import {
     GenerateConfig,
 } from './types'
 
+/**
+ * In gjs all classes haben einen static name property but the classes listed here already have a static name property
+ */
+export const STATIC_NAME_ALREADY_EXISTS = ['GMime.Charset', 'Camel.StoreInfo']
+
 export class GirModule {
     /**
      * E.g. 'Gtk'
@@ -52,6 +57,12 @@ export class GirModule {
     transformation: Transformation
     extends?: string
     log: Logger
+
+    /**
+     * To prevent constants from being exported twice, the names already exported are saved here for comparison.
+     * Please note: Such a case is only known for Zeitgeist-2.0 with the constant "ATTACHMENT"
+     */
+    constNames: { [varName: string]: 1 } = {}
 
     constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
         this.repo = xml.repository
@@ -329,10 +340,10 @@ export class GirModule {
 
     /**
      * E.g. replaces something like `NetworkManager.80211ApFlags` with `NetworkManager.TODO_80211ApFlags`
-     * @param e
+     * @param girVar
      */
-    private typeLookupTransformed(e: GirVariable): string {
-        let names = this.typeLookup(e).split('.')
+    private typeLookupTransformed(girVar: GirVariable): string {
+        let names = this.typeLookup(girVar).split('.')
         names = names.map(name => this.transformation.transformTypeName(name))
         return names.join('.')
     }
@@ -408,7 +419,6 @@ export class GirModule {
 
                 for (const param of parametersArray as GirVariable[]) {
                     const paramName = this.transformation.transformParameterName(param.$.name || '-', false)
-
                     const paramType = this.typeLookupTransformed(param)
 
                     if (skip.indexOf(param) !== -1) {
@@ -423,9 +433,9 @@ export class GirModule {
                         }
                     }
 
-                    let allowNone = param.$['allow-none'] ? '?' : ''
+                    let isOptional = param.$['allow-none'] ? '?' : ''
 
-                    if (allowNone) {
+                    if (isOptional) {
                         const index = parametersArray.indexOf(param)
                         const following = (parametersArray as GirVariable[])
                             .slice(index)
@@ -433,11 +443,11 @@ export class GirModule {
                             .filter(p => p.$.direction !== 'out')
 
                         if (following.some(p => !p.$['allow-none'])) {
-                            allowNone = ''
+                            isOptional = ''
                         }
                     }
 
-                    const paramDesc = `${paramName}${allowNone}: ${paramType}`
+                    const paramDesc = `${paramName}${isOptional}: ${paramType}`
                     def.push(paramDesc)
                 }
             }
@@ -682,7 +692,12 @@ export class GirModule {
     public exportConstant(girVar: GirVariable): string[] {
         const [varDesc, varName] = this.getVariable(girVar, false, false, 'constant')
         if (varName) {
-            return [`export const ${varDesc}`]
+            if (!this.constNames[varName]) {
+                this.constNames[varName] = 1
+                return [`export const ${varDesc}`]
+            } else {
+                this.log.warn(`The constant '${varDesc}' has already been exported`)
+            }
         }
         return []
     }
@@ -691,11 +706,6 @@ export class GirModule {
         const name = this.transformation.transformClassName(girClass.$.name)
         let def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
-
-        // if (name === 'BinClass') {
-        //     this.log.log(e)
-        //     // throw new Error(name)
-        // }
 
         // Is this a abstract class? E.g GObject.ObjectClass is a such abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
         if (girClass.$ && girClass.$['glib:is-gtype-struct-for']) {
@@ -853,7 +863,10 @@ export class GirModule {
         // TODO: Records have fields
 
         // Static side: default constructor
-        def.push(`    static name: string`)
+        if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
+            def.push(`    static name: string`)
+        }
+
         if (isDerivedFromGObject) {
             def.push(`    constructor (config?: ${name}_ConstructProps)`)
             def.push(`    _init (config?: ${name}_ConstructProps): void`)
@@ -988,16 +1001,20 @@ export class GirModule {
             }
         }
 
-        // Add missing dependencies by hand
+        // Add missing dependencies
         if (this.fullName === 'UnityExtras-7.0') {
             if (!Utils.find(deps, x => x === 'Unity-7.0')) {
                 deps.push('Unity-7.0')
             }
         }
-
         if (this.fullName === 'UnityExtras-6.0') {
             if (!Utils.find(deps, x => x === 'Unity-6.0')) {
                 deps.push('Unity-6.0')
+            }
+        }
+        if (this.fullName === 'GTop-2.0') {
+            if (!Utils.find(deps, x => x === 'GLib-2.0')) {
+                deps.push('GLib-2.0')
             }
         }
 

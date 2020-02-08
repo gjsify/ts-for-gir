@@ -114,15 +114,18 @@ export class GirModule {
 
         const annotateFunctionArguments = (girFunc: GirFunction): void => {
             const funcName = girFunc._fullSymName
-            if (girFunc.parameters)
-                for (const gitParam of girFunc.parameters)
-                    if (gitParam.parameter)
-                        for (const girVar of gitParam.parameter) {
+            if (girFunc.parameters) {
+                for (const girParam of girFunc.parameters) {
+                    if (girParam.parameter) {
+                        for (const girVar of girParam.parameter) {
                             girVar._module = this
                             if (girVar.$ && girVar.$.name) {
                                 girVar._fullSymName = `${funcName}.${girVar.$.name}`
                             }
                         }
+                    }
+                }
+            }
         }
         const annotateFunctionReturn = (girFunc: GirFunction): void => {
             const retVals: GirVariable[] | undefined = girFunc['return-value']
@@ -492,11 +495,7 @@ export class GirModule {
         return [[`    ${propPrefix}${propDesc}`], propName, origName]
     }
 
-    private getFunction(
-        e: GirFunction,
-        prefix: string,
-        funcNamePrefix: string | null = null,
-    ): [string[], string | null] {
+    private getFunction(e: GirFunction, prefix: string, funcNamePrefix = ''): [string[], string | null] {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true) || e.$['shadowed-by']) return [[], null]
 
         const patch = e._fullSymName ? this.patch[e._fullSymName] : []
@@ -541,7 +540,7 @@ export class GirModule {
         name: string,
         e: GirFunction,
         prefix: string,
-        funcNamePrefix: string | null = null,
+        funcNamePrefix = '',
     ): [string[], string | null] {
         // eslint-disable-next-line prefer-const
         let [desc, funcName] = this.getFunction(e, prefix, funcNamePrefix)
@@ -688,7 +687,7 @@ export class GirModule {
         return []
     }
 
-    public exportObjectInternal(girClass: GirClass): string[] {
+    public exportObjectInternal(girClass: GirClass, isAbstract = false): string[] {
         const name = this.transformation.transformClassName(girClass.$.name)
         let def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
@@ -698,11 +697,16 @@ export class GirModule {
         //     // throw new Error(name)
         // }
 
+        // Is this a abstract class? E.g GObject.ObjectClass is a such abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
         if (girClass.$ && girClass.$['glib:is-gtype-struct-for']) {
-            return []
+            isAbstract = true
         }
 
-        const checkName = (desc: string[], name: string | null, localNames): [string[], boolean] => {
+        const checkName = (
+            desc: string[],
+            name: string | null,
+            localNames: { [key: string]: 1 },
+        ): [string[], boolean] => {
             if (!desc || desc.length === 0) return [[], false]
 
             if (!name) {
@@ -751,9 +755,13 @@ export class GirModule {
         }
 
         // Instance side
-        def.push(`export class ${name} {`)
+        if (isAbstract) {
+            def.push(`export abstract class ${name} {`)
+        } else {
+            def.push(`export class ${name} {`)
+        }
 
-        const localNames = {}
+        const localNames: { [key: string]: 1 } = {}
         const propertyNames: string[] = []
 
         const copyProperties = (cls: GirClass): void => {
@@ -977,6 +985,19 @@ export class GirModule {
         if (this.fullName !== 'GObject-2.0') {
             if (!Utils.find(deps, x => x === 'GObject-2.0')) {
                 deps.push('GObject-2.0')
+            }
+        }
+
+        // Add missing dependencies by hand
+        if (this.fullName === 'UnityExtras-7.0') {
+            if (!Utils.find(deps, x => x === 'Unity-7.0')) {
+                deps.push('Unity-7.0')
+            }
+        }
+
+        if (this.fullName === 'UnityExtras-6.0') {
+            if (!Utils.find(deps, x => x === 'Unity-6.0')) {
+                deps.push('Unity-6.0')
             }
         }
 

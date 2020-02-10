@@ -45,6 +45,7 @@ export default class Generate extends Command {
         buildType: Config.defaultCliFlags.buildType,
         pretty: Config.defaultCliFlags.pretty,
         verbose: Config.defaultCliFlags.verbose,
+        ignoreConflicts: Config.defaultCliFlags.ignoreConflicts,
         print: Config.defaultCliFlags.print,
         configName: Config.defaultCliFlags.configName,
     }
@@ -68,8 +69,12 @@ export default class Generate extends Command {
             if (config.environments[i]) {
                 const generateConfig = Config.getGenerateConfig(config, config.environments[i])
                 const moduleLoader = new ModuleLoader(generateConfig)
-                const { keep } = await moduleLoader.getModulesResolved(config.modules, config.ignore || [])
-                if (keep.size === 0) {
+                const { keep } = await moduleLoader.getModulesResolved(
+                    config.modules,
+                    config.ignore || [],
+                    config.ignoreConflicts,
+                )
+                if (keep.length === 0) {
                     this.error('No module found!')
                 }
                 const tsForGir = new Generator(generateConfig)

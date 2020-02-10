@@ -26,6 +26,8 @@ export class Config {
         girDirectory: '/usr/share/gir-1.0',
         modules: ['*'],
         ignore: [],
+        verbose: true,
+        ignoreConflicts: false,
     }
 
     /**
@@ -62,7 +64,15 @@ export class Config {
             description: 'prettifies the generated .d.ts files',
             default: Config.defaults.pretty,
         }),
-        verbose: flags.boolean({ char: 'v', description: 'verbosity', default: true }),
+        verbose: flags.boolean({
+            char: 'v',
+            description: 'Switch on/off the verbose mode',
+            default: Config.defaults.verbose,
+        }),
+        ignoreConflicts: flags.boolean({
+            description: 'Do not ask for package versions if multiple versions are found',
+            default: Config.defaults.ignoreConflicts,
+        }),
         print: flags.boolean({
             char: 'p',
             description: 'print the output to console and create no files',
@@ -154,6 +164,7 @@ export class Config {
             environments: flags.environments as Environment[],
             buildType: flags.buildType as BuildType | undefined,
             verbose: flags.verbose,
+            ignoreConflicts: flags.ignoreConflicts,
             pretty: flags.pretty,
             print: flags.print,
             outdir: flags.outdir,

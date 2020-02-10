@@ -502,11 +502,19 @@ export class ModuleLoader {
     public async getModulesResolved(
         modules: string[],
         ignore: string[] = [],
-    ): Promise<{ keep: Set<GirModuleResolvedBy>; ignore: string[]; failed: Set<string> }> {
+        doNotAskForVersionOnConflict = true,
+    ): Promise<{ keep: GirModuleResolvedBy[]; ignore: string[]; failed: Set<string> }> {
         const foundGirModules = await this.findModules(modules, ignore)
         const { loaded, failed } = await this.loadGirModules(foundGirModules)
-        const girModulesGrouped = this.groupGirFiles(loaded)
-        const { keep } = await this.askForEachConflictVersionsPrompt(girModulesGrouped, ignore)
+        let keep: GirModuleResolvedBy[] = []
+        if (doNotAskForVersionOnConflict) {
+            keep = loaded
+        } else {
+            const girModulesGrouped = this.groupGirFiles(loaded)
+            const filtered = await this.askForEachConflictVersionsPrompt(girModulesGrouped, ignore)
+            keep = Array.from(filtered.keep)
+        }
+
         return { keep, ignore, failed }
     }
 
@@ -518,10 +526,10 @@ export class ModuleLoader {
     public async getModules(
         modules: string[],
         ignore: string[] = [],
-    ): Promise<{ grouped: GirModulesGroupedMap; loaded: GirModuleResolvedBy[]; failed: Set<string> }> {
+    ): Promise<{ grouped: GirModulesGroupedMap; loaded: GirModuleResolvedBy[]; failed: string[] }> {
         const foundGirModules = await this.findModules(modules, ignore)
         const { loaded, failed } = await this.loadGirModules(foundGirModules)
         const grouped = this.groupGirFiles(loaded)
-        return { grouped, loaded, failed }
+        return { grouped, loaded, failed: Array.from(failed) }
     }
 }

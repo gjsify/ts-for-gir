@@ -16,6 +16,7 @@ import {
     GirArray,
     GirType,
     GirInclude,
+    GirParameter,
     TypeArraySuffix,
     TypeNullableSuffix,
     TypeSuffix,
@@ -53,6 +54,9 @@ export class GirModule {
     transitiveDependencies: string[] = []
     repo: GirRepository
     ns: GirNamespace = { $: { name: '', version: '' } }
+    /**
+     * Used to find namespaces that are used in other modules
+     */
     symTable: SymTable = {}
     patch: { [key: string]: string[] } = {}
     transformation: Transformation
@@ -91,85 +95,88 @@ export class GirModule {
         return dependencies
     }
 
+    private annotateFunctionArguments(girFunc: GirFunction): void {
+        const funcName = girFunc._fullSymName
+        if (girFunc.parameters) {
+            for (const girParam of girFunc.parameters) {
+                if (girParam.parameter) {
+                    for (const girVar of girParam.parameter) {
+                        girVar._module = this
+                        if (girVar.$ && girVar.$.name) {
+                            girVar._fullSymName = `${funcName}.${girVar.$.name}`
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private annotateFunctionReturn(girFunc: GirFunction): void {
+        const retVals: GirVariable[] | undefined = girFunc['return-value']
+        if (retVals)
+            for (const retVal of retVals) {
+                retVal._module = this
+                if (retVal.$ && retVal.$.name) {
+                    retVal._fullSymName = `${girFunc._fullSymName}.${retVal.$.name}`
+                }
+            }
+    }
+
+    private annotateFunctions(girClass: GirClass | null, funcs: GirFunction[]): void {
+        if (funcs)
+            for (const func of funcs) {
+                const nsName = girClass ? girClass._fullSymName : this.name
+                func._fullSymName = `${nsName}.${func.$.name}`
+                this.annotateFunctionArguments(func)
+                this.annotateFunctionReturn(func)
+            }
+    }
+
+    private annotateVariables(girClass: GirClass | null, girVars?: GirVariable[]): void {
+        if (girVars)
+            for (const girVar of girVars) {
+                const nsName = girClass ? girClass._fullSymName : this.name
+                girVar._module = this
+                if (girVar.$ && girVar.$.name) {
+                    girVar._fullSymName = `${nsName}.${girVar.$.name}`
+                }
+            }
+    }
+
+    private loadTypesInternal(dict: SymTable, girConstructs?: GirConstruct[]): void {
+        if (girConstructs) {
+            for (const girConstruct of girConstructs) {
+                if (girConstruct?.$) {
+                    if ((girConstruct as GirVariable | GirFunction).$.introspectable) {
+                        if (!this.girBool((girConstruct as GirVariable | GirFunction).$.introspectable, true)) continue
+                    }
+                    const symName = `${this.name}.${girConstruct.$.name}`
+                    if (dict[symName]) {
+                        this.log.warn(`Duplicate symbol: ${symName}`)
+                        debugger
+                    }
+
+                    girConstruct._module = this
+                    girConstruct._fullSymName = symName
+                    dict[symName] = girConstruct
+                }
+            }
+        }
+    }
+
     public loadTypes(dict: SymTable): void {
-        const loadTypesInternal = (girConstructs?: GirConstruct[]): void => {
-            if (girConstructs) {
-                for (const girConstruct of girConstructs) {
-                    if (girConstruct?.$) {
-                        if ((girConstruct as GirVariable | GirFunction).$.introspectable) {
-                            if (!this.girBool((girConstruct as GirVariable | GirFunction).$.introspectable, true))
-                                continue
-                        }
-                        const symName = `${this.name}.${girConstruct.$.name}`
-                        if (dict[symName]) {
-                            this.log.warn(`Duplicate symbol: ${symName}`)
-                            debugger
-                        }
+        this.loadTypesInternal(dict, this.ns.bitfield)
+        this.loadTypesInternal(dict, this.ns.callback)
+        this.loadTypesInternal(dict, this.ns.class)
+        this.loadTypesInternal(dict, this.ns.constant)
+        this.loadTypesInternal(dict, this.ns.enumeration)
+        this.loadTypesInternal(dict, this.ns.function)
+        this.loadTypesInternal(dict, this.ns.interface)
+        this.loadTypesInternal(dict, this.ns.record)
+        this.loadTypesInternal(dict, this.ns.union)
+        this.loadTypesInternal(dict, this.ns.alias)
 
-                        girConstruct._module = this
-                        girConstruct._fullSymName = symName
-                        dict[symName] = girConstruct
-                    }
-                }
-            }
-        }
-        loadTypesInternal(this.ns.bitfield)
-        loadTypesInternal(this.ns.callback)
-        loadTypesInternal(this.ns.class)
-        loadTypesInternal(this.ns.constant)
-        loadTypesInternal(this.ns.enumeration)
-        loadTypesInternal(this.ns.function)
-        loadTypesInternal(this.ns.interface)
-        loadTypesInternal(this.ns.record)
-        loadTypesInternal(this.ns.union)
-        loadTypesInternal(this.ns.alias)
-
-        const annotateFunctionArguments = (girFunc: GirFunction): void => {
-            const funcName = girFunc._fullSymName
-            if (girFunc.parameters) {
-                for (const girParam of girFunc.parameters) {
-                    if (girParam.parameter) {
-                        for (const girVar of girParam.parameter) {
-                            girVar._module = this
-                            if (girVar.$ && girVar.$.name) {
-                                girVar._fullSymName = `${funcName}.${girVar.$.name}`
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        const annotateFunctionReturn = (girFunc: GirFunction): void => {
-            const retVals: GirVariable[] | undefined = girFunc['return-value']
-            if (retVals)
-                for (const retVal of retVals) {
-                    retVal._module = this
-                    if (retVal.$ && retVal.$.name) {
-                        retVal._fullSymName = `${girFunc._fullSymName}.${retVal.$.name}`
-                    }
-                }
-        }
-        const annotateFunctions = (girClass: GirClass | null, funcs: GirFunction[]): void => {
-            if (funcs)
-                for (const f of funcs) {
-                    const nsName = girClass ? girClass._fullSymName : this.name
-                    f._fullSymName = `${nsName}.${f.$.name}`
-                    annotateFunctionArguments(f)
-                    annotateFunctionReturn(f)
-                }
-        }
-        const annotateVariables = (girClass: GirClass | null, girVars?: GirVariable[]): void => {
-            if (girVars)
-                for (const girVar of girVars) {
-                    const nsName = girClass ? girClass._fullSymName : this.name
-                    girVar._module = this
-                    if (girVar.$ && girVar.$.name) {
-                        girVar._fullSymName = `${nsName}.${girVar.$.name}`
-                    }
-                }
-        }
-
-        if (this.ns.callback) for (const func of this.ns.callback) annotateFunctionArguments(func)
+        if (this.ns.callback) for (const func of this.ns.callback) this.annotateFunctionArguments(func)
 
         const girClasses = (this.ns.class ? this.ns.class : [])
             .concat(this.ns.record ? this.ns.record : [])
@@ -178,17 +185,17 @@ export class GirModule {
         for (const girClass of girClasses) {
             girClass._module = this
             girClass._fullSymName = `${this.name}.${girClass.$.name}`
-            annotateFunctions(girClass, girClass.function || [])
-            annotateFunctions(girClass, girClass.method || [])
-            annotateFunctions(girClass, girClass['virtual-method'] || [])
-            annotateFunctions(girClass, girClass['glib:signal'] || [])
-            annotateVariables(girClass, girClass.property)
-            annotateVariables(girClass, girClass.field)
+            this.annotateFunctions(girClass, girClass.function || [])
+            this.annotateFunctions(girClass, girClass.method || [])
+            this.annotateFunctions(girClass, girClass['virtual-method'] || [])
+            this.annotateFunctions(girClass, girClass['glib:signal'] || [])
+            this.annotateVariables(girClass, girClass.property)
+            this.annotateVariables(girClass, girClass.field)
         }
 
-        if (this.ns.function) annotateFunctions(null, this.ns.function)
+        if (this.ns.function) this.annotateFunctions(null, this.ns.function)
 
-        if (this.ns.constant) annotateVariables(null, this.ns.constant)
+        if (this.ns.constant) this.annotateVariables(null, this.ns.constant)
 
         // if (this.ns.)
         // props
@@ -385,7 +392,20 @@ export class GirModule {
         return parseInt(param.$.destroy)
     }
 
-    private getParameters(parameters, outArrayLengthIndex: number): [string, string[]] {
+    private processParams(
+        parametersArray: GirVariable[],
+        skip: GirVariable[],
+        getIndex: (param: GirVariable) => number,
+    ): void {
+        for (const param of parametersArray as GirVariable[]) {
+            const index = getIndex(param)
+            if (index < 0) continue
+            if (index >= parametersArray.length) continue
+            skip.push(parametersArray[index])
+        }
+    }
+
+    private getParameters(outArrayLengthIndex: number, parameters?: GirParameter[]): [string, string[]] {
         const def: string[] = []
         const outParams: string[] = []
 
@@ -394,18 +414,9 @@ export class GirModule {
             if (parametersArray) {
                 const skip = outArrayLengthIndex === -1 ? [] : [parametersArray[outArrayLengthIndex]]
 
-                const processParams = (getIndex): void => {
-                    for (const param of parametersArray as GirVariable[]) {
-                        const index = getIndex(param)
-                        if (index < 0) continue
-                        if (index >= parametersArray.length) continue
-                        skip.push(parametersArray[index])
-                    }
-                }
-
-                processParams(this.arrayLengthIndexLookup)
-                processParams(this.closureDataIndexLookup)
-                processParams(this.destroyDataIndexLookup)
+                this.processParams(parametersArray, skip, this.arrayLengthIndexLookup)
+                this.processParams(parametersArray, skip, this.closureDataIndexLookup)
+                this.processParams(parametersArray, skip, this.destroyDataIndexLookup)
 
                 for (const param of parametersArray as GirVariable[]) {
                     const paramName = this.transformation.transformParameterName(param.$.name || '-', false)
@@ -503,7 +514,7 @@ export class GirModule {
         // eslint-disable-next-line prefer-const
         let [retType, outArrayLengthIndex] = this.getReturnType(e)
 
-        const [params, outParams] = this.getParameters(e.parameters, outArrayLengthIndex)
+        const [params, outParams] = this.getParameters(outArrayLengthIndex, e.parameters)
 
         if (e.$['shadows']) {
             name = e.$['shadows']
@@ -574,7 +585,7 @@ export class GirModule {
     private getSignalFunc(e: GirFunction, clsName: string): string[] {
         const sigName = this.transformation.transform('signalName', e.$.name)
         const [retType, outArrayLengthIndex] = this.getReturnType(e)
-        const [params] = this.getParameters(e.parameters, outArrayLengthIndex)
+        const [params] = this.getParameters(outArrayLengthIndex, e.parameters)
         const paramComma = params.length > 0 ? ', ' : ''
 
         return TemplateProcessor.generateSignalMethods(
@@ -931,7 +942,7 @@ export class GirModule {
 
         const name = e.$.name
         const [retType, outArrayLengthIndex] = this.getReturnType(e)
-        const [params] = this.getParameters(e.parameters, outArrayLengthIndex)
+        const [params] = this.getParameters(outArrayLengthIndex, e.parameters)
 
         const def: string[] = []
         def.push(`export interface ${name} {`)

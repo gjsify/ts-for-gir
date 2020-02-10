@@ -5,10 +5,13 @@
   "main": "main.ts",
   "scripts": {
     "build": "npm run build:types && npm run build:ts",
-    "build:ts": "webpack",
-    "build:types": "../../../bin/run generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e gjs",
+    "build:ts": "npm run clear:ts && webpack",
+    "build:types": "npm run clear:types && ../../../bin/run generate Gtk-3.0 Pango-1.0 WebKit2-4.0 -e gjs",
+    "clear:types": "rm -rf ./@types",
+    "clear:ts": "rm -rf ./dist",
+    "clear": "npm run clear:ts && npm run build:types",
     "start": "npm run build && gjs dist/browser.js",
-    "watch": "npm run build -- --watch",
+    "watch": "npm run build:ts -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

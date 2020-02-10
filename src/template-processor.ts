@@ -194,7 +194,7 @@ export class TemplateProcessor {
         let hasError = false
         let report: any
         let prettifiedCode: string | null = null
-        this.log.info(`Prettify "${path}"`)
+        this.log.info(`   Prettify ...`)
         try {
             report = lint.executeOnFiles([path])
         } catch (error) {

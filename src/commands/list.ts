@@ -77,7 +77,7 @@ export default class List extends Command {
             }
         }
 
-        if (failed.size > 0) {
+        if (failed.length > 0) {
             this.log(chalk.red('\nDependencies not found:'))
             for (const fail of failed) {
                 this.log(chalk.white(`- ${fail}`))

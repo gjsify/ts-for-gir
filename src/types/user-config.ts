@@ -9,6 +9,7 @@ export interface UserConfig {
     buildType?: BuildType
     girDirectory: string
     verbose: boolean
+    ignoreConflicts: boolean
     print: boolean
     pretty: boolean
     modules: string[]

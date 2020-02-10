@@ -53,22 +53,38 @@ ARGUMENTS
 
 OPTIONS
   -b, --buildType=lib|types        [default for gjs: lib, default for node: types] Force the definitions generation type
-  -e, --environment=gjs|node       [default: gjs,node] Javascript environment
+  -e, --environments=gjs|node      [default: gjs,node] javascript environment
   -g, --girDirectory=girDirectory  [default: /usr/share/gir-1.0] GIR directory
   -h, --help                       show CLI help
-  -o, --outdir=outdir              [default: @types] Directory to output to
-  -p, --print                      Print the output to console and create no files
-  -v, --verbose                    verbosity
+  -i, --ignore=ignore              [default: ] modules that should be ignored
+  -o, --outdir=outdir              [default: @types] directory to output to
+  -p, --print                      print the output to console and create no files
+  -v, --verbose                    Switch on/off the verbose mode
+  --configName=configName          name of the config if you want to use a different name
+  --ignoreConflicts                Do not ask for package versions if multiple versions are found
+  --pretty                         prettifies the generated .d.ts files
 
 EXAMPLES
   # Run 'ts-for-gir generate' in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project
   ts-for-gir generate
 
   # You can also use wild cards
-  ts-for-gir generate -m Gtk*
+  ts-for-gir generate Gtk*
 
   # If you want to parse all of your locally installed gir modules run
   ts-for-gir generate '*'
+
+  # Generate .d.ts. files only for gjs
+  ts-for-gir generate '*' -e gjs
+
+  # Generate .d.ts. files only for node
+  ts-for-gir generate '*' -e node
+
+  # Use a special config file
+  ts-for-gir generate --configName='.ts-for-gir.gtk4.rc.js
+
+  # Generate .d.ts. files but not for Gtk-3.0 and xrandr-1.3
+  ts-for-gir generate --ignore=Gtk-3.0 xrandr-1.3
 ```
 
 ### List available GIR modules
@@ -86,10 +102,16 @@ ARGUMENTS
 OPTIONS
   -g, --girDirectory=girDirectory  [default: /usr/share/gir-1.0] GIR directory
   -h, --help                       show CLI help
+  -i, --ignore=ignore              [default: true] modules that should be ignored
+  -v, --verbose                    Switch on/off the verbose mode
+  --configName=configName          name of the config if you want to use a different name
 
 EXAMPLES
   # Lists all available GIR modules in ./vala-girs/gir-1.0
   ts-for-gir list -g ./vala-girs/gir-1.0
+
+  # Lists all available GIR modules in /usr/share/gir-1.0 but not Gtk-3.0 and xrandr-1.3
+  ts-for-gir list --ignore=Gtk-3.0 xrandr-1.3
 ```
 
 ### Config

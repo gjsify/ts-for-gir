@@ -234,16 +234,11 @@ export class Transformation {
     }
 
     public transformModuleNamespaceName(name: string): string {
-        const originalName = `${name}`
         name = this.transformNumericName(name)
-
         name = this.transform('importName', name)
 
         if (RESERVED_NAMESPACE_NAMES[name]) {
             name = `${name}_`
-        }
-        if (originalName !== name) {
-            // this.log.warn(`[${this.environment}] Namespace name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -262,11 +257,10 @@ export class Transformation {
     }
 
     public transformEnumName(name: string): string {
+        name = this.transform('enumName', name)
         const originalName = `${name}`
 
         // For an example enum starting with a number see https://gjs-docs.gnome.org/nm10~1.20.8/nm.80211mode
-        name = this.transform('enumName', name)
-
         name = this.transformNumericName(name)
 
         if (RESERVED_CLASS_NAMES[name]) {
@@ -279,8 +273,8 @@ export class Transformation {
     }
 
     public transformFunctionName(name: string): string {
-        const originalName = `${name}`
         name = this.transform('functionName', name)
+        const originalName = `${name}`
 
         name = this.transformNumericName(name)
 
@@ -299,8 +293,8 @@ export class Transformation {
      * or NetworkManager-1.0 has methods starting with `80211`
      */
     public transformPropertyName(name: string, allowQuotes: boolean): string {
-        const originalName = `${name}`
         name = this.transform('propertyName', name)
+        const originalName = `${name}`
 
         if (RESERVED_VARIABLE_NAMES[name]) {
             if (allowQuotes) name = `"${name}"`
@@ -316,8 +310,8 @@ export class Transformation {
     }
 
     public transformConstantName(name: string, allowQuotes: boolean): string {
-        const originalName = `${name}`
         name = this.transform('constantName', name)
+        const originalName = `${name}`
 
         if (RESERVED_VARIABLE_NAMES[name]) {
             if (allowQuotes) name = `"${name}"`
@@ -332,8 +326,8 @@ export class Transformation {
     }
 
     public transformFieldName(name: string, allowQuotes: boolean): string {
-        const originalName = `${name}`
         name = this.transform('fieldName', name)
+        const originalName = `${name}`
 
         if (RESERVED_VARIABLE_NAMES[name]) {
             if (allowQuotes) name = `"${name}"`
@@ -348,12 +342,12 @@ export class Transformation {
     }
 
     public transformParameterName(name: string, allowQuotes: boolean): string {
-        const originalName = `${name}`
         // Such a variable name exists in `GConf-2.0.d.ts` class `Engine` method `change_set_from_current`
         if (name === '...') {
             return '...args'
         }
         name = this.transform('parameterName', name)
+        const originalName = `${name}`
         if (RESERVED_VARIABLE_NAMES[name]) {
             if (allowQuotes) name = `"${name}"`
             else name = `${name}_`
@@ -371,12 +365,7 @@ export class Transformation {
      * @param typeName
      */
     public transformTypeName(name: string): string {
-        const originalName = `${name}`
         name = this.transformNumericName(name)
-
-        if (originalName !== name) {
-            this.log.warn(`[${this.config.environment}] Type name renamed from '${originalName}' to '${name}'`)
-        }
         return name
     }
 

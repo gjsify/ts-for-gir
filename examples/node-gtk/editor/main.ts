@@ -5,13 +5,13 @@ const GtkSource = gi.require('GtkSource')
 
 Gtk.init(null)
 
-const wnd = new Gtk.Window({ title: 'Editor Test', default_width: 600, default_height: 400 })
+const wnd = new Gtk.Window({ title: 'Editor Test', default_width: 600, default_height: 400 } as any) // TODO
 const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL } as any) // TODO
 const notebook = new Gtk.Notebook()
 const srcView = new GtkSource.View()
 
-srcView.auto_indent = true
-srcView.show_line_numbers = true
+srcView.autoIndent = true
+srcView.showLineNumbers = true
 srcView.monospace = true
 
 // TODO

@@ -15,14 +15,17 @@ function makeButton(label: string, callback: () => void): Gtk.Button {
 
 Gtk.init(null)
 
-const wnd = new Gtk.Window({ title: 'Browser Test', default_width: 800, default_height: 600 })
+const wnd = new Gtk.Window()
+// TODO const wnd = new Gtk.Window({ title: 'Browser Test', defaultWidth: 800, defaultHeight: 600 })
+wnd.setDefaultSize(800, 600)
+wnd.setTitle('Browser Test')
 const webview = new WebKit.WebView({})
 const scrolledWindow = new Gtk.ScrolledWindow({})
-const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL } as unknown) // TODO
+const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL } as any) // TODO
 const entry = new Gtk.Entry({ text: 'about:none', halign: Gtk.Align.FILL })
 const spinner = new Gtk.Spinner({})
 
-const hbox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL } as unknown) // TODO
+const hbox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL } as any) // TODO
 hbox.packStart(
     makeButton('⇦', () => {
         webview.goBack()
@@ -62,7 +65,7 @@ webview.on('notify::uri', () => {
     entry.text = webview.uri
 })
 webview.on('notify::is-loading', () => {
-    spinner.active = webview.isLoading()
+    spinner.active = (webview as any).isLoading() // TODO
 })
 
 scrolledWindow.add((webview as unknown) as Gtk.Widget) // TODO

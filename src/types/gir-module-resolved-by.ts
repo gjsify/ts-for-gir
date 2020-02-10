@@ -7,5 +7,5 @@ export interface GirModuleResolvedBy {
     /**
      * E.g. Gtk-3.0
      */
-    fullName: string
+    packageName: string
 }

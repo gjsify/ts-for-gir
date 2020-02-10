@@ -54,7 +54,7 @@ export default class List extends Command {
         this.log(chalk.blue('\nSelected Modules:'))
         for (const moduleGroup of byHandModules) {
             for (const depModule of moduleGroup.modules) {
-                this.log(chalk.white(`- ${depModule.fullName}`))
+                this.log(chalk.white(`- ${depModule.packageName}`))
             }
         }
 
@@ -62,7 +62,7 @@ export default class List extends Command {
             this.log(chalk.yellow('\nDependencies:'))
             for (const moduleGroup of depModules) {
                 for (const depModule of moduleGroup.modules) {
-                    this.log(chalk.white(`- ${depModule.fullName}`))
+                    this.log(chalk.white(`- ${depModule.packageName}`))
                 }
             }
         }
@@ -72,7 +72,7 @@ export default class List extends Command {
             for (const moduleGroup of conflictModules) {
                 this.log(chalk.white(`- ${moduleGroup.name}`))
                 for (const conflictModule of moduleGroup.modules) {
-                    this.log(chalk.white(`  - ${conflictModule.fullName}`))
+                    this.log(chalk.white(`  - ${conflictModule.packageName}`))
                 }
             }
         }

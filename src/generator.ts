@@ -81,9 +81,6 @@ export class Generator {
 
         this.finaliseInheritance(inheritanceTable)
 
-        // this.log.debug('inheritanceTable:')
-        // this.log.debug(inheritanceTable)
-
         const patch = {}
 
         this.log.info('Types loaded, generating .d.ts...')
@@ -92,14 +89,14 @@ export class Generator {
             let dtOutf: NodeJS.WritableStream = process.stdout
             let dtOutputPath: string | null = null
             if (this.config.outdir) {
-                const fullName: string = girModule.fullName || 'unknown'
+                const packageName: string = girModule.packageName || 'unknown'
                 const OutputDir = Transformation.getEnvironmentDir(this.config.environment, this.config.outdir)
-                const dtFileName = `${fullName}.d.ts`
+                const dtFileName = `${packageName}.d.ts`
                 dtOutputPath = Path.join(OutputDir, dtFileName)
                 fs.mkdirSync(OutputDir, { recursive: true })
                 dtOutf = fs.createWriteStream(dtOutputPath)
             }
-            this.log.log(` - ${girModule.fullName} ...`)
+            this.log.log(` - ${girModule.packageName} ...`)
             girModule.patch = patch
             girModule.export(dtOutf, dtOutputPath)
             if (this.config.buildType === 'lib') {

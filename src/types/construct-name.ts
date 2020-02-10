@@ -7,4 +7,4 @@ export type ConstructName =
     | 'propertyName'
     | 'parameterName'
     | 'enumName'
-    | 'namespaceName'
+    | 'importName'

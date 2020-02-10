@@ -217,7 +217,7 @@ export class Transformation {
                 transformation: 'original',
             },
         },
-        namespaceName: {
+        importName: {
             node: {
                 transformation: 'upperCamelCase',
             },
@@ -237,7 +237,7 @@ export class Transformation {
         const originalName = `${name}`
         name = this.transformNumericName(name)
 
-        name = this.transform('namespaceName', name)
+        name = this.transform('importName', name)
 
         if (RESERVED_NAMESPACE_NAMES[name]) {
             name = `${name}_`

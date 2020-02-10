@@ -43,11 +43,12 @@ export class GirModule {
     /**
      * E.g. 'Gtk-3.0'
      */
-    fullName: string
+    packageName: string
     /**
      * E.g. 'Gtk30'
+     * Is used in the generated index.d.ts, for example: `import * as Gtk30 from "./Gtk-3.0";`
      */
-    namespaceName: string
+    importName: string
     dependencies: string[] = []
     transitiveDependencies: string[] = []
     repo: GirRepository
@@ -76,10 +77,10 @@ export class GirModule {
         this.ns = this.repo.namespace[0]
         this.name = this.ns.$.name
         this.version = this.ns.$.version
-        this.fullName = `${this.name}-${this.version}`
-        this.transformation = new Transformation(this.fullName, config)
-        this.log = new Logger(config.environment, config.verbose, this.fullName || 'GirModule')
-        this.namespaceName = this.transformation.transformModuleNamespaceName(this.fullName)
+        this.packageName = `${this.name}-${this.version}`
+        this.transformation = new Transformation(this.packageName, config)
+        this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
+        this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
     }
 
     private loadDependencies(girInclude: GirInclude[]): string[] {
@@ -291,20 +292,12 @@ export class GirModule {
         if (!cType && arrCType) cType = arrCType
 
         if (cType) {
-            if (C_TYPE_MAP(this.fullName, suffix)[cType]) {
-                return C_TYPE_MAP(this.fullName, suffix)[cType]
+            if (C_TYPE_MAP(this.packageName, suffix)[cType]) {
+                return C_TYPE_MAP(this.packageName, suffix)[cType]
             }
         }
 
         let fullTypeName: string | null = type.$.name
-
-        // if (cType && cType.includes('GType[]')) {
-        //     debugger
-        // }
-
-        // if (fullTypeName && fullTypeName.includes('GType[]')) {
-        //     debugger
-        // }
 
         if (typeof fullTypeName === 'string') {
             if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
@@ -328,9 +321,6 @@ export class GirModule {
         if (fullTypeName.indexOf(this.name + '.') === 0) {
             const ret = fullTypeName.substring(this.name.length + 1)
             // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${girVar._module}`)
-            // if (fullTypeName === 'Gio.ApplicationFlags') {
-            //     debugger
-            // }
             const result = ret + suffix
             return result
         }
@@ -520,10 +510,6 @@ export class GirModule {
         }
 
         if (funcNamePrefix) name = funcNamePrefix + name
-
-        // if (e._fullSymName === 'Gtk.Container.child_notify') {
-        //     debugger
-        // }
 
         if (patch && patch.length === 1) return [patch, null]
 
@@ -928,7 +914,7 @@ export class GirModule {
         }
 
         if (isDerivedFromGObject) {
-            def.push(`    static $gtype: ${this.fullName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
+            def.push(`    static $gtype: ${this.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
         }
 
         def.push('}')
@@ -975,13 +961,13 @@ export class GirModule {
             {
                 name: this.name,
                 version: this.version,
-                namespaceName: this.namespaceName,
+                importName: this.importName,
             },
-            this.fullName || undefined,
+            this.packageName || undefined,
             this.config,
         )
         if (this.config.outdir) {
-            templateProcessor.create('module.js', this.config.outdir, `${this.fullName}.js`)
+            templateProcessor.create('module.js', this.config.outdir, `${this.packageName}.js`)
         } else {
             const moduleContent = templateProcessor.load('module.js')
             this.log.log(moduleContent)
@@ -991,31 +977,31 @@ export class GirModule {
     public export(outStream: NodeJS.WritableStream, outputPath: string | null): void {
         let out: string[] = []
 
-        out = out.concat(TemplateProcessor.generateTSDocComment(`${this.fullName}`))
+        out = out.concat(TemplateProcessor.generateTSDocComment(`${this.packageName}`))
 
         out.push('')
 
         const deps: string[] = this.transitiveDependencies
 
         // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
-        if (this.fullName !== 'GObject-2.0') {
+        if (this.packageName !== 'GObject-2.0') {
             if (!Utils.find(deps, x => x === 'GObject-2.0')) {
                 deps.push('GObject-2.0')
             }
         }
 
         // Add missing dependencies
-        if (this.fullName === 'UnityExtras-7.0') {
+        if (this.packageName === 'UnityExtras-7.0') {
             if (!Utils.find(deps, x => x === 'Unity-7.0')) {
                 deps.push('Unity-7.0')
             }
         }
-        if (this.fullName === 'UnityExtras-6.0') {
+        if (this.packageName === 'UnityExtras-6.0') {
             if (!Utils.find(deps, x => x === 'Unity-6.0')) {
                 deps.push('Unity-6.0')
             }
         }
-        if (this.fullName === 'GTop-2.0') {
+        if (this.packageName === 'GTop-2.0') {
             if (!Utils.find(deps, x => x === 'GLib-2.0')) {
                 deps.push('GLib-2.0')
             }
@@ -1029,15 +1015,11 @@ export class GirModule {
         }
         for (const dep of deps) {
             // Don't reference yourself as a dependency
-            if (this.fullName !== dep) {
+            if (this.packageName !== dep) {
                 const girFilename = `${dep}.gir`
                 const { name } = Utils.splitModuleName(dep)
                 const filePath = Path.join(this.config.girDirectory, girFilename)
                 const depFileExists = fs.existsSync(filePath)
-                // if (name === 'GModule') {
-                //     this.log.debug(name, filePath, dep, depFileExists)
-                //     debugger
-                // }
                 if (depFileExists) {
                     out = out.concat(TemplateProcessor.generateModuleDependenciesImport(name, dep, false, this.config))
                 } else {
@@ -1070,15 +1052,15 @@ export class GirModule {
 
         const templateProcessor = new TemplateProcessor(
             { name: this.name, version: this.version },
-            this.fullName,
+            this.packageName,
             this.config,
         )
 
         // Extra interfaces if a template with the module name  (e.g. '../templates/GObject-2.0.d.ts') is found
         // E.g. used for GObject-2.0 to help define GObject classes in js;
         // these aren't part of gi.
-        if (templateProcessor.exists(`${this.fullName}.d.ts`)) {
-            const patches = templateProcessor.load(`${this.fullName}.d.ts`)
+        if (templateProcessor.exists(`${this.packageName}.d.ts`)) {
+            const patches = templateProcessor.load(`${this.packageName}.d.ts`)
             out = out.concat(patches)
         }
 
@@ -1091,9 +1073,9 @@ export class GirModule {
         if (this.ns.alias)
             // GType is not a number in GJS
             for (const e of this.ns.alias)
-                if (this.fullName !== 'GObject-2.0' || e.$.name !== 'Type') out = out.concat(this.exportAlias(e))
+                if (this.packageName !== 'GObject-2.0' || e.$.name !== 'Type') out = out.concat(this.exportAlias(e))
 
-        if (this.fullName === 'GObject-2.0') out = out.concat(['export interface Type {', '    name: string', '}'])
+        if (this.packageName === 'GObject-2.0') out = out.concat(['export interface Type {', '    name: string', '}'])
 
         // END Namespace
         if (this.config.buildType === 'types') {

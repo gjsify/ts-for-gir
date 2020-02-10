@@ -81,11 +81,7 @@ export class TemplateProcessor {
         if (environment === 'node') {
             signalMethods.push(
                 `${ident}on(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-            )
-            signalMethods.push(
                 `${ident}once(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
-            )
-            signalMethods.push(
                 `${ident}off(sigName: "${sigName}", callback: (...args: any[]) => void): NodeJS.EventEmitter`,
             )
         }
@@ -217,7 +213,7 @@ export class TemplateProcessor {
                 this.log.warn(
                     `Can't prettify file: "${path}", please check your .eslintrc.js in your working directory`,
                 )
-                console.dir(report)
+                this.log.dir(report)
 
                 report?.results.forEach(result => {
                     if (result.message) {

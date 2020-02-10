@@ -1,13 +1,13 @@
 import lodash from 'lodash'
 
 export class Utils {
-    public static splitModuleName(fullName: string): { fullName: string; name: string; version: string } {
+    public static splitModuleName(packageName: string): { packageName: string; name: string; version: string } {
         // There are modules that use multiple hyphens like 'GUPnP-DLNA-1.0'
-        const splitted = fullName.split('-')
+        const splitted = packageName.split('-')
         const version = splitted.splice(-1, 1)[0]
         const name = splitted.join('-')
         return {
-            fullName,
+            packageName,
             name,
             version,
         }
@@ -64,7 +64,7 @@ export class Utils {
      * @param target
      * @param source
      */
-    public static union<T>(target: Set<T>, source: Set<T> | T[]): Set<T> {
+    public static union<T>(target: Set<T> | T[], source: Set<T> | T[]): Set<T> {
         return (target = new Set<T>([...target, ...source]))
     }
 

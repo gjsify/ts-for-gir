@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
 <% for (const girModule of girModules) { -%>
     <% if (buildType === 'lib') { -%>
-        import * as <%= girModule.name %> from './<%= girModule.fullName %>';
+        import * as <%= girModule.name %> from './<%= girModule.packageName %>';
     <% } -%>
     <% if (buildType === 'types') { -%>
-/// <reference path="<%= girModule.fullName %>.d.ts" />
+/// <reference path="<%= girModule.packageName %>.d.ts" />
     <% } -%>
 <% } -%>
 

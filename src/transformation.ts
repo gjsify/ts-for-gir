@@ -69,79 +69,75 @@ export const FULL_TYPE_MAP = (
     }
 }
 
-export const RESERVED_VARIABLE_NAMES = {
-    in: 1,
-    function: 1,
-    true: 1,
-    false: 1,
-    break: 1,
-    arguments: 1,
-    eval: 1,
-    default: 1,
-    new: 1,
-    extends: 1,
-    with: 1,
-    var: 1,
-    class: 1,
-    delete: 1,
-    return: 1,
-}
+export const RESERVED_VARIABLE_NAMES = [
+    'in',
+    'function',
+    'true',
+    'false',
+    'break',
+    'arguments',
+    'eval',
+    'default',
+    'new',
+    'extends',
+    'with',
+    'var',
+    'class',
+    'delete',
+    'return',
+]
 
-export const RESERVED_CLASS_NAMES = {
-    break: 1,
-    boolean: 1,
-    case: 1,
-    catch: 1,
-    class: 1,
-    const: 1,
-    continue: 1,
-    debugger: 1,
-    default: 1,
-    delete: 1,
-    do: 1,
-    else: 1,
-    enum: 1,
-    export: 1,
-    extends: 1,
-    false: 1,
-    finally: 1,
-    for: 1,
-    function: 1,
-    if: 1,
-    implements: 1,
-    import: 1,
-    in: 1,
-    instanceof: 1,
-    interface: 1,
-    let: 1,
-    new: 1,
-    number: 1,
-    package: 1,
-    private: 1,
-    protected: 1,
-    public: 1,
-    return: 1,
-    static: 1,
-    super: 1,
-    switch: 1,
-    string: 1,
-    this: 1,
-    throw: 1,
-    true: 1,
-    try: 1,
-    typeof: 1,
-    var: 1,
-    void: 1,
-    while: 1,
-    with: 1,
-    yield: 1,
-}
+export const RESERVED_CLASS_NAMES = [
+    'break',
+    'boolean',
+    'case',
+    'catch',
+    'class',
+    'const',
+    'continue',
+    'debugger',
+    'default',
+    'delete',
+    'do',
+    'else',
+    'enum',
+    'export',
+    'extends',
+    'false',
+    'finally',
+    'for',
+    'function',
+    'if',
+    'implements',
+    'import',
+    'in',
+    'instanceof',
+    'interface',
+    'let',
+    'new',
+    'number',
+    'package',
+    'private',
+    'protected',
+    'public',
+    'return',
+    'static',
+    'super',
+    'switch',
+    'string',
+    'this',
+    'throw',
+    'true',
+    'try',
+    'typeof',
+    'var',
+    'void',
+    'while',
+    'with',
+    'yield',
+]
 
-export const RESERVED_FUNCTION_NAMES = {
-    false: 1,
-    true: 1,
-    break: 1,
-}
+export const RESERVED_FUNCTION_NAMES = ['false', 'true', 'break']
 
 export const RESERVED_NAMESPACE_NAMES = {}
 
@@ -247,11 +243,11 @@ export class Transformation {
         const originalName = `${name}`
         name = this.transformNumericName(name)
 
-        if (RESERVED_CLASS_NAMES[name]) {
+        if (RESERVED_CLASS_NAMES.includes(name)) {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`[${this.config.environment}] Class name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`Class name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -263,11 +259,11 @@ export class Transformation {
         // For an example enum starting with a number see https://gjs-docs.gnome.org/nm10~1.20.8/nm.80211mode
         name = this.transformNumericName(name)
 
-        if (RESERVED_CLASS_NAMES[name]) {
+        if (RESERVED_CLASS_NAMES.includes(name)) {
             name = `${name}_`
         }
         if (originalName !== name) {
-            this.log.warn(`[${this.config.environment}] Enum name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`Enum name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -278,12 +274,12 @@ export class Transformation {
 
         name = this.transformNumericName(name)
 
-        if (RESERVED_FUNCTION_NAMES[name]) {
+        if (RESERVED_FUNCTION_NAMES.includes(name)) {
             name = `${name}_TODO`
         }
 
         if (originalName !== name) {
-            this.log.warn(`[${this.config.environment}] Function name renamed from '${originalName}' to '${name}'`)
+            this.log.warn(`Function name renamed from '${originalName}' to '${name}'`)
         }
         return name
     }
@@ -296,7 +292,7 @@ export class Transformation {
         name = this.transform('propertyName', name)
         const originalName = `${name}`
 
-        if (RESERVED_VARIABLE_NAMES[name]) {
+        if (RESERVED_VARIABLE_NAMES.includes(name)) {
             if (allowQuotes) name = `"${name}"`
             else name = `${name}_`
         }
@@ -313,7 +309,7 @@ export class Transformation {
         name = this.transform('constantName', name)
         const originalName = `${name}`
 
-        if (RESERVED_VARIABLE_NAMES[name]) {
+        if (RESERVED_VARIABLE_NAMES.includes(name)) {
             if (allowQuotes) name = `"${name}"`
             else name = `${name}_`
         }
@@ -329,7 +325,7 @@ export class Transformation {
         name = this.transform('fieldName', name)
         const originalName = `${name}`
 
-        if (RESERVED_VARIABLE_NAMES[name]) {
+        if (RESERVED_VARIABLE_NAMES.includes(name)) {
             if (allowQuotes) name = `"${name}"`
             else name = `${name}_`
         }
@@ -348,7 +344,7 @@ export class Transformation {
         }
         name = this.transform('parameterName', name)
         const originalName = `${name}`
-        if (RESERVED_VARIABLE_NAMES[name]) {
+        if (RESERVED_VARIABLE_NAMES.includes(name)) {
             if (allowQuotes) name = `"${name}"`
             else name = `${name}_`
         }

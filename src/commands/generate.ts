@@ -38,7 +38,7 @@ export default class Generate extends Command {
 
     static flags = {
         help: Config.defaultCliFlags.help,
-        girDirectory: Config.defaultCliFlags.girDirectory,
+        girDirectories: Config.defaultCliFlags.girDirectories,
         outdir: Config.defaultCliFlags.outdir,
         environments: Config.defaultCliFlags.environments,
         ignore: Config.defaultCliFlags.ignore,

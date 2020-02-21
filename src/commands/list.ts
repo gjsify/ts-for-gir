@@ -21,7 +21,7 @@ export default class List extends Command {
 
     static flags = {
         help: Config.defaultCliFlags.help,
-        girDirectory: Config.defaultCliFlags.girDirectory,
+        girDirectories: Config.defaultCliFlags.girDirectories,
         ignore: Config.defaultCliFlags.ignore,
         configName: Config.defaultCliFlags.configName,
         verbose: Config.defaultCliFlags.verbose,

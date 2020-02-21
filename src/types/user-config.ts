@@ -7,7 +7,7 @@ export interface UserConfig {
     environments: Environment[]
     outdir: string | null
     buildType?: BuildType
-    girDirectory: string
+    girDirectories: string[]
     verbose: boolean
     ignoreConflicts: boolean
     print: boolean

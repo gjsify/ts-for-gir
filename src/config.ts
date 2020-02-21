@@ -23,7 +23,7 @@ export class Config {
         pretty: false,
         print: false,
         outdir: '@types',
-        girDirectory: '/usr/share/gir-1.0',
+        girDirectories: ['/usr/share/gir-1.0'],
         modules: ['*'],
         ignore: [],
         verbose: true,
@@ -35,7 +35,12 @@ export class Config {
      */
     static defaultCliFlags = {
         help: flags.help({ char: 'h' }),
-        girDirectory: flags.string({ char: 'g', description: 'GIR directory', default: Config.defaults.girDirectory }),
+        girDirectories: flags.string({
+            char: 'g',
+            description: 'GIR directory',
+            multiple: true,
+            default: Config.defaults.girDirectories,
+        }),
         outdir: flags.string({
             char: 'o',
             description: 'directory to output to',
@@ -143,7 +148,7 @@ export class Config {
         const defaultBuildType = environment === 'gjs' ? 'lib' : 'types'
         const generateConfig: GenerateConfig = {
             environment: environment,
-            girDirectory: config.girDirectory,
+            girDirectories: config.girDirectories,
             outdir: config.outdir,
             pretty: config.pretty,
             verbose: config.verbose,
@@ -168,7 +173,7 @@ export class Config {
             pretty: flags.pretty,
             print: flags.print,
             outdir: flags.outdir,
-            girDirectory: flags.girDirectory,
+            girDirectories: flags.girDirectories,
             ignore: flags.ignore,
             modules,
         }
@@ -198,8 +203,11 @@ export class Config {
             if (config.outdir === Config.defaultCliFlags.outdir.default && configFile.config.outdir) {
                 config.outdir = config.print ? null : configFile.config.outdir
             }
-            if (config.girDirectory === Config.defaultCliFlags.girDirectory.default && configFile.config.girDirectory) {
-                config.girDirectory = configFile.config.girDirectory
+            if (
+                config.girDirectories === Config.defaultCliFlags.girDirectories.default &&
+                configFile.config.girDirectories
+            ) {
+                config.girDirectories = configFile.config.girDirectories
             }
             if (
                 (!config.ignore || config.ignore.length <= 0 || Utils.isEqual(config.ignore, Config.defaults.ignore)) &&

@@ -1,4 +1,6 @@
 import lodash from 'lodash'
+import Path from 'path'
+import fs from 'fs'
 
 export class Utils {
     public static splitModuleName(packageName: string): { packageName: string; name: string; version: string } {
@@ -56,6 +58,24 @@ export class Utils {
         str = this.camelCase(str)
         str = this.getFirstChar(str).toUpperCase() + str.slice(1)
         return str
+    }
+
+    public static findFileInDirs(dirs: string[], filename: string): { path: string | null; exists: boolean } {
+        let exists = false
+        for (const dir of dirs) {
+            const filePath = Path.join(dir, filename)
+            exists = fs.existsSync(filePath)
+            if (exists) {
+                return {
+                    path: filePath,
+                    exists,
+                }
+            }
+        }
+        return {
+            path: null,
+            exists,
+        }
     }
 
     /**

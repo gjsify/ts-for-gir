@@ -368,12 +368,12 @@ export class ModuleLoader {
      * @param config
      */
     private async loadAndCreateGirModule(packageName: string): Promise<GirModule | null> {
-        const filePath = Path.join(this.config.girDirectory, packageName + '.gir')
-        if (!fs.existsSync(filePath)) {
+        const file = Utils.findFileInDirs(this.config.girDirectories, packageName + '.gir')
+        if (!file.exists || file.path === null) {
             return null
         }
-        this.log.log(`Parsing ${filePath}...`)
-        const fileContents = fs.readFileSync(filePath, 'utf8')
+        this.log.log(`Parsing ${file.path}...`)
+        const fileContents = fs.readFileSync(file.path, 'utf8')
         const result = (await xml2js.parseStringPromise(fileContents)) as ParsedGir
         const gi = new GirModule(result, this.config)
         // Figure out transitive module dependencies
@@ -472,7 +472,7 @@ export class ModuleLoader {
 
     /**
      * Find modules with the possibility to use wild cards for module names. E.g. `Gtk*` or `'*'`
-     * @param girDirectory
+     * @param girDirectories
      * @param modules
      */
     private async findModules(modules: string[], ignore: string[] = []): Promise<Set<string>> {
@@ -481,7 +481,11 @@ export class ModuleLoader {
         for (const i in modules) {
             if (modules[i]) {
                 const filename = `${modules[i]}.gir`
-                const files = await glob(filename, { cwd: this.config.girDirectory })
+                let files: string[] = []
+                for (const girDirectory of this.config.girDirectories) {
+                    files = files.concat(await glob(filename, { cwd: girDirectory }))
+                }
+
                 let globModules = files.map(file => Path.basename(file, '.gir'))
                 // Filter out the ignored modules
                 globModules = globModules.filter(mod => {
@@ -496,7 +500,7 @@ export class ModuleLoader {
     /**
      * Loads all found modules and sorts out those that the user does not want to use
      * (if multiple versions of a gir file are found) including their dependencies
-     * @param girDirectory
+     * @param girDirectories
      * @param modules
      */
     public async getModulesResolved(
@@ -520,7 +524,7 @@ export class ModuleLoader {
 
     /**
      * Find modules with the possibility to use wild cards for module names. E.g. `Gtk*` or `'*'`
-     * @param girDirectory
+     * @param girDirectories
      * @param modules
      */
     public async getModules(

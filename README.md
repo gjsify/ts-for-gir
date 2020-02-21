@@ -52,17 +52,17 @@ ARGUMENTS
   MODULES  [default: *] GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules
 
 OPTIONS
-  -b, --buildType=lib|types        [default for gjs: lib, default for node: types] Force the definitions generation type
-  -e, --environments=gjs|node      [default: gjs,node] javascript environment
-  -g, --girDirectory=girDirectory  [default: /usr/share/gir-1.0] GIR directory
-  -h, --help                       show CLI help
-  -i, --ignore=ignore              [default: ] modules that should be ignored
-  -o, --outdir=outdir              [default: @types] directory to output to
-  -p, --print                      print the output to console and create no files
-  -v, --verbose                    Switch on/off the verbose mode
-  --configName=configName          name of the config if you want to use a different name
-  --ignoreConflicts                Do not ask for package versions if multiple versions are found
-  --pretty                         prettifies the generated .d.ts files
+  -b, --buildType=lib|types            [default for gjs: lib, default for node: types] Force the definitions generation type
+  -e, --environments=gjs|node          [default: gjs,node] javascript environment
+  -g, --girDirectories=girDirectories  [default: /usr/share/gir-1.0] GIR directory
+  -h, --help                           show CLI help
+  -i, --ignore=ignore                  [default: ] modules that should be ignored
+  -o, --outdir=outdir                  [default: @types] directory to output to
+  -p, --print                          print the output to console and create no files
+  -v, --verbose                        Switch on/off the verbose mode
+  --configName=configName              name of the config if you want to use a different name
+  --ignoreConflicts                    Do not ask for package versions if multiple versions are found
+  --pretty                             prettifies the generated .d.ts files
 
 EXAMPLES
   # Run 'ts-for-gir generate' in your gjs or node-gtk project to generate typings for your project, pass the gir modules you need for your project
@@ -100,11 +100,11 @@ ARGUMENTS
   MODULES  [default: *] GIR modules to load, e.g. 'Gio-2.0'. Accepts multiple modules
 
 OPTIONS
-  -g, --girDirectory=girDirectory  [default: /usr/share/gir-1.0] GIR directory
-  -h, --help                       show CLI help
-  -i, --ignore=ignore              [default: true] modules that should be ignored
-  -v, --verbose                    Switch on/off the verbose mode
-  --configName=configName          name of the config if you want to use a different name
+  -g, --girDirectories=girDirectories  [default: /usr/share/gir-1.0] GIR directory
+  -h, --help                           show CLI help
+  -i, --ignore=ignore                  [default: true] modules that should be ignored
+  -v, --verbose                        Switch on/off the verbose mode
+  --configName=configName              name of the config if you want to use a different name
 
 EXAMPLES
   # Lists all available GIR modules in ./vala-girs/gir-1.0
@@ -126,7 +126,7 @@ module.exports = {
     verbose: true,
     environments: ['gjs', 'node'],
     outdir: '@types',
-    girDirectory: '/usr/share/gir-1.0',
+    girDirectories: '/usr/share/gir-1.0',
     modules: ['*'],
     ignore: [],
 }

@@ -7,7 +7,7 @@ export interface GenerateConfig {
     environment: Environment
     outdir: string | null
     buildType?: BuildType
-    girDirectory: string
+    girDirectories: string[]
     verbose: boolean
     pretty: boolean
 }

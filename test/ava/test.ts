@@ -17,7 +17,7 @@ const emptyRepositoryXml = {
 
 const config: GenerateConfig = {
     environment: 'gjs',
-    girDirectory: '',
+    girDirectories: [''],
     outdir: '',
     pretty: false,
     verbose: false,

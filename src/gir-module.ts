@@ -1,5 +1,3 @@
-import Path from 'path'
-import fs from 'fs'
 import TemplateProcessor from './template-processor'
 import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_ARRAY } from './transformation'
 import { Logger } from './logger'
@@ -1029,13 +1027,12 @@ export class GirModule {
             if (this.packageName !== dep) {
                 const girFilename = `${dep}.gir`
                 const { name } = Utils.splitModuleName(dep)
-                const filePath = Path.join(this.config.girDirectory, girFilename)
-                const depFileExists = fs.existsSync(filePath)
-                if (depFileExists) {
+                const depFile = Utils.findFileInDirs(this.config.girDirectories, girFilename)
+                if (depFile.exists) {
                     out = out.concat(TemplateProcessor.generateModuleDependenciesImport(name, dep, false, this.config))
                 } else {
                     out = out.concat(`// WARN: Dependency not found: '${dep}'`)
-                    this.log.error(`Dependency gir file not found: '${filePath}'`)
+                    this.log.error(`Dependency gir file not found: '${girFilename}'`)
                 }
             }
         }

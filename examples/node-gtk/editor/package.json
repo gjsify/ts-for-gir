@@ -1,0 +1,33 @@
+{
+  "name": "gir-ts-editor-example",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "build": "npm run build:types && npm run build:ts",
+    "build:ts": "npm run clear:ts && webpack",
+    "build:types": "npm run clear:types && ../../../bin/run generate Gtk-3.0 GtkSource-3.0 -e node",
+    "clear:types": "rm -rf ./@types",
+    "clear:ts": "rm -rf ./dist",
+    "clear": "npm run clear:ts && npm run build:types",
+    "start": "npm run build && node dist/editor.js",
+    "watch": "npm run build:ts -- --watch",
+    "lint": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": "^12"
+  },
+  "devDependencies": {
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "node-gtk": "^0.3.0"
+  }
+}

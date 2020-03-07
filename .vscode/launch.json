@@ -8,10 +8,62 @@
             "type": "node",
             "request": "launch",
             "protocol": "inspector",
-            "name": "Launch Program",
-            "program": "${workspaceRoot}/main.js",
+            "name": "Generate Gtk for gjs",
+            "program": "${workspaceRoot}/bin/run",
             "args": [
-                "-m", "Gtk-3.0"
+                "generate", "Gtk-3.0", "-e", "gjs", "-o", "./tmp"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/main.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "name": "Generate Gtk for node-gtk",
+            "program": "${workspaceRoot}/bin/run",
+            "args": [
+                "generate", "Gtk-3.0", "-e", "node", "-o", "./tmp"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/main.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "name": "Generate all locale installed for gjs",
+            "program": "${workspaceRoot}/bin/run",
+            "args": [
+                "generate", "-e", "gjs", "-o", "./tmp"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/main.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "name": "Generate all locale installed for node-gtk",
+            "program": "${workspaceRoot}/bin/run",
+            "args": [
+                "generate", "-e", "node", "-o", "./tmp"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/main.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "name": "regress",
+            "program": "${workspaceRoot}/bin/run",
+            "args": [
+                "generate", "--configName='.ts-for-gir.regress.rc.js", "-o", "./tmp"
             ],
             "outFiles": [
                 "${workspaceRoot}/main.js"

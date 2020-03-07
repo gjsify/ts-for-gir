@@ -3,7 +3,6 @@
     "lib": ["es6"],                 
     "target": "es6",
     "module": "commonjs",
-    "outDir": "lib",
     "strict": true,
     "noImplicitAny": false,
     "strictNullChecks": true,
@@ -12,13 +11,17 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "rootDir": "src",
-    "resolveJsonModule": true,
+    "rootDir": "",
+    "outDir": "tmp",
   },
-  "include": ["src"],
+  "files": [
+    "test/ava/test.ts",
+  ],
+  "include": ["test/ava"],
   "exclude": [
     "node_modules",
-    "**/*.spec.ts",
-    "templates"
+    "templates",
+    "src",
+    "test/girs"
   ]
 }

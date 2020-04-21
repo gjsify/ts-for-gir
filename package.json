@@ -65,6 +65,8 @@
   },
   "dependencies": {
     "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.15.1",
+    "@oclif/errors": "^1.2.2",
     "chalk": "^3.0.0",
     "cosmiconfig": "^6.0.0",
     "ejs": "^3.0.1",
@@ -72,6 +74,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "events": "^3.1.0",
+    "globby": "^11.0.0",
     "inquirer": "^7.0.4",
     "lodash": "^4.17.15",
     "prettier": "^1.19.1",

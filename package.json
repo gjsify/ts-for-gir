@@ -1,6 +1,6 @@
 {
   "name": "ts-for-gir",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typescript .d.ts generator from GIR for gjs or node-gtk",
   "main": "lib/index.js",
   "bin": {
@@ -24,7 +24,7 @@
     "clear:build": "rm -rf ./lib",
     "clear:types": "rm -rf ./@types",
     "watch": "npm run build:ts -- --watch",
-    "start": "node lib/cli.js",
+    "start": "node bin/run",
     "lint": "npm run clear && npm run build:ts -- --noEmit && eslint . --ext .ts,.tsx --fix"
   },
   "repository": {
@@ -33,9 +33,9 @@
   },
   "author": "",
   "files": [
-    "lib",
     "bin",
-    "src"
+    "lib",
+    "templates"
   ],
   "oclif": {
     "commands": "./lib/commands",

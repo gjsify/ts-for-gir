@@ -16,7 +16,7 @@ srcView.monospace = true
 
 // Unfortunately the "buffer" property is not GtkSource.Buffer so we need to downcast
 // it. giCast gives us a type-check at runtime.
-const buf: GtkSource.Buffer = giCast<GtkSource.Buffer>(srcView.buffer, GtkSource.Buffer)
+const buf = giCast(srcView.buffer, GtkSource.Buffer)
 const lang = GtkSource.LanguageManager.get_default().get_language('js')
 print('lang', lang)
 buf.set_language(lang)

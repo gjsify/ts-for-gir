@@ -5,6 +5,7 @@ import { GirFunction } from './gir-function'
 import { GirVariable } from './gir-variable'
 import { GirImplements } from './gir-implements'
 import { GirPrerequisite } from './gir-prerequisite'
+import { GirVirtualMethod } from './gir-virtual-method'
 
 export interface GirClass extends TsForGjsExtended {
     $: {
@@ -13,8 +14,13 @@ export interface GirClass extends TsForGjsExtended {
         version?: string
         // Not sure what this means
         disguised?: string
-        // c:symbol-prefix, c:type, glib:get-type, glib:type-name
+        'c:symbol-prefix': string
+        'c:type': string
+        'glib:get-type': string
+        'glib:type-name': string
         'glib:is-gtype-struct-for'?: string
+        'glib:type-struct'?: string
+        when?: 'first' | 'last'
     }
     doc?: GirDoc[]
     function?: GirFunction[]
@@ -22,7 +28,7 @@ export interface GirClass extends TsForGjsExtended {
     method?: GirFunction[]
     property?: GirVariable[]
     field?: GirVariable[]
-    'virtual-method'?: GirFunction[]
+    'virtual-method'?: GirVirtualMethod[]
     constructor?: GirFunction[] | Function
     implements?: GirImplements[]
     prerequisite?: GirPrerequisite[]

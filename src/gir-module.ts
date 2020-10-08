@@ -271,7 +271,7 @@ export class GirModule {
         }
 
         if (girVar.$) {
-            const nullable = this.girBool(girVar.$.nullable) || this.girBool(girVar.$['allow-none'])
+            const nullable = this.paramIsNullable(girVar)
             if (nullable) {
                 nul = ' | null'
             }
@@ -403,6 +403,20 @@ export class GirModule {
         }
     }
 
+    /**
+     * Checks if the parameter is nullable or optional.
+     * TODO Check if it makes sence to split this in `paramIsNullable` and `paramIsOptional`
+     *
+     * @param param Param to test
+     *
+     * @author realh
+     * @see https://github.com/realh/ts-for-gjs/commit/e4bdba8d4ca279dfa4abbca413eaae6ecc6a81f8
+     */
+    private paramIsNullable(param: GirVariable): boolean {
+        const a = param.$
+        return a && (this.girBool(a.nullable) || this.girBool(a['allow-none']) || this.girBool(a.optional))
+    }
+
     private getParameters(outArrayLengthIndex: number, parameters?: GirParameter[]): [string, string[]] {
         const def: string[] = []
         const outParams: string[] = []
@@ -426,22 +440,22 @@ export class GirModule {
 
                     const optDirection = param.$.direction
                     if (optDirection) {
-                        if (optDirection === 'out') {
+                        if (optDirection === 'out' || optDirection == 'inout') {
                             outParams.push(`/* ${paramName} */ ${paramType}`)
-                            continue
+                            if (optDirection == 'out') continue
                         }
                     }
 
-                    let isOptional = param.$['allow-none'] ? '?' : ''
+                    let isOptional = this.paramIsNullable(param) ? '?' : ''
 
-                    if (isOptional) {
+                    if (isOptional === '?') {
                         const index = parametersArray.indexOf(param)
                         const following = (parametersArray as GirVariable[])
                             .slice(index)
                             .filter(() => skip.indexOf(param) === -1)
                             .filter(p => p.$.direction !== 'out')
 
-                        if (following.some(p => !p.$['allow-none'])) {
+                        if (following.some(p => !this.paramIsNullable(p))) {
                             isOptional = ''
                         }
                     }

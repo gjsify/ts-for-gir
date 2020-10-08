@@ -1,5 +1,5 @@
 import test from 'ava'
-import { GirEnumeration, GirModule, GenerateConfig } from '../../src'
+import { GirEnumeration, GirModule, GenerateConfig, GirFunction } from '../../src'
 import * as TestData from './testData'
 
 const emptyRepositoryXml = {
@@ -80,7 +80,7 @@ test('constant', t => {
 })
 
 test('function', t => {
-    const func = {
+    const func: GirFunction = {
         $: { name: 'my_func' },
         parameters: [
             {
@@ -123,7 +123,7 @@ test('function', t => {
 })
 
 test('callback', t => {
-    const cbs = [
+    const cbs: GirFunction[] = [
         {
             $: { name: 'activate' },
             'return-value': [

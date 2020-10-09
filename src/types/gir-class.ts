@@ -29,7 +29,8 @@ export interface GirClass extends TsForGjsExtended {
     property?: GirVariable[]
     field?: GirVariable[]
     'virtual-method'?: GirVirtualMethod[]
-    constructor?: GirFunction[]
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    constructor?: GirFunction[] | Function
     implements?: GirImplements[]
     prerequisite?: GirPrerequisite[]
 

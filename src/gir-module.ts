@@ -24,6 +24,7 @@ import {
     ParsedGir,
     GenerateConfig,
     FunctionDescription,
+    FunctionMap,
     LocalNames,
 } from './types'
 
@@ -68,6 +69,10 @@ export class GirModule {
      * Please note: Such a case is only known for Zeitgeist-2.0 with the constant "ATTACHMENT"
      */
     constNames: { [varName: string]: 1 } = {}
+
+    private commentRegExp = /\/\*.*\*\//g
+    private paramRegExp = /[0-9a-zA-Z_]*:/g
+    private optParamRegExp = /[0-9a-zA-Z_]*\?:/g
 
     constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
         this.repo = xml.repository
@@ -599,13 +604,10 @@ export class GirModule {
         if (!girClass || !girClass.$) return
 
         let parent: GirClass | null = null
-        // const parentModule: GirModule | undefined = undefined
-
-        const mod: GirModule = girClass._module ? girClass._module : this
         let name = girClass.$.name
 
         if (name.indexOf('.') < 0) {
-            name = mod.name + '.' + name
+            name = this.name + '.' + name
         }
 
         if (girClass.$.parent) {
@@ -613,7 +615,7 @@ export class GirModule {
             const origParentName = parentName
 
             if (parentName.indexOf('.') < 0) {
-                parentName = mod.name + '.' + parentName
+                parentName = this.name + '.' + parentName
             }
 
             if (this.symTable[parentName]) {
@@ -632,20 +634,51 @@ export class GirModule {
         if (parent) this.traverseInheritanceTree(parent, callback)
     }
 
-    private forEachInterface(girClass: GirClass, callback: (cls: GirClass) => void): void {
+    private forEachInterface(
+        girClass: GirClass,
+        callback: (cls: GirClass) => void,
+        recurseObjects = false,
+        dups = {},
+    ): void {
         for (const { $ } of girClass.implements || []) {
             let name = $.name as string
 
             if (name.indexOf('.') < 0) {
                 name = this.name + '.' + name
             }
-
+            if (Object.prototype.hasOwnProperty.call(dups, name)) {
+                continue
+            }
+            dups[name] = true
             const iface: GirClass | null = this.symTable[name] as GirClass | null
 
             if (iface) {
                 callback(iface)
+                this.forEachInterface(iface, callback, recurseObjects, dups)
             }
         }
+        if (girClass.prerequisite) {
+            let parentName = girClass.prerequisite[0].$.name
+            if (!parentName) {
+                return
+            }
+            if (parentName.indexOf('.') < 0) {
+                parentName = this.name + '.' + parentName
+            }
+            if (Object.prototype.hasOwnProperty.call(dups, parentName)) return
+            const parentPtr = this.symTable[parentName]
+            if (parentPtr && ((parentPtr as GirClass).prerequisite || recurseObjects)) {
+                // iface's prerequsite is also an interface, or it's
+                // a class and we also want to recurse classes
+                callback(parentPtr as GirClass)
+                this.forEachInterface(parentPtr as GirClass, callback, recurseObjects, dups)
+            }
+        }
+    }
+
+    private forEachInterfaceAndSelf(e: GirClass, callback: (cls: GirClass) => void) {
+        callback(e)
+        this.forEachInterface(e, callback)
     }
 
     private isDerivedFromGObject(girClass: GirClass): boolean {
@@ -721,24 +754,28 @@ export class GirModule {
         return def
     }
 
-    // Instance methods, vfunc_ prefix
-    private processVirtualMethods(cls: GirClass, localNames: LocalNames): string[] {
+    private exportOverloadableMethods(fnMap: FunctionMap, explicits: Set<string>) {
         const def: string[] = []
-        const vmeth = cls['virtual-method']
-        if (vmeth) {
-            def.push(`    /* Virtual methods of ${cls._fullSymName} */`)
-            for (const f of vmeth) {
-                // eslint-disable-next-line prefer-const
-                let [desc, name] = this.getFunction(f, '    ', 'vfunc_')
+        for (const k of Array.from(explicits.values())) {
+            const f = fnMap.get(k)
+            if (f) def.push(...f)
+        }
+        return def
+    }
 
-                desc = this.checkName(desc, name, localNames)[0]
-
-                if (desc[0]) {
-                    desc[0] = desc[0].replace('(', '?(')
-                }
-
-                def.push(...desc)
-            }
+    // Instance methods, vfunc_ prefix
+    private processVirtualMethods(cls: GirClass): string[] {
+        const [fnMap, explicits] = this.processOverloadableMethods(cls, (e) => {
+            let methods = (e['virtual-method'] || []).map((f) => {
+                const desc = this.getFunction(f, '    ', 'vfunc_')
+                return desc
+            })
+            methods = methods.filter((f) => f[1] != null)
+            return methods
+        })
+        const def = this.exportOverloadableMethods(fnMap, explicits)
+        if (def.length) {
+            def.unshift(`    /* Virtual methods of ${cls._fullSymName} */`)
         }
         return def
     }
@@ -751,6 +788,198 @@ export class GirModule {
             for (const s of signals) def.push(...this.getSignalFunc(s, clsName))
         }
         return def
+    }
+
+    private stripParamNames(f: string, ignoreTail = false) {
+        const g = f
+        f = f.replace(this.commentRegExp, '')
+        const lb = f.split('(', 2)
+        if (lb.length < 2) console.log(`Bad function definition ${g}`)
+        const rb = lb[1].split(')')
+        const tail = ignoreTail ? '' : rb[rb.length - 1]
+        let params = rb.slice(0, rb.length - 1).join(')')
+        params = params.replace(this.paramRegExp, ':')
+        params = params.replace(this.optParamRegExp, '?:')
+        return `${lb[0]}(${params})${tail}`
+    }
+
+    // Some classes implement interfaces which are also implemented by a superclass
+    // and we need to exclude those in some circumstances
+    private interfaceIsDuplicate(cls: GirClass, iface: GirClass | string): boolean {
+        if (typeof iface !== 'string') {
+            if (!iface._fullSymName) return false
+            iface = iface._fullSymName
+        }
+        let rpt = false
+        let bottom = true
+        this.traverseInheritanceTree(cls, (sub) => {
+            if (rpt) return
+            if (bottom) {
+                bottom = false
+                return
+            }
+            this.forEachInterface(
+                sub,
+                (e) => {
+                    if (rpt) return
+                    if (e._fullSymName === iface) {
+                        rpt = true
+                    }
+                },
+                true,
+            )
+        })
+        return rpt
+    }
+
+    private getStaticConstructors(
+        e: GirClass,
+        name: string,
+        filter?: (funcName: string) => boolean,
+    ): FunctionDescription[] {
+        const funcs = e['constructor']
+        if (!Array.isArray(funcs)) return [[[], null]]
+        let ctors = funcs.map((f) => {
+            return this.getConstructorFunction(name, f, '    static ', undefined)
+        })
+        if (filter) ctors = ctors.filter(([, funcName]) => funcName && filter(funcName))
+        return ctors
+    }
+
+    private isGtypeStructFor(e: GirClass, rec: GirClass) {
+        const isFor = rec.$['glib:is-gtype-struct-for']
+        return isFor && isFor == e.$.name
+    }
+
+    // Some class/static methods are defined in a separate record which is not
+    // exported, but the methods are available as members of the JS constructor.
+    // In gjs one can use an instance of the object or a JS constructor as the
+    // methods' instance-parameter. See:
+    // https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
+    private getClassMethods(e: GirClass) {
+        if (!e.$.name) return []
+        const fName = e.$.name + 'Class'
+        let rec = this.ns.record?.find((r) => r.$.name == fName)
+        if (!rec || !this.isGtypeStructFor(e, rec)) {
+            rec = this.ns.record?.find((r) => this.isGtypeStructFor(e, r))
+            fName == rec?.$.name
+        }
+        if (!rec) return []
+        const methods = rec.method || []
+        return methods.map((m) => this.getFunction(m, '    static '))
+    }
+
+    private getOtherStaticFunctions(e: GirClass, stat = true): FunctionDescription[] {
+        const fns: FunctionDescription[] = []
+        if (e.function) {
+            for (const func of e.function) {
+                const [desc, funcName] = this.getFunction(func, stat ? '    static ' : '    ', undefined, undefined)
+                if (funcName && funcName !== 'new') fns.push([desc, funcName])
+            }
+        }
+        return fns
+    }
+
+    // Returns true if the function definitions in f1 and f2 have equivalent
+    // signatures
+    private functionSignaturesMatch(f1: string, f2: string) {
+        return this.stripParamNames(f1) == this.stripParamNames(f2)
+    }
+
+    // See comment for addOverloadableFunctions.
+    // Returns true if (a definition from) func is added to map to satisfy
+    // an overload, but false if it was forced
+    private mergeOverloadableFunctions(map: FunctionMap, func: FunctionDescription, force = true) {
+        if (!func[1]) return false
+        const defs = map.get(func[1])
+        if (!defs) {
+            if (force) map.set(func[1], func[0])
+            return false
+        }
+        let result = false
+        for (const newDef of func[0]) {
+            let match = false
+            for (const oldDef of defs) {
+                if (this.functionSignaturesMatch(newDef, oldDef)) {
+                    match = true
+                    break
+                }
+            }
+            if (!match) {
+                defs.push(newDef)
+                result = true
+            }
+        }
+        return result
+    }
+
+    // fnMap values are equivalent to the second element of a FunctionDescription.
+    // If an entry in fnMap is changed its name is added to explicits (set of names
+    // which must be declared).
+    // If force is true, every function of f2 is added to fnMap and overloads even
+    // if it doesn't already contain a function of the same name.
+    private addOverloadableFunctions(
+        fnMap: FunctionMap,
+        explicits: Set<string>,
+        funcs: FunctionDescription[],
+        force = false,
+    ) {
+        for (const func of funcs) {
+            if (!func[1]) continue
+            if (this.mergeOverloadableFunctions(fnMap, func) || force) {
+                explicits.add(func[1])
+            }
+        }
+    }
+
+    // Used for <method> and <virtual-method>
+    private processOverloadableMethods(
+        cls: GirClass,
+        getMethods: (e: GirClass) => FunctionDescription[],
+        statics = false,
+    ): [FunctionMap, Set<string>] {
+        const fnMap: FunctionMap = new Map()
+        const explicits = new Set<string>()
+        const funcs = getMethods(cls)
+        this.addOverloadableFunctions(fnMap, explicits, funcs, true)
+        // Have to implement methods from cls' interfaces
+        this.forEachInterface(
+            cls,
+            (iface) => {
+                if (!this.interfaceIsDuplicate(cls, iface)) {
+                    const funcs = getMethods(iface)
+                    this.addOverloadableFunctions(fnMap, explicits, funcs, true)
+                }
+            },
+            false,
+        )
+        // Check for overloads among all inherited methods
+        let bottom = true
+        this.traverseInheritanceTree(cls, (e) => {
+            if (bottom) {
+                bottom = false
+                return
+            }
+            if (statics) {
+                const funcs = getMethods(e)
+                this.addOverloadableFunctions(fnMap, explicits, funcs, false)
+            } else {
+                let self = true
+                this.forEachInterfaceAndSelf(e, (iface) => {
+                    if (self || this.interfaceIsDuplicate(cls, iface)) {
+                        const funcs = getMethods(iface)
+                        this.addOverloadableFunctions(fnMap, explicits, funcs, false)
+                    }
+                    self = false
+                })
+            }
+        })
+        return [fnMap, explicits]
+    }
+
+    private processStaticFunctions(cls: GirClass, getter: (e: GirClass) => FunctionDescription[]): string[] {
+        const [fnMap, explicits] = this.processOverloadableMethods(cls, getter)
+        return this.exportOverloadableMethods(fnMap, explicits)
     }
 
     private generateSignalMethods(cls: GirClass, propertyNames: string[], callbackObjectName: string): string[] {
@@ -774,13 +1003,15 @@ export class GirModule {
         return def
     }
 
-    private generateDefaultConstructor(girClass: GirClass, name: string): string[] {
+    private generateConstructorAndStaticMethods(girClass: GirClass, name: string): string[] {
         const def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
         if (girClass._fullSymName && !STATIC_NAME_ALREADY_EXISTS.includes(girClass._fullSymName)) {
+            // Records, classes and interfaces all have a static name
             def.push(`    static name: string`)
         }
 
+        // JS constructor(s)
         if (isDerivedFromGObject) {
             def.push(
                 `    constructor (config?: ${name}_ConstructProps)`,
@@ -804,46 +1035,35 @@ export class GirModule {
                 }
             }
         }
-        return def
-    }
 
-    private generateStaticMethods(girClass: GirClass, name: string): string[] {
-        const def: string[] = []
+        // Static methods, <constructor> and <function>
         const stc: string[] = []
-        const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
-        const constructor_: GirFunction[] = (girClass['constructor'] || []) as GirFunction[]
-        if (constructor_) {
-            if (Array.isArray(constructor_)) {
-                for (const f of constructor_) {
-                    const [desc, funcName] = this.getConstructorFunction(name, f, '    static ')
-                    if (!funcName) continue
 
-                    stc.push(...desc)
-                }
-            }
-            // else {
-            //     this.log.warn('Warn: constructor_ is not an array:')
-            //     this.log.dir(constructor_)
-            //     debugger
-            // }
-        }
-
-        if (girClass.function) {
-            for (const f of girClass.function) {
-                const [desc, funcName] = this.getFunction(f, '    static ')
-                if (funcName === 'new') continue
-
-                stc.push(...desc)
-            }
-        }
+        stc.push(
+            ...this.processStaticFunctions(girClass, (cls) => {
+                return this.getStaticConstructors(cls, name)
+            }),
+        )
+        stc.push(
+            ...this.processStaticFunctions(girClass, (cls) => {
+                return this.getOtherStaticFunctions(cls)
+            }),
+        )
+        stc.push(
+            ...this.processStaticFunctions(girClass, (cls) => {
+                return this.getClassMethods(cls)
+            }),
+        )
 
         if (stc.length > 0) {
+            def.push('    /* Static methods and pseudo-constructors */')
             def.push(...stc)
         }
 
         if (isDerivedFromGObject) {
             def.push(`    static $gtype: ${this.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)
         }
+
         return def
     }
 
@@ -960,7 +1180,7 @@ export class GirModule {
         // Copy methods from implemented interfaces
         this.forEachInterface(girClass, (cls) => def.push(...this.processMethods(cls, localNames)))
         // Copy virtual methods from inheritance tree
-        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls, localNames)))
+        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls)))
         // Copy signals from inheritance tree
         this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, name)))
         // Copy signals from implemented interfaces
@@ -971,10 +1191,7 @@ export class GirModule {
         // TODO: Records have fields
 
         // Static side: default constructor
-        def.push(...this.generateDefaultConstructor(girClass, name))
-
-        // Static methods
-        def.push(...this.generateStaticMethods(girClass, name))
+        def.push(...this.generateConstructorAndStaticMethods(girClass, name))
 
         // END CLASS
         def.push('}')

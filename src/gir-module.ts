@@ -130,10 +130,12 @@ export class GirModule {
     private annotateFunctions(girClass: GirClass | null, funcs: GirFunction[]): void {
         if (funcs)
             for (const func of funcs) {
-                const nsName = girClass ? girClass._fullSymName : this.name
-                func._fullSymName = `${nsName}.${func.$.name}`
-                this.annotateFunctionArguments(func)
-                this.annotateFunctionReturn(func)
+                if (func.$ && func.$.name) {
+                    const nsName = girClass ? girClass._fullSymName : this.name
+                    func._fullSymName = `${nsName}.${func.$.name}`
+                    this.annotateFunctionArguments(func)
+                    this.annotateFunctionReturn(func)
+                }
             }
     }
 
@@ -190,6 +192,8 @@ export class GirModule {
         for (const girClass of girClasses) {
             girClass._module = this
             girClass._fullSymName = `${this.name}.${girClass.$.name}`
+            const cons = girClass.constructor instanceof Array ? girClass.constructor : []
+            this.annotateFunctions(girClass, cons)
             this.annotateFunctions(girClass, girClass.function || [])
             this.annotateFunctions(girClass, girClass.method || [])
             this.annotateFunctions(girClass, girClass['virtual-method'] || [])
@@ -708,7 +712,6 @@ export class GirModule {
         return [desc, true]
     }
 
-    // Fields
     private processFields(cls: GirClass, localNames: LocalNames): string[] {
         const def: string[] = []
         if (cls.field) {
@@ -741,7 +744,11 @@ export class GirModule {
         return def
     }
 
-    // Instance methods
+    /**
+     * Instance methods
+     * @param cls
+     * @param localNames
+     */
     private processMethods(cls: GirClass, localNames: LocalNames): string[] {
         const def: string[] = []
         if (cls.method) {
@@ -763,7 +770,10 @@ export class GirModule {
         return def
     }
 
-    // Instance methods, vfunc_ prefix
+    /**
+     * Instance methods, vfunc_ prefix
+     * @param cls
+     */
     private processVirtualMethods(cls: GirClass): string[] {
         const [fnMap, explicits] = this.processOverloadableMethods(cls, (e) => {
             let methods = (e['virtual-method'] || []).map((f) => {
@@ -803,8 +813,12 @@ export class GirModule {
         return `${lb[0]}(${params})${tail}`
     }
 
-    // Some classes implement interfaces which are also implemented by a superclass
-    // and we need to exclude those in some circumstances
+    /**
+     * Some classes implement interfaces which are also implemented by a superclass
+     * and we need to exclude those in some circumstances
+     * @param cls
+     * @param iface
+     */
     private interfaceIsDuplicate(cls: GirClass, iface: GirClass | string): boolean {
         if (typeof iface !== 'string') {
             if (!iface._fullSymName) return false
@@ -851,17 +865,20 @@ export class GirModule {
         return isFor && isFor == e.$.name
     }
 
-    // Some class/static methods are defined in a separate record which is not
-    // exported, but the methods are available as members of the JS constructor.
-    // In gjs one can use an instance of the object or a JS constructor as the
-    // methods' instance-parameter. See:
-    // https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
-    private getClassMethods(e: GirClass) {
-        if (!e.$.name) return []
-        const fName = e.$.name + 'Class'
+    /**
+     * Some class/static methods are defined in a separate record which is not
+     * exported, but the methods are available as members of the JS constructor.
+     * In gjs one can use an instance of the object or a JS constructor as the
+     * methods' instance-parameter.
+     * @see https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
+     * @param girClass
+     */
+    private getClassMethods(girClass: GirClass) {
+        if (!girClass.$.name) return []
+        const fName = girClass.$.name + 'Class'
         let rec = this.ns.record?.find((r) => r.$.name == fName)
-        if (!rec || !this.isGtypeStructFor(e, rec)) {
-            rec = this.ns.record?.find((r) => this.isGtypeStructFor(e, r))
+        if (!rec || !this.isGtypeStructFor(girClass, rec)) {
+            rec = this.ns.record?.find((r) => this.isGtypeStructFor(girClass, r))
             fName == rec?.$.name
         }
         if (!rec) return []
@@ -869,10 +886,10 @@ export class GirModule {
         return methods.map((m) => this.getFunction(m, '    static '))
     }
 
-    private getOtherStaticFunctions(e: GirClass, stat = true): FunctionDescription[] {
+    private getOtherStaticFunctions(girClass: GirClass, stat = true): FunctionDescription[] {
         const fns: FunctionDescription[] = []
-        if (e.function) {
-            for (const func of e.function) {
+        if (girClass.function) {
+            for (const func of girClass.function) {
                 const [desc, funcName] = this.getFunction(func, stat ? '    static ' : '    ', undefined, undefined)
                 if (funcName && funcName !== 'new') fns.push([desc, funcName])
             }
@@ -880,15 +897,23 @@ export class GirModule {
         return fns
     }
 
-    // Returns true if the function definitions in f1 and f2 have equivalent
-    // signatures
+    /**
+     * Returns true if the function definitions in f1 and f2 have equivalent signatures
+     * @param f1
+     * @param f2
+     */
     private functionSignaturesMatch(f1: string, f2: string) {
         return this.stripParamNames(f1) == this.stripParamNames(f2)
     }
 
-    // See comment for addOverloadableFunctions.
-    // Returns true if (a definition from) func is added to map to satisfy
-    // an overload, but false if it was forced
+    /**
+     * See comment for addOverloadableFunctions.
+     * Returns true if (a definition from) func is added to map to satisfy
+     * an overload, but false if it was forced
+     * @param map
+     * @param func
+     * @param force
+     */
     private mergeOverloadableFunctions(map: FunctionMap, func: FunctionDescription, force = true) {
         if (!func[1]) return false
         const defs = map.get(func[1])
@@ -913,11 +938,16 @@ export class GirModule {
         return result
     }
 
-    // fnMap values are equivalent to the second element of a FunctionDescription.
-    // If an entry in fnMap is changed its name is added to explicits (set of names
-    // which must be declared).
-    // If force is true, every function of f2 is added to fnMap and overloads even
-    // if it doesn't already contain a function of the same name.
+    /**
+     * fnMap values are equivalent to the second element of a FunctionDescription.
+     * If an entry in fnMap is changed its name is added to explicits (set of names which must be declared).
+     * If force is true, every function of f2 is added to fnMap and overloads even
+     * if it doesn't already contain a function of the same name.
+     * @param fnMap
+     * @param explicits
+     * @param funcs
+     * @param force
+     */
     private addOverloadableFunctions(
         fnMap: FunctionMap,
         explicits: Set<string>,
@@ -932,7 +962,12 @@ export class GirModule {
         }
     }
 
-    // Used for <method> and <virtual-method>
+    /**
+     * Used for <method> and <virtual-method>
+     * @param cls
+     * @param getMethods
+     * @param statics
+     */
     private processOverloadableMethods(
         cls: GirClass,
         getMethods: (e: GirClass) => FunctionDescription[],

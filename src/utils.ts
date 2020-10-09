@@ -20,12 +20,12 @@ export class Utils {
      * see https://stackoverflow.com/a/32538867
      * @param obj Variable to check for iterable
      */
-    public static isIterable(obj: any): boolean {
+    public static isIterable(obj: unknown[]): boolean {
         return obj != null && typeof obj[Symbol.iterator] === 'function'
     }
 
-    public static isNumeric(str: any): boolean {
-        return !isNaN(str - parseFloat(str))
+    public static isNumeric(str: string): boolean {
+        return !isNaN((str as any) - parseFloat(str))
     }
 
     public static getFirstChar(str: string): string {
@@ -42,7 +42,7 @@ export class Utils {
 
     public static camelCase(str: string): string {
         return str
-            .replace(/\s(.)|(\s|-|_|\.)(.)/g, a => {
+            .replace(/\s(.)|(\s|-|_|\.)(.)/g, (a) => {
                 return a.toUpperCase()
             })
             .replace(/(\s|-|_|\.)/g, '')

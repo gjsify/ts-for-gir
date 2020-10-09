@@ -341,7 +341,7 @@ export class GirModule {
      */
     private typeLookupTransformed(girVar: GirVariable): string {
         let names = this.typeLookup(girVar).split('.')
-        names = names.map(name => this.transformation.transformTypeName(name))
+        names = names.map((name) => this.transformation.transformTypeName(name))
         return names.join('.')
     }
 
@@ -455,9 +455,9 @@ export class GirModule {
                         const following = (parametersArray as GirVariable[])
                             .slice(index)
                             .filter(() => skip.indexOf(param) === -1)
-                            .filter(p => p.$.direction !== 'out')
+                            .filter((p) => p.$.direction !== 'out')
 
-                        if (following.some(p => !this.paramIsNullable(p))) {
+                        if (following.some((p) => !this.paramIsNullable(p))) {
                             isOptional = ''
                         }
                     }
@@ -650,7 +650,7 @@ export class GirModule {
 
     private isDerivedFromGObject(girClass: GirClass): boolean {
         let ret = false
-        this.traverseInheritanceTree(girClass, cls => {
+        this.traverseInheritanceTree(girClass, (cls) => {
             if (cls._fullSymName === 'GObject.Object') {
                 ret = true
             }
@@ -921,7 +921,7 @@ export class GirModule {
 
         let parentName: string | undefined
         let counter = 0
-        this.traverseInheritanceTree(girClass, cls => {
+        this.traverseInheritanceTree(girClass, (cls) => {
             if (counter++ !== 1) return
             parentName = cls._fullSymName || undefined
         })
@@ -948,23 +948,23 @@ export class GirModule {
         const propertyNames: string[] = []
 
         // Copy properties from inheritance tree
-        this.traverseInheritanceTree(girClass, cls =>
+        this.traverseInheritanceTree(girClass, (cls) =>
             def.push(...this.processProperties(cls, localNames, propertyNames)),
         )
         // Copy properties from implemented interface
-        this.forEachInterface(girClass, cls => def.push(...this.processProperties(cls, localNames, propertyNames)))
+        this.forEachInterface(girClass, (cls) => def.push(...this.processProperties(cls, localNames, propertyNames)))
         // Copy fields from inheritance tree
-        this.traverseInheritanceTree(girClass, cls => def.push(...this.processFields(cls, localNames)))
+        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processFields(cls, localNames)))
         // Copy methods from inheritance tree
-        this.traverseInheritanceTree(girClass, cls => def.push(...this.processMethods(cls, localNames)))
+        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processMethods(cls, localNames)))
         // Copy methods from implemented interfaces
-        this.forEachInterface(girClass, cls => def.push(...this.processMethods(cls, localNames)))
+        this.forEachInterface(girClass, (cls) => def.push(...this.processMethods(cls, localNames)))
         // Copy virtual methods from inheritance tree
-        this.traverseInheritanceTree(girClass, cls => def.push(...this.processVirtualMethods(cls, localNames)))
+        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processVirtualMethods(cls, localNames)))
         // Copy signals from inheritance tree
-        this.traverseInheritanceTree(girClass, cls => def.push(...this.processSignals(cls, name)))
+        this.traverseInheritanceTree(girClass, (cls) => def.push(...this.processSignals(cls, name)))
         // Copy signals from implemented interfaces
-        this.forEachInterface(girClass, cls => def.push(...this.processSignals(cls, name)))
+        this.forEachInterface(girClass, (cls) => def.push(...this.processSignals(cls, name)))
 
         def.push(...this.generateSignalMethods(girClass, propertyNames, name))
 
@@ -1045,24 +1045,24 @@ export class GirModule {
 
         // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
         if (this.packageName !== 'GObject-2.0') {
-            if (!Utils.find(deps, x => x === 'GObject-2.0')) {
+            if (!Utils.find(deps, (x) => x === 'GObject-2.0')) {
                 deps.push('GObject-2.0')
             }
         }
 
         // Add missing dependencies
         if (this.packageName === 'UnityExtras-7.0') {
-            if (!Utils.find(deps, x => x === 'Unity-7.0')) {
+            if (!Utils.find(deps, (x) => x === 'Unity-7.0')) {
                 deps.push('Unity-7.0')
             }
         }
         if (this.packageName === 'UnityExtras-6.0') {
-            if (!Utils.find(deps, x => x === 'Unity-6.0')) {
+            if (!Utils.find(deps, (x) => x === 'Unity-6.0')) {
                 deps.push('Unity-6.0')
             }
         }
         if (this.packageName === 'GTop-2.0') {
-            if (!Utils.find(deps, x => x === 'GLib-2.0')) {
+            if (!Utils.find(deps, (x) => x === 'GLib-2.0')) {
                 deps.push('GLib-2.0')
             }
         }

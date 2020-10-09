@@ -24,7 +24,7 @@ const config: GenerateConfig = {
     buildType: 'lib',
 }
 
-test('enumeration', t => {
+test('enumeration', (t) => {
     const enum_: GirEnumeration = {
         $: {
             name: 'MyEnum',
@@ -43,7 +43,7 @@ test('enumeration', t => {
     t.deepEqual(mod.exportEnumeration(enum_), ['export enum MyEnum {', '    MEMBER_1,', '}'])
 })
 
-test('constant', t => {
+test('constant', (t) => {
     const var_ = {
         $: {
             name: 'MY_CONST',
@@ -79,7 +79,7 @@ test('constant', t => {
     t.deepEqual(mod.exportConstant(arrVar), ['export const MY_ARR: MyType[]'])
 })
 
-test('function', t => {
+test('function', (t) => {
     const func: GirFunction = {
         $: { name: 'my_func' },
         parameters: [
@@ -122,7 +122,7 @@ test('function', t => {
     t.deepEqual(mod.exportFunction(func3), [])
 })
 
-test('callback', t => {
+test('callback', (t) => {
     const cbs: GirFunction[] = [
         {
             $: { name: 'activate' },
@@ -171,7 +171,7 @@ test('callback', t => {
     ])
 })
 
-test('interface', t => {
+test('interface', (t) => {
     const symTable = {
         'Test.MyType': 1,
         'GLib.Variant': 1,
@@ -266,7 +266,7 @@ test('interface', t => {
     ])
 })
 
-test('constructors', t => {
+test('constructors', (t) => {
     const symTable = {
         'Test.MyType': 1,
         'GLib.String': 1,
@@ -298,7 +298,7 @@ test('constructors', t => {
     ])
 })
 
-test('class', t => {
+test('class', (t) => {
     const symTable = {
         'GObject.Object': TestData.classGObject,
         'GLib.Variant': 1,

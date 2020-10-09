@@ -53,7 +53,7 @@ wnd.connect('delete-event', () => {
     Gtk.main_quit()
     return true
 })
-entry.connect('activate', self => {
+entry.connect('activate', (self) => {
     let uri = self.text
     if (!(uri.startsWith('http://') || uri.startsWith('https://') || uri.startsWith('ftp://'))) uri = 'http://' + uri
     webview.load_uri(uri)

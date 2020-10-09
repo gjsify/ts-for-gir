@@ -16,10 +16,7 @@ export { run } from '@oclif/command'
 if (require.main === module) {
     // If we don't catch exceptions, stdout gets truncated
     try {
-        require('@oclif/command')
-            .run()
-            .then(require('@oclif/command/flush'))
-            .catch(require('@oclif/errors/handle'))
+        require('@oclif/command').run().then(require('@oclif/command/flush')).catch(require('@oclif/errors/handle'))
     } catch (ex) {
         console.log(ex.stack)
     }

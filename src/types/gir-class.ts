@@ -29,7 +29,7 @@ export interface GirClass extends TsForGjsExtended {
     property?: GirVariable[]
     field?: GirVariable[]
     'virtual-method'?: GirVirtualMethod[]
-    constructor?: GirFunction[] | Function
+    constructor?: GirFunction[]
     implements?: GirImplements[]
     prerequisite?: GirPrerequisite[]
 

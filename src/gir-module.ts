@@ -23,6 +23,7 @@ import {
     InheritanceTable,
     ParsedGir,
     GenerateConfig,
+    FunctionDescription,
 } from './types'
 
 /**
@@ -474,7 +475,7 @@ export class GirModule {
         optional = false,
         allowQuotes = false,
         type: 'property' | 'constant' | 'field',
-    ): [string[], string | null] {
+    ): FunctionDescription {
         if (!v.$.name) return [[], null]
         if (!v || !v.$ || !this.girBool(v.$.introspectable, true) || this.girBool(v.$.private)) return [[], null]
 
@@ -523,7 +524,7 @@ export class GirModule {
         prefix: string,
         funcNamePrefix = '',
         overrideReturnType?: string,
-    ): [string[], string | null] {
+    ): FunctionDescription {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true) || e.$['shadowed-by']) return [[], null]
 
         const patch = e._fullSymName ? this.patch[e._fullSymName] : []
@@ -568,7 +569,7 @@ export class GirModule {
         e: GirFunction,
         prefix: string,
         funcNamePrefix = '',
-    ): [string[], string | null] {
+    ): FunctionDescription {
         // eslint-disable-next-line prefer-const
         let [desc, funcName] = this.getFunction(e, prefix, funcNamePrefix, name)
 

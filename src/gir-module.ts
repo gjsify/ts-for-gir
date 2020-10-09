@@ -518,7 +518,12 @@ export class GirModule {
         return [[`    ${propPrefix}${propDesc}`], propName, origName]
     }
 
-    private getFunction(e: GirFunction, prefix: string, funcNamePrefix = ''): [string[], string | null] {
+    private getFunction(
+        e: GirFunction,
+        prefix: string,
+        funcNamePrefix = '',
+        overrideReturnType?: string,
+    ): [string[], string | null] {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true) || e.$['shadowed-by']) return [[], null]
 
         const patch = e._fullSymName ? this.patch[e._fullSymName] : []
@@ -542,7 +547,10 @@ export class GirModule {
         if (patch && patch.length === 2) return [[`${prefix}${funcNamePrefix}${patch[patch.length - 1]}`], name]
 
         const retTypeIsVoid = retType === 'void'
-        if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
+
+        if (overrideReturnType) {
+            retType = overrideReturnType
+        } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
             if (!retTypeIsVoid) {
                 outParams.unshift(`/* returnType */ ${retType}`)
             }
@@ -562,34 +570,9 @@ export class GirModule {
         funcNamePrefix = '',
     ): [string[], string | null] {
         // eslint-disable-next-line prefer-const
-        let [desc, funcName] = this.getFunction(e, prefix, funcNamePrefix)
+        let [desc, funcName] = this.getFunction(e, prefix, funcNamePrefix, name)
 
         if (!funcName) return [[], null]
-
-        const [retType] = this.getReturnType(e)
-        if (retType.split(' ')[0] !== name) {
-            // this.log.warn(`Constructor returns ${retType} should return ${name}`)
-
-            // Force constructors to return the type of the class they are actually
-            // constructing. In a lot of cases the GI data says they return a base
-            // class instead; I'm not sure why.
-            e['return-value'] = [
-                {
-                    $: {
-                        // nullable
-                    },
-                    type: [
-                        {
-                            $: {
-                                name: name,
-                            },
-                        } as GirType,
-                    ],
-                } as GirVariable,
-            ]
-
-            desc = this.getFunction(e, prefix)[0]
-        }
 
         return [desc, funcName]
     }

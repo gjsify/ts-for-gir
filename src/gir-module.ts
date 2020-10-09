@@ -809,7 +809,7 @@ export class GirModule {
 
     private generateStaticMethods(girClass: GirClass, name: string): string[] {
         const def: string[] = []
-        let stc: string[] = []
+        const stc: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
         const constructor_: GirFunction[] = (girClass['constructor'] || []) as GirFunction[]
         if (constructor_) {
@@ -818,7 +818,7 @@ export class GirModule {
                     const [desc, funcName] = this.getConstructorFunction(name, f, '    static ')
                     if (!funcName) continue
 
-                    stc = stc.concat(desc)
+                    stc.push(...desc)
                 }
             }
             // else {
@@ -833,7 +833,7 @@ export class GirModule {
                 const [desc, funcName] = this.getFunction(f, '    static ')
                 if (funcName === 'new') continue
 
-                stc = stc.concat(desc)
+                stc.push(...desc)
             }
         }
 

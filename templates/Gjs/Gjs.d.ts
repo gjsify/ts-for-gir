@@ -1,7 +1,7 @@
 
 export namespace byteArray {
     export class ByteArray {
-        constructor(lenOrArray: any)    // May be a Uint8Array or any type accepted by its constructor
+        constructor(lenOrArray: any) // May be a Uint8Array or any type accepted by its constructor
         toGBytes(): any  // GLib.Bytes?
         toString(encoding?: string): string
         length: number

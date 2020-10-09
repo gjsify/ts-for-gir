@@ -1,13 +1,13 @@
 import * as GObject from './GObject-2.0';
 
 const inheritanceTable: { [key: string]: string[] } = {
-<% for (const key of inheritanceTableKeys) { -%>
+<%_ for (const key of inheritanceTableKeys) { _%>
     '<%= key %>': [
-    <% for (const value of inheritanceTable[key]) { -%>
+    <%_ for (const value of inheritanceTable[key]) { _%>
     '<%= value %>',
-    <% } -%>
+    <%_ } _%>
 ],
-<% } -%>
+<%_ } _%>
 }
 
 

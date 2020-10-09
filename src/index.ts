@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import * as SegfaultHandler from 'segfault-handler'
+SegfaultHandler.registerHandler('crash.log')
+import 'source-map-support/register'
 export * from './commands/generate'
 export * from './commands/list'
 export * from './types'

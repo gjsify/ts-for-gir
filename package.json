@@ -6,14 +6,15 @@
   "bin": "./bin/run",
   "typings": "@types",
   "scripts": {
+    "start": "NODE_OPTIONS=\"--max-old-space-size=8192\" ts-node src/index",
     "prepublish": "npm run lint && npm run regress && npm run test && npm run build",
     "test": "npm run test:ava",
     "test:ava": "npm run build:ts && npm run build:test:ava && ava tmp/test/ava/test.js",
     "test:girs": "git submodule update --init && npm run build:ts && npm run build:test:girs && npm run validate:gjs",
-    "regress": "npm run clear && npm run build:ts && node bin/run generate --configName='.ts-for-gir.regress.rc.js' && npm run validate",
+    "regress": "npm run clear && npm run build:ts && npm run start -- generate --configName='.ts-for-gir.regress.rc.js' && npm run validate",
     "build": "npm run clear:build && npm run build:ts",
     "build:ts": "tsc",
-    "build:test:girs": "rm -rf ./test/girs/@types/Gjs && node bin/run generate --configName='.ts-for-gir.test.rc.js' && NODE_OPTIONS=\"--max-old-space-size=4096\" tsc --noEmit ./test/girs/@types/Gjs/*.ts",
+    "build:test:girs": "rm -rf ./test/girs/@types/Gjs && npm run start -- generate --configName='.ts-for-gir.gtk-3.rc.js' && NODE_OPTIONS=\"--max-old-space-size=8192\" tsc --noEmit ./test/girs/@types/Gjs/*.ts",
     "build:test:ava": "tsc -p tsconfig.ava.json",
     "validate:gjs": "tsc --noEmit ./@types/Gjs/*.ts",
     "validate:node": "tsc --noEmit ./@types/node-gtk/*.ts",
@@ -22,7 +23,6 @@
     "clear:build": "rm -rf ./lib",
     "clear:types": "rm -rf ./@types",
     "watch": "npm run build:ts -- --watch",
-    "start": "node bin/run",
     "lint": "npm run clear && npm run build:ts -- --noEmit && eslint . --ext .ts,.tsx --fix"
   },
   "repository": {
@@ -31,6 +31,7 @@
   },
   "author": "",
   "files": [
+    "src",
     "bin",
     "lib",
     "templates"
@@ -69,7 +70,6 @@
     "@types/eslint": "^7.2.4",
     "chalk": "^4.1.0",
     "cosmiconfig": "^7.0.0",
-    "ejs": "^3.0.1",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
@@ -78,6 +78,8 @@
     "inquirer": "^7.0.4",
     "lodash": "^4.17.15",
     "prettier": "^2.1.2",
+    "segfault-handler": "^1.3.0",
+    "source-map-support": "^0.5.19",
     "tiny-glob": "^0.2.6",
     "xml2js": "^0.4.23"
   }

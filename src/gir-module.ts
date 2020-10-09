@@ -29,9 +29,11 @@ import {
 } from './types'
 
 /**
- * In gjs all classes haben einen static name property but the classes listed here already have a static name property
+ * In gjs all classes have a static name property but the classes listed below already have a static name property
  */
 export const STATIC_NAME_ALREADY_EXISTS = ['GMime.Charset', 'Camel.StoreInfo']
+
+export const MAXIMUM_RECUSION_DEPTH = 100
 
 export class GirModule {
     /**
@@ -604,7 +606,12 @@ export class GirModule {
         )
     }
 
-    private traverseInheritanceTree(girClass: GirClass, callback: (girClass: GirClass) => void): void {
+    private traverseInheritanceTree(
+        girClass: GirClass,
+        callback: (girClass: GirClass) => void,
+        depth = 0,
+        recursive = true,
+    ): void {
         if (!girClass || !girClass.$) return
 
         let parent: GirClass | null = null
@@ -616,26 +623,42 @@ export class GirModule {
 
         if (girClass.$.parent) {
             let parentName = girClass.$.parent
-            const origParentName = parentName
+            const origParentName = `${parentName}`
 
             if (parentName.indexOf('.') < 0) {
                 parentName = this.name + '.' + parentName
             }
 
             if (this.symTable[parentName]) {
-                parent = this.symTable[parentName] as GirClass | null
+                parent = (this.symTable[parentName] as GirClass | null) || null
             }
 
             if (!parent && origParentName === 'Object') {
                 parent = (this.symTable['GObject.Object'] as GirClass | null) || null
             }
-        }
 
-        // this.log.log(`${girClass.$.name} : ${parent && parent.$ ? parent.$.name : 'none'} : ${parentModule ? parentModule.name : 'none'}`)
+            // check circular dependency
+            if (typeof parent?.$?.parent === 'string') {
+                if (parent.$.parent === girClass.$.name) {
+                    this.log.warn(`Circular dependency found! Ignore next parent "${parent.$.parent}".`)
+                    recursive = false
+                }
+            }
+
+            // this.log.log(
+            //     `[traverseInheritanceTree] (depth: ${depth}) ${girClass.$.name} : ${parentName} : ${parent?.$?.parent}`,
+            // )
+        }
 
         callback(girClass)
 
-        if (parent) this.traverseInheritanceTree(parent, callback)
+        if (depth >= MAXIMUM_RECUSION_DEPTH) {
+            this.log.warn(`Maximum recursion depth of ${MAXIMUM_RECUSION_DEPTH} reached for "${girClass.$.name}"`)
+        } else {
+            if (parent && recursive && depth <= MAXIMUM_RECUSION_DEPTH) {
+                this.traverseInheritanceTree(parent, callback, ++depth, recursive)
+            }
+        }
     }
 
     private forEachInterface(
@@ -1106,13 +1129,16 @@ export class GirModule {
         girClass: GirClass,
         name: string,
         parentName?: string,
-        parentNameShort?: string,
+        localParentName?: string,
     ): string[] {
         const def: string[] = []
         const isDerivedFromGObject = this.isDerivedFromGObject(girClass)
         if (isDerivedFromGObject) {
             let ext = ' '
-            if (parentName) ext = `extends ${parentNameShort}_ConstructProps `
+
+            if (parentName) {
+                ext = `extends ${localParentName}_ConstructProps `
+            }
 
             def.push(`export interface ${name}_ConstructProps ${ext}{`)
             const constructPropNames = {}
@@ -1181,16 +1207,16 @@ export class GirModule {
             parentName = cls._fullSymName || undefined
         })
 
-        let parentNameShort = parentName || undefined
-        if (parentNameShort && this.name) {
-            const s = parentNameShort.split('.', 2)
+        let localParentName = `${parentName}` || undefined
+        if (localParentName && this.name) {
+            const s = localParentName.split('.', 2)
             if (s[0] === this.name) {
-                parentNameShort = s[1]
+                localParentName = s[1]
             }
         }
 
         // Properties for construction
-        def.push(...this.generateConstructPropsInterface(girClass, name, parentName, parentNameShort))
+        def.push(...this.generateConstructPropsInterface(girClass, name, parentName, localParentName))
 
         // START CLASS
         if (isAbstract) {

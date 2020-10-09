@@ -24,6 +24,7 @@ import {
     ParsedGir,
     GenerateConfig,
     FunctionDescription,
+    LocalNames,
 } from './types'
 
 /**
@@ -352,16 +353,16 @@ export class GirModule {
         return defaultVal
     }
 
-    private getReturnType(e): [string, number] {
-        let returnType: string
+    private getReturnType(func: GirFunction): [string, number] {
+        let returnType = 'void'
+        let outArrayLengthIndex = -1
 
-        const returnVal = e['return-value'] ? e['return-value'][0] : undefined
+        const returnVal = func['return-value'] ? func['return-value'][0] : null
         if (returnVal) {
             returnType = this.typeLookupTransformed(returnVal)
-        } else returnType = 'void'
-
-        const outArrayLengthIndex =
-            returnVal.array && returnVal.array[0].$?.length ? Number(returnVal.array[0].$.length) : -1
+            outArrayLengthIndex =
+                returnVal.array && returnVal.array[0].$?.length ? Number(returnVal.array[0].$.length) : -1
+        }
 
         return [returnType, outArrayLengthIndex] as [string, number]
     }
@@ -657,6 +658,23 @@ export class GirModule {
         return ret
     }
 
+    private checkName(desc: string[], name: string | null, localNames: LocalNames): [string[], boolean] {
+        if (!desc || desc.length === 0) return [[], false]
+
+        if (!name) {
+            // this.log.error(`No name for ${desc}`)
+            return [[], false]
+        }
+
+        if (localNames[name]) {
+            // this.log.warn(`Name ${name} already defined (${desc})`)
+            return [[], false]
+        }
+
+        localNames[name] = true
+        return [desc, true]
+    }
+
     public exportEnumeration(e: GirEnumeration): string[] {
         const def: string[] = []
 
@@ -705,27 +723,6 @@ export class GirModule {
             isAbstract = true
         }
 
-        const checkName = (
-            desc: string[],
-            name: string | null,
-            localNames: { [key: string]: 1 },
-        ): [string[], boolean] => {
-            if (!desc || desc.length === 0) return [[], false]
-
-            if (!name) {
-                // this.log.error(`No name for ${desc}`)
-                return [[], false]
-            }
-
-            if (localNames[name]) {
-                // this.log.warn(`Name ${name} already defined (${desc})`)
-                return [[], false]
-            }
-
-            localNames[name] = 1
-            return [desc, true]
-        }
-
         let parentName: string | null = null
         let counter = 0
         this.traverseInheritanceTree(girClass, cls => {
@@ -751,7 +748,7 @@ export class GirModule {
             if (girClass.property) {
                 for (const p of girClass.property) {
                     const [desc, name] = this.getProperty(p, true)
-                    def = def.concat(checkName(desc, name, constructPropNames)[0])
+                    def = def.concat(this.checkName(desc, name, constructPropNames)[0])
                 }
             }
             def.push('}')
@@ -764,7 +761,7 @@ export class GirModule {
             def.push(`export class ${name} {`)
         }
 
-        const localNames: { [key: string]: 1 } = {}
+        const localNames: LocalNames = {}
         const propertyNames: string[] = []
 
         const copyProperties = (cls: GirClass): void => {
@@ -772,7 +769,7 @@ export class GirModule {
                 def.push(`    /* Properties of ${cls._fullSymName} */`)
                 for (const p of cls.property) {
                     const [desc, name, origName] = this.getProperty(p)
-                    const [aDesc, added] = checkName(desc, name, localNames)
+                    const [aDesc, added] = this.checkName(desc, name, localNames)
                     if (added) {
                         if (origName) propertyNames.push(origName)
                     }
@@ -780,8 +777,6 @@ export class GirModule {
                 }
             }
         }
-        this.traverseInheritanceTree(girClass, copyProperties)
-        this.forEachInterface(girClass, copyProperties)
 
         // Fields
         const copyFields = (cls: GirClass): void => {
@@ -790,14 +785,13 @@ export class GirModule {
                 for (const f of cls.field) {
                     const [desc, name] = this.getVariable(f, false, false, 'field')
 
-                    const [aDesc, added] = checkName(desc, name, localNames)
+                    const [aDesc, added] = this.checkName(desc, name, localNames)
                     if (added) {
                         def.push(`    ${aDesc[0]}`)
                     }
                 }
             }
         }
-        this.traverseInheritanceTree(girClass, copyFields)
 
         // Instance methods
         const copyMethods = (cls: GirClass): void => {
@@ -805,15 +799,13 @@ export class GirModule {
                 def.push(`    /* Methods of ${cls._fullSymName} */`)
                 for (const func of cls.method) {
                     const [desc, name] = this.getFunction(func, '    ')
-                    def = def.concat(checkName(desc, name, localNames)[0])
+                    def = def.concat(this.checkName(desc, name, localNames)[0])
                 }
             }
         }
-        this.traverseInheritanceTree(girClass, copyMethods)
-        this.forEachInterface(girClass, copyMethods)
 
         // Instance methods, vfunc_ prefix
-        this.traverseInheritanceTree(girClass, cls => {
+        const copyVirtualMethods = (cls: GirClass): void => {
             const vmeth = cls['virtual-method']
             if (vmeth) {
                 def.push(`    /* Virtual methods of ${cls._fullSymName} */`)
@@ -821,7 +813,7 @@ export class GirModule {
                     // eslint-disable-next-line prefer-const
                     let [desc, name] = this.getFunction(f, '    ', 'vfunc_')
 
-                    desc = checkName(desc, name, localNames)[0]
+                    desc = this.checkName(desc, name, localNames)[0]
 
                     if (desc[0]) {
                         desc[0] = desc[0].replace('(', '?(')
@@ -830,7 +822,7 @@ export class GirModule {
                     def = def.concat(desc)
                 }
             }
-        })
+        }
 
         const copySignals = (cls: GirClass): void => {
             const signals = cls['glib:signal']
@@ -839,19 +831,30 @@ export class GirModule {
                 for (const s of signals) def = def.concat(this.getSignalFunc(s, name))
             }
         }
+
+        const generateSignalMethods = (): void => {
+            if (isDerivedFromGObject) {
+                let prefix = 'GObject.'
+                if (this.name === 'GObject') prefix = ''
+                for (const p of propertyNames) {
+                    def = def.concat(
+                        TemplateProcessor.generateGObjectSignalMethods(this.config.environment, p, name, prefix),
+                    )
+                }
+                def = def.concat(TemplateProcessor.generateGeneralSignalMethods(this.config.environment))
+            }
+        }
+
+        this.traverseInheritanceTree(girClass, copyProperties)
+        this.forEachInterface(girClass, copyProperties)
+        this.traverseInheritanceTree(girClass, copyFields)
+        this.traverseInheritanceTree(girClass, copyMethods)
+        this.forEachInterface(girClass, copyMethods)
+        this.traverseInheritanceTree(girClass, copyVirtualMethods)
         this.traverseInheritanceTree(girClass, copySignals)
         this.forEachInterface(girClass, copySignals)
 
-        if (isDerivedFromGObject) {
-            let prefix = 'GObject.'
-            if (this.name === 'GObject') prefix = ''
-            for (const p of propertyNames) {
-                def = def.concat(
-                    TemplateProcessor.generateGObjectSignalMethods(this.config.environment, p, name, prefix),
-                )
-            }
-            def = def.concat(TemplateProcessor.generateGeneralSignalMethods(this.config.environment))
-        }
+        generateSignalMethods()
 
         // TODO: Records have fields
 

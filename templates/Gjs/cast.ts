@@ -1,6 +1,6 @@
 import * as GObject from './GObject-2.0';
 
-const inheritanceTable = {
+const inheritanceTable: { [key: string]: string[] } = {
 <% for (const key of inheritanceTableKeys) { -%>
     '<%= key %>': [
     <% for (const value of inheritanceTable[key]) { -%>
@@ -11,7 +11,8 @@ const inheritanceTable = {
 }
 
 
-interface StaticNamed {
+interface StaticNamedClass<T> {
+    new (...args: any[]): T
     name: string
 }
 
@@ -20,7 +21,7 @@ interface StaticNamed {
  * and raising an exception if the cast fails. Allows casting to implemented
  * interfaces, too.
  */
-export function giCast<T>(from_: GObject.Object, to_: StaticNamed): T {
+export function giCast<T>(from_: GObject.Object, to_: StaticNamedClass<T>): T {
     const desc: string = from_.toString()
     let clsName: string|null = null
     for (const k of desc.split(" ")) {
@@ -35,7 +36,7 @@ export function giCast<T>(from_: GObject.Object, to_: StaticNamed): T {
         return ((from_ as any) as T)
 
     if (clsName) {
-        const parents = (inheritanceTable as any)[clsName]
+        const parents = inheritanceTable[clsName]
         if (parents) {
             if (parents.indexOf(toName) >= 0)
                 return ((from_ as any) as T)

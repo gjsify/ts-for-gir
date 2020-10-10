@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/triple-slash-reference */
-<% for (const girModule of girModules) { -%>
-    <% if (buildType === 'lib') { -%>
+<%_ for (const girModule of girModules) { _%>
+    <%_ if (buildType === 'lib') { _%>
         import * as <%= girModule.name %> from './<%= girModule.packageName %>';
-    <% } -%>
-    <% if (buildType === 'types') { -%>
+    <%_ } _%>
+    <%_ if (buildType === 'types') { _%>
 /// <reference path="<%= girModule.packageName %>.d.ts" />
-    <% } -%>
-<% } -%>
+    <%_ } _%>
+<%_ } _%>
 
-<% if (buildType === 'types') { -%>
+<%_ if (buildType === 'types') { _%>
 declare module 'node-gtk' {
-<% } -%>
+<%_ } _%>
     export function require(ns: string, ver?: string): any;
-    <% for (const girModule of girModules) { -%>
+    <%_ for (const girModule of girModules) { _%>
         export function require(ns: '<%= girModule.name %>'): typeof <%= girModule.name %>;
         export function require(ns: '<%= girModule.name %>', ver?: '<%= girModule.version %>'): typeof <%= girModule.name %>;
-    <% } -%>
+    <%_ } _%>
     export function startLoop(): void;
-<% if (buildType === 'types') { -%>
+<%_ if (buildType === 'types') { _%>
 }
-<% } -%>
+<%_ } _%>

@@ -334,7 +334,6 @@ test('class', (t) => {
         'export class ApplicationCommandLine {',
         '    /* Properties of ApplicationCommandLine */',
         '    readonly is_remote: boolean',
-        '    /* Fields of ApplicationCommandLine */',
         '    /* Fields of GObject.Object */',
         '    g_type_instance: any',
         '    /* Methods of ApplicationCommandLine */',

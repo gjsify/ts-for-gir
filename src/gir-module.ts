@@ -744,7 +744,6 @@ export class GirModule {
     private processFields(cls: GirClass, localNames: LocalNames): string[] {
         const def: string[] = []
         if (cls.field) {
-            def.push(`    /* Fields of ${cls._fullSymName} */`)
             for (const f of cls.field) {
                 const [desc, name] = this.getVariable(f, false, false, 'field')
 
@@ -754,13 +753,15 @@ export class GirModule {
                 }
             }
         }
+        if (def.length) {
+            def.unshift(`    /* Fields of ${cls._fullSymName} */`)
+        }
         return def
     }
 
     private processProperties(cls: GirClass, localNames: LocalNames, propertyNames: string[]): string[] {
         const def: string[] = []
         if (cls.property) {
-            def.push(`    /* Properties of ${cls._fullSymName} */`)
             for (const p of cls.property) {
                 const [desc, name, origName] = this.getProperty(p)
                 const [aDesc, added] = this.checkName(desc, name, localNames)
@@ -769,6 +770,9 @@ export class GirModule {
                 }
                 def.push(...aDesc)
             }
+        }
+        if (def.length) {
+            def.unshift(`    /* Properties of ${cls._fullSymName} */`)
         }
         return def
     }
@@ -781,11 +785,13 @@ export class GirModule {
     private processMethods(cls: GirClass, localNames: LocalNames): string[] {
         const def: string[] = []
         if (cls.method) {
-            def.push(`    /* Methods of ${cls._fullSymName} */`)
             for (const func of cls.method) {
                 const [desc, name] = this.getFunction(func, '    ')
                 def.push(...this.checkName(desc, name, localNames)[0])
             }
+        }
+        if (def.length) {
+            def.unshift(`    /* Methods of ${cls._fullSymName} */`)
         }
         return def
     }
@@ -823,8 +829,10 @@ export class GirModule {
         const def: string[] = []
         const signals = cls['glib:signal']
         if (signals) {
-            def.push(`    /* Signals of ${cls._fullSymName} */`)
             for (const s of signals) def.push(...this.getSignalFunc(s, clsName))
+        }
+        if (def.length) {
+            def.unshift(`    /* Signals of ${cls._fullSymName} */`)
         }
         return def
     }
@@ -1212,8 +1220,9 @@ export class GirModule {
      * Represents a record or GObject class or interface as a Typescript class
      * @param girClass
      * @param isAbstract
+     * @param record
      */
-    public exportClassInternal(girClass: GirClass, isAbstract = false): string[] {
+    public exportClassInternal(girClass: GirClass, record = false, isAbstract = false): string[] {
         const name = this.transformation.transformClassName(girClass.$.name)
         const def: string[] = []
 
@@ -1249,6 +1258,9 @@ export class GirModule {
 
         const localNames: LocalNames = {}
         const propertyNames: string[] = []
+
+        // Can't export fields for GObjects because names would clash
+        if (record) def.push(...this.processFields(girClass, localNames))
 
         // Copy properties from inheritance tree
         this.traverseInheritanceTree(girClass, (cls) =>
@@ -1309,11 +1321,11 @@ export class GirModule {
     }
 
     public exportInterface(girClass: GirClass): string[] {
-        return this.exportClassInternal(girClass)
+        return this.exportClassInternal(girClass, true)
     }
 
     public exportClass(girClass: GirClass): string[] {
-        return this.exportClassInternal(girClass)
+        return this.exportClassInternal(girClass, false)
     }
 
     public exportJs(): void {
@@ -1407,7 +1419,7 @@ export class GirModule {
 
         if (this.ns.callback) for (const e of this.ns.callback) out.push(...this.exportCallback(e))
 
-        if (this.ns.interface) for (const e of this.ns.interface) out.push(...this.exportInterface(e))
+        if (this.ns.interface) for (const e of this.ns.interface) out.push(...this.exportClassInternal(e, true))
 
         const templateProcessor = new TemplateProcessor(
             { name: this.name, version: this.version },
@@ -1423,11 +1435,11 @@ export class GirModule {
             out.push(patches)
         }
 
-        if (this.ns.class) for (const e of this.ns.class) out.push(...this.exportInterface(e))
+        if (this.ns.class) for (const e of this.ns.class) out.push(...this.exportClassInternal(e, false))
 
-        if (this.ns.record) for (const e of this.ns.record) out.push(...this.exportInterface(e))
+        if (this.ns.record) for (const e of this.ns.record) out.push(...this.exportClassInternal(e, true))
 
-        if (this.ns.union) for (const e of this.ns.union) out.push(...this.exportInterface(e))
+        if (this.ns.union) for (const e of this.ns.union) out.push(...this.exportClassInternal(e, true))
 
         if (this.ns.alias)
             // GType is not a number in GJS

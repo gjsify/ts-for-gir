@@ -1208,7 +1208,12 @@ export class GirModule {
         return []
     }
 
-    public exportObjectInternal(girClass: GirClass, isAbstract = false): string[] {
+    /**
+     * Represents a record or GObject class or interface as a Typescript class
+     * @param girClass
+     * @param isAbstract
+     */
+    public exportClassInternal(girClass: GirClass, isAbstract = false): string[] {
         const name = this.transformation.transformClassName(girClass.$.name)
         const def: string[] = []
 
@@ -1304,11 +1309,11 @@ export class GirModule {
     }
 
     public exportInterface(girClass: GirClass): string[] {
-        return this.exportObjectInternal(girClass)
+        return this.exportClassInternal(girClass)
     }
 
     public exportClass(girClass: GirClass): string[] {
-        return this.exportObjectInternal(girClass)
+        return this.exportClassInternal(girClass)
     }
 
     public exportJs(): void {

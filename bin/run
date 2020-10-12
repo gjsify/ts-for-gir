@@ -2,4 +2,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 require('source-map-support').install()
-require('@oclif/command').run().then(require('@oclif/command/flush')).catch(require('@oclif/errors/handle'))
+require('@oclif/command')
+    .run()
+    .then(require('@oclif/command/flush'))
+    .catch((error) => {
+        console.log(error)
+        require('@oclif/errors/handle')(error)
+    })

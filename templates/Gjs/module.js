@@ -1,2 +1,2 @@
-imports.gi.versions.<%= name %> = "3.0";
+imports.gi.versions.<%= name %> = '<%= version %>';
 module.exports = imports.gi.<%= name %>;

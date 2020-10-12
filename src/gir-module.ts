@@ -1177,7 +1177,7 @@ export class GirModule {
     private generateConstructPropsInterface(
         girClass: GirClass,
         name: string,
-        parentName?: string,
+        qualifiedParentName?: string,
         localParentName?: string,
     ): string[] {
         const def: string[] = []
@@ -1185,7 +1185,7 @@ export class GirModule {
         if (isDerivedFromGObject) {
             let ext = ' '
 
-            if (parentName) {
+            if (qualifiedParentName) {
                 ext = `extends ${localParentName}_ConstructProps `
             }
 

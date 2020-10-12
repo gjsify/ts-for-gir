@@ -631,8 +631,8 @@ export class GirModule {
         }
 
         if (parentName && qualifiedParentName) {
-            if (this.symTable[parentName]) {
-                parentPtr = (this.symTable[parentName] as GirClass | null) || null
+            if (this.symTable[qualifiedParentName]) {
+                parentPtr = (this.symTable[qualifiedParentName] as GirClass | null) || null
             }
 
             if (!parentPtr && parentName == 'Object') {
@@ -946,11 +946,13 @@ export class GirModule {
         let parentName: string | undefined = undefined
         let qualifiedParentName: string | undefined = undefined
         let localParentName: string | undefined = undefined
+
         if (girClass.prerequisite) {
             parentName = girClass.prerequisite[0].$.name
         } else if (girClass.$.parent) {
             parentName = girClass.$.parent
         }
+
         let parentModName: string
         if (parentName) {
             if (parentName.indexOf('.') < 0) {
@@ -1265,10 +1267,12 @@ export class GirModule {
 
         const details = this.getClassDetails(girClass)
         if (!details) return []
-        const { name, parentName, localParentName } = details
+
+        // eslint-disable-next-line prefer-const
+        let { name, qualifiedParentName, localParentName } = details
 
         // Properties for construction
-        def.push(...this.generateConstructPropsInterface(girClass, name, parentName, localParentName))
+        def.push(...this.generateConstructPropsInterface(girClass, name, qualifiedParentName, localParentName))
 
         // START CLASS
         if (isAbstract) {

@@ -21,7 +21,7 @@ const lang = GtkSource.LanguageManager.get_default().get_language('js')
 print('lang', lang)
 buf.set_language(lang)
 
-notebook.add(srcView as any) // TODO
+notebook.add(srcView)
 
 box.pack_start(notebook, true, true, 0)
 wnd.add(box)

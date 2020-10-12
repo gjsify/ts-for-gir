@@ -14,8 +14,13 @@ declare global {
         [key: string]: any
         gi: {
           <%_ for (const girModule of girModules) { _%>
-          <%= girModule.name %>: typeof <%= girModule.importName %>;
+          <%= girModule.name %>: typeof <%= girModule.importName %>
           <%_ } _%>
+        }
+        versions: {
+          <%_ for (const girModule of girModules) { _%>
+            <%= girModule.name %>: string
+            <%_ } _%>
         }
         searchPath: string[];
     }

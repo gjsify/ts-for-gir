@@ -1,6 +1,7 @@
 export * from './answer-version'
 export * from './build-type'
 export * from './c-type-map'
+export * from './class-details'
 export * from './config-flags'
 export * from './construct-name'
 export * from './dependency-map'

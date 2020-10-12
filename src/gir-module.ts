@@ -26,6 +26,7 @@ import {
     FunctionDescription,
     FunctionMap,
     LocalNames,
+    ClassDetails,
 } from './types'
 
 /**
@@ -618,35 +619,30 @@ export class GirModule {
         depth = 0,
         recursive = true,
     ): void {
-        if (!girClass || !girClass.$) return
+        const details = this.getClassDetails(girClass)
+        if (!details) return
+        const { parentName, qualifiedParentName } = details
 
-        let parent: GirClass | null = null
+        let parentPtr: GirClass | null = null
         let name = girClass.$.name
 
         if (name.indexOf('.') < 0) {
             name = this.name + '.' + name
         }
 
-        if (girClass.$.parent) {
-            let parentName = girClass.$.parent
-            const origParentName = `${parentName}`
-
-            if (parentName.indexOf('.') < 0) {
-                parentName = this.name + '.' + parentName
-            }
-
+        if (parentName && qualifiedParentName) {
             if (this.symTable[parentName]) {
-                parent = (this.symTable[parentName] as GirClass | null) || null
+                parentPtr = (this.symTable[parentName] as GirClass | null) || null
             }
 
-            if (!parent && origParentName === 'Object') {
-                parent = (this.symTable['GObject.Object'] as GirClass | null) || null
+            if (!parentPtr && parentName == 'Object') {
+                parentPtr = (this.symTable['GObject.Object'] as GirClass) || null
             }
 
             // check circular dependency
-            if (typeof parent?.$?.parent === 'string') {
-                if (parent.$.parent === girClass.$.name) {
-                    this.log.warn(`Circular dependency found! Ignore next parent "${parent.$.parent}".`)
+            if (typeof parentPtr?.$?.parent === 'string') {
+                if (parentPtr.$.parent === girClass.$.name) {
+                    this.log.warn(`Circular dependency found! Ignore next parent "${parentPtr.$.parent}".`)
                     recursive = false
                 }
             }
@@ -661,8 +657,8 @@ export class GirModule {
         if (depth >= MAXIMUM_RECUSION_DEPTH) {
             this.log.warn(`Maximum recursion depth of ${MAXIMUM_RECUSION_DEPTH} reached for "${girClass.$.name}"`)
         } else {
-            if (parent && recursive && depth <= MAXIMUM_RECUSION_DEPTH) {
-                this.traverseInheritanceTree(parent, callback, ++depth, recursive)
+            if (parentPtr && recursive && depth <= MAXIMUM_RECUSION_DEPTH) {
+                this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
             }
         }
     }
@@ -932,6 +928,43 @@ export class GirModule {
             }
         }
         return fns
+    }
+
+    private getClassDetails(girClass: GirClass): ClassDetails | null {
+        if (!girClass || !girClass.$) return null
+        const mod: GirModule = girClass._module ? girClass._module : this
+        let name = this.transformation.transformClassName(girClass.$.name)
+        let qualifiedName: string
+        if (name.indexOf('.') < 0) {
+            qualifiedName = mod.name + '.' + name
+        } else {
+            qualifiedName = name
+            const split = name.split('.')
+            name = split[split.length - 1]
+        }
+
+        let parentName: string | undefined = undefined
+        let qualifiedParentName: string | undefined = undefined
+        let localParentName: string | undefined = undefined
+        if (girClass.prerequisite) {
+            parentName = girClass.prerequisite[0].$.name
+        } else if (girClass.$.parent) {
+            parentName = girClass.$.parent
+        }
+        let parentModName: string
+        if (parentName) {
+            if (parentName.indexOf('.') < 0) {
+                qualifiedParentName = mod.name + '.' + parentName
+                parentModName = mod.name
+            } else {
+                qualifiedParentName = parentName
+                const split = parentName.split('.')
+                parentName = split[split.length - 1]
+                parentModName = split.slice(0, split.length - 1).join('.')
+            }
+            localParentName = parentModName == mod.name ? parentName : qualifiedParentName
+        }
+        return { name, qualifiedName, parentName, qualifiedParentName, localParentName }
     }
 
     /**
@@ -1223,7 +1256,6 @@ export class GirModule {
      * @param record
      */
     public exportClassInternal(girClass: GirClass, record = false, isAbstract = false): string[] {
-        const name = this.transformation.transformClassName(girClass.$.name)
         const def: string[] = []
 
         // Is this a abstract class? E.g GObject.ObjectClass is a such abstract class and required by UPowerGlib-1.0, UDisks-2.0 and others
@@ -1231,20 +1263,9 @@ export class GirModule {
             isAbstract = true
         }
 
-        let parentName: string | undefined
-        let counter = 0
-        this.traverseInheritanceTree(girClass, (cls) => {
-            if (counter++ !== 1) return
-            parentName = cls._fullSymName || undefined
-        })
-
-        let localParentName = `${parentName}` || undefined
-        if (localParentName && this.name) {
-            const s = localParentName.split('.', 2)
-            if (s[0] === this.name) {
-                localParentName = s[1]
-            }
-        }
+        const details = this.getClassDetails(girClass)
+        if (!details) return []
+        const { name, parentName, localParentName } = details
 
         // Properties for construction
         def.push(...this.generateConstructPropsInterface(girClass, name, parentName, localParentName))

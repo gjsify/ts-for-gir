@@ -1,4 +1,4 @@
 {
   "editor.tabSize": 4,
-  "typescript.tsdk": "/home/jumplink/Projekte/ts-for-gjs/node_modules/typescript/lib"
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }

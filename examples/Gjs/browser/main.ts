@@ -15,7 +15,7 @@ function makeButton(label: string, callback): Gtk.Button {
 Gtk.init(null)
 
 const wnd = new Gtk.Window({ title: 'Browser Test', default_width: 800, default_height: 600 })
-const webview = new WebKit.WebView({})
+const webview = new WebKit.WebView()
 const scrolledWindow = new Gtk.ScrolledWindow({})
 const box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
 const entry = new Gtk.Entry({ text: 'about:none', halign: Gtk.Align.FILL })
@@ -58,10 +58,10 @@ entry.connect('activate', (self) => {
     if (!(uri.startsWith('http://') || uri.startsWith('https://') || uri.startsWith('ftp://'))) uri = 'http://' + uri
     webview.load_uri(uri)
 })
-webview.connect('notify::uri', () => {
+webview.connect('notify::uri' as any /* TODO */, () => {
     entry.text = webview.uri
 })
-webview.connect('notify::is-loading', () => {
+webview.connect('notify::is-loading' as any /* TODO */, () => {
     spinner.active = webview.is_loading
 })
 

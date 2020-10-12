@@ -512,13 +512,19 @@ export class GirModule {
         return [[`${name}${nameSuffix}: ${typeName}`], name]
     }
 
-    private getProperty(v: GirVariable, construct = false): [string[], string | null, string | null] {
+    /**
+     *
+     * @param v
+     * @param construct construct means include the property even if it's construct-only,
+     * @param optional optional means if it's construct-only it will also be marked optional (?)
+     */
+    private getProperty(v: GirVariable, construct = false, optional = true): [string[], string | null, string | null] {
         if (this.girBool(v.$['construct-only']) && !construct) return [[], null, null]
         if (!this.girBool(v.$.writable) && construct) return [[], null, null]
         if (this.girBool(v.$.private)) return [[], null, null]
 
         const propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
-        const [propDesc, propName] = this.getVariable(v, construct, true, 'property')
+        const [propDesc, propName] = this.getVariable(v, construct && optional, true, 'property')
         let origName: string | null = null
 
         if (!propName) return [[], null, null]
@@ -695,7 +701,7 @@ export class GirModule {
             if (Object.prototype.hasOwnProperty.call(dups, parentName)) return
             const parentPtr = this.symTable[parentName]
             if (parentPtr && ((parentPtr as GirClass).prerequisite || recurseObjects)) {
-                // iface's prerequsite is also an interface, or it's
+                // iface's prerequisite is also an interface, or it's
                 // a class and we also want to recurse classes
                 callback(parentPtr as GirClass)
                 this.forEachInterface(parentPtr as GirClass, callback, recurseObjects, dups)
@@ -1144,9 +1150,20 @@ export class GirModule {
             const constructPropNames = {}
             if (girClass.property) {
                 for (const p of girClass.property) {
-                    const [desc, name] = this.getProperty(p, true)
+                    const [desc, name] = this.getProperty(p, true, true)
                     def.push(...this.checkName(desc, name, constructPropNames)[0])
                 }
+            }
+            // Include props of implemented interfaces
+            if (girClass.implements) {
+                this.forEachInterface(girClass, (iface) => {
+                    if (iface.property) {
+                        for (const p of iface.property) {
+                            const [desc, name] = this.getProperty(p, true, true)
+                            def.push(...this.checkName(desc, name, constructPropNames)[0])
+                        }
+                    }
+                })
             }
             def.push('}')
         }

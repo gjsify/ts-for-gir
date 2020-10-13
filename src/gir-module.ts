@@ -1085,7 +1085,7 @@ export class GirModule {
     }
 
     private processStaticFunctions(cls: GirClass, getter: (e: GirClass) => FunctionDescription[]): string[] {
-        const [fnMap, explicits] = this.processOverloadableMethods(cls, getter)
+        const [fnMap, explicits] = this.processOverloadableMethods(cls, getter, true)
         return this.exportOverloadableMethods(fnMap, explicits)
     }
 
@@ -1108,6 +1108,36 @@ export class GirModule {
             def.push(...TemplateProcessor.generateGeneralSignalMethods(this.config.environment))
         }
         return def
+    }
+
+    /**
+     * Static methods, <constructor> and <function>
+     * @param girClass
+     * @param name
+     */
+    private getAllStaticFunctions(girClass: GirClass, name: string) {
+        const stc: string[] = []
+
+        stc.push(
+            ...this.processStaticFunctions(girClass, (cls) => {
+                return this.getStaticConstructors(cls, name)
+            }),
+        )
+        stc.push(
+            ...this.processStaticFunctions(girClass, (cls) => {
+                return this.getOtherStaticFunctions(cls)
+            }),
+        )
+        stc.push(
+            ...this.processStaticFunctions(girClass, (cls) => {
+                return this.getClassMethods(cls)
+            }),
+        )
+
+        if (stc.length > 0) {
+            stc.unshift('    /* Static methods and pseudo-constructors */')
+        }
+        return stc
     }
 
     private generateConstructorAndStaticMethods(girClass: GirClass, name: string): string[] {
@@ -1143,29 +1173,7 @@ export class GirModule {
             }
         }
 
-        // Static methods, <constructor> and <function>
-        const stc: string[] = []
-
-        stc.push(
-            ...this.processStaticFunctions(girClass, (cls) => {
-                return this.getStaticConstructors(cls, name)
-            }),
-        )
-        stc.push(
-            ...this.processStaticFunctions(girClass, (cls) => {
-                return this.getOtherStaticFunctions(cls)
-            }),
-        )
-        stc.push(
-            ...this.processStaticFunctions(girClass, (cls) => {
-                return this.getClassMethods(cls)
-            }),
-        )
-
-        if (stc.length > 0) {
-            def.push('    /* Static methods and pseudo-constructors */')
-            def.push(...stc)
-        }
+        def.push(...this.getAllStaticFunctions(girClass, name))
 
         if (isDerivedFromGObject) {
             def.push(`    static $gtype: ${this.packageName === 'GObject-2.0' ? '' : 'GObject.'}Type`)

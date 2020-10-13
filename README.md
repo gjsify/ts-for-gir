@@ -187,7 +187,7 @@ ts-for-gir --help
 To run our [ava](https://github.com/avajs/ava) tests just run:
 
 ```bash
-npm run test:girs
+npm run test:ava
 ```
 
 #### Test gir files

@@ -1444,7 +1444,7 @@ export class GirModule {
 
         if (this.ns.callback) for (const e of this.ns.callback) out.push(...this.exportCallback(e))
 
-        if (this.ns.interface) for (const e of this.ns.interface) out.push(...this.exportClassInternal(e, true))
+        if (this.ns.interface) for (const e of this.ns.interface) out.push(...this.exportClassInternal(e))
 
         const templateProcessor = new TemplateProcessor(
             { name: this.name, version: this.version },

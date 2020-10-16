@@ -641,8 +641,11 @@ export class GirModule {
 
             // check circular dependency
             if (typeof parentPtr?.$?.parent === 'string') {
-                if (parentPtr.$.parent === girClass.$.name) {
-                    this.log.warn(`Circular dependency found! Ignore next parent "${parentPtr.$.parent}".`)
+                let parentName = parentPtr.$.parent
+                if (parentName.indexOf('.') < 0 && parentPtr._module?.name)
+                    parentName = parentPtr._module.name + '.' + parentName
+                if (parentName === girClass._fullSymName) {
+                    this.log.warn(`Circular dependency found! Ignore next parent "${parentName}".`)
                     recursive = false
                 }
             }

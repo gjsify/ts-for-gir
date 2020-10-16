@@ -54,7 +54,7 @@ export class Logger {
         if (!this.verbose) {
             return
         }
-        args.forEach(arg => {
+        args.forEach((arg) => {
             console.dir(arg)
         })
         return
@@ -98,7 +98,7 @@ export class Logger {
         return console.log(...args)
     }
     public static dir(...args: any[]): void {
-        args.forEach(arg => {
+        args.forEach((arg) => {
             console.dir(arg)
         })
         return

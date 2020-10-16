@@ -78,13 +78,13 @@ export class ModuleLoader {
                 | GirModuleResolvedBy
                 | undefined
             const girModulePackageNames = girModulesGrouped.modules.map(
-                resolveGirModule => resolveGirModule.packageName,
+                (resolveGirModule) => resolveGirModule.packageName,
             )
             if (!keepModule) {
                 throw new Error('Module not found!')
             }
             keep.add(keepModule)
-            const toIgnore = girModulePackageNames.filter(packageName => packageName !== answeredFullName)
+            const toIgnore = girModulePackageNames.filter((packageName) => packageName !== answeredFullName)
             ignore = ignore.concat(toIgnore)
         }
 
@@ -150,7 +150,7 @@ export class ModuleLoader {
             name: girModuleGrouped.name,
             message,
             type: 'list',
-            choices: girModuleGrouped.modules.map(module => module.packageName),
+            choices: girModuleGrouped.modules.map((module) => module.packageName),
         }
         return question
     }
@@ -206,7 +206,7 @@ export class ModuleLoader {
             throw new Error('No valid answer!')
         }
 
-        const unchoosed = (question.choices as string[]).filter(choice => choice !== choosed)
+        const unchoosed = (question.choices as string[]).filter((choice) => choice !== choosed)
         return {
             choosed,
             unchoosed,
@@ -226,7 +226,7 @@ export class ModuleLoader {
         for (const girModulesGrouped of Object.values(girModulesGroupedMap)) {
             // Remove ignored modules from group
             girModulesGrouped.modules = girModulesGrouped.modules.filter(
-                girGroup => !ignore.includes(girGroup.packageName),
+                (girGroup) => !ignore.includes(girGroup.packageName),
             )
             girModulesGrouped.hasConflict = girModulesGrouped.modules.length >= 2
 
@@ -247,7 +247,7 @@ export class ModuleLoader {
                     // Check modules that depend on the unchoosed modules
                     wouldIgnoreDeps = this.findModulesDependOnPackages(girModulesGroupedMap, versionAnswer.unchoosed)
                     // Do not check dependencies that have already been ignored
-                    wouldIgnoreDeps = wouldIgnoreDeps.filter(dep => !ignore.includes(dep.packageName))
+                    wouldIgnoreDeps = wouldIgnoreDeps.filter((dep) => !ignore.includes(dep.packageName))
                     ignoreDepsAnswer = await this.askIgnoreDepsPrompt(wouldIgnoreDeps)
                     goBack = ignoreDepsAnswer === 'Go back'
                 }
@@ -257,7 +257,7 @@ export class ModuleLoader {
 
                 if (ignoreDepsAnswer === 'Yes') {
                     // Also ignore the dependencies of the unselected version
-                    ignore = ignore.concat(wouldIgnoreDeps.map(dep => dep.packageName))
+                    ignore = ignore.concat(wouldIgnoreDeps.map((dep) => dep.packageName))
                 }
 
                 const unionMe = this.sortVersionsByAnswer(girModulesGrouped, versionAnswer.choosed)
@@ -390,7 +390,7 @@ export class ModuleLoader {
         girModules: (GirModuleResolvedBy | GirModule)[],
         packageName: string,
     ): GirModuleResolvedBy | GirModule | undefined {
-        return girModules.find(girModule => girModule.packageName === packageName)
+        return girModules.find((girModule) => girModule.packageName === packageName)
     }
 
     /**
@@ -486,12 +486,12 @@ export class ModuleLoader {
                     files = files.concat(await glob(filename, { cwd: girDirectory }))
                 }
 
-                let globModules = files.map(file => Path.basename(file, '.gir'))
+                let globModules = files.map((file) => Path.basename(file, '.gir'))
                 // Filter out the ignored modules
-                globModules = globModules.filter(mod => {
+                globModules = globModules.filter((mod) => {
                     return !ignore.includes(mod)
                 })
-                globModules.forEach(mod => foundModules.add(mod))
+                globModules.forEach((mod) => foundModules.add(mod))
             }
         }
         return foundModules

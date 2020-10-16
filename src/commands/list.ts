@@ -6,7 +6,7 @@ import { ModuleLoader } from '../module-loader'
 import { Command } from '@oclif/command'
 import chalk from 'chalk'
 import { Config } from '../config'
-import { ResolveType } from '../types'
+import { ResolveType, ConfigFlags } from '../types'
 
 export default class List extends Command {
     static description = 'Lists all available GIR modules'
@@ -31,7 +31,7 @@ export default class List extends Command {
 
     async run(): Promise<void> {
         const { argv, flags } = this.parse(List)
-        const config = await Config.load(flags, argv)
+        const config = await Config.load((flags as unknown) as ConfigFlags, argv)
         const generateConfig = Config.getGenerateConfig(config)
         const moduleLoader = new ModuleLoader(generateConfig)
         const { grouped, failed } = await moduleLoader.getModules(config.modules, config.ignore)
@@ -41,14 +41,14 @@ export default class List extends Command {
             return
         }
 
-        const conflictModules = moduleGroupes.filter(moduleGroup => moduleGroup.hasConflict)
+        const conflictModules = moduleGroupes.filter((moduleGroup) => moduleGroup.hasConflict)
 
         const byHandModules = moduleGroupes.filter(
-            moduleGroup => moduleGroup.modules[0].resolvedBy === ResolveType.BY_HAND,
+            (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.BY_HAND,
         )
 
         const depModules = moduleGroupes.filter(
-            moduleGroup => moduleGroup.modules[0].resolvedBy === ResolveType.DEPENDENCE,
+            (moduleGroup) => moduleGroup.modules[0].resolvedBy === ResolveType.DEPENDENCE,
         )
 
         this.log(chalk.blue('\nSelected Modules:'))

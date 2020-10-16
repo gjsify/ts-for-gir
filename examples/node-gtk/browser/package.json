@@ -21,13 +21,13 @@
     "node": "^12"
   },
   "devDependencies": {
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.5",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-node-externals": "^1.7.2"
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
-    "node-gtk": "^0.3.0"
+    "node-gtk": "romgrk/node-gtk#master"
   }
 }

@@ -45,7 +45,6 @@ export const POD_TYPE_MAP = {
     object: 'any',
     gshort: 'number',
     filename: 'string',
-    // eslint-disable-next-line @typescript-eslint/camelcase
     va_list: 'any',
 }
 

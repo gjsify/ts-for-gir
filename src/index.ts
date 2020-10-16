@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import * as SegfaultHandler from 'segfault-handler'
+SegfaultHandler.registerHandler('crash.log')
+import 'source-map-support/register'
 export * from './commands/generate'
 export * from './commands/list'
 export * from './types'
@@ -19,7 +22,10 @@ if (require.main === module) {
         require('@oclif/command')
             .run()
             .then(require('@oclif/command/flush'))
-            .catch(require('@oclif/errors/handle'))
+            .catch((error) => {
+                console.log(error)
+                require('@oclif/errors/handle')(error)
+            })
     } catch (ex) {
         console.log(ex.stack)
     }

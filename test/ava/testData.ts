@@ -1,3 +1,5 @@
+import { GirFunction, GirClass } from '../../src'
+
 export const classGObject = {
     _fullSymName: 'GObject.Object',
     $: {
@@ -2894,7 +2896,7 @@ export const classGObject = {
     ],
 }
 
-export const classApplicationCommandLine = {
+export const classApplicationCommandLine: GirClass = {
     _fullSymName: 'ApplicationCommandLine',
     $: {
         name: 'ApplicationCommandLine',
@@ -3794,7 +3796,7 @@ export const classApplicationCommandLine = {
     ],
 }
 
-export const interfaceDBusNodeInfo = {
+export const interfaceDBusNodeInfo: GirClass = {
     _fullSymName: 'DBusNodeInfo',
     $: {
         name: 'DBusNodeInfo',
@@ -4096,7 +4098,7 @@ export const interfaceDBusNodeInfo = {
     ],
 }
 
-export const interfaceActionGroup = {
+export const interfaceActionGroup: GirClass = {
     _fullSymName: 'ActionGroup',
     $: {
         name: 'ActionGroup',
@@ -5793,7 +5795,7 @@ export const interfaceActionGroup = {
     ],
 }
 
-export const interfaceAction = {
+export const interfaceAction: GirClass = {
     _fullSymName: 'Action',
     $: {
         name: 'Action',
@@ -6626,7 +6628,7 @@ export const interfaceAction = {
     ],
 }
 
-export const funcBusOwnName = {
+export const funcBusOwnName: GirFunction = {
     $: {
         name: 'bus_own_name',
         'c:identifier': 'g_bus_own_name',

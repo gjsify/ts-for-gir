@@ -1,21 +1,20 @@
 {
   "name": "ts-for-gir",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typescript .d.ts generator from GIR for gjs or node-gtk",
   "main": "lib/index.js",
-  "bin": {
-    "ts-for-gir": "./bin/run"
-  },
+  "bin": "./bin/run",
   "typings": "@types",
   "scripts": {
+    "start": "ts-node src/index",
     "prepublish": "npm run lint && npm run regress && npm run test && npm run build",
     "test": "npm run test:ava",
     "test:ava": "npm run build:ts && npm run build:test:ava && ava tmp/test/ava/test.js",
-    "test:girs": "npm run build:ts && npm run build:test:girs && npm run validate:gjs",
-    "regress": "npm run clear && npm run build:ts && node bin/run generate --configName='.ts-for-gir.regress.rc.js' && npm run validate",
+    "test:girs": "git submodule update --init && npm run build:ts && npm run build:test:girs && npm run validate:gjs",
+    "regress": "npm run clear && npm run build:ts && npm run start -- generate --configName='.ts-for-gir.regress.rc.js' && npm run validate",
     "build": "npm run clear:build && npm run build:ts",
     "build:ts": "tsc",
-    "build:test:girs": "rm -rf ./test/girs/@types/Gjs && ts-for-gir generate --configName='.ts-for-gir.test.rc.js' && NODE_OPTIONS=\"--max-old-space-size=4096\" tsc --noEmit ./test/girs/@types/Gjs/*.ts",
+    "build:test:girs": "rm -rf ./test/girs/@types/Gjs && npm run start -- generate --configName='.ts-for-gir.gtk-3.rc.js' && tsc --noEmit ./test/girs/@types/Gjs/*.ts",
     "build:test:ava": "tsc -p tsconfig.ava.json",
     "validate:gjs": "tsc --noEmit ./@types/Gjs/*.ts",
     "validate:node": "tsc --noEmit ./@types/node-gtk/*.ts",
@@ -24,7 +23,6 @@
     "clear:build": "rm -rf ./lib",
     "clear:types": "rm -rf ./@types",
     "watch": "npm run build:ts -- --watch",
-    "start": "node lib/cli.js",
     "lint": "npm run clear && npm run build:ts -- --noEmit && eslint . --ext .ts,.tsx --fix"
   },
   "repository": {
@@ -33,9 +31,10 @@
   },
   "author": "",
   "files": [
-    "lib",
+    "src",
     "bin",
-    "src"
+    "lib",
+    "templates"
   ],
   "oclif": {
     "commands": "./lib/commands",
@@ -53,29 +52,34 @@
     "@types/change-case": "^2.3.1",
     "@types/commander": "^2.12.2",
     "@types/ejs": "^3.0.1",
-    "@types/inquirer": "^6.5.0",
+    "@types/inquirer": "^7.3.1",
     "@types/lodash": "^4.14.149",
-    "@types/node": "^13.7.4",
+    "@types/node": "^14.11.8",
     "@types/xml2js": "0.4.5",
-    "@typescript-eslint/eslint-plugin": "^2.20.0",
-    "@typescript-eslint/parser": "^2.20.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
     "ava": "^3.3.0",
     "ejs": "^3.0.1",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.8.2"
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
   },
   "dependencies": {
     "@oclif/command": "^1.5.19",
-    "chalk": "^3.0.0",
-    "cosmiconfig": "^6.0.0",
-    "ejs": "^3.0.1",
-    "eslint": "^6.8.0",
+    "@oclif/config": "^1.15.1",
+    "@oclif/errors": "^1.2.2",
+    "@types/eslint": "^7.2.4",
+    "chalk": "^4.1.0",
+    "cosmiconfig": "^7.0.0",
+    "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "events": "^3.1.0",
+    "globby": "^11.0.0",
     "inquirer": "^7.0.4",
     "lodash": "^4.17.15",
-    "prettier": "^1.19.1",
+    "prettier": "^2.1.2",
+    "segfault-handler": "^1.3.0",
+    "source-map-support": "^0.5.19",
     "tiny-glob": "^0.2.6",
     "xml2js": "^0.4.23"
   }

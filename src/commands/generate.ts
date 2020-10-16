@@ -7,6 +7,7 @@ import * as CLIConfig from '@oclif/config'
 import { Generator } from '../generator'
 import { Config } from '../config'
 import { ModuleLoader } from '../module-loader'
+import { ConfigFlags } from '../types'
 
 export default class Generate extends Command {
     static description = 'Generates .d.ts files from GIR for gjs or node-gtk'
@@ -59,7 +60,7 @@ export default class Generate extends Command {
     async run(): Promise<void> {
         const { argv, flags } = this.parse(Generate)
 
-        const config = await Config.load(flags, argv)
+        const config = await Config.load((flags as unknown) as ConfigFlags, argv)
 
         if (argv.length === 0) {
             this.error("Need to pass an argument via 'ts-for-git generate [arguments here]'!")
@@ -78,7 +79,7 @@ export default class Generate extends Command {
                     this.error('No module found!')
                 }
                 const tsForGir = new Generator(generateConfig)
-                tsForGir.start(Array.from(keep).map(girModuleResolvedBy => girModuleResolvedBy.module))
+                tsForGir.start(Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module))
             }
         }
     }

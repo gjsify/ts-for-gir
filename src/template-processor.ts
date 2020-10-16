@@ -10,8 +10,8 @@ import { Environment } from './types/environment'
 import { Transformation } from './transformation'
 import { Logger } from './logger'
 import { GenerateConfig } from './types'
+import { CLIEngine } from 'eslint' // TODO depricated: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
 
-const CLIEngine = require('eslint').CLIEngine
 const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
@@ -20,7 +20,7 @@ export class TemplateProcessor {
     private environmentTemplateDir: string
     private log: Logger
     constructor(
-        protected readonly data: any,
+        protected readonly data: ejs.Data | undefined,
         moduleName = 'TemplateProcessor',
         private readonly config: GenerateConfig,
     ) {
@@ -215,7 +215,7 @@ export class TemplateProcessor {
                 )
                 this.log.dir(report)
 
-                report?.results.forEach(result => {
+                report?.results.forEach((result) => {
                     if (result.message) {
                         this.log.log(result.message)
                     }

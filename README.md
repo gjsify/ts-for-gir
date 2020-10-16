@@ -180,6 +180,32 @@ Now you can execute `ts-for-gir` anywhere on your system:
 ts-for-gir --help
 ```
 
+### Test
+
+#### Ava
+
+To run our [ava](https://github.com/avajs/ava) tests just run:
+
+```bash
+npm run test:ava
+```
+
+#### Test gir files
+
+We have a test wich tries to generate the type definition files for all gir files from the [vala-girs](https://github.com/nemequ/vala-girs) repository.
+
+Before you can run this test you need to checkout the vala-girs submodule, to do that run this in the root of ts-for-gjs:
+
+```bash
+git submodule update --init
+```
+
+Now you can run the test with
+
+```bash
+npm run test:girs
+```
+
 ## Related Projects
 
 ### TypeScript Type Definitions

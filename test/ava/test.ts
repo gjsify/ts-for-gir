@@ -1,5 +1,5 @@
 import test from 'ava'
-import { GirEnumeration, GirModule, GenerateConfig } from '../../src'
+import { GirEnumeration, GirModule, GenerateConfig, GirFunction } from '../../src'
 import * as TestData from './testData'
 
 const emptyRepositoryXml = {
@@ -24,7 +24,7 @@ const config: GenerateConfig = {
     buildType: 'lib',
 }
 
-test('enumeration', t => {
+test('enumeration', (t) => {
     const enum_: GirEnumeration = {
         $: {
             name: 'MyEnum',
@@ -43,7 +43,7 @@ test('enumeration', t => {
     t.deepEqual(mod.exportEnumeration(enum_), ['export enum MyEnum {', '    MEMBER_1,', '}'])
 })
 
-test('constant', t => {
+test('constant', (t) => {
     const var_ = {
         $: {
             name: 'MY_CONST',
@@ -79,8 +79,8 @@ test('constant', t => {
     t.deepEqual(mod.exportConstant(arrVar), ['export const MY_ARR: MyType[]'])
 })
 
-test('function', t => {
-    const func = {
+test('function', (t) => {
+    const func: GirFunction = {
         $: { name: 'my_func' },
         parameters: [
             {
@@ -122,8 +122,8 @@ test('function', t => {
     t.deepEqual(mod.exportFunction(func3), [])
 })
 
-test('callback', t => {
-    const cbs = [
+test('callback', (t) => {
+    const cbs: GirFunction[] = [
         {
             $: { name: 'activate' },
             'return-value': [
@@ -171,7 +171,7 @@ test('callback', t => {
     ])
 })
 
-test('interface', t => {
+test('interface', (t) => {
     const symTable = {
         'Test.MyType': 1,
         'GLib.Variant': 1,
@@ -201,15 +201,16 @@ test('interface', t => {
         '    get_state_hint(): GLib.Variant | null',
         '    get_state_type(): GLib.VariantType',
         '    /* Virtual methods of Action */',
-        '    vfunc_activate?(parameter?: GLib.Variant | null): void',
-        '    vfunc_change_state?(value: GLib.Variant): void',
-        '    vfunc_get_enabled?(): boolean',
-        '    vfunc_get_name?(): string',
-        '    vfunc_get_parameter_type?(): GLib.VariantType',
-        '    vfunc_get_state?(): GLib.Variant',
-        '    vfunc_get_state_hint?(): GLib.Variant | null',
-        '    vfunc_get_state_type?(): GLib.VariantType',
+        '    vfunc_activate(parameter?: GLib.Variant | null): void',
+        '    vfunc_change_state(value: GLib.Variant): void',
+        '    vfunc_get_enabled(): boolean',
+        '    vfunc_get_name(): string',
+        '    vfunc_get_parameter_type(): GLib.VariantType',
+        '    vfunc_get_state(): GLib.Variant',
+        '    vfunc_get_state_hint(): GLib.Variant | null',
+        '    vfunc_get_state_type(): GLib.VariantType',
         '    static name: string',
+        '    /* Static methods and pseudo-constructors */',
         '    static name_is_valid(action_name: string): boolean',
         '    static parse_detailed_name(detailed_name: string): [ /* returnType */ boolean, /* action_name */ string, /* target_value */ GLib.Variant ]',
         '    static print_detailed_name(action_name: string, target_value?: GLib.Variant | null): string',
@@ -234,20 +235,20 @@ test('interface', t => {
         '    list_actions(): string[]',
         '    query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]',
         '    /* Virtual methods of ActionGroup */',
-        '    vfunc_action_added?(action_name: string): void',
-        '    vfunc_action_enabled_changed?(action_name: string, enabled: boolean): void',
-        '    vfunc_action_removed?(action_name: string): void',
-        '    vfunc_action_state_changed?(action_name: string, state: GLib.Variant): void',
-        '    vfunc_activate_action?(action_name: string, parameter?: GLib.Variant | null): void',
-        '    vfunc_change_action_state?(action_name: string, value: GLib.Variant): void',
-        '    vfunc_get_action_enabled?(action_name: string): boolean',
-        '    vfunc_get_action_parameter_type?(action_name: string): GLib.VariantType | null',
-        '    vfunc_get_action_state?(action_name: string): GLib.Variant | null',
-        '    vfunc_get_action_state_hint?(action_name: string): GLib.Variant | null',
-        '    vfunc_get_action_state_type?(action_name: string): GLib.VariantType | null',
-        '    vfunc_has_action?(action_name: string): boolean',
-        '    vfunc_list_actions?(): string[]',
-        '    vfunc_query_action?(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]',
+        '    vfunc_action_added(action_name: string): void',
+        '    vfunc_action_enabled_changed(action_name: string, enabled: boolean): void',
+        '    vfunc_action_removed(action_name: string): void',
+        '    vfunc_action_state_changed(action_name: string, state: GLib.Variant): void',
+        '    vfunc_activate_action(action_name: string, parameter?: GLib.Variant | null): void',
+        '    vfunc_change_action_state(action_name: string, value: GLib.Variant): void',
+        '    vfunc_get_action_enabled(action_name: string): boolean',
+        '    vfunc_get_action_parameter_type(action_name: string): GLib.VariantType | null',
+        '    vfunc_get_action_state(action_name: string): GLib.Variant | null',
+        '    vfunc_get_action_state_hint(action_name: string): GLib.Variant | null',
+        '    vfunc_get_action_state_type(action_name: string): GLib.VariantType | null',
+        '    vfunc_has_action(action_name: string): boolean',
+        '    vfunc_list_actions(): string[]',
+        '    vfunc_query_action(action_name: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]',
         '    /* Signals of ActionGroup */',
         '    connect(sigName: "action-added", callback: (($obj: ActionGroup, action_name: string) => void)): number',
         '    connect_after(sigName: "action-added", callback: (($obj: ActionGroup, action_name: string) => void)): number',
@@ -266,7 +267,7 @@ test('interface', t => {
     ])
 })
 
-test('constructors', t => {
+test('constructors', (t) => {
     const symTable = {
         'Test.MyType': 1,
         'GLib.String': 1,
@@ -293,12 +294,13 @@ test('constructors', t => {
         '    ref(): DBusNodeInfo',
         '    unref(): void',
         '    static name: string',
+        '    /* Static methods and pseudo-constructors */',
         '    static new_for_xml(xml_data: string): DBusNodeInfo',
         '}',
     ])
 })
 
-test('class', t => {
+test('class', (t) => {
     const symTable = {
         'GObject.Object': TestData.classGObject,
         'GLib.Variant': 1,
@@ -332,7 +334,6 @@ test('class', t => {
         'export class ApplicationCommandLine {',
         '    /* Properties of ApplicationCommandLine */',
         '    readonly is_remote: boolean',
-        '    /* Fields of ApplicationCommandLine */',
         '    /* Fields of GObject.Object */',
         '    g_type_instance: any',
         '    /* Methods of ApplicationCommandLine */',
@@ -371,17 +372,17 @@ test('class', t => {
         '    unref(): void',
         '    watch_closure(closure: Closure): void',
         '    /* Virtual methods of ApplicationCommandLine */',
-        '    vfunc_get_stdin?(): InputStream',
-        '    vfunc_print_literal?(message: string): void',
-        '    vfunc_printerr_literal?(message: string): void',
+        '    vfunc_get_stdin(): InputStream',
+        '    vfunc_print_literal(message: string): void',
+        '    vfunc_printerr_literal(message: string): void',
         '    /* Virtual methods of GObject.Object */',
-        '    vfunc_constructed?(): void',
-        '    vfunc_dispatch_properties_changed?(n_pspecs: number, pspecs: ParamSpec): void',
-        '    vfunc_dispose?(): void',
-        '    vfunc_finalize?(): void',
-        '    vfunc_get_property?(property_id: number, value: Value, pspec: ParamSpec): void',
-        '    vfunc_notify?(pspec: ParamSpec): void',
-        '    vfunc_set_property?(property_id: number, value: Value, pspec: ParamSpec): void',
+        '    vfunc_constructed(): void',
+        '    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: ParamSpec): void',
+        '    vfunc_dispose(): void',
+        '    vfunc_finalize(): void',
+        '    vfunc_get_property(property_id: number, value: Value, pspec: ParamSpec): void',
+        '    vfunc_notify(pspec: ParamSpec): void',
+        '    vfunc_set_property(property_id: number, value: Value, pspec: ParamSpec): void',
         '    /* Signals of GObject.Object */',
         '    connect(sigName: "notify", callback: (($obj: ApplicationCommandLine, pspec: ParamSpec) => void)): number',
         '    connect_after(sigName: "notify", callback: (($obj: ApplicationCommandLine, pspec: ParamSpec) => void)): number',

@@ -3,6 +3,7 @@ import { GirDoc } from './gir-doc'
 import { GirType } from './gir-type'
 import { GirArray } from './gir-array'
 import { GirParameter } from './gir-parameter'
+import { GirBoolean } from './gir-boolean'
 
 // Declaring these two together is the easiest way to prevent circular
 // imports
@@ -10,15 +11,19 @@ import { GirParameter } from './gir-parameter'
 export interface GirVariable extends TsForGjsExtended {
     $: {
         name?: string
-        'transfer-ownership'?: string
-        nullable?: string
-        'allow-none'?: string
-        writable?: string
-        readable?: string
-        private?: string
-        'construct-only'?: string
-        direction?: string
-        introspectable?: string
+        version?: string
+        'transfer-ownership'?: 'none' | 'full'
+        nullable?: GirBoolean
+        optional?: GirBoolean
+        'allow-none'?: GirBoolean
+        writable?: GirBoolean
+        readable?: GirBoolean
+        private?: GirBoolean
+        'construct-only'?: GirBoolean
+        direction?: 'inout' | 'out'
+        introspectable?: GirBoolean
+        'caller-allocates'?: GirBoolean
+        scope?: 'async' | 'call' | 'notified'
         closure?: string
         destroy?: string
     }
@@ -26,16 +31,20 @@ export interface GirVariable extends TsForGjsExtended {
     type?: GirType[]
     array?: GirArray[]
     callback?: GirFunction[]
+    varargs?: string[]
 }
 
 export interface GirFunction extends TsForGjsExtended {
     $: {
         name: string
         version?: string
-        'c-identifier'?: string
-        introspectable?: string
+        'c:identifier'?: string
+        introspectable?: GirBoolean
         'moved-to'?: string
         'shadowed-by'?: string
+        when?: 'first' | 'last'
+        detailed?: GirBoolean
+        throws?: GirBoolean
     }
     doc?: GirDoc[]
     parameters?: GirParameter[]

@@ -6,7 +6,7 @@ import { flags } from '@oclif/command'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
 import { Utils } from './utils'
-import { Environment, BuildType, UserConfig, UserConfigLoadResult, GenerateConfig } from './types'
+import { Environment, BuildType, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types'
 import { promises as fs } from 'fs'
 import { Logger } from './logger'
 
@@ -163,7 +163,7 @@ export class Config {
      * @param flags
      * @param modules
      */
-    public static async load(flags, modules): Promise<UserConfig> {
+    public static async load(flags: ConfigFlags, modules: string[]): Promise<UserConfig> {
         const configFile = await this.loadConfigFile(flags.configName)
         const config: UserConfig = {
             environments: flags.environments as Environment[],

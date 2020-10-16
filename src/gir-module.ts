@@ -552,7 +552,7 @@ export class GirModule {
         prefix: string,
         funcNamePrefix = '',
         overrideReturnType?: string,
-        arrowType = false
+        arrowType = false,
     ): FunctionDescription {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true) || e.$['shadowed-by']) return [[], null]
 

@@ -25,7 +25,7 @@ export interface GirVariable extends TsForGjsExtended {
     doc?: GirDoc[]
     type?: GirType[]
     array?: GirArray[]
-    callback?: GirFunction
+    callback?: GirFunction[]
 }
 
 export interface GirFunction extends TsForGjsExtended {

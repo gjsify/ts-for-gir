@@ -298,8 +298,7 @@ export class GirModule {
 
         if (girVar.callback?.length) {
             fullTypeName = this.getFunction(girVar.callback[0], '', '', undefined, true)[0][0]
-            if (suffix.length)
-                fullTypeName = '(' + fullTypeName + ')'
+            if (suffix.length) fullTypeName = '(' + fullTypeName + ')'
         } else {
             if (!type?.$) return 'any'
 

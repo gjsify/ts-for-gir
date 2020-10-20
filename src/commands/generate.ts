@@ -76,7 +76,9 @@ export default class Generate extends Command {
                     config.ignoreConflicts,
                 )
                 if (keep.length === 0) {
-                    this.error('No module found!')
+                    this.error(
+                        'No module found!\nPlease make sure that you have installed the necessary gir files, for example with "sudo apt install libgtk-3-dev" for Gtk3 on Ubuntu.',
+                    )
                 }
                 const tsForGir = new Generator(generateConfig)
                 tsForGir.start(Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module))

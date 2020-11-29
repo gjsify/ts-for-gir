@@ -57,14 +57,36 @@ export const C_TYPE_MAP = (targetFullName?: string, suffix: TypeSuffix = ''): CT
     }
 }
 
-export const FULL_TYPE_MAP = (
-    environment: Environment,
-): { 'GObject.Value': string; 'GObject.Closure': string; 'GLib.ByteArray': string; 'GLib.Bytes': string } => {
+interface FullTypeMap {
+    'GObject.Value': string
+    'GObject.Closure': string
+    'GLib.ByteArray': string
+    'GLib.Bytes'?: string
+}
+
+// Gjs is permissive for byte-array in parameters but strict for out/return
+// See <https://discourse.gnome.org/t/gjs-bytearray-vs-glib-bytes/4900>
+export const FULL_TYPE_MAP = (environment: Environment, out = true): FullTypeMap => {
+    let ba: string
+    let gb: string | undefined
+    if (environment === 'gjs') {
+        ba = 'Gjs.byteArray.ByteArray'
+        if (out === false) {
+            ba += ' | Uint8Array'
+            gb = 'GLib.Bytes | Uint8Array | Gjs.byteArray.ByteArray'
+        } else {
+            gb = undefined // No transformation
+        }
+    } else {
+        // TODO
+        ba = 'any'
+        gb = 'any'
+    }
     return {
         'GObject.Value': 'any',
         'GObject.Closure': 'Function',
-        'GLib.ByteArray': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
-        'GLib.Bytes': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
+        'GLib.ByteArray': ba,
+        'GLib.Bytes': gb,
     }
 }
 

@@ -257,7 +257,7 @@ export class GirModule {
         }
     }
 
-    private typeLookup(girVar: GirVariable): string {
+    private typeLookup(girVar: GirVariable, out = true): string {
         let type: GirType
         let arr: TypeArraySuffix = ''
         let arrCType: string | undefined
@@ -319,8 +319,8 @@ export class GirModule {
         let fullTypeName: string | null = type.$.name
 
         if (typeof fullTypeName === 'string') {
-            if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
-                return FULL_TYPE_MAP(this.config.environment)[fullTypeName]
+            if (FULL_TYPE_MAP(this.config.environment, out)[fullTypeName]) {
+                return FULL_TYPE_MAP(this.config.environment, out)[fullTypeName]
             }
 
             // Fully qualify our type name if need be
@@ -351,8 +351,8 @@ export class GirModule {
      * E.g. replaces something like `NetworkManager.80211ApFlags` with `NetworkManager.TODO_80211ApFlags`
      * @param girVar
      */
-    private typeLookupTransformed(girVar: GirVariable): string {
-        let names = this.typeLookup(girVar).split('.')
+    private typeLookupTransformed(girVar: GirVariable, out = true): string {
+        let names = this.typeLookup(girVar, out).split('.')
         names = names.map((name) => this.transformation.transformTypeName(name))
         return names.join('.')
     }
@@ -371,7 +371,7 @@ export class GirModule {
 
         const returnVal = func['return-value'] ? func['return-value'][0] : null
         if (returnVal) {
-            returnType = this.typeLookupTransformed(returnVal)
+            returnType = this.typeLookupTransformed(returnVal, true)
             outArrayLengthIndex =
                 returnVal.array && returnVal.array[0].$?.length ? Number(returnVal.array[0].$.length) : -1
         }
@@ -445,19 +445,19 @@ export class GirModule {
                 this.processParams(parametersArray, skip, this.destroyDataIndexLookup)
 
                 for (const param of parametersArray as GirVariable[]) {
-                    const paramName = this.transformation.transformParameterName(param.$.name || '-', false)
-                    const paramType = this.typeLookupTransformed(param)
-
                     if (skip.indexOf(param) !== -1) {
                         continue
                     }
-
+                    const paramName = this.transformation.transformParameterName(param.$.name || '-', false)
                     const optDirection = param.$.direction
-                    if (optDirection) {
-                        if (optDirection === 'out' || optDirection == 'inout') {
-                            outParams.push(`/* ${paramName} */ ${paramType}`)
-                            if (optDirection == 'out') continue
-                        }
+                    const out = optDirection === 'out' || optDirection == 'inout'
+                    // I think it's safest to force inout params to have the
+                    // same type for in and out
+                    const paramType = this.typeLookupTransformed(param, out)
+
+                    if (out) {
+                        outParams.push(`/* ${paramName} */ ${paramType}`)
+                        if (optDirection == 'out') continue
                     }
 
                     let isOptional = this.paramIsNullable(param) ? '?' : ''
@@ -505,7 +505,9 @@ export class GirModule {
                 name = this.transformation.transformFieldName(v.$.name, allowQuotes)
                 break
         }
-        let typeName = this.typeLookupTransformed(v)
+        // Use the out type because in can be a union which isn't appropriate
+        // for a property
+        let typeName = this.typeLookupTransformed(v, true)
         const nameSuffix = optional ? '?' : ''
 
         typeName = this.transformation.transformTypeName(typeName)
@@ -1348,7 +1350,7 @@ export class GirModule {
     public exportAlias(girAlias: GirAlias): string[] {
         if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return []
 
-        const typeName = this.typeLookupTransformed(girAlias)
+        const typeName = this.typeLookupTransformed(girAlias, true)
         const name = girAlias.$.name
         return [`type ${name} = ${typeName}`]
     }

@@ -1,7 +1,7 @@
-
 export namespace byteArray {
     export class ByteArray {
-        constructor(lenOrArray: any) // May be a Uint8Array or any type accepted by its constructor
+        constructor(lenOrArray: any) // May be a Uint8Array or any type accepted
+                                     // as a single arg by its constructor 
         toGBytes(): any  // GLib.Bytes?
         toString(encoding?: string): string
         length: number
@@ -9,10 +9,10 @@ export namespace byteArray {
         static set(target: ByteArray, prop: number, val: number, receiver?: ByteArray): number
         _array: Uint8Array
     }
-    export function fromString(input: string): ByteArray
-    export function fromArray(input: number[]): ByteArray
-    export function fromGBytes(input: any): ByteArray
-    export function toString(x: ByteArray): string
+    export function fromString(input: string): Uint8Array
+    export function fromArray(input: number[]): ByteArray   // Return type is a mistake in gjs?
+    export function fromGBytes(input: any): Uint8Array
+    export function toString(x: Uint8Array): string
 }
 export namespace console {
     export function interact(): void

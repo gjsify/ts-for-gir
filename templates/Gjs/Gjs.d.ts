@@ -10,7 +10,7 @@ export namespace byteArray {
         _array: Uint8Array
     }
     export function fromString(input: string): Uint8Array
-    export function fromArray(input: number[]): ByteArray   // Return type is a mistake in gjs?
+    export function fromArray(input: number[]): ByteArray   // Odd one out for legacy reasons
     export function fromGBytes(input: any): Uint8Array
     export function toString(x: Uint8Array): string
 }

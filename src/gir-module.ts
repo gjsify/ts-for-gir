@@ -445,8 +445,21 @@ export class GirModule {
         const outParams: string[] = []
 
         if (parameters && parameters.length > 0) {
-            const parametersArray = parameters[0].parameter
-            if (parametersArray) {
+            const parametersArray = parameters[0].parameter || []
+            // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
+            const instanceParameter = parameters[0]["instance-parameter"]
+            if (instanceParameter && instanceParameter[0])
+            {
+                const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$.name : undefined
+                const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
+                const structFor = rec?.$['glib:is-gtype-struct-for']
+                const gobject = (this.name === "GObject" || this.name === "GLib") ? '' : 'GObject.'
+                if (structFor) {
+                    // TODO: Should use of a constructor, and even of an instance, be discouraged?
+                    def.push(`${instanceParameter[0].$.name}: ${structFor} | Function | ${gobject}Type`)
+                }
+            }
+            if (parametersArray.length) {
                 const skip = outArrayLengthIndex === -1 ? [] : [parametersArray[outArrayLengthIndex]]
 
                 this.processParams(parametersArray, skip, this.arrayLengthIndexLookup)
@@ -922,8 +935,8 @@ export class GirModule {
     /**
      * Some class/static methods are defined in a separate record which is not
      * exported, but the methods are available as members of the JS constructor.
-     * In gjs one can use an instance of the object or a JS constructor as the
-     * methods' instance-parameter.
+     * In gjs one can use an instance of the object, a JS constructor or a GType
+     * as the methods' instance-parameter.
      * @see https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
      * @param girClass
      */

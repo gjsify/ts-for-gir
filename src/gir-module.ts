@@ -258,7 +258,7 @@ export class GirModule {
     }
 
     private typeLookup(girVar: GirVariable): string {
-        let type: GirType
+        let type: GirType | null
         let arr: TypeArraySuffix = ''
         let arrCType: string | undefined
         let nul: TypeNullableSuffix = ''
@@ -280,6 +280,8 @@ export class GirModule {
             arr = '[]'
         } else if (girVar.type) {
             type = girVar.type[0]
+        } else if (girVar.callback?.length) {
+            type = null
         } else {
             return 'any'
         }
@@ -291,57 +293,64 @@ export class GirModule {
             }
         }
 
-        if (!type.$) return 'any'
-
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
+        let fullTypeName: string | null
 
-        if (arr) {
-            if (POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
-                return POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] + nul
-            }
-        }
+        if (girVar.callback?.length) {
+            fullTypeName = this.getFunction(girVar.callback[0], '', '', undefined, true)[0][0]
+            if (suffix.length)
+                fullTypeName = '(' + fullTypeName + ')'
+        } else {
+            if (!type?.$) return 'any'
 
-        if (POD_TYPE_MAP[type.$.name]) {
-            return POD_TYPE_MAP[type.$.name] + suffix
-        }
-
-        if (!this.name) return 'any'
-
-        let cType = type.$['c:type']
-        if (!cType && arrCType) cType = arrCType
-
-        if (cType) {
-            if (C_TYPE_MAP(this.packageName, suffix)[cType]) {
-                return C_TYPE_MAP(this.packageName, suffix)[cType]
-            }
-        }
-
-        let fullTypeName: string | null = type.$.name
-
-        if (typeof fullTypeName === 'string') {
-            if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
-                return FULL_TYPE_MAP(this.config.environment)[fullTypeName]
+            if (arr) {
+                if (POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
+                    return POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] + nul
+                }
             }
 
-            // Fully qualify our type name if need be
-            if (!fullTypeName.includes('.')) {
-                // eslint-disable-next-line @typescript-eslint/no-this-alias
-                let mod: GirModule = this
-                if (girVar._module) mod = girVar._module
-                fullTypeName = `${mod.name}.${type.$.name}`
+            if (POD_TYPE_MAP[type.$.name]) {
+                return POD_TYPE_MAP[type.$.name] + suffix
             }
-        }
 
-        if (!fullTypeName || !this.symTable[fullTypeName]) {
-            this.log.warn(`Could not find type '${fullTypeName}' for '${girVar.$.name}'`)
-            return ('any' + arr) as 'any' | 'any[]'
-        }
+            if (!this.name) return 'any'
 
-        if (fullTypeName.indexOf(this.name + '.') === 0) {
-            const ret = fullTypeName.substring(this.name.length + 1)
-            // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${girVar._module}`)
-            const result = ret + suffix
-            return result
+            let cType = type.$['c:type']
+            if (!cType && arrCType) cType = arrCType
+
+            if (cType) {
+                if (C_TYPE_MAP(this.packageName, suffix)[cType]) {
+                    return C_TYPE_MAP(this.packageName, suffix)[cType]
+                }
+            }
+
+            fullTypeName = type.$.name
+
+            if (typeof fullTypeName === 'string') {
+                if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
+                    return FULL_TYPE_MAP(this.config.environment)[fullTypeName]
+                }
+
+                // Fully qualify our type name if need be
+                if (!fullTypeName.includes('.')) {
+                    // eslint-disable-next-line @typescript-eslint/no-this-alias
+                    let mod: GirModule = this
+                    if (girVar._module) mod = girVar._module
+                    fullTypeName = `${mod.name}.${type.$.name}`
+                }
+            }
+
+            if (!fullTypeName || !this.symTable[fullTypeName]) {
+                this.log.warn(`Could not find type '${fullTypeName}' for '${girVar.$.name}'`)
+                return ('any' + arr) as 'any' | 'any[]'
+            }
+
+            if (fullTypeName.indexOf(this.name + '.') === 0) {
+                const ret = fullTypeName.substring(this.name.length + 1)
+                // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${girVar._module}`)
+                const result = ret + suffix
+                return result
+            }
         }
 
         return fullTypeName + suffix
@@ -543,6 +552,7 @@ export class GirModule {
         prefix: string,
         funcNamePrefix = '',
         overrideReturnType?: string,
+        arrowType = false,
     ): FunctionDescription {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true) || e.$['shadowed-by']) return [[], null]
 
@@ -579,8 +589,16 @@ export class GirModule {
         } else if (outParams.length === 1 && retTypeIsVoid) {
             retType = outParams[0]
         }
+        let retSep: string
+        if (arrowType) {
+            prefix = ''
+            name = ''
+            retSep = ' =>'
+        } else {
+            retSep = ':'
+        }
 
-        return [[`${prefix}${name}(${params}): ${retType}`], name]
+        return [[`${prefix}${name}(${params})${retSep} ${retType}`], name]
     }
 
     private getConstructorFunction(

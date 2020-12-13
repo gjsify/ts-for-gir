@@ -362,7 +362,7 @@ export class GirModule {
      * @param girVar
      */
     private typeLookupTransformed(girVar: GirVariable, out = true): string {
-        let names = this.typeLookup(girVar, out).split('.')
+        let names = this.typeLookup(girVar).split('.')
         names = names.map((name) => this.transformation.transformTypeName(name))
         return names.join('.')
     }

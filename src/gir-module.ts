@@ -257,8 +257,9 @@ export class GirModule {
         }
     }
 
-    private typeLookup(girVar: GirVariable, out = true): string {
-        let type: GirType
+    private typeLookup(girVar: GirVariable): string {
+        let type: GirType | null
+
         let arr: TypeArraySuffix = ''
         let arrCType: string | undefined
         let nul: TypeNullableSuffix = ''
@@ -280,6 +281,8 @@ export class GirModule {
             arr = '[]'
         } else if (girVar.type) {
             type = girVar.type[0]
+        } else if (girVar.callback?.length) {
+            type = null
         } else {
             return 'any'
         }
@@ -291,57 +294,64 @@ export class GirModule {
             }
         }
 
-        if (!type.$) return 'any'
-
         const suffix: TypeSuffix = (arr + nul) as TypeSuffix
+        let fullTypeName: string | null
 
-        if (arr) {
-            if (POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
-                return POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] + nul
-            }
-        }
+        if (girVar.callback?.length) {
+            fullTypeName = this.getFunction(girVar.callback[0], '', '', undefined, true)[0][0]
+            if (suffix.length)
+                fullTypeName = '(' + fullTypeName + ')'
+        } else {
+            if (!type?.$) return 'any'
 
-        if (POD_TYPE_MAP[type.$.name]) {
-            return POD_TYPE_MAP[type.$.name] + suffix
-        }
-
-        if (!this.name) return 'any'
-
-        let cType = type.$['c:type']
-        if (!cType && arrCType) cType = arrCType
-
-        if (cType) {
-            if (C_TYPE_MAP(this.packageName, suffix)[cType]) {
-                return C_TYPE_MAP(this.packageName, suffix)[cType]
-            }
-        }
-
-        let fullTypeName: string | null = type.$.name
-
-        if (typeof fullTypeName === 'string') {
-            if (FULL_TYPE_MAP(this.config.environment, out)[fullTypeName]) {
-                return FULL_TYPE_MAP(this.config.environment, out)[fullTypeName]
+            if (arr) {
+                if (POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
+                    return POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name] + nul
+                }
             }
 
-            // Fully qualify our type name if need be
-            if (!fullTypeName.includes('.')) {
-                // eslint-disable-next-line @typescript-eslint/no-this-alias
-                let mod: GirModule = this
-                if (girVar._module) mod = girVar._module
-                fullTypeName = `${mod.name}.${type.$.name}`
+            if (POD_TYPE_MAP[type.$.name]) {
+                return POD_TYPE_MAP[type.$.name] + suffix
             }
-        }
 
-        if (!fullTypeName || !this.symTable[fullTypeName]) {
-            this.log.warn(`Could not find type '${fullTypeName}' for '${girVar.$.name}'`)
-            return ('any' + arr) as 'any' | 'any[]'
-        }
+            if (!this.name) return 'any'
 
-        if (fullTypeName.indexOf(this.name + '.') === 0) {
-            const ret = fullTypeName.substring(this.name.length + 1)
-            // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${girVar._module}`)
-            const result = ret + suffix
-            return result
+            let cType = type.$['c:type']
+            if (!cType && arrCType) cType = arrCType
+
+            if (cType) {
+                if (C_TYPE_MAP(this.packageName, suffix)[cType]) {
+                    return C_TYPE_MAP(this.packageName, suffix)[cType]
+                }
+            }
+
+            fullTypeName = type.$.name
+
+            if (typeof fullTypeName === 'string') {
+                if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
+                    return FULL_TYPE_MAP(this.config.environment)[fullTypeName]
+                }
+
+                // Fully qualify our type name if need be
+                if (!fullTypeName.includes('.')) {
+                    // eslint-disable-next-line @typescript-eslint/no-this-alias
+                    let mod: GirModule = this
+                    if (girVar._module) mod = girVar._module
+                    fullTypeName = `${mod.name}.${type.$.name}`
+                }
+            }
+
+            if (!fullTypeName || !this.symTable[fullTypeName]) {
+                this.log.warn(`Could not find type '${fullTypeName}' for '${girVar.$.name}'`)
+                return ('any' + arr) as 'any' | 'any[]'
+            }
+
+            if (fullTypeName.indexOf(this.name + '.') === 0) {
+                const ret = fullTypeName.substring(this.name.length + 1)
+                // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${girVar._module}`)
+                const result = ret + suffix
+                return result
+            }
         }
 
         return fullTypeName + suffix
@@ -436,8 +446,21 @@ export class GirModule {
         const outParams: string[] = []
 
         if (parameters && parameters.length > 0) {
-            const parametersArray = parameters[0].parameter
-            if (parametersArray) {
+            const parametersArray = parameters[0].parameter || []
+            // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
+            const instanceParameter = parameters[0]["instance-parameter"]
+            if (instanceParameter && instanceParameter[0])
+            {
+                const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$.name : undefined
+                const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
+                const structFor = rec?.$['glib:is-gtype-struct-for']
+                const gobject = (this.name === "GObject" || this.name === "GLib") ? '' : 'GObject.'
+                if (structFor) {
+                    // TODO: Should use of a constructor, and even of an instance, be discouraged?
+                    def.push(`${instanceParameter[0].$.name}: ${structFor} | Function | ${gobject}Type`)
+                }
+            }
+            if (parametersArray.length) {
                 const skip = outArrayLengthIndex === -1 ? [] : [parametersArray[outArrayLengthIndex]]
 
                 this.processParams(parametersArray, skip, this.arrayLengthIndexLookup)
@@ -545,6 +568,7 @@ export class GirModule {
         prefix: string,
         funcNamePrefix = '',
         overrideReturnType?: string,
+        arrowType = false,
     ): FunctionDescription {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true) || e.$['shadowed-by']) return [[], null]
 
@@ -581,8 +605,16 @@ export class GirModule {
         } else if (outParams.length === 1 && retTypeIsVoid) {
             retType = outParams[0]
         }
+        let retSep: string
+        if (arrowType) {
+            prefix = ''
+            name = ''
+            retSep = ' =>'
+        } else {
+            retSep = ':'
+        }
 
-        return [[`${prefix}${name}(${params}): ${retType}`], name]
+        return [[`${prefix}${name}(${params})${retSep} ${retType}`], name]
     }
 
     private getConstructorFunction(
@@ -643,8 +675,11 @@ export class GirModule {
 
             // check circular dependency
             if (typeof parentPtr?.$?.parent === 'string') {
-                if (parentPtr.$.parent === girClass.$.name) {
-                    this.log.warn(`Circular dependency found! Ignore next parent "${parentPtr.$.parent}".`)
+                let parentName = parentPtr.$.parent
+                if (parentName.indexOf('.') < 0 && parentPtr._module?.name)
+                    parentName = parentPtr._module.name + '.' + parentName
+                if (parentName === girClass._fullSymName) {
+                    this.log.warn(`Circular dependency found! Ignore next parent "${parentName}".`)
                     recursive = false
                 }
             }
@@ -903,8 +938,8 @@ export class GirModule {
     /**
      * Some class/static methods are defined in a separate record which is not
      * exported, but the methods are available as members of the JS constructor.
-     * In gjs one can use an instance of the object or a JS constructor as the
-     * methods' instance-parameter.
+     * In gjs one can use an instance of the object, a JS constructor or a GType
+     * as the methods' instance-parameter.
      * @see https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
      * @param girClass
      */

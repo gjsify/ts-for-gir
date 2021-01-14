@@ -5,6 +5,7 @@
 import { flags } from '@oclif/command'
 import { cosmiconfig, Options as ConfigSearchOptions } from 'cosmiconfig'
 import Path from 'path'
+import OS from 'os'
 import { Utils } from './utils'
 import { Environment, BuildType, UserConfig, ConfigFlags, UserConfigLoadResult, GenerateConfig } from './types'
 import { promises as fs } from 'fs'
@@ -23,7 +24,7 @@ export class Config {
         pretty: false,
         print: false,
         outdir: '@types',
-        girDirectories: ['/usr/share/gir-1.0'],
+        girDirectories: [OS.platform() === 'darwin' ? '/usr/local/share/gir-1.0' : '/usr/share/gir-1.0'],
         modules: ['*'],
         ignore: [],
         verbose: true,

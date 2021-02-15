@@ -2,11 +2,8 @@ import './global'
 import './@types/Gjs/index'
 import gladeFile from './builderExample.glade'
 import * as Gtk from './@types/Gjs/Gtk-3.0'
-// import { giCast } from './@types/Gjs/cast'
 
 Gtk.init(null)
-
-// =====
 
 const builder = Gtk.Builder.new_from_string(gladeFile, gladeFile.length)
 const win = builder.get_object('mainWindow') as Gtk.Window

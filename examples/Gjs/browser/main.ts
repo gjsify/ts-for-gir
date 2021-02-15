@@ -3,7 +3,7 @@ import * as Gtk from './@types/Gjs/Gtk-3.0'
 import * as Pango from './@types/Gjs/Pango-1.0'
 import * as WebKit from './@types/Gjs/WebKit2-4.0'
 
-function makeButton(label: string, callback): Gtk.Button {
+function makeButton(label: string, callback: () => void): Gtk.Button {
     const but = new Gtk.Button()
     but.set_label(label)
     but.get_child()?.modify_font(Pango.FontDescription.from_string('sans bold 16'))
@@ -70,12 +70,12 @@ webview.connect('notify::is-loading', () => {
     spinner.active = webview.is_loading
 })
 
-scrolledWindow.add((webview as unknown) as Gtk.Widget) // TODO
+scrolledWindow.add(webview)
 box.pack_start(hbox, false, true, 0)
 box.pack_start(scrolledWindow, true, true, 0)
 wnd.add(box)
 wnd.show_all()
 
-webview.load_uri('http://www.google.com')
+webview.load_uri('https://duckduckgo.com/')
 
 Gtk.main()

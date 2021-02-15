@@ -1,4 +1,32 @@
 {
   "editor.tabSize": 4,
-  "typescript.tsdk": "./node_modules/typescript/lib"
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "cSpell.words": [
+    "Overloadable",
+    "Pango",
+    "Vals",
+    "bitfield",
+    "cosmiconfig",
+    "dups",
+    "gettext",
+    "girs",
+    "globby",
+    "gobject",
+    "gtype",
+    "halign",
+    "hbox",
+    "iface",
+    "iface's",
+    "inout",
+    "introspectable",
+    "monospace",
+    "oclif",
+    "outdir",
+    "realh",
+    "romgrk",
+    "setlocale",
+    "struct",
+    "submodule",
+    "vfunc"
+  ]
 }

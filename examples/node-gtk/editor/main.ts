@@ -14,10 +14,9 @@ srcView.autoIndent = true
 srcView.showLineNumbers = true
 srcView.monospace = true
 
-// TODO
-// const buf = srcView.getBuffer() as GtkSource.Buffer
-// const lang = GtkSource.LanguageManager.getDefault().getLanguage('js')
-// buf.setLanguage(lang)
+const buf = srcView.getBuffer() as GtkSource.Buffer
+const lang = GtkSource.LanguageManager.getDefault().getLanguage('js')
+buf.setLanguage(lang)
 
 notebook.add(srcView)
 

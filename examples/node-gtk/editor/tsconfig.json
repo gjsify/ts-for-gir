@@ -11,7 +11,7 @@
     "target": "ES6",
     "sourceMap": true,
     "outDir": "./dist",
-    "typeRoots" : ["./@types"]
+    "typeRoots" : ["node_modules/@types", "./@types"]
   },
   "include": [
     "main.ts"

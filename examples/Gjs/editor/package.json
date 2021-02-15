@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run build:types && npm run build:wp",
     "build:wp": "npm run clear:ts && webpack",
-    "build:types": "npm run clear:types && ../../../bin/run generate Gtk-3.0 GtkSource-3.0 -e gjs",
+    "build:types": "../../../bin/run generate Gtk-3.0 GtkSource-3.0 -e gjs",
     "clear:types": "rm -rf ./@types",
     "clear:ts": "rm -rf ./dist",
     "clear": "npm run clear:ts && npm run build:types",

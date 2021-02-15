@@ -10,8 +10,9 @@ import { Logger } from './logger'
 
 export const POD_TYPE_MAP_ARRAY = (environment: Environment): { guint8: string; gint8: string; gunichar: string } => {
     return {
-        guint8: environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
-        gint8: environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
+        guint8: environment === 'gjs' ? 'Uint8Array' : 'any', // TODO
+        // Int8Array would probably be more appropriate for gint8, but Uint8Array is better supported
+        gint8: environment === 'gjs' ? 'Uint8Array' : 'any', // TODO
         gunichar: 'string',
     }
 }
@@ -57,14 +58,36 @@ export const C_TYPE_MAP = (targetFullName?: string, suffix: TypeSuffix = ''): CT
     }
 }
 
-export const FULL_TYPE_MAP = (
-    environment: Environment,
-): { 'GObject.Value': string; 'GObject.Closure': string; 'GLib.ByteArray': string; 'GLib.Bytes': string } => {
+interface FullTypeMap {
+    'GObject.Value': string
+    'GObject.Closure': string
+    'GLib.ByteArray': string
+    'GLib.Bytes'?: string
+}
+
+// Gjs is permissive for byte-array in parameters but strict for out/return
+// See <https://discourse.gnome.org/t/gjs-bytearray-vs-glib-bytes/4900>
+export const FULL_TYPE_MAP = (environment: Environment, out = true): FullTypeMap => {
+    let ba: string
+    let gb: string | undefined
+    if (environment === 'gjs') {
+        ba = 'Uint8Array'
+        if (out === false) {
+            ba += ' | Gjs.byteArray.ByteArray'
+            gb = 'GLib.Bytes | Uint8Array | Gjs.byteArray.ByteArray'
+        } else {
+            gb = undefined // No transformation
+        }
+    } else {
+        // TODO
+        ba = 'any'
+        gb = 'any'
+    }
     return {
         'GObject.Value': 'any',
         'GObject.Closure': 'Function',
-        'GLib.ByteArray': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
-        'GLib.Bytes': environment === 'gjs' ? 'Gjs.byteArray.ByteArray' : 'any', // TODO
+        'GLib.ByteArray': ba,
+        'GLib.Bytes': gb,
     }
 }
 

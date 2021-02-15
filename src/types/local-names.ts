@@ -1,3 +1,5 @@
+import { LocalName } from './local-name'
+
 export interface LocalNames {
-    [key: string]: true
+    [key: string]: LocalName
 }

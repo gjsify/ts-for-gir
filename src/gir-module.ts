@@ -25,8 +25,11 @@ import {
     GenerateConfig,
     FunctionDescription,
     FunctionMap,
+    LocalNameType,
+    LocalName,
     LocalNames,
     ClassDetails,
+    VarDesc,
 } from './types'
 
 /**
@@ -34,7 +37,7 @@ import {
  */
 export const STATIC_NAME_ALREADY_EXISTS = ['GMime.Charset', 'Camel.StoreInfo']
 
-export const MAXIMUM_RECUSION_DEPTH = 100
+export const MAXIMUM_RECURSION_DEPTH = 100
 
 export class GirModule {
     /**
@@ -360,7 +363,7 @@ export class GirModule {
      * E.g. replaces something like `NetworkManager.80211ApFlags` with `NetworkManager.TODO_80211ApFlags`
      * @param girVar
      */
-    private typeLookupTransformed(girVar: GirVariable, out = true): string {
+    private typeLookupTransformed(girVar: GirVariable): string {
         let names = this.typeLookup(girVar).split('.')
         names = names.map((name) => this.transformation.transformTypeName(name))
         return names.join('.')
@@ -380,7 +383,7 @@ export class GirModule {
 
         const returnVal = func['return-value'] ? func['return-value'][0] : null
         if (returnVal) {
-            returnType = this.typeLookupTransformed(returnVal, true)
+            returnType = this.typeLookupTransformed(returnVal)
             outArrayLengthIndex =
                 returnVal.array && returnVal.array[0].$?.length ? Number(returnVal.array[0].$.length) : -1
         }
@@ -428,7 +431,7 @@ export class GirModule {
 
     /**
      * Checks if the parameter is nullable or optional.
-     * TODO Check if it makes sence to split this in `paramIsNullable` and `paramIsOptional`
+     * TODO Check if it makes sense to split this in `paramIsNullable` and `paramIsOptional`
      *
      * @param param Param to test
      *
@@ -447,13 +450,12 @@ export class GirModule {
         if (parameters && parameters.length > 0) {
             const parametersArray = parameters[0].parameter || []
             // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
-            const instanceParameter = parameters[0]["instance-parameter"]
-            if (instanceParameter && instanceParameter[0])
-            {
+            const instanceParameter = parameters[0]['instance-parameter']
+            if (instanceParameter && instanceParameter[0]) {
                 const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$.name : undefined
                 const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
                 const structFor = rec?.$['glib:is-gtype-struct-for']
-                const gobject = (this.name === "GObject" || this.name === "GLib") ? '' : 'GObject.'
+                const gobject = this.name === 'GObject' || this.name === 'GLib' ? '' : 'GObject.'
                 if (structFor) {
                     // TODO: Should use of a constructor, and even of an instance, be discouraged?
                     def.push(`${instanceParameter[0].$.name}: ${structFor} | Function | ${gobject}Type`)
@@ -475,7 +477,7 @@ export class GirModule {
                     const out = optDirection === 'out' || optDirection == 'inout'
                     // I think it's safest to force inout params to have the
                     // same type for in and out
-                    const paramType = this.typeLookupTransformed(param, out)
+                    const paramType = this.typeLookupTransformed(param)
 
                     if (out) {
                         outParams.push(`/* ${paramName} */ ${paramType}`)
@@ -529,12 +531,13 @@ export class GirModule {
         }
         // Use the out type because in can be a union which isn't appropriate
         // for a property
-        let typeName = this.typeLookupTransformed(v, true)
+        let typeName = this.typeLookupTransformed(v)
         const nameSuffix = optional ? '?' : ''
 
         typeName = this.transformation.transformTypeName(typeName)
+        const desc: VarDesc = [`${name}${nameSuffix}: ${typeName}`]
 
-        return [[`${name}${nameSuffix}: ${typeName}`], name]
+        return [desc, name]
     }
 
     /**
@@ -690,10 +693,10 @@ export class GirModule {
 
         callback(girClass)
 
-        if (depth >= MAXIMUM_RECUSION_DEPTH) {
-            this.log.warn(`Maximum recursion depth of ${MAXIMUM_RECUSION_DEPTH} reached for "${girClass.$.name}"`)
+        if (depth >= MAXIMUM_RECURSION_DEPTH) {
+            this.log.warn(`Maximum recursion depth of ${MAXIMUM_RECURSION_DEPTH} reached for "${girClass.$.name}"`)
         } else {
-            if (parentPtr && recursive && depth <= MAXIMUM_RECUSION_DEPTH) {
+            if (parentPtr && recursive && depth <= MAXIMUM_RECURSION_DEPTH) {
                 this.traverseInheritanceTree(parentPtr, callback, ++depth, recursive)
             }
         }
@@ -756,7 +759,14 @@ export class GirModule {
         return ret
     }
 
-    private checkName(desc: string[], name: string | null, localNames: LocalNames): [string[], boolean] {
+    private checkNameExists(
+        desc: VarDesc,
+        name: string | null,
+        localNames: LocalNames,
+        type: LocalNameType,
+    ): [string[], boolean] {
+        const debugMe = false // If true this method logs debug messages
+
         if (!desc || desc.length === 0) return [[], false]
 
         if (!name) {
@@ -764,12 +774,46 @@ export class GirModule {
             return [[], false]
         }
 
-        if (localNames[name]) {
-            // this.log.warn(`Name ${name} already defined (${desc})`)
-            return [[], false]
+        let isOverloadable = false
+
+        // Methods are overloadable by typescript
+        // TODO Add support for properties
+        if (type === 'method') {
+            isOverloadable = true
         }
 
-        localNames[name] = true
+        if (localNames[name] && localNames[name].desc) {
+            // Ignore duplicates with the same type
+            if (Utils.isEqual(localNames[name].desc, desc)) {
+                return [[], false]
+            }
+            if (debugMe) {
+                this.log.warn(
+                    `FIXME: Same name "${name}" with different type found:\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n Defined: ${desc}\n`,
+                )
+            }
+
+            // Ignore if current method is not overloadable
+            if (!isOverloadable) {
+                return [[], false]
+            }
+
+            // Only names of the same type are overloadable
+            if (localNames[name].type !== type) {
+                return [[], false]
+            }
+
+            if (debugMe) {
+                this.log.debug(`Overload ${type} ${name}\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n`)
+            }
+        }
+
+        localNames[name] = localNames[name] || {}
+        const localName: LocalName = {
+            desc,
+            type,
+        }
+        localNames[name] = localName
         return [desc, true]
     }
 
@@ -779,7 +823,7 @@ export class GirModule {
             for (const f of cls.field) {
                 const [desc, name] = this.getVariable(f, false, false, 'field')
 
-                const [aDesc, added] = this.checkName(desc, name, localNames)
+                const [aDesc, added] = this.checkNameExists(desc, name, localNames, 'field')
                 if (added) {
                     def.push(`    ${aDesc[0]}`)
                 }
@@ -796,7 +840,7 @@ export class GirModule {
         if (cls.property) {
             for (const p of cls.property) {
                 const [desc, name, origName] = this.getProperty(p)
-                const [aDesc, added] = this.checkName(desc, name, localNames)
+                const [aDesc, added] = this.checkNameExists(desc, name, localNames, 'property')
                 if (added) {
                     if (origName) propertyNames.push(origName)
                 }
@@ -819,7 +863,7 @@ export class GirModule {
         if (cls.method) {
             for (const func of cls.method) {
                 const [desc, name] = this.getFunction(func, '    ')
-                def.push(...this.checkName(desc, name, localNames)[0])
+                def.push(...this.checkNameExists(desc, name, localNames, 'method')[0])
             }
         }
         if (def.length) {
@@ -1234,11 +1278,11 @@ export class GirModule {
             }
 
             def.push(`export interface ${name}_ConstructProps ${ext}{`)
-            const constructPropNames = {}
+            const constructPropNames: LocalNames = {}
             if (girClass.property) {
                 for (const p of girClass.property) {
                     const [desc, name] = this.getProperty(p, true, true)
-                    def.push(...this.checkName(desc, name, constructPropNames)[0])
+                    def.push(...this.checkNameExists(desc, name, constructPropNames, 'property')[0])
                 }
             }
             // Include props of implemented interfaces
@@ -1247,7 +1291,7 @@ export class GirModule {
                     if (iface.property) {
                         for (const p of iface.property) {
                             const [desc, name] = this.getProperty(p, true, true)
-                            def.push(...this.checkName(desc, name, constructPropNames)[0])
+                            def.push(...this.checkNameExists(desc, name, constructPropNames, 'property')[0])
                         }
                     }
                 })
@@ -1384,7 +1428,7 @@ export class GirModule {
     public exportAlias(girAlias: GirAlias): string[] {
         if (!girAlias || !girAlias.$ || !this.girBool(girAlias.$.introspectable, true)) return []
 
-        const typeName = this.typeLookupTransformed(girAlias, true)
+        const typeName = this.typeLookupTransformed(girAlias)
         const name = girAlias.$.name
         return [`type ${name} = ${typeName}`]
     }

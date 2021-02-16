@@ -9,5 +9,5 @@ export interface GirModulesGrouped {
     /**
      * E.g. Gtk
      */
-    name: string
+    namespace: string
 }

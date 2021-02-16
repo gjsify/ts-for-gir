@@ -41,12 +41,12 @@ export class ModuleLoader {
         const girModulesGrouped: GirModulesGroupedMap = {}
 
         for (const resolveGirModule of resolveGirModules) {
-            const { name } = Utils.splitModuleName(resolveGirModule.packageName)
-            const id = name.toLowerCase()
+            const { namespace } = Utils.splitModuleName(resolveGirModule.packageName)
+            const id = namespace.toLowerCase()
 
             if (!girModulesGrouped[id]) {
                 girModulesGrouped[id] = {
-                    name: name,
+                    namespace: namespace,
                     modules: [resolveGirModule],
                     hasConflict: false,
                 }
@@ -154,10 +154,10 @@ export class ModuleLoader {
         girModuleGrouped: GirModulesGrouped,
         message?: string,
     ): inquirer.ListQuestion {
-        message = message || `Multiple versions of '${girModuleGrouped.name}' found, which one do you want to use?`
+        message = message || `Multiple versions of '${girModuleGrouped.namespace}' found, which one do you want to use?`
         const choices = ['All', ...girModuleGrouped.modules.map((module) => module.packageName)]
         const question: inquirer.ListQuestion = {
-            name: girModuleGrouped.name,
+            name: girModuleGrouped.namespace,
             message,
             type: 'list',
             choices,
@@ -212,13 +212,12 @@ export class ModuleLoader {
         if (!choices) {
             throw new Error('No valid questions!')
         }
-        const selected: string = (await inquirer.prompt([question]))[girModulesGrouped.name]
+        const selected: string = (await inquirer.prompt([question]))[girModulesGrouped.namespace]
         if (!selected) {
             throw new Error('No valid answer!')
         }
 
         if (selected === 'All') {
-            console.debug('Use all module version', selected, question)
             return {
                 selected: choices.filter((choice) => choice !== 'All'),
                 unselected: [],
@@ -357,9 +356,9 @@ export class ModuleLoader {
         this.modDependencyMap[girModule.packageName || '-'] = Utils.map(
             girModule.dependencies || [],
             (packageName: string): Dependency => {
-                const { name, version } = Utils.splitModuleName(packageName)
+                const { namespace, version } = Utils.splitModuleName(packageName)
                 return {
-                    name,
+                    namespace,
                     version,
                     packageName,
                 }

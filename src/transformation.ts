@@ -107,6 +107,7 @@ export const RESERVED_VARIABLE_NAMES = [
     'class',
     'delete',
     'return',
+    'this', // TODO check if this is used as we would use this in javascript, if so, this is only allowed as the first parameter
 ]
 
 export const RESERVED_CLASS_NAMES = [

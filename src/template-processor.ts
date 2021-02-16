@@ -17,15 +17,19 @@ const lint = new CLIEngine({ ignore: false, fix: true, useEslintrc: true })
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 
 export class TemplateProcessor {
-    private environmentTemplateDir: string
-    private log: Logger
+    protected environmentTemplateDir: string
+    protected log: Logger
+    protected transformation: Transformation
+    protected packageName: string
     constructor(
         protected readonly data: ejs.Data | undefined,
-        moduleName = 'TemplateProcessor',
-        private readonly config: GenerateConfig,
+        packageName: string,
+        protected readonly config: GenerateConfig,
     ) {
+        this.packageName = packageName
+        this.transformation = new Transformation(this.packageName, config)
         this.environmentTemplateDir = Transformation.getEnvironmentDir(config.environment, TEMPLATE_DIR)
-        this.log = new Logger(config.environment, config.verbose, moduleName)
+        this.log = new Logger(config.environment, config.verbose, this.packageName)
     }
 
     public static generateIndent(indents = 1, spaceForIndent = 4): string {
@@ -44,20 +48,28 @@ export class TemplateProcessor {
         return result
     }
 
-    public static generateModuleDependenciesImport(
+    /**
+     *
+     * @param namespace E.g. 'Gtk'
+     * @param packageName E.g. 'Gtk-3.0'
+     * @param asExternType Currently only used for node type imports
+     * @param config
+     */
+    public generateModuleDependenciesImport(
         namespace: string,
-        baseFilename: string,
-        asType = false,
+        packageName: string,
+        asExternType = false,
         config: GenerateConfig,
     ): string[] {
         const result: string[] = []
         if (config.buildType === 'lib') {
-            result.push(`import * as ${namespace} from './${baseFilename}';`)
+            result.push(`import type * as ${namespace} from './${packageName}';`)
         } else {
-            if (asType) {
-                result.push(`/// <reference types="${baseFilename}" />`)
+            if (asExternType) {
+                result.push(`/// <reference types="${packageName}" />`)
             } else {
-                result.push(`/// <reference path="${baseFilename}.d.ts" />`)
+                // result.push(`/// <reference path="${packageName}.d.ts" />`)
+                result.push(`import type { ${namespace} } from './${packageName}';`)
             }
         }
         return result

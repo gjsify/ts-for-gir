@@ -49,7 +49,7 @@ export class Generator {
         }
     }
 
-    private finaliseInheritance(inheritanceTable: InheritanceTable): void {
+    private finalizeInheritance(inheritanceTable: InheritanceTable): void {
         for (const clsName of Object.keys(inheritanceTable)) {
             let p: string | string[] = inheritanceTable[clsName][0]
             while (p) {
@@ -79,7 +79,7 @@ export class Generator {
         const inheritanceTable: InheritanceTable = {}
         for (const girModule of girModules) girModule.loadInheritance(inheritanceTable)
 
-        this.finaliseInheritance(inheritanceTable)
+        this.finalizeInheritance(inheritanceTable)
 
         const patch = {
             'Atk.Object.get_description': [

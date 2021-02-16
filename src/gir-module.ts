@@ -43,7 +43,7 @@ export class GirModule {
     /**
      * E.g. 'Gtk'
      */
-    name: string
+    namespace: string
     /**
      * E.g. '3.0'
      */
@@ -57,8 +57,14 @@ export class GirModule {
      * Is used in the generated index.d.ts, for example: `import * as Gtk30 from "./Gtk-3.0";`
      */
     importName: string
+
     dependencies: string[] = []
     transitiveDependencies: string[] = []
+
+    get allDependencies(): string[] {
+        return [...new Set([...this.dependencies, ...this.transitiveDependencies])]
+    }
+
     repo: GirRepository
     ns: GirNamespace = { $: { name: '', version: '' } }
     /**
@@ -69,6 +75,7 @@ export class GirModule {
     transformation: Transformation
     extends?: string
     log: Logger
+    templateProcessor: TemplateProcessor
 
     /**
      * To prevent constants from being exported twice, the names already exported are saved here for comparison.
@@ -86,16 +93,25 @@ export class GirModule {
         if (!this.repo.namespace || !this.repo.namespace.length) {
             throw new Error(`Namespace not found!`)
         }
-        if (this.repo.include) {
-            this.dependencies = this.loadDependencies(this.repo.include)
-        }
+
+        this.dependencies = this.loadDependencies(this.repo.include || [])
         this.ns = this.repo.namespace[0]
-        this.name = this.ns.$.name
+        this.namespace = this.ns.$.name
         this.version = this.ns.$.version
-        this.packageName = `${this.name}-${this.version}`
+        this.packageName = `${this.namespace}-${this.version}`
         this.transformation = new Transformation(this.packageName, config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
+
+        this.templateProcessor = new TemplateProcessor(
+            {
+                name: this.namespace,
+                version: this.version,
+                importName: this.importName,
+            },
+            this.packageName,
+            this.config,
+        )
     }
 
     private loadDependencies(girInclude: GirInclude[]): string[] {
@@ -103,6 +119,36 @@ export class GirModule {
         for (const i of girInclude) {
             dependencies.unshift(`${i.$.name}-${i.$.version}`)
         }
+
+        // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
+        if (this.packageName !== 'GObject-2.0') {
+            if (!Utils.find(dependencies, (x) => x === 'GObject-2.0')) {
+                dependencies.push('GObject-2.0')
+            }
+        }
+
+        // Add missing dependencies
+        // if (this.packageName === 'Gtk-3.0') {
+        //     if (!Utils.find(dependencies, (x) => x === 'Graphene-1.0')) {
+        //         dependencies.push('Graphene-1.0')
+        //     }
+        // }
+        if (this.packageName === 'UnityExtras-7.0') {
+            if (!Utils.find(dependencies, (x) => x === 'Unity-7.0')) {
+                dependencies.push('Unity-7.0')
+            }
+        }
+        if (this.packageName === 'UnityExtras-6.0') {
+            if (!Utils.find(dependencies, (x) => x === 'Unity-6.0')) {
+                dependencies.push('Unity-6.0')
+            }
+        }
+        if (this.packageName === 'GTop-2.0') {
+            if (!Utils.find(dependencies, (x) => x === 'GLib-2.0')) {
+                dependencies.push('GLib-2.0')
+            }
+        }
+
         return dependencies
     }
 
@@ -137,7 +183,7 @@ export class GirModule {
         if (funcs)
             for (const func of funcs) {
                 if (func.$ && func.$.name) {
-                    const nsName = girClass ? girClass._fullSymName : this.name
+                    const nsName = girClass ? girClass._fullSymName : this.namespace
                     func._fullSymName = `${nsName}.${func.$.name}`
                     this.annotateFunctionArguments(func)
                     this.annotateFunctionReturn(func)
@@ -148,7 +194,7 @@ export class GirModule {
     private annotateVariables(girClass: GirClass | null, girVars?: GirVariable[]): void {
         if (girVars)
             for (const girVar of girVars) {
-                const nsName = girClass ? girClass._fullSymName : this.name
+                const nsName = girClass ? girClass._fullSymName : this.namespace
                 girVar._module = this
                 if (girVar.$ && girVar.$.name) {
                     girVar._fullSymName = `${nsName}.${girVar.$.name}`
@@ -156,38 +202,39 @@ export class GirModule {
             }
     }
 
-    private loadTypesInternal(dict: SymTable, girConstructs?: GirConstruct[]): void {
+    private loadTypesInternal(symTable: SymTable, girConstructs?: GirConstruct[]): void {
         if (girConstructs) {
             for (const girConstruct of girConstructs) {
                 if (girConstruct?.$) {
                     if ((girConstruct as GirVariable | GirFunction).$.introspectable) {
                         if (!this.girBool((girConstruct as GirVariable | GirFunction).$.introspectable, true)) continue
                     }
-                    const symName = `${this.name}.${girConstruct.$.name}`
-                    if (dict[symName]) {
+                    const symName = `${this.namespace}.${girConstruct.$.name}`
+                    const key = this.getSymTableKey(symName)
+                    if (symTable[key]) {
                         this.log.warn(`Duplicate symbol: ${symName}`)
                         debugger
                     }
 
                     girConstruct._module = this
                     girConstruct._fullSymName = symName
-                    dict[symName] = girConstruct
+                    symTable[key] = girConstruct
                 }
             }
         }
     }
 
-    public loadTypes(dict: SymTable): void {
-        this.loadTypesInternal(dict, this.ns.bitfield)
-        this.loadTypesInternal(dict, this.ns.callback)
-        this.loadTypesInternal(dict, this.ns.class)
-        this.loadTypesInternal(dict, this.ns.constant)
-        this.loadTypesInternal(dict, this.ns.enumeration)
-        this.loadTypesInternal(dict, this.ns.function)
-        this.loadTypesInternal(dict, this.ns.interface)
-        this.loadTypesInternal(dict, this.ns.record)
-        this.loadTypesInternal(dict, this.ns.union)
-        this.loadTypesInternal(dict, this.ns.alias)
+    public loadTypes(symTable: SymTable): void {
+        this.loadTypesInternal(symTable, this.ns.bitfield)
+        this.loadTypesInternal(symTable, this.ns.callback)
+        this.loadTypesInternal(symTable, this.ns.class)
+        this.loadTypesInternal(symTable, this.ns.constant)
+        this.loadTypesInternal(symTable, this.ns.enumeration)
+        this.loadTypesInternal(symTable, this.ns.function)
+        this.loadTypesInternal(symTable, this.ns.interface)
+        this.loadTypesInternal(symTable, this.ns.record)
+        this.loadTypesInternal(symTable, this.ns.union)
+        this.loadTypesInternal(symTable, this.ns.alias)
 
         if (this.ns.callback) for (const func of this.ns.callback) this.annotateFunctionArguments(func)
 
@@ -197,7 +244,7 @@ export class GirModule {
 
         for (const girClass of girClasses) {
             girClass._module = this
-            girClass._fullSymName = `${this.name}.${girClass.$.name}`
+            girClass._fullSymName = `${this.namespace}.${girClass.$.name}`
             const cons = girClass.constructor instanceof Array ? girClass.constructor : []
             this.annotateFunctions(girClass, cons)
             this.annotateFunctions(girClass, girClass.function || [])
@@ -215,7 +262,7 @@ export class GirModule {
         // if (this.ns.)
         // props
 
-        this.symTable = dict
+        this.symTable = symTable
     }
 
     public loadInheritance(inheritanceTable: InheritanceTable): void {
@@ -227,7 +274,7 @@ export class GirModule {
             if (!cls._fullSymName) continue
 
             if (parent.indexOf('.') < 0) {
-                parent = this.name + '.' + parent
+                parent = this.namespace + '.' + parent
             }
             const clsName = cls._fullSymName
 
@@ -316,7 +363,7 @@ export class GirModule {
                 return POD_TYPE_MAP[type.$.name] + suffix
             }
 
-            if (!this.name) return 'any'
+            if (!this.namespace) return 'any'
 
             let cType = type.$['c:type']
             if (!cType && arrCType) cType = arrCType
@@ -327,7 +374,7 @@ export class GirModule {
                 }
             }
 
-            fullTypeName = type.$.name
+            fullTypeName = type.$.name || null
 
             if (typeof fullTypeName === 'string') {
                 if (FULL_TYPE_MAP(this.config.environment)[fullTypeName]) {
@@ -339,24 +386,25 @@ export class GirModule {
                     // eslint-disable-next-line @typescript-eslint/no-this-alias
                     let mod: GirModule = this
                     if (girVar._module) mod = girVar._module
-                    fullTypeName = `${mod.name}.${type.$.name}`
+                    fullTypeName = `${mod.namespace}.${type.$.name}`
                 }
             }
 
-            if (!fullTypeName || !this.symTable[fullTypeName]) {
-                this.log.warn(`Could not find type '${fullTypeName}' for '${girVar.$.name}'`)
+            if (!fullTypeName) {
+                this.log.warn(`Could not find type for '${girVar.$.name}'`)
                 return ('any' + arr) as 'any' | 'any[]'
             }
 
-            if (fullTypeName.indexOf(this.name + '.') === 0) {
-                const ret = fullTypeName.substring(this.name.length + 1)
-                // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.name} -- ${girVar._module}`)
+            if (fullTypeName.startsWith(this.namespace + '.')) {
+                const ret = fullTypeName.substring(this.namespace.length + 1)
+                // this.log.warn(`Rewriting ${fullTypeName} to ${ret} + ${suffix} -- ${this.namespace} -- ${girVar._module}`)
                 const result = ret + suffix
                 return result
             }
         }
 
-        return fullTypeName + suffix
+        const result = fullTypeName + suffix
+        return result
     }
 
     /**
@@ -455,7 +503,7 @@ export class GirModule {
                 const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$.name : undefined
                 const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
                 const structFor = rec?.$['glib:is-gtype-struct-for']
-                const gobject = this.name === 'GObject' || this.name === 'GLib' ? '' : 'GObject.'
+                const gobject = this.namespace === 'GObject' || this.namespace === 'GLib' ? '' : 'GObject.'
                 if (structFor) {
                     // TODO: Should use of a constructor, and even of an instance, be discouraged?
                     def.push(`${instanceParameter[0].$.name}: ${structFor} | Function | ${gobject}Type`)
@@ -663,23 +711,26 @@ export class GirModule {
         let name = girClass.$.name
 
         if (name.indexOf('.') < 0) {
-            name = this.name + '.' + name
+            name = this.namespace + '.' + name
         }
 
         if (parentName && qualifiedParentName) {
-            if (this.symTable[qualifiedParentName]) {
-                parentPtr = (this.symTable[qualifiedParentName] as GirClass | null) || null
+            const key = this.getSymTableKey(qualifiedParentName)
+
+            if (this.symTable[key]) {
+                parentPtr = (this.symTable[key] as GirClass | null) || null
             }
 
             if (!parentPtr && parentName == 'Object') {
+                // TODO symTable
                 parentPtr = (this.symTable['GObject.Object'] as GirClass) || null
             }
 
             // check circular dependency
             if (typeof parentPtr?.$?.parent === 'string') {
                 let parentName = parentPtr.$.parent
-                if (parentName.indexOf('.') < 0 && parentPtr._module?.name)
-                    parentName = parentPtr._module.name + '.' + parentName
+                if (parentName.indexOf('.') < 0 && parentPtr._module?.namespace)
+                    parentName = parentPtr._module.namespace + '.' + parentName
                 if (parentName === girClass._fullSymName) {
                     this.log.warn(`Circular dependency found! Ignore next parent "${parentName}".`)
                     recursive = false
@@ -702,6 +753,37 @@ export class GirModule {
         }
     }
 
+    /**
+     * Get4 symTable key, we use this method to prepend the package version to each key for version conflicts
+     * @param implementation E.g. Gtk.Window
+     */
+    private getSymTableKey(implementation: string) {
+        if (implementation.startsWith(this.packageName + '.')) {
+            return implementation
+        }
+
+        if (implementation.startsWith(this.namespace + '.')) {
+            return this.packageName + '.' + implementation
+        }
+
+        if (!implementation.includes('.')) {
+            return this.packageName + '.' + this.namespace + '.' + implementation
+        }
+
+        const split = implementation.split('.')
+        // const typeName = split[split.length - 1]
+        const namespace = split.slice(0, split.length - 1).join('.')
+        const packageName = this.allDependencies.find((dependency) => dependency.startsWith(namespace + '-'))
+        if (!packageName) {
+            this.log.warn(`Package name for namespace ${namespace} not found! (${implementation})`)
+            if (namespace === 'Atk') {
+                console.log('dependencies', this.dependencies)
+            }
+            return implementation
+        }
+        return packageName + '.' + implementation
+    }
+
     private forEachInterface(
         girClass: GirClass,
         callback: (cls: GirClass) => void,
@@ -712,13 +794,14 @@ export class GirModule {
             let name = $.name as string
 
             if (name.indexOf('.') < 0) {
-                name = this.name + '.' + name
+                name = this.namespace + '.' + name
             }
             if (Object.prototype.hasOwnProperty.call(dups, name)) {
                 continue
             }
-            dups[name] = true
-            const iface: GirClass | null = this.symTable[name] as GirClass | null
+            const key = this.getSymTableKey(name)
+            dups[key] = true
+            const iface: GirClass | null = this.symTable[key] as GirClass | null
 
             if (iface) {
                 callback(iface)
@@ -731,10 +814,11 @@ export class GirModule {
                 return
             }
             if (parentName.indexOf('.') < 0) {
-                parentName = this.name + '.' + parentName
+                parentName = this.namespace + '.' + parentName
             }
             if (Object.prototype.hasOwnProperty.call(dups, parentName)) return
-            const parentPtr = this.symTable[parentName]
+            const key = this.getSymTableKey(parentName)
+            const parentPtr = this.symTable[key]
             if (parentPtr && ((parentPtr as GirClass).prerequisite || recurseObjects)) {
                 // iface's prerequisite is also an interface, or it's
                 // a class and we also want to recurse classes
@@ -830,6 +914,7 @@ export class GirModule {
             }
         }
         if (def.length) {
+            // TODO append version
             def.unshift(`    /* Fields of ${cls._fullSymName} */`)
         }
         return def
@@ -848,6 +933,7 @@ export class GirModule {
             }
         }
         if (def.length) {
+            // TODO append version
             def.unshift(`    /* Properties of ${cls._fullSymName} */`)
         }
         return def
@@ -867,6 +953,7 @@ export class GirModule {
             }
         }
         if (def.length) {
+            // TODO append version
             def.unshift(`    /* Methods of ${cls._fullSymName} */`)
         }
         return def
@@ -896,6 +983,7 @@ export class GirModule {
         })
         const def = this.exportOverloadableMethods(fnMap, explicits)
         if (def.length) {
+            // TODO append version
             def.unshift(`    /* Virtual methods of ${cls._fullSymName} */`)
         }
         return def
@@ -908,6 +996,7 @@ export class GirModule {
             for (const s of signals) def.push(...this.getSignalFunc(s, clsName))
         }
         if (def.length) {
+            // TODO append version
             def.unshift(`    /* Signals of ${cls._fullSymName} */`)
         }
         return def
@@ -1013,19 +1102,27 @@ export class GirModule {
     private getClassDetails(girClass: GirClass): ClassDetails | null {
         if (!girClass || !girClass.$) return null
         const mod: GirModule = girClass._module ? girClass._module : this
-        let name = this.transformation.transformClassName(girClass.$.name)
+        let className = this.transformation.transformClassName(girClass.$.name)
+        /**
+         * E.g. 'Gtk'
+         */
+        const namespace = mod.namespace
+        /**
+         * E.g. '3.0'
+         */
+        const version = mod.version
         let qualifiedName: string
-        if (name.indexOf('.') < 0) {
-            qualifiedName = mod.name + '.' + name
+        if (className.indexOf('.') < 0) {
+            qualifiedName = namespace + '.' + className
         } else {
-            qualifiedName = name
-            const split = name.split('.')
-            name = split[split.length - 1]
+            qualifiedName = className
+            const split = className.split('.')
+            className = split[split.length - 1]
         }
 
-        let parentName: string | undefined = undefined
-        let qualifiedParentName: string | undefined = undefined
-        let localParentName: string | undefined = undefined
+        let parentName: string | undefined
+        let qualifiedParentName: string | undefined
+        let localParentName: string | undefined
 
         if (girClass.prerequisite) {
             parentName = girClass.prerequisite[0].$.name
@@ -1036,17 +1133,17 @@ export class GirModule {
         let parentModName: string
         if (parentName) {
             if (parentName.indexOf('.') < 0) {
-                qualifiedParentName = mod.name + '.' + parentName
-                parentModName = mod.name
+                qualifiedParentName = namespace + '.' + parentName
+                parentModName = namespace
             } else {
                 qualifiedParentName = parentName
                 const split = parentName.split('.')
                 parentName = split[split.length - 1]
                 parentModName = split.slice(0, split.length - 1).join('.')
             }
-            localParentName = parentModName == mod.name ? parentName : qualifiedParentName
+            localParentName = parentModName == namespace ? parentName : qualifiedParentName
         }
-        return { name, qualifiedName, parentName, qualifiedParentName, localParentName }
+        return { name: className, qualifiedName, parentName, qualifiedParentName, localParentName, namespace, version }
     }
 
     /**
@@ -1174,7 +1271,7 @@ export class GirModule {
         const isDerivedFromGObject = this.isDerivedFromGObject(cls)
         if (isDerivedFromGObject) {
             let prefix = 'GObject.'
-            if (this.name === 'GObject') prefix = ''
+            if (this.namespace === 'GObject') prefix = ''
             for (const prop of propertyNames) {
                 def.push(
                     ...TemplateProcessor.generateGObjectSignalMethods(
@@ -1357,7 +1454,7 @@ export class GirModule {
         if (!details) return []
 
         // eslint-disable-next-line prefer-const
-        let { name, qualifiedParentName, localParentName } = details
+        let { version, name, qualifiedParentName, localParentName } = details
 
         // Properties for construction
         def.push(...this.generateConstructPropsInterface(girClass, name, qualifiedParentName, localParentName))
@@ -1430,7 +1527,7 @@ export class GirModule {
 
         const typeName = this.typeLookupTransformed(girAlias)
         const name = girAlias.$.name
-        return [`type ${name} = ${typeName}`]
+        return [`export type ${name} = ${typeName}`]
     }
 
     public exportInterface(girClass: GirClass): string[] {
@@ -1442,19 +1539,10 @@ export class GirModule {
     }
 
     public exportJs(): void {
-        const templateProcessor = new TemplateProcessor(
-            {
-                name: this.name,
-                version: this.version,
-                importName: this.importName,
-            },
-            this.packageName || undefined,
-            this.config,
-        )
         if (this.config.outdir) {
-            templateProcessor.create('module.js', this.config.outdir, `${this.packageName}.js`)
+            this.templateProcessor.create('module.js', this.config.outdir, `${this.packageName}.js`)
         } else {
-            const moduleContent = templateProcessor.load('module.js')
+            const moduleContent = this.templateProcessor.load('module.js')
             this.log.log(moduleContent)
         }
     }
@@ -1468,46 +1556,29 @@ export class GirModule {
 
         const deps: string[] = this.transitiveDependencies
 
-        // Always pull in GObject-2.0, as we may need it for e.g. GObject-2.0.type
-        if (this.packageName !== 'GObject-2.0') {
-            if (!Utils.find(deps, (x) => x === 'GObject-2.0')) {
-                deps.push('GObject-2.0')
-            }
-        }
-
-        // Add missing dependencies
-        if (this.packageName === 'UnityExtras-7.0') {
-            if (!Utils.find(deps, (x) => x === 'Unity-7.0')) {
-                deps.push('Unity-7.0')
-            }
-        }
-        if (this.packageName === 'UnityExtras-6.0') {
-            if (!Utils.find(deps, (x) => x === 'Unity-6.0')) {
-                deps.push('Unity-6.0')
-            }
-        }
-        if (this.packageName === 'GTop-2.0') {
-            if (!Utils.find(deps, (x) => x === 'GLib-2.0')) {
-                deps.push('GLib-2.0')
-            }
-        }
-
         // Module dependencies as type references or imports
         if (this.config.environment === 'gjs') {
-            out.push(...TemplateProcessor.generateModuleDependenciesImport('Gjs', 'Gjs', false, this.config))
+            out.push(...this.templateProcessor.generateModuleDependenciesImport('Gjs', 'Gjs', false, this.config))
         } else {
-            out.push(...TemplateProcessor.generateModuleDependenciesImport('node', 'node', true, this.config))
+            out.push(...this.templateProcessor.generateModuleDependenciesImport('NodeJS', 'node', true, this.config))
         }
-        for (const dep of deps) {
+        for (const depPackageName of deps) {
             // Don't reference yourself as a dependency
-            if (this.packageName !== dep) {
-                const girFilename = `${dep}.gir`
-                const { name } = Utils.splitModuleName(dep)
+            if (this.packageName !== depPackageName) {
+                const girFilename = `${depPackageName}.gir`
+                const { namespace } = Utils.splitModuleName(depPackageName)
                 const depFile = Utils.findFileInDirs(this.config.girDirectories, girFilename)
                 if (depFile.exists) {
-                    out.push(...TemplateProcessor.generateModuleDependenciesImport(name, dep, false, this.config))
+                    out.push(
+                        ...this.templateProcessor.generateModuleDependenciesImport(
+                            namespace,
+                            depPackageName,
+                            false,
+                            this.config,
+                        ),
+                    )
                 } else {
-                    out.push(`// WARN: Dependency not found: '${dep}'`)
+                    out.push(`// WARN: Dependency not found: '${depPackageName}'`)
                     this.log.error(`Dependency gir file not found: '${girFilename}'`)
                 }
             }
@@ -1516,26 +1587,27 @@ export class GirModule {
         // START Namespace
         if (this.config.buildType === 'types') {
             out.push('')
-            out.push(`declare namespace ${this.name} {`)
+            out.push(`declare namespace ${this.namespace} {`)
         }
 
         // Newline
         out.push('')
 
-        if (this.ns.enumeration) for (const e of this.ns.enumeration) out.push(...this.exportEnumeration(e))
+        if (this.ns.enumeration)
+            for (const enumeration of this.ns.enumeration) out.push(...this.exportEnumeration(enumeration))
 
-        if (this.ns.bitfield) for (const e of this.ns.bitfield) out.push(...this.exportEnumeration(e))
+        if (this.ns.bitfield) for (const bitfield of this.ns.bitfield) out.push(...this.exportEnumeration(bitfield))
 
-        if (this.ns.constant) for (const e of this.ns.constant) out.push(...this.exportConstant(e))
+        if (this.ns.constant) for (const constant of this.ns.constant) out.push(...this.exportConstant(constant))
 
-        if (this.ns.function) for (const e of this.ns.function) out.push(...this.exportFunction(e))
+        if (this.ns.function) for (const func of this.ns.function) out.push(...this.exportFunction(func))
 
-        if (this.ns.callback) for (const e of this.ns.callback) out.push(...this.exportCallback(e))
+        if (this.ns.callback) for (const cb of this.ns.callback) out.push(...this.exportCallback(cb))
 
-        if (this.ns.interface) for (const e of this.ns.interface) out.push(...this.exportClassInternal(e))
+        if (this.ns.interface) for (const iface of this.ns.interface) out.push(...this.exportClassInternal(iface))
 
         const templateProcessor = new TemplateProcessor(
-            { name: this.name, version: this.version },
+            { name: this.namespace, version: this.version },
             this.packageName,
             this.config,
         )
@@ -1548,11 +1620,11 @@ export class GirModule {
             out.push(patches)
         }
 
-        if (this.ns.class) for (const e of this.ns.class) out.push(...this.exportClassInternal(e, false))
+        if (this.ns.class) for (const cls of this.ns.class) out.push(...this.exportClassInternal(cls, false))
 
-        if (this.ns.record) for (const e of this.ns.record) out.push(...this.exportClassInternal(e, true))
+        if (this.ns.record) for (const record of this.ns.record) out.push(...this.exportClassInternal(record, true))
 
-        if (this.ns.union) for (const e of this.ns.union) out.push(...this.exportClassInternal(e, true))
+        if (this.ns.union) for (const union of this.ns.union) out.push(...this.exportClassInternal(union, true))
 
         if (this.ns.alias)
             // GType is not a number in GJS

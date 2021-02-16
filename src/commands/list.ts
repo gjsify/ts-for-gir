@@ -70,7 +70,7 @@ export default class List extends Command {
         if (conflictModules.length > 0) {
             this.log(chalk.red('\nConflicts:'))
             for (const moduleGroup of conflictModules) {
-                this.log(chalk.white(`- ${moduleGroup.name}`))
+                this.log(chalk.white(`- ${moduleGroup.namespace}`))
                 for (const conflictModule of moduleGroup.modules) {
                     this.log(chalk.white(`  - ${conflictModule.packageName}`))
                 }
